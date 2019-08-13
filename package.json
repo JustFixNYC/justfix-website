@@ -4,6 +4,7 @@
   "version": "0.3.0",
   "author": "Filip Havrlent <filip@havrlent.com>",
   "dependencies": {
+    "@babel/core": "^7.0.0-0",
     "@types/react-helmet": "^5.0.7",
     "dotenv": "^6.0.0",
     "emotion": "^9.2.12",
