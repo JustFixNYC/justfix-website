@@ -4,7 +4,9 @@
   "version": "0.3.0",
   "author": "Filip Havrlent <filip@havrlent.com>",
   "dependencies": {
+    "@babel/core": "^7.0.0-0",
     "@types/react-helmet": "^5.0.7",
+    "bulma": "^0.7.5",
     "dotenv": "^6.0.0",
     "emotion": "^9.2.12",
     "emotion-server": "^9.2.12",
@@ -23,7 +25,8 @@
     "react-dom": "^16.9.0",
     "react-helmet": "^5.2.0",
     "tslint": "^5.11.0",
-    "typescript": "^3.1.1"
+    "typescript": "^3.1.1",
+    "webpack": "^4.0.0"
   },
   "keywords": [
     "gatsby"
