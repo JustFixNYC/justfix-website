@@ -1,27 +1,17 @@
-import React, { Component } from 'react'
-import ReactDOM from 'react-dom'
+import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 // import { Link } from 'gatsby'
 
-
 import Layout from '../components/layout'
-
-class LandingPageScaffolding extends Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-  console.log(this.props);
-  return (
-  <Layout>
+const LandingPageScaffolding = (props) => 
+  (<Layout>
     <div id="home" className="home-page" contentful-entry="'content_type=homePage'">
 
       <section className="img-bg hero">
         <article className="container">
           <div className="hero-container">
-            <h1>{this.props.data.heroCopy.heroCopy}</h1>
-            <p className="subcopy hidden-mobile">{this.props.data.subCopy.subCopy}</p>
+            <h1>{props.content.heroCopy.heroCopy}</h1>
+            <p className="subcopy hidden-mobile">{props.content.subCopy.subCopy}</p>
 
             <a href="#" scroll-to="products" className="btn btn-outline">
               LEARN MORE
@@ -36,7 +26,7 @@ class LandingPageScaffolding extends Component {
 
         <h1 className="text-center">Our Products & Services</h1>
 
-        { (this.props.data.homePageProductBlocks).map( (product, i) =>
+        { (props.content.homePageProductBlocks).map( (product, i) =>
           (<div className="row" key={i}>
             <div className="col-sm-6 col-xs-12">
               <img src={product.screenshot.file.url} />
@@ -64,7 +54,7 @@ class LandingPageScaffolding extends Component {
         <div className="container">
           <div className="row">
             <div className="col-sm-12">
-              <h1 className="video_unit-title">{this.props.data.videoUnit.title}</h1>
+              <h1 className="video_unit-title">{props.content.videoUnit.title}</h1>
             </div>
           </div>
           <div className="row align_items_end-sm">
@@ -74,7 +64,7 @@ class LandingPageScaffolding extends Component {
               </div>
             </div>
             <div className="col-sm-4">
-              <p className="video_unit-caption">{this.props.data.videoUnit.caption.caption}</p>
+              <p className="video_unit-caption">{props.content.videoUnit.caption.caption}</p>
               <a ui-sref="mission" className="btn btn-outline black video_unit-button">READ OUR MISSION</a>
             </div>
           </div>
@@ -82,9 +72,9 @@ class LandingPageScaffolding extends Component {
       </section>
 
       <section className="padding-section-reduced">
-        <h1 className="center no-margin-bottom">{this.props.data.pressTitle}</h1>
+        <h1 className="center no-margin-bottom">{props.content.pressTitle}</h1>
         <div className="container logos logos--faded">
-        { (this.props.data.pressLogos).map( (logo,i) =>
+        { (props.content.pressLogos).map( (logo,i) =>
           (<span className="logo" key={i}>
           <div className="background-image" style = { { backgroundImage: "url(" + logo.logo.file.url + ")"  } } >
           </div>
@@ -95,9 +85,8 @@ class LandingPageScaffolding extends Component {
       </section>
 
       </div>
-  </Layout>) 
-  }
-}
+</Layout>); 
+
 
 const LandingPage  = () => (
 <StaticQuery
@@ -140,7 +129,7 @@ const LandingPage  = () => (
         }
       }
     `}
-  render = {data => (<LandingPageScaffolding data={data.contentfulHomePage} />)}
+  render = {data => (<LandingPageScaffolding content={data.contentfulHomePage} />)}
   />
 );
 
