@@ -2,9 +2,9 @@ import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 // import { Link } from 'gatsby'
 
-import '../styles/index.scss' 
+import '../../styles/index.scss' 
 
-import Layout from '../components/layout'
+import Layout from '../../components/layout'
 const LandingPageScaffolding = (props) => 
   (<Layout>
     <div id="home" className="home-page" contentful-entry="'content_type=homePage'">
@@ -52,7 +52,7 @@ const LandingPageScaffolding = (props) =>
         </div>
       </section>
 
-      {/* <section className="video_unit padding-section-reduced gray_bg">
+      <section className="video_unit padding-section-reduced gray_bg">
         <div className="container">
           <div className="row">
             <div className="col-sm-12">
@@ -71,7 +71,7 @@ const LandingPageScaffolding = (props) =>
             </div>
           </div>
         </div>
-      </section> */}
+      </section>
 
       <section className="padding-section-reduced">
         <h1 className="center no-margin-bottom">{props.content.pressTitle}</h1>

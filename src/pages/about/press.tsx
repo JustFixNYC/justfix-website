@@ -2,9 +2,9 @@ import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 // import { Link } from 'gatsby'
 
-import '../styles/index.scss' 
+import '../../styles/index.scss' 
 
-import Layout from '../components/layout'
+import Layout from '../../components/layout'
 const LandingPageScaffolding = (props) => 
   (<Layout>
     <div id="home" className="home-page" contentful-entry="'content_type=homePage'">
