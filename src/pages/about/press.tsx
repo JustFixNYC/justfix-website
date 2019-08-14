@@ -5,134 +5,77 @@ import { StaticQuery, graphql } from 'gatsby'
 import '../../styles/index.scss' 
 
 import Layout from '../../components/layout'
-const LandingPageScaffolding = (props) => 
+const PressPageScaffolding = (props) => 
   (<Layout>
-    <div id="home" className="home-page" contentful-entry="'content_type=homePage'">
+    <article contentful-entry="'content_type=pressPage'">
+      <header className="container">
+        <h1 className="center">{props.content.title}</h1>
+      </header>
+      <section className="press container">
+        <div>
 
-      <section className="img-bg hero">
-        <article className="container">
-          <div className="hero-container">
-            <h1>{props.content.heroCopy.heroCopy}</h1>
-            <p className="subcopy hidden-mobile">{props.content.subCopy.subCopy}</p>
-
-            <a href="#" scroll-to="products" className="btn btn-outline">
-              LEARN MORE
-            </a>
-          </div>
-          <div className="clearfix"></div>
-        </article>
-
-      </section>
-
-      <section className="container white padding-section-reduced home-content-blocks" id="products">
-
-        <h1 className="text-center">Our Products & Services</h1>
-
-        { (props.content.homePageProductBlocks).map( (product, i) =>
-          (<div className="row" key={i}>
-            <div className="col-sm-6 col-xs-12">
-              <img src={product.screenshot.file.url} />
-            </div>
-            <div className="col-sm-6 col-xs-12">
-              <div className="product-content-block">
-                <h3>{product.title}</h3>
-                <p>{product.description}</p>
-                <a className="btn btn-primary btn-block" href={ (product.cta.url + "?utm_source=orgsite") } target="_blank">{product.cta.title}</a>
-              </div>
+        { (props.content.pressItems).map( (pressItem, i) =>
+          (<div className="press-item container">
+            <img src={pressItem.logo.file.url} />
+            <div className="content">
+              <h4>{pressItem.title}</h4>
+              <p><a href= {pressItem.hyperlink} target="_blank">{pressItem.linkText}</a></p>
             </div>
           </div>) )
         }
 
-      </section>
-
-      <section className="justfix-blue no-margin center white padding-section-reduced " id="rental-history">
-        <div className="container">
-          <h3>Want your apartment’s Rental History?</h3>
-          <p>This can help you find out if you are being overcharged on rent. Text <span className="semi-bold">“RENT HISTORY”</span> to (646) 783-0627 and get your Rental History from the DHCR in the mail — <i>¡Tambien disponible in Español!</i></p>
         </div>
       </section>
 
-      {/* <section className="video_unit padding-section-reduced gray_bg">
-        <div className="container">
-          <div className="row">
-            <div className="col-sm-12">
-              <h1 className="video_unit-title">{props.content.videoUnit.title}</h1>
+      <article>
+        <section className="center no-margin justfix-blue padding-section">
+          <div className="left-block">
+            <div className="left-block_style">
+              <h3>{props.content.pressKitTitle}</h3>
+              <span dangerouslySetInnerHTML={{ __html: props.content.pressKitBody.childMarkdownRemark.html}} />
             </div>
           </div>
-          <div className="row align_items_end-sm">
-            <div className="col-sm-8">
-              <div className="video_wrapper_16_9">
-                <iframe className="video_wrapper_16_9-video" src="https://www.youtube.com/embed/QsRq3OWNkgY?rel=0&amp&autoplay=0&playsinline=1&modestbranding=1;showinfo=0" allow="autoplay; encrypted-media"></iframe>
-              </div>
-            </div>
-            <div className="col-sm-4">
-              <p className="video_unit-caption">{props.content.videoUnit.caption.caption}</p>
-              <a ui-sref="mission" className="btn btn-outline black video_unit-button">READ OUR MISSION</a>
-            </div>
+          <div className="right-block">
+            <a href={props.content.pressKitButton.link} target="_blank" className="btn btn-outline">{props.content.pressKitButton.title}</a>
           </div>
-        </div>
-      </section> */}
-
-      <section className="padding-section-reduced">
-        <h1 className="center no-margin-bottom">{props.content.pressTitle}</h1>
-        <div className="container logos logos--faded">
-        { (props.content.pressLogos).map( (logo,i) =>
-          (<span className="logo" key={i}>
-          <div className="background-image" style = { { backgroundImage: `url(${logo.logo.file.url})`  } } >
-          </div>
-        </span>) )
-        }
-
-        </div>
-      </section>
-
-      </div>
+          <div className="clearfix"></div>
+        </section>
+      </article>
+    </article>
 </Layout>); 
 
 
-const LandingPage  = () => (
+const PressPage  = () => (
 <StaticQuery
     query={graphql`
       query {
-        contentfulHomePage {
-          heroCopy {
-            heroCopy
-          }
-          subCopy {
-            subCopy
-          }
-          homePageProductBlocks {
+        contentfulPressPage {
+          title
+          pressItems {
             title
-            description
-            cta {
-              title
-              url
-            }
-            screenshot {
-              file {
-                url
-              }
-            }
-          }
-          videoUnit {
-            title
-            caption {
-              caption
-            }
-          }
-          pressTitle 
-          pressLogos {
+            hyperlink
+            linkText
             logo {
               file {
                 url
               }
             }
           }
+          pressKitTitle
+          pressKitBody {
+            childMarkdownRemark {
+              html
+            }
+          }
+          pressKitButton {
+            title
+            link
+          }
         }
       }
     `}
-  render = {data => (<LandingPageScaffolding content={data.contentfulHomePage} />)}
+  render = {data => (<PressPageScaffolding content={data.contentfulPressPage} />)}
   />
 );
 
-export default LandingPage;
+export default PressPage;
