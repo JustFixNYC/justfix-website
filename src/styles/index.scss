@@ -15,6 +15,13 @@ $primary-invert: findColorInvert($primary);
     display: inline-block;
 }
 
+.header {
+    width: 100%;
+    &.navbar.is-transparent {
+        position: absolute;
+    }
+}
+
 .home-page {
     .container {
         max-width: 720px;
