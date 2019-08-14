@@ -5,23 +5,27 @@ import { StaticQuery, graphql } from 'gatsby'
 import '../styles/index.scss' 
 
 import Layout from '../components/layout'
+
 const LandingPageScaffolding = (props) => 
   (<Layout>
-    <div id="home" className="home-page" contentful-entry="'content_type=homePage'">
+    <div id="home" className="home-page">
 
-      <section className="img-bg hero">
-        <article className="container">
-          <div className="hero-container">
-            <h1>{props.content.heroCopy.heroCopy}</h1>
-            <p className="subcopy hidden-mobile">{props.content.subCopy.subCopy}</p>
-
-            <a href="#" scroll-to="products" className="btn btn-outline">
+      <section className="landing-image hero is-fullheight">
+        <div className="hero-body has-text-centered">
+          <div className="container">
+            <h1 className="title is-size-1 has-text-white">
+              {props.content.heroCopy.heroCopy}
+            </h1>
+            <br/>
+            <h2 className="subtitle is-size-5 has-text-white">
+              {props.content.subCopy.subCopy}
+            </h2>
+            <br/>
+            <a href="#" className="button is-dark is-inverted is-outlined">
               LEARN MORE
             </a>
           </div>
-          <div className="clearfix"></div>
-        </article>
-
+        </div>
       </section>
 
       <section className="container white padding-section-reduced home-content-blocks" id="products">

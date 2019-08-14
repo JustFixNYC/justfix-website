@@ -5,55 +5,58 @@ type Props = {
   siteTitle: string
 }
 
-const linkStyle = {
-  color: 'white',
-  textDecoration: 'none',
-  margin: '0 1rem 0 1rem',
-};
-
 const Header = ({ siteTitle }: Props) => (
-  <div
-    style={{
-      background: 'rebeccapurple',
-      marginBottom: '1.45rem',
-    }}
-  >
-    <div
-      style={{
-        margin: '0 auto',
-        maxWidth: 960,
-        padding: '1.45rem 1.0875rem',
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={linkStyle}>
-          <img src={require("../img/brand/logo.png")} style={{width: '100px'}}/>
-        </Link>
-        <Link
-          to="/about/partners"
-          style={linkStyle}>
-          Our Partners 
-        </Link>
-        <Link
-          to="/about/team"
-          style={linkStyle}>
-          Our Team 
-        </Link>
-        <Link
-          to="/about/press"
-          style={linkStyle}>
-          Press 
-        </Link>
-        <Link
-          to="/contact-us"
-          style={linkStyle}>
-          Contact 
-        </Link>
-      </h1>
+  <nav className="header navbar is-primary" role="navigation" aria-label="main navigation">
+    <div className="navbar-brand">
+      <Link to="/" className="navbar-item">
+        <img src={require("../img/brand/logo.png")} width="112" height="28" />
+      </Link>
+
+      <a role="button" className="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbar">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+
     </div>
-  </div>
-)
+
+    <div id="main-navbar-menu" className="navbar-menu">
+      <div className="navbar-end">
+
+        <div className="navbar-item has-dropdown is-hoverable">
+          <a className="navbar-link has-text-white">
+            ABOUT US
+          </a>
+
+          <div className="navbar-dropdown">
+            <Link to="/about/partners" className="navbar-item">
+              Our Partners 
+            </Link>
+            <Link to="/about/team" className="navbar-item">
+              Our Team 
+            </Link>
+            <Link to="/about/press" className="navbar-item">
+              Press 
+            </Link>
+            <a href="https://justfix.breezy.hr/" className="navbar-item">
+              Jobs 
+            </a>
+          </div>
+        </div>
+
+        <Link to="/contact-us" className="navbar-item has-text-white">
+          CONTACT
+        </Link>
+
+      </div>
+        <div className="navbar-item">
+          <div className="buttons">
+            <a className="button is-primary is-inverted is-outlined" href="https://app.justfix.nyc/login">
+              SIGN IN
+            </a>
+        </div>
+      </div>
+    </div>
+  </nav>)
 
 export default Header

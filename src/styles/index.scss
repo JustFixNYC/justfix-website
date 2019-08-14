@@ -4,21 +4,34 @@
 
 $justfix-blue: #0096D7;
 
-// This is just copy-pasted from bulma's initial-variables.sass; we don't
-// want to import that yet because we might want to override some of its
-// variables.
-$turquoise: hsl(171, 100%, 41%);
+$transparent: rgba(0,0,0,0);
 
 $primary: $justfix-blue;
 $primary-invert: findColorInvert($primary);
-
-$info: $turquoise;
-$info-invert: findColorInvert($turquoise);
 
 .background-image {
     width: 150px;
     height: 150px;
     display: inline-block;
 }
+
+.home-page {
+    .container {
+        max-width: 720px;
+    }
+    .landing-image {
+        background-image: url(https://degy28l8twq8c.cloudfront.net/brownstones.jpg);
+        background-size: cover;
+
+        .button {
+            background-color: $transparent;
+        }
+    }
+    .title {
+        text-shadow: 0 2px 4px rgba(0,0,0,.5);
+    }
+}
+
+
 
 @import "~bulma/bulma.sass";
