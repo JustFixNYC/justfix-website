@@ -5,134 +5,118 @@ import { StaticQuery, graphql } from 'gatsby'
 import '../../styles/index.scss' 
 
 import Layout from '../../components/layout'
-const LandingPageScaffolding = (props) => 
+const PartnersPageScaffolding = (props) => 
   (<Layout>
-    <div id="home" className="home-page" contentful-entry="'content_type=homePage'">
+    <article contentful-entry="'content_type=partners'">
+      <header className="container">
+        <h1 className="center">{props.content.title}</h1>
+        <p className="center lead">{props.content.subtitle.subtitle}</p>
+      </header>
 
-      <section className="img-bg hero">
-        <article className="container">
-          <div className="hero-container">
-            <h1>{props.content.heroCopy.heroCopy}</h1>
-            <p className="subcopy hidden-mobile">{props.content.subCopy.subCopy}</p>
+      <div className="clearfix"></div>
+      <section className="center no-margin">
+        <div className="logos container">
 
-            <a href="#" scroll-to="products" className="btn btn-outline">
-              LEARN MORE
+        { (props.content.partnerOrganizations).map( (partner, i) =>
+          (<span
+            className="logo partners"
+            key={i}
+            // ng-repeat="partner in $contentfulEntry.fields.partnerOrganizations track by $index"
+            // ng-className="{'three': $index % 7 == 0}"
+            >
+            <a href={partner.link} target="_blank">
+              <div className="background-image"
+                style = { { backgroundImage: `url(${partner.logo.file.url})`  } }>
+              </div>
             </a>
-          </div>
-          <div className="clearfix"></div>
-        </article>
-
-      </section>
-
-      <section className="container white padding-section-reduced home-content-blocks" id="products">
-
-        <h1 className="text-center">Our Products & Services</h1>
-
-        { (props.content.homePageProductBlocks).map( (product, i) =>
-          (<div className="row" key={i}>
-            <div className="col-sm-6 col-xs-12">
-              <img src={product.screenshot.file.url} />
-            </div>
-            <div className="col-sm-6 col-xs-12">
-              <div className="product-content-block">
-                <h3>{product.title}</h3>
-                <p>{product.description}</p>
-                <a className="btn btn-primary btn-block" href={ (product.cta.url + "?utm_source=orgsite") } target="_blank">{product.cta.title}</a>
-              </div>
-            </div>
-          </div>) )
+          </span>) )
         }
-
-      </section>
-
-      <section className="justfix-blue no-margin center white padding-section-reduced " id="rental-history">
-        <div className="container">
-          <h3>Want your apartment’s Rental History?</h3>
-          <p>This can help you find out if you are being overcharged on rent. Text <span className="semi-bold">“RENT HISTORY”</span> to (646) 783-0627 and get your Rental History from the DHCR in the mail — <i>¡Tambien disponible in Español!</i></p>
+          
         </div>
       </section>
 
-      <section className="video_unit padding-section-reduced gray_bg">
-        <div className="container">
-          <div className="row">
-            <div className="col-sm-12">
-              <h1 className="video_unit-title">{props.content.videoUnit.title}</h1>
-            </div>
-          </div>
-          <div className="row align_items_end-sm">
-            <div className="col-sm-8">
-              <div className="video_wrapper_16_9">
-                <iframe className="video_wrapper_16_9-video" src="https://www.youtube.com/embed/QsRq3OWNkgY?rel=0&amp&autoplay=0&playsinline=1&modestbranding=1;showinfo=0" allow="autoplay; encrypted-media"></iframe>
+      <div className="clearfix"></div>
+
+      {/* <section>
+        <div className="responsive_image ">
+          <div className="responsive_image-image" style={ { backgroundImage: `url("../../img/usermap.png")`}}></div>
+        </div>
+
+      </section> */}
+
+      <header className="container">
+        <h1 className="center">{props.content.fundersTitle}</h1>
+      </header>
+
+      <div className="clearfix"></div>
+      <section className="center no-margin">
+        <div className="logos container">
+        { (props.content.funders).map( (funder, i) =>
+          (<span
+            className="logo partners"
+            key={i}
+            // ng-repeat="funder in $contentfulEntry.fields.funders track by $index"
+            >
+            <a href={funder.link} target="_blank">
+              <div className="background-image"
+                style = { { backgroundImage: `url(${funder.logo.file.url})`  } }>
               </div>
-            </div>
-            <div className="col-sm-4">
-              <p className="video_unit-caption">{props.content.videoUnit.caption.caption}</p>
-              <a ui-sref="mission" className="btn btn-outline black video_unit-button">READ OUR MISSION</a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="padding-section-reduced">
-        <h1 className="center no-margin-bottom">{props.content.pressTitle}</h1>
-        <div className="container logos logos--faded">
-        { (props.content.pressLogos).map( (logo,i) =>
-          (<span className="logo" key={i}>
-          <div className="background-image" style = { { backgroundImage: `url(${logo.logo.file.url})`  } } >
-          </div>
-        </span>) )
+            </a>
+          </span>) )
         }
-
         </div>
       </section>
 
-      </div>
+      <section className="alt center no-margin-top">
+        <div className="container" ng-bind-html="$contentfulEntry.fields.collaborationTextBlock | markdown">
+        </div>
+        <br/>
+        <br/>
+        <a ui-sref="contact" className="btn btn-primary">{props.content.contactButton.title}</a>
+        <a ui-sref="donate" className="btn btn-outline black">{props.content.donateButton.title}</a>
+      </section>
+
+    </article>
 </Layout>); 
 
 
-const LandingPage  = () => (
+const PartnersPage  = () => (
 <StaticQuery
     query={graphql`
       query {
-        contentfulHomePage {
-          heroCopy {
-            heroCopy
+        contentfulPartnersPage{
+          title
+          subtitle {
+            subtitle
           }
-          subCopy {
-            subCopy
-          }
-          homePageProductBlocks {
-            title
-            description
-            cta {
-              title
-              url
-            }
-            screenshot {
-              file {
-                url
-              }
-            }
-          }
-          videoUnit {
-            title
-            caption {
-              caption
-            }
-          }
-          pressTitle 
-          pressLogos {
+          partnerOrganizations {
+            link
             logo {
               file {
                 url
               }
             }
           }
+          fundersTitle 
+          funders {
+            link
+            logo {
+              file {
+                url
+              }
+            }
+          }
+          contactButton {
+            title
+          }
+          donateButton {
+            title
+          }
         }
       }
     `}
-  render = {data => (<LandingPageScaffolding content={data.contentfulHomePage} />)}
+  render = {data => (<PartnersPageScaffolding content={data.contentfulPartnersPage} />)}
   />
 );
 
-export default LandingPage;
+export default PartnersPage;

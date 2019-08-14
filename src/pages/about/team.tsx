@@ -6,134 +6,164 @@ import '../../styles/index.scss'
 
 import Layout from '../../components/layout'
 
-const LandingPageScaffolding = (props) => 
+const TeamPageScaffolding = (props) => 
   (<Layout>
-    <div id="home" className="home-page" contentful-entry="'content_type=homePage'">
+    <article contentful-entry="'content_type=teamPage'">
+      <header className="container">
+        <h1 className="center">{props.content.title}</h1>
+      </header>
 
-      <section className="img-bg hero">
-        <article className="container">
-          <div className="hero-container">
-            <h1>{props.content.heroCopy.heroCopy}</h1>
-            <p className="subcopy hidden-mobile">{props.content.subCopy.subCopy}</p>
-
-            <a href="#" scroll-to="products" className="btn btn-outline">
-              LEARN MORE
-            </a>
-          </div>
-          <div className="clearfix"></div>
-        </article>
-
-      </section>
-
-      <section className="container white padding-section-reduced home-content-blocks" id="products">
-
-        <h1 className="text-center">Our Products & Services</h1>
-
-        { (props.content.homePageProductBlocks).map( (product, i) =>
-          (<div className="row" key={i}>
-            <div className="col-sm-6 col-xs-12">
-              <img src={product.screenshot.file.url} />
-            </div>
-            <div className="col-sm-6 col-xs-12">
-              <div className="product-content-block">
-                <h3>{product.title}</h3>
-                <p>{product.description}</p>
-                <a className="btn btn-primary btn-block" href={ (product.cta.url + "?utm_source=orgsite") } target="_blank">{product.cta.title}</a>
-              </div>
-            </div>
-          </div>) )
-        }
-
-      </section>
-
-      <section className="justfix-blue no-margin center white padding-section-reduced " id="rental-history">
+      <section>
         <div className="container">
-          <h3>Want your apartment’s Rental History?</h3>
-          <p>This can help you find out if you are being overcharged on rent. Text <span className="semi-bold">“RENT HISTORY”</span> to (646) 783-0627 and get your Rental History from the DHCR in the mail — <i>¡Tambien disponible in Español!</i></p>
+          <div className="team_members">
+            { (props.content.teamMembers).map( (member, i) =>
+              (<div className="team_member team_member--team" key={i}>
+              <img className="team_member-image" src={ member.photo.file.url } alt={member.name} />
+              <h4 className="team_member-name">{member.name}</h4>
+              <h4>{member.title}</h4>
+              <div className="team_member-social social">
+                { (member.childrenContentfulTeamMemberLinksJsonNode).map ( (link, i) => 
+                  (<span key={i} className="btn btn-primary btn-icon">
+                  <a href={link.url} target="_blank">
+                      <i className="glyphicon" 
+                      // ng-className={'glyphicon-' + link.type}
+                      ></i>
+                  </a>
+                </span>)
+                )}
+              </div>
+              <p className="team_member-description team_member-description--team">{member.description.description}</p>
+            </div>) )
+            }
+          </div>
         </div>
       </section>
 
-      {/* <section className="video_unit padding-section-reduced gray_bg">
+      <section>
         <div className="container">
-          <div className="row">
-            <div className="col-sm-12">
-              <h1 className="video_unit-title">{props.content.videoUnit.title}</h1>
-            </div>
-          </div>
-          <div className="row align_items_end-sm">
-            <div className="col-sm-8">
-              <div className="video_wrapper_16_9">
-                <iframe className="video_wrapper_16_9-video" src="https://www.youtube.com/embed/QsRq3OWNkgY?rel=0&amp&autoplay=0&playsinline=1&modestbranding=1;showinfo=0" allow="autoplay; encrypted-media"></iframe>
+          <h1 className="center">{props.content.directorsTitle}</h1>
+          <div className="team_members">
+          { (props.content.directors).map( (director, i) =>
+            (<div className="team_member team_member--director" key={i}>
+              <div className="team_member-director_image_wrapper">
+                <img className="team_member-image" src={ director.photo.file.url } alt={director.name} />
               </div>
-            </div>
-            <div className="col-sm-4">
-              <p className="video_unit-caption">{props.content.videoUnit.caption.caption}</p>
-              <a ui-sref="mission" className="btn btn-outline black video_unit-button">READ OUR MISSION</a>
-            </div>
+              <div className="team_member-director_text">
+                <h4 className="team_member-name team_member-name--director">{director.name}</h4>
+                <h4 className="team_member-name team_member-name--director">
+                  {director.title + ', '} 
+                  <a href={ director.childrenContentfulTeamMemberLinksJsonNode.length && director.childrenContentfulTeamMemberLinksJsonNode[0].url } target="_blank" rel="noopener noreferrer">
+                    {director.childrenContentfulTeamMemberLinksJsonNode[0].title}
+                  </a>
+                </h4>
+                <div className="team_member-description text-left">
+                  <p>
+                    {director.description.description}
+                  </p>
+                </div>
+              </div>
+            </div>) )
+          }
+          </div>
+        </div>
+      </section>
+
+      <section className="gray_bg">
+        <div className="justify_content_center_vertically-sm">
+          <h3 className="center">{props.content.otherContributorsTitle}</h3>
+          { (props.content.otherContributors).map( (contributor, i) =>
+            (<p className="contributor" key={i}>
+              {contributor.link ? 
+              (<a href={contributor.link} target="_blank">{contributor.name}</a>) :
+              (<span>{contributor.name}</span>)}
+            </p>) ) 
+          }
+        </div>
+      </section>
+
+      {/* <section className="milestones no-margin-bottom">
+        <div className="container" ng-bind-html="$contentfulEntry.fields.milestones | markdown">
+        </div>
+        <div className="logos container">
+          <span
+            className="logo"
+            ng-repeat="sponsor in $contentfulEntry.fields.sponsorOrganizations track by $index">
+            <a ng-href="{sponsor.fields.link}" target="_blank">
+              <div
+                className="background-image"
+                ng-style="{'background-image': 'url(' + sponsor.fields.logo.fields.file.url + ')'}">
+              </div>
+            </a>
+          </span>
+        </div>
+      </section>
+
+      <section className="baker reduced-margin">
+        <div className="container">
+          <div className="baker-thanks">
+            <h3>{$contentfulEntry.fields.bakerThanks}</h3>
+          </div>
+          <div className="baker-logo">
+            <a href="https://www.bakerlaw.com/" target="_blank">
+              <img ng-src="{ $contentfulEntry.fields.bakerLogo.fields.file.url }" alt="Baker Logo" />
+            </a>
           </div>
         </div>
       </section> */}
 
-      <section className="padding-section-reduced">
-        <h1 className="center no-margin-bottom">{props.content.pressTitle}</h1>
-        <div className="container logos logos--faded">
-        { (props.content.pressLogos).map( (logo,i) =>
-          (<span className="logo" key={i}>
-          <div className="background-image" style = { { backgroundImage: `url(${logo.logo.file.url})`  } } >
-          </div>
-        </span>) )
-        }
-
-        </div>
-      </section>
-
-      </div>
+    </article>
 </Layout>); 
 
 
-const LandingPage  = () => (
+const TeamPage  = () => (
 <StaticQuery
     query={graphql`
       query {
-        contentfulHomePage {
-          heroCopy {
-            heroCopy
-          }
-          subCopy {
-            subCopy
-          }
-          homePageProductBlocks {
+        contentfulTeamPage {
+          title
+          teamMembers {
+            name
             title
-            description
-            cta {
+            description {
+              description
+            } 
+            photo {
+              file {
+                url
+              }
+            }
+            childrenContentfulTeamMemberLinksJsonNode {
+              url
+              type
+            }
+          }
+          directorsTitle 
+          directors {
+            name
+            title
+            photo {
+              file {
+                url
+              }
+            }
+            childrenContentfulTeamMemberLinksJsonNode {
               title
               url
             }
-            screenshot {
-              file {
-                url
-              }
-            }
+            description {
+              description
+            } 
           }
-          videoUnit {
-            title
-            caption {
-              caption
-            }
-          }
-          pressTitle 
-          pressLogos {
-            logo {
-              file {
-                url
-              }
-            }
+          otherContributorsTitle
+          otherContributors {
+            name
+            link
           }
         }
       }
     `}
-  render = {data => (<LandingPageScaffolding content={data.contentfulHomePage} />)}
+  render = {data => (<TeamPageScaffolding content={data.contentfulTeamPage} />)}
   />
 );
 
-export default LandingPage;
+export default TeamPage;

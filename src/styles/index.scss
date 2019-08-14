@@ -15,5 +15,10 @@ $primary-invert: findColorInvert($primary);
 $info: $turquoise;
 $info-invert: findColorInvert($turquoise);
 
+.background-image {
+    width: 150px;
+    height: 150px;
+    display: inline-block;
+}
 
 @import "~bulma/bulma.sass";
