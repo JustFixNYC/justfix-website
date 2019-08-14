@@ -20,6 +20,12 @@ $primary-invert: findColorInvert($primary);
     &.navbar.is-transparent {
         background-color: $transparent;
         position: absolute;
+
+        .navbar-item {
+            .button:hover, .button:focus {
+                color: #434a54;
+            } 
+        }
     }
 }
 
