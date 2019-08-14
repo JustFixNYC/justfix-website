@@ -18,6 +18,7 @@ $primary-invert: findColorInvert($primary);
 .header {
     width: 100%;
     &.navbar.is-transparent {
+        background-color: $transparent;
         position: absolute;
     }
 }
