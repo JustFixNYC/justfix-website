@@ -5,6 +5,12 @@ type Props = {
   siteTitle: string
 }
 
+const linkStyle = {
+  color: 'white',
+  textDecoration: 'none',
+  margin: '0 1rem 0 1rem',
+};
+
 const Header = ({ siteTitle }: Props) => (
   <div
     style={{
@@ -22,12 +28,28 @@ const Header = ({ siteTitle }: Props) => (
       <h1 style={{ margin: 0 }}>
         <Link
           to="/"
-          style={{
-            color: 'white',
-            textDecoration: 'none',
-          }}
-        >
-          {siteTitle}
+          style={linkStyle}>
+          <img src={require("../img/brand/logo.png")} style={{width: '100px'}}/>
+        </Link>
+        <Link
+          to="/about/partners"
+          style={linkStyle}>
+          Our Partners 
+        </Link>
+        <Link
+          to="/about/team"
+          style={linkStyle}>
+          Our Team 
+        </Link>
+        <Link
+          to="/about/press"
+          style={linkStyle}>
+          Press 
+        </Link>
+        <Link
+          to="/contact-us"
+          style={linkStyle}>
+          Contact 
         </Link>
       </h1>
     </div>
