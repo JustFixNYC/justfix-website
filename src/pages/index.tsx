@@ -43,30 +43,53 @@ const LandingPageScaffolding = (props) =>
           </div>
 
           { (props.content.homePageProductBlocks).map( (product, i) =>
-            (<div className="columns is-vertical-center" key={i}>
-              {i % 2 === 1 && (<div className="column is-half is-full-mobile ">
-                <div className="container">
-                  <figure className="image is-horizontal-center">
-                    <img src={product.screenshot.file.url} />
-                  </figure>
+            (<div className="product">
+
+              <div className="columns is-tablet is-vcentered is-hidden-mobile" key={i}>
+                {i % 2 === 1 && (<div className="column">
+                  <div className="container">
+                    <figure className="image is-horizontal-center">
+                      <img src={product.screenshot.file.url} />
+                    </figure>
+                  </div>
+                </div>)}
+                <div className="column">
+                  <div className="container">
+                    <h3 className="title has-text-grey-dark has-text-weight-medium">{product.title}</h3>
+                      <br/>
+                    <p className="subtitle">{product.description}</p>
+                      <br/>
+                    <a className="button is-large is-primary" href={ (product.cta.url + "?utm_source=orgsite") } target="_blank">{product.cta.title}</a>
+                  </div>
                 </div>
-              </div>)}
-              <div className="column is-half is-full-mobile">
-                <div className="container">
-                  <h3 className="title has-text-grey-dark has-text-weight-medium">{product.title}</h3>
-                    <br/>
-                  <p className="subtitle">{product.description}</p>
-                    <br/>
-                  <a className="button is-large is-primary" href={ (product.cta.url + "?utm_source=orgsite") } target="_blank">{product.cta.title}</a>
+                {i % 2 === 0 && (<div className="column">
+                  <div className="container">
+                    <figure className="image is-horizontal-center">
+                      <img src={product.screenshot.file.url} />
+                    </figure>
+                  </div>
+                </div>)}
+              </div>
+
+              <div className="columns is-vcentered is-hidden-tablet" key={i}>
+                <div className="column">
+                  <div className="container">
+                    <figure className="image is-horizontal-center">
+                      <img src={product.screenshot.file.url} />
+                    </figure>
+                  </div>
+                </div>
+                <div className="column">
+                  <div className="container has-text-centered">
+                    <h3 className="title has-text-grey-dark has-text-weight-medium">{product.title}</h3>
+                      <br/>
+                    <p className="subtitle">{product.description}</p>
+                      <br/>
+                    <a className="button is-large is-primary" href={ (product.cta.url + "?utm_source=orgsite") } target="_blank">{product.cta.title}</a>
+                  </div>
                 </div>
               </div>
-              {i % 2 === 0 && (<div className="column is-half is-full-mobile ">
-                <div className="container">
-                  <figure className="image is-horizontal-center">
-                    <img src={product.screenshot.file.url} />
-                  </figure>
-                </div>
-              </div>)}
+
             </div>) )
           }
         </div>
@@ -108,9 +131,9 @@ const LandingPageScaffolding = (props) =>
           <div className="hero is-small">
             <div className="hero-body has-text-centered">
               <h1 className="title is-size-2 has-text-grey-dark has-text-weight-normal">{props.content.pressTitle}</h1>
-              <div className="columns is-moblie">
+              <div className="columns">
               { (props.content.pressLogos).map( (logo,i) =>
-                (<div className="column is-one-quarter-desktop is-half-tablet is-full-mobile" key={i}>
+                (<div className="column" key={i}>
                   <figure className="image">
                     <img className="is-horizontal-center" src={logo.logo.file.url} />
                   </figure>
