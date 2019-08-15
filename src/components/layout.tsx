@@ -7,10 +7,11 @@ import Header from './header'
 // import './layout.css'
 
 type Props = {
-  children: React.ReactNode
+  children: React.ReactNode,
+  isLandingPage?: boolean
 }
 
-const Layout = ({ children }: Props) => (
+const Layout = ({ children, isLandingPage }: Props) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -32,7 +33,7 @@ const Layout = ({ children }: Props) => (
         >
           <html lang="en" />
         </Helmet>
-        <Header siteTitle={data.site.siteMetadata.title} />
+        <Header siteTitle={data.site.siteMetadata.title} isLandingPage={isLandingPage} />
         <div>
           {children}
         </div>

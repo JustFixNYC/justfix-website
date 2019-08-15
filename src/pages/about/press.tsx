@@ -15,7 +15,7 @@ const PressPageScaffolding = (props) =>
         <div>
 
         { (props.content.pressItems).map( (pressItem, i) =>
-          (<div className="press-item container">
+          (<div className="press-item container" key={i}>
             <img src={pressItem.logo.file.url} />
             <div className="content">
               <h4>{pressItem.title}</h4>

@@ -1,5 +1,6 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
+import AnchorLink from 'react-anchor-link-smooth-scroll'
 // import { Link } from 'gatsby'
 
 import '../styles/index.scss' 
@@ -7,52 +8,77 @@ import '../styles/index.scss'
 import Layout from '../components/layout'
 
 const LandingPageScaffolding = (props) => 
-  (<Layout>
+  (<Layout isLandingPage={true}>
     <div id="home" className="home-page">
 
       <section className="landing-image hero is-fullheight">
-        <div className="hero-body has-text-centered">
-          <div className="container">
-            <h1 className="title is-size-1 has-text-white">
-              {props.content.heroCopy.heroCopy}
-            </h1>
-            <br/>
-            <h2 className="subtitle is-size-5 has-text-white">
-              {props.content.subCopy.subCopy}
-            </h2>
-            <br/>
-            <a href="#" className="button is-dark is-inverted is-outlined">
-              LEARN MORE
-            </a>
+          <div className="hero-body has-text-centered">
+            <div className="container">
+              <h1 className="title is-size-1 has-text-white">
+                {props.content.heroCopy.heroCopy}
+              </h1>
+              <br/>
+              <h2 className="subtitle is-size-5 has-text-white">
+                {props.content.subCopy.subCopy}
+              </h2>
+              <br/>
+              <AnchorLink href="#products" className="button is-large is-dark is-inverted is-outlined">
+                LEARN MORE
+              </AnchorLink>
+            </div>
           </div>
+      </section>
+
+      <section id="products" className="is-horizontal-center">
+        <div className="content-wrapper">
+
+          <div className="hero is-small is-white">
+            <div className="hero-body has-text-centered">
+              <div className="container">
+                <h1 className="title is-size-2 has-text-grey-dark has-text-weight-normal">
+                Our Products & Services
+                </h1>
+              </div>
+            </div>
+          </div>
+
+          { (props.content.homePageProductBlocks).map( (product, i) =>
+            (<div className="columns is-vertical-center" key={i}>
+              {i % 2 === 1 && (<div className="column is-half is-full-mobile ">
+                <div className="container">
+                  <figure className="image is-horizontal-center">
+                    <img src={product.screenshot.file.url} />
+                  </figure>
+                </div>
+              </div>)}
+              <div className="column is-half is-full-mobile">
+                <div className="container">
+                  <h3 className="title has-text-grey-dark has-text-weight-medium">{product.title}</h3>
+                    <br/>
+                  <p className="subtitle">{product.description}</p>
+                    <br/>
+                  <a className="button is-large is-primary" href={ (product.cta.url + "?utm_source=orgsite") } target="_blank">{product.cta.title}</a>
+                </div>
+              </div>
+              {i % 2 === 0 && (<div className="column is-half is-full-mobile ">
+                <div className="container">
+                  <figure className="image is-horizontal-center">
+                    <img src={product.screenshot.file.url} />
+                  </figure>
+                </div>
+              </div>)}
+            </div>) )
+          }
         </div>
       </section>
 
-      <section className="container white padding-section-reduced home-content-blocks" id="products">
-
-        <h1 className="text-center">Our Products & Services</h1>
-
-        { (props.content.homePageProductBlocks).map( (product, i) =>
-          (<div className="row" key={i}>
-            <div className="col-sm-6 col-xs-12">
-              <img src={product.screenshot.file.url} />
-            </div>
-            <div className="col-sm-6 col-xs-12">
-              <div className="product-content-block">
-                <h3>{product.title}</h3>
-                <p>{product.description}</p>
-                <a className="btn btn-primary btn-block" href={ (product.cta.url + "?utm_source=orgsite") } target="_blank">{product.cta.title}</a>
-              </div>
-            </div>
-          </div>) )
-        }
-
-      </section>
-
-      <section className="justfix-blue no-margin center white padding-section-reduced " id="rental-history">
-        <div className="container">
-          <h3>Want your apartment’s Rental History?</h3>
-          <p>This can help you find out if you are being overcharged on rent. Text <span className="semi-bold">“RENT HISTORY”</span> to (646) 783-0627 and get your Rental History from the DHCR in the mail — <i>¡Tambien disponible in Español!</i></p>
+      <section className="hero is-small is-primary" id="rental-history">
+        <div className="content-wrapper">
+          <div className="hero-body has-text-centered is-horizontal-center">
+            <h3 className="title">Want your apartment’s Rental History?</h3>
+              <br/>
+            <p className="subtitle has-text-weight-medium">This can help you find out if you are being overcharged on rent. Text <span className="has-text-weight-bold">“RENT HISTORY”</span> to (646) 783-0627 and get your Rental History from the DHCR in the mail — <i>¡Tambien disponible in Español!</i></p>
+          </div>
         </div>
       </section>
 
@@ -77,20 +103,26 @@ const LandingPageScaffolding = (props) =>
         </div>
       </section> */}
 
-      <section className="padding-section-reduced">
-        <h1 className="center no-margin-bottom">{props.content.pressTitle}</h1>
-        <div className="container logos logos--faded">
-        { (props.content.pressLogos).map( (logo,i) =>
-          (<span className="logo" key={i}>
-          <div className="background-image" style = { { backgroundImage: `url(${logo.logo.file.url})`  } } >
+      <section id="as-seen-in">
+        <div className="content-wrapper">
+          <div className="hero is-small">
+            <div className="hero-body has-text-centered">
+              <h1 className="title is-size-2 has-text-grey-dark has-text-weight-normal">{props.content.pressTitle}</h1>
+              <div className="columns is-moblie">
+              { (props.content.pressLogos).map( (logo,i) =>
+                (<div className="column is-one-quarter-desktop is-half-tablet is-full-mobile" key={i}>
+                  <figure className="image">
+                    <img className="is-horizontal-center" src={logo.logo.file.url} />
+                  </figure>
+              </div>) )
+              }
+              </div>
+            </div>
           </div>
-        </span>) )
-        }
-
         </div>
       </section>
-
-      </div>
+        
+    </div>
 </Layout>); 
 
 

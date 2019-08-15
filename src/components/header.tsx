@@ -2,11 +2,12 @@ import React from 'react'
 import { Link } from 'gatsby'
 
 type Props = {
-  siteTitle: string
+  siteTitle: string,
+  isLandingPage: boolean
 }
 
-const Header = ({ siteTitle }: Props) => (
-  <nav className="header navbar is-transparent is-primary" role="navigation" aria-label="main navigation">
+const Header = ({ siteTitle, isLandingPage }: Props) => (
+  <nav className={"header navbar is-primary " + (isLandingPage && "is-transparent")} role="navigation" aria-label="main navigation">
     <div className="navbar-brand">
       <Link to="/" className="navbar-item">
         <img src={require("../img/brand/logo.png")} width="112" height="28" />
