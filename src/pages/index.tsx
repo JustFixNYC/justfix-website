@@ -14,11 +14,11 @@ const LandingPageScaffolding = (props) =>
       <section className="landing-image hero is-fullheight">
           <div className="hero-body has-text-centered">
             <div className="container">
-              <h1 className="title is-size-1 has-text-white">
+              <h1 className="title is-size-1 is-size-3-mobile has-text-white">
                 {props.content.heroCopy.heroCopy}
               </h1>
               <br/>
-              <h2 className="subtitle is-size-5 has-text-white">
+              <h2 className="subtitle is-size-5 is-hidden-mobile has-text-white">
                 {props.content.subCopy.subCopy}
               </h2>
               <br/>
@@ -43,9 +43,9 @@ const LandingPageScaffolding = (props) =>
           </div>
 
           { (props.content.homePageProductBlocks).map( (product, i) =>
-            (<div className="product">
+            (<div className="product" key={i}>
 
-              <div className="columns is-tablet is-vcentered is-hidden-mobile" key={i}>
+              <div className="columns is-tablet is-vcentered is-hidden-mobile">
                 {i % 2 === 1 && (<div className="column">
                   <div className="container">
                     <figure className="image is-horizontal-center">
@@ -71,7 +71,7 @@ const LandingPageScaffolding = (props) =>
                 </div>)}
               </div>
 
-              <div className="columns is-vcentered is-hidden-tablet" key={i}>
+              <div className="columns is-vcentered is-hidden-tablet">
                 <div className="column">
                   <div className="container">
                     <figure className="image is-horizontal-center">
