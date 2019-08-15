@@ -1,0 +1,100 @@
+@charset "utf-8";
+
+@import "../../node_modules/bulma/sass/utilities/functions.sass";
+
+$justfix-blue: #0096D7;
+
+$transparent: rgba(0,0,0,0);
+
+$primary: $justfix-blue;
+$primary-invert: findColorInvert($primary);
+
+// BULMA OVERRIDES
+
+.hero.is-small {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+
+// CUSTOM CLASSES
+
+.content-wrapper {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.background-image {
+    width: 150px;
+    height: 150px;
+    display: inline-block;
+}
+
+.is-horizontal-center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.is-vertical-center {
+    display: flex;
+    align-items: center;
+  }
+
+// ADDITIONAL CSS
+
+.header {
+    width: 100%;
+    &.navbar.is-transparent {
+        background-color: $transparent;
+        position: absolute;
+
+        .navbar-item {
+            .button:hover, .button:focus {
+                color: #434a54;
+            } 
+        }
+    }
+}
+
+.home-page {
+    
+    .container {
+        max-width: 720px;
+    }
+    .landing-image {
+        background-image: url(https://degy28l8twq8c.cloudfront.net/brownstones.jpg);
+        background-size: cover;
+
+        .title {
+            text-shadow: 0 2px 4px rgba(0,0,0,.5);
+        }
+
+        .button {
+            background-color: $transparent;
+        }
+    }
+    #products {
+        padding-bottom: 4rem;
+        .columns {
+            min-height: 60vh;
+        }
+        .container {
+            padding: 0 1.5rem 1.5rem 1.5rem;
+        }
+    }
+    #rental-history {
+        .hero-body {
+            max-width: 720px;
+        }
+    }
+    #as-seen-in {
+        img {
+            max-width: 200px;
+            filter: grayscale(100%);
+            opacity: 0.5;
+        }
+    }
+    
+}
+
+@import "~bulma/bulma.sass";

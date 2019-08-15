@@ -26,6 +26,7 @@ module.exports = {
       },
     },
     'gatsby-plugin-offline',
+    'gatsby-plugin-sass',
     `gatsby-plugin-typescript`,
     'gatsby-transformer-remark',
     'gatsby-plugin-sharp',
