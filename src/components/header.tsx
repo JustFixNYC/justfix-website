@@ -1,19 +1,37 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { Link } from 'gatsby'
 
 type Props = {
   siteTitle: string,
-  isLandingPage: boolean
+  isLandingPage?: boolean,
 }
 
-const Header = ({ siteTitle, isLandingPage }: Props) => (
-  <nav className={"header navbar is-primary " + (isLandingPage && "is-transparent")} role="navigation" aria-label="main navigation">
+type State = {
+  burgerMenuIsOpen?: boolean
+}
+
+class Header extends Component<Props,State> {
+  constructor(Props) {
+    super(Props);
+
+    this.state = {
+      burgerMenuIsOpen: false
+    }
+
+  }
+
+toggleBurgerMenu = () => this.setState({burgerMenuIsOpen: !this.state.burgerMenuIsOpen});
+
+render() {
+  return (
+  <nav className={"header navbar is-primary " + (this.props.isLandingPage && "is-transparent")} role="navigation" aria-label="main navigation">
     <div className="navbar-brand">
       <Link to="/" className="navbar-item">
         <img src={require("../img/brand/logo.png")} width="112" height="28" />
       </Link>
 
-      <a role="button" className="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbar">
+      <a role="button" className={"navbar-burger burger " + (this.state.burgerMenuIsOpen && "is-active") } aria-label="menu" aria-expanded="false" 
+        onClick = {this.toggleBurgerMenu} data-target="navbar">
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
@@ -21,11 +39,11 @@ const Header = ({ siteTitle, isLandingPage }: Props) => (
 
     </div>
 
-    <div id="main-navbar-menu" className="navbar-menu">
+    <div id="main-navbar-menu" className={"navbar-menu " + (this.state.burgerMenuIsOpen && "is-active")}>
       <div className="navbar-end">
 
         <div className="navbar-item has-dropdown is-hoverable">
-          <a className="navbar-link has-text-white">
+          <a className={"navbar-link has-text-" + (this.state.burgerMenuIsOpen ? "black" : "white")}>
             ABOUT US
           </a>
 
@@ -45,7 +63,7 @@ const Header = ({ siteTitle, isLandingPage }: Props) => (
           </div>
         </div>
 
-        <Link to="/contact-us" className="navbar-item has-text-white">
+        <Link to="/contact-us" className={"navbar-item has-text-" + (this.state.burgerMenuIsOpen ? "black" : "white")}>
           CONTACT
         </Link>
 
@@ -58,6 +76,8 @@ const Header = ({ siteTitle, isLandingPage }: Props) => (
         </div>
       </div>
     </div>
-  </nav>)
+  </nav>) 
+  } 
+}
 
 export default Header
