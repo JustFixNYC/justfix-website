@@ -35,6 +35,13 @@ $primary-invert: findColorInvert($primary);
     margin-right: auto;
 }
 
+.img-centered {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
 // ADDITIONAL CSS
 
 .header {
@@ -95,6 +102,22 @@ $primary-invert: findColorInvert($primary);
         }
     }
     
+}
+
+.partners-page {
+    .hero-body {
+        max-width: 720px;
+    }
+    .logos {
+        padding-bottom: 3rem;
+        .logo {
+            padding: 2rem; 
+            .image {
+                width: 150px;
+                height: 150px;
+            }
+        }
+    }
 }
 
 @import "~bulma/bulma.sass";
