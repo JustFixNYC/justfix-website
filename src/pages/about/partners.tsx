@@ -9,9 +9,7 @@ const PartnersPageScaffolding = (props) =>
   (<Layout>
   <div id="partners" className="partners-page">
 
-    <section>
-
-      <div className="hero is-small is-white">
+      <section className="hero is-small is-white">
         <div className="hero-body has-text-centered is-horizontal-center">
           <div className="container">
             <h1 className="title is-size-2 has-text-grey-dark has-text-weight-normal is-spaced">
@@ -22,9 +20,7 @@ const PartnersPageScaffolding = (props) =>
             </h6>
           </div>
         </div>
-      </div>
-
-    </section>
+      </section>
       
       <section className="partners logos container has-text-centered">
       
@@ -40,18 +36,16 @@ const PartnersPageScaffolding = (props) =>
       
       </section>
 
-      <section>
+      <section className="hero is-small is-white">
 
-        <div className="hero is-small is-white">
-          <div className="hero-body has-text-centered is-horizontal-center">
-            <div className="container">
-              <h1 className="title is-size-2 has-text-grey-dark has-text-weight-normal">
-              {props.content.fundersTitle}
-              </h1>
-            </div>
+        <div className="hero-body has-text-centered is-horizontal-center">
+          <div className="container">
+            <h1 className="title is-size-2 has-text-grey-dark has-text-weight-normal">
+            {props.content.fundersTitle}
+            </h1>
           </div>
         </div>
-
+        
       </section>
 
       <section className="funders logos container has-text-centered">
@@ -68,24 +62,22 @@ const PartnersPageScaffolding = (props) =>
       
       </section>
 
-      <section className="is-horizontal-center">
+      <section className="is-horizontal-center hero is-small is-light">
 
-          <div className="hero is-small is-light">
-            <div className="hero-body has-text-centered is-horizontal-center">
-              <div className="container">
-                <h1 className="title is-size-4 has-text-grey-dark has-text-weight-bold is-spaced"> {/* REPLACE WITH CONTENTFUL */}
-                Interested in collaborating with JustFix.nyc?
-                </h1>
-                <h6 className="subtitle has-text-grey-dark"> {/* REPLACE WITH CONTENTFUL */}
-                We are currently seeking partnerships and further collaboration with any groups or individuals dedicated to tenant’s rights in New York City. Please contact us you are interested in discussing further or would like a demonstration.
-                </h6>
-                <Link to="/contact-us" className="button is-large is-primary">{props.content.contactButton.title}</Link>
-              </div>
-            </div>
+        <div className="hero-body has-text-centered is-horizontal-center">
+          <div className="container">
+            <h1 className="title is-size-4 has-text-grey-dark has-text-weight-bold is-spaced"> {/* REPLACE WITH CONTENTFUL */}
+            Interested in collaborating with JustFix.nyc?
+            </h1>
+            <h6 className="subtitle has-text-grey-dark"> {/* REPLACE WITH CONTENTFUL */}
+            We are currently seeking partnerships and further collaboration with any groups or individuals dedicated to tenant’s rights in New York City. Please contact us you are interested in discussing further or would like a demonstration.
+            </h6>
+            <Link to="/contact-us" className="button is-large is-primary">{props.content.contactButton.title}</Link>
           </div>
+        </div>
 
       </section>
-      
+
   </div>
 </Layout>); 
 

@@ -4,6 +4,8 @@
 
 $justfix-blue: #0096D7;
 
+$link: $justfix-blue;
+
 $transparent: rgba(0,0,0,0);
 
 $primary: $justfix-blue;
@@ -115,6 +117,26 @@ $primary-invert: findColorInvert($primary);
             .image {
                 width: 150px;
                 height: 150px;
+            }
+        }
+    }
+}
+
+.press-page {
+    .press-links {
+        margin-bottom: 3rem;
+        .media {
+            align-items: center;
+            .media-left {
+                width: 30%;
+            }
+            .image {
+                width: 200px;
+                min-height: 120px;
+                padding: 0.5rem 0;
+            }
+            .media-content {
+                padding: 0 2rem; 
             }
         }
     }
