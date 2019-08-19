@@ -85,17 +85,7 @@ const PartnersPageScaffolding = (props) =>
           </div>
 
       </section>
-
-      {/* <section className="alt center no-margin-top">
-        <div className="container" ng-bind-html="$contentfulEntry.fields.collaborationTextBlock | markdown">
-        </div>
-        <br/>
-        <br/>
-        <a ui-sref="contact" className="btn btn-primary">{props.content.contactButton.title}</a>
-        <a ui-sref="donate" className="btn btn-outline black">{props.content.donateButton.title}</a>
-      </section>
-
-    </article> */}
+      
   </div>
 </Layout>); 
 
