@@ -14,10 +14,9 @@ const LandingPageScaffolding = (props) =>
       <section className="landing-image hero is-fullheight">
           <div className="hero-body has-text-centered">
             <div className="container">
-              <h1 className="title is-size-1 is-size-3-mobile has-text-white">
+              <h1 className="title is-size-1 is-size-3-mobile has-text-white is-spaced">
                 {props.content.heroCopy.heroCopy}
               </h1>
-              <br/>
               <h2 className="subtitle is-size-5 is-hidden-mobile has-text-white">
                 {props.content.subCopy.subCopy}
               </h2>
@@ -98,8 +97,7 @@ const LandingPageScaffolding = (props) =>
       <section className="hero is-small is-primary" id="rental-history">
         <div className="content-wrapper">
           <div className="hero-body has-text-centered is-horizontal-center">
-            <h3 className="title">Want your apartment’s Rental History?</h3>
-              <br/>
+            <h3 className="title is-spaced">Want your apartment’s Rental History?</h3>
             <p className="subtitle has-text-weight-medium">This can help you find out if you are being overcharged on rent. Text <span className="has-text-weight-bold">“RENT HISTORY”</span> to (646) 783-0627 and get your Rental History from the DHCR in the mail — <i>¡Tambien disponible in Español!</i></p>
           </div>
         </div>

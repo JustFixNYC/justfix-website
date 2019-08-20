@@ -1,82 +1,84 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
-// import { Link } from 'gatsby'
+import { Link } from 'gatsby'
 
 import '../../styles/index.scss' 
 
 import Layout from '../../components/layout'
 const PartnersPageScaffolding = (props) => 
   (<Layout>
-    <article contentful-entry="'content_type=partners'">
-      <header className="container">
-        <h1 className="center">{props.content.title}</h1>
-        <p className="center lead">{props.content.subtitle.subtitle}</p>
-      </header>
+  <div id="partners" className="partners-page">
 
-      <div className="clearfix"></div>
-      <section className="center no-margin">
-        <div className="logos container">
-
-        { (props.content.partnerOrganizations).map( (partner, i) =>
-          (<span
-            className="logo partners"
-            key={i}
-            // ng-repeat="partner in $contentfulEntry.fields.partnerOrganizations track by $index"
-            // ng-className="{'three': $index % 7 == 0}"
-            >
-            <a href={partner.link} target="_blank">
-              <div className="background-image"
-                style = { { backgroundImage: `url(${partner.logo.file.url})`  } }>
-              </div>
-            </a>
-          </span>) )
-        }
-          
+      <section className="hero is-small is-white">
+        <div className="hero-body has-text-centered is-horizontal-center">
+          <div className="container">
+            <h1 className="title is-size-2 has-text-grey-dark has-text-weight-normal is-spaced">
+            {props.content.title}
+            </h1>
+            <h6 className="subtitle has-text-grey-dark is-italic">
+            {props.content.subtitle.subtitle}
+            </h6>
+          </div>
         </div>
       </section>
+      
+      <section className="partners logos container has-text-centered">
+      
+      { (props.content.partnerOrganizations).map( (partner, i) =>
+          (<div className="logo is-inline-flex" key={i}>
+              <a href={partner.link} target="_blank">
+                <figure className="image">
+                  <img className="img-centered" src={partner.logo.file.url} />
+                </figure>
+              </a>    
+          </div>) )
+        }
+      
+      </section>
 
-      <div className="clearfix"></div>
+      <section className="hero is-small is-white">
 
-      {/* <section>
-        <div className="responsive_image ">
-          <div className="responsive_image-image" style={ { backgroundImage: `url("../../img/usermap.png")`}}></div>
+        <div className="hero-body has-text-centered is-horizontal-center">
+          <div className="container">
+            <h1 className="title is-size-2 has-text-grey-dark has-text-weight-normal">
+            {props.content.fundersTitle}
+            </h1>
+          </div>
         </div>
+        
+      </section>
 
-      </section> */}
+      <section className="funders logos container has-text-centered">
 
-      <header className="container">
-        <h1 className="center">{props.content.fundersTitle}</h1>
-      </header>
-
-      <div className="clearfix"></div>
-      <section className="center no-margin">
-        <div className="logos container">
         { (props.content.funders).map( (funder, i) =>
-          (<span
-            className="logo partners"
-            key={i}
-            // ng-repeat="funder in $contentfulEntry.fields.funders track by $index"
-            >
-            <a href={funder.link} target="_blank">
-              <div className="background-image"
-                style = { { backgroundImage: `url(${funder.logo.file.url})`  } }>
-              </div>
-            </a>
-          </span>) )
+          (<div className="logo is-inline-flex" key={i}>
+              <a href={funder.link} target="_blank">
+                <figure className="image">
+                  <img className="img-centered" src={funder.logo.file.url} />
+                </figure>
+              </a>    
+          </div>) )
         }
-        </div>
+      
       </section>
 
-      <section className="alt center no-margin-top">
-        <div className="container" ng-bind-html="$contentfulEntry.fields.collaborationTextBlock | markdown">
+      <section className="is-horizontal-center hero is-small is-light">
+
+        <div className="hero-body has-text-centered is-horizontal-center">
+          <div className="container">
+            <h1 className="title is-size-4 has-text-grey-dark has-text-weight-bold is-spaced"> {/* REPLACE WITH CONTENTFUL */}
+            Interested in collaborating with JustFix.nyc?
+            </h1>
+            <h6 className="subtitle has-text-grey-dark"> {/* REPLACE WITH CONTENTFUL */}
+            We are currently seeking partnerships and further collaboration with any groups or individuals dedicated to tenant’s rights in New York City. Please contact us you are interested in discussing further or would like a demonstration.
+            </h6>
+            <Link to="/contact-us" className="button is-large is-primary">{props.content.contactButton.title}</Link>
+          </div>
         </div>
-        <br/>
-        <br/>
-        <a ui-sref="contact" className="btn btn-primary">{props.content.contactButton.title}</a>
-        <a ui-sref="donate" className="btn btn-outline black">{props.content.donateButton.title}</a>
+
       </section>
 
-    </article>
+  </div>
 </Layout>); 
 
 

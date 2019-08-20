@@ -1,66 +1,64 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
+import { SocialIcon } from 'react-social-icons';
 // import { Link } from 'gatsby'
 
 import '../styles/index.scss' 
 
 import Layout from '../components/layout'
+
+const MAILCHIMP_URL = "https://nyc.us13.list-manage.com/subscribe/post?u=d4f5d1addd4357eb77c3f8a99&amp;id=588f6c6ef4";
+
 const ContactPageScaffolding = (props) => 
   (<Layout>
-    <article id="contact">
-      <article className="container center full_page_hero-container">
+    <div id="contact" className="contact-page" >
 
-        <header className="no-margin-bottom">
-          <h1 className="center">{ props.content.pageTitle }</h1>
-        </header>
+      <section className="hero is-medium is-white">
+        <div className="hero-body has-text-centered is-horizontal-center content-wrapper">
+          <div className="container">
 
-        <section className="reduced-margin-top">
-
-          <p className="hidden-desktop">
-            <a className="btn btn-success btn-block btn-email" href={ props.content.contactMethods[0].url } target="_blank"><span className="glyphicon glyphicon-envelope"> </span>{ props.content.contactMethods[0].content }</a>
-          </p>
-
-          <p className="hidden-mobile">
+            <h1 className="title is-size-2 has-text-grey-dark has-text-weight-normal is-spaced">
+            {props.content.pageTitle}
+            </h1>
+            <p className="is-size-5 has-text-grey-dark">
             Send us an email at <a href={ props.content.contactMethods[0].url } target="_blank">{props.content.contactMethods[0].content}</a>
-          </p>
+            </p>
 
-          <div className="social">
-            { (props.content.socialButtons).map( (button, i) =>
-              (<span className="btn btn-primary btn-icon" key={i}>
-                <a href={button.url} target="_blank">
-                  <i className={"glyphicon "+ button.title}></i>
-                </a>
-              </span>) )
-            }
+            <div className="field">
+              { (props.content.socialButtons).map( (button, i) =>
+                (<SocialIcon key={i} url={button.url} target="_blank" bgColor="#0096D7" style={{ height: 40, width: 40 }} />) )
+              }
+            </div>
+
+            <h1 className="title is-size-4 has-text-grey-dark is-spaced ">
+              Join our mailing list!
+            </h1>
+            <span className="subtitle has-text-grey-dark">
+              We're continuously building new tools and working with our partners. Join our mailing list for updates and announcements!
+            </span>
+
+            <form action={MAILCHIMP_URL} className="email-form is-horizontal-center" method="post" target="_blank">
+              <div className="mc-field-group">
+                <div className="field has-addons">
+                    <div className="control is-expanded">
+                        <input type="email" name="EMAIL" className="required email input" id="mce-EMAIL" placeholder="Email Address" />
+                    </div>
+                    <div className="control">
+                        <button className="button is-primary" type="submit">
+                            SIGN UP
+                        </button>
+                    </div>
+                </div>
+              </div>
+            </form>
+              
           </div>
-        </section>
+        </div>
 
-        <section className="mailing-list">
-          <div dangerouslySetInnerHTML={{ __html: props.content.mailingList.childMarkdownRemark.html}}>
-          </div>
-          <br />
-          {/* <form  action="//nyc.us13.list-manage.com/subscribe/post?u=d4f5d1addd4357eb77c3f8a99&amp;id=588f6c6ef4" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" className="validate" target="_blank">
-            <input className="footer" type="email" value="" name="EMAIL" placeholder="Email Address" required />
-            <div style={{position: "absolute", left: "-5000px"}} aria-hidden="true"><input type="text" name="b_d4f5d1addd4357eb77c3f8a99_588f6c6ef4" value="" /></div>
-            <input className="btn btn-primary signup" name="subscribe" type="submit" value="SIGN UP" />
-          </form> */}
-        </section>
-
-      </article>
-
-
-
-      <div className="clearfix"></div>
-
-      {/* <section className="alt blue-bg white center">
-        <div className="container" ng-bind-html="props.content.donateText | markdown"></div>
-        <br />
-        <a ui-sref="donate" className="btn btn-block btn-outline">DONATE</a>
-      </section> */}
-
-    </article>
+      </section>
+      
+    </div>
   </Layout>); 
-
 
 const ContactPage  = () => (
 <StaticQuery
