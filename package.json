@@ -25,6 +25,7 @@
     "react-anchor-link-smooth-scroll": "^1.0.12",
     "react-dom": "^16.9.0",
     "react-helmet": "^5.2.0",
+    "react-social-icons": "^4.1.0",
     "tslint": "^5.11.0",
     "typescript": "^3.1.1",
     "webpack": "^4.0.0"

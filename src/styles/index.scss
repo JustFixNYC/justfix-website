@@ -142,4 +142,38 @@ $primary-invert: findColorInvert($primary);
     }
 }
 
+.team-page {
+
+    .columns {
+        margin: 2rem;
+        &.is-multiline {
+            margin: 0 2rem 2rem 2rem;
+        }
+        .column.team-member {
+            padding: 2rem;
+            .image {
+                margin-bottom: 1.25rem;
+            }
+        } 
+        .field {
+            margin-bottom: 1.25rem;
+            .social-icon {
+                margin: 0 1rem;
+                &:hover {
+                    opacity: 0.5;
+                }
+            }
+        }
+        .column.director {
+            margin: 1.25rem 0;
+            padding: 0 2rem;
+        }
+    }
+
+    .directors {
+        margin-bottom: 4rem;
+    }
+}
+    
+
 @import "~bulma/bulma.sass";
