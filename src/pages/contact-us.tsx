@@ -1,7 +1,6 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import { SocialIcon } from 'react-social-icons';
-import Mailchimp from 'react-mailchimp-form'
 // import { Link } from 'gatsby'
 
 import '../styles/index.scss' 
@@ -27,7 +26,7 @@ const ContactPageScaffolding = (props) =>
 
             <div className="field">
               { (props.content.socialButtons).map( (button, i) =>
-                (<SocialIcon url={button.url} bgColor="#0096D7" style={{ height: 40, width: 40 }} />) )
+                (<SocialIcon key={i} url={button.url} target="_blank" bgColor="#0096D7" style={{ height: 40, width: 40 }} />) )
               }
             </div>
 

@@ -37,7 +37,7 @@ const TeamPageScaffolding = (props) =>
               <h4 className="subtitle is-size-5 has-text-grey-dark">{member.title}</h4>
               <div className="field">
                   { (member.childrenContentfulTeamMemberLinksJsonNode).map ( (link, i) => 
-                    <SocialIcon url={link.url} bgColor="#0096D7" style={{ height: 40, width: 40 }} />
+                    <SocialIcon key={i} url={link.url} target="_blank" bgColor="#0096D7" style={{ height: 40, width: 40 }} />
                   )}
               </div>
             <p>{member.description.description}</p>
