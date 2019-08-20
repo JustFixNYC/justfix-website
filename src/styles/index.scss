@@ -18,6 +18,13 @@ $primary-invert: findColorInvert($primary);
     padding-bottom: 1.5rem;
 }
 
+.social-icon {
+    margin: 0 0.85rem;
+    &:hover {
+        opacity: 0.5;
+    }
+}
+
 // CUSTOM CLASSES
 
 .content-wrapper {
@@ -157,12 +164,6 @@ $primary-invert: findColorInvert($primary);
         } 
         .field {
             margin-bottom: 1.25rem;
-            .social-icon {
-                margin: 0 1rem;
-                &:hover {
-                    opacity: 0.5;
-                }
-            }
         }
         .column.director {
             margin: 1.25rem 0;
@@ -172,6 +173,19 @@ $primary-invert: findColorInvert($primary);
 
     .directors {
         margin-bottom: 4rem;
+    }
+}
+
+.contact-page {
+
+    .container {
+        max-width: 550px;
+        .field {
+            margin: 2rem 0 4rem 0;
+        }
+        .email-form {
+            max-width: 400px;
+        }
     }
 }
     

@@ -64,56 +64,6 @@ const PressPageScaffolding = (props) =>
 
     </div>
 
-
-    {/* <article className="media">
-      <figure className="media-left">
-        <p className="image is-64x64">
-          <img src="https://bulma.io/images/placeholders/128x128.png" />
-        </p>
-      </figure>
-      <div className="media-content">
-        <div className="content"> </div>
-      </div>
-      <div className="media-right">
-        <button className="delete"></button>
-      </div>
-    </article> */}
-
-    {/* <article contentful-entry="'content_type=pressPage'">
-      <header className="container">
-        <h1 className="center">{props.content.title}</h1>
-      </header>
-      <section className="press container">
-        <div>
-
-        { (props.content.pressItems).map( (pressItem, i) =>
-          (<div className="press-item container" key={i}>
-            <img src={pressItem.logo.file.url} />
-            <div className="content">
-              <h4>{pressItem.title}</h4>
-              <p><a href= {pressItem.hyperlink} target="_blank">{pressItem.linkText}</a></p>
-            </div>
-          </div>) )
-        }
-
-        </div>
-      </section>
-
-      <article>
-        <section className="center no-margin justfix-blue padding-section">
-          <div className="left-block">
-            <div className="left-block_style">
-              <h3>{props.content.pressKitTitle}</h3>
-              <span dangerouslySetInnerHTML={{ __html: props.content.pressKitBody.childMarkdownRemark.html}} />
-            </div>
-          </div>
-          <div className="right-block">
-            <a href={props.content.pressKitButton.link} target="_blank" className="btn btn-outline">{props.content.pressKitButton.title}</a>
-          </div>
-          <div className="clearfix"></div>
-        </section>
-      </article>
-    </article> */}
 </Layout>); 
 
 
