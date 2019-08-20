@@ -57,7 +57,7 @@ render() {
             <Link to="/about/press" className="navbar-item">
               Press 
             </Link>
-            <a href="https://justfix.breezy.hr/" className="navbar-item">
+            <a href="https://justfix.breezy.hr/" target="_blank" className="navbar-item">
               Jobs 
             </a>
           </div>

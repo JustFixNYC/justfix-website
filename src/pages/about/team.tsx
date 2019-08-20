@@ -105,54 +105,8 @@ const TeamPageScaffolding = (props) =>
 
       </section>
 
-
-
-    {/*
-
-      <section className="gray_bg">
-        <div className="justify_content_center_vertically-sm">
-          <h3 className="center">{props.content.otherContributorsTitle}</h3>
-          { (props.content.otherContributors).map( (contributor, i) =>
-            (<p className="contributor" key={i}>
-              {contributor.link ? 
-              (<a href={contributor.link} target="_blank">{contributor.name}</a>) :
-              (<span>{contributor.name}</span>)}
-            </p>) ) 
-          }
-        </div>
-      </section> */}
-
-      {/* <section className="milestones no-margin-bottom">
-        <div className="container" ng-bind-html="$contentfulEntry.fields.milestones | markdown">
-        </div>
-        <div className="logos container">
-          <span
-            className="logo"
-            ng-repeat="sponsor in $contentfulEntry.fields.sponsorOrganizations track by $index">
-            <a ng-href="{sponsor.fields.link}" target="_blank">
-              <div
-                className="background-image"
-                ng-style="{'background-image': 'url(' + sponsor.fields.logo.fields.file.url + ')'}">
-              </div>
-            </a>
-          </span>
-        </div>
-      </section>
-
-      <section className="baker reduced-margin">
-        <div className="container">
-          <div className="baker-thanks">
-            <h3>{$contentfulEntry.fields.bakerThanks}</h3>
-          </div>
-          <div className="baker-logo">
-            <a href="https://www.bakerlaw.com/" target="_blank">
-              <img ng-src="{ $contentfulEntry.fields.bakerLogo.fields.file.url }" alt="Baker Logo" />
-            </a>
-          </div>
-        </div>
-      </section> */}
-
     </div>
+    
 </Layout>); 
 
 
