@@ -70,10 +70,10 @@ const Footer = () =>
       <div className="column is-three-quarters">
         <p className="subtitle is-size-6 has-text-white"><b>Disclaimer: </b>The information in JustFix.nyc does not constitute legal advice and must not be used as a substitute for the advice of a lawyer qualified to give advice on legal issues pertaining to housing. We can help direct you to free legal services if necessary.</p>
         <p className="subtitle is-size-6 has-text-white"><b>JustFix.nyc </b>is a registered 501(c)(3) nonprofit organization.</p>
-        <Link className="link legal has-text-weight-semibold" to="/">
+        <Link className="link legal has-text-weight-semibold" to="/privacy-policy">
           PRIVACY POLICY
         </Link>
-        <Link className="link legal has-text-weight-semibold" to="/">
+        <Link className="link legal has-text-weight-semibold" to="/terms-of-use">
           TERMS OF USE
         </Link>
       </div>
