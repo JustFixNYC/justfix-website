@@ -30,6 +30,10 @@ $primary-invert: findColorInvert($primary);
     opacity: 0.7;
 }
 
+.content {
+    overflow-wrap: break-word;
+}
+
 // CUSTOM CLASSES
 
 .content-wrapper {
@@ -99,6 +103,11 @@ $primary-invert: findColorInvert($primary);
         }
         .columns {
             min-height: 60vh;
+            &.is-hidden-tablet {
+                width: 100%;
+                margin-left: 0;
+                margin-right: 0;
+            }
         }
         .image {
             max-width: 80%;

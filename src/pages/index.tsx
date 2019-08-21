@@ -84,7 +84,7 @@ const LandingPageScaffolding = (props) =>
                       <br/>
                     <p className="subtitle">{product.description}</p>
                       <br/>
-                    <a className="button is-large is-primary" href={ (product.cta.url + "?utm_source=orgsite") } target="_blank" rel="noopener noreferrer">{product.cta.title}</a>
+                    <a className="button is-medium is-primary" href={ (product.cta.url + "?utm_source=orgsite") } target="_blank" rel="noopener noreferrer">{product.cta.title}</a>
                   </div>
                 </div>
               </div>
