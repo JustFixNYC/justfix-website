@@ -1,0 +1,19 @@
+.press-page {
+    .press-links {
+        margin-bottom: 3rem;
+        .media {
+            align-items: center;
+            .media-left {
+                width: 30%;
+            }
+            .image {
+                width: 200px;
+                min-height: 120px;
+                padding: 0.5rem 0;
+            }
+            .media-content {
+                padding: 0 2rem; 
+            }
+        }
+    }
+}

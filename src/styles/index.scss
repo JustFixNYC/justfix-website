@@ -2,75 +2,8 @@
 
 @import "../../node_modules/bulma/sass/utilities/functions.sass";
 
-$justfix-blue: #0096D7;
-
-$link: $justfix-blue;
-$info: #003D57;
-
-$transparent: rgba(0,0,0,0);
-
-$primary: $justfix-blue;
-$primary-invert: findColorInvert($primary);
-
-// BULMA OVERRIDES
-
-.hero.is-small {
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
-}
-
-.social-icon {
-    margin: 0 0.85rem;
-    &:hover {
-        opacity: 0.5;
-    }
-}
-
-.is-divider {
-    opacity: 0.7;
-}
-
-// CUSTOM CLASSES
-
-.content-wrapper {
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.background-image {
-    width: 150px;
-    height: 150px;
-    display: inline-block;
-}
-
-.is-horizontal-center {
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.img-centered {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-}
-
-// ADDITIONAL CSS
-
-.header {
-    width: 100%;
-    &.navbar.is-transparent {
-        background-color: $transparent;
-        position: absolute;
-
-        .navbar-item {
-            .button:hover, .button:focus {
-                color: #434a54;
-            } 
-        }
-    }
-}
+@import "_vars.scss";
+@import "_custom.scss";
 
 .home-page {
     
@@ -95,6 +28,11 @@ $primary-invert: findColorInvert($primary);
         }
         .columns {
             min-height: 60vh;
+            &.is-hidden-tablet {
+                width: 100%;
+                margin-left: 0;
+                margin-right: 0;
+            }
         }
         .image {
             max-width: 80%;
@@ -116,119 +54,6 @@ $primary-invert: findColorInvert($primary);
         }
     }
     
-}
-
-.partners-page {
-    .hero-body {
-        max-width: 720px;
-    }
-    .logos {
-        padding-bottom: 3rem;
-        .logo {
-            padding: 2rem; 
-            .image {
-                width: 150px;
-                height: 150px;
-            }
-        }
-    }
-}
-
-.press-page {
-    .press-links {
-        margin-bottom: 3rem;
-        .media {
-            align-items: center;
-            .media-left {
-                width: 30%;
-            }
-            .image {
-                width: 200px;
-                min-height: 120px;
-                padding: 0.5rem 0;
-            }
-            .media-content {
-                padding: 0 2rem; 
-            }
-        }
-    }
-}
-
-.team-page {
-
-    .columns {
-        margin: 2rem;
-        &.is-multiline {
-            margin: 0 2rem 2rem 2rem;
-        }
-        .column.team-member {
-            padding: 2rem;
-            .image {
-                margin-bottom: 1.25rem;
-            }
-        } 
-        .field {
-            margin-bottom: 1.25rem;
-        }
-        .column.director {
-            margin: 1.25rem 0;
-            padding: 0 2rem;
-        }
-    }
-
-    .directors {
-        margin-bottom: 4rem;
-    }
-}
-
-.contact-page {
-
-    .container {
-        max-width: 550px;
-        .field {
-            margin: 2rem 0 4rem 0;
-        }
-        .email-form {
-            max-width: 400px;
-        }
-    }
-}
-
-.footer {
-    img {
-        max-width: 180px;
-    }
-    .column {
-        .link {
-            &:hover {
-                color: white;
-            }
-            &:focus {
-                text-decoration: underline;
-            }
-            &.legal {
-                margin-right: 1.5rem;
-            }
-            p {
-                line-height: 2;
-            }
-        }
-        form {
-            margin-bottom: 1rem;
-            max-width: 400px;
-            .control {
-                padding: 0 0.8rem 0.8rem 0;
-            }
-        }
-        .field {
-            .social-icon {
-                margin: 0 0.85rem 0.85rem 0;
-            }
-        }
-    }
-    .is-divider {
-        margin-top: 0;
-    }
 }
     
 @import "~bulma/bulma.sass";

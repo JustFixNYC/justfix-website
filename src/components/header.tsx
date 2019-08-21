@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { Link } from 'gatsby'
 
+import '../styles/header.scss' 
+
 type Props = {
   siteTitle: string,
   isLandingPage?: boolean,
@@ -57,7 +59,7 @@ render() {
             <Link to="/about/press" className="navbar-item">
               Press 
             </Link>
-            <a href="https://justfix.breezy.hr/" target="_blank" className="navbar-item">
+            <a href="https://justfix.breezy.hr/" target="_blank" rel="noopener noreferrer" className="navbar-item">
               Jobs 
             </a>
           </div>
@@ -70,7 +72,7 @@ render() {
       </div>
         <div className="navbar-item">
           <div className="buttons">
-            <a className="button is-primary is-inverted is-outlined" href="https://app.justfix.nyc/login">
+            <a className="button is-primary is-inverted is-outlined" href="https://app.justfix.nyc/login" target="_blank" rel="noopener noreferrer">
               SIGN IN
             </a>
         </div>

@@ -3,7 +3,7 @@ import { StaticQuery, graphql } from 'gatsby'
 import { SocialIcon } from 'react-social-icons';
 // import { Link } from 'gatsby'
 
-import '../styles/index.scss' 
+import '../styles/contact.scss' 
 
 import Layout from '../components/layout'
 
@@ -21,12 +21,12 @@ const ContactPageScaffolding = (props) =>
             {props.content.pageTitle}
             </h1>
             <p className="is-size-5 has-text-grey-dark">
-            Send us an email at <a href={ props.content.contactMethods[0].url } target="_blank">{props.content.contactMethods[0].content}</a>
+            Send us an email at <a href={ props.content.contactMethods[0].url } target="_blank" rel="noopener noreferrer">{props.content.contactMethods[0].content}</a>
             </p>
 
             <div className="field">
               { (props.content.socialButtons).map( (button, i) =>
-                (<SocialIcon key={i} url={button.url} target="_blank" bgColor="#0096D7" style={{ height: 40, width: 40 }} />) )
+                (<SocialIcon key={i} url={button.url} target="_blank" rel="noopener noreferrer" bgColor="#0096D7" style={{ height: 40, width: 40 }} />) )
               }
             </div>
 

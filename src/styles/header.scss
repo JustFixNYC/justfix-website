@@ -1,0 +1,15 @@
+@import "_vars.scss";
+
+.header {
+    width: 100%;
+    &.navbar.is-transparent {
+        background-color: $transparent;
+        position: absolute;
+
+        .navbar-item {
+            .button:hover, .button:focus {
+                color: #434a54;
+            } 
+        }
+    }
+}

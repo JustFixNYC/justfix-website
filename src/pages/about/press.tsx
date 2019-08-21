@@ -2,7 +2,7 @@ import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 // import { Link } from 'gatsby'
 
-import '../../styles/index.scss' 
+import '../../styles/press.scss' 
 
 import Layout from '../../components/layout'
 const PressPageScaffolding = (props) => 
@@ -28,7 +28,7 @@ const PressPageScaffolding = (props) =>
             (<article className="media" key={i}>
               <div className="media-left is-hidden-mobile">
                 <figure className="image is-horizontal-center">
-                  <a href = {pressItem.hyperlink} target="_blank">
+                  <a href = {pressItem.hyperlink} target="_blank" rel="noopener noreferrer">
                     <img className="img-centered" src={pressItem.logo.file.url} />
                   </a>
                 </figure>
@@ -37,7 +37,7 @@ const PressPageScaffolding = (props) =>
               <div className="media-content">
                 <h4 className="is-size-5 has-text-weight-semibold">{pressItem.title}</h4>
                 <p className="is-size-5 has-text-primary">
-                  <a href= {pressItem.hyperlink} target="_blank">{pressItem.linkText}</a>
+                  <a href= {pressItem.hyperlink} target="_blank" rel="noopener noreferrer">{pressItem.linkText}</a>
                 </p>
               </div>
             </article>) )
