@@ -2,7 +2,7 @@ import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 // import { Link } from 'gatsby'
 
-import '../../styles/index.scss' 
+import '../../styles/press.scss' 
 
 import Layout from '../../components/layout'
 const PressPageScaffolding = (props) => 

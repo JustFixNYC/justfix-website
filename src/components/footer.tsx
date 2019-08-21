@@ -2,6 +2,8 @@ import React from 'react'
 import { SocialIcon } from 'react-social-icons';
 import { Link } from 'gatsby'
 
+import '../styles/footer.scss' 
+
 const MAILCHIMP_URL = "https://nyc.us13.list-manage.com/subscribe/post?u=d4f5d1addd4357eb77c3f8a99&amp;id=588f6c6ef4";
 
 const Footer = () => 

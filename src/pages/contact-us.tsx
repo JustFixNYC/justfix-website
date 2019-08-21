@@ -3,7 +3,7 @@ import { StaticQuery, graphql } from 'gatsby'
 import { SocialIcon } from 'react-social-icons';
 // import { Link } from 'gatsby'
 
-import '../styles/index.scss' 
+import '../styles/contact.scss' 
 
 import Layout from '../components/layout'
 
