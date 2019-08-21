@@ -26,7 +26,7 @@ const PartnersPageScaffolding = (props) =>
       
       { (props.content.partnerOrganizations).map( (partner, i) =>
           (<div className="logo is-inline-flex" key={i}>
-              <a href={partner.link} target="_blank">
+              <a href={partner.link} target="_blank" rel="noopener noreferrer">
                 <figure className="image">
                   <img className="img-centered" src={partner.logo.file.url} />
                 </figure>
@@ -52,7 +52,7 @@ const PartnersPageScaffolding = (props) =>
 
         { (props.content.funders).map( (funder, i) =>
           (<div className="logo is-inline-flex" key={i}>
-              <a href={funder.link} target="_blank">
+              <a href={funder.link} target="_blank" rel="noopener noreferrer">
                 <figure className="image">
                   <img className="img-centered" src={funder.logo.file.url} />
                 </figure>

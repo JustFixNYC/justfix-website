@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { SocialIcon } from 'react-social-icons';
 import { Link } from 'gatsby'
 
@@ -31,7 +31,7 @@ const Footer = () =>
         <Link className="link has-text-weight-semibold" to="/about/partners">
           <p>OUR PARTNERS</p>
         </Link>
-        <a className="link has-text-weight-semibold" href="https://justfix.breezy.hr/" target="_blank">
+        <a className="link has-text-weight-semibold" href="https://justfix.breezy.hr/" target="_blank" rel="noopener noreferrer">
           <p>JOBS</p>
         </a>
         <Link className="link has-text-weight-semibold" to="/about/press">
@@ -56,10 +56,10 @@ const Footer = () =>
           </div>
         </form>
         <div className="field">
-          <SocialIcon url="http://twitter.com/justfixnyc" target="_blank" bgColor="#FFF" style={{ height: 40, width: 40 }} />
-          <SocialIcon url="https://facebook.com/JustFixNYC" target="_blank"bgColor="#FFF" style={{ height: 40, width: 40 }} />
-          <SocialIcon url="https://www.linkedin.com/company/justfix-nyc" target="_blank" bgColor="#FFF" style={{ height: 40, width: 40 }} />
-          <SocialIcon url="https://github.com/JustFixNYC" target="_blank" bgColor="#FFF" style={{ height: 40, width: 40 }} />
+          <SocialIcon url="http://twitter.com/justfixnyc" target="_blank" rel="noopener noreferrer" bgColor="#FFF" style={{ height: 40, width: 40 }} />
+          <SocialIcon url="https://facebook.com/JustFixNYC" target="_blank" rel="noopener noreferrer"bgColor="#FFF" style={{ height: 40, width: 40 }} />
+          <SocialIcon url="https://www.linkedin.com/company/justfix-nyc" target="_blank" rel="noopener noreferrer" bgColor="#FFF" style={{ height: 40, width: 40 }} />
+          <SocialIcon url="https://github.com/JustFixNYC" target="_blank" rel="noopener noreferrer" bgColor="#FFF" style={{ height: 40, width: 40 }} />
         </div>
       </div>
     </div>
@@ -78,7 +78,7 @@ const Footer = () =>
         </Link>
       </div>
       <div className="column is-one-quarter">
-        <a href="https://www.contentful.com/" target="_blank">
+        <a href="https://www.contentful.com/" target="_blank" rel="noopener noreferrer">
           <img src={require("../img/contenful-light.png")} />
         </a>
       </div>

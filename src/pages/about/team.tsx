@@ -37,7 +37,7 @@ const TeamPageScaffolding = (props) =>
               <h4 className="subtitle is-size-5 has-text-grey-dark">{member.title}</h4>
               <div className="field">
                   { (member.childrenContentfulTeamMemberLinksJsonNode).map ( (link, i) => 
-                    <SocialIcon key={i} url={link.url} target="_blank" bgColor="#0096D7" style={{ height: 40, width: 40 }} />
+                    <SocialIcon key={i} url={link.url} target="_blank" rel="noopener noreferrer" bgColor="#0096D7" style={{ height: 40, width: 40 }} />
                   )}
               </div>
             <p>{member.description.description}</p>
@@ -96,7 +96,7 @@ const TeamPageScaffolding = (props) =>
               { (props.content.otherContributors).map( (contributor, i) =>
               (<p className="has-text-weight-semibold has-text-grey-dark" key={i}>
                 {contributor.link ? 
-                (<a href={contributor.link} target="_blank">{contributor.name}</a>) :
+                (<a href={contributor.link} target="_blank" rel="noopener noreferrer">{contributor.name}</a>) :
                 (<span>{contributor.name}</span>)}
               </p>) ) 
             }
