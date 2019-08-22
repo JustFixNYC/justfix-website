@@ -1,6 +1,7 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import { SocialIcon } from 'react-social-icons';
+import ReadMoreReact from 'read-more-react';
 // import { Link } from 'gatsby'
 
 import '../../styles/team.scss' 
@@ -59,7 +60,7 @@ const TeamPageScaffolding = (props) =>
 
       </section>
 
-      <section className="content-wrapper directors">
+      <section className="content-wrapper tight directors">
 
         { (props.content.directors).map( (director, i) =>
           (<div className="columns" key={i}>
@@ -79,7 +80,11 @@ const TeamPageScaffolding = (props) =>
                   {director.childrenContentfulTeamMemberLinksJsonNode[0].title}
                 </a>
               </h4>
-              <p>{director.description.description}</p>
+                <ReadMoreReact text={(director.description.description)}
+                  min={180}
+                  ideal={250}
+                  max={400}
+                  readMoreText={' Read More'}/>
             </div>
           </div>) )
         }
