@@ -16,7 +16,7 @@ const Footer = () =>
         </Link>
       </div>
       <div className="column is-one-quarter">
-        <p className="has-text-white has-text-weight-bold">WHAT WE DO</p>
+        <p className="link-header has-text-white has-text-weight-bold">WHAT WE DO</p>
         <Link className="link has-text-weight-semibold" to="/#products">
           <p>PRODUCTS & SERVICES</p>
         </Link>
@@ -26,7 +26,7 @@ const Footer = () =>
       </div>
 
       <div className="column is-one-quarter">
-        <p className="has-text-white has-text-weight-bold">ABOUT US</p>
+        <p className="link-header has-text-white has-text-weight-bold">ABOUT US</p>
         <Link className="link has-text-weight-semibold" to="/about/team">
           <p>OUR TEAM</p>
         </Link>
