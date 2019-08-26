@@ -5,6 +5,7 @@ import { Link } from 'gatsby'
 import '../styles/mission.scss' 
 
 import Layout from '../components/layout'
+import ReadMore from '../components/read-more'
 
 const MissionPageScaffolding = (props) => 
   (<Layout>
@@ -110,6 +111,8 @@ const MissionPageScaffolding = (props) =>
         </div>
 
       </section>
+
+      <ReadMore title="our Team" link="/about/team" />
       
     </div>
   </Layout>); 
