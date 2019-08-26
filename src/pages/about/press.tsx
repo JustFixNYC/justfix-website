@@ -56,7 +56,7 @@ const PressPageScaffolding = (props) =>
               dangerouslySetInnerHTML={{ __html: props.content.pressKitBody.childMarkdownRemark.html}} >
             </span>
             <br />
-            <a href={props.content.pressKitButton.link} className="button is-large is-primary is-inverted is-outlined">{props.content.pressKitButton.title}</a>
+            <a href={props.content.pressKitButton.link} className="button is-medium is-primary is-inverted is-outlined">{props.content.pressKitButton.title}</a>
           </div>
         </div>
 

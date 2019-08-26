@@ -14,6 +14,13 @@
     }
 }
 
+/** Make grouped buttons same size */
+.buttons {
+    .button {
+        flex: 1 1 0;
+    }
+}
+
 .button.is-primary:not(.is-outlined):hover {
     background-color: $justfix-blue-lightened;
 } 
@@ -22,8 +29,6 @@
     letter-spacing: 2px;
     transition: 0.3s;
 }
-
-
 
 a.button.is-large {
     font-size: 1.25rem;
@@ -38,6 +43,7 @@ a.button.is-large {
     overflow-wrap: break-word;
 }
 
+/** Navbar Hover Animations */
 .navbar-link.has-text-white, .navbar-item.has-text-white {
 
     &:before {

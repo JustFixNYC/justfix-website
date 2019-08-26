@@ -26,6 +26,9 @@ const Footer = () =>
         <Link className="link has-text-weight-semibold" to="/contact-us">
           <p>CONTACT</p>
         </Link>
+        <a className="link has-text-weight-semibold" href="https://donorbox.org/donate-to-justfix-nyc" target="_blank" rel="noopener noreferrer">
+          <p>DONATE</p>
+        </a>
       </div>
 
       <div className="column is-one-quarter">

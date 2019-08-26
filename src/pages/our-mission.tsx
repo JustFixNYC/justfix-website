@@ -44,11 +44,11 @@ const MissionPageScaffolding = (props) =>
             <div className="buttons is-centered">
               <a href="https://drive.google.com/file/d/1reYIFdVe6vuN6j2Jirw-YCboTIUmcd5L/view" target="_blank" rel="noopener noreferrer"
                 className="button is-medium is-primary is-inverted is-outlined">
-                2017 IMPACT REPORT
+                <span className="is-size-6-mobile">2017 IMPACT REPORT</span>
               </a>
               <a href="https://drive.google.com/file/d/1eolTvUBz7BaSTnR4DoVGGfWdZlpPvKrB/view" target="_blank" rel="noopener noreferrer"
                 className="button is-medium is-primary is-inverted is-outlined">
-                2018 IMPACT REPORT
+                <span className="is-size-6-mobile">2018 IMPACT REPORT</span>
               </a>
             </div>
           </div>
@@ -100,8 +100,12 @@ const MissionPageScaffolding = (props) =>
             <p className="subtitle has-text-weight-medium">
             We are currently seeking partnerships and further collaboration with any groups or individuals dedicated to tenant’s rights in New York City. Please contact us you are interested in discussing further or would like a demonstration.
             </p>
-              <br/>
-            <Link to="/contact-us" className="button is-large is-primary is-inverted is-outlined">CONTACT US</Link>
+            <div className="buttons is-centered">
+              <Link to="/contact-us" className="button is-medium is-primary is-inverted is-outlined">CONTACT US</Link>
+              <a href="https://donorbox.org/donate-to-justfix-nyc" className="button is-medium is-primary is-inverted is-outlined"  target="_blank" rel="noopener noreferrer">
+                DONATE
+              </a>
+            </div>
           </div>
         </div>
 
