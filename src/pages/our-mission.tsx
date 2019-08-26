@@ -112,7 +112,7 @@ const MissionPageScaffolding = (props) =>
 
       </section>
 
-      <ReadMore title="our Team" link="/about/team" />
+      <ReadMore title="Meet our Team." link="/about/team" />
       
     </div>
   </Layout>); 
