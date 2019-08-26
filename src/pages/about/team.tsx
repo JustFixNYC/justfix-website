@@ -7,6 +7,7 @@ import ReadMoreReact from 'read-more-react';
 import '../../styles/team.scss' 
 
 import Layout from '../../components/layout'
+import ReadMore from '../../components/read-more'
 
 const TeamPageScaffolding = (props) => 
   (<Layout>
@@ -109,6 +110,8 @@ const TeamPageScaffolding = (props) =>
         </div>
 
       </section>
+
+      <ReadMore title="View our products." link="/#products" />
 
     </div>
     

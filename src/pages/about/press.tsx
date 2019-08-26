@@ -5,6 +5,8 @@ import { StaticQuery, graphql } from 'gatsby'
 import '../../styles/press.scss' 
 
 import Layout from '../../components/layout'
+import ReadMore from '../../components/read-more'
+
 const PressPageScaffolding = (props) => 
   (<Layout>
 
@@ -61,6 +63,8 @@ const PressPageScaffolding = (props) =>
         </div>
 
       </section>
+
+      <ReadMore title="Contact us." link="/contact-us" />
 
     </div>
 
