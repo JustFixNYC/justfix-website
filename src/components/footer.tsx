@@ -20,6 +20,9 @@ const Footer = () =>
         <Link className="link has-text-weight-semibold" to="/#products">
           <p>PRODUCTS & SERVICES</p>
         </Link>
+        <Link className="link has-text-weight-semibold" to="/our-mission">
+          <p>OUR MISSION</p>
+        </Link>
         <Link className="link has-text-weight-semibold" to="/contact-us">
           <p>CONTACT</p>
         </Link>
