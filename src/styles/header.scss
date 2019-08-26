@@ -14,7 +14,9 @@
     }
     .navbar-dropdown {
         .navbar-item:hover {
-            font-weight: 500;
+            font-weight: 600;
+            transition: 0.1s;
+            background-color: white;
         }
     }
 }
