@@ -1,3 +1,5 @@
+@import "_vars.scss";
+
 // BULMA OVERRIDES
 
 .hero.is-small {
@@ -13,7 +15,7 @@
 }
 
 .button.is-primary:not(.is-outlined):hover {
-    opacity: 0.5;
+    background-color: $justfix-blue-lightened;
 } 
 
 .button, .social-icon, .navbar-link, .navbar-item, .link, .link-header {
