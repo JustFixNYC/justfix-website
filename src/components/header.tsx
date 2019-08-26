@@ -65,6 +65,10 @@ render() {
           </div>
         </div>
 
+        <Link to="/our-mission" className={"navbar-item has-text-" + (this.state.burgerMenuIsOpen ? "black" : "white")}>
+          MISSION
+        </Link>
+
         <Link to="/contact-us" className={"navbar-item has-text-" + (this.state.burgerMenuIsOpen ? "black" : "white")}>
           CONTACT
         </Link>
