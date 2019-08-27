@@ -1,6 +1,7 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import AnchorLink from 'react-anchor-link-smooth-scroll'
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 // import { Link } from 'gatsby'
 
 import '../styles/index.scss' 
@@ -101,8 +102,8 @@ const LandingPageScaffolding = (props) =>
       <section className="hero is-small is-primary" id="rental-history">
         <div className="content-wrapper">
           <div className="hero-body has-text-centered is-horizontal-center">
-            <h3 className="title is-spaced">Want your apartment’s Rental History?</h3>
-            <p className="subtitle has-text-weight-medium">This can help you find out if you are being overcharged on rent. Text <span className="has-text-weight-bold">“RENT HISTORY”</span> to (646) 783-0627 and get your Rental History from the DHCR in the mail — <i>¡Tambien disponible in Español!</i></p>
+            <h3 className="title is-spaced">{props.content.rentHistory.title}</h3>
+            <p className="subtitle has-text-weight-medium">{documentToReactComponents(props.content.rentHistory.description.json)}</p>
           </div>
         </div>
       </section>
@@ -173,6 +174,12 @@ const LandingPage  = () => (
               file {
                 url
               }
+            }
+          }
+          rentHistory {
+            title
+            description {
+              json
             }
           }
           videoUnit {
