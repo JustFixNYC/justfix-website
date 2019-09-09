@@ -8,7 +8,7 @@ import Layout from '../../components/layout'
 import ReadMore from '../../components/read-more'
 
 const PressPageScaffolding = (props) => 
-  (<Layout>
+  (<Layout metadata={props.content.metadata}>
 
     <div id="press" className="press-page">
 
@@ -76,6 +76,18 @@ const PressPage  = () => (
     query={graphql`
       query {
         contentfulPressPage {
+          metadata {
+            title
+            description
+            keywords { 
+              keywords 
+            }
+            shareImage {
+              file {
+                url
+              }
+            }
+          }
           title
           pressItems {
             title

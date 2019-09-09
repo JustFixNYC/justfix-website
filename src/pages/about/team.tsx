@@ -10,7 +10,7 @@ import Layout from '../../components/layout'
 import ReadMore from '../../components/read-more'
 
 const TeamPageScaffolding = (props) => 
-  (<Layout>
+  (<Layout metadata={props.content.metadata}>
 
     <div id="team" className="team-page">
 
@@ -123,6 +123,18 @@ const TeamPage  = () => (
     query={graphql`
       query {
         contentfulTeamPage {
+          metadata {
+            title
+            description
+            keywords { 
+              keywords 
+            }
+            shareImage {
+              file {
+                url
+              }
+            }
+          }
           title
           teamMembers {
             name

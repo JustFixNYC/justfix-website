@@ -2,7 +2,7 @@ import React from 'react'
 import Layout from '../components/layout'
 
 const NotFoundPage = () => (
-  <Layout>
+  <Layout metadata={{title:"Page Not Found"}}>
     <section className="hero is-large has-background-info">
       <div className="hero-body has-text-centered">
         <h1 className="title has-text-danger">NOT FOUND</h1>
