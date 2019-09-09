@@ -13,21 +13,17 @@ const SITE_MAIN_URL = 'https://www.justfix.nyc';
 // import './layout.css'
 
 type Props = {
-  metadata?: any
-  children: React.ReactNode,
-  isLandingPage?: boolean
-}
-
-type InternalProps = {
-  metadata?: any,
-  children: React.ReactNode,
-  defaultContent: {
-    metadata: InternalProps["metadata"]
+  metadata?: {
+    [key: string]: any;
   },
+  defaultContent?: {
+    metadata: Props["metadata"]
+  },
+  children: React.ReactNode,
   isLandingPage?: boolean
 }
 
-const LayoutScaffolding = ({ metadata, children, isLandingPage, defaultContent }: InternalProps) => {
+const LayoutScaffolding = ({ metadata, children, isLandingPage, defaultContent }: Props) => {
 
   const title = (metadata && (metadata.title + SITE_TITLE_SUFFIX)) || defaultContent.metadata.title;
   const description = (metadata && metadata.description) || defaultContent.metadata.description;
