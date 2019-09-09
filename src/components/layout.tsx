@@ -23,6 +23,7 @@ type Props = {
   isLandingPage?: boolean
 }
 
+/** Component checks for custom metadata attributes, and then uses the default homepage values as a fallback */
 const LayoutScaffolding = ({ metadata, children, isLandingPage, defaultContent }: Props) => {
 
   const title = (metadata && (metadata.title + SITE_TITLE_SUFFIX)) || defaultContent.metadata.title;
@@ -37,22 +38,22 @@ const LayoutScaffolding = ({ metadata, children, isLandingPage, defaultContent }
       <Helmet
         title={title}
         meta={[
-          { name: 'description', content: `${description}` },
-          { name: 'keywords', content: `${keywords}` },
+          { name: 'description', content: description },
+          { name: 'keywords', content: keywords },
 
-          { name: 'og:site_name', content: `${title}` },
-          { name: 'og:title', content: `${title}` },
-          { name: 'og:description', content: `${description}`},
-          { name: 'og:image', content: `${shareImageURL}`},
+          { name: 'og:site_name', content: title },
+          { name: 'og:title', content: title },
+          { name: 'og:description', content: description},
+          { name: 'og:image', content: shareImageURL},
           { name: 'og:type', content: 'website'},
 
           { name: 'twitter:card', content: 'summary_large_image'},
           { name: 'twitter:site', content: TWITTER_HANDLE },
           { name: 'twitter:creator', content: TWITTER_HANDLE },
-          { name: 'twitter:title', content: `${title}`},
-          { name: 'twitter:description', content: `${description}`},
+          { name: 'twitter:title', content: title},
+          { name: 'twitter:description', content: description},
           { name: 'twitter:url', content: SITE_MAIN_URL},
-          { name: 'twitter:image', content: `${shareImageURL}` }
+          { name: 'twitter:image', content: shareImageURL }
         ]}>
         <html lang="en" />
       </Helmet>
