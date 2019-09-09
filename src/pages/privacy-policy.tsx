@@ -5,7 +5,7 @@ import Layout from '../components/layout'
 
 
 const PrivacyPolicyPageScaffolding = (props) => 
-  (<Layout>
+  (<Layout metadata={{title:"Privacy Policy"}}>
     <div id="privacy-policy" className="privacy-policy-page content-wrapper tight section">
         <div className="content" dangerouslySetInnerHTML={{ __html: props.content.pageContent.childMarkdownRemark.html}} />
     </div>

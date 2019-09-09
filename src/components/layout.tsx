@@ -1,47 +1,106 @@
 import React from 'react'
 import Helmet from 'react-helmet'
+
 import { StaticQuery, graphql } from 'gatsby'
 
 import Header from './header'
 import Footer from './footer'
 
+const favicon16 =  require("../img/brand/favicon-16x16.png");
+const favicon32 =  require("../img/brand/favicon-32x32.png");
+const favicon96 =  require("../img/brand/favicon-96x96.png");
+
+const SITE_TITLE_SUFFIX = ' | JustFix.nyc';
+const TWITTER_HANDLE = '@JustFixNYC';
+const SITE_MAIN_URL = 'https://www.justfix.nyc';
+
 // import './layout.css'
 
 type Props = {
+  metadata?: {
+    [key: string]: any;
+  },
+  defaultContent?: {
+    metadata: Props["metadata"]
+  },
   children: React.ReactNode,
   isLandingPage?: boolean
 }
 
-const Layout = ({ children, isLandingPage }: Props) => (
+/** Component checks for custom metadata attributes, and then uses the default homepage values as a fallback */
+const LayoutScaffolding = ({ metadata, children, isLandingPage, defaultContent }: Props) => {
+
+  const title = (metadata && (metadata.title + SITE_TITLE_SUFFIX)) || defaultContent.metadata.title;
+  const description = (metadata && metadata.description) || defaultContent.metadata.description;
+  const keywords = (metadata && metadata.keywords && metadata.keywords.keywords) || defaultContent.metadata.keywords.keywords;
+  const shareImageURL = (metadata && metadata.shareImage && metadata.shareImage.file &&
+    metadata.shareImage.file.url) || defaultContent.metadata.shareImage.file.url;
+  
+
+  return (
+    <>
+      <Helmet
+        title={title}
+        link={[
+          { rel: 'icon', type: 'image/png', sizes: "16x16", href: `${favicon16}` },
+          { rel: 'icon', type: 'image/png', sizes: "32x32", href: `${favicon32}` },
+          { rel: 'shortcut icon', type: 'image/png', href: `${favicon96}` },
+        ]}
+        meta={[
+          { name: 'description', content: description },
+          { name: 'keywords', content: keywords },
+
+          { name: 'og:site_name', content: title },
+          { name: 'og:title', content: title },
+          { name: 'og:description', content: description},
+          { name: 'og:image', content: shareImageURL},
+          { name: 'og:type', content: 'website'},
+
+          { name: 'twitter:card', content: 'summary_large_image'},
+          { name: 'twitter:site', content: TWITTER_HANDLE },
+          { name: 'twitter:creator', content: TWITTER_HANDLE },
+          { name: 'twitter:title', content: title},
+          { name: 'twitter:description', content: description},
+          { name: 'twitter:url', content: SITE_MAIN_URL},
+          { name: 'twitter:image', content: shareImageURL }
+        ]}>
+        <html lang="en" />
+      </Helmet>
+      <Header isLandingPage={isLandingPage} />
+      <div>
+        {children}
+      </div>
+      <Footer />
+    </>
+    );
+};
+
+const Layout = ({metadata, children, isLandingPage}: Props) => (
   <StaticQuery
-    query={graphql`
-      query SiteTitleQuery {
-        site {
-          siteMetadata {
-            title
+      query={graphql`
+        query {
+          contentfulHomePage {
+            metadata {
+              title
+              description
+              keywords { 
+                keywords 
+              }
+              shareImage {
+                file {
+                  url
+                }
+              }
+            }
           }
         }
-      }
-    `}
-    render={data => (
-      <>
-        <Helmet
-          title={data.site.siteMetadata.title}
-          meta={[
-            { name: 'description', content: 'Sample' },
-            { name: 'keywords', content: 'sample, something' },
-          ]}
-        >
-          <html lang="en" />
-        </Helmet>
-        <Header siteTitle={data.site.siteMetadata.title} isLandingPage={isLandingPage} />
-        <div>
-          {children}
-        </div>
-        <Footer />
-      </>
-    )}
-  />
-)
+      `}
+    render = {data => (<LayoutScaffolding 
+      metadata={metadata}
+      defaultContent={data.contentfulHomePage}
+      children={children} 
+      isLandingPage = {isLandingPage}/>)}
+    />
+  );
 
 export default Layout

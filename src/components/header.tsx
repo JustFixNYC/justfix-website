@@ -4,7 +4,6 @@ import { Link } from 'gatsby'
 import '../styles/header.scss' 
 
 type Props = {
-  siteTitle: string,
   isLandingPage?: boolean,
 }
 
