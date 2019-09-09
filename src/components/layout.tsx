@@ -6,6 +6,10 @@ import { StaticQuery, graphql } from 'gatsby'
 import Header from './header'
 import Footer from './footer'
 
+const favicon16 =  require("../img/brand/favicon-16x16.png");
+const favicon32 =  require("../img/brand/favicon-32x32.png");
+const favicon96 =  require("../img/brand/favicon-96x96.png");
+
 const SITE_TITLE_SUFFIX = ' | JustFix.nyc';
 const TWITTER_HANDLE = '@JustFixNYC';
 const SITE_MAIN_URL = 'https://www.justfix.nyc';
@@ -37,6 +41,11 @@ const LayoutScaffolding = ({ metadata, children, isLandingPage, defaultContent }
     <>
       <Helmet
         title={title}
+        link={[
+          { rel: 'icon', type: 'image/png', sizes: "16x16", href: `${favicon16}` },
+          { rel: 'icon', type: 'image/png', sizes: "32x32", href: `${favicon32}` },
+          { rel: 'shortcut icon', type: 'image/png', href: `${favicon96}` },
+        ]}
         meta={[
           { name: 'description', content: description },
           { name: 'keywords', content: keywords },
