@@ -8,7 +8,7 @@ import Layout from '../components/layout'
 import ReadMore from '../components/read-more'
 
 const MissionPageScaffolding = (props) => 
-  (<Layout>
+  (<Layout metadata={props.content.metadata}>
     <div id="mission" className="mission-page" >
 
       <section className="hero is-small is-white">
@@ -122,6 +122,18 @@ const MissionPage  = () => (
     query={graphql`
       query {
         contentfulMissionPage {
+          metadata {
+            title
+            description
+            keywords { 
+              keywords 
+            }
+            shareImage {
+              file {
+                url
+              }
+            }
+          }
           title
           briefDescription
           problemBlock {
