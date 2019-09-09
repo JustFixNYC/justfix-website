@@ -5,7 +5,7 @@ import Layout from '../components/layout'
 
 
 const TermsOfUsePageScaffolding = (props) => 
-  (<Layout title="Terms of Use">
+  (<Layout metadata={{title:"Terms of Use"}}>
     <div id="terms-of-use" className="terms-of-use-page content-wrapper tight section">
         <div className="content" dangerouslySetInnerHTML={{ __html: props.content.pageContent.childMarkdownRemark.html}} />
     </div>
