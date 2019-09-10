@@ -38,5 +38,16 @@ module.exports = {
       resolve: `gatsby-plugin-emotion`,
     },
     `gatsby-plugin-client-side-redirect`,
+    {
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      options: {
+        fonts: [
+          {
+            family: `Open Sans`,
+            variants: [`400`,`400i`,`600`,`700`]
+          },
+        ],
+      },
+    }
   ],
 }
