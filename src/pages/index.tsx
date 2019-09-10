@@ -103,7 +103,7 @@ const LandingPageScaffolding = (props) =>
         <div className="content-wrapper">
           <div className="hero-body has-text-centered is-horizontal-center">
             <h3 className="title is-spaced">{props.content.rentHistory.title}</h3>
-            <p className="subtitle has-text-weight-medium">{documentToReactComponents(props.content.rentHistory.description.json)}</p>
+            <span className="subtitle has-text-weight-medium">{documentToReactComponents(props.content.rentHistory.description.json)}</span>
           </div>
         </div>
       </section>
