@@ -36,21 +36,19 @@ const MissionPageScaffolding = (props) =>
         <div className="hero-body has-text-centered is-horizontal-center">
           <div className="container">
             <h1 className="title is-size-4 has-text-weight-bold is-spaced">
-            Read about our Impact
+            {props.content.impactTitle}
             </h1>
             <span className="subtitle has-text-weight-medium">
-            We've served over 10,000 people since 2015! Check out our yearly Annual Impact Reports to learn more about our impact and hear stories from the tenants we serve.
+            {props.content.impactSubtitle}
             </span>
             <br />
             <div className="buttons is-centered">
-              <a href="https://drive.google.com/file/d/1reYIFdVe6vuN6j2Jirw-YCboTIUmcd5L/view" target="_blank" rel="noopener noreferrer"
-                className="button is-medium is-primary is-inverted is-outlined">
-                <span className="is-size-6-mobile">2017 IMPACT REPORT</span>
-              </a>
-              <a href="https://drive.google.com/file/d/1eolTvUBz7BaSTnR4DoVGGfWdZlpPvKrB/view" target="_blank" rel="noopener noreferrer"
-                className="button is-medium is-primary is-inverted is-outlined">
-                <span className="is-size-6-mobile">2018 IMPACT REPORT</span>
-              </a>
+              { (props.content.impactReportButtons).map( (button, i) => 
+                (<a href={button.link} target="_blank" rel="noopener noreferrer"
+                  className="button is-medium is-primary is-inverted is-outlined">
+                  <span className="is-size-6-mobile">{button.title}</span>
+                </a>)
+              )}
             </div>
           </div>
         </div>
@@ -96,7 +94,7 @@ const MissionPageScaffolding = (props) =>
         <div className="hero-body has-text-centered is-horizontal-center">
           <div className="container">
             <h1 className="title is-size-4 has-text-weight-bold is-spaced">
-              Interested in collaborating with JustFix.nyc?
+            Interested in collaborating with JustFix.nyc?
             </h1>
             <p className="subtitle has-text-weight-medium">
             We are currently seeking partnerships and further collaboration with any groups or individuals dedicated to tenant’s rights in New York City. Please contact us you are interested in discussing further or would like a demonstration.
@@ -140,6 +138,12 @@ const MissionPage  = () => (
             childMarkdownRemark {
               html
             }
+          }
+          impactTitle
+          impactSubtitle
+          impactReportButtons {
+            title
+            link
           }
           serveBlock {
             childMarkdownRemark {
