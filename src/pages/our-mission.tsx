@@ -94,10 +94,10 @@ const MissionPageScaffolding = (props) =>
         <div className="hero-body has-text-centered is-horizontal-center">
           <div className="container">
             <h1 className="title is-size-4 has-text-weight-bold is-spaced">
-            Interested in collaborating with JustFix.nyc?
+              {props.content.collaborationBanner.title}
             </h1>
             <p className="subtitle has-text-weight-medium">
-            We are currently seeking partnerships and further collaboration with any groups or individuals dedicated to tenant’s rights in New York City. Please contact us you are interested in discussing further or would like a demonstration.
+              {props.content.collaborationBanner.subtitle}
             </p>
             <div className="buttons is-centered">
               <Link to="/contact-us" className="button is-medium is-primary is-inverted is-outlined">CONTACT US</Link>
@@ -173,10 +173,9 @@ const MissionPage  = () => (
             }
             iconDescription 
           }
-          collaborationBlock {
-            childMarkdownRemark {
-              html
-            }
+          collaborationBanner {
+            title
+            subtitle
           }
         }
       }

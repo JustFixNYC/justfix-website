@@ -1,6 +1,16 @@
 .partners-page {
-    .hero-body {
-        max-width: 720px;
+    .hero {
+        .hero-body {
+            max-width: 720px;
+
+            .buttons.is-centered {
+                margin-top: 1.5rem;
+
+                .button {
+                    margin: 0.75rem;
+                }
+            }
+        }
     }
     .logos {
         padding-bottom: 3rem;
