@@ -1,6 +1,7 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import { SocialIcon } from 'react-social-icons';
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 // import { Link } from 'gatsby'
 
 import '../styles/contact.scss' 
@@ -18,11 +19,11 @@ const ContactPageScaffolding = (props) =>
           <div className="container">
 
             <h1 className="title is-size-2 has-text-grey-dark has-text-weight-normal is-spaced">
-            {props.content.pageTitle}
+              {props.content.pageTitle}
             </h1>
-            <p className="is-size-5 has-text-grey-dark">
-            Send us an email at <a href={ props.content.contactMethods[0].url } target="_blank" rel="noopener noreferrer">{props.content.contactMethods[0].content}</a>
-            </p>
+            <span className="is-size-5 has-text-grey-dark">
+              {documentToReactComponents(props.content.contactCta.json)}
+            </span>
 
             <div className="field">
               { (props.content.socialButtons).map( (button, i) =>
@@ -31,10 +32,10 @@ const ContactPageScaffolding = (props) =>
             </div>
 
             <h1 className="title is-size-4 has-text-grey-dark is-spaced ">
-              Join our mailing list!
+              {props.content.mailingListTitle}
             </h1>
             <span className="subtitle has-text-grey-dark">
-              We're continuously building new tools and working with our partners. Join our mailing list for updates and announcements!
+              {props.content.mailingListSubtitle}
             </span>
 
             <form action={MAILCHIMP_URL} className="email-form is-horizontal-center" method="post" target="_blank">
@@ -77,17 +78,12 @@ const ContactPage  = () => (
               }
             }
           }
-          pageTitle 
-          contactMethods {
-            url
-            content
-            title
+          pageTitle
+          contactCta {
+            json
           }
-          mailingList {
-            childMarkdownRemark {
-              html
-            }
-          }
+          mailingListTitle 
+          mailingListSubtitle
           socialButtons {
             title
             url

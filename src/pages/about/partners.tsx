@@ -68,13 +68,18 @@ const PartnersPageScaffolding = (props) =>
 
         <div className="hero-body has-text-centered is-horizontal-center">
           <div className="container">
-            <h1 className="title is-size-4 has-text-grey-dark has-text-weight-bold is-spaced"> {/* REPLACE WITH CONTENTFUL */}
-            Interested in collaborating with JustFix.nyc?
+            <h1 className="title is-size-4 has-text-grey-dark has-text-weight-bold is-spaced">
+              {props.content.collaborationBanner.title}
             </h1>
-            <h6 className="subtitle has-text-grey-dark"> {/* REPLACE WITH CONTENTFUL */}
-            We are currently seeking partnerships and further collaboration with any groups or individuals dedicated to tenant’s rights in New York City. Please contact us you are interested in discussing further or would like a demonstration.
+            <h6 className="subtitle has-text-grey-dark">
+              {props.content.collaborationBanner.subtitle}
             </h6>
-            <Link to="/contact-us" className="button is-large is-primary">{props.content.contactButton.title}</Link>
+            <div className="buttons is-centered">
+              <Link to="/contact-us" className="button is-medium is-primary">CONTACT US</Link>
+              <a href="https://donorbox.org/donate-to-justfix-nyc" className="button is-medium is-primary"  target="_blank" rel="noopener noreferrer">
+                DONATE
+              </a>
+            </div>
           </div>
         </div>
 
@@ -124,11 +129,9 @@ const PartnersPage  = () => (
               }
             }
           }
-          contactButton {
+          collaborationBanner {
             title
-          }
-          donateButton {
-            title
+            subtitle
           }
         }
       }
