@@ -7,10 +7,14 @@
 
 .home-page {
     
-    .landing-image {
+    .landing-image.hero.is-fullheight {
         background-image: url(https://degy28l8twq8c.cloudfront.net/brownstones.jpg);
         background-size: cover;
         background-position: center; 
+
+        .hero-body {
+            min-height: 100vh;
+        }
 
         .title {
             text-shadow: 0 2px 4px rgba(0,0,0,.5);
