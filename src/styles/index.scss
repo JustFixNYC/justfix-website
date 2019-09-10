@@ -7,9 +7,6 @@
 
 .home-page {
     
-    .container {
-        max-width: 720px;
-    }
     .landing-image {
         background-image: url(https://degy28l8twq8c.cloudfront.net/brownstones.jpg);
         background-size: cover;
@@ -40,11 +37,6 @@
         }
         .container {
             padding: 0 1.5rem 1.5rem 1.5rem;
-        }
-    }
-    #rental-history {
-        .hero-body {
-            max-width: 720px;
         }
     }
     #as-seen-in {

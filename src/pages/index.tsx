@@ -14,7 +14,7 @@ const LandingPageScaffolding = (props) =>
 
       <section className="landing-image hero is-fullheight">
           <div className="hero-body has-text-centered">
-            <div className="container">
+            <div className="container content-wrapper tight">
               <h1 className="title is-size-1 is-size-3-mobile has-text-white is-spaced">
                 {props.content.heroCopy.heroCopy}
               </h1>
@@ -34,7 +34,7 @@ const LandingPageScaffolding = (props) =>
 
           <div className="hero is-small is-white">
             <div className="hero-body has-text-centered">
-              <div className="container">
+              <div className="container content-wrapper tight">
                 <h1 className="title is-size-2 has-text-grey-dark has-text-weight-normal">
                 Our Products & Services
                 </h1>
@@ -100,7 +100,7 @@ const LandingPageScaffolding = (props) =>
       </section>
 
       <section className="hero is-small is-primary" id="rental-history">
-        <div className="content-wrapper">
+        <div className="content-wrapper tight">
           <div className="hero-body has-text-centered is-horizontal-center">
             <h3 className="title is-spaced">{props.content.rentHistory.title}</h3>
             <span className="subtitle has-text-weight-medium">{documentToReactComponents(props.content.rentHistory.description.json)}</span>

@@ -13,6 +13,7 @@
         }
     }
     .navbar-dropdown {
+        min-width: 180px;
         .navbar-item:hover {
             font-weight: 600;
             transition: 0.1s;
