@@ -13,6 +13,7 @@ const favicon96 =  require("../img/brand/favicon-96x96.png");
 const SITE_TITLE_SUFFIX = ' | JustFix.nyc';
 const TWITTER_HANDLE = '@JustFixNYC';
 const SITE_MAIN_URL = 'https://www.justfix.nyc';
+const FB_APP_ID = "247990609143668";
 
 // import './layout.css'
 
@@ -50,11 +51,12 @@ const LayoutScaffolding = ({ metadata, children, isLandingPage, defaultContent }
           { name: 'description', content: description },
           { name: 'keywords', content: keywords },
 
-          { name: 'og:site_name', content: title },
-          { name: 'og:title', content: title },
-          { name: 'og:description', content: description},
-          { name: 'og:image', content: shareImageURL},
-          { name: 'og:type', content: 'website'},
+          { property: 'og:site_name', content: title },
+          { property: 'og:title', content: title },
+          { property: 'og:description', content: description},
+          { property: 'og:image', content: shareImageURL},
+          { property: 'og:type', content: 'website'},
+          { property: 'fb:app_id', content: FB_APP_ID},
 
           { name: 'twitter:card', content: 'summary_large_image'},
           { name: 'twitter:site', content: TWITTER_HANDLE },
