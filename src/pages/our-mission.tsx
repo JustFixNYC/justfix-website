@@ -138,7 +138,6 @@ const MissionPage  = () => (
           title
           briefDescription
           videoUrl
-          videoCaption
           problemBlock {
             childMarkdownRemark {
               html
