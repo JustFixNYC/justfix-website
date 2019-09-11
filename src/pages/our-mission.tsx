@@ -24,6 +24,12 @@ const MissionPageScaffolding = (props) =>
         </div>
       </section>
 
+      <section className="content-wrapper video tight">
+          <figure className="image is-16by9">
+            <iframe className="has-ratio" allowFullScreen={true} src={props.content.videoUrl} />
+          </figure>
+      </section>
+
       <section className="hero problem is-medium is-white">
         <div className="hero-body is-horizontal-center">
           <div className="content has-text-grey-dark" dangerouslySetInnerHTML = {{ __html: props.content.problemBlock.childMarkdownRemark.html}}>
@@ -36,21 +42,19 @@ const MissionPageScaffolding = (props) =>
         <div className="hero-body has-text-centered is-horizontal-center">
           <div className="container">
             <h1 className="title is-size-4 has-text-weight-bold is-spaced">
-            Read about our Impact
+            {props.content.impactTitle}
             </h1>
             <span className="subtitle has-text-weight-medium">
-            We've served over 10,000 people since 2015! Check out our yearly Annual Impact Reports to learn more about our impact and hear stories from the tenants we serve.
+            {props.content.impactSubtitle}
             </span>
             <br />
             <div className="buttons is-centered">
-              <a href="https://drive.google.com/file/d/1reYIFdVe6vuN6j2Jirw-YCboTIUmcd5L/view" target="_blank" rel="noopener noreferrer"
-                className="button is-medium is-primary is-inverted is-outlined">
-                <span className="is-size-6-mobile">2017 IMPACT REPORT</span>
-              </a>
-              <a href="https://drive.google.com/file/d/1eolTvUBz7BaSTnR4DoVGGfWdZlpPvKrB/view" target="_blank" rel="noopener noreferrer"
-                className="button is-medium is-primary is-inverted is-outlined">
-                <span className="is-size-6-mobile">2018 IMPACT REPORT</span>
-              </a>
+              { (props.content.impactReportButtons).map( (button, i) => 
+                (<a href={button.link} target="_blank" rel="noopener noreferrer" key={i}
+                  className="button is-medium is-primary is-inverted is-outlined">
+                  <span className="is-size-6-mobile">{button.title}</span>
+                </a>)
+              )}
             </div>
           </div>
         </div>
@@ -72,9 +76,7 @@ const MissionPageScaffolding = (props) =>
 
         <div className="hero-body is-horizontal-center">
           <div className="container">
-            <h1 className="title is-size-2 has-text-centered has-text-grey-dark has-text-weight-normal is-spaced">
-              Our Approach
-            </h1>
+            <div className="content has-text-grey-dark" dangerouslySetInnerHTML = {{ __html: props.content.approachBlock.childMarkdownRemark.html}} />
             <div className="columns">
             { (props.content.approachBreakIcon).map( (icon, i) =>
               <div className="column is-one-third has-text-centered " key={i}>
@@ -85,7 +87,6 @@ const MissionPageScaffolding = (props) =>
                 <h4 className="title is-size-6 has-text-grey-dark">{icon.iconDescription}</h4>
               </div>) }
             </div>
-            <div className="content has-text-grey-dark" dangerouslySetInnerHTML = {{ __html: props.content.approachBlock.childMarkdownRemark.html}} />
           </div>
         </div>
 
@@ -96,10 +97,10 @@ const MissionPageScaffolding = (props) =>
         <div className="hero-body has-text-centered is-horizontal-center">
           <div className="container">
             <h1 className="title is-size-4 has-text-weight-bold is-spaced">
-              Interested in collaborating with JustFix.nyc?
+              {props.content.collaborationBanner.title}
             </h1>
             <p className="subtitle has-text-weight-medium">
-            We are currently seeking partnerships and further collaboration with any groups or individuals dedicated to tenant’s rights in New York City. Please contact us you are interested in discussing further or would like a demonstration.
+              {props.content.collaborationBanner.subtitle}
             </p>
             <div className="buttons is-centered">
               <Link to="/contact-us" className="button is-medium is-primary is-inverted is-outlined">CONTACT US</Link>
@@ -136,10 +137,17 @@ const MissionPage  = () => (
           }
           title
           briefDescription
+          videoUrl
           problemBlock {
             childMarkdownRemark {
               html
             }
+          }
+          impactTitle
+          impactSubtitle
+          impactReportButtons {
+            title
+            link
           }
           serveBlock {
             childMarkdownRemark {
@@ -169,10 +177,9 @@ const MissionPage  = () => (
             }
             iconDescription 
           }
-          collaborationBlock {
-            childMarkdownRemark {
-              html
-            }
+          collaborationBanner {
+            title
+            subtitle
           }
         }
       }

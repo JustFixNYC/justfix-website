@@ -1,12 +1,23 @@
 .mission-page {
     .hero {
-        &:nth-child(2) {
+        &.problem {
             .hero-body {
-                padding-top: 4rem;
+                padding-top: 5rem;
             }
+        }
+
+        &.image {
+            min-height: 400px;
+            background-size: cover;
+            background-position: center; 
+        }
+
+        &.impact {
+            padding: 4rem 0;
         }
     
         .hero-body {
+            width: 100%;
             max-width: 720px;
 
             .buttons.is-centered {
@@ -40,13 +51,5 @@
     }
     p {
         font-size: 1.25rem;
-    }
-    .hero.image {
-        background-size: cover;
-        background-position: center; 
-    }
-
-    .hero.impact {
-        padding: 4rem 0;
     }
 }

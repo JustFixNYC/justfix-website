@@ -13,10 +13,19 @@
         }
     }
     .navbar-dropdown {
+        min-width: 180px;
         .navbar-item:hover {
             font-weight: 600;
             transition: 0.1s;
             background-color: white;
         }
+    }
+
+    /** Patch for IE Bug with bulma navbar class */
+    .navbar-item.is-hoverable:hover .navbar-dropdown {
+        display: block;
+    }
+    .button {
+        min-width: 120px;
     }
 }

@@ -14,7 +14,7 @@ const LandingPageScaffolding = (props) =>
 
       <section className="landing-image hero is-fullheight">
           <div className="hero-body has-text-centered">
-            <div className="container">
+            <div className="container content-wrapper tight">
               <h1 className="title is-size-1 is-size-3-mobile has-text-white is-spaced">
                 {props.content.heroCopy.heroCopy}
               </h1>
@@ -23,7 +23,9 @@ const LandingPageScaffolding = (props) =>
               </h2>
               <br/>
               <AnchorLink href="#products" className="button is-large is-dark is-inverted is-outlined">
-                LEARN MORE
+                <span className="is-uppercase">
+                  {props.content.heroCta}
+                </span>
               </AnchorLink>
             </div>
           </div>
@@ -34,9 +36,9 @@ const LandingPageScaffolding = (props) =>
 
           <div className="hero is-small is-white">
             <div className="hero-body has-text-centered">
-              <div className="container">
+              <div className="container content-wrapper tight">
                 <h1 className="title is-size-2 has-text-grey-dark has-text-weight-normal">
-                Our Products & Services
+                  {props.content.productSectionTitle}
                 </h1>
               </div>
             </div>
@@ -100,34 +102,13 @@ const LandingPageScaffolding = (props) =>
       </section>
 
       <section className="hero is-small is-primary" id="rental-history">
-        <div className="content-wrapper">
+        <div className="content-wrapper tight">
           <div className="hero-body has-text-centered is-horizontal-center">
             <h3 className="title is-spaced">{props.content.rentHistory.title}</h3>
-            <p className="subtitle has-text-weight-medium">{documentToReactComponents(props.content.rentHistory.description.json)}</p>
+            <span className="subtitle has-text-weight-medium">{documentToReactComponents(props.content.rentHistory.description.json)}</span>
           </div>
         </div>
       </section>
-
-      {/* <section className="video_unit padding-section-reduced gray_bg">
-        <div className="container">
-          <div className="row">
-            <div className="col-sm-12">
-              <h1 className="video_unit-title">{props.content.videoUnit.title}</h1>
-            </div>
-          </div>
-          <div className="row align_items_end-sm">
-            <div className="col-sm-8">
-              <div className="video_wrapper_16_9">
-                <iframe className="video_wrapper_16_9-video" src="https://www.youtube.com/embed/QsRq3OWNkgY?rel=0&amp&autoplay=0&playsinline=1&modestbranding=1;showinfo=0" allow="autoplay; encrypted-media"></iframe>
-              </div>
-            </div>
-            <div className="col-sm-4">
-              <p className="video_unit-caption">{props.content.videoUnit.caption.caption}</p>
-              <a ui-sref="mission" className="btn btn-outline black video_unit-button">READ OUR MISSION</a>
-            </div>
-          </div>
-        </div>
-      </section> */}
 
       <section id="as-seen-in">
         <div className="content-wrapper">
@@ -163,6 +144,8 @@ const LandingPage  = () => (
           subCopy {
             subCopy
           }
+          heroCta
+          productSectionTitle
           homePageProductBlocks {
             title
             description

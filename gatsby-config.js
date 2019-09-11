@@ -47,6 +47,25 @@ module.exports = {
         trackingId: "UA-67069242-1",
       },
     },
+    {
+      resolve: "gatsby-plugin-rollbar",
+      options: {
+        accessToken: "61296a1fcbc94b408bf1c1e71a851794",
+        // For all configuration options, see https://docs.rollbar.com/v1.0.0/docs/rollbarjs-configuration-reference
+        captureUncaught: true,
+        captureUnhandledRejections: true,
+        payload: {
+          environment: "production"
+        }
+      }
+    },
+    {
+      resolve: 'gatsby-plugin-heap',
+      options: {
+        appId: '3368297951',
+        enableOnDevMode: false // if 'false', heap will be fired on NODE_ENV=production only
+      },
+    },
     'gatsby-plugin-offline',
     'gatsby-plugin-sass',
     `gatsby-plugin-typescript`,
@@ -60,5 +79,16 @@ module.exports = {
       resolve: `gatsby-plugin-emotion`,
     },
     `gatsby-plugin-client-side-redirect`,
+    {
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      options: {
+        fonts: [
+          {
+            family: `Open Sans`,
+            variants: [`400`,`400i`,`600`,`700`]
+          },
+        ],
+      },
+    }
   ],
 }
