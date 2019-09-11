@@ -108,27 +108,6 @@ const LandingPageScaffolding = (props) =>
         </div>
       </section>
 
-      {/* <section className="video_unit padding-section-reduced gray_bg">
-        <div className="container">
-          <div className="row">
-            <div className="col-sm-12">
-              <h1 className="video_unit-title">{props.content.videoUnit.title}</h1>
-            </div>
-          </div>
-          <div className="row align_items_end-sm">
-            <div className="col-sm-8">
-              <div className="video_wrapper_16_9">
-                <iframe className="video_wrapper_16_9-video" src="https://www.youtube.com/embed/QsRq3OWNkgY?rel=0&amp&autoplay=0&playsinline=1&modestbranding=1;showinfo=0" allow="autoplay; encrypted-media"></iframe>
-              </div>
-            </div>
-            <div className="col-sm-4">
-              <p className="video_unit-caption">{props.content.videoUnit.caption.caption}</p>
-              <a ui-sref="mission" className="btn btn-outline black video_unit-button">READ OUR MISSION</a>
-            </div>
-          </div>
-        </div>
-      </section> */}
-
       <section id="as-seen-in">
         <div className="content-wrapper">
           <div className="hero is-small">
