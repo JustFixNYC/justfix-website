@@ -23,7 +23,9 @@ const LandingPageScaffolding = (props) =>
               </h2>
               <br/>
               <AnchorLink href="#products" className="button is-large is-dark is-inverted is-outlined">
-                LEARN MORE
+                <span className="is-uppercase">
+                  {props.content.heroCta}
+                </span>
               </AnchorLink>
             </div>
           </div>
@@ -36,7 +38,7 @@ const LandingPageScaffolding = (props) =>
             <div className="hero-body has-text-centered">
               <div className="container content-wrapper tight">
                 <h1 className="title is-size-2 has-text-grey-dark has-text-weight-normal">
-                Our Products & Services
+                  {props.content.productSectionTitle}
                 </h1>
               </div>
             </div>
@@ -142,6 +144,8 @@ const LandingPage  = () => (
           subCopy {
             subCopy
           }
+          heroCta
+          productSectionTitle
           homePageProductBlocks {
             title
             description
