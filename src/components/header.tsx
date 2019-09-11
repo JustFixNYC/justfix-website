@@ -72,10 +72,15 @@ render() {
           CONTACT
         </Link>
 
+        {this.state.burgerMenuIsOpen && 
+        <a className="navbar-item has-text-black" href="https://app.justfix.nyc/login">
+          SIGN IN
+        </a>}
+
       </div>
         <div className="navbar-item">
           <div className="buttons">
-            <a className="button is-primary is-inverted is-outlined" href="https://app.justfix.nyc/login" target="_blank" rel="noopener noreferrer">
+            <a className="button is-primary is-inverted is-outlined" href="https://app.justfix.nyc/login">
               SIGN IN
             </a>
         </div>
