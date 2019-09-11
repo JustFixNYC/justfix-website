@@ -24,6 +24,12 @@ const MissionPageScaffolding = (props) =>
         </div>
       </section>
 
+      <section className="content-wrapper video tight">
+          <figure className="image is-16by9">
+            <iframe className="has-ratio" allowFullScreen={true} src={props.content.videoUrl} />
+          </figure>
+      </section>
+
       <section className="hero problem is-medium is-white">
         <div className="hero-body is-horizontal-center">
           <div className="content has-text-grey-dark" dangerouslySetInnerHTML = {{ __html: props.content.problemBlock.childMarkdownRemark.html}}>
@@ -44,7 +50,7 @@ const MissionPageScaffolding = (props) =>
             <br />
             <div className="buttons is-centered">
               { (props.content.impactReportButtons).map( (button, i) => 
-                (<a href={button.link} target="_blank" rel="noopener noreferrer"
+                (<a href={button.link} target="_blank" rel="noopener noreferrer" key={i}
                   className="button is-medium is-primary is-inverted is-outlined">
                   <span className="is-size-6-mobile">{button.title}</span>
                 </a>)
@@ -70,9 +76,7 @@ const MissionPageScaffolding = (props) =>
 
         <div className="hero-body is-horizontal-center">
           <div className="container">
-            <h1 className="title is-size-2 has-text-centered has-text-grey-dark has-text-weight-normal is-spaced">
-              Our Approach
-            </h1>
+            <div className="content has-text-grey-dark" dangerouslySetInnerHTML = {{ __html: props.content.approachBlock.childMarkdownRemark.html}} />
             <div className="columns">
             { (props.content.approachBreakIcon).map( (icon, i) =>
               <div className="column is-one-third has-text-centered " key={i}>
@@ -83,7 +87,6 @@ const MissionPageScaffolding = (props) =>
                 <h4 className="title is-size-6 has-text-grey-dark">{icon.iconDescription}</h4>
               </div>) }
             </div>
-            <div className="content has-text-grey-dark" dangerouslySetInnerHTML = {{ __html: props.content.approachBlock.childMarkdownRemark.html}} />
           </div>
         </div>
 
@@ -134,6 +137,7 @@ const MissionPage  = () => (
           }
           title
           briefDescription
+          videoUrl
           problemBlock {
             childMarkdownRemark {
               html
