@@ -24,7 +24,7 @@ const MissionPageScaffolding = (props) =>
         </div>
       </section>
 
-      <section className="content-wrapper tight">
+      <section className="content-wrapper video tight">
           <figure className="image is-16by9">
             <iframe className="has-ratio" allowFullScreen={true} src={props.content.videoUrl} />
           </figure>
@@ -50,7 +50,7 @@ const MissionPageScaffolding = (props) =>
             <br />
             <div className="buttons is-centered">
               { (props.content.impactReportButtons).map( (button, i) => 
-                (<a href={button.link} target="_blank" rel="noopener noreferrer"
+                (<a href={button.link} target="_blank" rel="noopener noreferrer" key={i}
                   className="button is-medium is-primary is-inverted is-outlined">
                   <span className="is-size-6-mobile">{button.title}</span>
                 </a>)
