@@ -37,6 +37,13 @@ module.exports = {
         }
       }
     },
+    {
+      resolve: 'gatsby-plugin-heap',
+      options: {
+        appId: '3368297951',
+        enableOnDevMode: false // if 'false', heap will be fired on NODE_ENV=production only
+      },
+    },
     'gatsby-plugin-offline',
     'gatsby-plugin-sass',
     `gatsby-plugin-typescript`,
