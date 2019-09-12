@@ -10,4 +10,6 @@
 exports.createPages = ({ graphql, actions }) => {
     const {createRedirect} = actions //actions is collection of many actions - https://www.gatsbyjs.org/docs/actions
     createRedirect({ fromPath: '/donate', toPath: 'https://donorbox.org/donate-to-justfix-nyc', isPermanent: true });
+    createRedirect({ fromPath: '/get-repairs', toPath: '/', isPermanent: true });
+    createRedirect({ fromPath: '/about/products-and-services', toPath: '/#products', isPermanent: true });
   }
