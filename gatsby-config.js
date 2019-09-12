@@ -7,6 +7,13 @@ const contentfulConfig = {
   accessToken: process.env.ACCESS_TOKEN,
 }
 
+const tracking = {
+  gtm: "GTM-NMPT5JP",
+  ga: "UA-67069242-1",
+  rollbar: "61296a1fcbc94b408bf1c1e71a851794",
+  heap: "3368297951",
+}
+
 module.exports = {
   siteMetadata: {
     title: 'Gatsby Contentful TypeScript starter',
@@ -26,9 +33,15 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-canonical-urls`,
+      options: {
+        siteUrl: process.env.SITE_URL,
+      },
+    },
+    {
       resolve: "gatsby-plugin-google-tagmanager",
       options: {
-        id: "GTM-NMPT5JP",
+        id: tracking.gtm,
   
         // Include GTM in development.
         // Defaults to false meaning GTM will only be loaded in production.
@@ -44,13 +57,13 @@ module.exports = {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         // replace "UA-XXXXXXXXX-X" with your own Tracking ID
-        trackingId: "UA-67069242-1",
+        trackingId: tracking.ga,
       },
     },
     {
       resolve: "gatsby-plugin-rollbar",
       options: {
-        accessToken: "61296a1fcbc94b408bf1c1e71a851794",
+        accessToken: tracking.rollbar,
         // For all configuration options, see https://docs.rollbar.com/v1.0.0/docs/rollbarjs-configuration-reference
         captureUncaught: true,
         captureUnhandledRejections: true,
@@ -62,7 +75,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-heap',
       options: {
-        appId: '3368297951',
+        appId: tracking.heap,
         enableOnDevMode: false // if 'false', heap will be fired on NODE_ENV=production only
       },
     },
