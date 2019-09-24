@@ -14,6 +14,14 @@
     }
 }
 
+/** Override default styling for links inside white hero containers */
+.hero.is-white p a:not(.button):not(.dropdown-item):not(.tag):not(.pagination-link.is-current), .hero.is-white strong {
+    color: $primary;
+    &:hover {
+        color: inherit;
+    }
+}
+
 /** Make grouped buttons same size */
 .buttons {
     .button {
