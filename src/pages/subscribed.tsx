@@ -18,15 +18,15 @@ const SubscribedPageScaffolding = (props) =>
                 </span>
             </div>
                 <br />
-            <div className="container content-wrapper tight">
+            <div className="container block content-wrapper tight">
                 <figure className="image">
                     <img src={props.content.teamPhoto.file.url} />
                 </figure>
-                    <br />
-                <p className="title is-size-5 has-text-weight-normal is-italic is-spaced">
-                    {props.content.teamPhotoTitle}
-                </p>
             </div>
+                <br />
+            <span className="is-size-5">
+                {documentToReactComponents(props.content.descriptionBelowPhoto.json)}
+            </span>
         </div>
     </section>
   </Layout>); 
@@ -45,6 +45,9 @@ const TermsOfUsePage  = () => (
                 file {
                     url
                 }
+            }
+            descriptionBelowPhoto {
+                json
             }
         }
       }
