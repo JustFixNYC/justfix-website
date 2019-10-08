@@ -35,7 +35,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-canonical-urls`,
       options: {
-        siteUrl: process.env.SITE_URL,
+        siteUrl: process.env.SITE_URL || null,
       },
     },
     {
