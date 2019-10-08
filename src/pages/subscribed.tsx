@@ -40,7 +40,6 @@ const TermsOfUsePage  = () => (
             description {
                 json
             }
-            teamPhotoTitle
             teamPhoto {
                 file {
                     url
