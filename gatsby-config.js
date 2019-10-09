@@ -17,6 +17,7 @@ const tracking = {
 module.exports = {
   siteMetadata: {
     title: 'Gatsby Contentful TypeScript starter',
+    enableDDO: process.env.ENABLE_DDO === '1'
   },
   plugins: [
     'gatsby-plugin-react-helmet',

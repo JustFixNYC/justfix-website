@@ -1,5 +1,6 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
+import AnchorLink from 'react-anchor-link-smooth-scroll'
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 // import { Link } from 'gatsby'
 
@@ -8,6 +9,17 @@ import '../styles/data-driven-onboarding.scss';
 
 import Layout from '../components/layout'
 import { DDOSearchBar } from '../components/ddo-searchbar';
+
+const DDO = () => <>
+  <h2 className="subtitle is-size-5 has-text-white">
+    Enter your address to learn more.
+  </h2>
+  <br/>
+  <DDOSearchBar
+    hiddenFieldLabel="Enter your address to learn more."
+    submitLabel="Search address"
+  />
+</>;
 
 const LandingPageScaffolding = (props) => 
   (<Layout isLandingPage={true}>
@@ -19,14 +31,17 @@ const LandingPageScaffolding = (props) =>
               <h1 className="title is-size-1 is-size-3-mobile has-text-white is-spaced">
                 {props.content.heroCopy.heroCopy}
               </h1>
-              <h2 className="subtitle is-size-5 has-text-white">
-                Enter your address to learn more.
-              </h2>
-              <br/>
-              <DDOSearchBar
-                hiddenFieldLabel="Enter your address to learn more."
-                submitLabel="Search address"
-              />
+              {props.enableDDO ? <DDO /> : <>
+                <h2 className="subtitle is-size-5 is-hidden-mobile has-text-white">
+                  {props.content.subCopy.subCopy}
+                </h2>
+                <br/>
+                <AnchorLink href="#products" className="button is-large is-dark is-inverted is-outlined">
+                  <span className="is-uppercase">
+                    {props.content.heroCta}
+                  </span>
+                </AnchorLink>
+              </>}
             </div>
           </div>
       </section>
@@ -137,6 +152,11 @@ const LandingPage  = () => (
 <StaticQuery
     query={graphql`
       query {
+        site {
+          siteMetadata {
+            enableDDO
+          }
+        }
         contentfulHomePage {
           heroCopy {
             heroCopy
@@ -182,7 +202,7 @@ const LandingPage  = () => (
         }
       }
     `}
-  render = {data => (<LandingPageScaffolding content={data.contentfulHomePage} />)}
+  render = {data => (<LandingPageScaffolding content={data.contentfulHomePage} enableDDO={data.site.siteMetadata.enableDDO} />)}
   />
 );
 
