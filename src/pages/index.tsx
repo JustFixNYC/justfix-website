@@ -7,6 +7,7 @@ import '../styles/index.scss'
 import '../styles/data-driven-onboarding.scss';
 
 import Layout from '../components/layout'
+import { DDOSearchBar } from '../components/ddo-searchbar';
 
 const LandingPageScaffolding = (props) => 
   (<Layout isLandingPage={true}>
@@ -19,19 +20,13 @@ const LandingPageScaffolding = (props) =>
                 {props.content.heroCopy.heroCopy}
               </h1>
               <h2 className="subtitle is-size-5 has-text-white">
-                <label htmlFor="address">Enter your address to learn more.</label>
+                Enter your address to learn more.
               </h2>
               <br/>
-              <form action="https://demo.justfix.nyc/ddo">
-                <div className="level jf-ddo-searchbar">
-                  <div className="field">
-                    <div className="control">
-                      <input className="input" name="address" id="address" />
-                    </div>
-                  </div>
-                  <button type="submit" className="button is-primary">Search address</button>
-                </div>
-              </form>
+              <DDOSearchBar
+                hiddenFieldLabel="Enter your address to learn more."
+                submitLabel="Search address"
+              />
             </div>
           </div>
       </section>
