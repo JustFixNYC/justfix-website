@@ -2,16 +2,27 @@ import React, { useState, useEffect } from 'react'
 import { GeoAutocomplete, GeoAutocompleteItem, geoAutocompleteItemToString } from "./geo-autocomplete";
 import classnames from 'classnames';
 
+/** The URL for Data-Driven Onboarding (DDO) on the JustFix Tenant Platform. */
 const DDO_URL = "https://demo.justfix.nyc/ddo";
+
+/** The querystring variable used to communicate the address for DDO. */
 const DDO_ADDRESS_VAR = "address";
+
+/** The querystring variable used to communicate the borough for DDO. */
 const DDO_BOROUGH_VAR = "borough";
 
 export type DDOSearchBarProps = {
+  /** The label text for the address field, used for accessibility purposes only (it is visually hidden). */
   hiddenFieldLabel: string;
+
+  /** The label text for the submit button. */
   submitLabel: string;
+
+  /** Whether to forcibly disable address autocompletion functionality. */
   disableAutocomplete?: boolean;
 };
 
+/** Return the DDO URL for the given address and/or borough. */
 function getDDOURL(item: GeoAutocompleteItem): string {
   let url = `${DDO_URL}?${DDO_ADDRESS_VAR}=${encodeURIComponent(item.address)}`;
 
@@ -22,6 +33,10 @@ function getDDOURL(item: GeoAutocompleteItem): string {
   return url;
 }
 
+/**
+ * A component for the baseline (non-progressively-enhanced) address
+ * field input.
+ */
 function BaselineAddressInput(props: {defaultValue: string, hiddenFieldLabel: string}) {
   return (
     <div className="field">
@@ -33,6 +48,12 @@ function BaselineAddressInput(props: {defaultValue: string, hiddenFieldLabel: st
   );
 }
 
+/**
+ * A component for the Data-Driven Onboarding (DDO) search bar.
+ * The baseline experience is just a text field that sends the
+ * user to DDO on the JustFix Tenant Platform, but this
+ * progressively enhances to auto-complete the address.
+ */
 export function DDOSearchBar(props: DDOSearchBarProps): JSX.Element {
   const [useGeoAutocomplete, setUseGeoAutocomplete] = useState(false);
   const [autocompleteItem, setAutocompleteItem] = useState<GeoAutocompleteItem|null>(null);
