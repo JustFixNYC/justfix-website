@@ -89,7 +89,7 @@ export function DDOSearchBar(props: DDOSearchBarProps): JSX.Element {
           : <BaselineAddressInput {...props} defaultValue={geoAutocompleteItemToString(autocompleteItem)} />
         }
         <button type="submit" className={classnames(
-          "button", "is-primary", isNavigating && "is-loading"
+          "button", "is-inverted", "is-outlined", "is-uppercase", isNavigating ? "is-loading" : "is-dark"
         )}>{props.submitLabel}</button>
       </div>
     </form>
