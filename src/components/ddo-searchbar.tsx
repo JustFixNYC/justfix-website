@@ -18,6 +18,9 @@ export type DDOSearchBarProps = {
   /** The label text for the submit button. */
   submitLabel: string;
 
+  /** The URL for DDO. */
+  action?: string;
+
   /** Whether to forcibly disable address autocompletion functionality. */
   disableAutocomplete?: boolean;
 };
@@ -60,7 +63,7 @@ export function DDOSearchBar(props: DDOSearchBarProps): JSX.Element {
   const [isNavigating, setIsNavigating] = useState(false);
   const gotoDDO = (item: GeoAutocompleteItem) => {
     setIsNavigating(true);
-    window.location.assign(getDDOURL(item));
+    window.location.assign(getDDOURL(item, props.action));
   };
 
   useEffect(() => {
@@ -68,7 +71,7 @@ export function DDOSearchBar(props: DDOSearchBarProps): JSX.Element {
   }, []);
 
   return (
-    <form action={DDO_URL} onSubmit={(e) => {
+    <form action={props.action || DDO_URL} onSubmit={(e) => {
       if (!useGeoAutocomplete) {
         setIsNavigating(true);
         return;

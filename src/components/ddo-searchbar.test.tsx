@@ -15,6 +15,8 @@ describe('getDDOURL()', () => {
 
 describe('<DDOSearchBar>', () => {
   let wasSubmitPrevented: boolean|undefined = undefined;
+  let locationAssign = jest.fn();
+  const originalLocation = window.location;
 
   const handleSubmit = (e: Event) => {
     wasSubmitPrevented = e.defaultPrevented;
@@ -26,16 +28,23 @@ describe('<DDOSearchBar>', () => {
   beforeEach(() => {
     wasSubmitPrevented = undefined;
     window.addEventListener('submit', handleSubmit);
+    locationAssign = jest.fn();
+    delete window.location;
+    window.location = {
+      assign: locationAssign
+    } as any;
   });
 
   afterEach(() => {
     window.removeEventListener('submit', handleSubmit);
+    window.location = originalLocation;
   });
 
   const renderDDO = (extraProps?: Partial<DDOSearchBarProps>) => {
     const props: DDOSearchBarProps = {
       hiddenFieldLabel: "Enter an address",
       submitLabel: "Search address",
+      action: "http://boop.com/",
       ...extraProps
     };
     const rr = render(<DDOSearchBar {...props} />);
@@ -46,8 +55,12 @@ describe('<DDOSearchBar>', () => {
       rr,
       addressInput,
       submitButton,
-      submit() { fireEvent.click(submitButton); },
+      submit() {
+        fireEvent.blur(addressInput);
+        fireEvent.click(submitButton);
+      },
       type(value: string) {
+        fireEvent.focus(addressInput);
         fireEvent.change(addressInput, { target: { value } });
       }
     };
@@ -58,6 +71,7 @@ describe('<DDOSearchBar>', () => {
     ddo.type("boop");
     ddo.submit();
     expect(wasSubmitPrevented).toBe(false);
+    expect(locationAssign).not.toHaveBeenCalled();
   });
 
   it('prevents form submission in progressively enhanced experience', () => {
@@ -65,5 +79,7 @@ describe('<DDOSearchBar>', () => {
     ddo.type("boop");
     ddo.submit();
     expect(wasSubmitPrevented).toBe(true);
+    expect(locationAssign).toHaveBeenCalledTimes(1);
+    expect(locationAssign).toHaveBeenCalledWith("http://boop.com/?address=boop");
   });
 });
