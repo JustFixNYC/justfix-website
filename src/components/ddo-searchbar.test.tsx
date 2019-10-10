@@ -62,6 +62,9 @@ describe('<DDOSearchBar>', () => {
       type(value: string) {
         fireEvent.focus(addressInput);
         fireEvent.change(addressInput, { target: { value } });
+      },
+      isLoading() {
+        return submitButton.classList.contains('is-loading');
       }
     };
   };
@@ -72,6 +75,7 @@ describe('<DDOSearchBar>', () => {
     ddo.submit();
     expect(wasSubmitPrevented).toBe(false);
     expect(locationAssign).not.toHaveBeenCalled();
+    expect(ddo.isLoading()).toBe(true);
   });
 
   it('prevents form submission in progressively enhanced experience', () => {
@@ -81,5 +85,6 @@ describe('<DDOSearchBar>', () => {
     expect(wasSubmitPrevented).toBe(true);
     expect(locationAssign).toHaveBeenCalledTimes(1);
     expect(locationAssign).toHaveBeenCalledWith("http://boop.com/?address=boop");
+    expect(ddo.isLoading()).toBe(true);
   });
 });
