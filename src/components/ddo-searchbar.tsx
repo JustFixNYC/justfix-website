@@ -23,8 +23,8 @@ export type DDOSearchBarProps = {
 };
 
 /** Return the DDO URL for the given address and/or borough. */
-function getDDOURL(item: GeoAutocompleteItem): string {
-  let url = `${DDO_URL}?${DDO_ADDRESS_VAR}=${encodeURIComponent(item.address)}`;
+export function getDDOURL(item: GeoAutocompleteItem, baseURL: string = DDO_URL): string {
+  let url = `${baseURL}?${DDO_ADDRESS_VAR}=${encodeURIComponent(item.address)}`;
 
   if (item.borough) {
     url += `&${DDO_BOROUGH_VAR}=${encodeURIComponent(item.borough)}`;
