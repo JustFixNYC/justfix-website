@@ -64,6 +64,7 @@
     "babel-preset-jest": "^24.9.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^24.9.0",
+    "jest-fetch-mock": "^2.1.2",
     "prettier": "^1.14.2",
     "tslint-config-prettier": "^1.15.0",
     "tslint-react": "^3.6.0"
