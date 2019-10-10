@@ -48,6 +48,7 @@
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write '**/*.tsx'",
+    "typecheck": "tsc --noEmit",
     "test": "jest"
   },
   "devDependencies": {
