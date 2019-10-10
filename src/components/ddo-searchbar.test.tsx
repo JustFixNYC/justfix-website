@@ -28,6 +28,8 @@ describe('<DDOSearchBar>', () => {
   beforeEach(() => {
     wasSubmitPrevented = undefined;
     window.addEventListener('submit', handleSubmit);
+
+    // https://remarkablemark.org/blog/2018/11/17/mock-window-location/
     locationAssign = jest.fn();
     delete window.location;
     window.location = {
