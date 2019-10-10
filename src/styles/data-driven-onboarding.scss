@@ -1,0 +1,16 @@
+.level.jf-ddo-searchbar {
+    .field {
+        flex: 1;
+        
+        @media screen and (min-width: 769px) {
+            padding-right: 1rem;
+        }
+    }
+}
+
+.jf-ddo-searchbar {
+    .button {
+        margin-top: auto;
+        margin-bottom: 0.75rem;
+    }
+}
