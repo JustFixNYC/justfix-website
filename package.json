@@ -51,10 +51,14 @@
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write '**/*.tsx'",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "typecheck": "tsc --noEmit",
+    "test": "jest"
   },
   "devDependencies": {
+    "@types/jest": "^24.0.18",
+    "jest": "^24.9.0",
     "prettier": "^1.14.2",
+    "ts-jest": "^24.1.0",
     "tslint-config-prettier": "^1.15.0",
     "tslint-react": "^3.6.0"
   },
