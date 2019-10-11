@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { GeoAutocomplete, GeoAutocompleteItem, geoAutocompleteItemToString } from "./geo-autocomplete";
+import { GeoAutocomplete, GeoAutocompleteItem, GeoAutocompleteProps } from "./geo-autocomplete";
 import classnames from 'classnames';
 
 /** The URL for Data-Driven Onboarding (DDO) on the JustFix Tenant Platform. */
@@ -18,13 +18,19 @@ export type DDOSearchBarProps = {
   /** The label text for the submit button. */
   submitLabel: string;
 
+  /** The URL for DDO. */
+  action?: string;
+
   /** Whether to forcibly disable address autocompletion functionality. */
   disableAutocomplete?: boolean;
+
+  /** The GeoAutocomplete component to use; primarily intended for testing. */
+  geoAutocompleteComponent?: React.ComponentType<GeoAutocompleteProps>;
 };
 
 /** Return the DDO URL for the given address and/or borough. */
-function getDDOURL(item: GeoAutocompleteItem): string {
-  let url = `${DDO_URL}?${DDO_ADDRESS_VAR}=${encodeURIComponent(item.address)}`;
+export function getDDOURL(item: GeoAutocompleteItem, baseURL: string = DDO_URL): string {
+  let url = `${baseURL}?${DDO_ADDRESS_VAR}=${encodeURIComponent(item.address)}`;
 
   if (item.borough) {
     url += `&${DDO_BOROUGH_VAR}=${encodeURIComponent(item.borough)}`;
@@ -37,12 +43,12 @@ function getDDOURL(item: GeoAutocompleteItem): string {
  * A component for the baseline (non-progressively-enhanced) address
  * field input.
  */
-function BaselineAddressInput(props: {defaultValue: string, hiddenFieldLabel: string}) {
+function BaselineAddressInput(props: {hiddenFieldLabel: string}) {
   return (
     <div className="field">
       <div className="control">
         <label htmlFor="addressInput" className="is-sr-only">{props.hiddenFieldLabel}</label>
-        <input className="input" required name={DDO_ADDRESS_VAR} id="addressInput" defaultValue={props.defaultValue} />
+        <input className="input" required name={DDO_ADDRESS_VAR} id="addressInput" />
       </div>
     </div>
   );
@@ -58,9 +64,10 @@ export function DDOSearchBar(props: DDOSearchBarProps): JSX.Element {
   const [useGeoAutocomplete, setUseGeoAutocomplete] = useState(false);
   const [autocompleteItem, setAutocompleteItem] = useState<GeoAutocompleteItem|null>(null);
   const [isNavigating, setIsNavigating] = useState(false);
+  const GeoAutocompleteComponent = props.geoAutocompleteComponent || GeoAutocomplete;
   const gotoDDO = (item: GeoAutocompleteItem) => {
     setIsNavigating(true);
-    window.location.assign(getDDOURL(item));
+    window.location.assign(getDDOURL(item, props.action));
   };
 
   useEffect(() => {
@@ -68,7 +75,7 @@ export function DDOSearchBar(props: DDOSearchBarProps): JSX.Element {
   }, []);
 
   return (
-    <form action={DDO_URL} onSubmit={(e) => {
+    <form action={props.action || DDO_URL} onSubmit={(e) => {
       if (!useGeoAutocomplete) {
         setIsNavigating(true);
         return;
@@ -80,13 +87,13 @@ export function DDOSearchBar(props: DDOSearchBarProps): JSX.Element {
     }}>
       <div className="level jf-ddo-searchbar">
         {useGeoAutocomplete
-          ? <GeoAutocomplete label={props.hiddenFieldLabel} onChange={item => {
+          ? <GeoAutocompleteComponent label={props.hiddenFieldLabel} onChange={item => {
               setAutocompleteItem(item);
               if (item.address && item.borough) {
                 gotoDDO(item);
               }
-            }} onNetworkError={() => setUseGeoAutocomplete(false)} />
-          : <BaselineAddressInput {...props} defaultValue={geoAutocompleteItemToString(autocompleteItem)} />
+            }} onNetworkError={(e) => {window.console && window.console.log(e)}} />
+          : <BaselineAddressInput {...props} />
         }
         <button type="submit" className={classnames(
           "button", "is-inverted", "is-outlined", "is-uppercase", isNavigating ? "is-loading" : "is-dark"

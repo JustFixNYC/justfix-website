@@ -50,7 +50,7 @@ function boroughGidToChoice(gid: GeoSearchBoroughGid): BoroughChoice {
   throw new Error(`No borough found for ${gid}!`);
 }
 
-interface GeoAutocompleteProps {
+export interface GeoAutocompleteProps {
   label: string;
   onChange: (item: GeoAutocompleteItem) => void;
   onNetworkError: (err: Error) => void;
@@ -97,7 +97,7 @@ export class GeoAutocomplete extends React.Component<GeoAutocompleteProps, GeoAu
     this.handleRequesterResults = this.handleRequesterResults.bind(this);
     this.requester = new GeoSearchRequester({
       createAbortController: () => typeof(AbortController) === 'undefined' ? undefined : new AbortController(),
-      fetch,
+      fetch: window.fetch,
       throttleMs: AUTOCOMPLETE_KEY_THROTTLE_MS,
       onError: this.handleRequesterError,
       onResults: this.handleRequesterResults
