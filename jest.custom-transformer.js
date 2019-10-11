@@ -20,6 +20,7 @@ module.exports = {
           }
         }],
       ],
+      sourceMaps: "inline",
       plugins: [
         "@babel/plugin-transform-react-jsx"
       ],
