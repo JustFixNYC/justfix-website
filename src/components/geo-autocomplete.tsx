@@ -97,7 +97,7 @@ export class GeoAutocomplete extends React.Component<GeoAutocompleteProps, GeoAu
     this.handleRequesterResults = this.handleRequesterResults.bind(this);
     this.requester = new GeoSearchRequester({
       createAbortController: () => typeof(AbortController) === 'undefined' ? undefined : new AbortController(),
-      fetch,
+      fetch: window.fetch,
       throttleMs: AUTOCOMPLETE_KEY_THROTTLE_MS,
       onError: this.handleRequesterError,
       onResults: this.handleRequesterResults
