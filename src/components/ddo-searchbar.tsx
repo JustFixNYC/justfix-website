@@ -43,12 +43,12 @@ export function getDDOURL(item: GeoAutocompleteItem, baseURL: string = DDO_URL):
  * A component for the baseline (non-progressively-enhanced) address
  * field input.
  */
-function BaselineAddressInput(props: {defaultValue: string, hiddenFieldLabel: string}) {
+function BaselineAddressInput(props: {hiddenFieldLabel: string}) {
   return (
     <div className="field">
       <div className="control">
         <label htmlFor="addressInput" className="is-sr-only">{props.hiddenFieldLabel}</label>
-        <input className="input" required name={DDO_ADDRESS_VAR} id="addressInput" defaultValue={props.defaultValue} />
+        <input className="input" required name={DDO_ADDRESS_VAR} id="addressInput" />
       </div>
     </div>
   );
@@ -92,8 +92,8 @@ export function DDOSearchBar(props: DDOSearchBarProps): JSX.Element {
               if (item.address && item.borough) {
                 gotoDDO(item);
               }
-            }} onNetworkError={() => setUseGeoAutocomplete(false)} />
-          : <BaselineAddressInput {...props} defaultValue={geoAutocompleteItemToString(autocompleteItem)} />
+            }} onNetworkError={(e) => {window.console && window.console.log(e)}} />
+          : <BaselineAddressInput {...props} />
         }
         <button type="submit" className={classnames(
           "button", "is-inverted", "is-outlined", "is-uppercase", isNavigating ? "is-loading" : "is-dark"

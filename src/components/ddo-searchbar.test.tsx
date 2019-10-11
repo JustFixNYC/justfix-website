@@ -116,7 +116,7 @@ describe('<DDOSearchBar>', () => {
     expect(ddo.isLoading()).toBe(true);
   });
 
-  it('falls back to baseline experience on network errors', () => {
+  it('does not navigate to search result on onChange w/o borough', () => {
     const fakeGeo = createFakeGeoAutocomplete();
     const ddo = renderDDO(fakeGeo);
 
@@ -126,14 +126,6 @@ describe('<DDOSearchBar>', () => {
 
     // Make sure our geo autocomplete is being rendered.
     ddo.rr.getByTestId(fakeGeo.testId);
-
-    // Trigger a network error.
-    act(() => fakeGeo.getProps().onNetworkError(new Error()));
-
-    // Make sure the current input is the baseline text field, and that its value is
-    // whatever the user had typed into the geo autocomplete field.
-    expect(ddo.rr.queryByTestId(fakeGeo.testId)).toBe(null);
-    expect(ddo.getAddressInput().value).toBe("boop");
   });
 
   it('navigates to search results on item select', () => {
