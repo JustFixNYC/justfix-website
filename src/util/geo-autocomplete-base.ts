@@ -132,7 +132,12 @@ export class GeoSearchRequester {
 
     return fetch(url, {
       signal: this.abortController && this.abortController.signal
-    }).then(res => res.json()).catch((e) => {
+    }).then(res => {
+      if (res.status !== 200) {
+        throw new Error(`Received HTTP ${res.status}`);
+      }
+      return res.json();
+    }).catch((e) => {
       if (e instanceof DOMException && e.name === 'AbortError') {
         // Don't worry about it, the user just aborted the request.
         return null;
