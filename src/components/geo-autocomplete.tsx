@@ -50,7 +50,7 @@ function boroughGidToChoice(gid: GeoSearchBoroughGid): BoroughChoice {
   throw new Error(`No borough found for ${gid}!`);
 }
 
-interface GeoAutocompleteProps {
+export interface GeoAutocompleteProps {
   label: string;
   onChange: (item: GeoAutocompleteItem) => void;
   onNetworkError: (err: Error) => void;

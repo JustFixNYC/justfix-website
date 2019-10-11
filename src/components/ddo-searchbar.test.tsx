@@ -2,6 +2,8 @@ import React from 'react'
 import { render, fireEvent } from '@testing-library/react'
 import { getDDOURL, DDOSearchBar, DDOSearchBarProps } from './ddo-searchbar';
 import { getSpecificElementTypeFrom } from '../util/testing-utils';
+import { GeoAutocompleteProps } from './geo-autocomplete';
+import { act } from 'react-dom/test-utils';
 
 describe('getDDOURL()', () => {
   it('includes only address if borough is not provided', () => {
@@ -50,24 +52,48 @@ describe('<DDOSearchBar>', () => {
       ...extraProps
     };
     const rr = render(<DDOSearchBar {...props} />);
-    const addressInput = getSpecificElementTypeFrom(rr.getAllByLabelText(props.hiddenFieldLabel), HTMLInputElement);
+    const getAddressInput = () => getSpecificElementTypeFrom(rr.getAllByLabelText(props.hiddenFieldLabel), HTMLInputElement);
     const submitButton = rr.getByText(props.submitLabel);
 
     return {
       rr,
-      addressInput,
+      props,
+      getAddressInput,
       submitButton,
       submit() {
-        fireEvent.blur(addressInput);
+        fireEvent.blur(getAddressInput());
         fireEvent.click(submitButton);
       },
       type(value: string) {
-        fireEvent.focus(addressInput);
-        fireEvent.change(addressInput, { target: { value } });
+        fireEvent.focus(getAddressInput());
+        fireEvent.change(getAddressInput(), { target: { value } });
       },
       isLoading() {
         return submitButton.classList.contains('is-loading');
       }
+    };
+  };
+
+  const createFakeGeoAutocomplete = () => {
+    let latestProps: GeoAutocompleteProps|undefined;
+    const testId = "fake-addr";
+
+    const geoAutocompleteComponent = (props: GeoAutocompleteProps) => {
+      latestProps = props;
+
+      return <>
+        <label htmlFor="fake-addr">{props.label}</label>
+        <input id="fake-addr" data-testid={testId} />
+      </>;
+    };
+
+    return {
+      geoAutocompleteComponent,
+      getProps() {
+        if (!latestProps) throw new Error('Component has not yet rendered!');
+        return latestProps;
+      },
+      testId
     };
   };
 
@@ -90,6 +116,33 @@ describe('<DDOSearchBar>', () => {
     expect(ddo.isLoading()).toBe(true);
   });
 
-  // It would be cool to have more tests, but I keep running into act() warnings
-  // and this is a complete pain in the ass, so fuck it. -AV
+  it('falls back to baseline experience on network errors', () => {
+    const fakeGeo = createFakeGeoAutocomplete();
+    const ddo = renderDDO(fakeGeo);
+
+    // Simulate a geo autocomplete change event.
+    act(() => fakeGeo.getProps().onChange({address: 'boop', borough: null}));
+    expect(locationAssign).not.toHaveBeenCalled();
+
+    // Make sure our geo autocomplete is being rendered.
+    ddo.rr.getByTestId(fakeGeo.testId);
+
+    // Trigger a network error.
+    act(() => fakeGeo.getProps().onNetworkError(new Error()));
+
+    // Make sure the current input is the baseline text field, and that its value is
+    // whatever the user had typed into the geo autocomplete field.
+    expect(ddo.rr.queryByTestId(fakeGeo.testId)).toBe(null);
+    expect(ddo.getAddressInput().value).toBe("boop");
+  });
+
+  it('navigates to search results on item select', () => {
+    const fakeGeo = createFakeGeoAutocomplete();
+    const ddo = renderDDO(fakeGeo);
+    act(() => fakeGeo.getProps().onChange({address: 'boop', borough: 'BRONX'}));
+    ddo.rr.getByTestId(fakeGeo.testId);
+    expect(locationAssign).toHaveBeenCalledTimes(1);
+    expect(locationAssign).toHaveBeenCalledWith("http://boop.com/?address=boop&borough=BRONX");
+    expect(ddo.isLoading()).toBe(true);
+  });
 });
