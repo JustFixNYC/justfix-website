@@ -89,4 +89,7 @@ describe('<DDOSearchBar>', () => {
     expect(locationAssign).toHaveBeenCalledWith("http://boop.com/?address=boop");
     expect(ddo.isLoading()).toBe(true);
   });
+
+  // It would be cool to have more tests, but I keep running into act() warnings
+  // and this is a complete pain in the ass, so fuck it. -AV
 });
