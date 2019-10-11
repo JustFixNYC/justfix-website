@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { GeoAutocomplete, GeoAutocompleteItem, geoAutocompleteItemToString, GeoAutocompleteProps } from "./geo-autocomplete";
+import { GeoAutocomplete, GeoAutocompleteItem, GeoAutocompleteProps } from "./geo-autocomplete";
 import classnames from 'classnames';
 
 /** The URL for Data-Driven Onboarding (DDO) on the JustFix Tenant Platform. */
