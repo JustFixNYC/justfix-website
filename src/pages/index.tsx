@@ -1,6 +1,7 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import AnchorLink from 'react-anchor-link-smooth-scroll'
+import TextLoop from "react-text-loop";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 // import { Link } from 'gatsby'
 
@@ -26,11 +27,23 @@ const LandingPageScaffolding = (props) =>
     <div id="home" className="home-page">
 
       <section className="landing-image hero is-fullheight">
-          <div className="hero-body has-text-centered">
+          <div className="hero-body">
             <div className="container content-wrapper tight">
               <h1 className="title is-size-1 is-size-3-mobile has-text-white is-spaced">
-                {props.content.heroCopy.heroCopy}
+                We build tools to help you 
+              
+              <div className="title-carousel">
+                <TextLoop
+                springConfig={{ stiffness: 70, damping: 31 }}>
+                  <div>get repairs in your apartment</div>
+                  <span>file a case against your landlord</span>
+                  <span>get your rent history</span>
+                  <span>research your property owner</span>
+                </TextLoop>
+              </div>
+
               </h1>
+              
               {props.enableDDO ? <DDO /> : <>
                 <h2 className="subtitle is-size-5 is-hidden-mobile has-text-white">
                   {props.content.subCopy.subCopy}
