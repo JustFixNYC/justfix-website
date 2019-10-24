@@ -26,21 +26,29 @@ const LandingPageScaffolding = (props) =>
   (<Layout isLandingPage={true}>
     <div id="home" className="home-page">
 
-      <section className="landing-image hero is-fullheight">
+      <section className="landing-image hero is-fullheight"
+        style={{
+            backgroundImage: "url("+(props.content.landingImage.file.url)+")",
+            backgroundPosition: "center center",
+            backgroundSize: "cover",
+            backgroundRepeat:"no-repeat" 
+          }}>
           <div className="hero-body">
             <div className="container content-wrapper tight">
               <h1 className="title is-size-1 is-size-3-mobile has-text-white is-spaced">
-                We build tools to help you 
+                Tools for you to
               
-              <div className="title-carousel">
+              <div className="title-carousel is-hidden-mobile">
                 <TextLoop
                 springConfig={{ stiffness: 70, damping: 31 }}>
-                  <div>get repairs in your apartment</div>
+                  <span>get repairs in your apartment</span>
                   <span>file a case against your landlord</span>
-                  <span>get your rent history</span>
+                  <span>request your rent history</span>
                   <span>research your property owner</span>
+                  <span>navigate an eviction notice</span>
                 </TextLoop>
               </div>
+              <span className="is-hidden-tablet"> fight for a safe and healthy home</span>
 
               </h1>
               
@@ -177,6 +185,11 @@ const LandingPage  = () => (
           subCopy {
             subCopy
           }
+          landingImage {
+              file {
+                url
+              }
+            }
           heroCta
           productSectionTitle
           homePageProductBlocks {
