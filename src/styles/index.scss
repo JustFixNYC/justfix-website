@@ -10,10 +10,11 @@
     .landing-image.hero.is-fullheight {
         background-image: url(https://degy28l8twq8c.cloudfront.net/brownstones.jpg);
         background-size: cover;
-        background-position: center; 
+        background-position: center;
+        min-height: 100vh; 
 
         .hero-body {
-            min-height: 100vh;
+            padding-bottom: 1rem;
         }
 
         .title {
@@ -29,8 +30,7 @@
         }
 
         .level.landing-footer {
-            position: absolute;
-            bottom: 0;
+            position: relative;
             width: 100%;
             min-height: 4rem;
 
