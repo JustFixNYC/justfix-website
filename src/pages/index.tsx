@@ -36,7 +36,7 @@ const LandingPageScaffolding = (props) =>
           <div className="hero-body">
             <div className="container content-wrapper tight">
               <h1 className="title is-size-1 is-size-3-mobile has-text-white is-spaced">
-                Tools for you to
+                Free tools for you to
               
               <div className="title-carousel is-hidden-mobile">
                 <TextLoop
@@ -65,6 +65,19 @@ const LandingPageScaffolding = (props) =>
               </>}
             </div>
           </div>
+          <div className="level landing-footer">
+            <div className="level-left is-size-6 has-text-white has-text-weight-semibold">
+              JustFix.nyc is a non-profit that builds free tools in support of NYC's housing movement.
+            </div>  
+            <div className="level-item more-arrow"> 
+              <AnchorLink href="#products" className="has-text-white has-text-weight-light">
+                <figure className="image is-32x32">
+                  <img src={require("../img/down-arrow.png")} />
+                </figure>
+              </AnchorLink>
+            </div>
+          </div>
+        
       </section>
 
       <section id="products" className="is-horizontal-center">
