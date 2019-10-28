@@ -65,8 +65,8 @@ const LandingPageScaffolding = (props) =>
               </>}
             </div>
           </div>
-          <div className="level landing-footer">
-            <div className="level-left is-size-6 has-text-white has-text-weight-semibold">
+          <div className="level is-mobile landing-footer">
+            <div className="level-left is-size-6 has-text-white has-text-weight-semibold  is-hidden-mobile">
               JustFix.nyc is a non-profit that builds free tools in support of NYC's housing movement.
             </div>  
             <div className="level-item more-arrow"> 
