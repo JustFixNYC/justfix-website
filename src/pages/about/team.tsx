@@ -38,8 +38,8 @@ const TeamPageScaffolding = (props) =>
               <h4 className="title is-size-5 has-text-grey-dark">{member.name}</h4>
               <h4 className="subtitle is-size-5 has-text-grey-dark">{member.title}</h4>
               <div className="field">
-                  { (member.childrenContentfulTeamMemberLinksJsonNode).map ( (link, i) => 
-                    <SocialIcon key={i} url={link.url} target="_blank" rel="noopener noreferrer" bgColor="#0096D7" style={{ height: 40, width: 40 }} />
+                  {member.professionalLinks && (member.professionalLinks).map ( (link, i) => 
+                    <SocialIcon key={i} url={link} target="_blank" rel="noopener noreferrer" bgColor="#0096D7" style={{ height: 40, width: 40 }} />
                   )}
               </div>
             <p>{member.description.description}</p>
@@ -77,9 +77,11 @@ const TeamPageScaffolding = (props) =>
               <h4 className="title is-size-5 has-text-grey-dark has-text-centered-mobile">{director.name}</h4>
               <h4 className="subtitle is-size-5 has-text-grey-dark has-text-centered-mobile">
                 {director.title + ', '} 
-                <a href={ director.childrenContentfulTeamMemberLinksJsonNode.length && director.childrenContentfulTeamMemberLinksJsonNode[0].url } target="_blank" rel="noopener noreferrer">
-                  {director.childrenContentfulTeamMemberLinksJsonNode[0].title}
-                </a>
+                {director.organizationLink ? 
+                <a href={director.organizationLink} target="_blank" rel="noopener noreferrer">
+                  {director.organization}
+                </a> :
+                <>{director.organization}</>}
               </h4>
                 <ReadMoreReact text={(director.description.description)}
                   min={180}
@@ -103,7 +105,7 @@ const TeamPageScaffolding = (props) =>
               (<p className="has-text-weight-semibold has-text-grey-dark" key={i}>
                 {contributor.link ? 
                 (<a href={contributor.link} target="_blank" rel="noopener noreferrer">{contributor.name}</a>) :
-                (<span>{contributor.name}</span>)}
+                (<>{contributor.name}</>)}
               </p>) ) 
             }
           </div>
@@ -147,10 +149,7 @@ const TeamPage  = () => (
                 url
               }
             }
-            childrenContentfulTeamMemberLinksJsonNode {
-              url
-              type
-            }
+            professionalLinks
           }
           directorsTitle 
           directors {
@@ -161,10 +160,8 @@ const TeamPage  = () => (
                 url
               }
             }
-            childrenContentfulTeamMemberLinksJsonNode {
-              title
-              url
-            }
+            organization
+            organizationLink
             description {
               description
             } 

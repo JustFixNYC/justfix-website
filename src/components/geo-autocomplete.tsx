@@ -1,5 +1,7 @@
+import 'whatwg-fetch';  // Needed for IE11!
+
 import React from 'react';
-import { GeoSearchBoroughGid, GeoSearchRequester, GeoSearchResults } from "../util/geo-autocomplete-base";
+import { GeoSearchBoroughGid, GeoSearchRequester, GeoSearchResults } from "@justfixnyc/geosearch-requester";
 import Downshift, { DownshiftInterface, ControllerStateAndHelpers } from 'downshift';
 import classnames from 'classnames';
 import { BoroughChoice, getBoroughChoiceLabels } from '../util/borough-choices';

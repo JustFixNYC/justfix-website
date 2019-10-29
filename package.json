@@ -6,6 +6,7 @@
   "dependencies": {
     "@babel/core": "^7.6.4",
     "@contentful/rich-text-react-renderer": "^13.4.0",
+    "@justfixnyc/geosearch-requester": "^0.0.6",
     "@types/classnames": "^2.2.9",
     "@types/react-helmet": "^5.0.7",
     "bulma": "^0.7.5",
@@ -42,7 +43,8 @@
     "read-more-react": "^1.0.9",
     "tslint": "^5.11.0",
     "typescript": "^3.1.1",
-    "webpack": "^4.0.0"
+    "webpack": "^4.0.0",
+    "whatwg-fetch": "2.0.4"
   },
   "keywords": [
     "gatsby"
