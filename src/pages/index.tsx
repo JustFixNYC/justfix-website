@@ -65,16 +65,19 @@ const LandingPageScaffolding = (props) =>
               </>}
             </div>
           </div>
-          <div className="level is-mobile landing-footer">
-            <div className="level-left is-size-6 has-text-white has-text-weight-semibold  is-hidden-mobile">
-              JustFix.nyc is a non-profit that builds free tools in support of NYC's housing movement.
-            </div>  
-            <div className="level-item more-arrow"> 
-              <AnchorLink href="#products" className="has-text-white has-text-weight-light">
-                <figure className="image is-32x32">
-                  <img src={require("../img/down-arrow.png")} />
-                </figure>
-              </AnchorLink>
+          <div className="landing-footer">
+            <div className="columns is-vcentered">
+              <div className="column is-size-6 has-text-white has-text-weight-semibold">
+                JustFix.nyc is a non-profit that builds free tools in support of NYC's housing movement.
+              </div>  
+              <div className="column more-arrow">
+                <AnchorLink href="#products" className="has-text-white has-text-weight-light">
+                  <figure className="image is-32x32 is-horizontal-center">
+                    <img className="img-centered" src={require("../img/down-arrow.png")} />
+                  </figure>
+                </AnchorLink>
+              </div>
+              <div className="column" />
             </div>
           </div>
         
