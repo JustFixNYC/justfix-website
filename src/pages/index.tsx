@@ -11,8 +11,6 @@ import '../styles/data-driven-onboarding.scss';
 import Layout from '../components/layout'
 import { DDOSearchBar } from '../components/ddo-searchbar';
 
-const isIE = ((window as any).MSCompatibleInfo != null);
-
 const DDO = () => <>
   <h2 className="subtitle is-size-5 has-text-white">
     Enter your address to learn more.
@@ -40,7 +38,7 @@ const LandingPageScaffolding = (props) =>
               <h1 className="title is-size-1 is-size-3-mobile has-text-white is-spaced">
                 Free tools for you to
               
-              <div className={"title-carousel " + (isIE ? "is-hidden" :"is-hidden-mobile")}>
+              <div className="title-carousel is-hidden-mobile">
                 <TextLoop
                 springConfig={{ stiffness: 70, damping: 31 }}>
                   <span>get repairs in your apartment</span>
@@ -50,7 +48,7 @@ const LandingPageScaffolding = (props) =>
                   <span>respond to an eviction notice</span>
                 </TextLoop>
               </div>
-              <span className={(isIE ? "" : "is-hidden-tablet")}> fight for a safe and healthy home</span>
+              <span className="is-hidden-tablet"> fight for a safe and healthy home</span>
 
               </h1>
               
