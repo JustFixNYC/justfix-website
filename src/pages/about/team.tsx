@@ -77,9 +77,11 @@ const TeamPageScaffolding = (props) =>
               <h4 className="title is-size-5 has-text-grey-dark has-text-centered-mobile">{director.name}</h4>
               <h4 className="subtitle is-size-5 has-text-grey-dark has-text-centered-mobile">
                 {director.title + ', '} 
-                <a href={ director.childrenContentfulTeamMemberLinksJsonNode.length && director.childrenContentfulTeamMemberLinksJsonNode[0].url } target="_blank" rel="noopener noreferrer">
-                  {director.childrenContentfulTeamMemberLinksJsonNode[0].title}
-                </a>
+                {director.organizationLink ? 
+                <a href={director.organizationLink} target="_blank" rel="noopener noreferrer">
+                  {director.organization}
+                </a> :
+                <>{director.organization}</>}
               </h4>
                 <ReadMoreReact text={(director.description.description)}
                   min={180}
@@ -103,7 +105,7 @@ const TeamPageScaffolding = (props) =>
               (<p className="has-text-weight-semibold has-text-grey-dark" key={i}>
                 {contributor.link ? 
                 (<a href={contributor.link} target="_blank" rel="noopener noreferrer">{contributor.name}</a>) :
-                (<span>{contributor.name}</span>)}
+                (<>{contributor.name}</>)}
               </p>) ) 
             }
           </div>
@@ -148,10 +150,6 @@ const TeamPage  = () => (
               }
             }
             professionalLinks
-            childrenContentfulTeamMemberLinksJsonNode {
-              url
-              type
-            }
           }
           directorsTitle 
           directors {
@@ -162,10 +160,8 @@ const TeamPage  = () => (
                 url
               }
             }
-            childrenContentfulTeamMemberLinksJsonNode {
-              title
-              url
-            }
+            organization
+            organizationLink
             description {
               description
             } 
