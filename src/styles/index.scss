@@ -9,20 +9,43 @@
     
     .landing-image.hero.is-fullheight {
         background-image: url(https://degy28l8twq8c.cloudfront.net/brownstones.jpg);
-        background-size: cover;
-        background-position: center; 
+        background-size: auto 100%;
+        background-position: center;
+        min-height: 100vh; 
 
         .hero-body {
-            min-height: 100vh;
+            padding-bottom: 0;
+            
+            .container {
+                width: 100%;
+            }
         }
 
         .title {
             text-shadow: 0 2px 4px rgba(0,0,0,.5);
+
+            .title-carousel {
+                margin-top: 0.5rem;
+            }
         }
 
         .button {
             background-color: $transparent;
         }
+
+        .landing-footer {
+            padding: 3rem 1.5rem 1rem 1.5rem;
+
+            .column.more-arrow {
+
+                figure:hover {
+                    opacity: 0.7;
+                    
+                }
+            }
+        }
+
+        
     }
     #products {
         .product {

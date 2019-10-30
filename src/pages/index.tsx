@@ -1,6 +1,7 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import AnchorLink from 'react-anchor-link-smooth-scroll'
+import TextLoop from "react-text-loop";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 // import { Link } from 'gatsby'
 
@@ -25,12 +26,32 @@ const LandingPageScaffolding = (props) =>
   (<Layout isLandingPage={true}>
     <div id="home" className="home-page">
 
-      <section className="landing-image hero is-fullheight">
-          <div className="hero-body has-text-centered">
+      <section className="landing-image hero is-fullheight"
+        style={{
+            backgroundImage: "url("+(props.content.landingImage.file.url)+")",
+            backgroundPosition: "center center",
+            backgroundSize: "cover",
+            backgroundRepeat:"no-repeat" 
+          }}>
+          <div className="hero-body">
             <div className="container content-wrapper tight">
               <h1 className="title is-size-1 is-size-3-mobile has-text-white is-spaced">
-                {props.content.heroCopy.heroCopy}
+                Free tools for you to
+              
+              <div className="title-carousel is-hidden-mobile">
+                <TextLoop
+                springConfig={{ stiffness: 70, damping: 31 }}>
+                  <span>get repairs in your apartment</span>
+                  <span>take your landlord to court</span>
+                  <span>request your rent history</span>
+                  <span>research your property owner</span>
+                  <span>respond to an eviction notice</span>
+                </TextLoop>
+              </div>
+              <span className="is-hidden-tablet"> fight for a safe and healthy home</span>
+
               </h1>
+              
               {props.enableDDO ? <DDO /> : <>
                 <h2 className="subtitle is-size-5 is-hidden-mobile has-text-white">
                   {props.content.subCopy.subCopy}
@@ -44,6 +65,22 @@ const LandingPageScaffolding = (props) =>
               </>}
             </div>
           </div>
+          <div className="landing-footer">
+            <div className="columns is-vcentered">
+              <div className="column is-size-6 has-text-white has-text-weight-semibold">
+                JustFix.nyc is a non-profit that builds free tools in support of NYC's housing movement.
+              </div>  
+              <div className="column more-arrow">
+                <AnchorLink href="#products" className="has-text-white has-text-weight-light">
+                  <figure className="image is-32x32 is-horizontal-center">
+                    <img className="img-centered" src={require("../img/down-arrow.png")} />
+                  </figure>
+                </AnchorLink>
+              </div>
+              <div className="column" />
+            </div>
+          </div>
+        
       </section>
 
       <section id="products" className="is-horizontal-center">
@@ -164,6 +201,11 @@ const LandingPage  = () => (
           subCopy {
             subCopy
           }
+          landingImage {
+              file {
+                url
+              }
+            }
           heroCta
           productSectionTitle
           homePageProductBlocks {
