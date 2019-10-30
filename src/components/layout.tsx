@@ -41,32 +41,33 @@ const LayoutScaffolding = ({ metadata, children, isLandingPage, defaultContent }
   return (
     <>
       <Helmet
-        title={title}
         link={[
           { rel: 'icon', type: 'image/png', sizes: "16x16", href: `${favicon16}` },
           { rel: 'icon', type: 'image/png', sizes: "32x32", href: `${favicon32}` },
           { rel: 'shortcut icon', type: 'image/png', href: `${favicon96}` },
-        ]}
-        meta={[
-          { name: 'description', content: description },
-          { name: 'keywords', content: keywords },
-
-          { property: 'og:site_name', content: title },
-          { property: 'og:title', content: title },
-          { property: 'og:description', content: description},
-          { property: 'og:image', content: shareImageURL},
-          { property: 'og:type', content: 'website'},
-          { property: 'fb:app_id', content: FB_APP_ID},
-
-          { name: 'twitter:card', content: 'summary_large_image'},
-          { name: 'twitter:site', content: TWITTER_HANDLE },
-          { name: 'twitter:creator', content: TWITTER_HANDLE },
-          { name: 'twitter:title', content: title},
-          { name: 'twitter:description', content: description},
-          { name: 'twitter:url', content: SITE_MAIN_URL},
-          { name: 'twitter:image', content: shareImageURL }
         ]}>
-        <html lang="en" />
+          <html lang="en" />
+          <title>{title}</title>
+          <meta name="description" content={description} />
+          <meta name="keywords" content={keywords} />
+          <meta name="author" content="JustFix.nyc" />
+
+          <meta property="fb:app_id" content={FB_APP_ID} />
+          <meta property="og:site_name" content={title} />
+          <meta property="og:title" content={title} />
+          <meta property="og:description" content={description} />
+          <meta property="og:url" content={SITE_MAIN_URL} />
+          <meta property="og:image" content={shareImageURL} />
+          <meta property="og:type" content="website" />
+
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:site" content={TWITTER_HANDLE} />
+          <meta name="twitter:creator" content={TWITTER_HANDLE} />
+          <meta name="twitter:title" content={title} />
+          <meta name="twitter:description" content={description} />
+          <meta name="twitter:url" content={SITE_MAIN_URL} />
+          <meta name="twitter:image" content={shareImageURL} />
+          <meta name="twitter:image:alt" content={title} />
       </Helmet>
       <Header isLandingPage={isLandingPage} />
       <div>
