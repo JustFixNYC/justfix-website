@@ -57,7 +57,7 @@ const LayoutScaffolding = ({ metadata, children, isLandingPage, defaultContent }
           <meta property="og:title" content={title} />
           <meta property="og:description" content={description} />
           <meta property="og:url" content={SITE_MAIN_URL} />
-          <meta property="og:image" content={shareImageURL} />
+          <meta property="og:image" content={encodeURI(shareImageURL)} />
           <meta property="og:type" content="website" />
 
           <meta name="twitter:card" content="summary_large_image" />
@@ -66,7 +66,7 @@ const LayoutScaffolding = ({ metadata, children, isLandingPage, defaultContent }
           <meta name="twitter:title" content={title} />
           <meta name="twitter:description" content={description} />
           <meta name="twitter:url" content={SITE_MAIN_URL} />
-          <meta name="twitter:image" content={shareImageURL} />
+          <meta name="twitter:image" content={encodeURI(shareImageURL)} />
           <meta name="twitter:image:alt" content={title} />
       </Helmet>
       <Header isLandingPage={isLandingPage} />
