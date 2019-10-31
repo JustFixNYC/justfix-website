@@ -11,6 +11,9 @@ const DDO_ADDRESS_VAR = "address";
 /** The querystring variable used to communicate the borough for DDO. */
 const DDO_BOROUGH_VAR = "borough";
 
+/** The URL parameters usedfor tracking */
+const DDO_URL_UTM_TAGS = "utm_source=orgsite";
+
 export type DDOSearchBarProps = {
   /** The label text for the address field, used for accessibility purposes only (it is visually hidden). */
   hiddenFieldLabel: string;
@@ -36,7 +39,7 @@ export function getDDOURL(item: GeoAutocompleteItem, baseURL: string = DDO_URL):
     url += `&${DDO_BOROUGH_VAR}=${encodeURIComponent(item.borough)}`;
   }
 
-  return url;
+  return url + `&${DDO_URL_UTM_TAGS}`;
 }
 
 /**
