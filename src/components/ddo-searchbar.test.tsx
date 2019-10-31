@@ -13,6 +13,10 @@ describe('getDDOURL()', () => {
   it('includes address and borough if both are provided', () => {
     expect(getDDOURL({address: 'blarg', borough: 'BRONX'}, 'http://boop/')).toBe('http://boop/?address=blarg&borough=BRONX');
   });
+
+  it('includes utm tags if provided', () => {
+    expect(getDDOURL({address: 'blarg', borough: 'BRONX'}, 'http://boop/', 'utm_source=boop')).toBe('http://boop/?address=blarg&borough=BRONX&utm_source=boop');
+  });
 });
 
 describe('<DDOSearchBar>', () => {
@@ -112,7 +116,7 @@ describe('<DDOSearchBar>', () => {
     ddo.submit();
     expect(wasSubmitPrevented).toBe(true);
     expect(locationAssign).toHaveBeenCalledTimes(1);
-    expect(locationAssign).toHaveBeenCalledWith("http://boop.com/?address=boop");
+    expect(locationAssign).toHaveBeenCalledWith("http://boop.com/?address=boop&utm_source=orgsite&utm_medium=ddosearch");
     expect(ddo.isLoading()).toBe(true);
   });
 
@@ -134,7 +138,7 @@ describe('<DDOSearchBar>', () => {
     act(() => fakeGeo.getProps().onChange({address: 'boop', borough: 'BRONX'}));
     ddo.rr.getByTestId(fakeGeo.testId);
     expect(locationAssign).toHaveBeenCalledTimes(1);
-    expect(locationAssign).toHaveBeenCalledWith("http://boop.com/?address=boop&borough=BRONX");
+    expect(locationAssign).toHaveBeenCalledWith("http://boop.com/?address=boop&borough=BRONX&utm_source=orgsite&utm_medium=ddosearch");
     expect(ddo.isLoading()).toBe(true);
   });
 });

@@ -11,6 +11,9 @@ const DDO_ADDRESS_VAR = "address";
 /** The querystring variable used to communicate the borough for DDO. */
 const DDO_BOROUGH_VAR = "borough";
 
+/** The URL parameters usedfor tracking */
+const DDO_URL_UTM_TAGS = "utm_source=orgsite&utm_medium=ddosearch";
+
 export type DDOSearchBarProps = {
   /** The label text for the address field, used for accessibility purposes only (it is visually hidden). */
   hiddenFieldLabel: string;
@@ -29,14 +32,14 @@ export type DDOSearchBarProps = {
 };
 
 /** Return the DDO URL for the given address and/or borough. */
-export function getDDOURL(item: GeoAutocompleteItem, baseURL: string = DDO_URL): string {
+export function getDDOURL(item: GeoAutocompleteItem, baseURL: string = DDO_URL, utmTags?: string): string {
   let url = `${baseURL}?${DDO_ADDRESS_VAR}=${encodeURIComponent(item.address)}`;
 
   if (item.borough) {
     url += `&${DDO_BOROUGH_VAR}=${encodeURIComponent(item.borough)}`;
   }
 
-  return url;
+  return (utmTags ? url + `&${utmTags}` : url);
 }
 
 /**
@@ -67,7 +70,7 @@ export function DDOSearchBar(props: DDOSearchBarProps): JSX.Element {
   const GeoAutocompleteComponent = props.geoAutocompleteComponent || GeoAutocomplete;
   const gotoDDO = (item: GeoAutocompleteItem) => {
     setIsNavigating(true);
-    window.location.assign(getDDOURL(item, props.action));
+    window.location.assign(getDDOURL(item, props.action, DDO_URL_UTM_TAGS));
   };
 
   useEffect(() => {
