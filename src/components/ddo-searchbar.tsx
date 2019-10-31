@@ -39,7 +39,7 @@ export function getDDOURL(item: GeoAutocompleteItem, baseURL: string = DDO_URL, 
     url += `&${DDO_BOROUGH_VAR}=${encodeURIComponent(item.borough)}`;
   }
 
-  return url + (utmTags && `&${encodeURIComponent(utmTags)}`);
+  return (utmTags ? url + `&${utmTags}` : url);
 }
 
 /**
