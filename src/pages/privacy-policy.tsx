@@ -2,12 +2,13 @@ import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 
 import Layout from '../components/layout'
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
 
 const PrivacyPolicyPageScaffolding = (props) => 
   (<Layout metadata={{title:"Privacy Policy"}}>
     <div id="privacy-policy" className="privacy-policy-page content-wrapper tight section">
-        <div className="content" dangerouslySetInnerHTML={{ __html: props.content.pageContent.childMarkdownRemark.html}} />
+      <div className="content">{documentToReactComponents(props.content.pageContents.json)}</div>
     </div>
   </Layout>); 
 
@@ -17,10 +18,8 @@ const PrivacyPolicyPage  = () => (
       query {
         contentfulGenericPage(url: {eq: "privacy-policy"}) {
             title
-            pageContent {
-                childMarkdownRemark {
-                html
-                }
+            pageContents {
+              json
             }
         }
       }
