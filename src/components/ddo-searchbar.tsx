@@ -12,7 +12,7 @@ const DDO_ADDRESS_VAR = "address";
 const DDO_BOROUGH_VAR = "borough";
 
 /** The URL parameters usedfor tracking */
-const DDO_URL_UTM_TAGS = "utm_source=orgsite";
+const DDO_URL_UTM_TAGS = "utm_source=orgsite&utm_medium=ddosearch";
 
 export type DDOSearchBarProps = {
   /** The label text for the address field, used for accessibility purposes only (it is visually hidden). */
