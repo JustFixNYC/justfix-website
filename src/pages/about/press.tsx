@@ -1,5 +1,6 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 // import { Link } from 'gatsby'
 
 import '../../styles/press.scss' 
@@ -54,8 +55,8 @@ const PressPageScaffolding = (props) =>
             <h1 className="title is-size-4 has-text-weight-bold is-spaced">
             {props.content.pressKitTitle}
             </h1>
-            <span className="subtitle has-text-weight-medium" 
-              dangerouslySetInnerHTML={{ __html: props.content.pressKitBody.childMarkdownRemark.html}} >
+            <span className="subtitle has-text-weight-medium"> 
+              {documentToReactComponents(props.content.pressKitSubtitle.json)}
             </span>
             <br />
             <a href={props.content.pressKitButton.link} className="button is-medium is-primary is-inverted is-outlined">{props.content.pressKitButton.title}</a>
@@ -100,10 +101,8 @@ const PressPage  = () => (
             }
           }
           pressKitTitle
-          pressKitBody {
-            childMarkdownRemark {
-              html
-            }
+          pressKitSubtitle {
+            json
           }
           pressKitButton {
             title

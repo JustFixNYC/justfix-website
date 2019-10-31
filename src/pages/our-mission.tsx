@@ -6,6 +6,7 @@ import '../styles/mission.scss'
 
 import Layout from '../components/layout'
 import ReadMore from '../components/read-more'
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 
 const MissionPageScaffolding = (props) => 
   (<Layout metadata={props.content.metadata}>
@@ -32,7 +33,8 @@ const MissionPageScaffolding = (props) =>
 
       <section className="hero problem is-medium is-white">
         <div className="hero-body is-horizontal-center">
-          <div className="content has-text-grey-dark" dangerouslySetInnerHTML = {{ __html: props.content.problemBlock.childMarkdownRemark.html}}>
+          <div className="content has-text-grey-dark">
+            {documentToReactComponents(props.content.problemsSection.json)}
           </div>
         </div>
       </section>
@@ -63,8 +65,9 @@ const MissionPageScaffolding = (props) =>
 
       <section className="hero serve is-medium is-white">
         <div className="hero-body is-horizontal-center">
-          <div className="content has-text-grey-dark" dangerouslySetInnerHTML = {{ __html: props.content.serveBlock.childMarkdownRemark.html}} />
-          <div className="content has-text-grey-dark" dangerouslySetInnerHTML = {{ __html: props.content.triptychParagraph.childMarkdownRemark.html}} />
+          <div className="content has-text-grey-dark">
+            {documentToReactComponents(props.content.serveSection.json)}
+          </div>
         </div>
       </section>
 
@@ -76,7 +79,9 @@ const MissionPageScaffolding = (props) =>
 
         <div className="hero-body is-horizontal-center">
           <div className="container">
-            <div className="content has-text-grey-dark" dangerouslySetInnerHTML = {{ __html: props.content.approachBlock.childMarkdownRemark.html}} />
+            <div className="content has-text-grey-dark">
+              {documentToReactComponents(props.content.approachSection.json)}
+            </div>
             <div className="columns">
             { (props.content.approachBreakIcon).map( (icon, i) =>
               <div className="column is-one-third has-text-centered " key={i}>
@@ -138,10 +143,8 @@ const MissionPage  = () => (
           title
           briefDescription
           videoUrl
-          problemBlock {
-            childMarkdownRemark {
-              html
-            }
+          problemsSection {
+            json
           }
           impactTitle
           impactSubtitle
@@ -149,25 +152,16 @@ const MissionPage  = () => (
             title
             link
           }
-          serveBlock {
-            childMarkdownRemark {
-              html
-            }
-          }
-          triptychParagraph {
-            childMarkdownRemark {
-              html
-            }
+          serveSection {
+            json
           }
           collaborationImageBreak {
             file {
               url
             }
           }
-          approachBlock {
-            childMarkdownRemark {
-              html
-            }
+          approachSection {
+            json
           }
           approachBreakIcon {
             iconImage {
