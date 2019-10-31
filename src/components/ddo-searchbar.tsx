@@ -32,14 +32,14 @@ export type DDOSearchBarProps = {
 };
 
 /** Return the DDO URL for the given address and/or borough. */
-export function getDDOURL(item: GeoAutocompleteItem, baseURL: string = DDO_URL): string {
+export function getDDOURL(item: GeoAutocompleteItem, baseURL: string = DDO_URL, utmTags: string = DDO_URL_UTM_TAGS): string {
   let url = `${baseURL}?${DDO_ADDRESS_VAR}=${encodeURIComponent(item.address)}`;
 
   if (item.borough) {
     url += `&${DDO_BOROUGH_VAR}=${encodeURIComponent(item.borough)}`;
   }
 
-  return url + `&${DDO_URL_UTM_TAGS}`;
+  return url + `&${encodeURIComponent(utmTags)}`;
 }
 
 /**

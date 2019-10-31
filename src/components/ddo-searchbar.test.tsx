@@ -11,7 +11,7 @@ describe('getDDOURL()', () => {
   });
 
   it('includes address and borough if both are provided', () => {
-    expect(getDDOURL({address: 'blarg', borough: 'BRONX'}, 'http://boop/')).toBe('http://boop/?address=blarg&borough=BRONX');
+    expect(getDDOURL({address: 'blarg', borough: 'BRONX'}, 'http://boop/', 'utm_source=boop')).toBe('http://boop/?address=blarg&borough=BRONX');
   });
 });
 
