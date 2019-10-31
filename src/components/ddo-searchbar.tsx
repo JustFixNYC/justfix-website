@@ -32,7 +32,7 @@ export type DDOSearchBarProps = {
 };
 
 /** Return the DDO URL for the given address and/or borough. */
-export function getDDOURL(item: GeoAutocompleteItem, baseURL: string = DDO_URL, utmTags: string = DDO_URL_UTM_TAGS): string {
+export function getDDOURL(item: GeoAutocompleteItem, baseURL: string = DDO_URL, utmTags?: string): string {
   let url = `${baseURL}?${DDO_ADDRESS_VAR}=${encodeURIComponent(item.address)}`;
 
   if (item.borough) {
@@ -70,7 +70,7 @@ export function DDOSearchBar(props: DDOSearchBarProps): JSX.Element {
   const GeoAutocompleteComponent = props.geoAutocompleteComponent || GeoAutocomplete;
   const gotoDDO = (item: GeoAutocompleteItem) => {
     setIsNavigating(true);
-    window.location.assign(getDDOURL(item, props.action));
+    window.location.assign(getDDOURL(item, props.action, DDO_URL_UTM_TAGS));
   };
 
   useEffect(() => {
