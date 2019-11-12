@@ -3,6 +3,7 @@ import { StaticQuery, graphql } from 'gatsby'
 import AnchorLink from 'react-anchor-link-smooth-scroll'
 import TextLoop from "react-text-loop";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
+import Img from "gatsby-image/withIEPolyfill"
 // import { Link } from 'gatsby'
 
 import '../styles/index.scss' 
@@ -26,13 +27,14 @@ const LandingPageScaffolding = (props) =>
   (<Layout isLandingPage={true}>
     <div id="home" className="home-page">
 
-      <section className="landing-image hero is-fullheight"
-        style={{
-            backgroundImage: "url("+(props.content.landingImage.file.url)+")",
-            backgroundPosition: "center center",
-            backgroundSize: "cover",
-            backgroundRepeat:"no-repeat" 
-          }}>
+      <section className="landing-image hero is-fullheight">
+          <Img 
+            className="background-image"
+            fluid={props.content.landingImage.fluid}
+            objectFit="cover"
+            objectPosition="50% 50%"
+            alt="background-image"
+            style={{position: "absolute"}} />
           <div className="hero-body">
             <div className="container content-wrapper tight">
               <h1 className="title is-size-1 is-size-3-mobile has-text-white is-spaced">
@@ -202,8 +204,8 @@ const LandingPage  = () => (
             subCopy
           }
           landingImage {
-              file {
-                url
+              fluid {
+                ...GatsbyContentfulFluid
               }
             }
           heroCta
