@@ -39,7 +39,7 @@ const LandingPageScaffolding = (props) =>
                 Free tools for you to
               
               <div className="title-carousel is-hidden-mobile">
-                <TextLoop
+                <TextLoop interval={2500}
                 springConfig={{ stiffness: 70, damping: 31 }}>
                   <span>get repairs in your apartment</span>
                   <span>take your landlord to court</span>
