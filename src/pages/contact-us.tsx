@@ -7,10 +7,11 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import '../styles/contact.scss' 
 
 import Layout from '../components/layout'
+import { ContentfulContent } from '../components/types';
 
 const MAILCHIMP_URL = "https://nyc.us13.list-manage.com/subscribe/post?u=d4f5d1addd4357eb77c3f8a99&amp;id=588f6c6ef4";
 
-const ContactPageScaffolding = (props) => 
+const ContactPageScaffolding = (props: ContentfulContent) => 
   (<Layout metadata={props.content.metadata}>
     <div id="contact" className="contact-page" >
 
@@ -26,7 +27,7 @@ const ContactPageScaffolding = (props) =>
             </span>
 
             <div className="field">
-              { (props.content.socialButtons).map( (button, i) =>
+              { (props.content.socialButtons).map( (button: any, i: number) =>
                 (<SocialIcon key={i} url={button.url} target="_blank" rel="noopener noreferrer" bgColor="#0096D7" style={{ height: 40, width: 40 }} />) )
               }
             </div>
