@@ -30,7 +30,7 @@ const PartnersPageScaffolding = (props) =>
           (<div className="logo is-inline-flex" key={i}>
               <a href={partner.link} target="_blank" rel="noopener noreferrer">
                 <figure className="image">
-                  <img className="img-centered" src={partner.logo.file.url} />
+                  <img className="img-centered" src={partner.logo.fluid.src} />
                 </figure>
               </a>    
           </div>) )
@@ -56,7 +56,7 @@ const PartnersPageScaffolding = (props) =>
           (<div className="logo is-inline-flex" key={i}>
               <a href={funder.link} target="_blank" rel="noopener noreferrer">
                 <figure className="image">
-                  <img className="img-centered" src={funder.logo.file.url} />
+                  <img className="img-centered" src={funder.logo.fluid.src} />
                 </figure>
               </a>    
           </div>) )
@@ -115,8 +115,8 @@ const PartnersPage  = () => (
           partnerOrganizations {
             link
             logo {
-              file {
-                url
+              fluid {
+                src
               }
             }
           }
@@ -124,8 +124,8 @@ const PartnersPage  = () => (
           funders {
             link
             logo {
-              file {
-                url
+              fluid {
+                src
               }
             }
           }

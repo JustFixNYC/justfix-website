@@ -85,6 +85,7 @@ module.exports = {
     'gatsby-plugin-sass',
     `gatsby-plugin-typescript`,
     'gatsby-transformer-remark',
+    'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     {
       resolve: `gatsby-source-contentful`,
