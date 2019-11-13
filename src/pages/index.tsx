@@ -225,12 +225,6 @@ const LandingPage  = () => (
               json
             }
           }
-          videoUnit {
-            title
-            caption {
-              caption
-            }
-          }
           pressTitle 
           pressLogos {
             logo {
