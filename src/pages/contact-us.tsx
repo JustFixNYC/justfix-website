@@ -82,12 +82,12 @@ const ContactPage  = () => (
           contactCta {
             json
           }
-          mailingListTitle 
-          mailingListSubtitle
           socialButtons {
             title
             url
           }
+          mailingListTitle 
+          mailingListSubtitle
         }
       }
     `}

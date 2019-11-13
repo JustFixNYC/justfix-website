@@ -17,7 +17,7 @@ const PrivacyPolicyPage  = () => (
 <StaticQuery
     query={graphql`
       query {
-        contentfulGenericPage(url: {eq: "privacy-policy"}) {
+        contentfulGenericPage(title: {eq: "Privacy Policy"}) {
             title
             pageContents {
               json
