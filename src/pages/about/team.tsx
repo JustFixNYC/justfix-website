@@ -32,7 +32,7 @@ const TeamPageScaffolding = (props) =>
           { (props.content.teamMembers).map( (member, i) =>
             (<div className="column team-member is-one-third has-text-centered " key={i}>
               <figure className="image is-128x128 is-horizontal-center">
-                <img className="is-rounded" src={ member.photo.file.url } alt={member.name} />
+                <img className="is-rounded" src={ member.photo.fluid.src } alt={member.name} />
               </figure>
               
               <h4 className="title is-size-5 has-text-grey-dark">{member.name}</h4>
@@ -145,8 +145,8 @@ const TeamPage  = () => (
               description
             } 
             photo {
-              file {
-                url
+              fluid {
+                src
               }
             }
             professionalLinks
