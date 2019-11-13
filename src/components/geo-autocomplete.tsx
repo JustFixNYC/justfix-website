@@ -186,8 +186,8 @@ export class GeoAutocomplete extends React.Component<GeoAutocompleteProps, GeoAu
       autoComplete: getBrowserAutoCompleteOffValue(),
       onFocus: () => this.makeChromeNotBeAnnoying(),
       onBlur: () => this.selectIncompleteAddress(ds),
-      onKeyDown: (event) => this.handleAutocompleteKeyDown(ds, event),
-      onChange: (event) => this.handleInputValueChange(event.currentTarget.value)
+      onKeyDown: (event: any) => this.handleAutocompleteKeyDown(ds, event),
+      onChange: (event: any) => this.handleInputValueChange(event.currentTarget.value)
     });
   }
 
