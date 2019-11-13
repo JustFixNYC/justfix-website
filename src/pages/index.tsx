@@ -3,6 +3,7 @@ import { StaticQuery, graphql } from 'gatsby'
 import AnchorLink from 'react-anchor-link-smooth-scroll'
 import TextLoop from "react-text-loop";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
+import BackgroundImage from 'gatsby-background-image'
 import Img from "gatsby-image/withIEPolyfill"
 // import { Link } from 'gatsby'
 
@@ -26,15 +27,8 @@ const DDO = () => <>
 const LandingPageScaffolding = (props) => 
   (<Layout isLandingPage={true}>
     <div id="home" className="home-page">
-
-      <section className="landing-image hero is-fullheight">
-          <Img 
-            className="background-image"
-            fluid={props.content.landingImage.fluid}
-            objectFit="cover"
-            objectPosition="50% 50%"
-            alt="background-image"
-            style={{position: "absolute"}} />
+      <BackgroundImage className="landing-image hero is-fullheight"
+        fluid={props.content.landingImage.fluid} alt="background-image">
           <div className="hero-body">
             <div className="container content-wrapper tight">
               <h1 className="title is-size-1 is-size-3-mobile has-text-white is-spaced">
@@ -83,7 +77,7 @@ const LandingPageScaffolding = (props) =>
             </div>
           </div>
         
-      </section>
+      </BackgroundImage>
 
       <section id="products" className="is-horizontal-center">
         <div className="content-wrapper">
@@ -105,7 +99,7 @@ const LandingPageScaffolding = (props) =>
                 {i % 2 === 1 && (<div className="column">
                   <div className="container">
                     <figure className="image is-horizontal-center">
-                      <img src={product.screenshot.file.url} />
+                      <Img fluid={product.screenshot.fluid} />
                     </figure>
                   </div>
                 </div>)}
@@ -121,7 +115,7 @@ const LandingPageScaffolding = (props) =>
                 {i % 2 === 0 && (<div className="column">
                   <div className="container">
                     <figure className="image is-horizontal-center">
-                      <img src={product.screenshot.file.url} />
+                      <Img fluid={product.screenshot.fluid} />
                     </figure>
                   </div>
                 </div>)}
@@ -131,7 +125,7 @@ const LandingPageScaffolding = (props) =>
                 <div className="column">
                   <div className="container">
                     <figure className="image is-horizontal-center">
-                      <img src={product.screenshot.file.url} />
+                      <Img fluid={product.screenshot.fluid} />
                     </figure>
                   </div>
                 </div>
@@ -204,10 +198,10 @@ const LandingPage  = () => (
             subCopy
           }
           landingImage {
-              fluid {
-                ...GatsbyContentfulFluid
-              }
+            fluid {
+              ...GatsbyContentfulFluid
             }
+          }
           heroCta
           productSectionTitle
           homePageProductBlocks {
@@ -218,9 +212,9 @@ const LandingPage  = () => (
               url
             }
             screenshot {
-              file {
-                url
-              }
+              fluid {
+              ...GatsbyContentfulFluid
+              } 
             }
           }
           rentHistory {
