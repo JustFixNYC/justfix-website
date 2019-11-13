@@ -6,8 +6,9 @@ import '../../styles/partners.scss'
 
 import Layout from '../../components/layout'
 import ReadMore from '../../components/read-more'
+import { ContentfulContent } from '../../components/types'
 
-const PartnersPageScaffolding = (props) => 
+const PartnersPageScaffolding = (props: ContentfulContent) => 
   (<Layout metadata={props.content.metadata}>
   <div id="partners" className="partners-page">
 
@@ -26,7 +27,7 @@ const PartnersPageScaffolding = (props) =>
       
       <section className="partners logos container has-text-centered">
       
-      { (props.content.partnerOrganizations).map( (partner, i) =>
+      { (props.content.partnerOrganizations).map( (partner: any, i: number) =>
           (<div className="logo is-inline-flex" key={i}>
               <a href={partner.link} target="_blank" rel="noopener noreferrer">
                 <figure className="image">
@@ -52,7 +53,7 @@ const PartnersPageScaffolding = (props) =>
 
       <section className="funders logos container has-text-centered">
 
-        { (props.content.funders).map( (funder, i) =>
+        { (props.content.funders).map( (funder: any, i: number) =>
           (<div className="logo is-inline-flex" key={i}>
               <a href={funder.link} target="_blank" rel="noopener noreferrer">
                 <figure className="image">

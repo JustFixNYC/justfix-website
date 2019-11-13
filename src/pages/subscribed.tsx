@@ -3,9 +3,10 @@ import { StaticQuery, graphql } from 'gatsby'
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
 import Layout from '../components/layout'
+import { ContentfulContent } from '../components/types';
 
 
-const SubscribedPageScaffolding = (props) => 
+const SubscribedPageScaffolding = (props: ContentfulContent) => 
   (<Layout metadata={{title:"Subscribed"}}>
     <section className="hero is-small is-white">
         <div className="hero-body has-text-centered is-horizontal-center">

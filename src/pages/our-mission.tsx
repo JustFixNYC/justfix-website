@@ -7,8 +7,9 @@ import '../styles/mission.scss'
 import Layout from '../components/layout'
 import ReadMore from '../components/read-more'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
+import { ContentfulContent } from '../components/types'
 
-const MissionPageScaffolding = (props) => 
+const MissionPageScaffolding = (props: ContentfulContent) => 
   (<Layout metadata={props.content.metadata}>
     <div id="mission" className="mission-page" >
 
@@ -51,7 +52,7 @@ const MissionPageScaffolding = (props) =>
             </span>
             <br />
             <div className="buttons is-centered">
-              { (props.content.impactReportButtons).map( (button, i) => 
+              { (props.content.impactReportButtons).map( (button: any, i: number) => 
                 (<a href={button.link} target="_blank" rel="noopener noreferrer" key={i}
                   className="button is-medium is-primary is-inverted is-outlined">
                   <span className="is-size-6-mobile">{button.title}</span>
@@ -83,7 +84,7 @@ const MissionPageScaffolding = (props) =>
               {documentToReactComponents(props.content.approachSection.json)}
             </div>
             <div className="columns">
-            { (props.content.approachBreakIcon).map( (icon, i) =>
+            { (props.content.approachBreakIcon).map( (icon: any, i: number) =>
               <div className="column is-one-third has-text-centered " key={i}>
                 <figure className="image approach-icon is-horizontal-center">
                   <img src={ icon.iconImage.file.url } alt={icon.iconDescription} />

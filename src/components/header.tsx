@@ -12,7 +12,7 @@ type State = {
 }
 
 class Header extends Component<Props,State> {
-  constructor(Props) {
+  constructor(Props: Props) {
     super(Props);
 
     this.state = {
