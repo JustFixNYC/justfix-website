@@ -13,6 +13,8 @@ import '../styles/data-driven-onboarding.scss';
 import Layout from '../components/layout'
 import { DDOSearchBar } from '../components/ddo-searchbar';
 
+const TEXTLOOP_ANIMATION_INTERVAL = 2750;
+
 const DDO = () => <>
   <h2 className="subtitle is-size-5 has-text-white">
     Enter your address to learn more.
@@ -35,7 +37,7 @@ const LandingPageScaffolding = (props) =>
                 Free tools for you to
               
               <div className="title-carousel is-hidden-mobile">
-                <TextLoop interval={2500}
+                <TextLoop interval={TEXTLOOP_ANIMATION_INTERVAL}
                 springConfig={{ stiffness: 70, damping: 31 }}>
                   <span>get repairs in your apartment</span>
                   <span>take your landlord to court</span>
