@@ -16,7 +16,7 @@ const TermsOfUsePage  = () => (
 <StaticQuery
     query={graphql`
       query {
-        contentfulGenericPage(url: {eq: "terms-of-use"}) {
+        contentfulGenericPage(title: {eq: "Terms of Use"}) {
             title
             pageContents {
               json
