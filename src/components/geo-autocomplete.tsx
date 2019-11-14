@@ -182,7 +182,7 @@ export class GeoAutocomplete extends React.Component<GeoAutocompleteProps, GeoAu
   }
 
   getInputProps(ds: ControllerStateAndHelpers<GeoAutocompleteItem>) {
-    return ds.getInputProps({
+    return ds.getInputProps<React.HTMLProps<HTMLInputElement>>({
       autoComplete: getBrowserAutoCompleteOffValue(),
       onFocus: () => this.makeChromeNotBeAnnoying(),
       onBlur: () => this.selectIncompleteAddress(ds),
@@ -241,7 +241,7 @@ export class GeoAutocomplete extends React.Component<GeoAutocompleteProps, GeoAu
   render() {
     return (
       <GeoDownshift
-        onChange={this.props.onChange}
+        onChange={item => item && this.props.onChange(item)}
         itemToString={geoAutocompleteItemToString}
       >
         {(downshift) => this.renderAutocomplete(downshift)}

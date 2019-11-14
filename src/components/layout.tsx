@@ -31,11 +31,16 @@ type Props = {
 /** Component checks for custom metadata attributes, and then uses the default homepage values as a fallback */
 const LayoutScaffolding = ({ metadata, children, isLandingPage, defaultContent }: Props) => {
 
-  const title = (metadata && (metadata.title + SITE_TITLE_SUFFIX)) || defaultContent.metadata.title;
-  const description = (metadata && metadata.description) || defaultContent.metadata.description;
-  const keywords = (metadata && metadata.keywords && metadata.keywords.keywords) || defaultContent.metadata.keywords.keywords;
-  const shareImageURL = (metadata && metadata.shareImage && metadata.shareImage.file &&
-    metadata.shareImage.file.url) || defaultContent.metadata.shareImage.file.url;
+  var title, description, keywords, shareImageURL;
+  if (defaultContent && defaultContent.metadata) {
+
+    title = (metadata && (metadata.title + SITE_TITLE_SUFFIX)) || defaultContent.metadata.title;
+    description = (metadata && metadata.description) || defaultContent.metadata.description;
+    keywords = (metadata && metadata.keywords && metadata.keywords.keywords) || defaultContent.metadata.keywords.keywords;
+    shareImageURL = (metadata && metadata.shareImage && metadata.shareImage.file &&
+      metadata.shareImage.file.url) || defaultContent.metadata.shareImage.file.url;
+      
+   }
   
 
   return (

@@ -8,8 +8,9 @@ import '../../styles/team.scss'
 
 import Layout from '../../components/layout'
 import ReadMore from '../../components/read-more'
+import { ContentfulContent } from '../../components/types';
 
-const TeamPageScaffolding = (props) => 
+const TeamPageScaffolding = (props: ContentfulContent) => 
   (<Layout metadata={props.content.metadata}>
 
     <div id="team" className="team-page">
@@ -29,7 +30,7 @@ const TeamPageScaffolding = (props) =>
       <section className="content-wrapper team-members">
 
         <div className="columns is-multiline">
-          { (props.content.teamMembers).map( (member, i) =>
+          { (props.content.teamMembers).map( (member: any, i: number) =>
             (<div className="column team-member is-one-third has-text-centered " key={i}>
               <figure className="image is-128x128 is-horizontal-center">
                 <img className="is-rounded" src={ member.photo.fluid.src } alt={member.name} />
@@ -38,7 +39,7 @@ const TeamPageScaffolding = (props) =>
               <h4 className="title is-size-5 has-text-grey-dark">{member.name}</h4>
               <h4 className="subtitle is-size-5 has-text-grey-dark">{member.title}</h4>
               <div className="field">
-                  {member.professionalLinks && (member.professionalLinks).map ( (link, i) => 
+                  {member.professionalLinks && (member.professionalLinks).map ( (link: any, i: number) => 
                     <SocialIcon key={i} url={link} target="_blank" rel="noopener noreferrer" bgColor="#0096D7" style={{ height: 40, width: 40 }} />
                   )}
               </div>
@@ -63,7 +64,7 @@ const TeamPageScaffolding = (props) =>
 
       <section className="content-wrapper tight directors">
 
-        { (props.content.directors).map( (director, i) =>
+        { (props.content.directors).map( (director: any, i: number) =>
           (<div className="columns" key={i}>
             <div className="column director is-one-quarter">
               <figure className="image is-128x128 is-pulled-right is-hidden-mobile">
@@ -101,7 +102,7 @@ const TeamPageScaffolding = (props) =>
             <h1 className="title is-size-4 has-text-grey-dark has-text-weight-bold is-spaced">
             {props.content.otherContributorsTitle}
             </h1>
-              { (props.content.otherContributors).map( (contributor, i) =>
+              { (props.content.otherContributors).map( (contributor: any, i: number) =>
               (<p className="has-text-weight-semibold has-text-grey-dark" key={i}>
                 {contributor.link ? 
                 (<a href={contributor.link} target="_blank" rel="noopener noreferrer">{contributor.name}</a>) :

@@ -7,8 +7,9 @@ import '../../styles/press.scss'
 
 import Layout from '../../components/layout'
 import ReadMore from '../../components/read-more'
+import { ContentfulContent } from '../../components/types'
 
-const PressPageScaffolding = (props) => 
+const PressPageScaffolding = (props: ContentfulContent) => 
   (<Layout metadata={props.content.metadata}>
 
     <div id="press" className="press-page">
@@ -27,7 +28,7 @@ const PressPageScaffolding = (props) =>
 
       <section className="press-links content-wrapper">
 
-        { (props.content.pressItems).map( (pressItem, i) =>
+        { (props.content.pressItems).map( (pressItem: any, i: number) =>
             (<article className="media" key={i}>
               <div className="media-left is-hidden-mobile">
                 <figure className="image is-horizontal-center">

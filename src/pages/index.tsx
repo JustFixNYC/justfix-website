@@ -12,6 +12,7 @@ import '../styles/data-driven-onboarding.scss';
 
 import Layout from '../components/layout'
 import { DDOSearchBar } from '../components/ddo-searchbar';
+import { HomepageProps } from '../components/types';
 
 const TEXTLOOP_ANIMATION_INTERVAL = 2750;
 
@@ -26,7 +27,7 @@ const DDO = () => <>
   />
 </>;
 
-const LandingPageScaffolding = (props) => 
+const LandingPageScaffolding = (props: HomepageProps) => 
   (<Layout isLandingPage={true}>
     <div id="home" className="home-page">
       <BackgroundImage className="landing-image hero is-fullheight"
@@ -94,7 +95,7 @@ const LandingPageScaffolding = (props) =>
             </div>
           </div>
 
-          { (props.content.homePageProductBlocks).map( (product, i) =>
+          { (props.content.homePageProductBlocks).map( (product: any, i: number) =>
             (<div className="product" key={i}>
 
               <div className="columns is-tablet is-vcentered is-hidden-mobile">
@@ -166,7 +167,7 @@ const LandingPageScaffolding = (props) =>
             <div className="hero-body has-text-centered">
               <h1 className="title is-size-2 has-text-grey-dark has-text-weight-normal">{props.content.pressTitle}</h1>
               <div className="columns">
-              { (props.content.pressLogos).map( (logo,i) =>
+              { (props.content.pressLogos).map( (logo: any, i: number) =>
                 (<div className="column" key={i}>
                   <figure className="image">
                     <img className="is-horizontal-center" src={logo.logo.file.url} />

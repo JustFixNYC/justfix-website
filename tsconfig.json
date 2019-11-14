@@ -6,11 +6,11 @@
     "lib": ["es6", "es7", "dom"],
     "sourceMap": true,
     "allowJs": true,
-    "jsx": "preserve",
+    "jsx": "react",
     "moduleResolution": "node",
     "forceConsistentCasingInFileNames": true,
     "noImplicitReturns": true,
-    "strict": false,
+    "strict": true,
     "strictFunctionTypes": true,
     "suppressImplicitAnyIndexErrors": true,
     "noUnusedLocals": true,
@@ -19,5 +19,5 @@
     "esModuleInterop": true,
     "downlevelIteration": true
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*", "tsdeclarations/*"]
 }
