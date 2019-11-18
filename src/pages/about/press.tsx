@@ -9,7 +9,7 @@ import Layout from '../../components/layout'
 import ReadMore from '../../components/read-more'
 import { ContentfulContent } from '../../components/types'
 
-const PressPageScaffolding = (props: ContentfulContent) => 
+export const PressPageScaffolding = (props: ContentfulContent) => 
   (<Layout metadata={props.content.metadata}>
 
     <div id="press" className="press-page">

@@ -27,7 +27,7 @@ const DDO = () => <>
   />
 </>;
 
-const LandingPageScaffolding = (props: HomepageProps) => 
+export const LandingPageScaffolding = (props: HomepageProps) => 
   (<Layout isLandingPage={true}>
     <div id="home" className="home-page">
       <BackgroundImage className="landing-image hero is-fullheight"

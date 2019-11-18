@@ -10,7 +10,7 @@ import Layout from '../../components/layout'
 import ReadMore from '../../components/read-more'
 import { ContentfulContent } from '../../components/types';
 
-const TeamPageScaffolding = (props: ContentfulContent) => 
+export const TeamPageScaffolding = (props: ContentfulContent) => 
   (<Layout metadata={props.content.metadata}>
 
     <div id="team" className="team-page">

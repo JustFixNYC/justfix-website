@@ -6,7 +6,7 @@ import Layout from '../components/layout'
 import { ContentfulContent } from '../components/types';
 
 
-const SubscribedPageScaffolding = (props: ContentfulContent) => 
+export const SubscribedPageScaffolding = (props: ContentfulContent) => 
   (<Layout metadata={{title:"Subscribed"}}>
     <section className="hero is-small is-white">
         <div className="hero-body has-text-centered is-horizontal-center">
@@ -32,7 +32,7 @@ const SubscribedPageScaffolding = (props: ContentfulContent) =>
     </section>
   </Layout>); 
 
-const TermsOfUsePage  = () => (
+const SubscribedPage  = () => (
 <StaticQuery
     query={graphql`
       query {
@@ -56,4 +56,4 @@ const TermsOfUsePage  = () => (
   />
 );
 
-export default TermsOfUsePage;
+export default SubscribedPage;

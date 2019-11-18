@@ -1,9 +1,7 @@
 
 export type ContentfulContent = {
     content: any
+    locale?: string
   }
 
-export type HomepageProps = {
-    content: any,
-    enableDDO?: Boolean
-}
+export type HomepageProps = ContentfulContent & { enableDDO?: Boolean }

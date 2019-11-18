@@ -9,7 +9,7 @@ import ReadMore from '../components/read-more'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import { ContentfulContent } from '../components/types'
 
-const MissionPageScaffolding = (props: ContentfulContent) => 
+export const MissionPageScaffolding = (props: ContentfulContent) => 
   (<Layout metadata={props.content.metadata}>
     <div id="mission" className="mission-page" >
 

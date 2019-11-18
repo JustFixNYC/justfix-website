@@ -25,11 +25,12 @@ type Props = {
     metadata: Props["metadata"]
   },
   children: React.ReactNode,
-  isLandingPage?: boolean
+  isLandingPage?: boolean,
+  locale?: string
 }
 
 /** Component checks for custom metadata attributes, and then uses the default homepage values as a fallback */
-const LayoutScaffolding = ({ metadata, children, isLandingPage, defaultContent }: Props) => {
+const LayoutScaffolding = ({ metadata, children, isLandingPage, defaultContent, locale }: Props) => {
 
   var title, description, keywords, shareImageURL;
   if (defaultContent && defaultContent.metadata) {
@@ -74,7 +75,7 @@ const LayoutScaffolding = ({ metadata, children, isLandingPage, defaultContent }
           <meta name="twitter:image" content={encodeURI(shareImageURL)} />
           <meta name="twitter:image:alt" content={title} />
       </Helmet>
-      <Header isLandingPage={isLandingPage} />
+      <Header isLandingPage={isLandingPage} locale={locale} />
       <div>
         {children}
       </div>
