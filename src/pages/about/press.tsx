@@ -49,6 +49,9 @@ const PressPageScaffolding = (props: ContentfulContent) =>
 
       </section>
 
+
+      {props.content.pressKitTitle && props.content.pressKitSubtitle && 
+        props.content.pressKitButton && props.content.pressKitButton.link &&
       <section className="is-horizontal-center hero is-small is-primary">
 
         <div className="hero-body has-text-centered is-horizontal-center">
@@ -64,7 +67,7 @@ const PressPageScaffolding = (props: ContentfulContent) =>
           </div>
         </div>
 
-      </section>
+      </section>}
 
       <ReadMore title="Contact us." link="/contact-us" />
 
