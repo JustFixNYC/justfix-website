@@ -1,6 +1,6 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
+// import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 // import { Link } from 'gatsby'
 
 import '../../styles/press.scss' 
