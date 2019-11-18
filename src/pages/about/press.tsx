@@ -1,6 +1,6 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
+// import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 // import { Link } from 'gatsby'
 
 import '../../styles/press.scss' 
@@ -49,26 +49,6 @@ const PressPageScaffolding = (props: ContentfulContent) =>
 
       </section>
 
-
-      {props.content.pressKitTitle && props.content.pressKitSubtitle && 
-        props.content.pressKitButton && props.content.pressKitButton.link &&
-      <section className="is-horizontal-center hero is-small is-primary">
-
-        <div className="hero-body has-text-centered is-horizontal-center">
-          <div className="container">
-            <h1 className="title is-size-4 has-text-weight-bold is-spaced">
-            {props.content.pressKitTitle}
-            </h1>
-            <span className="subtitle has-text-weight-medium"> 
-              {documentToReactComponents(props.content.pressKitSubtitle.json)}
-            </span>
-            <br />
-            <a href={props.content.pressKitButton.link} className="button is-medium is-primary is-inverted is-outlined">{props.content.pressKitButton.title}</a>
-          </div>
-        </div>
-
-      </section>}
-
       <ReadMore title="Contact us." link="/contact-us" />
 
     </div>
@@ -103,14 +83,6 @@ const PressPage  = () => (
                 url
               }
             }
-          }
-          pressKitTitle
-          pressKitSubtitle {
-            json
-          }
-          pressKitButton {
-            title
-            link
           }
         }
       }
