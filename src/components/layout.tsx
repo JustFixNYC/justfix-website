@@ -79,12 +79,12 @@ const LayoutScaffolding = ({ metadata, children, isLandingPage, defaultContent, 
       <div>
         {children}
       </div>
-      <Footer />
+      <Footer locale={locale} />
     </>
     );
 };
 
-const Layout = ({metadata, children, isLandingPage}: Props) => (
+const Layout = ({metadata, children, isLandingPage, locale}: Props) => (
   <StaticQuery
       query={graphql`
         query {
@@ -108,7 +108,8 @@ const Layout = ({metadata, children, isLandingPage}: Props) => (
       metadata={metadata}
       defaultContent={data.contentfulHomePage}
       children={children} 
-      isLandingPage = {isLandingPage}/>)}
+      isLandingPage = {isLandingPage}
+      locale={locale}/>)}
     />
   );
 

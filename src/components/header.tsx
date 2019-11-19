@@ -1,21 +1,19 @@
 import React, { Component } from 'react'
-import { Link, StaticQuery, graphql } from 'gatsby'
+import { Link } from 'gatsby'
 
 import '../styles/header.scss' 
 
 type Props = {
   isLandingPage?: boolean,
-  locale?: string,
+  locale?: string
 }
-
-type ScaffoldingProps = Props & { content: any }
 
 type State = {
   burgerMenuIsOpen?: boolean
 }
 
-class HeaderScaffolding extends Component<ScaffoldingProps,State> {
-  constructor(Props: ScaffoldingProps) {
+class Header extends Component<Props,State> {
+  constructor(Props: Props) {
     super(Props);
 
     this.state = {
@@ -27,10 +25,12 @@ class HeaderScaffolding extends Component<ScaffoldingProps,State> {
 toggleBurgerMenu = () => this.setState({burgerMenuIsOpen: !this.state.burgerMenuIsOpen});
 
 render() {
+  const localePrefix = this.props.locale ? ("/" + this.props.locale) : "";
+
   return (
   <nav className={"header navbar is-primary " + (this.props.isLandingPage && "is-transparent")} role="navigation" aria-label="main navigation">
     <div className="navbar-brand">
-      <Link to="/" className="navbar-item">
+      <Link to={localePrefix + "/"} className="navbar-item">
         <img src={require("../img/brand/logo.png")} width="112" height="28" />
       </Link>
 
@@ -48,43 +48,43 @@ render() {
 
         <div className="navbar-item has-dropdown is-hoverable">
           <a className={"navbar-link has-text-" + (this.state.burgerMenuIsOpen ? "black" : "white")}>
-            <span className="is-uppercase">{this.props.content.aboutMenuTitle}</span>
+            ABOUT US
           </a>
 
           <div className="navbar-dropdown">
-            <Link to="/about/partners" className="navbar-item">
-              {this.props.content.partners}
+            <Link to={localePrefix + "/about/partners"} className="navbar-item">
+              Our Partners 
             </Link>
-            <Link to="/about/team" className="navbar-item">
-              {this.props.content.team}
+            <Link to={localePrefix + "/about/team"} className="navbar-item">
+              Our Team 
             </Link>
-            <Link to="/about/press" className="navbar-item">
-              {this.props.content.press} 
+            <Link to={localePrefix + "/about/press"} className="navbar-item">
+              Press 
             </Link>
             <a href="https://justfix.breezy.hr/" target="_blank" rel="noopener noreferrer" className="navbar-item">
-              {this.props.content.jobs} 
+              Jobs 
             </a>
           </div>
         </div>
 
-        <Link to="/our-mission" className={"navbar-item has-text-" + (this.state.burgerMenuIsOpen ? "black" : "white")}>
-          <span className="is-uppercase">{this.props.content.mission}</span>
+        <Link to={localePrefix + "/our-mission"} className={"navbar-item has-text-" + (this.state.burgerMenuIsOpen ? "black" : "white")}>
+          MISSION
         </Link>
 
-        <Link to="/contact-us" className={"navbar-item has-text-" + (this.state.burgerMenuIsOpen ? "black" : "white")}>
-          <span className="is-uppercase">{this.props.content.contact}</span>
+        <Link to={localePrefix + "/contact-us"} className={"navbar-item has-text-" + (this.state.burgerMenuIsOpen ? "black" : "white")}>
+          CONTACT
         </Link>
 
         {this.state.burgerMenuIsOpen && 
-        <a className="navbar-item has-text-black" href={this.props.content.signInButton.link}>
-          <span className="is-uppercase">{this.props.content.signInButton.title}</span>
+        <a className="navbar-item has-text-black" href="https://app.justfix.nyc/login">
+          SIGN IN
         </a>}
 
       </div>
         <div className="navbar-item">
           <div className="buttons">
-            <a className="button is-primary is-inverted is-outlined" href={this.props.content.signInButton.link}>
-              <span className="is-uppercase">{this.props.content.signInButton.title}</span>
+            <a className="button is-primary is-inverted is-outlined" href="https://app.justfix.nyc/login">
+              SIGN IN
             </a>
         </div>
       </div>
@@ -93,47 +93,4 @@ render() {
   } 
 }
 
-const Header = ( props: Props ) => (
-  props.locale && props.locale === 'es' ?
-    <StaticQuery
-      query={graphql`
-        query {
-          contentfulHeaderLinks( node_locale: { eq: "es" } ) {
-            aboutMenuTitle
-            partners
-            team
-            press
-            jobs
-            mission
-            contact
-            signInButton {
-              title
-              link
-            }
-          }
-        }
-      `}
-    render = {data => (<HeaderScaffolding content={data.contentfulHeaderLinks} isLandingPage={props.isLandingPage} />)}
-    /> :
-    <StaticQuery
-      query={graphql`
-        query {
-          contentfulHeaderLinks {
-            aboutMenuTitle
-            partners
-            team
-            press
-            jobs
-            mission
-            contact
-            signInButton {
-              title
-              link
-            }
-          }
-        }
-      `}
-    render = {data => (<HeaderScaffolding content={data.contentfulHeaderLinks} isLandingPage={props.isLandingPage} />)}
-    />)
-
-export default Header;
+export default Header

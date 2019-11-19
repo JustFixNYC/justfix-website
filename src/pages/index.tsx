@@ -28,7 +28,7 @@ const DDO = () => <>
 </>;
 
 export const LandingPageScaffolding = (props: HomepageProps) => 
-  (<Layout isLandingPage={true}>
+  (<Layout isLandingPage={true} locale={props.locale}>
     <div id="home" className="home-page">
       <BackgroundImage className="landing-image hero is-fullheight"
         fluid={props.content.landingImage.fluid} alt="background-image">
