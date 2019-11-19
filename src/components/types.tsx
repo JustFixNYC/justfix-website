@@ -1,6 +1,6 @@
 
 export type Locale = {
-  locale?: string
+  locale?: "es" | null
 }
 
 export type ContentfulContent = Locale & { 

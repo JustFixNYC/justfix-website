@@ -5,6 +5,7 @@ import { StaticQuery, graphql } from 'gatsby'
 
 import Header from './header'
 import Footer from './footer'
+import { Locale } from './types'
 
 const favicon16 =  require("../img/brand/favicon-16x16.png");
 const favicon32 =  require("../img/brand/favicon-32x32.png");
@@ -26,8 +27,7 @@ type Props = {
   },
   children: React.ReactNode,
   isLandingPage?: boolean,
-  locale?: string
-}
+} & Locale
 
 /** Component checks for custom metadata attributes, and then uses the default homepage values as a fallback */
 const LayoutScaffolding = ({ metadata, children, isLandingPage, defaultContent, locale }: Props) => {
