@@ -6,7 +6,7 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import { ContentfulContent } from '../components/types';
 
 
-const TermsOfUsePageScaffolding = (props: ContentfulContent) => 
+export const TermsOfUsePageScaffolding = (props: ContentfulContent) => 
   (<Layout metadata={{title:"Terms of Use"}}>
     <div id="terms-of-use" className="terms-of-use-page content-wrapper tight section">
       <div className="content">{documentToReactComponents(props.content.pageContents.json)}</div>

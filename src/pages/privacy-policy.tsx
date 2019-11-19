@@ -6,7 +6,7 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import { ContentfulContent } from '../components/types';
 
 
-const PrivacyPolicyPageScaffolding = (props: ContentfulContent) => 
+export const PrivacyPolicyPageScaffolding = (props: ContentfulContent) => 
   (<Layout metadata={{title:"Privacy Policy"}}>
     <div id="privacy-policy" className="privacy-policy-page content-wrapper tight section">
       <div className="content">{documentToReactComponents(props.content.pageContents.json)}</div>
