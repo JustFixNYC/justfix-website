@@ -12,18 +12,15 @@ const LandingPage  = () => (
           }
         }
         contentfulHomePage( node_locale: { eq: "es" } ) {
-          heroCopy {
-            heroCopy
-          }
-          subCopy {
-            subCopy
-          }
+          landingLeadInText
+          landingTextLoopText
+          landingFallbackText
+          landingFooterText
           landingImage {
             fluid {
               ...GatsbyContentfulFluid
             }
           }
-          heroCta
           productSectionTitle
           homePageProductBlocks {
             title
