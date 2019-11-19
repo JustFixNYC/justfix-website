@@ -21,7 +21,7 @@ export function ContactAndDonateButtons(props: { specialButtonClasses?: string }
   );
 }
 
-const MissionPageScaffolding = (props: ContentfulContent) => 
+export const MissionPageScaffolding = (props: ContentfulContent) => 
   (<Layout metadata={props.content.metadata} locale={props.locale}>
     <div id="mission" className="mission-page" >
 
@@ -126,7 +126,7 @@ const MissionPageScaffolding = (props: ContentfulContent) =>
 
       </section>
 
-      <ReadMore title={props.content.readMore.title} link={props.content.readMore.link} />
+      <ReadMore title={props.content.readMore.title} link={props.content.readMore.link} locale={props.locale} />
       
     </div>
   </Layout>); 

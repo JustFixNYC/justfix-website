@@ -53,6 +53,10 @@ const TeamPage  = () => (
             name
             link
           }
+          readMore {
+            title
+            link
+          }
         }
       }
     `}

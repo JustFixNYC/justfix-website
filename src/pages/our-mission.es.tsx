@@ -54,6 +54,10 @@ const MissionPage  = () => (
             title
             subtitle
           }
+          readMore {
+            title
+            link
+          }
         }
       }
     `}

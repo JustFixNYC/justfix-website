@@ -114,7 +114,7 @@ export const TeamPageScaffolding = (props: ContentfulContent) =>
 
       </section>
 
-      <ReadMore title={props.content.readMore.title} link={props.content.readMore.link} />
+      <ReadMore title={props.content.readMore.title} link={props.content.readMore.link} locale={props.locale} />
 
     </div>
     

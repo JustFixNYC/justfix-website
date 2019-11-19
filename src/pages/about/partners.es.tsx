@@ -45,6 +45,10 @@ const PartnersPage  = () => (
             title
             subtitle
           }
+          readMore {
+            title
+            link
+          }
         }
       }
     `}

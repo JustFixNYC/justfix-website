@@ -30,6 +30,10 @@ const PressPage  = () => (
               }
             }
           }
+          readMore {
+            title
+            link
+          }
         }
       }
     `}
