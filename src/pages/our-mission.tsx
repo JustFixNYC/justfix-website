@@ -9,6 +9,17 @@ import ReadMore from '../components/read-more'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import { ContentfulContent } from '../components/types'
 
+export function ContactAndDonateButtons(props: { specialButtonClasses?: string }): JSX.Element {
+  return (
+    <div className="buttons is-centered">
+      <Link to="/contact-us" className={"button is-medium is-primary " + (props.specialButtonClasses || "")}>CONTACT US</Link>
+      <a href="https://donorbox.org/donate-to-justfix-nyc" className={"button is-medium is-primary " + (props.specialButtonClasses || "")} target="_blank" rel="noopener noreferrer">
+        DONATE
+      </a>
+    </div> 
+  );
+}
+
 const MissionPageScaffolding = (props: ContentfulContent) => 
   (<Layout metadata={props.content.metadata}>
     <div id="mission" className="mission-page" >
@@ -108,18 +119,13 @@ const MissionPageScaffolding = (props: ContentfulContent) =>
             <p className="subtitle has-text-weight-medium">
               {props.content.collaborationBanner.subtitle}
             </p>
-            <div className="buttons is-centered">
-              <Link to="/contact-us" className="button is-medium is-primary is-inverted is-outlined">CONTACT US</Link>
-              <a href="https://donorbox.org/donate-to-justfix-nyc" className="button is-medium is-primary is-inverted is-outlined"  target="_blank" rel="noopener noreferrer">
-                DONATE
-              </a>
-            </div>
+            <ContactAndDonateButtons specialButtonClasses="is-outlined is-inverted" />
           </div>
         </div>
 
       </section>
 
-      <ReadMore title="Meet our Team." link="/about/team" />
+      <ReadMore title={props.content.readMore.title} link={props.content.readMore.link} />
       
     </div>
   </Layout>); 
@@ -175,6 +181,10 @@ const MissionPage  = () => (
           collaborationBanner {
             title
             subtitle
+          }
+          readMore {
+            title
+            link
           }
         }
       }

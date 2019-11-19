@@ -1,12 +1,12 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
-import { Link } from 'gatsby'
 
 import '../../styles/partners.scss' 
 
 import Layout from '../../components/layout'
 import ReadMore from '../../components/read-more'
 import { ContentfulContent } from '../../components/types'
+import { ContactAndDonateButtons } from '../our-mission'
 
 const PartnersPageScaffolding = (props: ContentfulContent) => 
   (<Layout metadata={props.content.metadata}>
@@ -75,18 +75,13 @@ const PartnersPageScaffolding = (props: ContentfulContent) =>
             <h6 className="subtitle has-text-grey-dark">
               {props.content.collaborationBanner.subtitle}
             </h6>
-            <div className="buttons is-centered">
-              <Link to="/contact-us" className="button is-medium is-primary">CONTACT US</Link>
-              <a href="https://donorbox.org/donate-to-justfix-nyc" className="button is-medium is-primary"  target="_blank" rel="noopener noreferrer">
-                DONATE
-              </a>
-            </div>
+            <ContactAndDonateButtons />
           </div>
         </div>
 
       </section>
 
-      <ReadMore title="Read our mission." link="/our-mission" />
+      <ReadMore title={props.content.readMore.title} link={props.content.readMore.link} />
 
   </div>
 </Layout>); 
@@ -133,6 +128,10 @@ const PartnersPage  = () => (
           collaborationBanner {
             title
             subtitle
+          }
+          readMore {
+            title
+            link
           }
         }
       }

@@ -49,7 +49,7 @@ const PressPageScaffolding = (props: ContentfulContent) =>
 
       </section>
 
-      <ReadMore title="Contact us." link="/contact-us" />
+      <ReadMore title={props.content.readMore.title} link={props.content.readMore.link} />
 
     </div>
 
@@ -83,6 +83,10 @@ const PressPage  = () => (
                 url
               }
             }
+          }
+          readMore {
+            title
+            link
           }
         }
       }
