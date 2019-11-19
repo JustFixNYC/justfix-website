@@ -125,7 +125,7 @@ const MissionPageScaffolding = (props: ContentfulContent) =>
 
       </section>
 
-      <ReadMore title="Meet our Team." link="/about/team" />
+      <ReadMore title={props.content.readMore.title} link={props.content.readMore.link} />
       
     </div>
   </Layout>); 
@@ -181,6 +181,10 @@ const MissionPage  = () => (
           collaborationBanner {
             title
             subtitle
+          }
+          readMore {
+            title
+            link
           }
         }
       }

@@ -82,7 +82,7 @@ const PartnersPageScaffolding = (props: ContentfulContent) =>
 
       </section>
 
-      <ReadMore title="Read our mission." link="/our-mission" />
+      <ReadMore title={props.content.readMore.title} link={props.content.readMore.link} />
 
   </div>
 </Layout>); 
@@ -129,6 +129,10 @@ const PartnersPage  = () => (
           collaborationBanner {
             title
             subtitle
+          }
+          readMore {
+            title
+            link
           }
         }
       }
