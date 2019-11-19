@@ -75,6 +75,10 @@ render() {
           CONTACT
         </Link>
 
+        <Link to={this.props.locale === 'es' ? "/" : "/es"} className={"navbar-item has-text-" + (this.state.burgerMenuIsOpen ? "black" : "white")}>
+          {this.props.locale === 'es' ? "ENGLISH" : "ESPAÑOL" }
+        </Link>
+
         {this.state.burgerMenuIsOpen && 
         <a className="navbar-item has-text-black" href="https://app.justfix.nyc/login">
           SIGN IN
