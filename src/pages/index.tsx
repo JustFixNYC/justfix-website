@@ -35,39 +35,29 @@ export const LandingPageScaffolding = (props: HomepageProps) =>
           <div className="hero-body">
             <div className="container content-wrapper tight">
               <h1 className="title is-size-1 is-size-3-mobile has-text-white is-spaced">
-                Free tools for you to
-              
-              <div className="title-carousel is-hidden-mobile">
-                <TextLoop interval={TEXTLOOP_ANIMATION_INTERVAL}
-                springConfig={{ stiffness: 70, damping: 31 }}>
-                  <span>get repairs in your apartment</span>
-                  <span>take your landlord to court</span>
-                  <span>request your rent history</span>
-                  <span>research your property owner</span>
-                  <span>respond to an eviction notice</span>
-                </TextLoop>
-              </div>
-              <span className="is-hidden-tablet"> fight for a safe and healthy home</span>
-
+                <span className="is-hidden-mobile">
+                  {props.content.landingLeadInText}
+                  <div className="title-carousel">
+                    <TextLoop interval={TEXTLOOP_ANIMATION_INTERVAL}
+                    springConfig={{ stiffness: 70, damping: 31 }}>
+                      {(props.content.landingTextLoopText).map( (textBlock: string, i: number) => 
+                      <span key={i}>{textBlock}</span>)}
+                    </TextLoop>
+                  </div>
+                </span>
+                <span className="is-hidden-tablet"> 
+                  {props.content.landingFallbackText}
+                </span>
               </h1>
-              
-              {props.enableDDO ? <DDO /> : <>
-                <h2 className="subtitle is-size-5 is-hidden-mobile has-text-white">
-                  {props.content.subCopy.subCopy}
-                </h2>
-                <br/>
-                <AnchorLink href="#products" className="button is-large is-dark is-inverted is-outlined">
-                  <span className="is-uppercase">
-                    {props.content.heroCta}
-                  </span>
-                </AnchorLink>
-              </>}
+
+              {props.enableDDO && <DDO />}
+
             </div>
           </div>
           <div className="landing-footer">
             <div className="columns is-vcentered">
               <div className="column is-size-6 has-text-white has-text-weight-semibold">
-                JustFix.nyc is a non-profit that builds free tools in support of NYC's housing movement.
+                {props.content.landingFooterText}
               </div>  
               <div className="column more-arrow">
                 <AnchorLink href="#products" className="has-text-white has-text-weight-light">
@@ -194,18 +184,15 @@ const LandingPage  = () => (
           }
         }
         contentfulHomePage {
-          heroCopy {
-            heroCopy
-          }
-          subCopy {
-            subCopy
-          }
+          landingLeadInText
+          landingTextLoopText
+          landingFallbackText
+          landingFooterText
           landingImage {
             fluid {
               ...GatsbyContentfulFluid
             }
           }
-          heroCta
           productSectionTitle
           homePageProductBlocks {
             title
