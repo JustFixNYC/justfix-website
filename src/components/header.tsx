@@ -2,10 +2,10 @@ import React, { Component } from 'react'
 import { Link } from 'gatsby'
 
 import '../styles/header.scss' 
+import { Locale } from './types'
 
-type Props = {
+type Props = Locale & {
   isLandingPage?: boolean,
-  locale?: string
 }
 
 type State = {
