@@ -114,7 +114,7 @@ export const TeamPageScaffolding = (props: ContentfulContent) =>
 
       </section>
 
-      <ReadMore title="View our products." link="/#products" />
+      <ReadMore title={props.content.readMore.title} link={props.content.readMore.link} />
 
     </div>
     
@@ -170,6 +170,10 @@ const TeamPage  = () => (
           otherContributorsTitle
           otherContributors {
             name
+            link
+          }
+          readMore {
+            title
             link
           }
         }
