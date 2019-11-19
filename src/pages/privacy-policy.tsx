@@ -7,7 +7,7 @@ import { ContentfulContent } from '../components/types';
 
 
 export const PrivacyPolicyPageScaffolding = (props: ContentfulContent) => 
-  (<Layout metadata={{title:"Privacy Policy"}}>
+  (<Layout metadata={{title:"Privacy Policy"}} locale={props.locale}>
     <div id="privacy-policy" className="privacy-policy-page content-wrapper tight section">
       <div className="content">{documentToReactComponents(props.content.pageContents.json)}</div>
     </div>

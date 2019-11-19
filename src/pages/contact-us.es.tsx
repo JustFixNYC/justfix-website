@@ -32,7 +32,7 @@ const ContactPage  = () => (
         }
       }
     `}
-  render = {data => (<ContactPageScaffolding content={data.contentfulContactPage} />)}
+  render = {data => (<ContactPageScaffolding content={data.contentfulContactPage} locale="es" />)}
   />
 );
 

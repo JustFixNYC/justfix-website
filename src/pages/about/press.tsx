@@ -10,7 +10,7 @@ import ReadMore from '../../components/read-more'
 import { ContentfulContent } from '../../components/types'
 
 export const PressPageScaffolding = (props: ContentfulContent) => 
-  (<Layout metadata={props.content.metadata}>
+  (<Layout metadata={props.content.metadata} locale={props.locale}>
 
     <div id="press" className="press-page">
 

@@ -10,7 +10,7 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import { ContentfulContent } from '../components/types'
 
 export const MissionPageScaffolding = (props: ContentfulContent) => 
-  (<Layout metadata={props.content.metadata}>
+  (<Layout metadata={props.content.metadata} locale={props.locale}>
     <div id="mission" className="mission-page" >
 
       <section className="hero is-small is-white">

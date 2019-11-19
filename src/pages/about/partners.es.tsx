@@ -48,7 +48,7 @@ const PartnersPage  = () => (
         }
       }
     `}
-  render = {data => (<PartnersPageScaffolding content={data.contentfulPartnersPage} />)}
+  render = {data => (<PartnersPageScaffolding content={data.contentfulPartnersPage} locale="es" />)}
   />
 );
 

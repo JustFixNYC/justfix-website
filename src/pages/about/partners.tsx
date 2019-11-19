@@ -9,7 +9,7 @@ import ReadMore from '../../components/read-more'
 import { ContentfulContent } from '../../components/types'
 
 export const PartnersPageScaffolding = (props: ContentfulContent) => 
-  (<Layout metadata={props.content.metadata}>
+  (<Layout metadata={props.content.metadata} locale={props.locale}>
   <div id="partners" className="partners-page">
 
       <section className="hero is-small is-white">

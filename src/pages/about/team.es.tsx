@@ -56,7 +56,7 @@ const TeamPage  = () => (
         }
       }
     `}
-  render = {data => (<TeamPageScaffolding content={data.contentfulTeamPage} />)}
+  render = {data => (<TeamPageScaffolding content={data.contentfulTeamPage} locale="es" />)}
   />
 );
 

@@ -7,7 +7,7 @@ import { ContentfulContent } from '../components/types';
 
 
 export const SubscribedPageScaffolding = (props: ContentfulContent) => 
-  (<Layout metadata={{title:"Subscribed"}}>
+  (<Layout metadata={{title:"Subscribed"}} locale={props.locale}>
     <section className="hero is-small is-white">
         <div className="hero-body has-text-centered is-horizontal-center">
             <div className="content content-wrapper tight">

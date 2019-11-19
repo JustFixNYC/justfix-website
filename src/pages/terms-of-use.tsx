@@ -7,7 +7,7 @@ import { ContentfulContent } from '../components/types';
 
 
 export const TermsOfUsePageScaffolding = (props: ContentfulContent) => 
-  (<Layout metadata={{title:"Terms of Use"}}>
+  (<Layout metadata={{title:"Terms of Use"}} locale={props.locale}>
     <div id="terms-of-use" className="terms-of-use-page content-wrapper tight section">
       <div className="content">{documentToReactComponents(props.content.pageContents.json)}</div>
     </div>

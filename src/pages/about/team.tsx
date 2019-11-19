@@ -11,7 +11,7 @@ import ReadMore from '../../components/read-more'
 import { ContentfulContent } from '../../components/types';
 
 export const TeamPageScaffolding = (props: ContentfulContent) => 
-  (<Layout metadata={props.content.metadata}>
+  (<Layout metadata={props.content.metadata} locale={props.locale}>
 
     <div id="team" className="team-page">
 
