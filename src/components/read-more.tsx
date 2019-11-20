@@ -2,12 +2,12 @@ import React from 'react'
 import { Link } from 'gatsby'
 
 import '../styles/read-more.scss' 
-import { Locale } from './types'
+import { Locale } from '../pages';
 
-type Props = Locale & {
+type Props = {
     title: string,
     link: string
-  }
+  } & Locale
 
 const ReadMore = ({ title, link, locale }: Props) => (
     <Link to={(locale ? "/" + locale : "") + link}>

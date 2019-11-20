@@ -2,11 +2,11 @@ import React, { Component } from 'react'
 import { Link } from 'gatsby'
 
 import '../styles/header.scss' 
-import { Locale } from './types'
+import { Locale } from '../pages';
 
-type Props = Locale & {
+type Props = {
   isLandingPage?: boolean,
-}
+} & Locale 
 
 type State = {
   burgerMenuIsOpen?: boolean
