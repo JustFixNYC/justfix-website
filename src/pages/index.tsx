@@ -12,9 +12,20 @@ import '../styles/data-driven-onboarding.scss';
 
 import Layout from '../components/layout'
 import { DDOSearchBar } from '../components/ddo-searchbar';
-import { HomepageProps } from '../components/types';
 
 const TEXTLOOP_ANIMATION_INTERVAL = 2750;
+
+export type Locale = {
+  locale?: "es" | null
+}
+
+export type ContentfulContent = Locale & { 
+  content: any 
+}
+
+export type HomepageProps = ContentfulContent & { 
+  enableDDO?: Boolean 
+}
 
 const DDO = () => <>
   <h2 className="subtitle is-size-5 has-text-white">

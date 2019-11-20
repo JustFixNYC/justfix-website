@@ -7,7 +7,7 @@ import '../../styles/press.scss'
 
 import Layout from '../../components/layout'
 import ReadMore from '../../components/read-more'
-import { ContentfulContent } from '../../components/types'
+import { ContentfulContent } from '..'
 
 export const PressPageScaffolding = (props: ContentfulContent) => 
   (<Layout metadata={props.content.metadata} locale={props.locale}>

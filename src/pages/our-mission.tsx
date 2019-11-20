@@ -7,7 +7,7 @@ import '../styles/mission.scss'
 import Layout from '../components/layout'
 import ReadMore from '../components/read-more'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
-import { ContentfulContent } from '../components/types'
+import { ContentfulContent } from '.'
 
 
 export function ContactAndDonateButtons(props: { specialButtonClasses?: string }): JSX.Element {
