@@ -20,6 +20,13 @@
             .image {
                 width: 150px;
                 height: 150px;
+                transition: transform 100ms ease-in-out;
+                transform-origin: center;
+
+                &:hover {
+                    opacity: 0.6;
+                    transform: scale(1.10);
+                }
             }
         }
     }
