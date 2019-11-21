@@ -7,10 +7,10 @@ import '../../styles/press.scss'
 
 import Layout from '../../components/layout'
 import ReadMore from '../../components/read-more'
-import { ContentfulContent } from '../../components/types'
+import { ContentfulContent } from '..'
 
-const PressPageScaffolding = (props: ContentfulContent) => 
-  (<Layout metadata={props.content.metadata}>
+export const PressPageScaffolding = (props: ContentfulContent) => 
+  (<Layout metadata={props.content.metadata} locale={props.locale}>
 
     <div id="press" className="press-page">
 
@@ -49,7 +49,7 @@ const PressPageScaffolding = (props: ContentfulContent) =>
 
       </section>
 
-      <ReadMore title={props.content.readMore.title} link={props.content.readMore.link} />
+      <ReadMore title={props.content.readMore.title} link={props.content.readMore.link} locale={props.locale} />
 
     </div>
 

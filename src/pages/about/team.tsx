@@ -8,10 +8,10 @@ import '../../styles/team.scss'
 
 import Layout from '../../components/layout'
 import ReadMore from '../../components/read-more'
-import { ContentfulContent } from '../../components/types';
+import { ContentfulContent } from '..'
 
-const TeamPageScaffolding = (props: ContentfulContent) => 
-  (<Layout metadata={props.content.metadata}>
+export const TeamPageScaffolding = (props: ContentfulContent) => 
+  (<Layout metadata={props.content.metadata} locale={props.locale}>
 
     <div id="team" className="team-page">
 
@@ -114,7 +114,7 @@ const TeamPageScaffolding = (props: ContentfulContent) =>
 
       </section>
 
-      <ReadMore title={props.content.readMore.title} link={props.content.readMore.link} />
+      <ReadMore title={props.content.readMore.title} link={props.content.readMore.link} locale={props.locale} />
 
     </div>
     

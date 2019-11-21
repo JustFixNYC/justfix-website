@@ -5,11 +5,11 @@ import '../../styles/partners.scss'
 
 import Layout from '../../components/layout'
 import ReadMore from '../../components/read-more'
-import { ContentfulContent } from '../../components/types'
 import { ContactAndDonateButtons } from '../our-mission'
+import { ContentfulContent } from '..'
 
-const PartnersPageScaffolding = (props: ContentfulContent) => 
-  (<Layout metadata={props.content.metadata}>
+export const PartnersPageScaffolding = (props: ContentfulContent) => 
+  (<Layout metadata={props.content.metadata} locale={props.locale}>
   <div id="partners" className="partners-page">
 
       <section className="hero is-small is-white">
@@ -81,7 +81,7 @@ const PartnersPageScaffolding = (props: ContentfulContent) =>
 
       </section>
 
-      <ReadMore title={props.content.readMore.title} link={props.content.readMore.link} />
+      <ReadMore title={props.content.readMore.title} link={props.content.readMore.link} locale={props.locale} />
 
   </div>
 </Layout>); 

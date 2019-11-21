@@ -7,7 +7,8 @@ import '../styles/mission.scss'
 import Layout from '../components/layout'
 import ReadMore from '../components/read-more'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
-import { ContentfulContent } from '../components/types'
+import { ContentfulContent } from '.'
+
 
 export function ContactAndDonateButtons(props: { specialButtonClasses?: string }): JSX.Element {
   return (
@@ -20,8 +21,8 @@ export function ContactAndDonateButtons(props: { specialButtonClasses?: string }
   );
 }
 
-const MissionPageScaffolding = (props: ContentfulContent) => 
-  (<Layout metadata={props.content.metadata}>
+export const MissionPageScaffolding = (props: ContentfulContent) => 
+  (<Layout metadata={props.content.metadata} locale={props.locale}>
     <div id="mission" className="mission-page" >
 
       <section className="hero is-small is-white">
@@ -125,7 +126,7 @@ const MissionPageScaffolding = (props: ContentfulContent) =>
 
       </section>
 
-      <ReadMore title={props.content.readMore.title} link={props.content.readMore.link} />
+      <ReadMore title={props.content.readMore.title} link={props.content.readMore.link} locale={props.locale} />
       
     </div>
   </Layout>); 

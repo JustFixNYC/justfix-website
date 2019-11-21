@@ -3,11 +3,10 @@ import { StaticQuery, graphql } from 'gatsby'
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
 import Layout from '../components/layout'
-import { ContentfulContent } from '../components/types';
+import { ContentfulContent } from '.'
 
-
-const SubscribedPageScaffolding = (props: ContentfulContent) => 
-  (<Layout metadata={{title:"Subscribed"}}>
+export const SubscribedPageScaffolding = (props: ContentfulContent) => 
+  (<Layout metadata={{title:"Subscribed"}} locale={props.locale}>
     <section className="hero is-small is-white">
         <div className="hero-body has-text-centered is-horizontal-center">
             <div className="content content-wrapper tight">
@@ -32,7 +31,7 @@ const SubscribedPageScaffolding = (props: ContentfulContent) =>
     </section>
   </Layout>); 
 
-const TermsOfUsePage  = () => (
+const SubscribedPage  = () => (
 <StaticQuery
     query={graphql`
       query {
@@ -56,4 +55,4 @@ const TermsOfUsePage  = () => (
   />
 );
 
-export default TermsOfUsePage;
+export default SubscribedPage;

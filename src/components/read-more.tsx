@@ -2,14 +2,15 @@ import React from 'react'
 import { Link } from 'gatsby'
 
 import '../styles/read-more.scss' 
+import { Locale } from '../pages';
 
 type Props = {
     title: string,
     link: string
-  }
+  } & Locale
 
-const ReadMore = ({ title, link }: Props) => (
-    <Link to={link}>
+const ReadMore = ({ title, link, locale }: Props) => (
+    <Link to={(locale ? "/" + locale : "") + link}>
         <div className="level read-more section content">
             <div className="level-left">
                 <div className="level-item">
