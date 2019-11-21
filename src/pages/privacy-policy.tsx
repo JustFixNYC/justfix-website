@@ -3,11 +3,10 @@ import { StaticQuery, graphql } from 'gatsby'
 
 import Layout from '../components/layout'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import { ContentfulContent } from '../components/types';
+import { ContentfulContent } from '.'
 
-
-const PrivacyPolicyPageScaffolding = (props: ContentfulContent) => 
-  (<Layout metadata={{title:"Privacy Policy"}}>
+export const PrivacyPolicyPageScaffolding = (props: ContentfulContent) => 
+  (<Layout metadata={{title:"Privacy Policy"}} locale={props.locale}>
     <div id="privacy-policy" className="privacy-policy-page content-wrapper tight section">
       <div className="content">{documentToReactComponents(props.content.pageContents.json)}</div>
     </div>

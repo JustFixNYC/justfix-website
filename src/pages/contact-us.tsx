@@ -7,12 +7,12 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import '../styles/contact.scss' 
 
 import Layout from '../components/layout'
-import { ContentfulContent } from '../components/types';
+import { ContentfulContent } from '.'
 
 const MAILCHIMP_URL = "https://nyc.us13.list-manage.com/subscribe/post?u=d4f5d1addd4357eb77c3f8a99&amp;id=588f6c6ef4";
 
-const ContactPageScaffolding = (props: ContentfulContent) => 
-  (<Layout metadata={props.content.metadata}>
+export const ContactPageScaffolding = (props: ContentfulContent) => 
+  (<Layout metadata={props.content.metadata} locale={props.locale}>
     <div id="contact" className="contact-page" >
 
       <section className="hero is-medium is-white">

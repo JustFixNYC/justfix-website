@@ -5,6 +5,7 @@ import { StaticQuery, graphql } from 'gatsby'
 
 import Header from './header'
 import Footer from './footer'
+import { Locale } from '../pages';
 
 const favicon16 =  require("../img/brand/favicon-16x16.png");
 const favicon32 =  require("../img/brand/favicon-32x32.png");
@@ -25,11 +26,11 @@ type Props = {
     metadata: Props["metadata"]
   },
   children: React.ReactNode,
-  isLandingPage?: boolean
-}
+  isLandingPage?: boolean,
+} & Locale
 
 /** Component checks for custom metadata attributes, and then uses the default homepage values as a fallback */
-const LayoutScaffolding = ({ metadata, children, isLandingPage, defaultContent }: Props) => {
+const LayoutScaffolding = ({ metadata, children, isLandingPage, defaultContent, locale }: Props) => {
 
   var title, description, keywords, shareImageURL;
   if (defaultContent && defaultContent.metadata) {
@@ -74,16 +75,16 @@ const LayoutScaffolding = ({ metadata, children, isLandingPage, defaultContent }
           <meta name="twitter:image" content={encodeURI(shareImageURL)} />
           <meta name="twitter:image:alt" content={title} />
       </Helmet>
-      <Header isLandingPage={isLandingPage} />
+      <Header isLandingPage={isLandingPage} locale={locale} />
       <div>
         {children}
       </div>
-      <Footer />
+      <Footer locale={locale} />
     </>
     );
 };
 
-const Layout = ({metadata, children, isLandingPage}: Props) => (
+const Layout = ({metadata, children, isLandingPage, locale}: Props) => (
   <StaticQuery
       query={graphql`
         query {
@@ -107,7 +108,8 @@ const Layout = ({metadata, children, isLandingPage}: Props) => (
       metadata={metadata}
       defaultContent={data.contentfulHomePage}
       children={children} 
-      isLandingPage = {isLandingPage}/>)}
+      isLandingPage = {isLandingPage}
+      locale={locale}/>)}
     />
   );
 

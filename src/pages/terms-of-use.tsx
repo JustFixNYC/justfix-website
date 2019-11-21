@@ -3,11 +3,10 @@ import { StaticQuery, graphql } from 'gatsby'
 
 import Layout from '../components/layout'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import { ContentfulContent } from '../components/types';
+import { ContentfulContent } from '.'
 
-
-const TermsOfUsePageScaffolding = (props: ContentfulContent) => 
-  (<Layout metadata={{title:"Terms of Use"}}>
+export const TermsOfUsePageScaffolding = (props: ContentfulContent) => 
+  (<Layout metadata={{title:"Terms of Use"}} locale={props.locale}>
     <div id="terms-of-use" className="terms-of-use-page content-wrapper tight section">
       <div className="content">{documentToReactComponents(props.content.pageContents.json)}</div>
     </div>

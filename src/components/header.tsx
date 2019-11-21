@@ -2,10 +2,11 @@ import React, { Component } from 'react'
 import { Link } from 'gatsby'
 
 import '../styles/header.scss' 
+import { Locale } from '../pages';
 
 type Props = {
   isLandingPage?: boolean,
-}
+} & Locale 
 
 type State = {
   burgerMenuIsOpen?: boolean
@@ -24,10 +25,12 @@ class Header extends Component<Props,State> {
 toggleBurgerMenu = () => this.setState({burgerMenuIsOpen: !this.state.burgerMenuIsOpen});
 
 render() {
+  const localePrefix = this.props.locale ? ("/" + this.props.locale) : "";
+
   return (
   <nav className={"header navbar is-primary " + (this.props.isLandingPage && "is-transparent")} role="navigation" aria-label="main navigation">
     <div className="navbar-brand">
-      <Link to="/" className="navbar-item">
+      <Link to={localePrefix + "/"} className="navbar-item">
         <img src={require("../img/brand/logo.png")} width="112" height="28" />
       </Link>
 
@@ -49,13 +52,13 @@ render() {
           </a>
 
           <div className="navbar-dropdown">
-            <Link to="/about/partners" className="navbar-item">
+            <Link to={localePrefix + "/about/partners"} className="navbar-item">
               Our Partners 
             </Link>
-            <Link to="/about/team" className="navbar-item">
+            <Link to={localePrefix + "/about/team"} className="navbar-item">
               Our Team 
             </Link>
-            <Link to="/about/press" className="navbar-item">
+            <Link to={localePrefix + "/about/press"} className="navbar-item">
               Press 
             </Link>
             <a href="https://justfix.breezy.hr/" target="_blank" rel="noopener noreferrer" className="navbar-item">
@@ -64,13 +67,17 @@ render() {
           </div>
         </div>
 
-        <Link to="/our-mission" className={"navbar-item has-text-" + (this.state.burgerMenuIsOpen ? "black" : "white")}>
+        <Link to={localePrefix + "/our-mission"} className={"navbar-item has-text-" + (this.state.burgerMenuIsOpen ? "black" : "white")}>
           MISSION
         </Link>
 
-        <Link to="/contact-us" className={"navbar-item has-text-" + (this.state.burgerMenuIsOpen ? "black" : "white")}>
+        <Link to={localePrefix + "/contact-us"} className={"navbar-item has-text-" + (this.state.burgerMenuIsOpen ? "black" : "white")}>
           CONTACT
         </Link>
+
+        {/* <Link to={this.props.locale === 'es' ? "/" : "/es"} className={"navbar-item has-text-" + (this.state.burgerMenuIsOpen ? "black" : "white")}>
+          {this.props.locale === 'es' ? "ENGLISH" : "ESPAÑOL" }
+        </Link> */}
 
         {this.state.burgerMenuIsOpen && 
         <a className="navbar-item has-text-black" href="https://app.justfix.nyc/login">
