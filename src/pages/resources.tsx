@@ -25,20 +25,19 @@ const LearningPageScaffolding = (props: ContentfulContent) =>
           <figure className="image is-128x128 is-horizontal-center">
             <Img fluid={props.content.headerImage.fluid} />
           </figure>
-          <div className="container">
+          <div className="container content-wrapper tight">
             <h1 className="title is-size-2 has-text-grey-dark has-text-weight-normal is-spaced">
               {props.content.title}
             </h1>
             <h6 className="subtitle has-text-grey-dark is-italic">
               {props.content.subtitle}
             </h6>
-            <div className="buttons">
+            <div className="field is-centered">
               {(props.content.categoryButtons).map( 
                 (category: Category, i: number) =>
-                <Link key={i} to={'/resources/' + nameToSlug(category.title)}>
-                  <button className="button is-primary is-rounded is-uppercase">
-                    {category.title}
-                  </button>
+                <Link key={i} to={'/resources/' + nameToSlug(category.title)} 
+                  className="button is-primary is-rounded is-uppercase">
+                  {category.title}
                 </Link>
               )}
             </div>
@@ -49,13 +48,15 @@ const LearningPageScaffolding = (props: ContentfulContent) =>
         {(props.content.articles).map(
           (article: any, i: number) => {
             const url = '/resources/' + article.slug; 
-            const urlCategory = '/resources/' + nameToSlug(article.category.title);
             return (
               <div key={i} className="box article-preview">
                 <div className="tags">
-                  <Link to={urlCategory}>
-                    <span className="tag is-primary is-light">{article.category.title}</span>
-                  </Link>
+                  {(article.categories).map(
+                    (category: Category, i: number) => 
+                    <Link key={i} to={'/resources/' + nameToSlug(category.title)} className="tag is-primary is-light">
+                      {category.title}
+                    </Link>
+                  )}
                 </div>
                 
                   <h1 className="title is-size-3 has-text-primary is-spaced has-text-weight-semibold">
@@ -129,7 +130,7 @@ const LearningPage  = () => (
             }
             author
             dateUpdated
-            category {
+            categories {
               title
               description
             }

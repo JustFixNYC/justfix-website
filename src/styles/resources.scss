@@ -1,11 +1,15 @@
 
 .resources-page {
+    .hero .hero-body .button {
+        margin: 0.2rem;
+    }
     .article-preview {
         padding: 3rem;
         margin-bottom: 3rem;
 
         .tag:hover {
-            opacity: 0.6
+            opacity: 0.6;
+            text-decoration: none;
         }
     }
 }
