@@ -13,6 +13,7 @@ exports.createPages = async function({ actions, graphql }) {
         categoryButtons {
           title
           description
+          slug
         }
         articles {
           metadata {
@@ -40,6 +41,7 @@ exports.createPages = async function({ actions, graphql }) {
           categories {
             title
             description
+            slug
           }
           articleSections {
             __typename
@@ -77,8 +79,8 @@ exports.createPages = async function({ actions, graphql }) {
   const articles = data.contentfulLearningCenterSearchPage.articles;
   data.contentfulLearningCenterSearchPage.categoryButtons.forEach(category => {
     actions.createPage({
-      path: '/resources/' + category.title.replace(' ','-').toLowerCase(),
-      component: require.resolve(`./src/components/article.tsx`),
+      path: '/resources/category/' + category.slug,
+      component: require.resolve(`./src/components/learning-center/category-page-template.tsx`),
       context: { 
         content: category,
         articles: articles
@@ -90,7 +92,7 @@ exports.createPages = async function({ actions, graphql }) {
   data.contentfulLearningCenterSearchPage.articles.forEach(article => {
     actions.createPage({
       path: '/resources/' + article.slug,
-      component: require.resolve(`./src/components/article.tsx`),
+      component: require.resolve(`./src/components/learning-center/article-template.tsx`),
       context: { content: article },
     })
   })

@@ -7,14 +7,10 @@ import '../styles/resources.scss'
 import Layout from '../components/layout'
 import { ContentfulContent } from '../components/types';
 
-
-export function nameToSlug(name: string): string {
-  return name.replace(' ','-').toLowerCase()
-}
-
 type Category = {
   title: string,
-  description: string
+  description: string,
+  slug: string
 }
 
 const LearningPageScaffolding = (props: ContentfulContent) => 
@@ -35,7 +31,7 @@ const LearningPageScaffolding = (props: ContentfulContent) =>
             <div className="field is-centered">
               {(props.content.categoryButtons).map( 
                 (category: Category, i: number) =>
-                <Link key={i} to={'/resources/' + nameToSlug(category.title)} 
+                <Link key={i} to={'/resources/category/' + category.slug} 
                   className="button is-primary is-uppercase">
                   {category.title}
                 </Link>
@@ -53,7 +49,7 @@ const LearningPageScaffolding = (props: ContentfulContent) =>
                 <div className="tags">
                   {(article.categories).map(
                     (category: Category, i: number) => 
-                    <Link key={i} to={'/resources/' + nameToSlug(category.title)} className="tag is-primary is-light">
+                    <Link key={i} to={'/resources/category/' + category.slug} className="tag is-primary is-light">
                       {category.title}
                     </Link>
                   )}
@@ -106,6 +102,7 @@ const LearningPage  = () => (
           categoryButtons {
             title
             description
+            slug
           }
           articles {
             metadata {
@@ -133,6 +130,7 @@ const LearningPage  = () => (
             categories {
               title
               description
+              slug
             }
             articleSections {
               __typename
