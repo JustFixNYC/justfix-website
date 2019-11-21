@@ -83,17 +83,23 @@ exports.createPages = async function({ actions, graphql }) {
       component: require.resolve(`./src/components/learning-center/category-page-template.tsx`),
       context: { 
         content: category,
-        articles: articles
+        articlePreviews: articles
        },
     })
   })
 
   /* Learning Center article pages */
+  const learningCenterCta = data.contentfulLearningCenterSearchPage.learningCenterCta;
+  const justFixCta = data.contentfulLearningCenterSearchPage.justFixCta;
   data.contentfulLearningCenterSearchPage.articles.forEach(article => {
     actions.createPage({
       path: '/resources/' + article.slug,
       component: require.resolve(`./src/components/learning-center/article-template.tsx`),
-      context: { content: article },
+      context: { 
+        content: article, 
+        learningCenterCta: learningCenterCta,
+        justFixCta: justFixCta
+      },
     })
   })
 

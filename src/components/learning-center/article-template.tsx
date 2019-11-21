@@ -1,7 +1,11 @@
 import React from 'react'
 
 type Props = {
-    pageContext: { content: any }
+    pageContext: { 
+        content: any,
+        learningCenterCta: any,
+        justFixCta: any 
+    }
 }
 
 const LearningArticle = (props: Props) => {

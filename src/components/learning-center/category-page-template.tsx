@@ -1,7 +1,10 @@
 import React from 'react'
 
 type Props = {
-    pageContext: { content: any }
+    pageContext: { 
+        content: any,
+        articlePreviews: any 
+    }
 }
 
 const LearningCategoryPage = (props: Props) => {
