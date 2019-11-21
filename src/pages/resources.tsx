@@ -13,6 +13,34 @@ type Category = {
   slug: string
 }
 
+export const ArticlePreviewCard = (props: any) => {
+  const url = '/resources/' + props.articleData.slug; 
+  return (
+    <div className="box article-preview">
+      <div className="tags">
+        {(props.articleData.categories).map(
+          (category: Category, i: number) => 
+          <Link key={i} to={'/resources/category/' + category.slug} className="tag is-primary is-light">
+            {category.title}
+          </Link>
+        )}
+      </div>
+      
+        <h1 className="title is-size-3 has-text-primary is-spaced has-text-weight-semibold">
+          <Link to={url}>
+            {props.articleData.title}
+          </Link>
+        </h1>
+        <h6 className="subtitle has-text-grey-dark">
+          {props.articleData.previewText.previewText}
+        </h6>
+        <Link to={url} className="has-text-weight-semibold">
+          Read More →
+        </Link>
+    </div>
+    )
+  }
+
 const LearningPageScaffolding = (props: ContentfulContent) => 
   (<Layout metadata={props.content.metadata}>
     <div id="resources" className="resources-page" >
@@ -42,37 +70,10 @@ const LearningPageScaffolding = (props: ContentfulContent) =>
       </section>
       <section className="content-wrapper tight">
         {(props.content.articles).map(
-          (article: any, i: number) => {
-            const url = '/resources/' + article.slug; 
-            return (
-              <div key={i} className="box article-preview">
-                <div className="tags">
-                  {(article.categories).map(
-                    (category: Category, i: number) => 
-                    <Link key={i} to={'/resources/category/' + category.slug} className="tag is-primary is-light">
-                      {category.title}
-                    </Link>
-                  )}
-                </div>
-                
-                  <h1 className="title is-size-3 has-text-primary is-spaced has-text-weight-semibold">
-                    <Link to={url}>
-                      {article.title}
-                    </Link>
-                  </h1>
-                  <h6 className="subtitle has-text-grey-dark">
-                    {article.previewText.previewText}
-                  </h6>
-                  <Link to={url} className="has-text-weight-semibold">
-                    Read More →
-                  </Link>
-              </div>
-              )
-            }
+          (article: any, i: number) => <ArticlePreviewCard articleData={article} key={i} />
         )}
       </section>
     </div>
-
   </Layout>); 
 
 const LearningPage  = () => (
