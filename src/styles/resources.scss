@@ -3,5 +3,9 @@
     .article-preview {
         padding: 3rem;
         margin-bottom: 3rem;
+
+        .tag:hover {
+            opacity: 0.6
+        }
     }
 }

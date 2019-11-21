@@ -49,10 +49,11 @@ const LearningPageScaffolding = (props: ContentfulContent) =>
         {(props.content.articles).map(
           (article: any, i: number) => {
             const url = '/resources/' + article.slug; 
+            const urlCategory = '/resources/' + nameToSlug(article.category.title);
             return (
               <div key={i} className="box article-preview">
                 <div className="tags">
-                  <Link to={url}>
+                  <Link to={urlCategory}>
                     <span className="tag is-primary is-light">{article.category.title}</span>
                   </Link>
                 </div>
@@ -71,7 +72,7 @@ const LearningPageScaffolding = (props: ContentfulContent) =>
               </div>
               )
             }
-          )}
+        )}
       </section>
     </div>
 
