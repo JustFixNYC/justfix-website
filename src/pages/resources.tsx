@@ -26,11 +26,11 @@ const LearningPageScaffolding = (props: ContentfulContent) =>
             <Img fluid={props.content.headerImage.fluid} />
           </figure>
           <div className="container">
-            <h1 className="title is-size-2 has-text-grey-dark has-text-weight-normal">
-            {props.content.title}
+            <h1 className="title is-size-2 has-text-grey-dark has-text-weight-normal is-spaced">
+              {props.content.title}
             </h1>
             <h6 className="subtitle has-text-grey-dark is-italic">
-            {props.content.subtitle}
+              {props.content.subtitle}
             </h6>
             <div className="buttons">
               {(props.content.categoryButtons).map( 
@@ -47,25 +47,31 @@ const LearningPageScaffolding = (props: ContentfulContent) =>
       </section>
       <section className="content-wrapper tight">
         {(props.content.articles).map(
-          (article: any, i: number) => 
-          <div key={i} className="box article-preview">
-            <div className="tags">
-              <span className="tag is-primary is-light">{article.category.title}</span>
-            </div>
-            
-              <h1 className="title is-size-3 has-text-primary is-spaced has-text-weight-semibold">
-                <Link to={'/resources/' + article.slug}>
-                  {article.title}
-                </Link>
-              </h1>
-              <h6 className="subtitle has-text-grey-dark">
-                {article.previewText.previewText}
-              </h6>
-              <Link to={'/resources/' + article.slug} className="has-text-weight-semibold">
-                Read More →
-              </Link>
-          </div>
-        )}
+          (article: any, i: number) => {
+            const url = '/resources/' + article.slug; 
+            return (
+              <div key={i} className="box article-preview">
+                <div className="tags">
+                  <Link to={url}>
+                    <span className="tag is-primary is-light">{article.category.title}</span>
+                  </Link>
+                </div>
+                
+                  <h1 className="title is-size-3 has-text-primary is-spaced has-text-weight-semibold">
+                    <Link to={url}>
+                      {article.title}
+                    </Link>
+                  </h1>
+                  <h6 className="subtitle has-text-grey-dark">
+                    {article.previewText.previewText}
+                  </h6>
+                  <Link to={url} className="has-text-weight-semibold">
+                    Read More →
+                  </Link>
+              </div>
+              )
+            }
+          )}
       </section>
     </div>
 
