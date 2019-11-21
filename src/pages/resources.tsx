@@ -5,7 +5,7 @@ import Img from "gatsby-image/withIEPolyfill"
 import '../styles/resources.scss' 
 
 import Layout from '../components/layout'
-import { ContentfulContent } from '../components/types';
+import { ContentfulContent } from '.'
 
 type Category = {
   title: string,
