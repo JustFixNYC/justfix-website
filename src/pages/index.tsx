@@ -15,8 +15,11 @@ import { DDOSearchBar } from '../components/ddo-searchbar';
 
 const TEXTLOOP_ANIMATION_INTERVAL = 2750;
 
+// All our supported locales, excluding English (en).
+export type StringLocales = "es";
+
 export type Locale = {
-  locale?: "es" | null
+  locale?: StringLocales | null
 }
 
 export type ContentfulContent = Locale & { 

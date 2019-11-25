@@ -12,3 +12,7 @@ msgstr ""
 "Last-Translator: \n"
 "Language-Team: \n"
 "Plural-Forms: \n"
+
+#: src/components/header.tsx:34
+msgid "ABOUT US"
+msgstr "SOBRE NOSOTROS"
