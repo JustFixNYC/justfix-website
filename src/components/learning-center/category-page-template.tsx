@@ -1,7 +1,8 @@
 import React from 'react'
 import Layout from '../layout';
-import { ArticlePreviewCard, LearningCenterImage } from '../../pages/resources';
+import { ArticlePreviewCard } from '../../pages/resources';
 import { Link } from 'gatsby';
+import { LearningCenterImage } from './header-image';
 
 type Props = {
     pageContext: { 

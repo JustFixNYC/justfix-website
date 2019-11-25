@@ -1,34 +1,17 @@
 import React from 'react'
 import { StaticQuery, graphql, Link } from 'gatsby'
-import Img from "gatsby-image/withIEPolyfill"
 
 import '../styles/resources.scss' 
 
 import Layout from '../components/layout'
 import { ContentfulContent } from '.'
+import { LearningCenterImage } from '../components/learning-center/header-image'
 
 type Category = {
   title: string,
   description: string,
   slug: string
 }
-
-export const LearningCenterImage = () => (
-  <StaticQuery
-    query={graphql`
-      query {
-        contentfulLearningCenterSearchPage {
-          headerImage {
-            fluid {
-              ...GatsbyContentfulFluid
-            }
-          }
-        }
-      }
-    `}
-  render = {data => (<Img fluid={data.contentfulLearningCenterSearchPage.headerImage.fluid} />)}
-  />
-);
 
 export const ArticlePreviewCard = (props: any) => {
   const url = '/resources/' + props.articleData.slug; 
