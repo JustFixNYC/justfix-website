@@ -83,8 +83,10 @@ exports.createPages = async function({ actions, graphql }) {
       component: require.resolve(`./src/components/learning-center/category-page-template.tsx`),
       context: { 
         content: category,
-        articlePreviews: articles
-       },
+        articlePreviews: articles.filter( 
+          article => (article.categories).some( articleCategory => articleCategory.title === category.title)
+        )
+      },
     })
   })
 

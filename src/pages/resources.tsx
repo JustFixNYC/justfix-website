@@ -13,6 +13,23 @@ type Category = {
   slug: string
 }
 
+export const LearningCenterImage = () => (
+  <StaticQuery
+    query={graphql`
+      query {
+        contentfulLearningCenterSearchPage {
+          headerImage {
+            fluid {
+              ...GatsbyContentfulFluid
+            }
+          }
+        }
+      }
+    `}
+  render = {data => (<Img fluid={data.contentfulLearningCenterSearchPage.headerImage.fluid} />)}
+  />
+);
+
 export const ArticlePreviewCard = (props: any) => {
   const url = '/resources/' + props.articleData.slug; 
   return (
@@ -47,7 +64,7 @@ const LearningPageScaffolding = (props: ContentfulContent) =>
       <section className="hero is-small is-white">
         <div className="hero-body has-text-centered is-horizontal-center">
           <figure className="image is-128x128 is-horizontal-center">
-            <Img fluid={props.content.headerImage.fluid} />
+            <LearningCenterImage />
           </figure>
           <div className="container content-wrapper tight">
             <h1 className="title is-size-2 has-text-grey-dark has-text-weight-normal is-spaced">
@@ -76,8 +93,9 @@ const LearningPageScaffolding = (props: ContentfulContent) =>
     </div>
   </Layout>); 
 
+
 const LearningPage  = () => (
-<StaticQuery
+  <StaticQuery
     query={graphql`
       query {
         contentfulLearningCenterSearchPage {
