@@ -1,11 +1,13 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-
+import { I18nProvider } from '@lingui/react'
+import catalogEn from '../locales/en/messages';
+import catalogEs from '../locales/es/messages';
 import { StaticQuery, graphql } from 'gatsby'
 
 import Header from './header'
 import Footer from './footer'
-import { Locale } from '../pages';
+import { Locale, StringLocales } from '../pages';
 
 const favicon16 =  require("../img/brand/favicon-16x16.png");
 const favicon32 =  require("../img/brand/favicon-32x32.png");
@@ -15,6 +17,15 @@ const SITE_TITLE_SUFFIX = ' | JustFix.nyc';
 const TWITTER_HANDLE = '@JustFixNYC';
 const SITE_MAIN_URL = 'https://www.justfix.nyc';
 const FB_APP_ID = "247990609143668";
+
+type LocaleCatalogs = {
+  [K in StringLocales]: any
+} & { en: any };
+
+const catalogs: LocaleCatalogs = {
+  en: catalogEn,
+  es: catalogEs
+};
 
 // import './layout.css'
 
@@ -45,7 +56,7 @@ const LayoutScaffolding = ({ metadata, children, isLandingPage, defaultContent, 
   
 
   return (
-    <>
+    <I18nProvider language={locale || 'en'} catalogs={catalogs}>
       <Helmet
         link={[
           { rel: 'icon', type: 'image/png', sizes: "16x16", href: `${favicon16}` },
@@ -80,7 +91,7 @@ const LayoutScaffolding = ({ metadata, children, isLandingPage, defaultContent, 
         {children}
       </div>
       <Footer locale={locale} />
-    </>
+    </I18nProvider>
     );
 };
 

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'gatsby'
+import { Trans } from '@lingui/macro';
 
 import '../styles/header.scss' 
 import { Locale } from '../pages';
@@ -48,7 +49,7 @@ render() {
 
         <div className="navbar-item has-dropdown is-hoverable">
           <a className={"navbar-link has-text-" + (this.state.burgerMenuIsOpen ? "black" : "white")}>
-            ABOUT US
+            <Trans>ABOUT US</Trans>
           </a>
 
           <div className="navbar-dropdown">
