@@ -96,58 +96,21 @@ const LearningPage  = () => (
           }
           title
           subtitle
-          headerImage {
-            fluid {
-              ...GatsbyContentfulFluid
-            }
-          }
           categoryButtons {
             title
             description
             slug
           }
           articles {
-            metadata {
-              title
-              description
-              keywords {
-                keywords
-              }
-              shareImage {
-                file {
-                  url
-                }
-              }
-            }
             slug
             title
-            subtitle {
-              json
-            }
             previewText {
               previewText
             }
-            author
-            dateUpdated
             categories {
               title
               description
               slug
-            }
-            articleSections {
-              __typename
-              ... on ContentfulLearningArticleCtaBlock {
-                title
-                subtitle
-                ctaText
-                ctaLink
-              }
-              ... on ContentfulLearningArticleSection {
-                title
-                content {
-                  json
-                }
-              }
             }
           }
           learningCenterCta {
