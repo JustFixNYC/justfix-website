@@ -81,7 +81,9 @@ const renderSection = (articleSection: any, i: number) =>
                 <h1 className="title is-size-2 has-text-grey-dark has-text-weight-semibold is-spaced">
                     {articleSection.title}
                 </h1>
+                <span className="has-text-grey-dark">
                     {documentToReactComponents(articleSection.content.json)}
+                </span>
             </div>
         </div>
     )
