@@ -4,7 +4,6 @@ import { ContentfulContent } from '../../pages';
 import { Category } from '../../pages/resources';
 
 
-
 type ArticleListing = {
   title: string,
   slug: string,
@@ -16,12 +15,14 @@ type TableOfContentsSection = {
 }
 
 const TableOfContentsSection = (props: TableOfContentsSection) => (
-  <div>
-    <p>{props.categoryTitle}</p>
-    { (props.articles).map( ( article: ArticleListing ) => 
-      (<Link to={ "/resources/" + article.slug }> {article.title} </Link>))
-    }
-  </div>
+  props.articles.length > 0 ?
+    <div>
+      <p>{props.categoryTitle}</p>
+      { (props.articles).map( ( article: ArticleListing, i: number ) => 
+        (<Link key={i} to={ "/resources/" + article.slug }> {article.title} </Link>))
+      }
+    </div> :
+    <div />
 );
 
 
@@ -45,15 +46,12 @@ const LearningArticleFooterScaffolding = (props: ContentfulContent) => {
 
   return (
     <div>
-      {ArticlesSortedByCategory.map( ( section: TableOfContentsSection ) =>
-       <TableOfContentsSection categoryTitle={section.categoryTitle} articles={section.articles} />)
+      {ArticlesSortedByCategory.map( ( section: TableOfContentsSection, i: number ) =>
+        <TableOfContentsSection key={i} categoryTitle={section.categoryTitle} articles={section.articles} />)
       }
     </div>
   );
 }
-
-
-
 
 export const LearningArticleFooter = () => (
     <StaticQuery
