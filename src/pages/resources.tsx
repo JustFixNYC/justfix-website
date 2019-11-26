@@ -7,7 +7,7 @@ import Layout from '../components/layout'
 import { ContentfulContent } from '.'
 import { LearningCenterImage } from '../components/learning-center/header-image'
 
-type Category = {
+export type Category = {
   title: string,
   description: string,
   slug: string

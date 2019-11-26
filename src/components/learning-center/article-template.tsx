@@ -1,4 +1,5 @@
 import React from 'react'
+import { LearningArticleFooter } from './article-footer';
 
 type Props = {
     pageContext: { 
@@ -11,7 +12,10 @@ type Props = {
 const LearningArticle = (props: Props) => {
     const content = props.pageContext.content;
     return (
-        <div>Article: {content.title} </div>
+        <div>Article: {content.title} 
+            <LearningArticleFooter />
+        </div>
+        
     )
 } 
 
