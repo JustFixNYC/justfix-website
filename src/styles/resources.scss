@@ -17,5 +17,13 @@
 .article-page {
     .article-section {
         margin-bottom: 4rem;
+        & .cta {
+            padding: 2.5rem;
+            border-radius: 10px;
+
+            p {
+                padding-bottom: 1rem;
+            }
+        }
     }
 }

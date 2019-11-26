@@ -63,15 +63,25 @@ articleSections {
 
 const renderSection = (articleSection: any, i: number) =>
     (articleSection.__typename === "ContentfulLearningArticleCtaBlock" ? 
-        <div key={i} className="article-section" /> :
         <div key={i} className="article-section">
-            <div className="content">
+            <div className="content cta has-text-centered has-background-primary">
+                <h1 className="title is-size-4 has-text-weight-bold has-text-white is-spaced">
+                    {articleSection.title}
+                </h1>
+                <p className="has-text-weight-medium has-text-white is-spaced">
+                    {articleSection.subtitle}
+                </p>
+                <a href={articleSection.ctaLink} className="button is-medium is-primary is-inverted is-outlined" target="_blank" rel="noopener noreferrer">
+                    {articleSection.ctaText}
+                </a>
+            </div>
+        </div> :
+        <div key={i} className="article-section">
+            <div className="content ">
                 <h1 className="title is-size-2 has-text-grey-dark has-text-weight-semibold is-spaced">
                     {articleSection.title}
                 </h1>
-                <p>
                     {documentToReactComponents(articleSection.content.json)}
-                </p>
             </div>
         </div>
     )
@@ -104,9 +114,9 @@ const LearningArticle = (props: Props) => {
                                             <br/>
                                         <span className="is-size-7">Updated {content.dateUpdated}</span> 
                                     </p>
-                                    <p className="is-size-6 has-text-grey-dark">
+                                    <span className="is-size-6 has-text-grey-dark">
                                         {documentToReactComponents(content.subtitle.json)}
-                                    </p>
+                                    </span>
                                 </div>
                             </div>
                             <div className="hero-body">
