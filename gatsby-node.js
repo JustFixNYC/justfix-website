@@ -64,14 +64,14 @@ exports.createPages = async function({ actions, graphql }) {
   `)
 
   /* Learning Center category pages */
-  const articles = data.contentfulLearningCenterSearchPage.articles;
+  const allPublishedArticles = data.contentfulLearningCenterSearchPage.articles;
   data.contentfulLearningCenterSearchPage.categoryButtons.forEach(category => {
     actions.createPage({
       path: '/resources/category/' + category.slug,
       component: require.resolve(`./src/components/learning-center/category-page-template.tsx`),
       context: { 
         content: category,
-        articlePreviews: articles.filter( 
+        articlePreviews: allPublishedArticles.filter( 
           article => (article.categories).some( articleCategory => articleCategory.title === category.title)
         )
       },
@@ -79,8 +79,6 @@ exports.createPages = async function({ actions, graphql }) {
   })
 
   /* Learning Center article pages */
-  const learningCenterCta = data.contentfulLearningCenterSearchPage.learningCenterCta;
-  const justFixCta = data.contentfulLearningCenterSearchPage.justFixCta;
   data.contentfulLearningCenterSearchPage.articles.forEach(article => {
     actions.createPage({
       path: '/resources/' + article.slug,
