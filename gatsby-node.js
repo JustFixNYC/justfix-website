@@ -59,18 +59,6 @@ exports.createPages = async function({ actions, graphql }) {
             }
           }
         }
-        learningCenterCta {
-          title
-          subtitle
-          ctaText
-          ctaLink
-        }
-        justFixCta {
-          title
-          subtitle
-          ctaText
-          ctaLink
-        }
       }
     }
   `)
@@ -98,9 +86,7 @@ exports.createPages = async function({ actions, graphql }) {
       path: '/resources/' + article.slug,
       component: require.resolve(`./src/components/learning-center/article-template.tsx`),
       context: { 
-        content: article, 
-        learningCenterCta: learningCenterCta,
-        justFixCta: justFixCta
+        content: article
       },
     })
   })
