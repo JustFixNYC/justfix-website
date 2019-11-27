@@ -15,6 +15,25 @@
 }
 
 .article-page {
+    .menu {
+        padding-right: 1.5rem;
+        margin-top: 3rem;
+
+        &.is-hidden-touch {
+            margin-top: 6rem;
+            margin-bottom: 3rem;
+        
+            .menu-label {
+                padding-left: 0.75rem;
+            }
+        }
+    }
+
+    .sticky {
+        position: sticky;
+        top: 2rem;
+    }
+
     .article-section {
         margin-bottom: 5rem;
         & .cta {

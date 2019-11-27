@@ -15,6 +15,10 @@ type Props = {
     }
 }
 
+type navMenuProps = {
+    styleClass?: string
+}
+
 /* 
 
 GraphQL Content:
@@ -98,15 +102,15 @@ const LearningArticle = (props: Props) => {
     
     const content = props.pageContext.content;
 
-    const NavMenu = () => (
-        <aside className="menu">
+    const NavMenu = ( props?: navMenuProps ) => (
+        <aside className={"menu " + ( props && props.styleClass || "")}>
             <p className="menu-label">
                 Sections
             </p>
             <ul className="menu-list">
                 {(content.articleSections).map( (articleSection: any, i: number) => 
                     <li key={i}>
-                        <AnchorLink href={"#" + makeSectionID(i)} offset='50'>
+                        <AnchorLink href={"#" + makeSectionID(i)} offset='50' className="has-text-primary">
                             {articleSection.title}
                         </AnchorLink>
                     </li>
@@ -146,7 +150,9 @@ const LearningArticle = (props: Props) => {
                                         {documentToReactComponents(content.subtitle.json)}
                                     </span>
                                 </div>
+                                <NavMenu styleClass="is-hidden-desktop" />
                             </div>
+                            
                             <div className="hero-body">
                                 <div className="container content-wrapper">
                                     {(content.articleSections).map(
@@ -158,7 +164,7 @@ const LearningArticle = (props: Props) => {
                         
                     </div>
                     <div className="column">
-                        <NavMenu />
+                        <NavMenu styleClass="sticky is-hidden-touch" />
                     </div>
                 </div>
                 <LearningArticleFooter />
