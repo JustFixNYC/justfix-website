@@ -2,6 +2,7 @@ import React from 'react'
 import Layout from '../layout';
 import { ArticlePreviewCard } from '../../pages/resources';
 import { Link } from 'gatsby';
+import { ThankYouBanner } from './thank-you-banner';
 
 type Props = {
     pageContext: { 
@@ -52,6 +53,7 @@ const LearningCategoryPage = (props: Props) => {
                     <NoArticlesYet />
                 }
             </section>
+            <ThankYouBanner />
             </div>
         </Layout>
     )

@@ -6,6 +6,7 @@ import '../styles/resources.scss'
 import Layout from '../components/layout'
 import { ContentfulContent } from '.'
 import { LearningCenterImage } from '../components/learning-center/header-image'
+import { ThankYouBanner } from '../components/learning-center/thank-you-banner'
 
 export type Category = {
   title: string,
@@ -73,6 +74,7 @@ const LearningPageScaffolding = (props: ContentfulContent) =>
           (article: any, i: number) => <ArticlePreviewCard articleData={article} key={i} />
         )}
       </section>
+      <ThankYouBanner />
     </div>
   </Layout>); 
 

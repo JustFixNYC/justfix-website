@@ -6,6 +6,7 @@ import { Link as ScrollLink} from "react-scroll";
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
 import '../../styles/resources.scss' 
+import { ThankYouBanner } from './thank-you-banner';
 
 type Props = {
     pageContext: { 
@@ -140,8 +141,8 @@ const LearningArticle = (props: Props) => {
                         <NavMenu styleClass="sticky is-hidden-touch" />
                     </div>                      
                 </div>
-                    
                 <LearningArticleFooter />
+                <ThankYouBanner />
             </div>
         </Layout>
         
