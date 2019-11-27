@@ -111,3 +111,8 @@ a.button.is-large {
     top: 50%;
     transform: translate(-50%, -50%);
 }
+
+.bold-shadow {
+    text-shadow: .4px 0px .1px,
+                -.4px 0px .1px;
+}

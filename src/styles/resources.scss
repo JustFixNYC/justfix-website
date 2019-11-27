@@ -1,3 +1,4 @@
+@import "_vars.scss";
 
 .resources-page {
     .hero .hero-body .button {
@@ -24,7 +25,9 @@
         
             .menu-label {
                 padding-left: 0.75rem;
+                
             }
+            
         }
     }
 
@@ -34,7 +37,7 @@
     }
 
     .article-section {
-        margin-bottom: 5rem;
+        padding-bottom: 5rem;
         & .cta {
             padding: 2.5rem;
             border-radius: 10px;

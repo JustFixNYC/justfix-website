@@ -2,8 +2,8 @@ import React from 'react'
 import { LearningArticleFooter } from './article-footer';
 import Layout from '../layout';
 import { Link } from 'gatsby';
+import { Link as ScrollLink} from "react-scroll";
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import AnchorLink from 'react-anchor-link-smooth-scroll'
 
 import '../../styles/resources.scss' 
 
@@ -64,9 +64,16 @@ const LearningArticle = (props: Props) => {
             <ul className="menu-list">
                 {(content.articleSections).map( (articleSection: any, i: number) => 
                     <li key={i}>
-                        <AnchorLink href={"#" + makeSectionID(i)} offset='50' className="has-text-primary">
-                            {articleSection.title}
-                        </AnchorLink>
+                        <ScrollLink 
+                            activeClass="bold-shadow" 
+                            to={makeSectionID(i)} 
+                            spy={true}
+                            smooth={true}
+                            offset={-100}
+                            duration= {500}
+                            className="has-text-primary">
+                                {articleSection.title}
+                        </ScrollLink>
                     </li>
                 )}
                 
@@ -109,7 +116,7 @@ const LearningArticle = (props: Props) => {
                 </div>
                 <div className="columns is-desktop">
                     <div className="column">
-                    <NavMenu styleClass="is-hidden-desktop" />
+                        <NavMenu styleClass="is-hidden-desktop" />
                     </div>
                     <div className="column is-half-desktop">
                         <div className="hero-body">
