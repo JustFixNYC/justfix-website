@@ -42,10 +42,32 @@ const LearningArticleFooterScaffolding = (props: ContentfulContent) => {
   );
 
   return (
-    <div>
-      {ArticlesSortedByCategory.map( ( section: TableOfContentsSection, i: number ) =>
-        <TableOfContentsSection key={i} categoryTitle={section.categoryTitle} articles={section.articles} />)
-      }
+    <div className="columns is-desktop">
+      <div className="column">
+
+      </div>
+      <div className="column is-half-desktop">
+        <div className="columns hero-body">
+          <div className="column is-one-third">
+            {ArticlesSortedByCategory.map( ( section: TableOfContentsSection, i: number ) =>
+              (i % 3 === 0 ? <TableOfContentsSection key={i} categoryTitle={section.categoryTitle} articles={section.articles} /> : <></>) 
+            )}
+          </div>
+          <div className="column is-one-third">
+            {ArticlesSortedByCategory.map( ( section: TableOfContentsSection, i: number ) =>
+              (i % 3 === 1 ? <TableOfContentsSection key={i} categoryTitle={section.categoryTitle} articles={section.articles} /> : <></>) 
+            )}
+          </div>
+          <div className="column is-one-third">
+            {ArticlesSortedByCategory.map( ( section: TableOfContentsSection, i: number ) =>
+              (i % 3 === 2 ? <TableOfContentsSection key={i} categoryTitle={section.categoryTitle} articles={section.articles} /> : <></>) 
+            )}
+          </div>
+        </div>
+      </div>
+
+      <div className="column" />
+      
     </div>
   );
 }
