@@ -25,29 +25,32 @@ function makeSectionID(index: number): string {
 }
 
 function renderSection(articleSection: any, i: number): JSX.Element {
-    return (articleSection.__typename === "ContentfulLearningArticleCtaBlock" ? 
+    return (
         <div key={i} id={makeSectionID(i)} className="article-section">
-            <div className="content cta has-text-centered has-background-primary">
-                <h1 className="title is-size-4 has-text-weight-bold has-text-white is-spaced">
-                    {articleSection.title}
-                </h1>
-                <p className="has-text-weight-medium has-text-white is-spaced">
-                    {articleSection.subtitle}
-                </p>
-                <a href={articleSection.ctaLink} className="button is-medium is-primary is-inverted is-outlined" target="_blank" rel="noopener noreferrer">
-                    {articleSection.ctaText}
-                </a>
-            </div>
-        </div> :
-        <div key={i} id={makeSectionID(i)} className="article-section">
-            <div className="content ">
-                <h1 className="title is-size-2 has-text-grey-dark has-text-weight-semibold is-spaced">
-                    {articleSection.title}
-                </h1>
-                <span className="has-text-grey-dark">
-                    {documentToReactComponents(articleSection.content.json)}
-                </span>
-            </div>
+            {(articleSection.__typename === "ContentfulLearningArticleCtaBlock" ? 
+                <div className="content cta has-text-centered has-background-primary">
+                    <h1 className="title is-size-4 has-text-weight-bold has-text-white is-spaced">
+                        {articleSection.title}
+                    </h1>
+                    <p className="has-text-weight-medium has-text-white is-spaced">
+                        {articleSection.subtitle}
+                    </p>
+                    <a href={articleSection.ctaLink} className="button is-medium is-primary is-inverted is-outlined" target="_blank" rel="noopener noreferrer">
+                        {articleSection.ctaText}
+                    </a>
+                </div>:
+                <div className="content ">
+                    <h1 className="title is-size-2 has-text-grey-dark has-text-weight-semibold is-spaced">
+                        {articleSection.title}
+                    </h1>
+                    <span className="has-text-grey-dark">
+                        {documentToReactComponents(articleSection.content.json)}
+                    </span>
+                </div>)}
+                <ScrollLink to="navmenu" spy={true} smooth={true}
+                    offset={-100} duration= {500} className="is-hidden-desktop is-size-7">
+                        Back to Top ↑
+                </ScrollLink>
         </div>
     );
 }
@@ -57,7 +60,7 @@ const LearningArticle = (props: Props) => {
     const content = props.pageContext.content;
 
     const NavMenu = ( props?: navMenuProps ) => (
-        <aside className={"menu " + ( props && props.styleClass || "")}>
+        <aside id="navmenu" className={"menu " + ( props && props.styleClass || "")}>
             <p className="menu-label">
                 Sections
             </p>
@@ -80,6 +83,8 @@ const LearningArticle = (props: Props) => {
             </ul>
         </aside>
     )
+
+  
 
     return (
         <Layout metadata={content.metadata}>
@@ -122,7 +127,11 @@ const LearningArticle = (props: Props) => {
                         <div className="hero-body">
                             <div className="container content-wrapper">
                                 {(content.articleSections).map(
-                                    (articleSection: any, i: number) => renderSection(articleSection, i)
+                                    (articleSection: any, i: number) => 
+                                    <div key={i}>
+                                        {renderSection(articleSection, i)}
+                                        
+                                    </div>
                                 )}
                             </div>
                         </div>
