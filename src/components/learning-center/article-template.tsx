@@ -102,23 +102,29 @@ const LearningArticle = (props: Props) => {
                                         {documentToReactComponents(content.subtitle.json)}
                                     </span>
                                 </div>
-                                <NavMenu styleClass="is-hidden-desktop" />
-                            </div>
-                            
-                            <div className="hero-body">
-                                <div className="container content-wrapper">
-                                    {(content.articleSections).map(
-                                        (articleSection: any, i: number) => renderSection(articleSection, i)
-                                    )}
-                                </div>
                             </div>
                         </div>
-                        
                     </div>
+                    <div className="column" />
+                </div>
+                <div className="columns is-desktop">
+                    <div className="column">
+                    <NavMenu styleClass="is-hidden-desktop" />
+                    </div>
+                    <div className="column is-half-desktop">
+                        <div className="hero-body">
+                            <div className="container content-wrapper">
+                                {(content.articleSections).map(
+                                    (articleSection: any, i: number) => renderSection(articleSection, i)
+                                )}
+                            </div>
+                        </div>
+                    </div>  
                     <div className="column">
                         <NavMenu styleClass="sticky is-hidden-touch" />
-                    </div>
+                    </div>                      
                 </div>
+                    
                 <LearningArticleFooter />
             </div>
         </Layout>

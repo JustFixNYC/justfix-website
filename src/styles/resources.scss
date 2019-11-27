@@ -16,12 +16,11 @@
 
 .article-page {
     .menu {
-        padding-right: 1.5rem;
-        margin-top: 3rem;
+        padding-right: 1rem;
+        margin-left: 1.5rem;
 
         &.is-hidden-touch {
-            margin-top: 6rem;
-            margin-bottom: 3rem;
+            margin: 4rem 0;
         
             .menu-label {
                 padding-left: 0.75rem;
