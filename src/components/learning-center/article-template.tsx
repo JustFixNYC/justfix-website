@@ -3,6 +3,7 @@ import { LearningArticleFooter } from './article-footer';
 import Layout from '../layout';
 import { Link } from 'gatsby';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import AnchorLink from 'react-anchor-link-smooth-scroll'
 
 import '../../styles/resources.scss' 
 
@@ -61,9 +62,13 @@ articleSections {
 }
 */
 
-const renderSection = (articleSection: any, i: number) =>
-    (articleSection.__typename === "ContentfulLearningArticleCtaBlock" ? 
-        <div key={i} className="article-section">
+function makeSectionID(index: number): string {
+    return "section-" + (index + 1).toString();
+}
+
+function renderSection(articleSection: any, i: number): JSX.Element {
+    return (articleSection.__typename === "ContentfulLearningArticleCtaBlock" ? 
+        <div key={i} id={makeSectionID(i)} className="article-section">
             <div className="content cta has-text-centered has-background-primary">
                 <h1 className="title is-size-4 has-text-weight-bold has-text-white is-spaced">
                     {articleSection.title}
@@ -76,7 +81,7 @@ const renderSection = (articleSection: any, i: number) =>
                 </a>
             </div>
         </div> :
-        <div key={i} className="article-section">
+        <div key={i} id={makeSectionID(i)} className="article-section">
             <div className="content ">
                 <h1 className="title is-size-2 has-text-grey-dark has-text-weight-semibold is-spaced">
                     {articleSection.title}
@@ -86,16 +91,37 @@ const renderSection = (articleSection: any, i: number) =>
                 </span>
             </div>
         </div>
-    )
+    );
+}
 
 const LearningArticle = (props: Props) => {
+    
     const content = props.pageContext.content;
+
+    const NavMenu = () => (
+        <aside className="menu">
+            <p className="menu-label">
+                Sections
+            </p>
+            <ul className="menu-list">
+                {(content.articleSections).map( (articleSection: any, i: number) => 
+                    <li key={i}>
+                        <AnchorLink href={"#" + makeSectionID(i)} offset='50'>
+                            {articleSection.title}
+                        </AnchorLink>
+                    </li>
+                )}
+                
+            </ul>
+        </aside>
+    )
+
     return (
         <Layout metadata={content.metadata}>
             <div className="article-page">
                 <div className="columns is-desktop">
                     <div className="column">
-                        First column
+                        First Column
                     </div>
                     <div className="column is-half-desktop">
                         <div className="hero is-white">
@@ -132,7 +158,7 @@ const LearningArticle = (props: Props) => {
                         
                     </div>
                     <div className="column">
-                        Third column
+                        <NavMenu />
                     </div>
                 </div>
                 <LearningArticleFooter />

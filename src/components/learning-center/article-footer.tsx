@@ -41,9 +41,6 @@ const LearningArticleFooterScaffolding = (props: ContentfulContent) => {
     )
   );
 
-  console.log(ArticlesSortedByCategory);
-  
-
   return (
     <div>
       {ArticlesSortedByCategory.map( ( section: TableOfContentsSection, i: number ) =>
