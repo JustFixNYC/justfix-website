@@ -35,9 +35,9 @@ const FooterCta = (props: any ) => (
         {props.content.subtitle && (<p className="title is-size-6 has-text-weight-medium has-text-grey-dark is-spaced">
           {props.content.subtitle }
         </p>)}
-        <a href={props.content.ctaLink} target="_blank" rel="noopener noreferrer">
+        <Link to={props.content.ctaLink}>
             {props.content.ctaText} →
-        </a>   
+        </Link>   
     </div>
   </div>
 )
