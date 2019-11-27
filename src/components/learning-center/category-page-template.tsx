@@ -2,7 +2,6 @@ import React from 'react'
 import Layout from '../layout';
 import { ArticlePreviewCard } from '../../pages/resources';
 import { Link } from 'gatsby';
-import { LearningCenterImage } from './header-image';
 
 type Props = {
     pageContext: { 
@@ -32,9 +31,6 @@ const LearningCategoryPage = (props: Props) => {
             <div id="resources" className="resources-page" >
             <section className="hero is-small is-white">
                 <div className="hero-body has-text-centered is-horizontal-center">
-                    <figure className="image is-128x128 is-horizontal-center">
-                        <LearningCenterImage />
-                    </figure>
                     <div className="container content-wrapper tight">
                         <h1 className="title is-size-2 has-text-grey-dark has-text-weight-normal is-spaced">
                         {content.title}
