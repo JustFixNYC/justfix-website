@@ -17,7 +17,7 @@ type TableOfContentsSection = {
 const TableOfContentsSection = (props: TableOfContentsSection) => (
   props.articles.length > 0 ?
     <div>
-      <p>{props.categoryTitle}</p>
+      <p className="menu-label">{props.categoryTitle}</p>
       { (props.articles).map( ( article: ArticleListing, i: number ) => 
         (<Link key={i} to={ "/resources/" + article.slug }> {article.title} </Link>))
       }
@@ -25,6 +25,22 @@ const TableOfContentsSection = (props: TableOfContentsSection) => (
     </div> :
     <div />
 );
+
+const FooterCta = (props: any ) => (
+  <div className="hero footer-cta is-white">
+    <div className="hero-body">
+        <h1 className="title is-size-4 has-text-weight-bold has-text-grey-dark is-spaced">
+          {props.content.title}
+        </h1>
+        {props.content.subtitle && (<p className="title is-size-6 has-text-weight-medium has-text-grey-dark is-spaced">
+          {props.content.subtitle }
+        </p>)}
+        <a href={props.content.ctaLink} target="_blank" rel="noopener noreferrer">
+            {props.content.ctaText} →
+        </a>   
+    </div>
+  </div>
+)
 
 
 const LearningArticleFooterScaffolding = (props: ContentfulContent) => {
@@ -44,8 +60,9 @@ const LearningArticleFooterScaffolding = (props: ContentfulContent) => {
 
   return (
     <div className="columns is-desktop">
-      <div className="column">
-
+      <div className="column footer-ctas">
+        <FooterCta content={props.content.learningCenterCta} />
+        <FooterCta content={props.content.justFixCta} />
       </div>
       <div className="column table-of-contents is-half-desktop">
         <div className="columns hero-body">

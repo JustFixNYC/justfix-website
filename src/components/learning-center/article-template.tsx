@@ -19,52 +19,6 @@ type navMenuProps = {
     styleClass?: string
 }
 
-/* 
-
-GraphQL Content:
-
-metadata {
-    title
-    description
-    keywords {
-        keywords
-    }
-    shareImage {
-        file {
-        url
-        }
-    }
-}
-slug
-title
-subtitle {
-    json
-}
-previewText {
-    previewText
-}
-author
-dateUpdated
-categories {
-    title
-    description
-    slug
-}
-articleSections {
-    __typename
-    ... on ContentfulLearningArticleCtaBlock {
-        title
-        subtitle
-        ctaText
-        ctaLink
-    }
-    ... on ContentfulLearningArticleSection {
-        title
-        content {
-            json
-        }
-}
-*/
 
 function makeSectionID(index: number): string {
     return "section-" + (index + 1).toString();
@@ -124,9 +78,7 @@ const LearningArticle = (props: Props) => {
         <Layout metadata={content.metadata}>
             <div className="article-page">
                 <div className="columns is-desktop">
-                    <div className="column">
-                        First Column
-                    </div>
+                    <div className="column" />
                     <div className="column is-half-desktop">
                         <div className="hero is-white">
                             <div className="hero-body">
