@@ -12,11 +12,11 @@ type Props = {
 }
 
 const NoArticlesYet = () => (
-    <section className="hero is-small is-white">
+    <section className="hero is-white">
         <div className="hero-body has-text-centered is-horizontal-center">
             <div className="container content-wrapper tight">
-                <h6 className="is-size-4">
-                    <span className="has-text-danger">No articles yet!</span> Check back soon for an update. 
+                <h6 className="is-size-5 has-text-grey-dark">
+                    <span className="has-text-danger has-text-weight-semibold">No articles yet...</span><br /> Check back soon for an update. 
                 </h6>
             </div>
         </div>
