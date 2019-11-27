@@ -45,6 +45,11 @@ a.button.is-large {
 
 .is-divider {
     opacity: 0.7;
+
+    &.light {
+        opacity: 0.4;
+        margin: 1rem 0;
+    }
 }
 
 .content {

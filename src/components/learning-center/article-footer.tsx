@@ -21,6 +21,7 @@ const TableOfContentsSection = (props: TableOfContentsSection) => (
       { (props.articles).map( ( article: ArticleListing, i: number ) => 
         (<Link key={i} to={ "/resources/" + article.slug }> {article.title} </Link>))
       }
+      <div className="is-divider light" />
     </div> :
     <div />
 );
@@ -46,21 +47,21 @@ const LearningArticleFooterScaffolding = (props: ContentfulContent) => {
       <div className="column">
 
       </div>
-      <div className="column is-half-desktop">
+      <div className="column table-of-contents is-half-desktop">
         <div className="columns hero-body">
           <div className="column is-one-third">
             {ArticlesSortedByCategory.map( ( section: TableOfContentsSection, i: number ) =>
-              (i % 3 === 0 ? <TableOfContentsSection key={i} categoryTitle={section.categoryTitle} articles={section.articles} /> : <></>) 
+              (i % 3 === 0 ? <TableOfContentsSection key={i} categoryTitle={section.categoryTitle} articles={section.articles} /> : <span key={i} />) 
             )}
           </div>
           <div className="column is-one-third">
             {ArticlesSortedByCategory.map( ( section: TableOfContentsSection, i: number ) =>
-              (i % 3 === 1 ? <TableOfContentsSection key={i} categoryTitle={section.categoryTitle} articles={section.articles} /> : <></>) 
+              (i % 3 === 1 ? <TableOfContentsSection key={i} categoryTitle={section.categoryTitle} articles={section.articles} /> : <span key={i} />) 
             )}
           </div>
           <div className="column is-one-third">
             {ArticlesSortedByCategory.map( ( section: TableOfContentsSection, i: number ) =>
-              (i % 3 === 2 ? <TableOfContentsSection key={i} categoryTitle={section.categoryTitle} articles={section.articles} /> : <></>) 
+              (i % 3 === 2 ? <TableOfContentsSection key={i} categoryTitle={section.categoryTitle} articles={section.articles} /> : <span key={i} />) 
             )}
           </div>
         </div>
