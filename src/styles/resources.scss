@@ -1,4 +1,5 @@
 @import "_vars.scss";
+@import "~bulma/sass/utilities/initial-variables.sass";
 
 .resources-page {
     .hero .hero-body .button {
@@ -16,6 +17,11 @@
 }
 
 .article-page {
+    /* Fix for a known bug in Bulma where columns are wider than mobile viewport */
+    @media screen and (max-width: $tablet) {
+        overflow-x: hidden;
+    }
+
     .menu {
         padding-right: 1rem;
         margin-left: 1.5rem;
