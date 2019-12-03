@@ -6,6 +6,7 @@
   "dependencies": {
     "@babel/core": "^7.6.4",
     "@contentful/rich-text-react-renderer": "^13.4.0",
+    "@gatsby-contrib/gatsby-plugin-elasticlunr-search": "^2.3.0",
     "@justfixnyc/geosearch-requester": "^0.0.6",
     "@lingui/react": "^2.8.3",
     "@types/classnames": "^2.2.9",
