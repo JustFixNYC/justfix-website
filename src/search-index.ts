@@ -1,8 +1,14 @@
 import * as contentful from 'contentful';
 import * as rtt from '@contentful/rich-text-types';
+import lunr from 'lunr';
+import fs from 'fs';
+import path from 'path';
+
+const { isBlock, isInline, isText } = rtt.helpers;
 
 const SPACE_ID = process.env.SPACE_ID || '';
 const ACCESS_TOKEN = process.env.ACCESS_TOKEN || '';
+const INDEX_JSON_PATH = path.join(__dirname, 'lunr-index.json');
 
 type LearningArticlePage = {
   slug: string,
@@ -16,7 +22,7 @@ type LearningArticlePage = {
 
 type LearningArticleSection = {
   title: string,
-  content: rtt.Document,
+  content?: rtt.Document,
 };
 
 type LearningCenterCategory = {
@@ -24,6 +30,20 @@ type LearningCenterCategory = {
   description: string,
   slug: string,
 };
+
+function extractPlaintext(node: rtt.Node, words: string[] = []): string[] {
+  if (isBlock(node) || isInline(node)) {
+    node.content.forEach(child => {
+      extractPlaintext(child, words)
+    });
+  } else if (isText(node)) {
+    words.push(node.value);
+  } else {
+    throw new Error('Encountered a node that is not block, inline, or text!');
+  }
+
+  return words;
+}
 
 export async function build() {
   const client = contentful.createClient({
@@ -35,12 +55,37 @@ export async function build() {
     'content_type': 'learningArticlePage'
   });
 
-  entries.items.forEach(entry => {
-    console.log(`TODO: Add '${entry.fields.title}' to search index.`);
-    entry.fields.articleSections.forEach(section => {
-      console.log(`  TODO: Add section '${section.fields.title}' to search index.`);
+  const idx = lunr(function() {
+    // It seems like lunr supports boosting of individual fields with the
+    // 'boost' attribute: https://lunrjs.com/docs/lunr.Builder.html
+    this.ref('id');
+    this.field('title', { boost: 3 });
+    this.field('sections', { boost: 2 });
+    this.field('content', { boost: 1 });
+
+    entries.items.forEach(entry => {
+      const id = entry.fields.slug;
+      const title = entry.fields.title;
+      const sections: string[] = [];
+      const content: string[] = [];
+
+      entry.fields.articleSections.forEach(section => {
+        sections.push(section.fields.title);
+        if (section.fields.content) {
+          content.push.apply(content, extractPlaintext(section.fields.content));
+        }
+      });
+
+      console.log(`Indexing '${id}'.`);
+      this.add({
+        id,
+        title,
+        sections: sections.join(' '),
+        content: content.join(' '),
+      });
     });
   });
 
-  console.log("TODO: Export search index to JSON.");
+  console.log(`Exporting search index to ${INDEX_JSON_PATH}.`);
+  fs.writeFileSync(INDEX_JSON_PATH, JSON.stringify(idx.toJSON()));
 };

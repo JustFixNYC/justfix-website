@@ -6,4 +6,7 @@ require('@babel/register')({
 
 require('dotenv').load();
 
-require('./src/search-index').build();
+require('./src/search-index').build().catch(e => {
+  console.error(e);
+  process.exit(1);
+});

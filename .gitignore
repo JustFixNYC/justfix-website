@@ -10,5 +10,6 @@ package-lock.json
 
 /src/locales/_build
 /src/locales/**/*.js
+/src/lunr-index.json
 
 .env
