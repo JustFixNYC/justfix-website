@@ -22,6 +22,10 @@
         overflow-x: hidden;
     }
 
+    .hero-body {
+        padding-bottom: 0;
+    }
+
     .menu {
         padding-right: 1rem;
         margin-left: 1.5rem;
@@ -42,7 +46,7 @@
     }
 
     .article-section {
-        padding: 2.5rem 0;
+        padding: 1rem 0;
          .cta {
             padding: 2.5rem;
             border-radius: 10px;
