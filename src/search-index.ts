@@ -3,6 +3,7 @@ import * as rtt from '@contentful/rich-text-types';
 import lunr from 'lunr';
 import fs from 'fs';
 import path from 'path';
+import zlib, { gzip } from 'zlib';
 
 const { isBlock, isInline, isText } = rtt.helpers;
 
@@ -86,6 +87,10 @@ export async function build() {
     });
   });
 
+  const json = Buffer.from(JSON.stringify(idx.toJSON()), 'utf-8');
+  const gzipped = zlib.gzipSync(json);
+  const size = `${json.length} bytes uncompressed, ${gzipped.length} bytes gzipped`;
+  console.log(`Created search index (${size}).`);
   console.log(`Exporting search index to ${INDEX_JSON_PATH}.`);
-  fs.writeFileSync(INDEX_JSON_PATH, JSON.stringify(idx.toJSON()));
+  fs.writeFileSync(INDEX_JSON_PATH, json);
 };
