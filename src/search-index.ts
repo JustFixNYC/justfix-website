@@ -3,7 +3,7 @@ import * as rtt from '@contentful/rich-text-types';
 import lunr from 'lunr';
 import fs from 'fs';
 import path from 'path';
-import zlib, { gzip } from 'zlib';
+import zlib from 'zlib';
 
 const { isBlock, isInline, isText } = rtt.helpers;
 
