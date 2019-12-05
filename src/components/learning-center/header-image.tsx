@@ -15,6 +15,6 @@ export const LearningCenterImage = () => (
           }
         }
       `}
-    render = {data => (<Img fluid={data.contentfulLearningCenterSearchPage.headerImage.fluid} />)}
+    render = {data => (<Img fluid={data.contentfulLearningCenterSearchPage.headerImage.fluid} alt="" />)}
     />
   );
