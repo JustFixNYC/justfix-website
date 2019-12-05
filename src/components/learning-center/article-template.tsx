@@ -111,9 +111,9 @@ const LearningArticle = (props: Props) => {
                                             <br/>
                                         <span className="is-size-7">Updated {content.dateUpdated}</span> 
                                     </p>
-                                    <span className="is-size-6 has-text-grey-dark">
+                                    {content.subtitle && <span className="is-size-6 has-text-grey-dark">
                                         {documentToReactComponents(content.subtitle.json)}
-                                    </span>
+                                    </span>}
                                 </div>
                             </div>
                         </div>
