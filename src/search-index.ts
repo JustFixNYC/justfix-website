@@ -11,6 +11,16 @@ const SPACE_ID = process.env.SPACE_ID || '';
 const ACCESS_TOKEN = process.env.ACCESS_TOKEN || '';
 const INDEX_JSON_PATH = path.join(__dirname, 'lunr-index.json');
 
+export type SearchIndexMetadataEntry = {
+  slug: string,
+  title: string,
+};
+
+export type SearchIndex = {
+  lunrIndex: any,
+  metadata: SearchIndexMetadataEntry[],
+};
+
 type LearningArticlePage = {
   slug: string,
   title: string,
@@ -47,7 +57,8 @@ function extractPlaintext(node: rtt.Node, words: string[] = []): string[] {
 }
 
 export async function build() {
-  let idx: lunr.Index;
+  let lunrIndex: lunr.Index;
+  const indexMetadata: SearchIndexMetadataEntry[] = [];
 
   if (SPACE_ID && ACCESS_TOKEN) {
     const client = contentful.createClient({
@@ -59,7 +70,7 @@ export async function build() {
       'content_type': 'learningArticlePage'
     });
 
-    idx = lunr(function() {
+    lunrIndex = lunr(function() {
       // It seems like lunr supports boosting of individual fields with the
       // 'boost' attribute: https://lunrjs.com/docs/lunr.Builder.html
       this.ref('id');
@@ -73,6 +84,10 @@ export async function build() {
         const sections: string[] = [];
         const content: string[] = [];
 
+        indexMetadata.push({
+          slug: id,
+          title
+        });
         entry.fields.articleSections.forEach(section => {
           sections.push(section.fields.title);
           if (section.fields.content) {
@@ -92,10 +107,14 @@ export async function build() {
   } else {
     console.log("SPACE_ID and ACCESS_TOKEN aren't set; outputting an empty search index.");
 
-    idx = lunr(() => {});
+    lunrIndex = lunr(() => {});
   }
 
-  const json = Buffer.from(JSON.stringify(idx.toJSON()), 'utf-8');
+  const searchIndex: SearchIndex = {
+    lunrIndex: lunrIndex.toJSON(),
+    metadata: indexMetadata
+  };
+  const json = Buffer.from(JSON.stringify(searchIndex), 'utf-8');
   const gzipped = zlib.gzipSync(json);
   const size = `${json.length} bytes uncompressed, ${gzipped.length} bytes gzipped`;
   console.log(`Created search index (${size}).`);
