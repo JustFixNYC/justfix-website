@@ -174,7 +174,7 @@ export const LandingPageScaffolding = (props: HomepageProps) =>
               { (props.content.pressLogos).map( (logo: any, i: number) =>
                 (<div className="column" key={i}>
                   <figure className="image">
-                    <img className="is-horizontal-center" src={logo.logo.file.url} alt="" />
+                    <img className="is-horizontal-center" src={logo.logo.file.url} alt={logo.title} />
                   </figure>
               </div>) )
               }
@@ -229,6 +229,7 @@ const LandingPage  = () => (
           }
           pressTitle 
           pressLogos {
+            title
             logo {
               file {
                 url
