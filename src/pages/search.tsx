@@ -12,7 +12,7 @@ type SearchResult = {
   lunrResult: elasticlunr.SearchResults
 } & SearchIndexMetadataEntry;
 
-const lunrIndex = elasticlunr.Index.load<SearchIndexDoc>(lunrIndexJson.lunrIndex);
+const lunrIndex = elasticlunr.Index.load<SearchIndexDoc>(lunrIndexJson.lunrIndex as any);
 const indexMetadata: SearchIndexMetadataEntry[] = lunrIndexJson.metadata;
 const indexSlugMetadata = new Map<string, SearchIndexMetadataEntry>();
 
