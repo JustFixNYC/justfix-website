@@ -1,0 +1,11 @@
+.search {
+  dl {
+    > dt {
+      padding-left: 2em;
+    }
+    > dd {
+      padding-left: 4em;
+      font-family: monospace;
+    }
+  }
+}
