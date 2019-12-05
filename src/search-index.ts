@@ -47,45 +47,53 @@ function extractPlaintext(node: rtt.Node, words: string[] = []): string[] {
 }
 
 export async function build() {
-  const client = contentful.createClient({
-    space: SPACE_ID,
-    accessToken: ACCESS_TOKEN
-  });
+  let idx: lunr.Index;
 
-  const entries = await client.getEntries<LearningArticlePage>({
-    'content_type': 'learningArticlePage'
-  });
+  if (SPACE_ID && ACCESS_TOKEN) {
+    const client = contentful.createClient({
+      space: SPACE_ID,
+      accessToken: ACCESS_TOKEN
+    });
 
-  const idx = lunr(function() {
-    // It seems like lunr supports boosting of individual fields with the
-    // 'boost' attribute: https://lunrjs.com/docs/lunr.Builder.html
-    this.ref('id');
-    this.field('title', { boost: 3 });
-    this.field('sections', { boost: 2 });
-    this.field('content', { boost: 1 });
+    const entries = await client.getEntries<LearningArticlePage>({
+      'content_type': 'learningArticlePage'
+    });
 
-    entries.items.forEach(entry => {
-      const id = entry.fields.slug;
-      const title = entry.fields.title;
-      const sections: string[] = [];
-      const content: string[] = [];
+    idx = lunr(function() {
+      // It seems like lunr supports boosting of individual fields with the
+      // 'boost' attribute: https://lunrjs.com/docs/lunr.Builder.html
+      this.ref('id');
+      this.field('title', { boost: 3 });
+      this.field('sections', { boost: 2 });
+      this.field('content', { boost: 1 });
 
-      entry.fields.articleSections.forEach(section => {
-        sections.push(section.fields.title);
-        if (section.fields.content) {
-          content.push.apply(content, extractPlaintext(section.fields.content));
-        }
-      });
+      entries.items.forEach(entry => {
+        const id = entry.fields.slug;
+        const title = entry.fields.title;
+        const sections: string[] = [];
+        const content: string[] = [];
 
-      console.log(`Indexing '${id}'.`);
-      this.add({
-        id,
-        title,
-        sections: sections.join(' '),
-        content: content.join(' '),
+        entry.fields.articleSections.forEach(section => {
+          sections.push(section.fields.title);
+          if (section.fields.content) {
+            content.push.apply(content, extractPlaintext(section.fields.content));
+          }
+        });
+
+        console.log(`Indexing '${id}'.`);
+        this.add({
+          id,
+          title,
+          sections: sections.join(' '),
+          content: content.join(' '),
+        });
       });
     });
-  });
+  } else {
+    console.log("SPACE_ID and ACCESS_TOKEN aren't set; outputting an empty search index.");
+
+    idx = lunr(() => {});
+  }
 
   const json = Buffer.from(JSON.stringify(idx.toJSON()), 'utf-8');
   const gzipped = zlib.gzipSync(json);
