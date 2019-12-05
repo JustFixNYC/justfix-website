@@ -25,6 +25,7 @@ const PartnersPage  = () => (
             subtitle
           }
           partnerOrganizations {
+            name
             link
             logo {
               fluid {
@@ -34,6 +35,7 @@ const PartnersPage  = () => (
           }
           fundersTitle 
           funders {
+            name
             link
             logo {
               fluid {

@@ -32,7 +32,7 @@ render() {
   <nav className={"header navbar is-primary " + (this.props.isLandingPage && "is-transparent")} role="navigation" aria-label="main navigation">
     <div className="navbar-brand">
       <Link to={localePrefix + "/"} className="navbar-item">
-        <img src={require("../img/brand/logo.png")} width="112" height="28" />
+        <img src={require("../img/brand/logo.png")} width="112" height="28" alt="JustFix.nyc" />
       </Link>
 
       <a role="button" className={"navbar-burger burger " + (this.state.burgerMenuIsOpen && "is-active") } aria-label="menu" aria-expanded="false" 
