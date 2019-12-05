@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import { Trans } from '@lingui/macro';
 
 import '../styles/read-more.scss' 
 import { Locale } from '../pages';
@@ -15,7 +16,7 @@ const ReadMore = ({ title, link, locale }: Props) => (
             <div className="level-left">
                 <div className="level-item">
                     <div>
-                        <p className="title has-text-info is-size-6">Want to know more?</p>
+                        <p className="title has-text-info is-size-6"><Trans>Want to know more?</Trans></p>
                         <p className="title has-text-white is-size-4">{title}</p>
                     </div>
                     <div className="is-hidden-tablet">

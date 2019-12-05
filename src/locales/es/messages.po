@@ -13,6 +13,100 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+#: src/components/footer.tsx:79
+msgid "<0>Disclaimer:</0> The information in JustFix.nyc does not constitute legal advice and must not be used as a substitute for the advice of a lawyer qualified to give advice on legal issues pertaining to housing. We can help direct you to free legal services if necessary."
+msgstr ""
+
+#: src/components/footer.tsx:80
+msgid "<0>JustFix.nyc</0> is a registered 501(c)(3) nonprofit organization."
+msgstr ""
+
+#: src/components/footer.tsx:35
 #: src/components/header.tsx:34
-msgid "ABOUT US"
-msgstr "SOBRE NOSOTROS"
+msgid "About us"
+msgstr "Sobre nosotros"
+
+#: src/components/footer.tsx:27
+#: src/components/header.tsx:58
+msgid "Contact"
+msgstr ""
+
+#: src/components/footer.tsx:30
+msgid "Donate"
+msgstr ""
+
+#: src/components/footer.tsx:57
+#: src/pages/contact-us.tsx:40
+msgid "Email Address"
+msgstr ""
+
+#: src/components/footer.tsx:43
+#: src/components/header.tsx:48
+msgid "Jobs"
+msgstr ""
+
+#: src/components/footer.tsx:52
+msgid "Join our mailing list!"
+msgstr ""
+
+#: src/components/header.tsx:54
+msgid "Mission"
+msgstr ""
+
+#: src/pages/404.tsx:7
+msgid "Not found"
+msgstr ""
+
+#: src/components/header.tsx:39
+msgid "Our Partners"
+msgstr ""
+
+#: src/components/header.tsx:42
+msgid "Our Team"
+msgstr ""
+
+#: src/components/footer.tsx:24
+msgid "Our mission"
+msgstr ""
+
+#: src/components/footer.tsx:40
+msgid "Our partners"
+msgstr ""
+
+#: src/components/footer.tsx:37
+msgid "Our team"
+msgstr ""
+
+#: src/components/footer.tsx:46
+#: src/components/header.tsx:45
+msgid "Press"
+msgstr ""
+
+#: src/components/footer.tsx:82
+msgid "Privacy policy"
+msgstr ""
+
+#: src/components/footer.tsx:21
+msgid "Products & Services"
+msgstr ""
+
+#: src/components/header.tsx:65
+#: src/components/header.tsx:72
+msgid "Sign in"
+msgstr ""
+
+#: src/components/footer.tsx:61
+msgid "Sign up"
+msgstr ""
+
+#: src/components/footer.tsx:85
+msgid "Terms of use"
+msgstr ""
+
+#: src/components/read-more.tsx:10
+msgid "Want to know more?"
+msgstr ""
+
+#: src/pages/404.tsx:8
+msgid "You just found a page that doesn't exist... the sadness."
+msgstr ""
