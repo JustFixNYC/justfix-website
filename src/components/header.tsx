@@ -54,26 +54,26 @@ render() {
 
           <div className="navbar-dropdown">
             <Link to={localePrefix + "/about/partners"} className="navbar-item">
-              Our Partners 
+              <Trans>Our Partners</Trans>
             </Link>
             <Link to={localePrefix + "/about/team"} className="navbar-item">
-              Our Team 
+              <Trans>Our Team</Trans>
             </Link>
             <Link to={localePrefix + "/about/press"} className="navbar-item">
-              Press 
+              <Trans>Press</Trans>
             </Link>
             <a href="https://justfix.breezy.hr/" target="_blank" rel="noopener noreferrer" className="navbar-item">
-              Jobs 
+              <Trans>Jobs</Trans>
             </a>
           </div>
         </div>
 
         <Link to={localePrefix + "/our-mission"} className={"navbar-item has-text-" + (this.state.burgerMenuIsOpen ? "black" : "white")}>
-          MISSION
+          <Trans>MISSION</Trans>
         </Link>
 
         <Link to={localePrefix + "/contact-us"} className={"navbar-item has-text-" + (this.state.burgerMenuIsOpen ? "black" : "white")}>
-          CONTACT
+          <Trans>CONTACT</Trans>
         </Link>
 
         {/* <Link to={this.props.locale === 'es' ? "/" : "/es"} className={"navbar-item has-text-" + (this.state.burgerMenuIsOpen ? "black" : "white")}>
@@ -82,14 +82,14 @@ render() {
 
         {this.state.burgerMenuIsOpen && 
         <a className="navbar-item has-text-black" href="https://app.justfix.nyc/login">
-          SIGN IN
+          <Trans>SIGN IN</Trans>
         </a>}
 
       </div>
         <div className="navbar-item">
           <div className="buttons">
             <a className="button is-primary is-inverted is-outlined" href="https://app.justfix.nyc/login">
-              SIGN IN
+              <Trans>SIGN IN</Trans>
             </a>
         </div>
       </div>

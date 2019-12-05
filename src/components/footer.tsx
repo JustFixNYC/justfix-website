@@ -1,6 +1,7 @@
 import React from 'react'
 import { SocialIcon } from 'react-social-icons';
 import { Link } from 'gatsby'
+import { Trans } from '@lingui/macro';
 
 import '../styles/footer.scss' 
 import { Locale } from '../pages';
@@ -24,38 +25,38 @@ const Footer = ({locale}: Locale) => {
         <div className="column is-one-quarter">
           <p className="link-header has-text-white has-text-weight-bold">WHAT WE DO</p>
           <Link className="link has-text-weight-semibold" to={localePrefix + "/#products"}>
-            <p>PRODUCTS & SERVICES</p>
+            <p><Trans>PRODUCTS &amp; SERVICES</Trans></p>
           </Link>
           <Link className="link has-text-weight-semibold" to={localePrefix + "/our-mission"}>
-            <p>OUR MISSION</p>
+            <p><Trans>OUR MISSION</Trans></p>
           </Link>
           <Link className="link has-text-weight-semibold" to={localePrefix + "/contact-us"}>
-            <p>CONTACT</p>
+            <p><Trans>CONTACT</Trans></p>
           </Link>
           <a className="link has-text-weight-semibold" href="https://donorbox.org/donate-to-justfix-nyc" target="_blank" rel="noopener noreferrer">
-            <p>DONATE</p>
+            <p><Trans>DONATE</Trans></p>
           </a>
         </div>
 
         <div className="column is-one-quarter">
-          <p className="link-header has-text-white has-text-weight-bold">ABOUT US</p>
+          <p className="link-header has-text-white has-text-weight-bold"><Trans>ABOUT US</Trans></p>
           <Link className="link has-text-weight-semibold" to={localePrefix + "/about/team"}>
-            <p>OUR TEAM</p>
+            <p><Trans>OUR TEAM</Trans></p>
           </Link>
           <Link className="link has-text-weight-semibold" to={localePrefix + "/about/partners"}>
-            <p>OUR PARTNERS</p>
+            <p><Trans>OUR PARTNERS</Trans></p>
           </Link>
           <a className="link has-text-weight-semibold" href="https://justfix.breezy.hr/" target="_blank" rel="noopener noreferrer">
-            <p>JOBS</p>
+            <p><Trans>JOBS</Trans></p>
           </a>
           <Link className="link has-text-weight-semibold" to={localePrefix + "/about/press"}>
-            <p>PRESS</p>
+            <p><Trans>PRESS</Trans></p>
           </Link>
         </div>
 
         <div className="column is-one-quarter">
           <h4 className="title is-size-5 has-text-white">
-            Join our mailing list!
+            <Trans>Join our mailing list!</Trans>
           </h4>
           <form action={MAILCHIMP_URL} className="email-form is-horizontal-center" method="post" target="_blank">
             <div className="mc-field-group">
@@ -64,7 +65,7 @@ const Footer = ({locale}: Locale) => {
               </div>
               <div className="control has-text-centered-mobile">
                 <button className="button is-primary" type="submit">
-                    SIGN UP
+                    <Trans>SIGN UP</Trans>
                 </button>
               </div>
             </div>
@@ -82,13 +83,13 @@ const Footer = ({locale}: Locale) => {
 
       <div className="columns">
         <div className="column is-three-quarters">
-          <p className="subtitle is-size-6 has-text-white"><b>Disclaimer: </b>The information in JustFix.nyc does not constitute legal advice and must not be used as a substitute for the advice of a lawyer qualified to give advice on legal issues pertaining to housing. We can help direct you to free legal services if necessary.</p>
-          <p className="subtitle is-size-6 has-text-white"><b>JustFix.nyc </b>is a registered 501(c)(3) nonprofit organization.</p>
+          <p className="subtitle is-size-6 has-text-white"><Trans><b>Disclaimer:</b> The information in JustFix.nyc does not constitute legal advice and must not be used as a substitute for the advice of a lawyer qualified to give advice on legal issues pertaining to housing. We can help direct you to free legal services if necessary.</Trans></p>
+          <p className="subtitle is-size-6 has-text-white"><Trans><b>JustFix.nyc</b> is a registered 501(c)(3) nonprofit organization.</Trans></p>
           <Link className="link legal has-text-weight-semibold" to={localePrefix + "/privacy-policy"}>
-            PRIVACY POLICY
+            <Trans>PRIVACY POLICY</Trans>
           </Link>
           <Link className="link legal has-text-weight-semibold" to={localePrefix + "/terms-of-use"}>
-            TERMS OF USE
+            <Trans>TERMS OF USE</Trans>
           </Link>
         </div>
         <div className="column is-one-quarter">
