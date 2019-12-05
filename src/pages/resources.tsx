@@ -59,6 +59,7 @@ const LearningPageScaffolding = (props: ContentfulContent) =>
               {props.content.subtitle}
             </h6>
             <LearningCenterSearchBar />
+              <br />
             <div className="field is-centered">
               {(props.content.categoryButtons).map( 
                 (category: Category, i: number) =>

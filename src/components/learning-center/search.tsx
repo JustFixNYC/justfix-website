@@ -79,9 +79,11 @@ const LearningCenterSearchBar: React.FC = props => {
   }
 
   return (
-    <div className="search container">
-      <label htmlFor="query">Search query:</label>{' '}
-      <input id="query" type="text" value={query} onChange={e => setQuery(e.target.value)} />
+    <div className="field">
+      <div className="control">
+        <input className="input is-primary" type="text" name="Search articles" placeholder="🔎 Search articles..." 
+          id="query" value={query} onChange={e => setQuery(e.target.value)} />
+      </div> 
       {resultEl}
     </div>
   );
