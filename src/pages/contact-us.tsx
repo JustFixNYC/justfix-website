@@ -2,6 +2,8 @@ import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import { SocialIcon } from 'react-social-icons';
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
+import { t } from '@lingui/macro';
+import { withI18n, withI18nProps } from '@lingui/react';
 // import { Link } from 'gatsby'
 
 import '../styles/contact.scss' 
@@ -11,7 +13,7 @@ import { ContentfulContent } from '.'
 
 const MAILCHIMP_URL = "https://nyc.us13.list-manage.com/subscribe/post?u=d4f5d1addd4357eb77c3f8a99&amp;id=588f6c6ef4";
 
-export const ContactPageScaffolding = (props: ContentfulContent) => 
+export const ContactPageScaffolding = withI18n()((props: ContentfulContent & withI18nProps) => 
   (<Layout metadata={props.content.metadata} locale={props.locale}>
     <div id="contact" className="contact-page" >
 
@@ -43,7 +45,7 @@ export const ContactPageScaffolding = (props: ContentfulContent) =>
               <div className="mc-field-group">
                 <div className="field has-addons">
                     <div className="control is-expanded">
-                        <input type="email" name="EMAIL" className="required email input" id="mce-EMAIL" placeholder="Email Address" />
+                        <input type="email" name="EMAIL" className="required email input" id="mce-EMAIL" placeholder={props.i18n._(t`Email Address`)} />
                     </div>
                     <div className="control">
                         <button className="button is-primary" type="submit">
@@ -60,7 +62,7 @@ export const ContactPageScaffolding = (props: ContentfulContent) =>
       </section>
       
     </div>
-  </Layout>); 
+  </Layout>)); 
 
 const ContactPage  = () => (
 <StaticQuery
