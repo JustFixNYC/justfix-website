@@ -7,6 +7,7 @@ import Layout from '../components/layout'
 import { ContentfulContent } from '.'
 import { LearningCenterImage } from '../components/learning-center/header-image'
 import { ThankYouBanner } from '../components/learning-center/thank-you-banner'
+import LearningCenterSearchBar from '../components/learning-center/search'
 
 export type Category = {
   title: string,
@@ -57,6 +58,7 @@ const LearningPageScaffolding = (props: ContentfulContent) =>
             <h6 className="subtitle has-text-grey-dark is-italic">
               {props.content.subtitle}
             </h6>
+            <LearningCenterSearchBar />
             <div className="field is-centered">
               {(props.content.categoryButtons).map( 
                 (category: Category, i: number) =>

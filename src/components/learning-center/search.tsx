@@ -1,9 +1,7 @@
 import React, { useState } from 'react'
 import * as elasticlunr from 'elasticlunr';
-import lunrIndexJson from '../lunr-index.json';
-import '../styles/search.scss';
-import Layout from '../components/layout';
-import { SearchIndexMetadataEntry, SearchIndexDoc } from '../search-index';
+import lunrIndexJson from '../../lunr-index.json';
+import { SearchIndexMetadataEntry, SearchIndexDoc } from '../../search-index';
 
 type SearchResult = {
   type: 'simple',
@@ -50,7 +48,7 @@ function getSearchResults(query: string): SearchResult[] {
   return results;
 }
 
-const Page: React.FC = props => {
+const LearningCenterSearchBar: React.FC = props => {
   const [query, setQuery] = useState('');
   const results = React.useMemo(() => getSearchResults(query), [query]);
   let resultEl: JSX.Element|null = null;
@@ -81,14 +79,12 @@ const Page: React.FC = props => {
   }
 
   return (
-    <Layout>
     <div className="search container">
       <label htmlFor="query">Search query:</label>{' '}
       <input id="query" type="text" value={query} onChange={e => setQuery(e.target.value)} />
       {resultEl}
     </div>
-    </Layout>
   );
 };
 
-export default Page;
+export default LearningCenterSearchBar;
