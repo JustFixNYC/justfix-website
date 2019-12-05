@@ -25,33 +25,33 @@ const Footer = withI18n()(({locale, i18n}: Locale & withI18nProps) => {
         </div>
         <div className="column is-one-quarter">
           <p className="link-header has-text-white has-text-weight-bold">WHAT WE DO</p>
-          <Link className="link has-text-weight-semibold" to={localePrefix + "/#products"}>
-            <p><Trans>PRODUCTS &amp; SERVICES</Trans></p>
+          <Link className="link has-text-weight-semibold is-uppercase" to={localePrefix + "/#products"}>
+            <p><Trans>Products &amp; Services</Trans></p>
           </Link>
-          <Link className="link has-text-weight-semibold" to={localePrefix + "/our-mission"}>
-            <p><Trans>OUR MISSION</Trans></p>
+          <Link className="link has-text-weight-semibold is-uppercase" to={localePrefix + "/our-mission"}>
+            <p><Trans>Our mission</Trans></p>
           </Link>
-          <Link className="link has-text-weight-semibold" to={localePrefix + "/contact-us"}>
-            <p><Trans>CONTACT</Trans></p>
+          <Link className="link has-text-weight-semibold is-uppercase" to={localePrefix + "/contact-us"}>
+            <p><Trans>Contact</Trans></p>
           </Link>
-          <a className="link has-text-weight-semibold" href="https://donorbox.org/donate-to-justfix-nyc" target="_blank" rel="noopener noreferrer">
-            <p><Trans>DONATE</Trans></p>
+          <a className="link has-text-weight-semibold is-uppercase" href="https://donorbox.org/donate-to-justfix-nyc" target="_blank" rel="noopener noreferrer">
+            <p><Trans>Donate</Trans></p>
           </a>
         </div>
 
         <div className="column is-one-quarter">
           <p className="link-header has-text-white has-text-weight-bold"><Trans>ABOUT US</Trans></p>
-          <Link className="link has-text-weight-semibold" to={localePrefix + "/about/team"}>
-            <p><Trans>OUR TEAM</Trans></p>
+          <Link className="link has-text-weight-semibold is-uppercase" to={localePrefix + "/about/team"}>
+            <p><Trans>Our team</Trans></p>
           </Link>
-          <Link className="link has-text-weight-semibold" to={localePrefix + "/about/partners"}>
-            <p><Trans>OUR PARTNERS</Trans></p>
+          <Link className="link has-text-weight-semibold is-uppercase" to={localePrefix + "/about/partners"}>
+            <p><Trans>Our partners</Trans></p>
           </Link>
-          <a className="link has-text-weight-semibold" href="https://justfix.breezy.hr/" target="_blank" rel="noopener noreferrer">
-            <p><Trans>JOBS</Trans></p>
+          <a className="link has-text-weight-semibold is-uppercase" href="https://justfix.breezy.hr/" target="_blank" rel="noopener noreferrer">
+            <p><Trans>Jobs</Trans></p>
           </a>
-          <Link className="link has-text-weight-semibold" to={localePrefix + "/about/press"}>
-            <p><Trans>PRESS</Trans></p>
+          <Link className="link has-text-weight-semibold is-uppercase" to={localePrefix + "/about/press"}>
+            <p><Trans>Press</Trans></p>
           </Link>
         </div>
 
@@ -65,8 +65,8 @@ const Footer = withI18n()(({locale, i18n}: Locale & withI18nProps) => {
                   <input type="email" name="EMAIL" className="required email input" id="mce-EMAIL" placeholder={i18n._(t`Email Address`)} />
               </div>
               <div className="control has-text-centered-mobile">
-                <button className="button is-primary" type="submit">
-                    <Trans>SIGN UP</Trans>
+                <button className="button is-primary is-uppercase" type="submit">
+                    <Trans>Sign up</Trans>
                 </button>
               </div>
             </div>
@@ -86,11 +86,11 @@ const Footer = withI18n()(({locale, i18n}: Locale & withI18nProps) => {
         <div className="column is-three-quarters">
           <p className="subtitle is-size-6 has-text-white"><Trans><b>Disclaimer:</b> The information in JustFix.nyc does not constitute legal advice and must not be used as a substitute for the advice of a lawyer qualified to give advice on legal issues pertaining to housing. We can help direct you to free legal services if necessary.</Trans></p>
           <p className="subtitle is-size-6 has-text-white"><Trans><b>JustFix.nyc</b> is a registered 501(c)(3) nonprofit organization.</Trans></p>
-          <Link className="link legal has-text-weight-semibold" to={localePrefix + "/privacy-policy"}>
-            <Trans>PRIVACY POLICY</Trans>
+          <Link className="link legal has-text-weight-semibold is-uppercase" to={localePrefix + "/privacy-policy"}>
+            <Trans>Privacy policy</Trans>
           </Link>
-          <Link className="link legal has-text-weight-semibold" to={localePrefix + "/terms-of-use"}>
-            <Trans>TERMS OF USE</Trans>
+          <Link className="link legal has-text-weight-semibold is-uppercase" to={localePrefix + "/terms-of-use"}>
+            <Trans>Terms of use</Trans>
           </Link>
         </div>
         <div className="column is-one-quarter">

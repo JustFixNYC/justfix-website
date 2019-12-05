@@ -48,8 +48,8 @@ render() {
       <div className="navbar-end">
 
         <div className="navbar-item has-dropdown is-hoverable">
-          <a className={"navbar-link has-text-" + (this.state.burgerMenuIsOpen ? "black" : "white")}>
-            <Trans>ABOUT US</Trans>
+          <a className={"navbar-link is-uppercase has-text-" + (this.state.burgerMenuIsOpen ? "black" : "white")}>
+            <Trans>About us</Trans>
           </a>
 
           <div className="navbar-dropdown">
@@ -68,12 +68,12 @@ render() {
           </div>
         </div>
 
-        <Link to={localePrefix + "/our-mission"} className={"navbar-item has-text-" + (this.state.burgerMenuIsOpen ? "black" : "white")}>
-          <Trans>MISSION</Trans>
+        <Link to={localePrefix + "/our-mission"} className={"navbar-item is-uppercase has-text-" + (this.state.burgerMenuIsOpen ? "black" : "white")}>
+          <Trans>Mission</Trans>
         </Link>
 
-        <Link to={localePrefix + "/contact-us"} className={"navbar-item has-text-" + (this.state.burgerMenuIsOpen ? "black" : "white")}>
-          <Trans>CONTACT</Trans>
+        <Link to={localePrefix + "/contact-us"} className={"navbar-item is-uppercase has-text-" + (this.state.burgerMenuIsOpen ? "black" : "white")}>
+          <Trans>Contact</Trans>
         </Link>
 
         {/* <Link to={this.props.locale === 'es' ? "/" : "/es"} className={"navbar-item has-text-" + (this.state.burgerMenuIsOpen ? "black" : "white")}>
@@ -81,15 +81,15 @@ render() {
         </Link> */}
 
         {this.state.burgerMenuIsOpen && 
-        <a className="navbar-item has-text-black" href="https://app.justfix.nyc/login">
-          <Trans>SIGN IN</Trans>
+        <a className="navbar-item has-text-black is-uppercase" href="https://app.justfix.nyc/login">
+          <Trans>Sign in</Trans>
         </a>}
 
       </div>
         <div className="navbar-item">
           <div className="buttons">
-            <a className="button is-primary is-inverted is-outlined" href="https://app.justfix.nyc/login">
-              <Trans>SIGN IN</Trans>
+            <a className="button is-primary is-uppercase is-inverted is-outlined" href="https://app.justfix.nyc/login">
+              <Trans>Sign in</Trans>
             </a>
         </div>
       </div>
