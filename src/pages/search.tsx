@@ -16,7 +16,7 @@ const lunrIndex = lunr.Index.load(lunrIndexJson.lunrIndex);
 const indexMetadata: SearchIndexMetadataEntry[] = lunrIndexJson.metadata;
 const indexSlugMetadata = new Map<string, SearchIndexMetadataEntry>();
 
-lunrIndexJson.metadata.forEach(metadata => {
+indexMetadata.forEach(metadata => {
   indexSlugMetadata.set(metadata.slug, metadata);
 });
 
