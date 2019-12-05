@@ -20,7 +20,7 @@ export const SubscribedPageScaffolding = (props: ContentfulContent) =>
                 <br />
             <div className="container block content-wrapper tight">
                 <figure className="image">
-                    <img src={props.content.teamPhoto.file.url} />
+                    <img src={props.content.teamPhoto.file.url} alt="" />
                 </figure>
             </div>
                 <br />

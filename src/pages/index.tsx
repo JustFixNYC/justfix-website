@@ -76,7 +76,7 @@ export const LandingPageScaffolding = (props: HomepageProps) =>
               <div className="column more-arrow">
                 <AnchorLink href="#products" className="has-text-white has-text-weight-light">
                   <figure className="image is-32x32 is-horizontal-center">
-                    <img className="img-centered" src={require("../img/down-arrow.png")} />
+                    <img className="img-centered" src={require("../img/down-arrow.png")} alt="" />
                   </figure>
                 </AnchorLink>
               </div>
@@ -106,7 +106,7 @@ export const LandingPageScaffolding = (props: HomepageProps) =>
                 {i % 2 === 1 && (<div className="column">
                   <div className="container">
                     <figure className="image is-horizontal-center">
-                      <Img fluid={product.screenshot.fluid} />
+                      <Img fluid={product.screenshot.fluid} alt="" />
                     </figure>
                   </div>
                 </div>)}
@@ -122,7 +122,7 @@ export const LandingPageScaffolding = (props: HomepageProps) =>
                 {i % 2 === 0 && (<div className="column">
                   <div className="container">
                     <figure className="image is-horizontal-center">
-                      <Img fluid={product.screenshot.fluid} />
+                      <Img fluid={product.screenshot.fluid} alt="" />
                     </figure>
                   </div>
                 </div>)}
@@ -132,7 +132,7 @@ export const LandingPageScaffolding = (props: HomepageProps) =>
                 <div className="column">
                   <div className="container">
                     <figure className="image is-horizontal-center">
-                      <Img fluid={product.screenshot.fluid} />
+                      <Img fluid={product.screenshot.fluid} alt="" />
                     </figure>
                   </div>
                 </div>
@@ -174,7 +174,7 @@ export const LandingPageScaffolding = (props: HomepageProps) =>
               { (props.content.pressLogos).map( (logo: any, i: number) =>
                 (<div className="column" key={i}>
                   <figure className="image">
-                    <img className="is-horizontal-center" src={logo.logo.file.url} />
+                    <img className="is-horizontal-center" src={logo.logo.file.url} alt={logo.title} />
                   </figure>
               </div>) )
               }
@@ -229,6 +229,7 @@ const LandingPage  = () => (
           }
           pressTitle 
           pressLogos {
+            title
             logo {
               file {
                 url

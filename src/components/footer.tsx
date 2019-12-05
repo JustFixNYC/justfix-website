@@ -20,7 +20,7 @@ const Footer = withI18n()(({locale, i18n}: Locale & withI18nProps) => {
 
         <div className="column is-one-quarter">
           <Link to={localePrefix + "/"} className="button is-info">
-            <img src={require("../img/brand/logo.png")} />
+            <img src={require("../img/brand/logo.png")} alt="JustFix.nyc" />
           </Link>
         </div>
         <div className="column is-one-quarter">
@@ -95,7 +95,7 @@ const Footer = withI18n()(({locale, i18n}: Locale & withI18nProps) => {
         </div>
         <div className="column is-one-quarter">
           <a href="https://www.contentful.com/" target="_blank" rel="noopener noreferrer">
-            <img src={require("../img/contenful-light.png")} />
+            <img src={require("../img/contenful-light.png")} alt="Contentful" />
           </a>
         </div>
       </div>
