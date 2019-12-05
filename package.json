@@ -59,7 +59,7 @@
   ],
   "license": "MIT",
   "scripts": {
-    "postinstall": "lingui compile",
+    "postinstall": "lingui compile && node build-search-index.js",
     "lingui": "lingui",
     "build": "gatsby build",
     "develop": "gatsby develop",
