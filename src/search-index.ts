@@ -1,6 +1,6 @@
 import * as contentful from 'contentful';
 import * as rtt from '@contentful/rich-text-types';
-import lunr from 'lunr';
+import elasticlunr from 'elasticlunr';
 import fs from 'fs';
 import path from 'path';
 import zlib from 'zlib';
@@ -56,8 +56,15 @@ function extractPlaintext(node: rtt.Node, words: string[] = []): string[] {
   return words;
 }
 
+export type SearchIndexDoc = {
+  id: string,
+  title: string,
+  sections: string,
+  content: string,
+};
+
 export async function build() {
-  let lunrIndex: lunr.Index;
+  let lunrIndex: elasticlunr.Index<SearchIndexDoc>;
   const indexMetadata: SearchIndexMetadataEntry[] = [];
 
   if (SPACE_ID && ACCESS_TOKEN) {
@@ -70,13 +77,14 @@ export async function build() {
       'content_type': 'learningArticlePage'
     });
 
-    lunrIndex = lunr(function() {
+    lunrIndex = elasticlunr(function() {
       // It seems like lunr supports boosting of individual fields with the
       // 'boost' attribute: https://lunrjs.com/docs/lunr.Builder.html
-      this.ref('id');
-      this.field('title', { boost: 3 });
-      this.field('sections', { boost: 2 });
-      this.field('content', { boost: 1 });
+      this.setRef('id');
+      this.addField('title');
+      this.addField('sections');
+      this.addField('content');
+      this.saveDocument(false);
 
       entries.items.forEach(entry => {
         const id = entry.fields.slug;
@@ -96,7 +104,7 @@ export async function build() {
         });
 
         console.log(`Indexing '${id}'.`);
-        this.add({
+        this.addDoc({
           id,
           title,
           sections: sections.join(' '),
@@ -107,11 +115,11 @@ export async function build() {
   } else {
     console.log("SPACE_ID and ACCESS_TOKEN aren't set; outputting an empty search index.");
 
-    lunrIndex = lunr(() => {});
+    lunrIndex = elasticlunr(() => {});
   }
 
   const searchIndex: SearchIndex = {
-    lunrIndex: lunrIndex.toJSON(),
+    lunrIndex,
     metadata: indexMetadata
   };
   const json = Buffer.from(JSON.stringify(searchIndex), 'utf-8');

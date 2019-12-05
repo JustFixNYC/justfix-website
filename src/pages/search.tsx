@@ -1,18 +1,18 @@
 import React, { useState } from 'react'
-import * as lunr from 'lunr';
+import * as elasticlunr from 'elasticlunr';
 import lunrIndexJson from '../lunr-index.json';
 import '../styles/search.scss';
 import Layout from '../components/layout';
-import { SearchIndexMetadataEntry } from '../search-index';
+import { SearchIndexMetadataEntry, SearchIndexDoc } from '../search-index';
 
 type SearchResult = {
   type: 'simple',
 } & SearchIndexMetadataEntry | {
   type: 'lunr',
-  lunrResult: lunr.Index.Result
+  lunrResult: elasticlunr.SearchResults
 } & SearchIndexMetadataEntry;
 
-const lunrIndex = lunr.Index.load(lunrIndexJson.lunrIndex);
+const lunrIndex = elasticlunr.Index.load<SearchIndexDoc>(lunrIndexJson.lunrIndex);
 const indexMetadata: SearchIndexMetadataEntry[] = lunrIndexJson.metadata;
 const indexSlugMetadata = new Map<string, SearchIndexMetadataEntry>();
 
@@ -69,8 +69,6 @@ const Page: React.FC = props => {
                 {result.type === 'lunr' ? <>
                   <dt>score</dt>
                   <dd>{result.lunrResult.score}</dd>
-                  <dt>matchData</dt>
-                  <dd>{JSON.stringify(result.lunrResult.matchData)}</dd>
                 </> : null}
               </dl>
             </li>
