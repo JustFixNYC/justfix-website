@@ -3,7 +3,7 @@ import { StaticQuery, graphql } from 'gatsby'
 import { SocialIcon } from 'react-social-icons';
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { t } from '@lingui/macro';
-import { withI18n, withI18nProps } from '@lingui/react';
+import { I18n } from '@lingui/react';
 // import { Link } from 'gatsby'
 
 import '../styles/contact.scss' 
@@ -13,8 +13,9 @@ import { ContentfulContent } from '.'
 
 const MAILCHIMP_URL = "https://nyc.us13.list-manage.com/subscribe/post?u=d4f5d1addd4357eb77c3f8a99&amp;id=588f6c6ef4";
 
-export const ContactPageScaffolding = withI18n()((props: ContentfulContent & withI18nProps) => 
+export const ContactPageScaffolding = (props: ContentfulContent) => 
   (<Layout metadata={props.content.metadata} locale={props.locale}>
+    <I18n>{({i18n}) => 
     <div id="contact" className="contact-page" >
 
       <section className="hero is-medium is-white">
@@ -45,7 +46,7 @@ export const ContactPageScaffolding = withI18n()((props: ContentfulContent & wit
               <div className="mc-field-group">
                 <div className="field has-addons">
                     <div className="control is-expanded">
-                        <input type="email" name="EMAIL" className="required email input" id="mce-EMAIL" placeholder={props.i18n._(t`Email Address`)} />
+                        <input type="email" name="EMAIL" className="required email input" id="mce-EMAIL" placeholder={i18n._(t`Email Address`)} />
                     </div>
                     <div className="control">
                         <button className="button is-primary" type="submit">
@@ -62,7 +63,8 @@ export const ContactPageScaffolding = withI18n()((props: ContentfulContent & wit
       </section>
       
     </div>
-  </Layout>)); 
+    }</I18n>
+  </Layout>); 
 
 const ContactPage  = () => (
 <StaticQuery
