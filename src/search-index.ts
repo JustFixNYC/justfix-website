@@ -9,6 +9,7 @@ const { isBlock, isInline, isText } = rtt.helpers;
 
 const SPACE_ID = process.env.SPACE_ID || '';
 const ACCESS_TOKEN = process.env.ACCESS_TOKEN || '';
+const HOST = process.env.CONTENTFUL_HOST || 'cdn.contentful.com';
 const INDEX_JSON_PATH = path.join(__dirname, 'lunr-index.json');
 
 export type SearchIndexMetadataEntry = {
@@ -67,10 +68,11 @@ export async function build() {
   let lunrIndex: elasticlunr.Index<SearchIndexDoc>;
   const indexMetadata: SearchIndexMetadataEntry[] = [];
 
-  if (SPACE_ID && ACCESS_TOKEN) {
+  if (SPACE_ID && ACCESS_TOKEN && HOST) {
     const client = contentful.createClient({
       space: SPACE_ID,
-      accessToken: ACCESS_TOKEN
+      accessToken: ACCESS_TOKEN, 
+      host: HOST
     });
 
     const entries = await client.getEntries<LearningArticlePage>({
