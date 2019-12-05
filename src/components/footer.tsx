@@ -40,7 +40,7 @@ const Footer = withI18n()(({locale, i18n}: Locale & withI18nProps) => {
         </div>
 
         <div className="column is-one-quarter">
-          <p className="link-header has-text-white has-text-weight-bold"><Trans>ABOUT US</Trans></p>
+          <p className="link-header has-text-white has-text-weight-bold is-uppercase"><Trans>About us</Trans></p>
           <Link className="link has-text-weight-semibold is-uppercase" to={localePrefix + "/about/team"}>
             <p><Trans>Our team</Trans></p>
           </Link>
