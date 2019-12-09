@@ -47,7 +47,7 @@ export const MissionPageScaffolding = (props: ContentfulContent) =>
       <section className="hero problem is-medium is-white">
         <div className="hero-body is-horizontal-center">
           <div className="content has-text-grey-dark">
-            {documentToReactComponents(props.content.problemsSection.json)}
+            {documentToReactComponents(props.content.serveSection.json)}
           </div>
         </div>
       </section>
@@ -76,34 +76,12 @@ export const MissionPageScaffolding = (props: ContentfulContent) =>
 
       </section>
 
-      <section className="hero serve is-medium is-white">
-        <div className="hero-body is-horizontal-center">
-          <div className="content has-text-grey-dark">
-            {documentToReactComponents(props.content.serveSection.json)}
-          </div>
-        </div>
-      </section>
-
-      <section className="hero image is-large" style={{ backgroundImage: `url(${props.content.collaborationImageBreak.file.url})` }}>
-        <div className="hero-body" />
-      </section>
-
       <section className="hero approach is-medium is-white">
 
         <div className="hero-body is-horizontal-center">
           <div className="container">
             <div className="content has-text-grey-dark">
               {documentToReactComponents(props.content.approachSection.json)}
-            </div>
-            <div className="columns">
-            { (props.content.approachBreakIcon).map( (icon: any, i: number) =>
-              <div className="column is-one-third has-text-centered " key={i}>
-                <figure className="image approach-icon is-horizontal-center">
-                  <img src={ icon.iconImage.file.url } alt={icon.iconDescription} />
-                </figure>
-                
-                <h4 className="title is-size-6 has-text-grey-dark">{icon.iconDescription}</h4>
-              </div>) }
             </div>
           </div>
         </div>
