@@ -41,6 +41,7 @@ const pageQuery = `{
         subtitleContent,
         });
       })
+      
   const queries = [
     {
       query: pageQuery,
