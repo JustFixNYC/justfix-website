@@ -5,6 +5,7 @@
   "author": "Filip Havrlent <filip@havrlent.com>",
   "dependencies": {
     "@babel/core": "^7.6.4",
+    "@contentful/rich-text-plain-text-renderer": "^13.4.0",
     "@contentful/rich-text-react-renderer": "^13.4.0",
     "@justfixnyc/geosearch-requester": "^0.0.6",
     "@lingui/react": "^2.8.3",

@@ -15,6 +15,8 @@ const tracking = {
   heap: "3368297951",
 }
 
+const queries = require("./src/util/algolia.js")
+
 module.exports = {
   siteMetadata: {
     title: 'Gatsby Contentful TypeScript starter',
@@ -97,6 +99,14 @@ module.exports = {
     {
       resolve: `gatsby-source-contentful`,
       options: contentfulConfig,
+    },
+    {
+      resolve: `gatsby-plugin-algolia`,
+      options: {
+        appId: process.env.ALGOLIA_APP_ID,
+        apiKey: process.env.ALGOLIA_ADMIN_KEY,
+        queries: queries,
+      },
     },
     {
       resolve: `gatsby-plugin-emotion`,
