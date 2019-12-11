@@ -29,16 +29,15 @@ const pageQuery = `{
    * unpack and reformat data from the subtitle and article sections to create a neat array */
   const flatten = arr =>
     arr.map(
-      ({ node: {subtitle, articleSections, ...rest } }) => {
-      const subtitleContent = subtitle && subtitle.json ? pt.documentToPlainTextString(subtitle.json) : "";
-      const sectionsTitles = articleSections.map( section => section.title );
-      const sectionsContent = articleSections.map( 
-        section => section.content && section.content.json ? pt.documentToPlainTextString(section.content.json) : "");
+      ({ node: {author, subtitle, articleSections, ...rest } }) => {
+        const byline = author ? "By " + author + " | " : "";
+        const subtitleContent = subtitle && subtitle.json ? pt.documentToPlainTextString(subtitle.json) : "";
+        const sectionsContent = articleSections.map( 
+          section => section.title && section.content && section.content.json ? section.title + " | " + pt.documentToPlainTextString(section.content.json) : "");
+        const articleContent = byline + subtitleContent + " " + sectionsContent.reduce( (section1, section2) => section1 + "     " + section2 )
       return ({
         ...rest,
-        sectionsTitles,
-        sectionsContent,
-        subtitleContent,
+        articleContent,
         });
       })
       
