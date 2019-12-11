@@ -16,7 +16,7 @@ const tracking = {
 }
 
 const conditionallyAddAlgoliaPlugin = (plugins) => {
-  if (process.env.ENABLE_ALGOLIA_INDEXING === '1') {
+  if (process.env.ALGOLIA_APP_ID && process.env.ALGOLIA_ADMIN_KEY) {
     const queries = require("./src/util/algolia.js")
     plugins.push({
       resolve: `gatsby-plugin-algolia`,
