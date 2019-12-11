@@ -11,6 +11,7 @@
     "@lingui/react": "^2.8.3",
     "@types/classnames": "^2.2.9",
     "@types/react-helmet": "^5.0.7",
+    "@types/react-instantsearch-dom": "^5.2.6",
     "@types/react-motion": "^0.0.29",
     "@types/react-scroll": "^1.5.4",
     "algoliasearch": "^3.35.1",
