@@ -13,7 +13,7 @@ const Result = ({ hit }: any) => {
       </div>
       <div className="result__snippet">
         <Snippet
-          attribute="sectionsContent"
+          attribute="articleContent"
           hit={hit}
           tagName="u"
         />
@@ -35,6 +35,7 @@ class LearningSearchBar extends Component<Props,State> {
 
   render() {
     return (appId && searchKey ? 
+    <div className="">
     <InstantSearch
       searchClient={algoliasearch(appId,searchKey)}
       indexName="learning_center"
@@ -46,11 +47,12 @@ class LearningSearchBar extends Component<Props,State> {
       (this.state.query || '').length > 0 && 
       (
         <React.Fragment>
-          <Configure attributesToSnippet={['title', 'sectionsContent']} />
+          <Configure attributesToSnippet={['articleContent']} />
           <Hits hitComponent={Result} />
         </React.Fragment>
       )}
-    </InstantSearch>: <React.Fragment />
+    </InstantSearch>
+    </div>: <React.Fragment />
     )
   }
 } 
