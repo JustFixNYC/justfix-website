@@ -1,9 +1,23 @@
 import React, { Component } from 'react';
 import algoliasearch from 'algoliasearch/lite';
-import { InstantSearch, SearchBox, Hits, Configure, Snippet } from 'react-instantsearch-dom';
+import { InstantSearch, Hits, Configure, Snippet, connectSearchBox } from 'react-instantsearch-dom';
 
 const appId = process.env.GATSBY_ALGOLIA_APP_ID;
 const searchKey = process.env.GATSBY_ALGOLIA_SEARCH_KEY;
+
+const SearchBox = ({ currentRefinement, isSearchStalled, refine, refineAddition }: any) => (
+  <form noValidate action="" role="search">
+    <input
+      type="search"
+      value={currentRefinement}
+      onChange={event => {refine(event.currentTarget.value); refineAddition(event.currentTarget.value);}}
+    />
+    <button onClick={() => refine('')}>Reset query</button>
+    {isSearchStalled ? 'My search is stalled' : ''}
+  </form>
+);
+
+const CustomSearchBox = connectSearchBox(SearchBox);
 
 const Result = ({ hit }: any) => {
   return (
@@ -41,7 +55,8 @@ class LearningSearchBar extends Component<Props,State> {
       indexName="learning_center"
       resultsState={[]}
     >
-      <SearchBox onChange={e => this.setState({ query: e.currentTarget.value })} />
+      
+      <CustomSearchBox defaultRefinement="" refineAddition={(e) => this.setState({query: e})} />
 
       {
       (this.state.query || '').length > 0 && 
