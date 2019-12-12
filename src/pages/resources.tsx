@@ -17,16 +17,15 @@ export type Category = {
 
 export const ArticlePreviewCard = (props: any) => {
   const url = '/resources/' + props.articleData.slug; 
+  const categoryLabels = (props.articleData.categories).map(
+    (category: Category, i: number) => 
+    <Link key={i} to={'/resources/category/' + category.slug} className="tag is-primary is-light">
+      {category.title}
+    </Link>
+  )
   return (
     <div className="box article-preview">
-      <div className="tags">
-        {(props.articleData.categories).map(
-          (category: Category, i: number) => 
-          <Link key={i} to={'/resources/category/' + category.slug} className="tag is-primary is-light">
-            {category.title}
-          </Link>
-        )}
-      </div>
+      
       
         <h1 className="title is-size-3 has-text-primary is-spaced has-text-weight-semibold">
           <Link to={url}>
@@ -37,9 +36,18 @@ export const ArticlePreviewCard = (props: any) => {
           {props.articleData.previewText.previewText}
         </h6>
           <br />
-        <Link to={url} className="has-text-weight-semibold">
-          Read More →
-        </Link>
+        <div>
+          <Link to={url} className="is-inline-block is-size-7 has-text-weight-semibold">
+            READ MORE →
+          </Link>
+          <div className="tags is-hidden-mobile is-inline-block is-pulled-right">
+            {categoryLabels}
+          </div>
+            <br className="is-hidden-tabled" />
+          <div className="tags is-hidden-tablet">
+            {categoryLabels}
+          </div>
+        </div>
     </div>
     )
   }

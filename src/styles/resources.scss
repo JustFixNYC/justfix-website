@@ -19,6 +19,10 @@
         padding: 3rem;
         margin-bottom: 3rem;
 
+        .tags.is-hidden-tablet {
+            margin-top: 1.5rem;
+        }
+
         .tag:hover {
             opacity: 0.6;
             text-decoration: none;
