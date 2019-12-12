@@ -33,9 +33,10 @@ export const ArticlePreviewCard = (props: any) => {
             {props.articleData.title}
           </Link>
         </h1>
-        <h6 className="subtitle has-text-grey-dark">
+        <h6 className="has-text-grey-dark">
           {props.articleData.previewText.previewText}
         </h6>
+          <br />
         <Link to={url} className="has-text-weight-semibold">
           Read More →
         </Link>
