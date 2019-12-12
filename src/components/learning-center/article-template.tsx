@@ -40,8 +40,8 @@ function renderSection(articleSection: any, i: number): JSX.Element {
                         {articleSection.ctaText}
                     </a>
                 </div>:
-                <div className="content ">
-                    <h1 className="title is-size-2 has-text-grey-dark has-text-weight-semibold is-spaced">
+                <div className="content">
+                    <h1 className="title is-size-3 is-size-4-mobile has-text-grey-dark has-text-weight-semibold is-spaced">
                         {articleSection.title}
                     </h1>
                     <span className="has-text-grey-dark">
@@ -103,11 +103,11 @@ const LearningArticle = (props: Props) => {
                                     </ul>
                                 </nav>
                                 <div className="container content-wrapper">
-                                    <h1 className="title is-size-1 has-text-grey-dark has-text-weight-semibold is-spaced">
+                                    <h1 className="title is-size-2 is-size-3-mobile has-text-grey-dark has-text-weight-semibold is-spaced">
                                         {content.title}
                                     </h1>
                                     <p className="subtitle is-size-6 has-text-grey-dark">
-                                        <span className="is-size-5">Written by {content.author}</span> 
+                                        <span className="is-size-6">Written by {content.author}</span> 
                                             <br/>
                                         <span className="is-size-7">Updated {content.dateUpdated}</span> 
                                     </p>
