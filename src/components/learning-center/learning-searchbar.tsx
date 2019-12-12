@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import algoliasearch from 'algoliasearch/lite';
 import { InstantSearch, Configure, Snippet, connectSearchBox, connectHits } from 'react-instantsearch-dom';
 import { Link } from 'gatsby';
+import { SearchBoxExposed } from 'react-instantsearch-core';
 
 const appId = process.env.GATSBY_ALGOLIA_APP_ID;
 const searchKey = process.env.GATSBY_ALGOLIA_SEARCH_KEY;
@@ -38,7 +39,12 @@ const Hits = ({ hits }: any) => (
   </div>: <span>No results</span>)
 );
 
-const CustomSearchBox = connectSearchBox(SearchBox);
+/* 
+NOTE: We are including a type assertion here because the official type definition 
+of connectSearchBox does not allow us to pass additional props from the 
+input component (SearchBox) to the output component (CustomSearchBox) */
+
+const CustomSearchBox = connectSearchBox(SearchBox) as React.ComponentClass<SearchBoxExposed & any> 
 const CustomHits = connectHits(Hits);
 
 type Props = any;
