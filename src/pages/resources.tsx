@@ -37,13 +37,13 @@ export const ArticlePreviewCard = (props: any) => {
         </h6>
           <br />
         <div>
-          <Link to={url} className="is-inline-block is-size-7 has-text-weight-semibold has-letters-spaced">
-            READ MORE →
+          <Link to={url} className="is-inline-block is-size-7 is-uppercase has-text-weight-semibold has-letters-spaced">
+            Read More →
           </Link>
-          <div className="tags is-hidden-mobile is-inline-block is-pulled-right has-letters-spaced">
+          <div className="tags is-hidden-mobile is-inline-block is-uppercase is-pulled-right has-letters-spaced">
             {categoryLabels}
           </div>
-          <div className="tags is-hidden-tablet has-letters-spaced">
+          <div className="tags is-hidden-tablet is-uppercase has-letters-spaced">
             {categoryLabels}
           </div>
         </div>
