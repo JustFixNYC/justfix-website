@@ -33,7 +33,7 @@ export const PressPageScaffolding = (props: ContentfulContent) =>
               <div className="media-left is-hidden-mobile">
                 <figure className="image is-horizontal-center">
                   <a href = {pressItem.hyperlink} target="_blank" rel="noopener noreferrer">
-                    <img className="img-centered" src={pressItem.logo.file.url} />
+                    <img className="img-centered" src={pressItem.logo.file.url} alt="" />
                   </a>
                 </figure>
               </div>

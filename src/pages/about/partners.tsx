@@ -31,7 +31,7 @@ export const PartnersPageScaffolding = (props: ContentfulContent) =>
           (<div className="logo is-inline-flex" key={i}>
               <a href={partner.link} target="_blank" rel="noopener noreferrer">
                 <figure className="image">
-                  <img className="img-centered" src={partner.logo.fluid.src} />
+                  <img className="img-centered" src={partner.logo.fluid.src} alt={partner.name} />
                 </figure>
               </a>    
           </div>) )
@@ -57,7 +57,7 @@ export const PartnersPageScaffolding = (props: ContentfulContent) =>
           (<div className="logo is-inline-flex" key={i}>
               <a href={funder.link} target="_blank" rel="noopener noreferrer">
                 <figure className="image">
-                  <img className="img-centered" src={funder.logo.fluid.src} />
+                  <img className="img-centered" src={funder.logo.fluid.src} alt={funder.name} />
                 </figure>
               </a>    
           </div>) )
@@ -109,6 +109,7 @@ const PartnersPage  = () => (
             subtitle
           }
           partnerOrganizations {
+            name
             link
             logo {
               fluid {
@@ -118,6 +119,7 @@ const PartnersPage  = () => (
           }
           fundersTitle 
           funders {
+            name
             link
             logo {
               fluid {
