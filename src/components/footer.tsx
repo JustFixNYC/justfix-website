@@ -16,21 +16,37 @@ const Footer = withI18n()(({locale, i18n}: Locale & withI18nProps) => {
   
   return (
     <div className="footer has-background-info">
-      <div className="columns has-text-centered-mobile">
+      <div className="columns has-text-centered-touch is-desktop">
 
-        <div className="column is-one-quarter">
+        <div className="column">
           <Link to={localePrefix + "/"} className="button is-info">
             <img src={require("../img/brand/logo.png")} alt="JustFix.nyc" />
           </Link>
         </div>
-        <div className="column is-one-quarter">
+        <div className="column">
           <p className="link-header has-text-white has-text-weight-bold">WHAT WE DO</p>
           <Link className="link has-text-weight-semibold is-uppercase" to={localePrefix + "/#products"}>
-            <p><Trans>Products &amp; Services</Trans></p>
+            <p><Trans>Products</Trans></p>
           </Link>
           <Link className="link has-text-weight-semibold is-uppercase" to={localePrefix + "/our-mission"}>
-            <p><Trans>Our mission</Trans></p>
+            <p><Trans>Mission</Trans></p>
           </Link>
+          <Link className="link has-text-weight-semibold is-uppercase" to={localePrefix + "/about/press"}>
+            <p><Trans>Press</Trans></p>
+          </Link>
+        </div>
+
+        <div className="column">
+          <p className="link-header has-text-white has-text-weight-bold is-uppercase"><Trans>About us</Trans></p>
+          <Link className="link has-text-weight-semibold is-uppercase" to={localePrefix + "/about/team"}>
+            <p><Trans>Team</Trans></p>
+          </Link>
+          <Link className="link has-text-weight-semibold is-uppercase" to={localePrefix + "/about/partners"}>
+            <p><Trans>Partners</Trans></p>
+          </Link>
+          <a className="link has-text-weight-semibold is-uppercase" href="https://justfix.breezy.hr/" target="_blank" rel="noopener noreferrer">
+            <p><Trans>Jobs</Trans></p>
+          </a>
           <Link className="link has-text-weight-semibold is-uppercase" to={localePrefix + "/contact-us"}>
             <p><Trans>Contact</Trans></p>
           </Link>
@@ -39,23 +55,7 @@ const Footer = withI18n()(({locale, i18n}: Locale & withI18nProps) => {
           </a>
         </div>
 
-        <div className="column is-one-quarter">
-          <p className="link-header has-text-white has-text-weight-bold is-uppercase"><Trans>About us</Trans></p>
-          <Link className="link has-text-weight-semibold is-uppercase" to={localePrefix + "/about/team"}>
-            <p><Trans>Our team</Trans></p>
-          </Link>
-          <Link className="link has-text-weight-semibold is-uppercase" to={localePrefix + "/about/partners"}>
-            <p><Trans>Our partners</Trans></p>
-          </Link>
-          <a className="link has-text-weight-semibold is-uppercase" href="https://justfix.breezy.hr/" target="_blank" rel="noopener noreferrer">
-            <p><Trans>Jobs</Trans></p>
-          </a>
-          <Link className="link has-text-weight-semibold is-uppercase" to={localePrefix + "/about/press"}>
-            <p><Trans>Press</Trans></p>
-          </Link>
-        </div>
-
-        <div className="column is-one-quarter">
+        <div className="column">
           <h4 className="title is-size-5 has-text-white">
             <Trans>Join our mailing list!</Trans>
           </h4>
@@ -64,7 +64,7 @@ const Footer = withI18n()(({locale, i18n}: Locale & withI18nProps) => {
               <div className="control is-expanded">
                   <input type="email" name="EMAIL" className="required email input" id="mce-EMAIL" placeholder={i18n._(t`Email Address`)} />
               </div>
-              <div className="control has-text-centered-mobile">
+              <div className="control has-text-centered-touch">
                 <button className="button is-primary is-uppercase" type="submit">
                     <Trans>Sign up</Trans>
                 </button>
