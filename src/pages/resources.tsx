@@ -43,7 +43,6 @@ export const ArticlePreviewCard = (props: any) => {
           <div className="tags is-hidden-mobile is-inline-block is-pulled-right">
             {categoryLabels}
           </div>
-            <br className="is-hidden-tabled" />
           <div className="tags is-hidden-tablet">
             {categoryLabels}
           </div>
