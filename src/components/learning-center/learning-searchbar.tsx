@@ -66,7 +66,7 @@ class LearningSearchBar extends Component<Props,State> {
       resultsState={[]}
     >
       
-      <CustomSearchBox defaultRefinement="" updateSearchQuery={(e: any) => this.setState({query: e})} />
+      <CustomSearchBox updateSearchQuery={(e: any) => this.setState({query: e})} />
 
         {(this.state.query || '').length > 0 && 
           (
