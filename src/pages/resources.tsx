@@ -65,7 +65,7 @@ const LearningPageScaffolding = (props: ContentfulContent) =>
               {(props.content.categoryButtons).map( 
                 (category: Category, i: number) =>
                 <Link key={i} to={'/resources/category/' + category.slug} 
-                  className="button is-primary is-uppercase">
+                  className="button is-primary is-uppercase has-text-weight-semibold">
                   {category.title}
                 </Link>
               )}
