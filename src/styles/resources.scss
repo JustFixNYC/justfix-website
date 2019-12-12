@@ -9,6 +9,10 @@
 
     .dropdown-item {
         white-space: normal;
+
+        &:not(:first-child) {
+            border-top: 1px solid #eee;
+        }
     }
     
     .article-preview {
