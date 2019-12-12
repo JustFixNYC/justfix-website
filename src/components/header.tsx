@@ -53,11 +53,14 @@ render() {
           </a>
 
           <div className="navbar-dropdown">
-            <Link to={localePrefix + "/about/partners"} className="navbar-item">
-              <Trans>Our Partners</Trans>
+            <Link to={localePrefix + "/our-mission"} className="navbar-item">
+              <Trans>Mission</Trans>
             </Link>
             <Link to={localePrefix + "/about/team"} className="navbar-item">
-              <Trans>Our Team</Trans>
+              <Trans>Team</Trans>
+            </Link>
+            <Link to={localePrefix + "/about/partners"} className="navbar-item">
+              <Trans>Partners</Trans>
             </Link>
             <Link to={localePrefix + "/about/press"} className="navbar-item">
               <Trans>Press</Trans>
@@ -68,8 +71,8 @@ render() {
           </div>
         </div>
 
-        <Link to={localePrefix + "/our-mission"} className={"navbar-item is-uppercase has-text-" + (this.state.burgerMenuIsOpen ? "black" : "white")}>
-          <Trans>Mission</Trans>
+        <Link to={localePrefix + "/#products"} className={"navbar-item is-uppercase has-text-" + (this.state.burgerMenuIsOpen ? "black" : "white")}>
+          <Trans>Products</Trans>
         </Link>
 
         <Link to={localePrefix + "/contact-us"} className={"navbar-item is-uppercase has-text-" + (this.state.burgerMenuIsOpen ? "black" : "white")}>
