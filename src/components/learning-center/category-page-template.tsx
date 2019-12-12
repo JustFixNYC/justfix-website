@@ -4,6 +4,9 @@ import { ArticlePreviewCard } from '../../pages/resources';
 import { Link } from 'gatsby';
 import { ThankYouBanner } from './thank-you-banner';
 
+const widont = require('widont')
+
+
 type Props = {
     pageContext: { 
         content: any,
@@ -43,7 +46,7 @@ const LearningCategoryPage = (props: Props) => {
                         {content.title}
                         </h1>
                         <h6 className="subtitle has-text-grey-dark is-italic">
-                        {content.description}
+                        {widont(content.description)}
                         </h6>
                         
                     </div>

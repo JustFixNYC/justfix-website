@@ -9,6 +9,8 @@ import { LearningCenterImage } from '../components/learning-center/header-image'
 import { ThankYouBanner } from '../components/learning-center/thank-you-banner'
 import LearningSearchBar from '../components/learning-center/learning-searchbar'
 
+const widont = require('widont')
+
 export type Category = {
   title: string,
   description: string,
@@ -29,11 +31,11 @@ export const ArticlePreviewCard = (props: any) => {
       
         <h1 className="title is-size-3 has-text-primary is-spaced has-text-weight-semibold">
           <Link to={url}>
-            {props.articleData.title}
+            {widont(props.articleData.title)}
           </Link>
         </h1>
         <h6 className="has-text-grey-dark">
-          {props.articleData.previewText.previewText}
+          {widont(props.articleData.previewText.previewText)}
         </h6>
           <br />
         <div>
@@ -61,10 +63,10 @@ const LearningPageScaffolding = (props: ContentfulContent) =>
           </figure>
           <div className="container content-wrapper tight">
             <h1 className="title is-size-2 has-text-grey-dark has-text-weight-normal is-spaced">
-              {props.content.title}
+              {widont(props.content.title)}
             </h1>
             <h6 className="subtitle has-text-grey-dark is-italic">
-              {props.content.subtitle}
+              {widont(props.content.subtitle)}
             </h6>
             <LearningSearchBar />
               <br />

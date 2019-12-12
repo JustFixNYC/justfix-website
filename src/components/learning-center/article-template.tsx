@@ -7,6 +7,8 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 
 import '../../styles/resources.scss' 
 
+const widont = require('widont')
+
 type Props = {
     pageContext: { 
         content: any,
@@ -19,7 +21,6 @@ type navMenuProps = {
     styleClass?: string
 }
 
-
 function makeSectionID(index: number): string {
     return "section-" + (index + 1).toString();
 }
@@ -30,7 +31,7 @@ function renderSection(articleSection: any, i: number): JSX.Element {
             {(articleSection.__typename === "ContentfulLearningArticleCtaBlock" ? 
                 <div className="content cta has-text-centered has-background-primary">
                     <h1 className="title is-size-4 has-text-weight-bold has-text-white is-spaced">
-                        {articleSection.title}
+                        {widont(articleSection.title)}
                     </h1>
                     <p className="is-hidden-mobile has-text-weight-medium has-text-white is-spaced">
                         {articleSection.subtitle}
@@ -41,7 +42,7 @@ function renderSection(articleSection: any, i: number): JSX.Element {
                 </div>:
                 <div className="content">
                     <h1 className="title is-size-3 is-size-4-mobile has-text-grey-dark has-text-weight-semibold is-spaced">
-                        {articleSection.title}
+                        {widont(articleSection.title)}
                     </h1>
                     <span className="has-text-grey-dark">
                         {documentToReactComponents(articleSection.content.json)}
@@ -102,7 +103,7 @@ const LearningArticle = (props: Props) => {
                                 </nav>
                                 <div className="container content-wrapper">
                                     <h1 className="title is-size-2 is-size-3-mobile has-text-grey-dark has-text-weight-semibold is-spaced">
-                                        {content.title}
+                                        {widont(content.title)}
                                     </h1>
                                     <p className="subtitle is-size-6 has-text-grey-dark">
                                         <span className="is-size-6">Written by {content.author} </span> 

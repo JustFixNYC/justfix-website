@@ -3,6 +3,7 @@ import { StaticQuery, graphql, Link } from "gatsby";
 import { ContentfulContent } from '../../pages';
 import { Category } from '../../pages/resources';
 
+const widont = require('widont')
 
 type ArticleListing = {
   title: string,
@@ -30,10 +31,10 @@ const FooterCta = (props: any ) => (
   <div className="hero footer-cta is-white-ter">
     <div className="hero-body">
         <h1 className="title is-size-4 has-text-weight-bold has-text-grey-dark is-spaced">
-          {props.content.title}
+          {widont(props.content.title)}
         </h1>
         {props.content.subtitle && (<p className="title is-size-6 has-text-weight-medium has-text-grey-dark is-spaced">
-          {props.content.subtitle }
+          {widont(props.content.subtitle)}
         </p>)}
         <Link to={props.content.ctaLink}>
             {props.content.ctaText} →
