@@ -61,7 +61,7 @@ const LearningPageScaffolding = (props: ContentfulContent) =>
             </h6>
             <LearningSearchBar />
               <br />
-            <div className="field is-centered">
+            <div className="field is-centered is-hidden-mobile">
               {(props.content.categoryButtons).map( 
                 (category: Category, i: number) =>
                 <Link key={i} to={'/resources/category/' + category.slug} 
