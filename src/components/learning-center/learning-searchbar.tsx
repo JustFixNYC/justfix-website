@@ -10,7 +10,7 @@ const searchKey = process.env.GATSBY_ALGOLIA_SEARCH_KEY;
 const SearchBox = ({ currentRefinement, refine, updateSearchQuery }: any) => (
   <form className="control" noValidate action="" role="search">
     <input
-      className="input is-primary"
+      className="input is-primary is-size-5"
       type="search"
       placeholder="🔎 Search articles..."
       value={currentRefinement}
