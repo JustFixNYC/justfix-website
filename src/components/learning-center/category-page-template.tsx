@@ -36,7 +36,7 @@ const LearningCategoryPage = (props: Props) => {
             <section className="hero is-small is-white">
                 <div className="content-wrapper tight back-to-overview">
                     <Link to="/resources" className="has-text-weight-semibold">
-                        ← Back to overview
+                        ← Back to Overview
                     </Link>
                 </div>
             
