@@ -30,7 +30,14 @@
         margin-bottom: 3rem;
 
         @media screen and (max-width: $tablet) {
-            padding: 1.5rem;
+            padding: 3rem 1.5rem;
+            margin-bottom: 0rem;
+
+            &.box {
+                border-radius: 0px;
+                box-shadow: none;
+                border-top: 1px solid #eee;
+            }
         }
 
         .tags.is-hidden-tablet {
