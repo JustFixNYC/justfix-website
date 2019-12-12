@@ -48,7 +48,7 @@ function renderSection(articleSection: any, i: number): JSX.Element {
                     </span>
                 </div>)}
                 <ScrollLink to="navmenu" spy={true} smooth={true}
-                    offset={-100} duration= {500} className="back-to-top is-uppercase is-hidden-desktop is-size-7 has-text-weight-semibold">
+                    offset={-100} duration= {500} className="back-to-top is-uppercase is-hidden-desktop is-size-7 has-text-weight-semibold has-letters-spaced">
                         Back to top ↑
                 </ScrollLink>
         </div>

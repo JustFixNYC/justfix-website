@@ -19,7 +19,7 @@ export const ArticlePreviewCard = (props: any) => {
   const url = '/resources/' + props.articleData.slug; 
   const categoryLabels = (props.articleData.categories).map(
     (category: Category, i: number) => 
-    <Link key={i} to={'/resources/category/' + category.slug} className="tag is-primary is-light">
+    <Link key={i} to={'/resources/category/' + category.slug} className="tag is-primary is-light is-uppercase">
       {category.title}
     </Link>
   )
@@ -37,13 +37,13 @@ export const ArticlePreviewCard = (props: any) => {
         </h6>
           <br />
         <div>
-          <Link to={url} className="is-inline-block is-size-7 has-text-weight-semibold">
+          <Link to={url} className="is-inline-block is-size-7 has-text-weight-semibold has-letters-spaced">
             READ MORE →
           </Link>
-          <div className="tags is-hidden-mobile is-inline-block is-pulled-right">
+          <div className="tags is-hidden-mobile is-inline-block is-pulled-right has-letters-spaced">
             {categoryLabels}
           </div>
-          <div className="tags is-hidden-tablet">
+          <div className="tags is-hidden-tablet has-letters-spaced">
             {categoryLabels}
           </div>
         </div>

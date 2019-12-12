@@ -44,9 +44,12 @@
             margin-top: 1.5rem;
         }
 
-        .tag:hover {
-            opacity: 0.6;
-            text-decoration: none;
+        .tag {
+            padding: 0 0.75rem;
+            &:hover {
+                opacity: 0.6;
+                text-decoration: none;
+            }
         }
     }
 }
@@ -98,9 +101,6 @@
             p {
                 padding-bottom: 1rem;
             }
-        }
-        .back-to-top {
-            letter-spacing: 0.1em;
         }
     }
 
