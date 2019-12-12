@@ -22,7 +22,7 @@ const MissionPage  = () => (
           title
           briefDescription
           videoUrl
-          problemsSection {
+          serveSection {
             json
           }
           impactTitle
@@ -31,24 +31,8 @@ const MissionPage  = () => (
             title
             link
           }
-          serveSection {
-            json
-          }
-          collaborationImageBreak {
-            file {
-              url
-            }
-          }
           approachSection {
             json
-          }
-          approachBreakIcon {
-            iconImage {
-              file {
-                url
-              }
-            }
-            iconDescription 
           }
           collaborationBanner {
             title
