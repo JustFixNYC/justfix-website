@@ -97,7 +97,6 @@ const LearningArticle = (props: Props) => {
                             <div className="hero-body">
                                 <nav className="breadcrumb" aria-label="breadcrumbs">
                                     <ul>
-                                        <li><Link to="/">JustFix.nyc</Link></li>
                                         <li><Link to="/resources/">Resource Center</Link></li>
                                         <li><Link to={"/resources/category/" + content.categories[0].slug + "/"}>{content.categories[0].title}</Link></li>
                                     </ul>
@@ -107,9 +106,9 @@ const LearningArticle = (props: Props) => {
                                         {content.title}
                                     </h1>
                                     <p className="subtitle is-size-6 has-text-grey-dark">
-                                        <span className="is-size-6">Written by {content.author}</span> 
+                                        <span className="is-size-6">Written by {content.author} </span> 
                                             <br/>
-                                        <span className="is-size-7">Updated {content.dateUpdated}</span> 
+                                        <span className="is-size-7">UPDATED {content.dateUpdated}</span> 
                                     </p>
                                     {content.subtitle && <span className="is-size-6 has-text-grey-dark">
                                         {documentToReactComponents(content.subtitle.json)}
