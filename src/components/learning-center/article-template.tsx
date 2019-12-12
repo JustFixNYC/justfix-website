@@ -33,7 +33,7 @@ function renderSection(articleSection: any, i: number): JSX.Element {
                     <h1 className="title is-size-4 has-text-weight-bold has-text-white is-spaced">
                         {articleSection.title}
                     </h1>
-                    <p className="has-text-weight-medium has-text-white is-spaced">
+                    <p className="is-hidden-mobile has-text-weight-medium has-text-white is-spaced">
                         {articleSection.subtitle}
                     </p>
                     <a href={articleSection.ctaLink} className="button is-medium is-primary is-inverted is-outlined" target="_blank" rel="noopener noreferrer">
@@ -49,8 +49,8 @@ function renderSection(articleSection: any, i: number): JSX.Element {
                     </span>
                 </div>)}
                 <ScrollLink to="navmenu" spy={true} smooth={true}
-                    offset={-100} duration= {500} className="is-hidden-desktop is-size-7">
-                        Back to Top ↑
+                    offset={-100} duration= {500} className="back-to-top is-uppercase is-hidden-desktop is-size-7 has-text-weight-semibold">
+                        Back to top ↑
                 </ScrollLink>
         </div>
     );
@@ -141,7 +141,6 @@ const LearningArticle = (props: Props) => {
                     </div>                      
                 </div>
                 <LearningArticleFooter />
-                <ThankYouBanner />
             </div>
         </Layout>
         

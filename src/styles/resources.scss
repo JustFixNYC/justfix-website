@@ -2,9 +2,19 @@
 @import "~bulma/sass/utilities/initial-variables.sass";
 
 .resources-page {
-    .hero .hero-body .button {
-        margin: 0.35rem;
-        font-size: 0.85rem;
+    .hero {
+
+        .back-to-overview {
+            @media screen and (max-width: $tablet) {
+                padding: 0 1.5rem;
+            } 
+        }
+    
+        .hero-body .button {
+            margin: 0.35rem;
+            font-size: 0.85rem;
+        }
+
     }
 
     .dropdown-item {
@@ -18,6 +28,10 @@
     .article-preview {
         padding: 3rem;
         margin-bottom: 3rem;
+
+        @media screen and (max-width: $tablet) {
+            padding: 1.5rem;
+        }
 
         .tags.is-hidden-tablet {
             margin-top: 1.5rem;
@@ -33,7 +47,7 @@
 .article-page {
     /* Fix for a known bug in Bulma where columns are wider than mobile viewport */
     @media screen and (max-width: $tablet) {
-        overflow-x: hidden;
+        overflow: hidden;
     }
 
     .hero-body {
@@ -43,6 +57,12 @@
     .menu {
         padding-right: 1rem;
         margin-left: 1.5rem;
+
+        &.is-hidden-desktop {
+            .menu-list {
+                padding-left: 1.25rem;
+            }
+        }
 
         &.is-hidden-touch {
             margin: 4rem 0;
@@ -71,6 +91,9 @@
             p {
                 padding-bottom: 1rem;
             }
+        }
+        .back-to-top {
+            letter-spacing: 0.1em;
         }
     }
 

@@ -31,6 +31,12 @@ const LearningCategoryPage = (props: Props) => {
         <Layout metadata={{title: content.title }}>
             <div id="resources" className="resources-page" >
             <section className="hero is-small is-white">
+                <div className="content-wrapper tight back-to-overview">
+                    <Link to="/resources" className="has-text-weight-semibold">
+                        ← Back to overview
+                    </Link>
+                </div>
+            
                 <div className="hero-body has-text-centered is-horizontal-center">
                     <div className="container content-wrapper tight">
                         <h1 className="title is-size-2 has-text-grey-dark has-text-weight-normal is-spaced">
@@ -39,9 +45,7 @@ const LearningCategoryPage = (props: Props) => {
                         <h6 className="subtitle has-text-grey-dark is-italic">
                         {content.description}
                         </h6>
-                        <Link to="/resources" className="has-text-weight-semibold">
-                            Back to overview page
-                        </Link>
+                        
                     </div>
                 </div>
             </section>

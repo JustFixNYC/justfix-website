@@ -27,7 +27,7 @@ const TableOfContentsSection = (props: TableOfContentsSection) => (
 );
 
 const FooterCta = (props: any ) => (
-  <div className="hero footer-cta is-white">
+  <div className="hero footer-cta is-white-ter">
     <div className="hero-body">
         <h1 className="title is-size-4 has-text-weight-bold has-text-grey-dark is-spaced">
           {props.content.title}
@@ -59,7 +59,7 @@ const LearningArticleFooterScaffolding = (props: ContentfulContent) => {
   );
 
   return (
-    <div className="columns is-desktop">
+    <div className="columns is-desktop has-background-white-ter">
       <div className="column footer-ctas">
         <FooterCta content={props.content.learningCenterCta} />
         <FooterCta content={props.content.justFixCta} />
