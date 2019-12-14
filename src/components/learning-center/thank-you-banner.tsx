@@ -14,7 +14,7 @@ export const ThankYouBanner = () => (
         }
       `}
     render = {data => (
-      <section className="hero is-small is-light is-paddingless">
+      <section className="hero is-small has-background-light is-paddingless">
         <div className="content-wrapper">
           <div className="hero-body has-text-centered is-horizontal-center">
             <span className="is-size-6 is-italic has-text-weight-medium">{documentToReactComponents(data.contentfulLearningCenterSearchPage.thankYouText.json)}</span>

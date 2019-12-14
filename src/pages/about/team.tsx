@@ -95,7 +95,7 @@ export const TeamPageScaffolding = (props: ContentfulContent) =>
 
       </section>
 
-      <section className="is-horizontal-center hero is-small is-light">
+      <section className="is-horizontal-center hero is-small has-background-light">
 
         <div className="hero-body has-text-centered is-horizontal-center">
           <div className="container">
