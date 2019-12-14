@@ -56,7 +56,7 @@ export const ArticlePreviewCard = (props: any) => {
 const LearningPageScaffolding = (props: ContentfulContent) => 
   (<Layout metadata={props.content.metadata}>
     <div id="resources" className="resources-page" >
-      <section className="hero is-small is-white">
+      <section className="hero is-small">
         <div className="hero-body has-text-centered is-horizontal-center">
           <figure className="image is-128x128 is-horizontal-center">
             <LearningCenterImage />

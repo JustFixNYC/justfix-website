@@ -93,7 +93,7 @@ const LearningArticle = (props: Props) => {
                 <div className="columns is-desktop">
                     <div className="column" />
                     <div className="column is-half-desktop">
-                        <div className="hero is-white">
+                        <div className="hero">
                             <div className="hero-body">
                                 <nav className="breadcrumb" aria-label="breadcrumbs">
                                     <ul>

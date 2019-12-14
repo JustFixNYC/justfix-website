@@ -15,7 +15,7 @@ type Props = {
 }
 
 const NoArticlesYet = () => (
-    <section className="hero is-white">
+    <section className="hero">
         <div className="hero-body has-text-centered is-horizontal-center">
             <div className="container content-wrapper tight">
                 <h6 className="is-size-5 has-text-grey-dark">
@@ -33,7 +33,7 @@ const LearningCategoryPage = (props: Props) => {
     return (
         <Layout metadata={{title: content.title }}>
             <div id="resources" className="resources-page" >
-            <section className="hero is-small is-white">
+            <section className="hero is-small">
                 <div className="content-wrapper tight back-to-overview">
                     <Link to="/resources" className="has-text-weight-semibold">
                         ← Back to Overview

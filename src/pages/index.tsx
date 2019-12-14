@@ -89,7 +89,7 @@ export const LandingPageScaffolding = (props: HomepageProps) =>
       <section id="products" className="is-horizontal-center">
         <div className="content-wrapper">
 
-          <div className="hero is-small is-white">
+          <div className="hero is-small">
             <div className="hero-body has-text-centered">
               <div className="container content-wrapper tight">
                 <h1 className="title is-size-2 has-text-grey-dark has-text-weight-normal">
