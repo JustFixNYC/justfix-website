@@ -17,12 +17,14 @@ type TableOfContentsSection = {
 
 const TableOfContentsSection = (props: TableOfContentsSection) => (
   props.articles.length > 0 ?
-    <div>
+    <div className="table-of-contents">
       <p className="menu-label">{props.categoryTitle}</p>
-      { (props.articles).map( ( article: ArticleListing, i: number ) => 
-        (<Link key={i} to={ "/resources/" + article.slug }> {article.title} </Link>))
-      }
-      <div className="is-divider light" />
+      <ul>
+        { (props.articles).map( ( article: ArticleListing, i: number ) => 
+          (<li key={i}><Link to={ "/resources/" + article.slug }> {article.title} </Link></li>))
+        }
+        <div className="is-divider light" />
+      </ul>
     </div> :
     <div />
 );
