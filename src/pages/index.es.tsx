@@ -6,11 +6,6 @@ const LandingPage  = () => (
 <StaticQuery
     query={graphql`
       query {
-        site {
-          siteMetadata {
-            enableDDO
-          }
-        }
         contentfulHomePage( node_locale: { eq: "es" } ) {
           landingLeadInText
           landingTextLoopText
@@ -52,7 +47,7 @@ const LandingPage  = () => (
         }
       }
     `}
-  render = {data => (<LandingPageScaffolding content={data.contentfulHomePage} enableDDO={data.site.siteMetadata.enableDDO} locale="es" />)}
+  render = {data => (<LandingPageScaffolding content={data.contentfulHomePage} locale="es" />)}
   />
 );
 

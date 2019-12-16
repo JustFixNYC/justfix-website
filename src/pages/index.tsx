@@ -26,10 +26,6 @@ export type ContentfulContent = Locale & {
   content: any 
 }
 
-export type HomepageProps = ContentfulContent & { 
-  enableDDO?: Boolean 
-}
-
 const DDO = () => <>
   <h2 className="subtitle is-size-5 has-text-white">
     Enter your address to learn more.
@@ -41,7 +37,7 @@ const DDO = () => <>
   />
 </>;
 
-export const LandingPageScaffolding = (props: HomepageProps) => 
+export const LandingPageScaffolding = (props: ContentfulContent) => 
   (<Layout isLandingPage={true} locale={props.locale}>
     <div id="home" className="home-page">
       <BackgroundImage className="landing-image hero is-fullheight"
@@ -64,7 +60,7 @@ export const LandingPageScaffolding = (props: HomepageProps) =>
                 </span>
               </h1>
 
-              {props.enableDDO && <DDO />}
+                <DDO />
 
             </div>
           </div>
@@ -192,11 +188,6 @@ const LandingPage  = () => (
 <StaticQuery
     query={graphql`
       query {
-        site {
-          siteMetadata {
-            enableDDO
-          }
-        }
         contentfulHomePage {
           landingLeadInText
           landingTextLoopText
@@ -239,7 +230,7 @@ const LandingPage  = () => (
         }
       }
     `}
-  render = {data => (<LandingPageScaffolding content={data.contentfulHomePage} enableDDO={data.site.siteMetadata.enableDDO} />)}
+  render = {data => (<LandingPageScaffolding content={data.contentfulHomePage} />)}
   />
 );
 
