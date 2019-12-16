@@ -17,7 +17,7 @@ const tracking = {
 
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Contentful TypeScript starter',
+    title: 'JustFix.nyc',
     enableDDO: process.env.ENABLE_DDO === '1'
   },
   plugins: [
