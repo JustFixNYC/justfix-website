@@ -67,18 +67,20 @@ const LearningArticle = (props: Props) => {
             </p>
             <ul className="menu-list">
                 {(content.articleSections).map( (articleSection: any, i: number) => 
-                    <li key={i}>
-                        <ScrollLink 
-                            activeClass="bold-shadow" 
-                            to={makeSectionID(i)} 
-                            spy={true}
-                            smooth={true}
-                            offset={-100}
-                            duration= {500}
-                            className="has-text-primary">
-                                {articleSection.title}
-                        </ScrollLink>
-                    </li>
+                    (articleSection.__typename === "ContentfulLearningArticleSection" ?
+                        <li key={i}>
+                            <ScrollLink 
+                                activeClass="bold-shadow" 
+                                to={makeSectionID(i)} 
+                                spy={true}
+                                smooth={true}
+                                offset={-100}
+                                duration= {500}
+                                className="has-text-primary">
+                                    {articleSection.title}
+                            </ScrollLink>
+                        </li>:
+                        <React.Fragment key={i} />)
                 )}
                 
             </ul>
