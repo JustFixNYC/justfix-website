@@ -113,8 +113,33 @@
     }
     
     .table-of-contents {
-        li {
-            margin-bottom: 1rem;
-        }
+        .columns {
+            margin-bottom: 3rem;
+        
+            .column {
+
+                li {
+                    margin-bottom: 1rem;
+                }
+
+                @media screen and (max-width: $tablet) {
+                    padding-top: 0;
+                    padding-bottom: 0;
+                    
+                    /* Make last divider disappear on mobile */
+                    &:last-child {
+                        .table-of-contents-section:last-child {
+                            ul {
+                                .is-divider {
+                                    display: none;
+                                }
+                            }
+                        }
+                    }
+
+                }
+                
+            }
+        } 
     }
 }

@@ -12,18 +12,19 @@ type ArticleListing = {
 
 type TableOfContentsSection = {
   categoryTitle: string,
-  articles: ArticleListing[]
+  articles: ArticleListing[],
+  noDivider?: boolean
 }
 
 const TableOfContentsSection = (props: TableOfContentsSection) => (
   props.articles.length > 0 ?
-    <div className="table-of-contents">
+    <div className="table-of-contents-section">
       <p className="menu-label">{props.categoryTitle}</p>
       <ul>
         { (props.articles).map( ( article: ArticleListing, i: number ) => 
           (<li key={i}><Link to={ "/resources/" + article.slug }> {article.title} </Link></li>))
         }
-        <div className="is-divider light" />
+       <div className={"is-divider light" + (props.noDivider ? " is-hidden-tablet" : "")} />
       </ul>
     </div> :
     <div />
@@ -71,17 +72,26 @@ const LearningArticleFooterScaffolding = (props: ContentfulContent) => {
         <div className="columns hero-body">
           <div className="column is-one-third">
             {ArticlesSortedByCategory.map( ( section: TableOfContentsSection, i: number ) =>
-              (i % 3 === 0 ? <TableOfContentsSection key={i} categoryTitle={section.categoryTitle} articles={section.articles} /> : <span key={i} />) 
+              (i % 3 === 0 ? 
+                <TableOfContentsSection key={i} noDivider={(ArticlesSortedByCategory.length <= i + 3)}
+                  categoryTitle={section.categoryTitle} articles={section.articles} /> 
+                : <React.Fragment key={i} />) 
             )}
           </div>
           <div className="column is-one-third">
             {ArticlesSortedByCategory.map( ( section: TableOfContentsSection, i: number ) =>
-              (i % 3 === 1 ? <TableOfContentsSection key={i} categoryTitle={section.categoryTitle} articles={section.articles} /> : <span key={i} />) 
+              (i % 3 === 1 ? 
+                <TableOfContentsSection key={i} noDivider={(ArticlesSortedByCategory.length <= i + 3)}
+                  categoryTitle={section.categoryTitle} articles={section.articles} /> 
+                : <React.Fragment key={i} />) 
             )}
           </div>
           <div className="column is-one-third">
             {ArticlesSortedByCategory.map( ( section: TableOfContentsSection, i: number ) =>
-              (i % 3 === 2 ? <TableOfContentsSection key={i} categoryTitle={section.categoryTitle} articles={section.articles} /> : <span key={i} />) 
+              (i % 3 === 2 ? 
+                <TableOfContentsSection key={i} noDivider={(ArticlesSortedByCategory.length <= i + 3)}
+                  categoryTitle={section.categoryTitle} articles={section.articles} /> 
+                : <React.Fragment key={i} />) 
             )}
           </div>
         </div>
