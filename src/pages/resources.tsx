@@ -63,7 +63,7 @@ const LearningPageScaffolding = (props: ContentfulContent) =>
           </figure>
           <div className="container content-wrapper tight">
             <h1 className="title is-size-2 has-text-grey-dark has-text-weight-normal is-spaced">
-              {widont(props.content.title)}
+              {props.content.title}
             </h1>
             <h6 className="subtitle has-text-grey-dark is-italic">
               {widont(props.content.subtitle)}
