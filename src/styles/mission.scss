@@ -5,20 +5,21 @@
                 padding-top: 5rem;
             }
         }
-
-        &.image {
-            min-height: 400px;
-            background-size: cover;
-            background-position: center; 
-        }
-
-        &.impact {
-            padding: 4rem 0;
-        }
     
         .hero-body {
             width: 100%;
             max-width: 720px;
+
+            .cta {
+                margin: 5rem 0;
+                padding: 2.5rem;
+                border-radius: 10px;
+
+                /* Make size of CTA buttons hug internal text */
+                .button {
+                    flex-grow: 0;
+                }
+            }
 
             .buttons.is-centered {
                 margin-top: 1.5rem;

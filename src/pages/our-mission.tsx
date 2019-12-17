@@ -48,44 +48,26 @@ export const MissionPageScaffolding = (props: ContentfulContent) =>
         <div className="hero-body is-horizontal-center">
           <div className="content has-text-grey-dark">
             {documentToReactComponents(props.content.serveSection.json)}
-          </div>
-        </div>
-      </section>
-
-      <section className="hero impact is-small is-primary is-horizontal-center">
-
-        <div className="hero-body has-text-centered is-horizontal-center">
-          <div className="container">
-            <h1 className="title is-size-4 has-text-weight-bold is-spaced">
-            {props.content.impactTitle}
-            </h1>
-            <span className="subtitle has-text-weight-medium">
-            {props.content.impactSubtitle}
-            </span>
-            <br />
-            <div className="buttons is-centered">
-              { (props.content.impactReportButtons).map( (button: any, i: number) => 
-                (<a href={button.link} target="_blank" rel="noopener noreferrer" key={i}
-                  className="button is-medium is-primary is-inverted is-outlined">
-                  <span className="is-size-6-mobile">{button.title}</span>
-                </a>)
-              )}
+            <div className="cta has-text-centered has-background-primary">
+              <h1 className="title is-size-4 has-text-white has-text-weight-bold is-spaced">
+              {props.content.impactTitle}
+              </h1>
+              <span className="subtitle has-text-white has-text-weight-medium">
+              {props.content.impactSubtitle}
+              </span>
+              <br />
+              <div className="buttons is-centered">
+                { (props.content.impactReportButtons).map( (button: any, i: number) => 
+                  (<a href={button.link} target="_blank" rel="noopener noreferrer" key={i}
+                    className="button is-medium is-primary is-inverted is-outlined">
+                    <span className="is-size-6-mobile is-uppercase">{button.title}</span>
+                  </a>)
+                )}
+              </div>
             </div>
+            {documentToReactComponents(props.content.approachSection.json)}
           </div>
         </div>
-
-      </section>
-
-      <section className="hero approach is-medium is-white">
-
-        <div className="hero-body is-horizontal-center">
-          <div className="container">
-            <div className="content has-text-grey-dark">
-              {documentToReactComponents(props.content.approachSection.json)}
-            </div>
-          </div>
-        </div>
-
       </section>
 
       <section className="hero collaborate is-small is-primary is-horizontal-center">
