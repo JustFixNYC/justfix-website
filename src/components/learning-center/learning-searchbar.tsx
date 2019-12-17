@@ -7,6 +7,8 @@ import { SearchBoxExposed } from 'react-instantsearch-core';
 const appId = process.env.GATSBY_ALGOLIA_APP_ID;
 const searchKey = process.env.GATSBY_ALGOLIA_SEARCH_KEY;
 
+const SEARCH_RESULTS_LIMIT = 5;
+
 const SearchBox = ({ currentRefinement, refine, updateSearchQuery }: any) => (
   <form className="control" noValidate action="" role="search">
     <input
@@ -22,7 +24,7 @@ const SearchBox = ({ currentRefinement, refine, updateSearchQuery }: any) => (
 const Hits = ({ hits }: any) => (
   (hits && hits.length > 0 ? 
   <div className="dropdown-content">
-    {hits.map( (hit: any) => (
+    {(hits.map( (hit: any) => (
       <Link key={hit.slug} to={"/resources/" + hit.slug} className="dropdown-item">
         <div className="is-size-6 has-text-primary has-text-weight-semibold">
           {hit.title} →
@@ -34,9 +36,9 @@ const Hits = ({ hits }: any) => (
             tagName="u"
           />
         </div>
-      </Link>
-    ))}
-  </div>: <span>No results</span>)
+      </Link>)
+    )).slice(0, SEARCH_RESULTS_LIMIT)}
+  </div>: <div className="label"><br />No articles match your search.</div>)
 );
 
 /* 
