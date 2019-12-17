@@ -99,7 +99,7 @@ const LearningArticle = (props: Props) => {
                             <div className="hero-body">
                                 <nav className="breadcrumb" aria-label="breadcrumbs">
                                     <ul>
-                                        <li><Link to="/learn/">Resource Center</Link></li>
+                                        <li><Link to="/learn/">Learning Center</Link></li>
                                         <li><Link to={"/learn/category/" + content.categories[0].slug + "/"}>{content.categories[0].title}</Link></li>
                                     </ul>
                                 </nav>
