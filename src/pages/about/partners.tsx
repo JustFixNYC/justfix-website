@@ -5,8 +5,8 @@ import '../../styles/partners.scss'
 
 import Layout from '../../components/layout'
 import ReadMore from '../../components/read-more'
-import { ContactAndDonateButtons } from '../our-mission'
 import { ContentfulContent } from '..'
+import { CollaborationBanner } from '../our-mission'
 
 export const PartnersPageScaffolding = (props: ContentfulContent) => 
   (<Layout metadata={props.content.metadata} locale={props.locale}>
@@ -65,21 +65,8 @@ export const PartnersPageScaffolding = (props: ContentfulContent) =>
       
       </section>
 
-      <section className="is-horizontal-center hero is-small is-light">
-
-        <div className="hero-body has-text-centered is-horizontal-center">
-          <div className="container">
-            <h1 className="title is-size-4 has-text-grey-dark has-text-weight-bold is-spaced">
-              {props.content.collaborationBanner.title}
-            </h1>
-            <h6 className="subtitle has-text-grey-dark">
-              {props.content.collaborationBanner.subtitle}
-            </h6>
-            <ContactAndDonateButtons />
-          </div>
-        </div>
-
-      </section>
+      <CollaborationBanner title={props.content.collaborationBanner.title}
+        subtitle={props.content.collaborationBanner.subtitle} />
 
       <ReadMore title={props.content.readMore.title} link={props.content.readMore.link} locale={props.locale} />
 

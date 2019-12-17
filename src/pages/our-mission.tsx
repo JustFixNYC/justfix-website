@@ -10,14 +10,29 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import { ContentfulContent } from '.'
 
 
-export function ContactAndDonateButtons(props: { specialButtonClasses?: string }): JSX.Element {
+export function CollaborationBanner(props: {title: string, subtitle: string}): JSX.Element {
   return (
-    <div className="buttons is-centered">
-      <Link to="/contact-us" className={"button is-medium is-primary " + (props.specialButtonClasses || "")}>CONTACT US</Link>
-      <a href="https://donorbox.org/donate-to-justfix-nyc" className={"button is-medium is-primary " + (props.specialButtonClasses || "")} target="_blank" rel="noopener noreferrer">
-        DONATE
-      </a>
-    </div> 
+  <section className="hero collaborate is-small is-primary is-horizontal-center">
+
+    <div className="hero-body has-text-centered is-horizontal-center">
+      <div className="container">
+        <h1 className="title is-size-4 has-text-weight-bold is-spaced">
+          {props.title}
+        </h1>
+        <p className="subtitle has-text-weight-medium">
+          {props.subtitle}
+        </p>
+        <div className="buttons is-centered">
+          <Link to="/contact-us" className="button is-medium is-primary is-outlined is-inverted">CONTACT US</Link>
+          <a href="https://donorbox.org/donate-to-justfix-nyc" className="button is-medium is-primary is-outlined is-inverted" target="_blank" rel="noopener noreferrer">
+            DONATE
+          </a>
+        </div> 
+      </div>
+    </div>
+  
+  </section>
+    
   );
 }
 
@@ -70,21 +85,8 @@ export const MissionPageScaffolding = (props: ContentfulContent) =>
         </div>
       </section>
 
-      <section className="hero collaborate is-small is-primary is-horizontal-center">
-
-        <div className="hero-body has-text-centered is-horizontal-center">
-          <div className="container">
-            <h1 className="title is-size-4 has-text-weight-bold is-spaced">
-              {props.content.collaborationBanner.title}
-            </h1>
-            <p className="subtitle has-text-weight-medium">
-              {props.content.collaborationBanner.subtitle}
-            </p>
-            <ContactAndDonateButtons specialButtonClasses="is-outlined is-inverted" />
-          </div>
-        </div>
-
-      </section>
+      <CollaborationBanner title={props.content.collaborationBanner.title} 
+        subtitle={props.content.collaborationBanner.subtitle} />
 
       <ReadMore title={props.content.readMore.title} link={props.content.readMore.link} locale={props.locale} />
       
