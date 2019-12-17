@@ -75,6 +75,10 @@ render() {
           <Trans>Products</Trans>
         </Link>
 
+        <Link to={localePrefix + "/learn"} className={"navbar-item is-uppercase has-text-" + (this.state.burgerMenuIsOpen ? "black" : "white")}>
+          <Trans>Learn</Trans>
+        </Link>
+
         <Link to={localePrefix + "/contact-us"} className={"navbar-item is-uppercase has-text-" + (this.state.burgerMenuIsOpen ? "black" : "white")}>
           <Trans>Contact</Trans>
         </Link>
