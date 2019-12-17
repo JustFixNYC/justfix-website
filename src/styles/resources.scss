@@ -90,18 +90,31 @@
     }
 
     .article-section {
+    
         padding: 1rem 0;
-         .title {
-            line-height: 1.2
-         }
-         .cta {
-            padding: 2.5rem;
-            border-radius: 10px;
 
-            p {
-                padding-bottom: 1rem;
+        .content {
+
+            @media screen and (max-width: $tablet) {
+                margin-bottom: 0.5rem;
             }
+
+            .title {
+                line-height: 1.2
+            }
+
+            &.cta {
+                padding: 2.5rem;
+                border-radius: 10px;
+    
+                p {
+                    padding-bottom: 1rem;
+                }
+            }
+
         }
+        
+         
     }
 
     .footer-ctas {
@@ -138,7 +151,7 @@
                     }
 
                 }
-                
+
             }
         } 
     }
