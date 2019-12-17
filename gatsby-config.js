@@ -127,8 +127,7 @@ const plugins = [
 
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Contentful TypeScript starter',
-    enableDDO: process.env.ENABLE_DDO === '1'
+    title: 'JustFix.nyc',
   },
   plugins: conditionallyAddAlgoliaPlugin(plugins),
 }
