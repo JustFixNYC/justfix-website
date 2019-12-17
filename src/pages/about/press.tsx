@@ -39,7 +39,7 @@ export const PressPageScaffolding = (props: ContentfulContent) =>
               </div>
               
               <div className="media-content">
-                <h4 className="is-size-5 has-text-weight-semibold">{pressItem.title}</h4>
+                <h4 className="is-size-5 has-text-weight-semibold is-uppercase">{pressItem.title}</h4>
                 <p className="is-size-5 has-text-primary">
                   <a href= {pressItem.hyperlink} target="_blank" rel="noopener noreferrer">{pressItem.linkText}</a>
                 </p>

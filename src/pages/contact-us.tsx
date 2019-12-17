@@ -50,7 +50,7 @@ export const ContactPageScaffolding = (props: ContentfulContent) =>
                     </div>
                     <div className="control">
                         <button className="button is-primary" type="submit">
-                            SIGN UP
+                          <span className="is-uppercase">Sign up</span>
                         </button>
                     </div>
                 </div>
