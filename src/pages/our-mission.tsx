@@ -23,9 +23,9 @@ export function CollaborationBanner(props: {title: string, subtitle: string}): J
           {props.subtitle}
         </p>
         <div className="buttons is-centered">
-          <Link to="/contact-us" className="button is-medium is-primary is-outlined is-inverted">CONTACT US</Link>
-          <a href="https://donorbox.org/donate-to-justfix-nyc" className="button is-medium is-primary is-outlined is-inverted" target="_blank" rel="noopener noreferrer">
-            DONATE
+          <Link to="/contact-us" className="button is-medium is-primary is-outlined is-inverted is-uppercase">Contact Us</Link>
+          <a href="https://donorbox.org/donate-to-justfix-nyc" className="button is-medium is-primary is-outlined is-inverted is-uppercase" target="_blank" rel="noopener noreferrer">
+            Donate
           </a>
         </div> 
       </div>

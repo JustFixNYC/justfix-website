@@ -112,7 +112,7 @@ export const LandingPageScaffolding = (props: ContentfulContent) =>
                       <br/>
                     <p className="subtitle">{product.description}</p>
                       <br/>
-                    <a className="button is-large is-primary" href={ (product.cta.url + "?utm_source=orgsite") } target="_blank" rel="noopener noreferrer">{product.cta.title}</a>
+                    <a className="button is-large is-primary is-uppercase" href={ (product.cta.url + "?utm_source=orgsite") } target="_blank" rel="noopener noreferrer">{product.cta.title}</a>
                   </div>
                 </div>
                 {i % 2 === 0 && (<div className="column">
@@ -139,7 +139,7 @@ export const LandingPageScaffolding = (props: ContentfulContent) =>
                     <p className="subtitle">{product.description}</p>
                       <br/>
                     <a className="button is-medium is-primary" href={ (product.cta.url + "?utm_source=orgsite") } target="_blank" rel="noopener noreferrer">
-                      <span className="is-size-6">
+                      <span className="is-size-6 is-uppercase">
                       {product.cta.title}
                       </span>
                     </a>
