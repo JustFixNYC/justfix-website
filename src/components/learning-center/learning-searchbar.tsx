@@ -25,7 +25,7 @@ const Hits = ({ hits }: any) => (
   (hits && hits.length > 0 ? 
   <div className="dropdown-content">
     {(hits.map( (hit: any) => (
-      <Link key={hit.slug} to={"/resources/" + hit.slug} className="dropdown-item">
+      <Link key={hit.slug} to={"/learn/" + hit.slug} className="dropdown-item">
         <div className="is-size-6 has-text-primary has-text-weight-semibold">
           {hit.title} →
         </div>

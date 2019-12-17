@@ -1,6 +1,6 @@
 import React from 'react'
 import Layout from '../layout';
-import { ArticlePreviewCard } from '../../pages/resources';
+import { ArticlePreviewCard } from '../../pages/learn';
 import { Link } from 'gatsby';
 import { ThankYouBanner } from './thank-you-banner';
 
@@ -32,10 +32,10 @@ const LearningCategoryPage = (props: Props) => {
     const articlePreviews = props.pageContext.articlePreviews;
     return (
         <Layout metadata={{title: content.title }}>
-            <div id="resources" className="resources-page" >
+            <div id="learning-center" className="learning-center-page" >
             <section className="hero is-small">
                 <div className="content-wrapper tight back-to-overview">
-                    <Link to="/resources" className="has-text-weight-semibold">
+                    <Link to="/learn" className="has-text-weight-semibold">
                         ← Back to Overview
                     </Link>
                 </div>

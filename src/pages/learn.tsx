@@ -1,7 +1,7 @@
 import React from 'react'
 import { StaticQuery, graphql, Link } from 'gatsby'
 
-import '../styles/resources.scss' 
+import '../styles/learn.scss' 
 
 import Layout from '../components/layout'
 import { ContentfulContent } from '.'
@@ -18,17 +18,15 @@ export type Category = {
 }
 
 export const ArticlePreviewCard = (props: any) => {
-  const url = '/resources/' + props.articleData.slug; 
+  const url = '/learn/' + props.articleData.slug; 
   const categoryLabels = (props.articleData.categories).map(
     (category: Category, i: number) => 
-    <Link key={i} to={'/resources/category/' + category.slug} className="tag is-primary is-light is-uppercase">
+    <Link key={i} to={'/learn/category/' + category.slug} className="tag is-primary is-light is-uppercase">
       {category.title}
     </Link>
   )
   return (
     <div className="box article-preview">
-      
-      
         <h1 className="title is-size-3 has-text-primary is-spaced has-text-weight-semibold">
           <Link to={url}>
             {widont(props.articleData.title)}
@@ -55,7 +53,7 @@ export const ArticlePreviewCard = (props: any) => {
 
 const LearningPageScaffolding = (props: ContentfulContent) => 
   (<Layout metadata={props.content.metadata}>
-    <div id="resources" className="resources-page" >
+    <div id="learning-center" className="learning-center-page" >
       <section className="hero is-small">
         <div className="hero-body has-text-centered is-horizontal-center">
           <figure className="image is-128x128 is-horizontal-center">
@@ -73,7 +71,7 @@ const LearningPageScaffolding = (props: ContentfulContent) =>
             <div className="field is-centered is-hidden-mobile">
               {(props.content.categoryButtons).map( 
                 (category: Category, i: number) =>
-                <Link key={i} to={'/resources/category/' + category.slug} 
+                <Link key={i} to={'/learn/category/' + category.slug} 
                   className="button is-primary is-uppercase">
                   {category.title}
                 </Link>

@@ -1,7 +1,7 @@
 import React from 'react'
 import { StaticQuery, graphql, Link } from "gatsby";
 import { ContentfulContent } from '../../pages';
-import { Category } from '../../pages/resources';
+import { Category } from '../../pages/learn';
 
 const widont = require('widont')
 
@@ -22,7 +22,7 @@ const TableOfContentsSection = (props: TableOfContentsSection) => (
       <p className="menu-label">{props.categoryTitle}</p>
       <ul>
         { (props.articles).map( ( article: ArticleListing, i: number ) => 
-          (<li key={i}><Link to={ "/resources/" + article.slug }> {article.title} </Link></li>))
+          (<li key={i}><Link to={ "/learn/" + article.slug }> {article.title} </Link></li>))
         }
        <div className={"is-divider light" + (props.noDivider ? " is-hidden-tablet" : "")} />
       </ul>

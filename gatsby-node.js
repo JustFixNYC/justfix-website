@@ -67,7 +67,7 @@ exports.createPages = async function({ actions, graphql }) {
   const allPublishedArticles = data.contentfulLearningCenterSearchPage.articles;
   data.contentfulLearningCenterSearchPage.categoryButtons.forEach(category => {
     actions.createPage({
-      path: '/resources/category/' + category.slug,
+      path: '/learn/category/' + category.slug,
       component: require.resolve(`./src/components/learning-center/category-page-template.tsx`),
       context: { 
         content: category,
@@ -81,7 +81,7 @@ exports.createPages = async function({ actions, graphql }) {
   /* Learning Center article pages */
   data.contentfulLearningCenterSearchPage.articles.forEach(article => {
     actions.createPage({
-      path: '/resources/' + article.slug,
+      path: '/learn/' + article.slug,
       component: require.resolve(`./src/components/learning-center/article-template.tsx`),
       context: { 
         content: article

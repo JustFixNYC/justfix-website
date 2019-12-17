@@ -5,7 +5,7 @@ import { Link } from 'gatsby';
 import { Link as ScrollLink} from "react-scroll";
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
-import '../../styles/resources.scss' 
+import '../../styles/learn.scss' 
 
 const widont = require('widont')
 
@@ -99,8 +99,8 @@ const LearningArticle = (props: Props) => {
                             <div className="hero-body">
                                 <nav className="breadcrumb" aria-label="breadcrumbs">
                                     <ul>
-                                        <li><Link to="/resources/">Resource Center</Link></li>
-                                        <li><Link to={"/resources/category/" + content.categories[0].slug + "/"}>{content.categories[0].title}</Link></li>
+                                        <li><Link to="/learn/">Resource Center</Link></li>
+                                        <li><Link to={"/learn/category/" + content.categories[0].slug + "/"}>{content.categories[0].title}</Link></li>
                                     </ul>
                                 </nav>
                                 <div className="container content-wrapper">
