@@ -31,7 +31,7 @@ const LearningCategoryPage = (props: Props) => {
     const content = props.pageContext.content;
     const articlePreviews = props.pageContext.articlePreviews;
     return (
-        <Layout metadata={{title: content.title }}>
+        <Layout metadata={{title: content.title, description: content.description}}>
             <div id="learning-center" className="learning-center-page" >
             <section className="hero is-small">
                 <div className="content-wrapper tight back-to-overview">
