@@ -33,9 +33,11 @@ function renderSection(articleSection: any, i: number): JSX.Element {
                     <h1 className="title is-size-4 has-text-weight-bold has-text-white is-spaced">
                         {widont(articleSection.title)}
                     </h1>
+                    {articleSection.subtitle && 
                     <p className="is-hidden-mobile has-text-weight-medium has-text-white is-spaced">
                         {articleSection.subtitle}
                     </p>
+                    }
                     <a href={articleSection.ctaLink} className="button is-medium is-primary is-inverted is-outlined is-uppercase " target="_blank" rel="noopener noreferrer">
                         {articleSection.ctaText}
                     </a>
