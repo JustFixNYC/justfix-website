@@ -16,7 +16,7 @@ const tracking = {
 }
 
 const conditionallyAddAlgoliaPlugin = (plugins) => {
-  if (process.env.GATSBY_ALGOLIA_APP_ID && process.env.ALGOLIA_ADMIN_KEY && process.env.INCOMING_HOOK_BODY === "algolia_update") {
+  if (process.env.GATSBY_ALGOLIA_APP_ID && process.env.ALGOLIA_ADMIN_KEY) {
     const queries = require("./src/util/algolia.js")
     plugins.push({
       resolve: `gatsby-plugin-algolia`,
@@ -127,7 +127,7 @@ const plugins = [
 
 module.exports = {
   siteMetadata: {
-    title: 'JustFix.nyc',
+    title: process.env.INCOMING_HOOK_BODY || 'JustFix.nyc',
   },
   plugins: conditionallyAddAlgoliaPlugin(plugins),
 }
