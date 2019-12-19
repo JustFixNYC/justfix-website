@@ -127,7 +127,7 @@ const plugins = [
 
 module.exports = {
   siteMetadata: {
-    title: process.env.INCOMING_HOOK_BODY || 'JustFix.nyc',
+    title: 'JustFix.nyc',
   },
   plugins: conditionallyAddAlgoliaPlugin(plugins),
 }
