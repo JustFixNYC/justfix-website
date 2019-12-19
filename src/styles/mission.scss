@@ -14,11 +14,6 @@
                 margin: 5rem 0;
                 padding: 2.5rem;
                 border-radius: 10px;
-
-                /* Make size of CTA buttons hug internal text */
-                .button {
-                    flex-grow: 0;
-                }
             }
 
             .buttons.is-centered {
