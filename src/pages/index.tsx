@@ -45,7 +45,7 @@ export const LandingPageScaffolding = (props: ContentfulContent) =>
           <div className="hero-body">
             <div className="container content-wrapper tight">
               <h1 className="title is-size-1 is-size-3-mobile has-text-white is-spaced">
-                <span className="is-hidden-mobile">
+                <span>
                   {props.content.landingLeadInText}
                   <div className="title-carousel">
                     <TextLoop interval={TEXTLOOP_ANIMATION_INTERVAL}
@@ -54,9 +54,6 @@ export const LandingPageScaffolding = (props: ContentfulContent) =>
                       <span key={i}>{textBlock}</span>)}
                     </TextLoop>
                   </div>
-                </span>
-                <span className="is-hidden-tablet"> 
-                  {props.content.landingFallbackText}
                 </span>
               </h1>
 
