@@ -26,8 +26,10 @@
                 margin-top: 0.5rem;
 
                 @media screen and (max-width: $tablet) {
+                    /* Maintain a minimum height of two lines so spacing is fixed */ 
                     min-height: 4.5rem;
-                    
+
+                    /* Allow lines of text to go to two lines */
                     span {
                         white-space: normal;
                     }
