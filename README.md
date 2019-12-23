@@ -46,4 +46,8 @@ Then visit `http://localhost:8000`!
 
 ## Deployment 
 
-  We deploy our version of the site using [Netlify](https://www.netlify.com/), which links directly to this repo and deploys on commits to the master branch. To use Netlify in deploying your own version, follow this [step-by-step guide](https://www.netlify.com/blog/2016/09/29/a-step-by-step-guide-deploying-on-netlify/).   
+  We deploy our version of the site using [Netlify](https://www.netlify.com/), which links directly to this repo and deploys on commits to the master branch. To use Netlify in deploying your own version, follow this [step-by-step guide](https://www.netlify.com/blog/2016/09/29/a-step-by-step-guide-deploying-on-netlify/).
+  
+## Code of Conduct
+
+  Read about JustFix's code of conduct as an organization on our [Mission page](https://www.justfix.nyc/our-mission/).
