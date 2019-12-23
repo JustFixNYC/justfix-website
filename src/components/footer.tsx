@@ -94,8 +94,8 @@ const Footer = withI18n()(({locale, i18n}: Locale & withI18nProps) => {
           </Link>
         </div>
         <div className="column is-one-quarter">
-          <a href="https://www.contentful.com/" target="_blank" rel="noopener noreferrer">
-            <img src={require("../img/contenful-light.png")} alt="Contentful" />
+          <a href="https://www.netlify.com" target="_blank" rel="noopener noreferrer">
+            <img src="https://www.netlify.com/img/global/badges/netlify-light.svg" alt="Netlify" />
           </a>
         </div>
       </div>
