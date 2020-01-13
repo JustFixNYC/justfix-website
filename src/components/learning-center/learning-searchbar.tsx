@@ -6,6 +6,7 @@ import { SearchBoxExposed } from 'react-instantsearch-core';
 
 const appId = process.env.GATSBY_ALGOLIA_APP_ID;
 const searchKey = process.env.GATSBY_ALGOLIA_SEARCH_KEY;
+const enableAnalytics = process.env.ENABLE_ALGOLIA_ANALYTICS;
 
 const SEARCH_RESULTS_LIMIT = 5;
 
@@ -74,7 +75,9 @@ class LearningSearchBar extends Component<Props,State> {
           {(this.state.query || '').length > 0 && 
             (
               <React.Fragment>
-                <Configure attributesToSnippet={['articleContent']} />
+                <Configure 
+                  attributesToSnippet={['articleContent']} 
+                  analytics={enableAnalytics === '1' || false} />
                 <CustomHits />
               </React.Fragment>
             )
