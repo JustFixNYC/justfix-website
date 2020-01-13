@@ -30,8 +30,8 @@ function renderSection(articleSection: any, i: number): JSX.Element {
     return (
         <div key={i} id={makeSectionID(i)} className="article-section">
             {(articleSection.__typename === "ContentfulLearningArticleCtaBlock" ? 
-                <div className="cta-wrapper">
-                    <div className="content cta is-horizontal-center has-text-centered has-background-white">
+                <div className="content cta-wrapper">
+                    <div className="cta is-horizontal-center has-text-centered has-background-white">
                         <div className="label is-block">
                             <small className="has-text-primary has-text-weight-bold has-background-white is-uppercase">Want to take action?</small>
                         </div>
@@ -48,10 +48,10 @@ function renderSection(articleSection: any, i: number): JSX.Element {
                         </a>
                     </div>
                     {articleSection.secondaryCta && 
-                        <div className="content secondary-cta is-horizontal-center has-text-centered has-background-white">
+                        <div className="secondary-cta is-horizontal-center has-text-centered has-background-white">
                             {articleSection.secondaryCta.subtitle && 
                             <p className="is-size-7 is-marginless has-text-weight-medium has-text-primary is-spaced">
-                                {articleSection.secondaryCta.subtitle}
+                                {widont(articleSection.secondaryCta.subtitle)}
                             </p>
                             }
                             <a href={articleSection.secondaryCta.ctaLink} className="is-size-7 is-uppercase" target="_blank" rel="noopener noreferrer">
