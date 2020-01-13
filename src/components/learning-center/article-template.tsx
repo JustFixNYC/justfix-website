@@ -34,11 +34,11 @@ function renderSection(articleSection: any, i: number, minifyCta?: boolean): JSX
                     {(minifyCta ? 
                     <div className="content is-horizontal-center has-text-centered has-background-white">
                         {articleSection.subtitle && 
-                        <p className="is-hidden-mobile has-text-weight-medium has-text-primary is-spaced">
+                        <p className="is-size-7 is-marginless has-text-weight-medium has-text-primary is-spaced">
                             {articleSection.subtitle}
                         </p>
                         }
-                        <a href={articleSection.ctaLink} className="is-uppercase" target="_blank" rel="noopener noreferrer">
+                        <a href={articleSection.ctaLink} className="is-size-7 is-uppercase" target="_blank" rel="noopener noreferrer">
                             <u>{articleSection.ctaText}</u>
                         </a>
                     </div>:

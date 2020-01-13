@@ -20,6 +20,7 @@ const AllToolsCtaScaffolding = (props: ContentfulContent) => {
             </p>
             }
             <div className="is-hidden-mobile">
+              <br />
               <DDOSearchBar
                 hiddenFieldLabel="Enter your address to learn more."
                 submitLabel="Search address"
