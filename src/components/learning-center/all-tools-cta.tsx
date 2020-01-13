@@ -1,5 +1,5 @@
 import React from 'react'
-import { StaticQuery, graphql, Link } from "gatsby";
+import { StaticQuery, graphql } from "gatsby";
 import { ContentfulContent } from '../../pages';
 import { DDOSearchBar } from '../ddo-searchbar';
 
