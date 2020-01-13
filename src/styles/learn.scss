@@ -10,6 +10,14 @@
             } 
         }
 
+        .search-bar {
+            padding-bottom: 0.25rem;
+
+            .search-by {
+                margin-top: 0.25rem;
+            }
+        }
+
         .back-to-overview {
             @media screen and (max-width: $tablet) {
                 padding: 0 1.5rem;

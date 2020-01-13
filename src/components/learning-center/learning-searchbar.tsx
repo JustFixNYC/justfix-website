@@ -62,24 +62,32 @@ class LearningSearchBar extends Component<Props,State> {
 
   render() {
     return (appId && searchKey ? 
-    <InstantSearch
-      searchClient={algoliasearch(appId,searchKey)}
-      indexName="learning_center"
-      resultsState={[]}
-    >
-      
-      <CustomSearchBox updateSearchQuery={(e: any) => this.setState({query: e})} />
+    <div className="search-bar">
+      <InstantSearch
+        searchClient={algoliasearch(appId,searchKey)}
+        indexName="learning_center"
+        resultsState={[]}
+      >
+        
+        <CustomSearchBox updateSearchQuery={(e: any) => this.setState({query: e})} />
 
-        {(this.state.query || '').length > 0 && 
-          (
-            <React.Fragment>
-              <Configure attributesToSnippet={['articleContent']} />
-              <CustomHits />
-            </React.Fragment>
-          )
+          {(this.state.query || '').length > 0 && 
+            (
+              <React.Fragment>
+                <Configure attributesToSnippet={['articleContent']} />
+                <CustomHits />
+              </React.Fragment>
+            )
+          }
+
+        </InstantSearch>
+
+        {this.state.query && 
+          <div className="search-by is-pulled-right">
+            <img width="100px" src="https://www.algolia.com/gatsby-images/shared/algolia_logo/search-by-algolia-light-background.svg" />
+          </div>
         }
-
-      </InstantSearch>: 
+      </div>: 
     <React.Fragment />
     )
   }
