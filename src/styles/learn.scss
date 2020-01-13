@@ -4,6 +4,12 @@
 .learning-center-page {
     .hero {
 
+        .image {
+            @media screen and (min-width: $tablet) {
+                margin: 0 15%;
+            } 
+        }
+
         .back-to-overview {
             @media screen and (max-width: $tablet) {
                 padding: 0 1.5rem;

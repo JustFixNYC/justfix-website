@@ -5,7 +5,6 @@ import '../styles/learn.scss'
 
 import Layout from '../components/layout'
 import { ContentfulContent } from '.'
-import { LearningCenterImage } from '../components/learning-center/header-image'
 import { ThankYouBanner } from '../components/learning-center/thank-you-banner'
 import LearningSearchBar from '../components/learning-center/learning-searchbar'
 
@@ -56,9 +55,10 @@ const LearningPageScaffolding = (props: ContentfulContent) =>
     <div id="learning-center" className="learning-center-page" >
       <section className="hero is-small">
         <div className="hero-body has-text-centered is-horizontal-center">
-          <figure className="image is-128x128 is-horizontal-center">
-            <LearningCenterImage />
+          <figure className="image is-3by1 is-horizontal-center">
+            <img src={props.content.headerImage.file.url} />
           </figure>
+            <br />
           <div className="container content-wrapper tight">
             <h1 className="title is-size-2 has-text-grey-dark has-text-weight-normal is-spaced">
               {props.content.title}
@@ -108,6 +108,11 @@ const LearningPage  = () => (
             }
           }
           title
+          headerImage {
+            file {
+              url
+            }
+          }
           subtitle
           categoryButtons {
             title
