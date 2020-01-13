@@ -26,11 +26,22 @@ function makeSectionID(index: number): string {
     return "section-" + (index + 1).toString();
 }
 
-function renderSection(articleSection: any, i: number): JSX.Element {
+function renderSection(articleSection: any, i: number, minifyCta?: boolean): JSX.Element {
     return (
         <div key={i} id={makeSectionID(i)} className="article-section">
             {(articleSection.__typename === "ContentfulLearningArticleCtaBlock" ? 
                 <div className="cta-wrapper">
+                    {(minifyCta ? 
+                    <div className="content is-horizontal-center has-text-centered has-background-white">
+                        {articleSection.subtitle && 
+                        <p className="is-hidden-mobile has-text-weight-medium has-text-primary is-spaced">
+                            {articleSection.subtitle}
+                        </p>
+                        }
+                        <a href={articleSection.ctaLink} className="is-uppercase" target="_blank" rel="noopener noreferrer">
+                            <u>{articleSection.ctaText}</u>
+                        </a>
+                    </div>:
                     <div className="content cta is-horizontal-center has-text-centered has-background-white">
                         <div className="label is-block">
                             <small className="has-text-primary has-text-weight-bold has-background-white is-uppercase">Want to take action?</small>
@@ -47,7 +58,8 @@ function renderSection(articleSection: any, i: number): JSX.Element {
                             {articleSection.ctaText}
                         </a>
                     </div>
-                </div>:
+                    )}
+                </div> :
                 <div className="content">
                     <h1 className="title is-size-3 is-size-4-mobile has-text-grey-dark has-text-weight-semibold is-spaced">
                         {widont(articleSection.title)}
@@ -138,12 +150,16 @@ const LearningArticle = (props: Props) => {
                             <div className="container content-wrapper">
                                 {(content.articleSections).map(
                                     (articleSection: any, i: number) => 
-                                    <div key={i}>
-                                        {renderSection(articleSection, i)}
-                                        
-                                    </div>
+                                    {
+                                    const minifyCta = i > 0 
+                                        && content.articleSections[i].__typename === "ContentfulLearningArticleCtaBlock"
+                                        && content.articleSections[i-1].__typename === "ContentfulLearningArticleCtaBlock";
+                                    return (<div key={i}>
+                                        {renderSection(articleSection, i, minifyCta)}
+                                    </div>)}
                                 )}
                                 <AllToolsCta />
+                                <br />
                             </div>
                         </div>
                     </div>  

@@ -115,13 +115,16 @@
             @media screen and (min-width: $tablet) {
                 padding: 0 4rem;
             }
+            
+           & > div {
+                max-width: 500px;
+            }
         }
-        
+
         .cta {
             padding: 2.5rem;
             border-radius: 10px;
             border: 1px solid $primary;
-            max-width: 500px;
 
             .label {
                 margin-top: -3.35rem;
