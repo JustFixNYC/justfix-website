@@ -150,9 +150,14 @@ const LearningArticle = (props: Props) => {
                                 {(content.articleSections).map(
                                     (articleSection: any, i: number) => 
                                     {
-                                    return (<div key={i}>
-                                        {renderSection(articleSection, i)}
-                                    </div>)}
+                                    const includeDivider = i > 0 && 
+                                        content.articleSections[i].__typename === 'ContentfulLearningArticleSection' &&
+                                        content.articleSections[i-1].__typename === 'ContentfulLearningArticleSection'
+                                    return (
+                                        <div key={i}>
+                                            {includeDivider && <div className="is-divider light is-hidden-touch" />}
+                                            {renderSection(articleSection, i)}
+                                        </div>)}
                                 )}
                                 <AllToolsCta />
                                 <br />
