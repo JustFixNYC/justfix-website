@@ -111,14 +111,31 @@
 
         }
 
+        .cta-wrapper {
+            @media screen and (min-width: $tablet) {
+                padding: 0 4rem;
+            }
+        }
+        
         .cta {
-            margin-left: 4rem;
-            margin-right: 4rem;
             padding: 2.5rem;
             border-radius: 10px;
+            border: 1px solid $primary;
+            max-width: 500px;
 
-            &.all-tools .button:not(:hover):not(:active):not(:focus) {
-                background-color: #FFF;
+            .label {
+                margin-top: -3.35rem;
+                small {
+                    padding: 0.5rem;
+                }
+            }
+
+            &.all-tools {
+                border-color: $justfix-blue-lightened;
+                
+                .button:not(:hover):not(:active):not(:focus) {
+                    background-color: #FFF;
+                }
             }
 
             p {

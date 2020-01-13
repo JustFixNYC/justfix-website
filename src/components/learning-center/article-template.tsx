@@ -30,18 +30,23 @@ function renderSection(articleSection: any, i: number): JSX.Element {
     return (
         <div key={i} id={makeSectionID(i)} className="article-section">
             {(articleSection.__typename === "ContentfulLearningArticleCtaBlock" ? 
-                <div className="content cta has-text-centered has-background-primary">
-                    <h1 className="title is-size-4 has-text-weight-bold has-text-white is-spaced">
-                        {widont(articleSection.title)}
-                    </h1>
-                    {articleSection.subtitle && 
-                    <p className="is-hidden-mobile has-text-weight-medium has-text-white is-spaced">
-                        {articleSection.subtitle}
-                    </p>
-                    }
-                    <a href={articleSection.ctaLink} className="button is-medium is-primary is-inverted is-outlined is-uppercase " target="_blank" rel="noopener noreferrer">
-                        {articleSection.ctaText}
-                    </a>
+                <div className="cta-wrapper">
+                    <div className="content cta is-horizontal-center has-text-centered has-background-white">
+                        <div className="label is-block">
+                            <small className="has-text-primary has-text-weight-bold has-background-white is-uppercase">Want to take action?</small>
+                        </div>
+                        <h1 className="title is-size-4 has-text-weight-bold has-text-primary is-spaced">
+                            {widont(articleSection.title)}
+                        </h1>
+                        {articleSection.subtitle && 
+                        <p className="is-hidden-mobile has-text-weight-medium has-text-primary is-spaced">
+                            {articleSection.subtitle}
+                        </p>
+                        }
+                        <a href={articleSection.ctaLink} className="button is-medium is-primary is-outlined is-uppercase " target="_blank" rel="noopener noreferrer">
+                            {articleSection.ctaText}
+                        </a>
+                    </div>
                 </div>:
                 <div className="content">
                     <h1 className="title is-size-3 is-size-4-mobile has-text-grey-dark has-text-weight-semibold is-spaced">
