@@ -29,6 +29,9 @@ export type DDOSearchBarProps = {
 
   /** The GeoAutocomplete component to use; primarily intended for testing. */
   geoAutocompleteComponent?: React.ComponentType<GeoAutocompleteProps>;
+
+  /** Whether the search bar is showing up within a CTA */
+  withinCTA?: boolean;
 };
 
 /** Return the DDO URL for the given address and/or borough. */
@@ -88,7 +91,7 @@ export function DDOSearchBar(props: DDOSearchBarProps): JSX.Element {
         gotoDDO(autocompleteItem);
       }
     }}>
-      <div className="level jf-ddo-searchbar">
+      <div className={(props.withinCTA ? "" : "level ") + "jf-ddo-searchbar"}>
         {useGeoAutocomplete
           ? <GeoAutocompleteComponent label={props.hiddenFieldLabel} onChange={item => {
               setAutocompleteItem(item);
@@ -98,8 +101,12 @@ export function DDOSearchBar(props: DDOSearchBarProps): JSX.Element {
             }} onNetworkError={(e) => {window.console && window.console.log(e)}} />
           : <BaselineAddressInput {...props} />
         }
-        <button type="submit" className={classnames(
-          "button", "is-inverted", "is-outlined", "is-uppercase", isNavigating ? "is-loading" : "is-dark"
+        <button type="submit" className={
+          props.withinCTA ? classnames(
+            "button", "is-primary","is-medium", "is-outlined", "is-uppercase", isNavigating ? "is-loading" : "is-dark"
+          ):
+          classnames(
+            "button", "is-inverted", "is-outlined", "is-uppercase", isNavigating ? "is-loading" : "is-dark"
         )}>{props.submitLabel}</button>
       </div>
     </form>

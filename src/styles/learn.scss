@@ -109,15 +109,21 @@
                 line-height: 1.2
             }
 
-            &.cta {
-                padding: 2.5rem;
-                border-radius: 10px;
-    
-                p {
-                    padding-bottom: 1rem;
-                }
+        }
+
+        .cta {
+            margin-left: 4rem;
+            margin-right: 4rem;
+            padding: 2.5rem;
+            border-radius: 10px;
+
+            &.all-tools .button:not(:hover):not(:active):not(:focus) {
+                background-color: #FFF;
             }
 
+            p {
+                padding-bottom: 1rem;
+            }
         }
         
          

@@ -110,6 +110,11 @@ a.button.is-large {
     display: inline-block;
 }
 
+.has-background-primary-white {
+    background-color: $justfix-blue-white;
+    border: 1px solid $justfix-blue-lightened;
+}
+
 .is-horizontal-center {
     margin-left: auto;
     margin-right: auto;

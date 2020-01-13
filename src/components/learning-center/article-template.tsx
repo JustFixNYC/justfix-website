@@ -6,6 +6,7 @@ import { Link as ScrollLink} from "react-scroll";
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
 import '../../styles/learn.scss' 
+import { AllToolsCta } from './all-tools-cta';
 
 const widont = require('widont')
 
@@ -137,6 +138,7 @@ const LearningArticle = (props: Props) => {
                                         
                                     </div>
                                 )}
+                                <AllToolsCta />
                             </div>
                         </div>
                     </div>  
