@@ -50,6 +50,11 @@ exports.createPages = async function({ actions, graphql }) {
               subtitle
               ctaText
               ctaLink
+              secondaryCta {
+                subtitle
+                ctaText
+                ctaLink
+              }
             }
             ... on ContentfulLearningArticleSection {
               title
