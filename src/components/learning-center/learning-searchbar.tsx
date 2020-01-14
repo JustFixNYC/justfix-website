@@ -87,7 +87,7 @@ class LearningSearchBar extends Component<Props,State> {
 
         {this.state.query && 
           <div className="search-by is-pulled-right">
-            <img width="100" height="20" src="https://www.algolia.com/gatsby-images/shared/algolia_logo/search-by-algolia-light-background.svg" />
+            <img width="100px" src="https://www.algolia.com/gatsby-images/shared/algolia_logo/search-by-algolia-light-background.svg" />
           </div>
         }
       </div>: 
