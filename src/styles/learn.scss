@@ -149,10 +149,6 @@
 
             &.all-tools {
                 border-color: $justfix-blue-lightened;
-                
-                .button:not(:hover):not(:active):not(:focus) {
-                    background-color: #FFF;
-                }
             }
 
             p {

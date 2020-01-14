@@ -28,7 +28,7 @@ const AllToolsCtaScaffolding = (props: ContentfulContent) => {
                 withinCTA={true}
               />
             </div>
-            <a href={cta.ctaLink} className="is-hidden-tablet button is-medium is-primary is-outlined is-uppercase" target="_blank" rel="noopener noreferrer">
+            <a href={cta.ctaLink} className="is-hidden-tablet button is-medium is-primary is-uppercase" target="_blank" rel="noopener noreferrer">
               {cta.ctaText}
             </a>
         </div>
