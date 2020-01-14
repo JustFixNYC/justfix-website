@@ -15,7 +15,7 @@ const SearchBox = ({ currentRefinement, refine, updateSearchQuery }: any) => (
     <input
       className="input is-primary is-size-5"
       type="search"
-      placeholder="🔎 Search articles..."
+      placeholder="Search articles..."
       value={currentRefinement}
       onChange={event => {refine(event.currentTarget.value); updateSearchQuery(event.currentTarget.value);}}
     />

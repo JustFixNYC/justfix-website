@@ -56,7 +56,7 @@ const LearningPageScaffolding = (props: ContentfulContent) =>
     <div id="learning-center" className="learning-center-page" >
       <section className="hero is-small">
         <div className="hero-body has-text-centered is-horizontal-center">
-          <figure className="image is-3by1 is-horizontal-center">
+          <figure className="image landing-illustration is-3by1 is-horizontal-center">
             <img src={props.content.headerImage.file.url} />
           </figure>
           <div className="container content-wrapper tight">
