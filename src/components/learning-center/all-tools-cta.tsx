@@ -24,6 +24,7 @@ const AllToolsCtaScaffolding = (props: ContentfulContent) => {
               <DDOSearchBar
                 hiddenFieldLabel="Enter your address to learn more."
                 submitLabel="Search address"
+                customUtmTags="utm_source=orgsite&utm_medium=learning_center_cta"
                 withinCTA={true}
               />
             </div>
