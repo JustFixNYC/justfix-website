@@ -4,7 +4,9 @@
 .learning-center-page {
     .hero {
 
-        .image {
+        .image.landing-illustration {
+            margin-bottom: 2rem;
+
             @media screen and (min-width: $tablet) {
                 margin: 0 17%;
             } 
