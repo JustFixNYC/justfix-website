@@ -3,19 +3,26 @@ import { StaticQuery, graphql, Link } from 'gatsby'
 import { ContentfulContent } from '../../pages';
 import { Category } from '../../pages/learn';
 
-const CategoryMenuScaffolding = (props: ContentfulContent) => 
-  (<div className="field is-centered is-hidden-mobile">
-        {(props.content.categoryButtons).map( 
-        (category: Category, i: number) =>
-        <Link key={i} to={'/learn/category/' + category.slug} className="button is-primary is-uppercase">
-          {category.title}
-        </Link>
-        )}
-    </div>
-); 
+type CategoryMenuProps = 
+  ContentfulContent & 
+  {selectedCategory?: any}
+
+const CategoryMenuScaffolding = (props: CategoryMenuProps) => (
+  <div className="field is-centered is-hidden-mobile">
+    {(props.content.categoryButtons).map( 
+    (category: Category, i: number) =>
+    <Link key={i} to={'/learn/category/' + category.slug} 
+      className={"button is-primary is-uppercase " + 
+        /* Small button size on category pages: */ 
+        (props.selectedCategory ? " is-small" : "") + 
+        /* Highlighted button for selected category: */
+        (props.selectedCategory && props.selectedCategory !== category.slug ? " is-outlined" : "")} >
+      {category.title}
+    </Link>)}
+  </div>)
 
 
-const CategoryMenu  = () => (
+const CategoryMenu = (props: any) => (
   <StaticQuery
     query={graphql`
       query {
@@ -27,7 +34,7 @@ const CategoryMenu  = () => (
         }
       }
     `}
-  render = {data => (<CategoryMenuScaffolding content={data.contentfulLearningCenterSearchPage} />)}
+  render = {data => (<CategoryMenuScaffolding content={data.contentfulLearningCenterSearchPage} selectedCategory={props.selectedCategory} />)}
   />
 );
 

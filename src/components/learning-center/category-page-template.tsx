@@ -3,6 +3,7 @@ import Layout from '../layout';
 import { ArticlePreviewCard } from '../../pages/learn';
 import { Link } from 'gatsby';
 import { ThankYouBanner } from './thank-you-banner';
+import CategoryMenu from './category-menu';
 
 const widont = require('widont')
 
@@ -32,7 +33,7 @@ const LearningCategoryPage = (props: Props) => {
     const articlePreviews = props.pageContext.articlePreviews;
     return (
         <Layout metadata={{title: content.title, description: content.description}}>
-            <div id="learning-center" className="learning-center-page" >
+            <div className="category-page" >
             <section className="hero is-small">
                 <div className="content-wrapper tight back-to-overview">
                     <Link to="/learn" className="has-text-weight-semibold">
@@ -48,7 +49,7 @@ const LearningCategoryPage = (props: Props) => {
                         <h6 className="subtitle has-text-grey-dark is-italic">
                         {widont(content.description)}
                         </h6>
-                        
+                        <CategoryMenu selectedCategory={content.slug} />
                     </div>
                 </div>
             </section>
