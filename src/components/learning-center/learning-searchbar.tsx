@@ -11,7 +11,7 @@ const enableAnalytics = process.env.ENABLE_ALGOLIA_ANALYTICS;
 const SEARCH_RESULTS_LIMIT = 5;
 
 const SearchBox = ({ currentRefinement, refine, updateSearchQuery }: any) => (
-  <form className="control" noValidate action="" role="search">
+  <form className="control" noValidate action="" role="search" onSubmit={e => e.preventDefault()}>
     <input
       className="input is-primary is-size-5"
       type="search"
