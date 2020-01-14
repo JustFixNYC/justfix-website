@@ -40,7 +40,7 @@ export const MissionPageScaffolding = (props: ContentfulContent) =>
   (<Layout metadata={props.content.metadata} locale={props.locale}>
     <div id="mission" className="mission-page" >
 
-      <section className="hero is-small is-white">
+      <section className="hero is-small">
         <div className="hero-body has-text-centered is-horizontal-center">
           <div className="container">
             <h1 className="title is-size-2 has-text-grey-dark has-text-weight-normal is-spaced">
@@ -59,7 +59,7 @@ export const MissionPageScaffolding = (props: ContentfulContent) =>
           </figure>
       </section>
 
-      <section className="hero problem is-medium is-white">
+      <section className="hero problem is-medium">
         <div className="hero-body is-horizontal-center">
           <div className="content has-text-grey-dark">
             {documentToReactComponents(props.content.serveSection.json)}

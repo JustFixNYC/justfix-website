@@ -12,7 +12,7 @@ export const PartnersPageScaffolding = (props: ContentfulContent) =>
   (<Layout metadata={props.content.metadata} locale={props.locale}>
   <div id="partners" className="partners-page">
 
-      <section className="hero is-small is-white">
+      <section className="hero is-small">
         <div className="hero-body has-text-centered is-horizontal-center">
           <div className="container">
             <h1 className="title is-size-2 has-text-grey-dark has-text-weight-normal is-spaced">
@@ -39,7 +39,7 @@ export const PartnersPageScaffolding = (props: ContentfulContent) =>
       
       </section>
 
-      <section className="hero is-small is-white">
+      <section className="hero is-small">
 
         <div className="hero-body has-text-centered is-horizontal-center">
           <div className="container">

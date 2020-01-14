@@ -15,7 +15,7 @@ export const TeamPageScaffolding = (props: ContentfulContent) =>
 
     <div id="team" className="team-page">
 
-      <section className="hero is-small is-white">
+      <section className="hero is-small">
 
         <div className="hero-body has-text-centered is-horizontal-center">
           <div className="container">
@@ -50,7 +50,7 @@ export const TeamPageScaffolding = (props: ContentfulContent) =>
 
       </section>
 
-      <section className="hero is-small is-white">
+      <section className="hero is-small">
 
         <div className="hero-body has-text-centered is-horizontal-center">
           <div className="container">
@@ -95,7 +95,7 @@ export const TeamPageScaffolding = (props: ContentfulContent) =>
 
       </section>
 
-      <section className="is-horizontal-center hero is-small is-light">
+      <section className="is-horizontal-center hero is-small has-background-light">
 
         <div className="hero-body has-text-centered is-horizontal-center">
           <div className="container">

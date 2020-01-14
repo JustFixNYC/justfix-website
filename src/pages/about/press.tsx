@@ -14,7 +14,7 @@ export const PressPageScaffolding = (props: ContentfulContent) =>
 
     <div id="press" className="press-page">
 
-      <section className="hero is-small is-white">
+      <section className="hero is-small">
 
         <div className="hero-body has-text-centered is-horizontal-center">
           <div className="container">
