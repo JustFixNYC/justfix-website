@@ -58,7 +58,6 @@ const LearningPageScaffolding = (props: ContentfulContent) =>
           <figure className="image is-3by1 is-horizontal-center">
             <img src={props.content.headerImage.file.url} />
           </figure>
-            <br />
           <div className="container content-wrapper tight">
             <h1 className="title is-size-2 has-text-grey-dark has-text-weight-normal is-spaced">
               {props.content.title}
