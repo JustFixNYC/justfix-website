@@ -3,13 +3,16 @@
 
 .learning-center-page {
     .hero {
-
         .image.landing-illustration {
             margin-bottom: 2rem;
 
             @media screen and (min-width: $tablet) {
                 margin: 0 17%;
             } 
+        }
+
+        .hero-body .button {
+            font-size: 0.85rem;
         }
 
         .search-bar {
@@ -19,18 +22,6 @@
                 margin-top: 0.25rem;
             }
         }
-
-        .back-to-overview {
-            @media screen and (max-width: $tablet) {
-                padding: 0 1.5rem;
-            } 
-        }
-    
-        .hero-body .button {
-            margin: 0.35rem;
-            font-size: 0.85rem;
-        }
-
     }
 
     .dropdown-item {
@@ -38,6 +29,25 @@
 
         &:not(:first-child) {
             border-top: 1px solid #eee;
+        }
+    }
+}
+
+.learning-center-page, .category-page {
+    .hero {
+
+        .hero-body .button {
+            margin: 0.35rem;
+
+            &.is-outlined:not(:hover):not(:focus) {
+                opacity: 0.5;
+            }
+        }
+
+        .back-to-overview {
+            @media screen and (max-width: $tablet) {
+                padding: 0 1.5rem;
+            } 
         }
     }
     
@@ -149,10 +159,6 @@
 
             &.all-tools {
                 border-color: $justfix-blue-lightened;
-                
-                .button:not(:hover):not(:active):not(:focus) {
-                    background-color: #FFF;
-                }
             }
 
             p {

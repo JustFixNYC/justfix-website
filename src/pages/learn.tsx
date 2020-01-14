@@ -7,6 +7,7 @@ import Layout from '../components/layout'
 import { ContentfulContent } from '.'
 import { ThankYouBanner } from '../components/learning-center/thank-you-banner'
 import LearningSearchBar from '../components/learning-center/learning-searchbar'
+import CategoryMenu from '../components/learning-center/category-menu'
 
 const widont = require('widont')
 
@@ -67,15 +68,7 @@ const LearningPageScaffolding = (props: ContentfulContent) =>
             </h6>
             <LearningSearchBar />
               <br />
-            <div className="field is-centered is-hidden-mobile">
-              {(props.content.categoryButtons).map( 
-                (category: Category, i: number) =>
-                <Link key={i} to={'/learn/category/' + category.slug} 
-                  className="button is-primary is-uppercase">
-                  {category.title}
-                </Link>
-              )}
-            </div>
+            <CategoryMenu />
           </div>
         </div>
       </section>
@@ -113,11 +106,6 @@ const LearningPage  = () => (
             }
           }
           subtitle
-          categoryButtons {
-            title
-            description
-            slug
-          }
           articles {
             slug
             title

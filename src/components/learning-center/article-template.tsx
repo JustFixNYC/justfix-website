@@ -43,7 +43,7 @@ function renderSection(articleSection: any, i: number): JSX.Element {
                             {articleSection.subtitle}
                         </p>
                         }
-                        <a href={articleSection.ctaLink} className="button is-medium is-primary is-outlined is-uppercase " target="_blank" rel="noopener noreferrer">
+                        <a href={articleSection.ctaLink} className="button is-medium is-primary is-uppercase " target="_blank" rel="noopener noreferrer">
                             {articleSection.ctaText}
                         </a>
                     </div>
