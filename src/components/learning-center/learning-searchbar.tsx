@@ -6,7 +6,7 @@ import { SearchBoxExposed } from 'react-instantsearch-core';
 
 const appId = process.env.GATSBY_ALGOLIA_APP_ID;
 const searchKey = process.env.GATSBY_ALGOLIA_SEARCH_KEY;
-const enableAnalytics = process.env.ENABLE_ALGOLIA_ANALYTICS;
+const enableAnalytics = process.env.GATSBY_ENABLE_ALGOLIA_ANALYTICS;
 
 const SEARCH_RESULTS_LIMIT = 5;
 
