@@ -113,7 +113,11 @@ const generateLearningPages = async function({ actions, graphql }, locale) {
     categoryButtons: data.contentfulLearningCenterSearchPage.categoryButtons,
     learningCenterCta: data.contentfulLearningCenterSearchPage.learningCenterCta,
     justFixCta: data.contentfulLearningCenterSearchPage.justFixCta,
-    articles: allPublishedArticles
+    articles: allPublishedArticles.map( article => {
+      const {title, slug, categories, ...partialObject} = article;
+      const subset = { title, slug, categories };
+      return subset; 
+     } )
   };
   const allToolsCta = data.contentfulLearningCenterSearchPage.allToolsCta;
   data.contentfulLearningCenterSearchPage.articles.forEach(article => {
