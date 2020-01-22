@@ -4,11 +4,69 @@
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 
-exports.createPages = async function({ actions, graphql }) {
-  
-  /* Generate Learning Center pages */
-  const { data } = await graphql(`
-    query {
+/* Generate Learning Center pages */
+const generateLearningPages = async function({ actions, graphql }, locale) {
+  const query = locale === "es" ? 
+  `query {
+    contentfulLearningCenterSearchPage(node_locale: { eq: "es" }) {
+      categoryButtons {
+        title
+        description
+        slug
+      }
+      articles {
+        metadata {
+          title
+          description
+          keywords {
+            keywords
+          }
+          shareImage {
+            file {
+              url
+            }
+          }
+        }
+        slug
+        title
+        subtitle {
+          json
+        }
+        previewText {
+          previewText
+        }
+        author
+        dateUpdated
+        categories {
+          title
+          description
+          slug
+        }
+        articleSections {
+          __typename
+          ... on ContentfulLearningArticleCtaBlock {
+            title
+            subtitle
+            ctaText
+            ctaLink
+            secondaryCta {
+              subtitle
+              ctaText
+              ctaLink
+            }
+          }
+          ... on ContentfulLearningArticleSection {
+            title
+            content {
+              json
+            }
+          }
+        }
+      }
+    }
+  }
+` :
+` query {
       contentfulLearningCenterSearchPage {
         categoryButtons {
           title
@@ -66,13 +124,15 @@ exports.createPages = async function({ actions, graphql }) {
         }
       }
     }
-  `)
+  `
+  
+  const { data } = await graphql(query)
 
   /* Learning Center category pages */
   const allPublishedArticles = data.contentfulLearningCenterSearchPage.articles;
   data.contentfulLearningCenterSearchPage.categoryButtons.forEach(category => {
     actions.createPage({
-      path: '/learn/category/' + category.slug,
+      path: (locale || "") + '/learn/category/' + category.slug,
       component: require.resolve(`./src/components/learning-center/category-page-template.tsx`),
       context: { 
         content: category,
@@ -86,13 +146,19 @@ exports.createPages = async function({ actions, graphql }) {
   /* Learning Center article pages */
   data.contentfulLearningCenterSearchPage.articles.forEach(article => {
     actions.createPage({
-      path: '/learn/' + article.slug,
+      path: (locale || "") + '/learn/' + article.slug,
       component: require.resolve(`./src/components/learning-center/article-template.tsx`),
       context: { 
         content: article
       },
     })
   })
+};
+
+exports.createPages = async function({ actions, graphql }) {
+
+  generateLearningPages({ actions, graphql });
+  generateLearningPages({ actions, graphql }, "es");
 
   /* Redirects for old site pages */
   const {createRedirect} = actions //actions is collection of many actions - https://www.gatsbyjs.org/docs/actions
