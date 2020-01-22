@@ -1,6 +1,6 @@
 import React from 'react'
 import { StaticQuery, graphql } from "gatsby";
-import { ContentfulContent } from '../../pages';
+import { ContentfulContent, Locale } from '../../pages';
 import { DDOSearchBar } from '../ddo-searchbar';
 
 const widont = require('widont')
@@ -37,20 +37,34 @@ const AllToolsCtaScaffolding = (props: ContentfulContent) => {
   );
 }
 
-export const AllToolsCta = () => (
-    <StaticQuery
-      query={graphql`
-        query {
-          contentfulLearningCenterSearchPage {
-            allToolsCta {
-              title
-              subtitle
-              ctaText
-              ctaLink
-            }
-          }
+export const AllToolsCta = (props: Locale) => (
+  props.locale === "es" ? 
+  <StaticQuery query={graphql`
+    query {
+      contentfulLearningCenterSearchPage( node_locale: { eq: "es" } ) {
+        allToolsCta {
+          title
+          subtitle
+          ctaText
+          ctaLink
         }
-      `}
-    render = {data => (<AllToolsCtaScaffolding content={data.contentfulLearningCenterSearchPage} />)}
-    />
-  );
+      }
+    }
+  `}
+  render = {data => (<AllToolsCtaScaffolding content={data.contentfulLearningCenterSearchPage} />)}
+  /> :
+  <StaticQuery query={graphql`
+    query {
+      contentfulLearningCenterSearchPage {
+        allToolsCta {
+          title
+          subtitle
+          ctaText
+          ctaLink
+        }
+      }
+    }
+  `}
+  render = {data => (<AllToolsCtaScaffolding content={data.contentfulLearningCenterSearchPage} />)}
+  />
+)

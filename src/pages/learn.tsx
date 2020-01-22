@@ -78,7 +78,7 @@ export const LearningPageScaffolding = (props: ContentfulContent) =>
           (article: any, i: number) => <ArticlePreviewCard articleData={article} key={i} locale={props.locale} />
         )}
       </section>
-      <ThankYouBanner />
+      <ThankYouBanner locale={props.locale} />
     </div>
   </Layout>); 
 

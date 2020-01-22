@@ -159,7 +159,7 @@ const LearningArticle = (props: Props) => {
                                             {renderSection(articleSection, i)}
                                         </div>)}
                                 )}
-                                <AllToolsCta />
+                                <AllToolsCta locale={props.pageContext.locale}  />
                                 <br />
                             </div>
                         </div>

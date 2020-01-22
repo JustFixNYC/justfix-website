@@ -109,7 +109,43 @@ const LearningArticleFooterScaffolding = (props: ContentfulContent) => {
   );
 }
 
-export const LearningArticleFooter = (props:any) => (
+export const LearningArticleFooter = (props: Locale) => (
+  props.locale === "es" ? 
+    <StaticQuery
+      query={graphql`
+        query {
+          contentfulLearningCenterSearchPage( node_locale: { eq: "es" } ) {
+            categoryButtons {
+              title
+              description
+              slug
+            }
+            articles {
+              slug
+              title
+              categories {
+                title
+                description
+                slug
+              }
+            }
+            learningCenterCta {
+              title
+              subtitle
+              ctaText
+              ctaLink
+            }
+            justFixCta {
+              title
+              subtitle
+              ctaText
+              ctaLink
+            }
+          }
+        }
+      `}
+    render = {data => (<LearningArticleFooterScaffolding content={data.contentfulLearningCenterSearchPage} locale={props.locale} />)}
+    /> :
     <StaticQuery
       query={graphql`
         query {

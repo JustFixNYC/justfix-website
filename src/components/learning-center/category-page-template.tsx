@@ -63,7 +63,7 @@ const LearningCategoryPage = (props: Props) => {
                     <NoArticlesYet />
                 }
             </section>
-            <ThankYouBanner />
+            <ThankYouBanner locale={props.pageContext.locale} />
             </div>
         </Layout>
     )
