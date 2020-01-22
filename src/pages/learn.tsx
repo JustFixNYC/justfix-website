@@ -18,10 +18,11 @@ export type Category = {
 }
 
 export const ArticlePreviewCard = (props: any) => {
-  const url = '/learn/' + props.articleData.slug; 
+  const localePrefix = props.locale ? ("/" + props.locale) : "";
+  const url = localePrefix + '/learn/' + props.articleData.slug; 
   const categoryLabels = (props.articleData.categories).map(
     (category: Category, i: number) => 
-    <Link key={i} to={'/learn/category/' + category.slug} className="tag is-primary is-light is-uppercase">
+    <Link key={i} to={localePrefix + '/learn/category/' + category.slug} className="tag is-primary is-light is-uppercase">
       {category.title}
     </Link>
   )
@@ -68,13 +69,13 @@ export const LearningPageScaffolding = (props: ContentfulContent) =>
             </h6>
             <LearningSearchBar />
               <br />
-            <CategoryMenu />
+            <CategoryMenu locale={props.locale} />
           </div>
         </div>
       </section>
       <section className="content-wrapper tight">
         {(props.content.articles).map(
-          (article: any, i: number) => <ArticlePreviewCard articleData={article} key={i} />
+          (article: any, i: number) => <ArticlePreviewCard articleData={article} key={i} locale={props.locale} />
         )}
       </section>
       <ThankYouBanner />

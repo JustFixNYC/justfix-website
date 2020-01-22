@@ -7,6 +7,7 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 
 import '../../styles/learn.scss' 
 import { AllToolsCta } from './all-tools-cta';
+import { Locale } from '../../pages';
 
 const widont = require('widont')
 
@@ -15,7 +16,7 @@ type Props = {
         content: any,
         learningCenterCta: any,
         justFixCta: any 
-    }
+    } & Locale
 }
 
 type navMenuProps = {
@@ -76,7 +77,8 @@ function renderSection(articleSection: any, i: number): JSX.Element {
 }
 
 const LearningArticle = (props: Props) => {
-    
+
+    const localePrefix = props.pageContext.locale ? ("/" + props.pageContext.locale) : "";    
     const content = props.pageContext.content;
 
     const NavMenu = ( props?: navMenuProps ) => (
@@ -106,8 +108,6 @@ const LearningArticle = (props: Props) => {
         </aside>
     )
 
-  
-
     return (
         <Layout metadata={content.metadata}>
             <div className="article-page">
@@ -118,8 +118,8 @@ const LearningArticle = (props: Props) => {
                             <div className="hero-body">
                                 <nav className="breadcrumb" aria-label="breadcrumbs">
                                     <ul>
-                                        <li><Link to="/learn/">Learning Center</Link></li>
-                                        <li><Link to={"/learn/category/" + content.categories[0].slug + "/"}>{content.categories[0].title}</Link></li>
+                                        <li><Link to={localePrefix + "/learn/"}>Learning Center</Link></li>
+                                        <li><Link to={localePrefix + "/learn/category/" + content.categories[0].slug + "/"}>{content.categories[0].title}</Link></li>
                                     </ul>
                                 </nav>
                                 <div className="container content-wrapper">
@@ -168,7 +168,7 @@ const LearningArticle = (props: Props) => {
                         <NavMenu styleClass="sticky is-hidden-touch" />
                     </div>                      
                 </div>
-                <LearningArticleFooter />
+                <LearningArticleFooter locale={props.pageContext.locale} />
             </div>
         </Layout>
         

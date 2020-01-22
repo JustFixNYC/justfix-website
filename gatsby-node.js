@@ -75,6 +75,7 @@ const generateLearningPages = async function({ actions, graphql }, locale) {
       path: (locale || "") + '/learn/category/' + category.slug,
       component: require.resolve(`./src/components/learning-center/category-page-template.tsx`),
       context: { 
+        locale: locale,
         content: category,
         articlePreviews: allPublishedArticles.filter( 
           article => (article.categories).some( articleCategory => articleCategory.title === category.title)
@@ -89,6 +90,7 @@ const generateLearningPages = async function({ actions, graphql }, locale) {
       path: (locale || "") + '/learn/' + article.slug,
       component: require.resolve(`./src/components/learning-center/article-template.tsx`),
       context: { 
+        locale: locale,
         content: article
       },
     })
