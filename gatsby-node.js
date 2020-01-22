@@ -6,9 +6,8 @@
 
 /* Generate Learning Center pages */
 const generateLearningPages = async function({ actions, graphql }, locale) {
-  const query = locale === "es" ? 
-  `query {
-    contentfulLearningCenterSearchPage(node_locale: { eq: "es" }) {
+  const query = `query {
+    contentfulLearningCenterSearchPage` + (locale === "es" ? `(node_locale: { eq: "es" })` : ``) + `{
       categoryButtons {
         title
         description
@@ -65,66 +64,7 @@ const generateLearningPages = async function({ actions, graphql }, locale) {
       }
     }
   }
-` :
-` query {
-      contentfulLearningCenterSearchPage {
-        categoryButtons {
-          title
-          description
-          slug
-        }
-        articles {
-          metadata {
-            title
-            description
-            keywords {
-              keywords
-            }
-            shareImage {
-              file {
-                url
-              }
-            }
-          }
-          slug
-          title
-          subtitle {
-            json
-          }
-          previewText {
-            previewText
-          }
-          author
-          dateUpdated
-          categories {
-            title
-            description
-            slug
-          }
-          articleSections {
-            __typename
-            ... on ContentfulLearningArticleCtaBlock {
-              title
-              subtitle
-              ctaText
-              ctaLink
-              secondaryCta {
-                subtitle
-                ctaText
-                ctaLink
-              }
-            }
-            ... on ContentfulLearningArticleSection {
-              title
-              content {
-                json
-              }
-            }
-          }
-        }
-      }
-    }
-  `
+` 
   
   const { data } = await graphql(query)
 
