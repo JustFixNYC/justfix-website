@@ -8,6 +8,7 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import '../../styles/learn.scss' 
 import { AllToolsCta } from './all-tools-cta';
 import { Locale } from '../../pages';
+import { Trans } from '@lingui/macro';
 
 const widont = require('widont')
 
@@ -34,7 +35,9 @@ function renderSection(articleSection: any, i: number): JSX.Element {
                 <div className="content cta-wrapper">
                     <div className="cta is-horizontal-center has-text-centered has-background-white">
                         <div className="label is-block">
-                            <small className="has-text-primary has-text-weight-bold has-background-white is-uppercase">Want to take action?</small>
+                            <small className="has-text-primary has-text-weight-bold has-background-white is-uppercase">
+                              <Trans> Want to take action? </Trans> 
+                            </small>
                         </div>
                         <h1 className="title is-size-4 has-text-weight-bold has-text-primary is-spaced">
                             {widont(articleSection.title)}
@@ -70,7 +73,7 @@ function renderSection(articleSection: any, i: number): JSX.Element {
                 </div>)}
                 <ScrollLink to="navmenu" spy={true} smooth={true}
                     offset={-100} duration= {500} className="back-to-top is-uppercase is-hidden-desktop is-size-7 has-text-weight-semibold has-letters-spaced">
-                        Back to top ↑
+                        <Trans>Back to top</Trans> ↑
                 </ScrollLink>
         </div>
     );

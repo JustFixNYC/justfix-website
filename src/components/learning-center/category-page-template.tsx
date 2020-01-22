@@ -5,6 +5,7 @@ import { Link } from 'gatsby';
 import { ThankYouBanner } from './thank-you-banner';
 import CategoryMenu from './category-menu';
 import { Locale } from '../../pages';
+import { Trans } from '@lingui/macro';
 
 const widont = require('widont')
 
@@ -39,7 +40,7 @@ const LearningCategoryPage = (props: Props) => {
             <section className="hero is-small">
                 <div className="content-wrapper tight back-to-overview">
                     <Link to={localePrefix + "/learn"} className="has-text-weight-semibold">
-                        ← Back to Overview
+                        ← <Trans>Back to Overview</Trans>
                     </Link>
                 </div>
             

@@ -8,6 +8,7 @@ import { ContentfulContent } from '.'
 import { ThankYouBanner } from '../components/learning-center/thank-you-banner'
 import LearningSearchBar from '../components/learning-center/learning-searchbar'
 import CategoryMenu from '../components/learning-center/category-menu'
+import { Trans } from '@lingui/macro';
 
 const widont = require('widont')
 
@@ -39,7 +40,7 @@ export const ArticlePreviewCard = (props: any) => {
           <br />
         <div>
           <Link to={url} className="is-inline-block is-size-7 is-uppercase has-text-weight-semibold has-letters-spaced">
-            Read More →
+            <Trans>Read More</Trans> →
           </Link>
           <div className="tags is-hidden-mobile is-inline-block is-uppercase is-pulled-right has-letters-spaced">
             {categoryLabels}
