@@ -51,7 +51,7 @@ export const ArticlePreviewCard = (props: any) => {
     )
   }
 
-const LearningPageScaffolding = (props: ContentfulContent) => 
+export const LearningPageScaffolding = (props: ContentfulContent) => 
   (<Layout metadata={props.content.metadata}>
     <div id="learning-center" className="learning-center-page" >
       <section className="hero is-small">
