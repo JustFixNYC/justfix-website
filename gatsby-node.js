@@ -13,6 +13,27 @@ const generateLearningPages = async function({ actions, graphql }, locale) {
         description
         slug
       }
+      allToolsCta {
+        title
+        subtitle
+        ctaText
+        ctaLink
+      }
+      learningCenterCta {
+        title
+        subtitle
+        ctaText
+        ctaLink
+      }
+      justFixCta {
+        title
+        subtitle
+        ctaText
+        ctaLink
+      }
+      thankYouText {
+        json
+      }
       articles {
         metadata {
           title
@@ -70,6 +91,7 @@ const generateLearningPages = async function({ actions, graphql }, locale) {
 
   /* Learning Center category pages */
   const allPublishedArticles = data.contentfulLearningCenterSearchPage.articles;
+  const thankYouBanner = data.contentfulLearningCenterSearchPage.thankYouText;
   data.contentfulLearningCenterSearchPage.categoryButtons.forEach(category => {
     actions.createPage({
       path: (locale || "") + '/learn/category/' + category.slug,
@@ -77,6 +99,7 @@ const generateLearningPages = async function({ actions, graphql }, locale) {
       context: { 
         locale: locale,
         content: category,
+        thankYouBanner: thankYouBanner,
         articlePreviews: allPublishedArticles.filter( 
           article => (article.categories).some( articleCategory => articleCategory.title === category.title)
         )
@@ -85,12 +108,22 @@ const generateLearningPages = async function({ actions, graphql }, locale) {
   })
 
   /* Learning Center article pages */
+
+  const articleFooter = {
+    categoryButtons: data.contentfulLearningCenterSearchPage.categoryButtons,
+    learningCenterCta: data.contentfulLearningCenterSearchPage.learningCenterCta,
+    justFixCta: data.contentfulLearningCenterSearchPage.justFixCta,
+    articles: allPublishedArticles
+  };
+  const allToolsCta = data.contentfulLearningCenterSearchPage.allToolsCta;
   data.contentfulLearningCenterSearchPage.articles.forEach(article => {
     actions.createPage({
       path: (locale || "") + '/learn/' + article.slug,
       component: require.resolve(`./src/components/learning-center/article-template.tsx`),
       context: { 
         locale: locale,
+        allToolsCta: allToolsCta,
+        articleFooter: articleFooter,
         content: article
       },
     })

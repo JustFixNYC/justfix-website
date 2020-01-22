@@ -13,6 +13,7 @@ const widont = require('widont')
 type Props = {
     pageContext: { 
         content: any,
+        thankYouBanner: any, 
         articlePreviews: any 
     } & Locale
 } 
@@ -64,7 +65,7 @@ const LearningCategoryPage = (props: Props) => {
                     <NoArticlesYet />
                 }
             </section>
-            <ThankYouBanner locale={props.pageContext.locale} />
+            <ThankYouBanner content={props.pageContext.thankYouBanner} />
             </div>
         </Layout>
     )

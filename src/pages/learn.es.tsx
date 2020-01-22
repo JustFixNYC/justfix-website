@@ -50,6 +50,9 @@ const LearningPage  = () => (
             ctaText
             ctaLink
           }
+          thankYouText {
+            json
+          }
         }
       }
     `}

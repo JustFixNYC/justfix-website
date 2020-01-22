@@ -15,7 +15,7 @@ const widont = require('widont')
 type Props = {
     pageContext: { 
         content: any,
-        learningCenterCta: any,
+        articleFooter: any,
         justFixCta: any 
     } & Locale
 }
@@ -112,7 +112,7 @@ const LearningArticle = (props: Props) => {
     )
 
     return (
-        <Layout metadata={content.metadata}>
+        <Layout metadata={content.metadata} locale={props.pageContext.locale}>
             <div className="article-page">
                 <div className="columns is-desktop">
                     <div className="column" />
@@ -162,7 +162,7 @@ const LearningArticle = (props: Props) => {
                                             {renderSection(articleSection, i)}
                                         </div>)}
                                 )}
-                                <AllToolsCta locale={props.pageContext.locale}  />
+                                <AllToolsCta content={props.pageContext.allToolsCta} />
                                 <br />
                             </div>
                         </div>
@@ -171,7 +171,7 @@ const LearningArticle = (props: Props) => {
                         <NavMenu styleClass="sticky is-hidden-touch" />
                     </div>                      
                 </div>
-                <LearningArticleFooter locale={props.pageContext.locale} />
+                <LearningArticleFooter content={props.pageContext.articleFooter} locale={props.pageContext.locale} />
             </div>
         </Layout>
         
