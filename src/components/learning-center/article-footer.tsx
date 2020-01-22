@@ -1,5 +1,5 @@
 import React from 'react'
-import { StaticQuery, graphql, Link } from "gatsby";
+import { Link } from "gatsby";
 import { ContentfulContent, Locale } from '../../pages';
 import { Category } from '../../pages/learn';
 

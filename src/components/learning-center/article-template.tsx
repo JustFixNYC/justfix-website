@@ -16,7 +16,7 @@ type Props = {
     pageContext: { 
         content: any,
         articleFooter: any,
-        justFixCta: any 
+        allToolsCta: any 
     } & Locale
 }
 
