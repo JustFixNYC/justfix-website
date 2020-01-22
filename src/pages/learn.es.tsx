@@ -6,7 +6,7 @@ const LearningPage  = () => (
   <StaticQuery
     query={graphql`
       query {
-        contentfulLearningCenterSearchPage {
+        contentfulLearningCenterSearchPage( node_locale: { eq: "es" } ) {
           metadata {
             title
             description

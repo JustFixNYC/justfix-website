@@ -52,7 +52,7 @@ export const ArticlePreviewCard = (props: any) => {
   }
 
 export const LearningPageScaffolding = (props: ContentfulContent) => 
-  (<Layout metadata={props.content.metadata}>
+  (<Layout metadata={props.content.metadata} locale={props.locale}>
     <div id="learning-center" className="learning-center-page" >
       <section className="hero is-small">
         <div className="hero-body has-text-centered is-horizontal-center">
