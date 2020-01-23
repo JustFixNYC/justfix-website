@@ -13,11 +13,11 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/footer.tsx:79
+#: src/components/footer.tsx:82
 msgid "<0>Disclaimer:</0> The information in JustFix.nyc does not constitute legal advice and must not be used as a substitute for the advice of a lawyer qualified to give advice on legal issues pertaining to housing. We can help direct you to free legal services if necessary."
 msgstr ""
 
-#: src/components/footer.tsx:80
+#: src/components/footer.tsx:83
 msgid "<0>JustFix.nyc</0> is a registered 501(c)(3) nonprofit organization."
 msgstr ""
 
@@ -26,30 +26,44 @@ msgstr ""
 msgid "About us"
 msgstr ""
 
-#: src/components/footer.tsx:27
-#: src/components/header.tsx:58
+#: src/components/learning-center/category-page-template.tsx:27
+msgid "Back to Overview"
+msgstr ""
+
+#: src/components/learning-center/article-template.tsx:55
+msgid "Back to top"
+msgstr ""
+
+#: src/components/footer.tsx:46
+#: src/components/header.tsx:65
 msgid "Contact"
 msgstr ""
 
-#: src/components/footer.tsx:30
+#: src/components/footer.tsx:49
 msgid "Donate"
 msgstr ""
 
-#: src/components/footer.tsx:57
+#: src/components/footer.tsx:60
 #: src/pages/contact-us.tsx:40
 msgid "Email Address"
 msgstr ""
 
 #: src/components/footer.tsx:43
-#: src/components/header.tsx:48
+#: src/components/header.tsx:51
 msgid "Jobs"
 msgstr ""
 
-#: src/components/footer.tsx:52
+#: src/components/footer.tsx:55
 msgid "Join our mailing list!"
 msgstr ""
 
-#: src/components/header.tsx:54
+#: src/components/footer.tsx:24
+#: src/components/header.tsx:61
+msgid "Learn"
+msgstr ""
+
+#: src/components/footer.tsx:27
+#: src/components/header.tsx:39
 msgid "Mission"
 msgstr ""
 
@@ -58,53 +72,76 @@ msgid "Not found"
 msgstr ""
 
 #: src/components/header.tsx:39
-msgid "Our Partners"
-msgstr ""
+#~ msgid "Our Partners"
+#~ msgstr ""
 
 #: src/components/header.tsx:42
-msgid "Our Team"
-msgstr ""
+#~ msgid "Our Team"
+#~ msgstr ""
 
 #: src/components/footer.tsx:24
-msgid "Our mission"
-msgstr ""
+#~ msgid "Our mission"
+#~ msgstr ""
 
 #: src/components/footer.tsx:40
-msgid "Our partners"
-msgstr ""
+#~ msgid "Our partners"
+#~ msgstr ""
 
 #: src/components/footer.tsx:37
-msgid "Our team"
+#~ msgid "Our team"
+#~ msgstr ""
+
+#: src/components/footer.tsx:40
+#: src/components/header.tsx:45
+msgid "Partners"
 msgstr ""
 
-#: src/components/footer.tsx:46
-#: src/components/header.tsx:45
+#: src/components/footer.tsx:30
+#: src/components/header.tsx:48
 msgid "Press"
 msgstr ""
 
-#: src/components/footer.tsx:82
+#: src/components/footer.tsx:85
 msgid "Privacy policy"
 msgstr ""
 
 #: src/components/footer.tsx:21
-msgid "Products & Services"
+#: src/components/header.tsx:57
+msgid "Products"
 msgstr ""
 
-#: src/components/header.tsx:65
+#: src/components/footer.tsx:21
+#~ msgid "Products & Services"
+#~ msgstr ""
+
+#: src/pages/learn.tsx:28
+msgid "Read More"
+msgstr ""
+
 #: src/components/header.tsx:72
+#: src/components/header.tsx:79
 msgid "Sign in"
 msgstr ""
 
-#: src/components/footer.tsx:61
+#: src/components/footer.tsx:64
 msgid "Sign up"
 msgstr ""
 
-#: src/components/footer.tsx:85
+#: src/components/footer.tsx:37
+#: src/components/header.tsx:42
+msgid "Team"
+msgstr ""
+
+#: src/components/footer.tsx:88
 msgid "Terms of use"
 msgstr ""
 
 #: src/components/read-more.tsx:10
 msgid "Want to know more?"
+msgstr ""
+
+#: src/components/learning-center/article-template.tsx:21
+msgid "Want to take action?"
 msgstr ""
 
 #: src/pages/404.tsx:8
