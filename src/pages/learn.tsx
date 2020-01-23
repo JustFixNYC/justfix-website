@@ -68,7 +68,7 @@ export const LearningPageScaffolding = (props: ContentfulContent) =>
             <h6 className="subtitle has-text-grey-dark is-italic">
               {widont(props.content.subtitle)}
             </h6>
-            <LearningSearchBar />
+            <LearningSearchBar locale={props.locale} />
               <br />
             <CategoryMenu locale={props.locale} />
           </div>
