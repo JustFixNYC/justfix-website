@@ -7,7 +7,7 @@
 /* Generate Learning Center pages */
 const generateLearningPages = async function({ actions, graphql }, locale) {
   const query = `query {
-    contentfulLearningCenterSearchPage` + (locale === "es" ? `(node_locale: { eq: "es" })` : ``) + `{
+    contentfulLearningCenterSearchPage(node_locale: { eq:"` + (locale || 'en-US') + `" } ){
       categoryButtons {
         title
         description
@@ -114,7 +114,7 @@ const generateLearningPages = async function({ actions, graphql }, locale) {
     learningCenterCta: data.contentfulLearningCenterSearchPage.learningCenterCta,
     justFixCta: data.contentfulLearningCenterSearchPage.justFixCta,
     articles: allPublishedArticles.map( article => {
-      const {title, slug, categories, ...partialObject} = article;
+      const {title, slug, categories, ...rest} = article;
       const subset = { title, slug, categories };
       return subset; 
      } )
