@@ -1,8 +1,8 @@
 {
-  "name": "gatsby-starter-contentful-typescript",
-  "description": "Gatsby Contentful TypeScript starter",
+  "name": "justfix-nyc",
+  "description": "JustFix.nyc Website",
   "version": "0.3.0",
-  "author": "Filip Havrlent <filip@havrlent.com>",
+  "author": "JustFix.nyc <hello@justfix.nyc>",
   "dependencies": {
     "@babel/core": "^7.6.4",
     "@contentful/rich-text-plain-text-renderer": "^13.4.0",
