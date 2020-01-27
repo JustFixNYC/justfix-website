@@ -14,6 +14,7 @@ import Layout from '../components/layout'
 import { DDOSearchBar } from '../components/ddo-searchbar';
 
 const TEXTLOOP_ANIMATION_INTERVAL = 2750;
+const PRODUCT_CTA_UTM_CODE = '?utm_source=orgsite&utm_medium=productcta';
 
 // All our supported locales, excluding English (en).
 export type StringLocales = "es";
@@ -112,7 +113,7 @@ export const LandingPageScaffolding = (props: ContentfulContent) =>
                       <br/>
                     <p className="subtitle">{product.description}</p>
                       <br/>
-                    <a className="button is-large is-primary is-uppercase" href={ (product.button.link + "?utm_source=orgsite") } target="_blank" rel="noopener noreferrer">{product.button.title}</a>
+                    <a className="button is-large is-primary is-uppercase" href={ (product.button.link + PRODUCT_CTA_UTM_CODE) } target="_blank" rel="noopener noreferrer">{product.button.title}</a>
                   </div>
                 </div>
                 {i % 2 === 0 && (<div className="column">
@@ -138,7 +139,7 @@ export const LandingPageScaffolding = (props: ContentfulContent) =>
                       <br/>
                     <p className="subtitle">{product.description}</p>
                       <br/>
-                    <a className="button is-medium is-primary" href={ (product.button.link + "?utm_source=orgsite") } target="_blank" rel="noopener noreferrer">
+                    <a className="button is-medium is-primary" href={ (product.button.link + PRODUCT_CTA_UTM_CODE) } target="_blank" rel="noopener noreferrer">
                       <span className="is-size-6 is-uppercase">
                       {product.button.title}
                       </span>
