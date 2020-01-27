@@ -35,8 +35,8 @@ const plugins = [
   {
     resolve: `gatsby-plugin-manifest`,
     options: {
-      name: 'gatsby-starter-contentful-typescript',
-      short_name: 'starter',
+      name: 'JustFix.nyc',
+      short_name: 'JustFix.nyc',
       start_url: '/',
       background_color: '#663399',
       theme_color: '#663399',
