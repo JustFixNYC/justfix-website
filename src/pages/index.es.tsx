@@ -20,9 +20,9 @@ const LandingPage  = () => (
           homePageProductBlocks {
             title
             description
-            cta {
+            button {
               title
-              url
+              link
             }
             screenshot {
               fluid {

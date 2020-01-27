@@ -112,7 +112,7 @@ export const LandingPageScaffolding = (props: ContentfulContent) =>
                       <br/>
                     <p className="subtitle">{product.description}</p>
                       <br/>
-                    <a className="button is-large is-primary is-uppercase" href={ (product.cta.url + "?utm_source=orgsite") } target="_blank" rel="noopener noreferrer">{product.cta.title}</a>
+                    <a className="button is-large is-primary is-uppercase" href={ (product.button.link + "?utm_source=orgsite") } target="_blank" rel="noopener noreferrer">{product.button.title}</a>
                   </div>
                 </div>
                 {i % 2 === 0 && (<div className="column">
@@ -138,9 +138,9 @@ export const LandingPageScaffolding = (props: ContentfulContent) =>
                       <br/>
                     <p className="subtitle">{product.description}</p>
                       <br/>
-                    <a className="button is-medium is-primary" href={ (product.cta.url + "?utm_source=orgsite") } target="_blank" rel="noopener noreferrer">
+                    <a className="button is-medium is-primary" href={ (product.button.link + "?utm_source=orgsite") } target="_blank" rel="noopener noreferrer">
                       <span className="is-size-6 is-uppercase">
-                      {product.cta.title}
+                      {product.button.title}
                       </span>
                     </a>
                   </div>
@@ -202,9 +202,9 @@ const LandingPage  = () => (
           homePageProductBlocks {
             title
             description
-            cta {
+            button {
               title
-              url
+              link
             }
             screenshot {
               fluid {
