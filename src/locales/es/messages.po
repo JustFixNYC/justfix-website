@@ -8,7 +8,7 @@ msgstr ""
 "Language: es\n"
 "Project-Id-Version: justfix-website\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2020-01-28 20:18\n"
+"PO-Revision-Date: 2020-01-28 20:33\n"
 "Last-Translator: \n"
 "Language-Team: Spanish\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -42,7 +42,12 @@ msgstr "Volver a Inicio"
 msgid "Contact"
 msgstr "Contacto"
 
+#: src/pages/our-mission.tsx:21
+msgid "Contact Us"
+msgstr ""
+
 #: src/components/footer.tsx:49
+#: src/pages/our-mission.tsx:23
 msgid "Donate"
 msgstr "Donar"
 
@@ -146,6 +151,7 @@ msgid "Sign in"
 msgstr "Iniciar sesión"
 
 #: src/components/footer.tsx:64
+#: src/pages/contact-us.tsx:44
 msgid "Sign up"
 msgstr "Registrarse"
 
@@ -158,6 +164,10 @@ msgstr "Equipo"
 msgid "Terms of use"
 msgstr "Condiciones de Uso"
 
+#: src/components/learning-center/article-template.tsx:97
+msgid "Updated"
+msgstr ""
+
 #: src/components/read-more.tsx:10
 msgid "Want to know more?"
 msgstr "¿Quiere saber más?"
@@ -165,6 +175,10 @@ msgstr "¿Quiere saber más?"
 #: src/components/learning-center/article-template.tsx:21
 msgid "Want to take action?"
 msgstr "¿Quiere tomar medidas?"
+
+#: src/components/learning-center/article-template.tsx:95
+msgid "Written by"
+msgstr ""
 
 #: src/pages/404.tsx:8
 msgid "You just found a page that doesn't exist... the sadness."
