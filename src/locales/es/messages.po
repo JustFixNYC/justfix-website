@@ -8,7 +8,7 @@ msgstr ""
 "Language: es\n"
 "Project-Id-Version: justfix-website\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2020-01-07 15:23\n"
+"PO-Revision-Date: 2020-01-28 17:01\n"
 "Last-Translator: \n"
 "Language-Team: Spanish\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -18,7 +18,7 @@ msgstr ""
 
 #: src/components/footer.tsx:79
 msgid "<0>Disclaimer:</0> The information in JustFix.nyc does not constitute legal advice and must not be used as a substitute for the advice of a lawyer qualified to give advice on legal issues pertaining to housing. We can help direct you to free legal services if necessary."
-msgstr ""
+msgstr "<0>Aviso:</0> La información en JustFix. yc no constituye asesoramiento jurídico y no debe ser utilizado como sustituto del asesoramiento de un abogado cualificado para asesorar sobre cuestiones jurídicas relativas a la vivienda. Nosotros podemos ayudarle a dirigirle a servicios legales gratuitos si es necesario."
 
 #: src/components/footer.tsx:80
 msgid "<0>JustFix.nyc</0> is a registered 501(c)(3) nonprofit organization."
