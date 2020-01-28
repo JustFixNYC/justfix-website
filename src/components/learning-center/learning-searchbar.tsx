@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import algoliasearch from 'algoliasearch/lite';
-import { InstantSearch, Configure, Snippet, connectSearchBox, connectHits } from 'react-instantsearch-dom';
+import { InstantSearch, Configure, Snippet, connectSearchBox, connectHits, Hits } from 'react-instantsearch-dom';
 import { Link } from 'gatsby';
 import { SearchBoxExposed } from 'react-instantsearch-core';
+import { Locale } from '../../pages';
 
 const appId = process.env.GATSBY_ALGOLIA_APP_ID;
 const searchKey = process.env.GATSBY_ALGOLIA_SEARCH_KEY;
@@ -22,11 +23,11 @@ const SearchBox = ({ currentRefinement, refine, updateSearchQuery }: any) => (
   </form>
 );
 
-const Hits = ({ hits }: any) => (
+const SearchHits = ({ hits, locale }: any) => (
   (hits && hits.length > 0 ? 
   <div className="dropdown-content">
     {(hits.map( (hit: any) => (
-      <Link key={hit.slug} to={"/learn/" + hit.slug} className="dropdown-item">
+      <Link key={hit.slug} to={(locale ? "/" + locale : "") + "/learn/" + hit.slug} className="dropdown-item">
         <div className="is-size-6 has-text-primary has-text-weight-semibold">
           {hit.title} →
         </div>
@@ -48,9 +49,9 @@ of connectSearchBox does not allow us to pass additional props from the
 input component (SearchBox) to the output component (CustomSearchBox) */
 
 const CustomSearchBox = connectSearchBox(SearchBox) as React.ComponentClass<SearchBoxExposed & any> 
-const CustomHits = connectHits(Hits);
+const CustomHits = connectHits(SearchHits) as React.ComponentClass<Hits & any>;
 
-type Props = any;
+type Props = any & Locale;
 type State = { query: string };
 
 class LearningSearchBar extends Component<Props,State> {
@@ -66,7 +67,7 @@ class LearningSearchBar extends Component<Props,State> {
     <div className="search-bar">
       <InstantSearch
         searchClient={algoliasearch(appId,searchKey)}
-        indexName="learning_center"
+        indexName={"learning_center" + (this.props.locale ? "_" + this.props.locale : "")} 
         resultsState={[]}
       >
         
@@ -78,7 +79,7 @@ class LearningSearchBar extends Component<Props,State> {
                 <Configure 
                   attributesToSnippet={['articleContent']} 
                   analytics={enableAnalytics === '1' || false} />
-                <CustomHits />
+                <CustomHits locale={this.props.locale} />
               </React.Fragment>
             )
           }

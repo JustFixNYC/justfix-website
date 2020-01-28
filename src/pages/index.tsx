@@ -12,7 +12,8 @@ import '../styles/data-driven-onboarding.scss';
 
 import Layout from '../components/layout'
 import { DDOSearchBar } from '../components/ddo-searchbar';
-
+import { t, Trans } from '@lingui/macro';
+import { I18n } from "@lingui/react"
 const TEXTLOOP_ANIMATION_INTERVAL = 2750;
 const PRODUCT_CTA_UTM_CODE = '?utm_source=orgsite&utm_medium=productcta';
 
@@ -27,16 +28,19 @@ export type ContentfulContent = Locale & {
   content: any 
 }
 
-const DDO = () => <>
-  <h2 className="subtitle is-size-5 has-text-white">
-    Enter your address to learn more.
-  </h2>
-  <br/>
-  <DDOSearchBar
-    hiddenFieldLabel="Enter your address to learn more."
-    submitLabel="Search address"
-  />
-</>;
+const DDO = () => (
+  <>
+    <h2 className="subtitle is-size-5 has-text-white">
+      <Trans>Enter your address to learn more.</Trans>
+    </h2>
+    <br/>
+    <I18n>
+      {( {i18n} ) => <DDOSearchBar
+        hiddenFieldLabel={i18n._(t`Enter your address to learn more.`)}
+        submitLabel={i18n._(t`Search address`)}
+      />}
+    </I18n>
+</> )
 
 export const LandingPageScaffolding = (props: ContentfulContent) => 
   (<Layout isLandingPage={true} locale={props.locale}>

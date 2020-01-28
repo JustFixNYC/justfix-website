@@ -1,8 +1,8 @@
 
 const pt = require('@contentful/rich-text-plain-text-renderer');
 
-const pageQuery = `{
-    articles: allContentfulLearningArticlePage(filter:{node_locale:{eq:"en-US"}}) {
+const generatePageQuery = (locale) => `{
+    articles: allContentfulLearningArticlePage(filter:{node_locale:{eq:"` + (locale || 'en-US') + `"}}) {
         edges {
           node {
             slug
@@ -43,9 +43,14 @@ const pageQuery = `{
       
   const queries = [
     {
-      query: pageQuery,
+      query: generatePageQuery(),
       transformer: ({ data }) => flatten(data.articles.edges),
       indexName: `learning_center`,
+    },
+    {
+      query: generatePageQuery("es"),
+      transformer: ({ data }) => flatten(data.articles.edges),
+      indexName: `learning_center_es`,
     },
   ]
 

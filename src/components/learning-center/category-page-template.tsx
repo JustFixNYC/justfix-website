@@ -4,6 +4,8 @@ import { ArticlePreviewCard } from '../../pages/learn';
 import { Link } from 'gatsby';
 import { ThankYouBanner } from './thank-you-banner';
 import CategoryMenu from './category-menu';
+import { Locale } from '../../pages';
+import { Trans } from '@lingui/macro';
 
 const widont = require('widont')
 
@@ -11,9 +13,10 @@ const widont = require('widont')
 type Props = {
     pageContext: { 
         content: any,
+        thankYouBanner: any, 
         articlePreviews: any 
-    }
-}
+    } & Locale
+} 
 
 const NoArticlesYet = () => (
     <section className="hero">
@@ -29,15 +32,16 @@ const NoArticlesYet = () => (
 
 
 const LearningCategoryPage = (props: Props) => {
+    const localePrefix = props.pageContext.locale ? ("/" + props.pageContext.locale) : "";
     const content = props.pageContext.content;
     const articlePreviews = props.pageContext.articlePreviews;
     return (
-        <Layout metadata={{title: content.title, description: content.description}}>
+        <Layout metadata={{title: content.title, description: content.description}} locale={props.pageContext.locale}>
             <div className="category-page" >
             <section className="hero is-small">
                 <div className="content-wrapper tight back-to-overview">
-                    <Link to="/learn" className="has-text-weight-semibold">
-                        ← Back to Overview
+                    <Link to={localePrefix + "/learn"} className="has-text-weight-semibold">
+                        ← <Trans>Back to Overview</Trans>
                     </Link>
                 </div>
             
@@ -49,19 +53,19 @@ const LearningCategoryPage = (props: Props) => {
                         <h6 className="subtitle has-text-grey-dark is-italic">
                         {widont(content.description)}
                         </h6>
-                        <CategoryMenu selectedCategory={content.slug} />
+                        <CategoryMenu selectedCategory={content.slug} locale={props.pageContext.locale} />
                     </div>
                 </div>
             </section>
             <section className="content-wrapper tight">
                 {articlePreviews && articlePreviews.length > 0 ? 
                     (articlePreviews).map(
-                        (article: any, i: number) => <ArticlePreviewCard articleData={article} key={i} />
+                        (article: any, i: number) => <ArticlePreviewCard articleData={article} key={i} locale={props.pageContext.locale} />
                     ):
                     <NoArticlesYet />
                 }
             </section>
-            <ThankYouBanner />
+            <ThankYouBanner content={props.pageContext.thankYouBanner} />
             </div>
         </Layout>
     )
