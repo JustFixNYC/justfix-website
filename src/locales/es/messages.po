@@ -8,7 +8,7 @@ msgstr ""
 "Language: es\n"
 "Project-Id-Version: justfix-website\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2020-01-28 18:23\n"
+"PO-Revision-Date: 2020-01-28 18:47\n"
 "Last-Translator: \n"
 "Language-Team: Spanish\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -22,7 +22,7 @@ msgstr "<0>Aviso:</0> La información en JustFix. yc no constituye asesoramiento
 
 #: src/components/footer.tsx:83
 msgid "<0>JustFix.nyc</0> is a registered 501(c)(3) nonprofit organization."
-msgstr ""
+msgstr "<0>JustFix.nyc</0> es una organización sin fines de lucro registrada."
 
 #: src/components/footer.tsx:35
 #: src/components/header.tsx:34
@@ -156,7 +156,7 @@ msgstr "¿Quiere saber más?"
 
 #: src/components/learning-center/article-template.tsx:21
 msgid "Want to take action?"
-msgstr ""
+msgstr "¿Quieres tomar medidas?"
 
 #: src/pages/404.tsx:8
 msgid "You just found a page that doesn't exist... the sadness."
