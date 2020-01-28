@@ -169,4 +169,3 @@ msgstr "¿Quiere tomar medidas?"
 #: src/pages/404.tsx:8
 msgid "You just found a page that doesn't exist... the sadness."
 msgstr "Acaba de llegar a una ruta que no existe... es muy triste."
-
