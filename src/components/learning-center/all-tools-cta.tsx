@@ -1,6 +1,8 @@
 import React from 'react'
 import { ContentfulContent } from '../../pages';
 import { DDOSearchBar } from '../ddo-searchbar';
+import { I18n } from '@lingui/react';
+import { t } from '@lingui/macro';
 
 const widont = require('widont')
 
@@ -18,12 +20,14 @@ export const AllToolsCta = (props: ContentfulContent) => (
           }
           <div className="is-hidden-mobile">
             <br />
-            <DDOSearchBar
-              hiddenFieldLabel="Enter your address to learn more."
-              submitLabel="Search address"
-              customUtmTags="utm_source=orgsite&utm_medium=learning_center_cta"
-              withinCTA={true}
-            />
+            <I18n>
+              {( {i18n} ) => <DDOSearchBar
+                hiddenFieldLabel={i18n._(t`Enter your address to learn more.`)}
+                submitLabel={i18n._(t`Search address`)}
+                customUtmTags="utm_source=orgsite&utm_medium=learning_center_cta"
+                withinCTA={true}
+              />}
+            </I18n>
           </div>
           <a href={props.content.ctaLink} className="is-hidden-tablet button is-medium is-primary is-uppercase" target="_blank" rel="noopener noreferrer">
             {props.content.ctaText}
