@@ -146,6 +146,7 @@ msgid "Sign in"
 msgstr "Iniciar sesión"
 
 #: src/components/footer.tsx:64
+#: src/pages/contact-us.tsx:44
 msgid "Sign up"
 msgstr "Registrarse"
 
@@ -158,6 +159,10 @@ msgstr "Equipo"
 msgid "Terms of use"
 msgstr "Condiciones de Uso"
 
+#: src/components/learning-center/article-template.tsx:97
+msgid "Updated"
+msgstr ""
+
 #: src/components/read-more.tsx:10
 msgid "Want to know more?"
 msgstr "¿Quiere saber más?"
@@ -165,6 +170,10 @@ msgstr "¿Quiere saber más?"
 #: src/components/learning-center/article-template.tsx:21
 msgid "Want to take action?"
 msgstr "¿Quiere tomar medidas?"
+
+#: src/components/learning-center/article-template.tsx:95
+msgid "Written by"
+msgstr ""
 
 #: src/pages/404.tsx:8
 msgid "You just found a page that doesn't exist... the sadness."
