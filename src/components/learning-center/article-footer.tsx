@@ -5,6 +5,8 @@ import { Category } from '../../pages/learn';
 
 const widont = require('widont')
 
+const NUM_COLUMNS = 3;
+
 type ArticleListing = {
   title: string,
   slug: string,
@@ -78,7 +80,7 @@ export const LearningArticleFooter = (props: ContentfulContent & Locale) => {
         <div className="columns hero-body">
           <div className="column is-one-third">
             {ArticlesSortedByCategory.map( ( section: TableOfContentsSection, i: number ) =>
-              (i % 3 === 0 ? 
+              (i % NUM_COLUMNS === 0 ? 
                 <TableOfContentsSection key={i} locale={props.locale} noDivider={(ArticlesSortedByCategory.length <= i + 3)}
                   categoryTitle={section.categoryTitle} articles={section.articles} /> 
                 : <React.Fragment key={i} />) 
@@ -86,7 +88,7 @@ export const LearningArticleFooter = (props: ContentfulContent & Locale) => {
           </div>
           <div className="column is-one-third">
             {ArticlesSortedByCategory.map( ( section: TableOfContentsSection, i: number ) =>
-              (i % 3 === 1 ? 
+              (i % NUM_COLUMNS === 1 ? 
                 <TableOfContentsSection key={i} locale={props.locale} noDivider={(ArticlesSortedByCategory.length <= i + 3)}
                   categoryTitle={section.categoryTitle} articles={section.articles} /> 
                 : <React.Fragment key={i} />) 
@@ -94,7 +96,7 @@ export const LearningArticleFooter = (props: ContentfulContent & Locale) => {
           </div>
           <div className="column is-one-third">
             {ArticlesSortedByCategory.map( ( section: TableOfContentsSection, i: number ) =>
-              (i % 3 === 2 ? 
+              (i % NUM_COLUMNS === 2 ? 
                 <TableOfContentsSection key={i} locale={props.locale} noDivider={(ArticlesSortedByCategory.length <= i + 3)}
                   categoryTitle={section.categoryTitle} articles={section.articles} /> 
                 : <React.Fragment key={i} />) 
