@@ -51,6 +51,12 @@ msgstr ""
 msgid "Email Address"
 msgstr ""
 
+#: src/components/learning-center/all-tools-cta.tsx:19
+#: src/pages/index.tsx:19
+#: src/pages/index.tsx:23
+msgid "Enter your address to learn more."
+msgstr ""
+
 #: src/components/footer.tsx:43
 #: src/components/header.tsx:51
 msgid "Jobs"
@@ -119,6 +125,11 @@ msgstr ""
 
 #: src/pages/learn.tsx:28
 msgid "Read More"
+msgstr ""
+
+#: src/components/learning-center/all-tools-cta.tsx:19
+#: src/pages/index.tsx:23
+msgid "Search address"
 msgstr ""
 
 #: src/components/header.tsx:72
