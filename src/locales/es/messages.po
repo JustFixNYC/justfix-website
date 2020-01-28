@@ -8,7 +8,7 @@ msgstr ""
 "Language: es\n"
 "Project-Id-Version: justfix-website\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2020-01-28 18:07\n"
+"PO-Revision-Date: 2020-01-28 18:23\n"
 "Last-Translator: \n"
 "Language-Team: Spanish\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -31,54 +31,54 @@ msgstr "Sobre nosotros"
 
 #: src/components/learning-center/category-page-template.tsx:27
 msgid "Back to Overview"
-msgstr ""
+msgstr "Volver a Vista General"
 
 #: src/components/learning-center/article-template.tsx:55
 msgid "Back to top"
-msgstr ""
+msgstr "Volver a Inicio"
 
 #: src/components/footer.tsx:46
 #: src/components/header.tsx:65
 msgid "Contact"
-msgstr ""
+msgstr "Contacto"
 
 #: src/components/footer.tsx:49
 msgid "Donate"
-msgstr ""
+msgstr "Donar"
 
 #: src/components/footer.tsx:60
 #: src/pages/contact-us.tsx:40
 msgid "Email Address"
-msgstr ""
+msgstr "Correo electrónico"
 
 #: src/components/learning-center/all-tools-cta.tsx:19
 #: src/pages/index.tsx:19
 #: src/pages/index.tsx:23
 msgid "Enter your address to learn more."
-msgstr ""
+msgstr "Introduzca su dirección para empezar."
 
 #: src/components/footer.tsx:43
 #: src/components/header.tsx:51
 msgid "Jobs"
-msgstr ""
+msgstr "Empleos"
 
 #: src/components/footer.tsx:55
 msgid "Join our mailing list!"
-msgstr ""
+msgstr "¡Únete a nuestra lista de correo!"
 
 #: src/components/footer.tsx:24
 #: src/components/header.tsx:61
 msgid "Learn"
-msgstr ""
+msgstr "Aprender"
 
 #: src/components/footer.tsx:27
 #: src/components/header.tsx:39
 msgid "Mission"
-msgstr ""
+msgstr "Misión"
 
 #: src/pages/404.tsx:7
 msgid "Not found"
-msgstr ""
+msgstr "No encontrado"
 
 #: src/components/header.tsx:39
 #~ msgid "Our Partners"
@@ -103,21 +103,21 @@ msgstr ""
 #: src/components/footer.tsx:40
 #: src/components/header.tsx:45
 msgid "Partners"
-msgstr ""
+msgstr "Compañeros"
 
 #: src/components/footer.tsx:30
 #: src/components/header.tsx:48
 msgid "Press"
-msgstr ""
+msgstr "Prensa"
 
 #: src/components/footer.tsx:85
 msgid "Privacy policy"
-msgstr ""
+msgstr "Política de privacidad"
 
 #: src/components/footer.tsx:21
 #: src/components/header.tsx:57
 msgid "Products"
-msgstr ""
+msgstr "Productos"
 
 #: src/components/footer.tsx:21
 #~ msgid "Products & Services"
@@ -125,34 +125,34 @@ msgstr ""
 
 #: src/pages/learn.tsx:28
 msgid "Read More"
-msgstr ""
+msgstr "Leer más"
 
 #: src/components/learning-center/all-tools-cta.tsx:19
 #: src/pages/index.tsx:23
 msgid "Search address"
-msgstr ""
+msgstr "Buscar dirección"
 
 #: src/components/header.tsx:72
 #: src/components/header.tsx:79
 msgid "Sign in"
-msgstr ""
+msgstr "Iniciar sesión"
 
 #: src/components/footer.tsx:64
 msgid "Sign up"
-msgstr ""
+msgstr "Registrarse"
 
 #: src/components/footer.tsx:37
 #: src/components/header.tsx:42
 msgid "Team"
-msgstr ""
+msgstr "Equipo"
 
 #: src/components/footer.tsx:88
 msgid "Terms of use"
-msgstr ""
+msgstr "Condiciones de Uso"
 
 #: src/components/read-more.tsx:10
 msgid "Want to know more?"
-msgstr ""
+msgstr "¿Quiere saber más?"
 
 #: src/components/learning-center/article-template.tsx:21
 msgid "Want to take action?"
@@ -160,5 +160,5 @@ msgstr ""
 
 #: src/pages/404.tsx:8
 msgid "You just found a page that doesn't exist... the sadness."
-msgstr ""
+msgstr "Acaba de llegar a una ruta que no existe... es muy triste."
 
