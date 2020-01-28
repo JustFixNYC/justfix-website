@@ -8,7 +8,7 @@ msgstr ""
 "Language: es\n"
 "Project-Id-Version: justfix-website\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2020-01-28 18:47\n"
+"PO-Revision-Date: 2020-01-28 20:07\n"
 "Last-Translator: \n"
 "Language-Team: Spanish\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -76,6 +76,10 @@ msgstr "Aprender"
 msgid "Mission"
 msgstr "Misión"
 
+#: src/components/learning-center/learning-searchbar.tsx:26
+msgid "No articles match your search."
+msgstr ""
+
 #: src/pages/404.tsx:7
 msgid "Not found"
 msgstr "No encontrado"
@@ -131,6 +135,10 @@ msgstr "Leer más"
 #: src/pages/index.tsx:23
 msgid "Search address"
 msgstr "Buscar dirección"
+
+#: src/components/learning-center/learning-searchbar.tsx:13
+msgid "Search articles..."
+msgstr ""
 
 #: src/components/header.tsx:72
 #: src/components/header.tsx:79
