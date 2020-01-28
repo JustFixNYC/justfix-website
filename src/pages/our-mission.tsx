@@ -8,6 +8,7 @@ import Layout from '../components/layout'
 import ReadMore from '../components/read-more'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import { ContentfulContent } from '.'
+import { Trans } from '@lingui/macro'
 
 
 export function CollaborationBanner(props: {title: string, subtitle: string}): JSX.Element {
@@ -23,9 +24,9 @@ export function CollaborationBanner(props: {title: string, subtitle: string}): J
           {props.subtitle}
         </p>
         <div className="buttons is-centered">
-          <Link to="/contact-us" className="button is-medium is-primary is-outlined is-inverted is-uppercase">Contact Us</Link>
+          <Link to="/contact-us" className="button is-medium is-primary is-outlined is-inverted is-uppercase"><Trans>Contact Us</Trans></Link>
           <a href="https://donorbox.org/donate-to-justfix-nyc" className="button is-medium is-primary is-outlined is-inverted is-uppercase" target="_blank" rel="noopener noreferrer">
-            Donate
+            <Trans>Donate</Trans>
           </a>
         </div> 
       </div>

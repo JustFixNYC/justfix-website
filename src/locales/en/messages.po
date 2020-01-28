@@ -39,7 +39,12 @@ msgstr ""
 msgid "Contact"
 msgstr ""
 
+#: src/pages/our-mission.tsx:21
+msgid "Contact Us"
+msgstr ""
+
 #: src/components/footer.tsx:49
+#: src/pages/our-mission.tsx:23
 msgid "Donate"
 msgstr ""
 
