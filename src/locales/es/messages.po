@@ -8,7 +8,7 @@ msgstr ""
 "Language: es\n"
 "Project-Id-Version: justfix-website\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2020-01-28 20:10\n"
+"PO-Revision-Date: 2020-01-28 20:34\n"
 "Last-Translator: \n"
 "Language-Team: Spanish\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -44,7 +44,7 @@ msgstr "Contacto"
 
 #: src/pages/our-mission.tsx:21
 msgid "Contact Us"
-msgstr ""
+msgstr "Contáctenos"
 
 #: src/components/footer.tsx:49
 #: src/pages/our-mission.tsx:23
@@ -166,7 +166,7 @@ msgstr "Condiciones de Uso"
 
 #: src/components/learning-center/article-template.tsx:97
 msgid "Updated"
-msgstr ""
+msgstr "Actualizado"
 
 #: src/components/read-more.tsx:10
 msgid "Want to know more?"
@@ -178,8 +178,9 @@ msgstr "¿Quiere tomar medidas?"
 
 #: src/components/learning-center/article-template.tsx:95
 msgid "Written by"
-msgstr ""
+msgstr "Escrita por"
 
 #: src/pages/404.tsx:8
 msgid "You just found a page that doesn't exist... the sadness."
 msgstr "Acaba de llegar a una ruta que no existe... es muy triste."
+
