@@ -8,7 +8,7 @@ msgstr ""
 "Language: es\n"
 "Project-Id-Version: justfix-website\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2020-01-28 20:07\n"
+"PO-Revision-Date: 2020-01-28 20:18\n"
 "Last-Translator: \n"
 "Language-Team: Spanish\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -78,7 +78,7 @@ msgstr "Misión"
 
 #: src/components/learning-center/learning-searchbar.tsx:26
 msgid "No articles match your search."
-msgstr ""
+msgstr "No hay resultados coincidan con su búsqueda."
 
 #: src/pages/404.tsx:7
 msgid "Not found"
@@ -129,7 +129,7 @@ msgstr "Productos"
 
 #: src/pages/learn.tsx:28
 msgid "Read More"
-msgstr "Leer más"
+msgstr "Lee más"
 
 #: src/components/learning-center/all-tools-cta.tsx:19
 #: src/pages/index.tsx:23
@@ -138,7 +138,7 @@ msgstr "Buscar dirección"
 
 #: src/components/learning-center/learning-searchbar.tsx:13
 msgid "Search articles..."
-msgstr ""
+msgstr "Buscar artículos..."
 
 #: src/components/header.tsx:72
 #: src/components/header.tsx:79
@@ -164,7 +164,7 @@ msgstr "¿Quiere saber más?"
 
 #: src/components/learning-center/article-template.tsx:21
 msgid "Want to take action?"
-msgstr "¿Quieres tomar medidas?"
+msgstr "¿Quiere tomar medidas?"
 
 #: src/pages/404.tsx:8
 msgid "You just found a page that doesn't exist... the sadness."
