@@ -73,6 +73,10 @@ msgstr ""
 msgid "Mission"
 msgstr ""
 
+#: src/components/learning-center/learning-searchbar.tsx:26
+msgid "No articles match your search."
+msgstr ""
+
 #: src/pages/404.tsx:7
 msgid "Not found"
 msgstr ""
@@ -127,6 +131,10 @@ msgstr ""
 #: src/components/learning-center/all-tools-cta.tsx:19
 #: src/pages/index.tsx:23
 msgid "Search address"
+msgstr ""
+
+#: src/components/learning-center/learning-searchbar.tsx:13
+msgid "Search articles..."
 msgstr ""
 
 #: src/components/header.tsx:72

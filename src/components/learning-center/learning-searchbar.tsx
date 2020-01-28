@@ -4,6 +4,8 @@ import { InstantSearch, Configure, Snippet, connectSearchBox, connectHits, Hits 
 import { Link } from 'gatsby';
 import { SearchBoxExposed } from 'react-instantsearch-core';
 import { Locale } from '../../pages';
+import { I18n } from '@lingui/react';
+import { t, Trans } from '@lingui/macro';
 
 const appId = process.env.GATSBY_ALGOLIA_APP_ID;
 const searchKey = process.env.GATSBY_ALGOLIA_SEARCH_KEY;
@@ -12,15 +14,18 @@ const enableAnalytics = process.env.GATSBY_ENABLE_ALGOLIA_ANALYTICS;
 const SEARCH_RESULTS_LIMIT = 5;
 
 const SearchBox = ({ currentRefinement, refine, updateSearchQuery }: any) => (
-  <form className="control" noValidate action="" role="search" onSubmit={e => e.preventDefault()}>
-    <input
-      className="input is-primary is-size-5"
-      type="search"
-      placeholder="Search articles..."
-      value={currentRefinement}
-      onChange={event => {refine(event.currentTarget.value); updateSearchQuery(event.currentTarget.value);}}
-    />
-  </form>
+  <I18n>
+    {( {i18n} ) => 
+    <form className="control" noValidate action="" role="search" onSubmit={e => e.preventDefault()}>
+      <input
+        className="input is-primary is-size-5"
+        type="search"
+        placeholder={i18n._(t`Search articles...`)}
+        value={currentRefinement}
+        onChange={event => {refine(event.currentTarget.value); updateSearchQuery(event.currentTarget.value);}}
+      />
+    </form>}
+  </I18n>
 );
 
 const SearchHits = ({ hits, locale }: any) => (
@@ -40,7 +45,7 @@ const SearchHits = ({ hits, locale }: any) => (
         </div>
       </Link>)
     )).slice(0, SEARCH_RESULTS_LIMIT)}
-  </div>: <div className="label"><br />No articles match your search.</div>)
+  </div>: <div className="label"><br /><Trans>No articles match your search.</Trans></div>)
 );
 
 /* 
