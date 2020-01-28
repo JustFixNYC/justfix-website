@@ -8,6 +8,7 @@
 const generateLearningPages = async function({ actions, graphql }, locale) {
   const query = `query {
     contentfulLearningCenterSearchPage(node_locale: { eq:"` + (locale || 'en-US') + `" } ){
+      title
       categoryButtons {
         title
         description
@@ -116,6 +117,7 @@ const generateLearningPages = async function({ actions, graphql }, locale) {
   })
 
   /* Create each Learning Center article page with appropriate data */  
+  const learningCenterTitle = data.contentfulLearningCenterSearchPage.title;
   const allToolsCta = data.contentfulLearningCenterSearchPage.allToolsCta;
   const articleFooter = {
     categoryButtons: data.contentfulLearningCenterSearchPage.categoryButtons,
@@ -130,6 +132,7 @@ const generateLearningPages = async function({ actions, graphql }, locale) {
       component: require.resolve(`./src/components/learning-center/article-template.tsx`),
       context: { 
         locale: locale,
+        learningCenterTitle: learningCenterTitle,
         allToolsCta: allToolsCta,
         articleFooter: articleFooter,
         content: article

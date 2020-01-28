@@ -14,6 +14,7 @@ const widont = require('widont')
 
 type Props = {
     pageContext: { 
+        learningCenterTitle: string,
         content: any,
         articleFooter: any,
         allToolsCta: any 
@@ -121,7 +122,7 @@ const LearningArticle = (props: Props) => {
                             <div className="hero-body">
                                 <nav className="breadcrumb" aria-label="breadcrumbs">
                                     <ul>
-                                        <li><Link to={localePrefix + "/learn/"}>Learning Center</Link></li>
+                                        <li><Link to={localePrefix + "/learn/"}>{props.pageContext.learningCenterTitle}</Link></li>
                                         <li><Link to={localePrefix + "/learn/category/" + content.categories[0].slug + "/"}>{content.categories[0].title}</Link></li>
                                     </ul>
                                 </nav>
@@ -130,9 +131,9 @@ const LearningArticle = (props: Props) => {
                                         {widont(content.title)}
                                     </h1>
                                     <p className="subtitle is-size-6 has-text-grey-dark">
-                                        <span className="is-size-6">Written by {content.author} </span> 
+                                        <span className="is-size-6"><Trans>Written by</Trans> {content.author}</span> 
                                             <br/>
-                                        <span className="is-size-7 is-uppercase">Updated {content.dateUpdated}</span> 
+                                        <span className="is-size-7 is-uppercase"><Trans>Updated</Trans> {content.dateUpdated}</span> 
                                     </p>
                                     {content.subtitle && <span className="is-size-6 has-text-grey-dark">
                                         {documentToReactComponents(content.subtitle.json)}
