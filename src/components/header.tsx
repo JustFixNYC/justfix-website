@@ -5,6 +5,8 @@ import { Trans } from '@lingui/macro';
 import '../styles/header.scss' 
 import { Locale } from '../pages';
 
+const isDemoSite = process.env.GATSBY_DEMO_SITE === '1';
+
 type Props = {
   isLandingPage?: boolean,
 } & Locale 
@@ -34,7 +36,11 @@ render() {
       <Link to={localePrefix + "/"} className="navbar-item">
         <img src={require("../img/brand/logo.png")} width="112" height="28" alt="JustFix.nyc" />
       </Link>
-
+      {isDemoSite && 
+        <div className="navbar-item">
+          <span className="tag is-warning"><Trans>DEMO SITE</Trans></span>
+        </div>
+      }
       <a role="button" className={"navbar-burger burger " + (this.state.burgerMenuIsOpen && "is-active") } aria-label="menu" aria-expanded="false" 
         onClick = {this.toggleBurgerMenu} data-target="navbar">
         <span aria-hidden="true"></span>
