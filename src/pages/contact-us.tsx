@@ -2,7 +2,7 @@ import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import { SocialIcon } from 'react-social-icons';
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
-import { t } from '@lingui/macro';
+import { t, Trans } from '@lingui/macro';
 import { I18n } from '@lingui/react';
 // import { Link } from 'gatsby'
 
@@ -50,7 +50,7 @@ export const ContactPageScaffolding = (props: ContentfulContent) =>
                     </div>
                     <div className="control">
                         <button className="button is-primary" type="submit">
-                          <span className="is-uppercase">Sign up</span>
+                          <span className="is-uppercase"><Trans>Sign up</Trans></span>
                         </button>
                     </div>
                 </div>

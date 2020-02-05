@@ -8,6 +8,7 @@ import { ContentfulContent } from '.'
 import { ThankYouBanner } from '../components/learning-center/thank-you-banner'
 import LearningSearchBar from '../components/learning-center/learning-searchbar'
 import CategoryMenu from '../components/learning-center/category-menu'
+import { Trans } from '@lingui/macro';
 
 const widont = require('widont')
 
@@ -18,10 +19,11 @@ export type Category = {
 }
 
 export const ArticlePreviewCard = (props: any) => {
-  const url = '/learn/' + props.articleData.slug; 
+  const localePrefix = props.locale ? ("/" + props.locale) : "";
+  const url = localePrefix + '/learn/' + props.articleData.slug; 
   const categoryLabels = (props.articleData.categories).map(
     (category: Category, i: number) => 
-    <Link key={i} to={'/learn/category/' + category.slug} className="tag is-primary is-light is-uppercase">
+    <Link key={i} to={localePrefix + '/learn/category/' + category.slug} className="tag is-primary is-light is-uppercase">
       {category.title}
     </Link>
   )
@@ -38,7 +40,7 @@ export const ArticlePreviewCard = (props: any) => {
           <br />
         <div>
           <Link to={url} className="is-inline-block is-size-7 is-uppercase has-text-weight-semibold has-letters-spaced">
-            Read More →
+            <Trans>Read More</Trans> →
           </Link>
           <div className="tags is-hidden-mobile is-inline-block is-uppercase is-pulled-right has-letters-spaced">
             {categoryLabels}
@@ -51,8 +53,8 @@ export const ArticlePreviewCard = (props: any) => {
     )
   }
 
-const LearningPageScaffolding = (props: ContentfulContent) => 
-  (<Layout metadata={props.content.metadata}>
+export const LearningPageScaffolding = (props: ContentfulContent) => 
+  (<Layout metadata={props.content.metadata} locale={props.locale}>
     <div id="learning-center" className="learning-center-page" >
       <section className="hero is-small">
         <div className="hero-body has-text-centered is-horizontal-center">
@@ -66,18 +68,18 @@ const LearningPageScaffolding = (props: ContentfulContent) =>
             <h6 className="subtitle has-text-grey-dark is-italic">
               {widont(props.content.subtitle)}
             </h6>
-            <LearningSearchBar />
+            <LearningSearchBar locale={props.locale} />
               <br />
-            <CategoryMenu />
+            <CategoryMenu locale={props.locale} />
           </div>
         </div>
       </section>
       <section className="content-wrapper tight">
         {(props.content.articles).map(
-          (article: any, i: number) => <ArticlePreviewCard articleData={article} key={i} />
+          (article: any, i: number) => <ArticlePreviewCard articleData={article} key={i} locale={props.locale} />
         )}
       </section>
-      <ThankYouBanner />
+      <ThankYouBanner content={props.content.thankYouText} />
     </div>
   </Layout>); 
 
@@ -129,6 +131,9 @@ const LearningPage  = () => (
             subtitle
             ctaText
             ctaLink
+          }
+          thankYouText {
+            json
           }
         }
       }

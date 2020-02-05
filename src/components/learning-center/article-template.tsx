@@ -7,15 +7,18 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 
 import '../../styles/learn.scss' 
 import { AllToolsCta } from './all-tools-cta';
+import { Locale } from '../../pages';
+import { Trans } from '@lingui/macro';
 
 const widont = require('widont')
 
 type Props = {
     pageContext: { 
+        learningCenterTitle: string,
         content: any,
-        learningCenterCta: any,
-        justFixCta: any 
-    }
+        articleFooter: any,
+        allToolsCta: any 
+    } & Locale
 }
 
 type navMenuProps = {
@@ -33,7 +36,9 @@ function renderSection(articleSection: any, i: number): JSX.Element {
                 <div className="content cta-wrapper">
                     <div className="cta is-horizontal-center has-text-centered has-background-white">
                         <div className="label is-block">
-                            <small className="has-text-primary has-text-weight-bold has-background-white is-uppercase">Want to take action?</small>
+                            <small className="has-text-primary has-text-weight-bold has-background-white is-uppercase">
+                              <Trans> Want to take action? </Trans> 
+                            </small>
                         </div>
                         <h1 className="title is-size-4 has-text-weight-bold has-text-primary is-spaced">
                             {widont(articleSection.title)}
@@ -69,14 +74,15 @@ function renderSection(articleSection: any, i: number): JSX.Element {
                 </div>)}
                 <ScrollLink to="navmenu" spy={true} smooth={true}
                     offset={-100} duration= {500} className="back-to-top is-uppercase is-hidden-desktop is-size-7 has-text-weight-semibold has-letters-spaced">
-                        Back to top ↑
+                        <Trans>Back to top</Trans> ↑
                 </ScrollLink>
         </div>
     );
 }
 
 const LearningArticle = (props: Props) => {
-    
+
+    const localePrefix = props.pageContext.locale ? ("/" + props.pageContext.locale) : "";    
     const content = props.pageContext.content;
 
     const NavMenu = ( props?: navMenuProps ) => (
@@ -106,10 +112,8 @@ const LearningArticle = (props: Props) => {
         </aside>
     )
 
-  
-
     return (
-        <Layout metadata={content.metadata}>
+        <Layout metadata={content.metadata} locale={props.pageContext.locale}>
             <div className="article-page">
                 <div className="columns is-desktop">
                     <div className="column" />
@@ -118,8 +122,8 @@ const LearningArticle = (props: Props) => {
                             <div className="hero-body">
                                 <nav className="breadcrumb" aria-label="breadcrumbs">
                                     <ul>
-                                        <li><Link to="/learn/">Learning Center</Link></li>
-                                        <li><Link to={"/learn/category/" + content.categories[0].slug + "/"}>{content.categories[0].title}</Link></li>
+                                        <li><Link to={localePrefix + "/learn/"}>{props.pageContext.learningCenterTitle}</Link></li>
+                                        <li><Link to={localePrefix + "/learn/category/" + content.categories[0].slug + "/"}>{content.categories[0].title}</Link></li>
                                     </ul>
                                 </nav>
                                 <div className="container content-wrapper">
@@ -127,9 +131,9 @@ const LearningArticle = (props: Props) => {
                                         {widont(content.title)}
                                     </h1>
                                     <p className="subtitle is-size-6 has-text-grey-dark">
-                                        <span className="is-size-6">Written by {content.author} </span> 
+                                        <span className="is-size-6"><Trans>Written by</Trans> {content.author}</span> 
                                             <br/>
-                                        <span className="is-size-7 is-uppercase">Updated {content.dateUpdated}</span> 
+                                        <span className="is-size-7 is-uppercase"><Trans>Updated</Trans> {content.dateUpdated}</span> 
                                     </p>
                                     {content.subtitle && <span className="is-size-6 has-text-grey-dark">
                                         {documentToReactComponents(content.subtitle.json)}
@@ -159,7 +163,7 @@ const LearningArticle = (props: Props) => {
                                             {renderSection(articleSection, i)}
                                         </div>)}
                                 )}
-                                <AllToolsCta />
+                                <AllToolsCta content={props.pageContext.allToolsCta} />
                                 <br />
                             </div>
                         </div>
@@ -168,7 +172,7 @@ const LearningArticle = (props: Props) => {
                         <NavMenu styleClass="sticky is-hidden-touch" />
                     </div>                      
                 </div>
-                <LearningArticleFooter />
+                <LearningArticleFooter content={props.pageContext.articleFooter} locale={props.pageContext.locale} />
             </div>
         </Layout>
         
