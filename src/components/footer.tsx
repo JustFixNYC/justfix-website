@@ -24,7 +24,7 @@ const Footer = withI18n()(({locale, i18n}: Locale & withI18nProps) => {
           </Link>
         </div>
         <div className="column">
-          <p className="link-header has-text-white has-text-weight-bold">WHAT WE DO</p>
+          <p className="link-header has-text-white has-text-weight-bold is-uppercase"><Trans>What we do</Trans></p>
           <Link className="link has-text-weight-semibold is-uppercase" to={localePrefix + "/#products"}>
             <p><Trans>Products</Trans></p>
           </Link>

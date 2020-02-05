@@ -180,6 +180,10 @@ msgstr "¿Quiere saber más?"
 msgid "Want to take action?"
 msgstr "¿Quiere tomar medidas?"
 
+#: src/components/footer.tsx:19
+msgid "What we do"
+msgstr ""
+
 #: src/components/learning-center/article-template.tsx:95
 msgid "Written by"
 msgstr "Escrita por"
