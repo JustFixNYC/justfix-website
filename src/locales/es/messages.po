@@ -8,7 +8,7 @@ msgstr ""
 "Language: es\n"
 "Project-Id-Version: justfix-website\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2020-02-04 16:01\n"
+"PO-Revision-Date: 2020-02-05 17:50\n"
 "Last-Translator: \n"
 "Language-Team: Spanish\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -18,7 +18,7 @@ msgstr ""
 
 #: src/components/footer.tsx:82
 msgid "<0>Disclaimer:</0> The information in JustFix.nyc does not constitute legal advice and must not be used as a substitute for the advice of a lawyer qualified to give advice on legal issues pertaining to housing. We can help direct you to free legal services if necessary."
-msgstr "<0>Aviso:</0> La información en JustFix. yc no constituye asesoramiento jurídico y no debe ser utilizado como sustituto del asesoramiento de un abogado cualificado para asesorar sobre cuestiones jurídicas relativas a la vivienda. Nosotros podemos ayudarle a dirigirle a servicios legales gratuitos si es necesario."
+msgstr "<0>Aviso:</0> La información en JustFix.nyc no constituye asesoramiento jurídico y no debe ser utilizado como sustituto del asesoramiento de un abogado cualificado para asesorar sobre cuestiones jurídicas relativas a la vivienda. Nosotros podemos ayudarle a dirigirle a servicios legales gratuitos si es necesario."
 
 #: src/components/footer.tsx:83
 msgid "<0>JustFix.nyc</0> is a registered 501(c)(3) nonprofit organization."
@@ -31,11 +31,11 @@ msgstr "Sobre nosotros"
 
 #: src/components/learning-center/category-page-template.tsx:27
 msgid "Back to Overview"
-msgstr "Volver a Vista General"
+msgstr "Vuelve a Vista General"
 
 #: src/components/learning-center/article-template.tsx:55
 msgid "Back to top"
-msgstr "Volver a Inicio"
+msgstr "Vuelve a Inicio"
 
 #: src/components/footer.tsx:46
 #: src/components/header.tsx:69
@@ -44,16 +44,16 @@ msgstr "Contacto"
 
 #: src/pages/our-mission.tsx:21
 msgid "Contact Us"
-msgstr "Contáctenos"
+msgstr "Contáctanos"
 
 #: src/components/header.tsx:23
 msgid "DEMO SITE"
-msgstr ""
+msgstr "SITIO DEMO"
 
 #: src/components/footer.tsx:49
 #: src/pages/our-mission.tsx:23
 msgid "Donate"
-msgstr "Donar"
+msgstr "Dona"
 
 #: src/components/footer.tsx:60
 #: src/pages/contact-us.tsx:40
@@ -78,7 +78,7 @@ msgstr "¡Únete a nuestra lista de correo!"
 #: src/components/footer.tsx:24
 #: src/components/header.tsx:65
 msgid "Learn"
-msgstr "Aprender"
+msgstr "Aprende"
 
 #: src/components/footer.tsx:27
 #: src/components/header.tsx:43
@@ -116,7 +116,7 @@ msgstr "No encontrado"
 #: src/components/footer.tsx:40
 #: src/components/header.tsx:49
 msgid "Partners"
-msgstr "Compañeros"
+msgstr "Colaboradores"
 
 #: src/components/footer.tsx:30
 #: src/components/header.tsx:52
@@ -130,7 +130,7 @@ msgstr "Política de privacidad"
 #: src/components/footer.tsx:21
 #: src/components/header.tsx:61
 msgid "Products"
-msgstr "Productos"
+msgstr "Herramientas"
 
 #: src/components/footer.tsx:21
 #~ msgid "Products & Services"
@@ -143,21 +143,21 @@ msgstr "Lee más"
 #: src/components/learning-center/all-tools-cta.tsx:19
 #: src/pages/index.tsx:23
 msgid "Search address"
-msgstr "Buscar dirección"
+msgstr "Busca dirección"
 
 #: src/components/learning-center/learning-searchbar.tsx:13
 msgid "Search articles..."
-msgstr "Buscar artículos..."
+msgstr "Busca artículos..."
 
 #: src/components/header.tsx:76
 #: src/components/header.tsx:83
 msgid "Sign in"
-msgstr "Iniciar sesión"
+msgstr "Inicia sesión"
 
 #: src/components/footer.tsx:64
 #: src/pages/contact-us.tsx:44
 msgid "Sign up"
-msgstr "Registrarse"
+msgstr "Regístrate"
 
 #: src/components/footer.tsx:37
 #: src/components/header.tsx:46
@@ -174,11 +174,11 @@ msgstr "Actualizado"
 
 #: src/components/read-more.tsx:10
 msgid "Want to know more?"
-msgstr "¿Quiere saber más?"
+msgstr "¿Quieres saber más?"
 
 #: src/components/learning-center/article-template.tsx:21
 msgid "Want to take action?"
-msgstr "¿Quiere tomar medidas?"
+msgstr "¿Quieres tomar medidas?"
 
 #: src/components/learning-center/article-template.tsx:95
 msgid "Written by"
@@ -186,4 +186,5 @@ msgstr "Escrita por"
 
 #: src/pages/404.tsx:8
 msgid "You just found a page that doesn't exist... the sadness."
-msgstr "Acaba de llegar a una ruta que no existe... es muy triste."
+msgstr "Acabas de llegar a una ruta que no existe... es muy triste."
+
