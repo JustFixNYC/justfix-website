@@ -18,7 +18,7 @@ export const ContactPageScaffolding = (props: ContentfulContent) =>
     <I18n>{({i18n}) => 
     <div id="contact" className="contact-page" >
 
-      <section className="hero is-medium is-white">
+      <section className="hero is-medium">
         <div className="hero-body has-text-centered is-horizontal-center content-wrapper">
           <div className="container">
 

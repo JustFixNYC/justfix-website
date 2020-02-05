@@ -11,7 +11,7 @@ const DDO_ADDRESS_VAR = "address";
 /** The querystring variable used to communicate the borough for DDO. */
 const DDO_BOROUGH_VAR = "borough";
 
-/** The URL parameters usedfor tracking */
+/** The default URL parameters used for tracking */
 const DDO_URL_UTM_TAGS = "utm_source=orgsite&utm_medium=ddosearch";
 
 export type DDOSearchBarProps = {
@@ -29,6 +29,12 @@ export type DDOSearchBarProps = {
 
   /** The GeoAutocomplete component to use; primarily intended for testing. */
   geoAutocompleteComponent?: React.ComponentType<GeoAutocompleteProps>;
+
+  /** Whether the search bar is showing up within a CTA */
+  withinCTA?: boolean;
+
+  /** Custom URL parameters used for tracking */
+  customUtmTags?: string;
 };
 
 /** Return the DDO URL for the given address and/or borough. */
@@ -70,7 +76,7 @@ export function DDOSearchBar(props: DDOSearchBarProps): JSX.Element {
   const GeoAutocompleteComponent = props.geoAutocompleteComponent || GeoAutocomplete;
   const gotoDDO = (item: GeoAutocompleteItem) => {
     setIsNavigating(true);
-    window.location.assign(getDDOURL(item, props.action, DDO_URL_UTM_TAGS));
+    window.location.assign(getDDOURL(item, props.action, (props.customUtmTags || DDO_URL_UTM_TAGS)));
   };
 
   useEffect(() => {
@@ -88,7 +94,7 @@ export function DDOSearchBar(props: DDOSearchBarProps): JSX.Element {
         gotoDDO(autocompleteItem);
       }
     }}>
-      <div className="level jf-ddo-searchbar">
+      <div className={(props.withinCTA ? "" : "level ") + "jf-ddo-searchbar"}>
         {useGeoAutocomplete
           ? <GeoAutocompleteComponent label={props.hiddenFieldLabel} onChange={item => {
               setAutocompleteItem(item);
@@ -98,8 +104,12 @@ export function DDOSearchBar(props: DDOSearchBarProps): JSX.Element {
             }} onNetworkError={(e) => {window.console && window.console.log(e)}} />
           : <BaselineAddressInput {...props} />
         }
-        <button type="submit" className={classnames(
-          "button", "is-inverted", "is-outlined", "is-uppercase", isNavigating ? "is-loading" : "is-dark"
+        <button type="submit" className={
+          props.withinCTA ? classnames(
+            "button", "is-primary","is-medium", "is-uppercase", isNavigating ? "is-loading" : "is-dark"
+          ):
+          classnames(
+            "button", "is-inverted", "is-outlined", "is-uppercase", isNavigating ? "is-loading" : "is-dark"
         )}>{props.submitLabel}</button>
       </div>
     </form>
