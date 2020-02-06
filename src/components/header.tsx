@@ -7,6 +7,8 @@ import { Locale } from '../pages';
 
 const isDemoSite = process.env.GATSBY_DEMO_SITE === '1';
 
+const TENANT_PLATFORM_URL = 'https://' + (isDemoSite ? 'demo' : 'app') + '.justfix.nyc/login';
+
 type Props = {
   isLandingPage?: boolean,
 } & Locale 
@@ -94,14 +96,14 @@ render() {
         </Link> */}
 
         {this.state.burgerMenuIsOpen && 
-        <a className="navbar-item has-text-black is-uppercase" href="https://app.justfix.nyc/login">
+        <a className="navbar-item has-text-black is-uppercase" href={TENANT_PLATFORM_URL}>
           <Trans>Sign in</Trans>
         </a>}
 
       </div>
         <div className="navbar-item">
           <div className="buttons">
-            <a className="button is-primary is-uppercase is-inverted is-outlined" href="https://app.justfix.nyc/login">
+            <a className="button is-primary is-uppercase is-inverted is-outlined" href={TENANT_PLATFORM_URL}>
               <Trans>Sign in</Trans>
             </a>
         </div>
