@@ -101,7 +101,7 @@ render() {
         </a>}
 
       </div>
-        <div className="navbar-item">
+        <div className="navbar-item is-hidden-touch">
           <div className="buttons">
             <a className="button is-primary is-uppercase is-inverted is-outlined" href={TENANT_PLATFORM_URL}>
               <Trans>Sign in</Trans>
