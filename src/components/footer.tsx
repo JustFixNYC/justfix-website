@@ -89,10 +89,10 @@ const Footer = withI18n()(({locale, i18n}: Locale & withI18nProps) => {
         <div className="column is-three-quarters">
           <p className="subtitle is-size-6 has-text-white"><Trans><b>Disclaimer:</b> The information in JustFix.nyc does not constitute legal advice and must not be used as a substitute for the advice of a lawyer qualified to give advice on legal issues pertaining to housing. We can help direct you to free legal services if necessary.</Trans></p>
           <p className="subtitle is-size-6 has-text-white"><Trans><b>JustFix.nyc</b> is a registered 501(c)(3) nonprofit organization.</Trans></p>
-          <Link className="link legal has-text-weight-semibold is-uppercase" to={localePrefix + "/privacy-policy"}>
+          <Link className="link legal is-inline-block has-text-weight-semibold is-uppercase" to={localePrefix + "/privacy-policy"}>
             <Trans>Privacy policy</Trans>
           </Link>
-          <Link className="link legal has-text-weight-semibold is-uppercase" to={localePrefix + "/terms-of-use"}>
+          <Link className="link legal is-inline-block has-text-weight-semibold is-uppercase" to={localePrefix + "/terms-of-use"}>
             <Trans>Terms of use</Trans>
           </Link>
         </div>
