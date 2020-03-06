@@ -6,6 +6,12 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 
 import '../styles/changes.scss';
 
+type ChangelogEntries = {
+  allContentfulChangelogEntry: {
+    nodes: ChangelogEntry[],
+  }
+};
+
 type ChangelogEntry = {
   title: string,
   date: string, // e.g. "2019-10-01"
@@ -43,7 +49,9 @@ const ChangelogEntry: React.FC<{node: ChangelogEntry, prevNode?: ChangelogEntry}
   </>;
 };
 
-const Changelog: React.FC<{nodes: ChangelogEntry[]}> = ({nodes}) => {
+export const Changelog: React.FC<{entries: ChangelogEntries}> = ({entries}) => {
+  const { nodes } = entries.allContentfulChangelogEntry;
+
   return (
     <Layout>
       <div className="changes-page">
@@ -71,24 +79,28 @@ const Changelog: React.FC<{nodes: ChangelogEntry[]}> = ({nodes}) => {
   );
 };
 
-const ChangelogPage: React.FC<{}> = () => (
-  <StaticQuery query={graphql`
-  {
-    allContentfulChangelogEntry(
-      filter: {node_locale: {eq: "en-US"}},
-      sort: {order: DESC, fields: [date, title]}
-    ) {
-      nodes {
-        title
-        date
-        body {
-          json
-        }
-        node_locale
+export const LocalizedChangelogEntries = graphql`
+fragment LocalizedChangelogEntries on Query {
+  allContentfulChangelogEntry(
+    filter: {node_locale: {eq: $locale}},
+    sort: {order: DESC, fields: [date, title]}
+  ) {
+    nodes {
+      title
+      date
+      body {
+        json
       }
+      node_locale
     }
-  }  
-  `} render={data => (<Changelog nodes={data.allContentfulChangelogEntry.nodes} />)} />
+  }
+}
+`;
+
+const EnglishChangelogPage: React.FC<{}> = () => (
+  <StaticQuery query={graphql`
+  query ($locale: String! = "en-US") { ...LocalizedChangelogEntries }
+  `} render={data => (<Changelog entries={data} />)} />
 );
 
-export default ChangelogPage;
+export default EnglishChangelogPage;
