@@ -49,8 +49,8 @@ const ChangelogEntry: React.FC<{node: ChangelogEntry, prevNode?: ChangelogEntry}
   </>;
 };
 
-export const ChangelogPageScaffolding: React.FC<{entries: ChangelogEntries}> = ({entries}) => {
-  const { nodes } = entries.allContentfulChangelogEntry;
+export const ChangelogPageScaffolding: React.FC<{content: ChangelogEntries}> = ({content}) => {
+  const { nodes } = content.allContentfulChangelogEntry;
 
   return (
     <Layout>
@@ -100,7 +100,7 @@ fragment LocalizedChangelogEntries on Query {
 const EnglishChangelogPage: React.FC<{}> = () => (
   <StaticQuery query={graphql`
   query ($locale: String! = "en-US") { ...LocalizedChangelogEntries }
-  `} render={data => (<ChangelogPageScaffolding entries={data} />)} />
+  `} render={data => (<ChangelogPageScaffolding content={data} />)} />
 );
 
 export default EnglishChangelogPage;
