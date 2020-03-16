@@ -73,58 +73,60 @@ export const PartnersPageScaffolding = (props: ContentfulContent) =>
   </div>
 </Layout>); 
 
-
-const PartnersPage  = () => (
-<StaticQuery
-    query={graphql`
-      query {
-        contentfulPartnersPage{
-          metadata {
-            title
-            description
-            keywords { 
-              keywords 
-            }
-            shareImage {
-              file {
-                url
-              }
-            }
-          }
-          title
-          subtitle {
-            subtitle
-          }
-          partnerOrganizations {
-            name
-            link
-            logo {
-              fluid {
-                src
-              }
-            }
-          }
-          fundersTitle 
-          funders {
-            name
-            link
-            logo {
-              fluid {
-                src
-              }
-            }
-          }
-          collaborationBanner {
-            title
-            subtitle
-          }
-          readMore {
-            title
-            link
+export const PartnersPageQuery = graphql`
+  fragment PartnersPageQuery on Query {
+    contentfulPartnersPage( node_locale: { eq: $locale } ) {
+      metadata {
+        title
+        description
+        keywords { 
+          keywords 
+        }
+        shareImage {
+          file {
+            url
           }
         }
       }
-    `}
+      title
+      subtitle {
+        subtitle
+      }
+      partnerOrganizations {
+        name
+        link
+        logo {
+          fluid {
+            src
+          }
+        }
+      }
+      fundersTitle 
+      funders {
+        name
+        link
+        logo {
+          fluid {
+            src
+          }
+        }
+      }
+      collaborationBanner {
+        title
+        subtitle
+      }
+      readMore {
+        title
+        link
+      }
+    }
+  }`;
+
+const PartnersPage  = () => (
+<StaticQuery
+  query={graphql`
+    query ($locale: String! = "en-US") { ...PartnersPageQuery }
+  `}
   render = {data => (<PartnersPageScaffolding content={data.contentfulPartnersPage} />)}
   />
 );

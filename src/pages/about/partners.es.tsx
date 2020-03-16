@@ -5,55 +5,9 @@ import { PartnersPageScaffolding } from './partners';
 
 const PartnersPage  = () => (
 <StaticQuery
-    query={graphql`
-      query {
-        contentfulPartnersPage( node_locale: { eq: "es" } ) {
-          metadata {
-            title
-            description
-            keywords { 
-              keywords 
-            }
-            shareImage {
-              file {
-                url
-              }
-            }
-          }
-          title
-          subtitle {
-            subtitle
-          }
-          partnerOrganizations {
-            name
-            link
-            logo {
-              fluid {
-                src
-              }
-            }
-          }
-          fundersTitle 
-          funders {
-            name
-            link
-            logo {
-              fluid {
-                src
-              }
-            }
-          }
-          collaborationBanner {
-            title
-            subtitle
-          }
-          readMore {
-            title
-            link
-          }
-        }
-      }
-    `}
+  query={graphql`
+    query ($locale: String! = "es") { ...PartnersPageQuery }
+  `}
   render = {data => (<PartnersPageScaffolding content={data.contentfulPartnersPage} locale="es" />)}
   />
 );
