@@ -55,42 +55,44 @@ export const PressPageScaffolding = (props: ContentfulContent) =>
 
 </Layout>); 
 
-
-const PressPage  = () => (
-<StaticQuery
-    query={graphql`
-      query {
-        contentfulPressPage {
-          metadata {
-            title
-            description
-            keywords { 
-              keywords 
-            }
-            shareImage {
-              file {
-                url
-              }
-            }
-          }
-          title
-          pressItems {
-            title
-            hyperlink
-            linkText
-            logo {
-              file {
-                url
-              }
-            }
-          }
-          readMore {
-            title
-            link
+export const PressPageQuery = graphql`
+  fragment PressPageQuery on Query {
+    contentfulPressPage( node_locale: { eq: $locale } ) {
+      metadata {
+        title
+        description
+        keywords { 
+          keywords 
+        }
+        shareImage {
+          file {
+            url
           }
         }
       }
-    `}
+      title
+      pressItems {
+        title
+        hyperlink
+        linkText
+        logo {
+          file {
+            url
+          }
+        }
+      }
+      readMore {
+        title
+        link
+      }
+    }
+  }`;
+
+const PressPage  = () => (
+<StaticQuery
+  query={graphql`
+    query ($locale: String! = "en-US") { ...PressPageQuery }
+  `}
   render = {data => (<PressPageScaffolding content={data.contentfulPressPage} />)}
   />
 );
