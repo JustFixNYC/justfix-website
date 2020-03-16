@@ -56,7 +56,7 @@ export const ChangelogPageScaffolding: React.FC<{content: ChangelogEntries}> = (
     <Layout>
       <div className="changes-page">
         <section className="hero is-small">
-          <div className="hero-body has-text-centered is-horizontal-center">
+          <div className="hero-body has-text-centered is-horizontal-center content-wrapper tight">
             <div className="container">
               <h1 className="title is-size-2 has-text-grey-dark has-text-weight-normal is-spaced">
                 Changelog
@@ -66,7 +66,7 @@ export const ChangelogPageScaffolding: React.FC<{content: ChangelogEntries}> = (
               </div>
             </div>
           </div>
-          <div className="hero-body is-horizontal-center">
+          <div className="hero-body is-horizontal-center content-wrapper tight">
             <div className="content has-text-grey-dark">
             {nodes.map((node, i) => (
               <ChangelogEntry node={node} prevNode={i > 0 ? nodes[i - 1] : undefined} />
