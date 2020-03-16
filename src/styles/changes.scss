@@ -4,4 +4,14 @@
         padding-bottom: 16px;
         border-bottom: 1px solid lightgray;
     }
+
+    img.block-quoted {
+        border-left: 0.25em solid #dfe2e5;
+        padding: 0 1em;
+        display: block;
+    }
+
+    img.block-quoted:not(:last-child) {
+        margin-bottom: 1em;
+    }
 }

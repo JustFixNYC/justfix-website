@@ -1,8 +1,9 @@
 import React from 'react';
 import Layout from '../components/layout';
 import { StaticQuery, graphql } from 'gatsby';
-import { Document } from '@contentful/rich-text-types';
+import { Document, BLOCKS } from '@contentful/rich-text-types';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { EmbeddedAsset } from '../components/embedded-asset-node';
 
 import '../styles/changes.scss';
 
@@ -45,7 +46,11 @@ const ChangelogEntry: React.FC<{node: ChangelogEntry, prevNode?: ChangelogEntry}
   return <>
     {showYM && <h2 className="date-and-month">{currYM.localeString}</h2>}
     <h3>{node.title}</h3>
-    {documentToReactComponents(node.body.json)}
+    {documentToReactComponents(node.body.json, {
+      renderNode: {
+        [BLOCKS.EMBEDDED_ASSET]: (eaNode) => <EmbeddedAsset node={eaNode} locale={node.node_locale} className="block-quoted" />
+      }
+    })}
   </>;
 };
 
@@ -69,7 +74,7 @@ export const ChangelogPageScaffolding: React.FC<{content: ChangelogEntries}> = (
           <div className="hero-body is-horizontal-center content-wrapper tight">
             <div className="content has-text-grey-dark">
             {nodes.map((node, i) => (
-              <ChangelogEntry node={node} prevNode={i > 0 ? nodes[i - 1] : undefined} />
+              <ChangelogEntry key={i} node={node} prevNode={i > 0 ? nodes[i - 1] : undefined} />
             ))}
             </div>
           </div>
