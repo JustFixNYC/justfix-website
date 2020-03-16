@@ -4,16 +4,9 @@ import { PrivacyPolicyPageScaffolding } from './privacy-policy';
 
 const PrivacyPolicyPage  = () => (
 <StaticQuery
-    query={graphql`
-      query {
-        contentfulGenericPage(title: {eq: "Privacy Policy"}) {
-            title
-            pageContents {
-              json
-            }
-        }
-      }
-    `}
+  query={graphql`
+    query ($locale: String! = "es") { ...PrivacyPolicyQuery }
+  `}
   render = {data => (<PrivacyPolicyPageScaffolding content={data.contentfulGenericPage} locale="es" />)}
   />
 );
