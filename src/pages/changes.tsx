@@ -79,7 +79,7 @@ export const ChangelogPageScaffolding: React.FC<{content: ChangelogEntries}> = (
   );
 };
 
-export const LocalizedChangelogEntries = graphql`
+export const LocalizedChangelogEntriesFragment = graphql`
 fragment LocalizedChangelogEntries on Query {
   allContentfulChangelogEntry(
     filter: {node_locale: {eq: $locale}},
