@@ -5,7 +5,7 @@ import { LearningPageScaffolding } from './learn';
 const LearningPage  = () => (
   <StaticQuery
   query={graphql`
-    query ($locale: String! = "es") { ...LearningPageQuery }
+    query ($locale: String! = "es") { ...LearningPage }
   `}
   render = {data => (<LearningPageScaffolding content={data.contentfulLearningCenterSearchPage} locale="es" />)}
   />

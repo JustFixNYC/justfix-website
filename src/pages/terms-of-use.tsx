@@ -12,8 +12,8 @@ export const TermsOfUsePageScaffolding = (props: ContentfulContent) =>
     </div>
   </Layout>); 
 
-export const TermsOfUsePageQuery = graphql`
-  fragment TermsOfUsePageQuery on Query {
+export const TermsOfUsePageFragment = graphql`
+  fragment TermsOfUsePage on Query {
     contentfulGenericPage(title: {eq: "Terms of Use"}, node_locale: {eq: $locale}) {
         title
         pageContents {
@@ -25,7 +25,7 @@ export const TermsOfUsePageQuery = graphql`
 const TermsOfUsePage  = () => (
 <StaticQuery
   query={graphql`
-    query ($locale: String! = "en-US") { ...TermsOfUsePageQuery }
+    query ($locale: String! = "en-US") { ...TermsOfUsePage }
   `}
   render = {data => (<TermsOfUsePageScaffolding content={data.contentfulGenericPage} />)}
   />

@@ -84,8 +84,8 @@ export const LearningPageScaffolding = (props: ContentfulContent) =>
   </Layout>); 
 
 
-export const LearningPageQuery = graphql`
-  fragment LearningPageQuery on Query {
+export const LearningPageFragment = graphql`
+  fragment LearningPage on Query {
     contentfulLearningCenterSearchPage( node_locale: { eq: $locale } ) {
       metadata {
         title
@@ -139,7 +139,7 @@ export const LearningPageQuery = graphql`
 const LearningPage  = () => (
   <StaticQuery
   query={graphql`
-    query ($locale: String! = "en-US") { ...LearningPageQuery }
+    query ($locale: String! = "en-US") { ...LearningPage }
   `}
   render = {data => (<LearningPageScaffolding content={data.contentfulLearningCenterSearchPage} />)}
   />

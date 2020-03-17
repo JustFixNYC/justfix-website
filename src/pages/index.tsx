@@ -188,8 +188,8 @@ export const LandingPageScaffolding = (props: ContentfulContent) =>
     </div>
 </Layout>); 
 
-export const LandingPageQuery = graphql`
-  fragment LandingPageQuery on Query {
+export const LandingPageFragment = graphql`
+  fragment LandingPage on Query {
     contentfulHomePage( node_locale: { eq: $locale } ) {
       landingLeadInText
       landingTextLoopText
@@ -235,7 +235,7 @@ export const LandingPageQuery = graphql`
 const LandingPage  = () => (
 <StaticQuery
   query={graphql`
-    query ($locale: String! = "en-US") { ...LandingPageQuery }
+    query ($locale: String! = "en-US") { ...LandingPage }
   `}
   render = {data => (<LandingPageScaffolding content={data.contentfulHomePage} />)}
   />

@@ -5,7 +5,7 @@ import { TeamPageScaffolding } from './team';
 const TeamPage  = () => (
 <StaticQuery  
   query={graphql`
-    query ($locale: String! = "es") { ...TeamPageQuery }
+    query ($locale: String! = "es") { ...TeamPage }
   `}
   render = {data => (<TeamPageScaffolding content={data.contentfulTeamPage} locale="es" />)}
   />

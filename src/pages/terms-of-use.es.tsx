@@ -6,7 +6,7 @@ import { TermsOfUsePageScaffolding } from './terms-of-use';
 const TermsOfUsePage  = () => (
 <StaticQuery
   query={graphql`
-    query ($locale: String! = "es") { ...TermsOfUsePageQuery }
+    query ($locale: String! = "es") { ...TermsOfUsePage }
   `}
   render = {data => (<TermsOfUsePageScaffolding content={data.contentfulGenericPage} locale="es" />)}
   />

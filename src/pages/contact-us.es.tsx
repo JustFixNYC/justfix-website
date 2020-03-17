@@ -5,7 +5,7 @@ import { ContactPageScaffolding } from './contact-us';
 const ContactPage  = () => (
 <StaticQuery
   query={graphql`
-    query ($locale: String! = "es") { ...ContactPageQuery }
+    query ($locale: String! = "es") { ...ContactPage }
   `}
   render = {data => (<ContactPageScaffolding content={data.contentfulContactPage} locale="es" />)}
   />

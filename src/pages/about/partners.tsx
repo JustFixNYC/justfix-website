@@ -73,8 +73,8 @@ export const PartnersPageScaffolding = (props: ContentfulContent) =>
   </div>
 </Layout>); 
 
-export const PartnersPageQuery = graphql`
-  fragment PartnersPageQuery on Query {
+export const PartnersPageFragment = graphql`
+  fragment PartnersPage on Query {
     contentfulPartnersPage( node_locale: { eq: $locale } ) {
       metadata {
         title
@@ -125,7 +125,7 @@ export const PartnersPageQuery = graphql`
 const PartnersPage  = () => (
 <StaticQuery
   query={graphql`
-    query ($locale: String! = "en-US") { ...PartnersPageQuery }
+    query ($locale: String! = "en-US") { ...PartnersPage }
   `}
   render = {data => (<PartnersPageScaffolding content={data.contentfulPartnersPage} />)}
   />

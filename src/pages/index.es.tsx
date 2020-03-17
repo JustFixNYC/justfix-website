@@ -5,7 +5,7 @@ import { LandingPageScaffolding } from '.';
 const LandingPage  = () => (
 <StaticQuery
   query={graphql`
-    query ($locale: String! = "es") { ...LandingPageQuery }
+    query ($locale: String! = "es") { ...LandingPage }
   `}
   render = {data => (<LandingPageScaffolding content={data.contentfulHomePage} locale="es" />)}
   />

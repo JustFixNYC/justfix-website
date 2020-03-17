@@ -12,8 +12,8 @@ export const PrivacyPolicyPageScaffolding = (props: ContentfulContent) =>
     </div>
   </Layout>); 
 
-export const PrivacyPolicyPageQuery = graphql`
-  fragment PrivacyPolicyPageQuery on Query {
+export const PrivacyPolicyPageFragment = graphql`
+  fragment PrivacyPolicyPage on Query {
     contentfulGenericPage(title: {eq: "Privacy Policy"}, node_locale: {eq: $locale}) {
         title
         pageContents {
@@ -25,7 +25,7 @@ export const PrivacyPolicyPageQuery = graphql`
 const PrivacyPolicyPage  = () => (
 <StaticQuery
   query={graphql`
-    query ($locale: String! = "en-US") { ...PrivacyPolicyPageQuery }
+    query ($locale: String! = "en-US") { ...PrivacyPolicyPage }
   `}
   render = {data => (<PrivacyPolicyPageScaffolding content={data.contentfulGenericPage} />)}
   />

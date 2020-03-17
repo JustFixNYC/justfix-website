@@ -6,7 +6,7 @@ import { PartnersPageScaffolding } from './partners';
 const PartnersPage  = () => (
 <StaticQuery
   query={graphql`
-    query ($locale: String! = "es") { ...PartnersPageQuery }
+    query ($locale: String! = "es") { ...PartnersPage }
   `}
   render = {data => (<PartnersPageScaffolding content={data.contentfulPartnersPage} locale="es" />)}
   />

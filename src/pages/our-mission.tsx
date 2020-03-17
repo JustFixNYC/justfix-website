@@ -94,8 +94,8 @@ export const MissionPageScaffolding = (props: ContentfulContent) =>
     </div>
   </Layout>); 
 
-export const MissionPageQuery = graphql`
-  fragment MissionPageQuery on Query {
+export const MissionPageFragment = graphql`
+  fragment MissionPage on Query {
     contentfulMissionPage( node_locale: { eq: $locale } )  {
       metadata {
         title
@@ -138,7 +138,7 @@ export const MissionPageQuery = graphql`
 const MissionPage  = () => (
 <StaticQuery
   query={graphql`
-   query ($locale: String! = "en-US") { ...MissionPageQuery }
+   query ($locale: String! = "en-US") { ...MissionPage }
  `}
   render = {data => (<MissionPageScaffolding content={data.contentfulMissionPage} />)}
   />

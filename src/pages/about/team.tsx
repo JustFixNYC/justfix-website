@@ -120,8 +120,8 @@ export const TeamPageScaffolding = (props: ContentfulContent) =>
     
 </Layout>); 
 
-export const TeamPageQuery = graphql`
-  fragment TeamPageQuery on Query {
+export const TeamPageFragment = graphql`
+  fragment TeamPage on Query {
     contentfulTeamPage( node_locale: { eq: $locale } ) {
       metadata {
         title
@@ -179,7 +179,7 @@ export const TeamPageQuery = graphql`
 const TeamPage  = () => (
 <StaticQuery
   query={graphql`
-    query ($locale: String! = "en-US") { ...TeamPageQuery }
+    query ($locale: String! = "en-US") { ...TeamPage }
   `}
   render = {data => (<TeamPageScaffolding content={data.contentfulTeamPage} />)}
   />

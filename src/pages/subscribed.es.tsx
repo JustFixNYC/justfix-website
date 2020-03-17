@@ -5,7 +5,7 @@ import { SubscribedPageScaffolding } from './subscribed';
 const SubscribedPage  = () => (
 <StaticQuery
   query={graphql`
-    query ($locale: String! = "es") { ...SubscribedPageQuery }
+    query ($locale: String! = "es") { ...SubscribedPage }
   `}
   render = {data => (<SubscribedPageScaffolding content={data.contentfulSubscriptionConfirmationPage} locale="es" />)}
   />

@@ -5,7 +5,7 @@ import { PressPageScaffolding } from './press';
 const PressPage  = () => (
 <StaticQuery
   query={graphql`
-    query ($locale: String! = "es") { ...PressPageQuery }
+    query ($locale: String! = "es") { ...PressPage }
   `}
   render = {data => (<PressPageScaffolding content={data.contentfulPressPage} locale="es" />)}
   />
