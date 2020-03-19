@@ -188,53 +188,55 @@ export const LandingPageScaffolding = (props: ContentfulContent) =>
     </div>
 </Layout>); 
 
-
-const LandingPage  = () => (
-<StaticQuery
-    query={graphql`
-      query {
-        contentfulHomePage {
-          landingLeadInText
-          landingTextLoopText
-          landingFallbackText
-          landingFooterText
-          landingImage {
-            fluid {
-              ...GatsbyContentfulFluid
-            }
-          }
-          productSectionTitle
-          homePageProductBlocks {
-            title
-            description
-            button {
-              title
-              link
-            }
-            screenshot {
-              fluid {
-              ...GatsbyContentfulFluid
-              } 
-            }
-          }
-          rentHistory {
-            title
-            description {
-              json
-            }
-          }
-          pressTitle 
-          pressLogos {
-            title
-            logo {
-              file {
-                url
-              }
-            }
+export const LandingPageFragment = graphql`
+  fragment LandingPage on Query {
+    contentfulHomePage( node_locale: { eq: $locale } ) {
+      landingLeadInText
+      landingTextLoopText
+      landingFallbackText
+      landingFooterText
+      landingImage {
+        fluid {
+          ...GatsbyContentfulFluid
+        }
+      }
+      productSectionTitle
+      homePageProductBlocks {
+        title
+        description
+        button {
+          title
+          link
+        }
+        screenshot {
+          fluid {
+          ...GatsbyContentfulFluid
+          } 
+        }
+      }
+      rentHistory {
+        title
+        description {
+          json
+        }
+      }
+      pressTitle 
+      pressLogos {
+        title
+        logo {
+          file {
+            url
           }
         }
       }
-    `}
+    }
+  }`;
+
+const LandingPage  = () => (
+<StaticQuery
+  query={graphql`
+    query ($locale: String! = "en-US") { ...LandingPage }
+  `}
   render = {data => (<LandingPageScaffolding content={data.contentfulHomePage} />)}
   />
 );

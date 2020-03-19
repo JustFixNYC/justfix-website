@@ -120,65 +120,67 @@ export const TeamPageScaffolding = (props: ContentfulContent) =>
     
 </Layout>); 
 
-
-const TeamPage  = () => (
-<StaticQuery
-    query={graphql`
-      query {
-        contentfulTeamPage {
-          metadata {
-            title
-            description
-            keywords { 
-              keywords 
-            }
-            shareImage {
-              file {
-                url
-              }
-            }
-          }
-          title
-          teamMembers {
-            name
-            title
-            description {
-              description
-            } 
-            photo {
-              fluid {
-                src
-              }
-            }
-            professionalLinks
-          }
-          directorsTitle 
-          directors {
-            name
-            title
-            photo {
-              file {
-                url
-              }
-            }
-            organization
-            organizationLink
-            description {
-              description
-            } 
-          }
-          otherContributorsTitle
-          otherContributors {
-            name
-            link
-          }
-          readMore {
-            title
-            link
+export const TeamPageFragment = graphql`
+  fragment TeamPage on Query {
+    contentfulTeamPage( node_locale: { eq: $locale } ) {
+      metadata {
+        title
+        description
+        keywords { 
+          keywords 
+        }
+        shareImage {
+          file {
+            url
           }
         }
       }
-    `}
+      title
+      teamMembers {
+        name
+        title
+        description {
+          description
+        } 
+        photo {
+          fluid {
+            src
+          }
+        }
+        professionalLinks
+      }
+      directorsTitle 
+      directors {
+        name
+        title
+        photo {
+          file {
+            url
+          }
+        }
+        organization
+        organizationLink
+        description {
+          description
+        } 
+      }
+      otherContributorsTitle
+      otherContributors {
+        name
+        link
+      }
+      readMore {
+        title
+        link
+      }
+    }
+  }`;
+
+const TeamPage  = () => (
+<StaticQuery
+  query={graphql`
+    query ($locale: String! = "en-US") { ...TeamPage }
+  `}
   render = {data => (<TeamPageScaffolding content={data.contentfulTeamPage} />)}
   />
 );

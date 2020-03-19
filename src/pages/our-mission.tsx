@@ -94,49 +94,52 @@ export const MissionPageScaffolding = (props: ContentfulContent) =>
     </div>
   </Layout>); 
 
-const MissionPage  = () => (
-<StaticQuery
-    query={graphql`
-      query {
-        contentfulMissionPage {
-          metadata {
-            title
-            description
-            keywords { 
-              keywords 
-            }
-            shareImage {
-              file {
-                url
-              }
-            }
-          }
-          title
-          briefDescription
-          videoUrl
-          serveSection {
-            json
-          }
-          impactTitle
-          impactSubtitle
-          impactReportButtons {
-            title
-            link
-          }
-          approachSection {
-            json
-          }
-          collaborationBanner {
-            title
-            subtitle
-          }
-          readMore {
-            title
-            link
+export const MissionPageFragment = graphql`
+  fragment MissionPage on Query {
+    contentfulMissionPage( node_locale: { eq: $locale } )  {
+      metadata {
+        title
+        description
+        keywords { 
+          keywords 
+        }
+        shareImage {
+          file {
+            url
           }
         }
       }
-    `}
+      title
+      briefDescription
+      videoUrl
+      serveSection {
+        json
+      }
+      impactTitle
+      impactSubtitle
+      impactReportButtons {
+        title
+        link
+      }
+      approachSection {
+        json
+      }
+      collaborationBanner {
+        title
+        subtitle
+      }
+      readMore {
+        title
+        link
+      }
+    }
+  }`;
+
+const MissionPage  = () => (
+<StaticQuery
+  query={graphql`
+   query ($locale: String! = "en-US") { ...MissionPage }
+ `}
   render = {data => (<MissionPageScaffolding content={data.contentfulMissionPage} />)}
   />
 );

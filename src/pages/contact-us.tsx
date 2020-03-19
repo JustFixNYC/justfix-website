@@ -66,36 +66,39 @@ export const ContactPageScaffolding = (props: ContentfulContent) =>
     }</I18n>
   </Layout>); 
 
-const ContactPage  = () => (
-<StaticQuery
-    query={graphql`
-      query {
-        contentfulContactPage {
-          metadata {
-            title
-            description
-            keywords { 
-              keywords 
-            }
-            shareImage {
-              file {
-                url
-              }
-            }
-          }
-          pageTitle
-          contactCta {
-            json
-          }
-          socialButtons {
-            title
+export const ContactPageFragment = graphql`
+  fragment ContactPage on Query {
+    contentfulContactPage( node_locale: { eq: $locale } ) {
+      metadata {
+        title
+        description
+        keywords { 
+          keywords 
+        }
+        shareImage {
+          file {
             url
           }
-          mailingListTitle 
-          mailingListSubtitle
         }
       }
-    `}
+      pageTitle
+      contactCta {
+        json
+      }
+      socialButtons {
+        title
+        url
+      }
+      mailingListTitle 
+      mailingListSubtitle
+    }
+  }`;
+
+const ContactPage  = () => (
+<StaticQuery
+  query={graphql`
+    query ($locale: String! = "en-US") { ...ContactPage }
+  `}
   render = {data => (<ContactPageScaffolding content={data.contentfulContactPage} />)}
   />
 );
