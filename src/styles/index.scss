@@ -1,9 +1,12 @@
 @charset "utf-8";
 
 @import "../../node_modules/bulma/sass/utilities/functions.sass";
+@import "~bulma/sass/utilities/initial-variables.sass";
 
 @import "_vars.scss";
 @import "_custom.scss";
+
+
 
 .home-page {
     
@@ -15,6 +18,10 @@
             
             .container {
                 width: 100%;
+                // Moratorium Banner Offset
+                @media screen and (min-width: $tablet) {
+                    margin-top: 6rem;
+                }
             }
         }
 

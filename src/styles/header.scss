@@ -1,8 +1,19 @@
 @import "_vars.scss";
+@import "~bulma/sass/utilities/initial-variables.sass";
 
 .header {
     width: 100%;
     z-index: 30;
+
+    &.is-absolute {
+        @media screen and (max-width: $tablet) {
+            position: unset;
+
+            .navbar {
+                position: absolute;
+            }
+        }
+    }
 
     .hero.is-warning a {
         color: inherit;
