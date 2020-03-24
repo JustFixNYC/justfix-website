@@ -43,8 +43,7 @@ const DDO = () => (
 </> )
 
 export const LandingPageScaffolding = (props: ContentfulContent) => 
-  (<>
-    <Layout isLandingPage={true} locale={props.locale}>
+  (<Layout isLandingPage={true} locale={props.locale}>
       <div id="home" className="home-page">
         <BackgroundImage className="landing-image hero is-fullheight"
           fluid={props.content.landingImage.fluid} alt="background-image">
@@ -188,7 +187,8 @@ export const LandingPageScaffolding = (props: ContentfulContent) =>
         </section>
           
       </div>
-  </Layout></>); 
+  </Layout>
+); 
 
 export const LandingPageFragment = graphql`
   fragment LandingPage on Query {

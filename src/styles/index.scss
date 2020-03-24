@@ -11,7 +11,7 @@
 .home-page {
     
     .landing-image.hero.is-fullheight {
-        height: fit-content;
+        min-height: 100vh;
 
         .hero-body {
             padding-bottom: 0;
