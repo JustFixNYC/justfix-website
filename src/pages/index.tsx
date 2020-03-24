@@ -28,6 +28,16 @@ export type ContentfulContent = Locale & {
   content: any 
 }
 
+const MoratoriumBanner = (props: any) => (
+  <section className="hero is-warning is-small is-paddingless">
+    <div className="hero-body">
+      <div className="container">
+        {documentToReactComponents(props.bannerContent)}
+      </div>
+    </div>
+  </section>
+)
+
 const DDO = () => (
   <>
     <h2 className="subtitle is-size-5 has-text-white">
@@ -45,6 +55,7 @@ const DDO = () => (
 export const LandingPageScaffolding = (props: ContentfulContent) => 
   (<Layout isLandingPage={true} locale={props.locale}>
     <div id="home" className="home-page">
+      <MoratoriumBanner bannerContent={props.content.moratoriumBanner.json} />
       <BackgroundImage className="landing-image hero is-fullheight"
         fluid={props.content.landingImage.fluid} alt="background-image">
           <div className="hero-body">
@@ -191,6 +202,9 @@ export const LandingPageScaffolding = (props: ContentfulContent) =>
 export const LandingPageFragment = graphql`
   fragment LandingPage on Query {
     contentfulHomePage( node_locale: { eq: $locale } ) {
+      moratoriumBanner {
+        json
+      }
       landingLeadInText
       landingTextLoopText
       landingFallbackText
