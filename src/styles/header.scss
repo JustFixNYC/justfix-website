@@ -5,12 +5,14 @@
     width: 100%;
     z-index: 30;
 
+    // Make only the navbar have absolute position on mobile
     &.is-absolute {
         @media screen and (max-width: $tablet) {
             position: unset;
 
             .navbar {
                 position: absolute;
+                width: 100%;
             }
         }
     }
