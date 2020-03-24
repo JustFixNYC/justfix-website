@@ -29,8 +29,12 @@
         }
 
         .close-button {
+            cursor: pointer;
             top: 5px;
             right: 10px;
+            &:hover {
+                opacity: 0.7;
+            }
         }
     }
 
