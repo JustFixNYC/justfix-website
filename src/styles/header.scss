@@ -2,9 +2,10 @@
 
 .header {
     width: 100%;
-    &.navbar.is-transparent {
+    z-index: 30;
+
+    .navbar.is-transparent {
         background-color: $transparent;
-        position: absolute;
 
         .navbar-item {
             .button:hover, .button:focus {

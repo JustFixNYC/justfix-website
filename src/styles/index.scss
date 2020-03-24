@@ -6,20 +6,9 @@
 @import "_custom.scss";
 
 .home-page {
-
-    .hero.is-warning {
-        a {
-            color: inherit;
-            text-decoration: underline;
-
-            &:hover {
-                text-decoration: none;
-            }
-        }
-    }
     
     .landing-image.hero.is-fullheight {
-        min-height: 100vh; 
+        height: fit-content;
 
         .hero-body {
             padding-bottom: 0;

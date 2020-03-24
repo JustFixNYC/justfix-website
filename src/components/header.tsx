@@ -32,8 +32,20 @@ toggleBurgerMenu = () => this.setState({burgerMenuIsOpen: !this.state.burgerMenu
 render() {
   const localePrefix = this.props.locale ? ("/" + this.props.locale) : "";
 
-  return (
-  <nav className={"header navbar is-primary " + (this.props.isLandingPage && "is-transparent")} role="navigation" aria-label="main navigation">
+  return (<div className={"header " + (this.props.isLandingPage && "is-absolute") }>
+  {this.props.isLandingPage && <section className="hero is-warning is-small is-paddingless">
+    <div className="hero-body">
+      <div className="container is-size-7">
+        <p>
+          <b>COVID-19 Update: </b>
+          JustFix.nyc is still in operation, and we are adapting our products to match new rules put in place during the Covid-19 public health crisis. 
+          Thanks to organizing from tenant leaders, renters now have stronger protections during this time, including a full halt on eviction cases. 
+          {' '}<a href="https://www.righttocounselnyc.org/moratorium_faq" rel="noopener noreferrer"><b>Learn more</b></a>
+        </p>
+      </div>
+    </div>
+  </section>}
+  <nav className={"navbar is-primary " + (this.props.isLandingPage && "is-transparent")} role="navigation" aria-label="main navigation">
     <div className="navbar-brand">
       <Link to={localePrefix + "/"} className="navbar-item">
         <img src={require("../img/brand/logo.png")} width="112" height="28" alt="JustFix.nyc" />
@@ -109,7 +121,7 @@ render() {
         </div>
       </div>
     </div>
-  </nav>) 
+  </nav></div>) 
   } 
 }
 
