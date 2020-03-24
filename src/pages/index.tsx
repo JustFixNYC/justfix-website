@@ -47,7 +47,6 @@ export const LandingPageScaffolding = (props: ContentfulContent) =>
       <div id="home" className="home-page">
         <BackgroundImage className="landing-image hero is-fullheight"
           fluid={props.content.landingImage.fluid} alt="background-image">
-
             <div className="hero-body">
               <div className="container content-wrapper tight">
                 <h1 className="title is-size-1 is-size-3-mobile has-text-white is-spaced">
