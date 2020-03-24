@@ -13,28 +13,49 @@ type Props = {
   isLandingPage?: boolean,
 } & Locale 
 
-type State = {
+type HeaderState = {
   burgerMenuIsOpen?: boolean
 }
 
-const MoratoriumBanner = () => (
-  <section className="hero is-warning is-small is-paddingless">
-    <div className="hero-body">
-      <div className="container is-size-7">
-        <p>
-          <Trans>
-            <b>COVID-19 Update: </b>
-            JustFix.nyc is still in operation, and we are adapting our products to match new rules put in place during the Covid-19 public health crisis. 
-            Thanks to organizing from tenant leaders, renters now have stronger protections during this time, including a full halt on eviction cases. 
-            {' '}<a href="https://www.righttocounselnyc.org/moratorium_faq" rel="noopener noreferrer"><b>Learn more</b></a>
-          </Trans>
-        </p>
-      </div>
-    </div>
-  </section>
-);
+type BannerState = {
+  isHidden: boolean
+}
 
-class Header extends Component<Props,State> {
+
+class MoratoriumBanner extends Component<Props,BannerState> {
+  constructor(Props: Props) {
+    super(Props);
+
+    this.state = {
+      isHidden: false
+    }
+
+  }
+
+  closeBanner = () => this.setState({isHidden: true});
+
+  render() {
+    return (
+      <section className={"hero is-warning is-small is-paddingless " + (this.state.isHidden && "is-hidden")}>
+        <div className="close-button is-size-5 is-hidden-tablet" onClick = {this.closeBanner}>✕</div>
+        <div className="hero-body">
+          <div className="container is-size-7">
+            <p>
+              <Trans>
+                <b>COVID-19 Update: </b>
+                JustFix.nyc is still in operation, and we are adapting our products to match new rules put in place during the Covid-19 public health crisis. 
+                Thanks to organizing from tenant leaders, renters now have stronger protections during this time, including a full halt on eviction cases. 
+                {' '}<a href="https://www.righttocounselnyc.org/moratorium_faq" rel="noopener noreferrer"><b>Learn more</b></a>
+              </Trans>
+            </p>
+          </div>
+        </div>
+      </section>
+    );
+  }
+}
+
+class Header extends Component<Props,HeaderState> {
   constructor(Props: Props) {
     super(Props);
 

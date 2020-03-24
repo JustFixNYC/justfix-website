@@ -17,12 +17,20 @@
         }
     }
 
-    .hero.is-warning a {
-        color: inherit;
-        text-decoration: underline;
+    .hero.is-warning {
+        a {
+            color: inherit;
+            text-decoration: underline;
 
-        &:hover {
-            text-decoration: none;
+            &:hover {
+                text-decoration: none;
+            }
+        }
+
+        .close-button {
+            position: fixed;
+            top: 0px;
+            right: 5px;
         }
     }
 
