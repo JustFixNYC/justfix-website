@@ -39,7 +39,7 @@ class MoratoriumBanner extends Component<Props,BannerState> {
       <section className={"hero is-warning is-small is-paddingless " + (this.state.isHidden && "is-hidden")}>
         <div className="close-button is-size-5 is-hidden-tablet" onClick = {this.closeBanner}>✕</div>
         <div className="hero-body">
-          <div className="container is-size-7">
+          <div className="container">
             <p>
               <Trans>
                 <span className="has-text-weight-bold">COVID-19 Update: </span>
