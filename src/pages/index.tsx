@@ -28,16 +28,6 @@ export type ContentfulContent = Locale & {
   content: any 
 }
 
-const MoratoriumBanner = (props: any) => (
-  <section className="hero is-warning is-small is-paddingless">
-    <div className="hero-body">
-      <div className="container is-size-7">
-        {documentToReactComponents(props.bannerContent)}
-      </div>
-    </div>
-  </section>
-)
-
 const DDO = () => (
   <>
     <h2 className="subtitle is-size-5 has-text-white">
