@@ -37,7 +37,7 @@ class MoratoriumBanner extends Component<Props,BannerState> {
   render() {
     return (
       <section className={"hero is-warning is-small is-paddingless " + (this.state.isHidden && "is-hidden")}>
-        <div className="close-button is-size-5" onClick = {this.closeBanner}>✕</div>
+        <div className="close-button is-absolute is-size-5" onClick = {this.closeBanner}>✕</div>
         <div className="hero-body">
           <div className="container">
             <p>
