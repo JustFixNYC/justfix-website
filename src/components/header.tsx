@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, useState } from 'react'
 import { Link } from 'gatsby'
 import { Trans } from '@lingui/macro';
 
@@ -13,51 +13,36 @@ type Props = {
   isLandingPage?: boolean,
 } & Locale 
 
-type HeaderState = {
+type State = {
   burgerMenuIsOpen?: boolean
 }
 
-type BannerState = {
-  isHidden: boolean
-}
+const MoratoriumBanner = () => {
 
+  const [isVisible, setVisibility] = useState(true);
 
-class MoratoriumBanner extends Component<Props,BannerState> {
-  constructor(Props: Props) {
-    super(Props);
-
-    this.state = {
-      isHidden: false
-    }
-
-  }
-
-  closeBanner = () => this.setState({isHidden: true});
-
-  render() {
-    return (
-      <section className={"hero is-warning is-small " + (this.state.isHidden && "is-hidden")}>
-        <div className="close-button is-absolute is-size-5" onClick = {this.closeBanner}>✕</div>
-        <div className="hero-body">
-          <div className="container">
-            <p>
-              <Trans>
-                <span className="has-text-weight-bold">COVID-19 Update: </span>
-                JustFix.nyc is still in operation, and we are adapting our products to match new rules put in place during the Covid-19 public health crisis. 
-                Thanks to organizing from tenant leaders, renters now have stronger protections during this time, including a full halt on eviction cases. 
-                {' '}<a href="https://www.righttocounselnyc.org/moratorium_faq" rel="noopener noreferrer">
-                  <span className="has-text-weight-bold">Learn more</span>
-                </a>
-              </Trans>
-            </p>
-          </div>
+  return (
+    <section className={"hero is-warning is-small " + (!isVisible && "is-hidden")}>
+      <div className="hero-body">
+        <div className="container">
+          <button className="delete is-medium is-pulled-right" onClick = {() => setVisibility(false)} />
+          <p>
+            <Trans>
+              <span className="has-text-weight-bold">COVID-19 Update: </span>
+              JustFix.nyc is still in operation, and we are adapting our products to match new rules put in place during the Covid-19 public health crisis. 
+              Thanks to organizing from tenant leaders, renters now have stronger protections during this time, including a full halt on eviction cases. 
+              {' '}<a href="https://www.righttocounselnyc.org/moratorium_faq" rel="noopener noreferrer">
+                <span className="has-text-weight-bold">Learn more</span>
+              </a>
+            </Trans>
+          </p>
         </div>
-      </section>
-    );
-  }
+      </div>
+    </section>
+  );
 }
 
-class Header extends Component<Props,HeaderState> {
+class Header extends Component<Props,State> {
   constructor(Props: Props) {
     super(Props);
 
