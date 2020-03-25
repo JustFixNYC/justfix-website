@@ -1,4 +1,5 @@
 @import "_vars.scss";
+@import "~bulma/sass/utilities/initial-variables.sass";
 
 .jf-autocomplete-is-highlighted {
     color: white;
@@ -26,6 +27,10 @@
 
 .jf-autocomplete-field ul.jf-autocomplete-open {
     display: block;
+
+    @media screen and (min-width: $tablet) {
+        position: absolute;
+    }
 }
 
 .jf-autocomplete-field ul li {
