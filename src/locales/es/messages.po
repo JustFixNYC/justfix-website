@@ -8,13 +8,17 @@ msgstr ""
 "Language: es\n"
 "Project-Id-Version: justfix-website\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2020-02-07 00:48\n"
+"PO-Revision-Date: 2020-03-27 15:42\n"
 "Last-Translator: \n"
 "Language-Team: Spanish\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Crowdin-Project: justfix-website\n"
 "X-Crowdin-Language: es-ES\n"
 "X-Crowdin-File: /master/src/locales/en/messages.po\n"
+
+#: src/components/header.tsx:14
+msgid "<0>COVID-19 Update: </0>JustFix.nyc remains in operation, and we are adapting our products to match new rules put in place during the Covid-19 public health crisis. Thanks to organizing from tenant leaders, renters now have stronger protections during this time, including a full halt on eviction cases. <1><2>Learn more</2></1>"
+msgstr ""
 
 #: src/components/footer.tsx:82
 msgid "<0>Disclaimer:</0> The information in JustFix.nyc does not constitute legal advice and must not be used as a substitute for the advice of a lawyer qualified to give advice on legal issues pertaining to housing. We can help direct you to free legal services if necessary."
@@ -25,7 +29,7 @@ msgid "<0>JustFix.nyc</0> is a registered 501(c)(3) nonprofit organization."
 msgstr "<0>JustFix.nyc</0> es una organización sin fines de lucro registrada."
 
 #: src/components/footer.tsx:35
-#: src/components/header.tsx:39
+#: src/components/header.tsx:62
 msgid "About us"
 msgstr "Sobre nosotros"
 
@@ -38,7 +42,7 @@ msgid "Back to top"
 msgstr "Vuelve a Inicio"
 
 #: src/components/footer.tsx:46
-#: src/components/header.tsx:70
+#: src/components/header.tsx:93
 msgid "Contact"
 msgstr "Contacto"
 
@@ -46,7 +50,7 @@ msgstr "Contacto"
 msgid "Contact Us"
 msgstr "Contáctanos"
 
-#: src/components/header.tsx:24
+#: src/components/header.tsx:47
 msgid "DEMO SITE"
 msgstr "SITIO DEMO"
 
@@ -67,7 +71,7 @@ msgid "Enter your address to learn more."
 msgstr "Introduzca su dirección para empezar."
 
 #: src/components/footer.tsx:43
-#: src/components/header.tsx:56
+#: src/components/header.tsx:79
 msgid "Jobs"
 msgstr "Empleos"
 
@@ -76,12 +80,12 @@ msgid "Join our mailing list!"
 msgstr "¡Únete a nuestra lista de correo!"
 
 #: src/components/footer.tsx:24
-#: src/components/header.tsx:66
+#: src/components/header.tsx:89
 msgid "Learn"
 msgstr "Aprende"
 
 #: src/components/footer.tsx:27
-#: src/components/header.tsx:44
+#: src/components/header.tsx:67
 msgid "Mission"
 msgstr "Misión"
 
@@ -94,12 +98,12 @@ msgid "Not found"
 msgstr "No encontrado"
 
 #: src/components/footer.tsx:40
-#: src/components/header.tsx:50
+#: src/components/header.tsx:73
 msgid "Partners"
 msgstr "Colaboradores"
 
 #: src/components/footer.tsx:30
-#: src/components/header.tsx:53
+#: src/components/header.tsx:76
 msgid "Press"
 msgstr "Prensa"
 
@@ -108,7 +112,7 @@ msgid "Privacy policy"
 msgstr "Política de privacidad"
 
 #: src/components/footer.tsx:21
-#: src/components/header.tsx:62
+#: src/components/header.tsx:85
 msgid "Products"
 msgstr "Herramientas"
 
@@ -125,8 +129,8 @@ msgstr "Busca dirección"
 msgid "Search articles..."
 msgstr "Busca artículos..."
 
-#: src/components/header.tsx:77
-#: src/components/header.tsx:84
+#: src/components/header.tsx:100
+#: src/components/header.tsx:107
 msgid "Sign in"
 msgstr "Inicia sesión"
 
@@ -136,7 +140,7 @@ msgid "Sign up"
 msgstr "Regístrate"
 
 #: src/components/footer.tsx:37
-#: src/components/header.tsx:47
+#: src/components/header.tsx:70
 msgid "Team"
 msgstr "Equipo"
 
@@ -167,3 +171,4 @@ msgstr "Escrita por"
 #: src/pages/404.tsx:8
 msgid "You just found a page that doesn't exist... the sadness."
 msgstr "Acabas de llegar a una ruta que no existe... es muy triste."
+
