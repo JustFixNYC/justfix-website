@@ -8,7 +8,7 @@ msgstr ""
 "Language: es\n"
 "Project-Id-Version: justfix-website\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2020-03-27 15:42\n"
+"PO-Revision-Date: 2020-03-30 13:53\n"
 "Last-Translator: \n"
 "Language-Team: Spanish\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -100,7 +100,7 @@ msgstr "No encontrado"
 #: src/components/footer.tsx:40
 #: src/components/header.tsx:73
 msgid "Partners"
-msgstr "Colaboradores"
+msgstr "Aliados"
 
 #: src/components/footer.tsx:30
 #: src/components/header.tsx:76
