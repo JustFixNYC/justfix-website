@@ -3,7 +3,7 @@ import { GeoAutocomplete, GeoAutocompleteItem, GeoAutocompleteProps } from "./ge
 import classnames from 'classnames';
 
 /** The URL for Data-Driven Onboarding (DDO) on the JustFix Tenant Platform. */
-const DDO_URL = "https://app.justfix.nyc/ddo";
+const DDO_URL = 'https://' + ((process.env.GATSBY_DEMO_SITE === '1') ? 'demo' : 'app') + '.justfix.nyc/ddo'
 
 /** The querystring variable used to communicate the address for DDO. */
 const DDO_ADDRESS_VAR = "address";
