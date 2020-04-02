@@ -31,11 +31,9 @@ export const SubscribedPageScaffolding = (props: ContentfulContent) =>
     </section>
   </Layout>); 
 
-const SubscribedPage  = () => (
-<StaticQuery
-    query={graphql`
-      query {
-        contentfulSubscriptionConfirmationPage {
+export const SubscribedPageFragment = graphql`
+    fragment SubscribedPage on Query {
+        contentfulSubscriptionConfirmationPage( node_locale: { eq: $locale } ) {
             title
             description {
                 json
@@ -49,8 +47,13 @@ const SubscribedPage  = () => (
                 json
             }
         }
-      }
-    `}
+    }`;
+
+const SubscribedPage  = () => (
+<StaticQuery
+  query={graphql`
+    query ($locale: String! = "en-US") { ...SubscribedPage }
+`}
   render = {data => (<SubscribedPageScaffolding content={data.contentfulSubscriptionConfirmationPage} />)}
   />
 );

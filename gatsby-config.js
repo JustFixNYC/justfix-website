@@ -15,7 +15,7 @@ const tracking = {
   heap: "3368297951",
 }
 
-const conditionallyAddAlgoliaPlugin = (plugins) => {
+const conditionallyAddExtraPlugins = (plugins) => {
   if (process.env.GATSBY_ALGOLIA_APP_ID && process.env.ALGOLIA_ADMIN_KEY) {
     const queries = require("./src/util/algolia.js")
     plugins.push({
@@ -24,6 +24,14 @@ const conditionallyAddAlgoliaPlugin = (plugins) => {
         appId: process.env.GATSBY_ALGOLIA_APP_ID,
         apiKey: process.env.ALGOLIA_ADMIN_KEY,
         queries: queries,
+      }
+    });
+  }
+  if (process.env.SITE_URL) {
+    plugins.push({
+      resolve: `gatsby-plugin-canonical-urls`,
+      options: {
+        siteUrl: process.env.SITE_URL,
       }
     });
   }
@@ -50,12 +58,6 @@ const plugins = [
       langKeyDefault: 'en',
       useLangKeyLayout: false
     }
-  },
-  {
-    resolve: `gatsby-plugin-canonical-urls`,
-    options: {
-      siteUrl: process.env.SITE_URL || null,
-    },
   },
   {
     resolve: "gatsby-plugin-google-tagmanager",
@@ -129,5 +131,5 @@ module.exports = {
   siteMetadata: {
     title: 'JustFix.nyc',
   },
-  plugins: conditionallyAddAlgoliaPlugin(plugins),
+  plugins: conditionallyAddExtraPlugins(plugins),
 }
