@@ -8,7 +8,7 @@ msgstr ""
 "Language: es\n"
 "Project-Id-Version: justfix-website\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2020-03-30 13:53\n"
+"PO-Revision-Date: 2020-04-02 00:49\n"
 "Last-Translator: \n"
 "Language-Team: Spanish\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -137,7 +137,7 @@ msgstr "Inicia sesión"
 #: src/components/footer.tsx:64
 #: src/pages/contact-us.tsx:44
 msgid "Sign up"
-msgstr "Regístrate"
+msgstr "Únete"
 
 #: src/components/footer.tsx:37
 #: src/components/header.tsx:70
