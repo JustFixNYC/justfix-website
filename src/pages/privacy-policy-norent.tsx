@@ -8,7 +8,7 @@ import { ContentfulContent } from ".";
 export const NorentPrivacyPolicyPageScaffolding = (
   props: ContentfulContent
 ) => (
-  <Layout metadata={{ title: "Privacy Policy NoRent" }} locale={props.locale}>
+  <Layout metadata={{ title: "Privacy Policy for NoRent" }} locale={props.locale}>
     <div
       id="privacy-policy"
       className="privacy-policy-page content-wrapper tight section"
