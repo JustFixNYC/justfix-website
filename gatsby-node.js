@@ -149,6 +149,7 @@ exports.createPages = async function({ actions, graphql }) {
   /* Redirects for old site pages */
   const {createRedirect} = actions //actions is collection of many actions - https://www.gatsbyjs.org/docs/actions
   createRedirect({ fromPath: '/donate', toPath: 'https://donorbox.org/donate-to-justfix-nyc', isPermanent: true });
+  createRedirect({ fromPath: '/ehp', toPath: 'https://app.justfix.nyc/ehp', isPermanent: true });
   createRedirect({ fromPath: '/get-repairs', toPath: '/', isPermanent: true });
   createRedirect({ fromPath: '/about/products-and-services', toPath: '/#products', isPermanent: true });
 
