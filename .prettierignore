@@ -1,0 +1,7 @@
+# Yikes! Don't go in there!
+node_modules
+
+.cache
+.circleci
+.vscode
+public
