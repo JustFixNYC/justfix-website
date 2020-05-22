@@ -72,7 +72,7 @@
   "scripts": {
     "postinstall": "lingui compile",
     "lingui": "lingui",
-    "build": "yarn prettier:check && gatsby build",
+    "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write '**/*.tsx'",
     "prettier": "prettier",
@@ -80,7 +80,7 @@
     "prettier:fix": "prettier \"**/*.{ts,tsx,js,scss}\" --write",
     "typecheck": "tsc --noEmit",
     "test:watch": "jest --watch",
-    "test": "jest"
+    "test": "yarn prettier:check && jest"
   },
   "devDependencies": {
     "@babel/plugin-transform-react-jsx": "^7.3.0",
