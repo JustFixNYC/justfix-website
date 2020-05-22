@@ -1,1 +1,1 @@
-declare module 'read-more-react';
+declare module "read-more-react";

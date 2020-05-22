@@ -3,135 +3,142 @@
 // BULMA OVERRIDES
 
 .hero.is-small {
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
 }
 
 .social-icon {
-    margin: 0 0.85rem;
-    &:hover {
-        opacity: 0.5;
-    }
+  margin: 0 0.85rem;
+  &:hover {
+    opacity: 0.5;
+  }
 }
 
 /* Override default styling for links inside white hero containers */
-.hero.is-white p a:not(.button):not(.dropdown-item):not(.tag):not(.pagination-link.is-current), .hero.is-white strong {
-    color: $primary;
-    &:hover {
-        color: inherit;
-    }
+.hero.is-white
+  p
+  a:not(.button):not(.dropdown-item):not(.tag):not(.pagination-link.is-current),
+.hero.is-white strong {
+  color: $primary;
+  &:hover {
+    color: inherit;
+  }
 }
 
 /* Make grouped buttons same size */
 .buttons {
-    .button {
-        flex: 1 1 0;
-    }
+  .button {
+    flex: 1 1 0;
+  }
 }
 
 /* Allow medium size buttons to go to two lines responsively */
 .button.is-medium {
-    white-space: normal;
-    display: inline-table;         
+  white-space: normal;
+  display: inline-table;
 }
 
 .button.is-primary:not(.is-outlined):hover {
-    background-color: $justfix-blue-lightened;
-} 
+  background-color: $justfix-blue-lightened;
+}
 
-.button, .social-icon, .navbar-link, .navbar-item, .link, .link-header {
-    letter-spacing: 2px;
-    transition: 0.3s;
+.button,
+.social-icon,
+.navbar-link,
+.navbar-item,
+.link,
+.link-header {
+  letter-spacing: 2px;
+  transition: 0.3s;
 }
 
 .has-letters-spaced {
-    letter-spacing: 0.1em;
+  letter-spacing: 0.1em;
 }
 
 a.button.is-large {
-    font-size: 1.25rem;
-    padding: 2rem 2.5rem;
+  font-size: 1.25rem;
+  padding: 2rem 2.5rem;
 }
 
 .is-divider {
-    opacity: 0.7;
+  opacity: 0.7;
 
-    &.light {
-        opacity: 0.4;
-        margin: 1rem 0;
-        border-top-width: 1px;
-    }
+  &.light {
+    opacity: 0.4;
+    margin: 1rem 0;
+    border-top-width: 1px;
+  }
 }
 
 .content {
-    overflow-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 /* Navbar Hover Animations */
-.navbar-link.has-text-white, .navbar-item.has-text-white {
+.navbar-link.has-text-white,
+.navbar-item.has-text-white {
+  &:before {
+    content: "";
+    position: absolute;
+    width: 85%;
+    height: 2px;
+    bottom: 10px;
+    left: 7.5%;
+    background-color: #fff;
+    visibility: hidden;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transition: all 0.3s ease-in-out 0s;
+    transition: all 0.3s ease-in-out 0s;
+  }
 
-    &:before {
-        content: "";
-        position: absolute;
-        width: 85%;
-        height: 2px;
-        bottom: 10px;
-        left: 7.5%;
-        background-color: #FFF;
-        visibility: hidden;
-        -webkit-transform: scaleX(0);
-        transform: scaleX(0);
-        -webkit-transition: all 0.3s ease-in-out 0s;
-        transition: all 0.3s ease-in-out 0s;
-      }
-      
-      &:hover:before {
-        visibility: visible;
-        -webkit-transform: scaleX(1);
-        transform: scaleX(1);
-      }
+  &:hover:before {
+    visibility: visible;
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+  }
 }
 
 // CUSTOM CLASSES
 
 .is-absolute {
-    position: absolute;
+  position: absolute;
 }
 
 .content-wrapper {
-    width: 100%;
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 
-    &.tight {
-        max-width: 700px;
-    }
+  &.tight {
+    max-width: 700px;
+  }
 }
 
 .background-image {
-    width: 150px;
-    height: 150px;
-    display: inline-block;
+  width: 150px;
+  height: 150px;
+  display: inline-block;
 }
 
 .has-background-primary-white {
-    background-color: $justfix-blue-white;
+  background-color: $justfix-blue-white;
 }
 
 .is-horizontal-center {
-    margin-left: auto;
-    margin-right: auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .img-centered {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .bold-shadow {
-    text-shadow: .4px 0px .1px,
-                -.4px 0px .1px;
+  text-shadow: 0.4px 0px 0.1px, -0.4px 0px 0.1px;
 }

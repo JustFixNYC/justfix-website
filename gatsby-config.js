@@ -1,30 +1,30 @@
-if (process.env.ENVIROMENT !== 'production') {
-  require('dotenv').config()
+if (process.env.ENVIROMENT !== "production") {
+  require("dotenv").config();
 }
 
 const contentfulConfig = {
   spaceId: process.env.SPACE_ID,
   accessToken: process.env.ACCESS_TOKEN,
-  host: process.env.CONTENTFUL_HOST || 'cdn.contentful.com'
-}
+  host: process.env.CONTENTFUL_HOST || "cdn.contentful.com",
+};
 
 const tracking = {
   gtm: "GTM-NMPT5JP",
   ga: "UA-67069242-1",
   rollbar: "61296a1fcbc94b408bf1c1e71a851794",
   heap: "3368297951",
-}
+};
 
 const conditionallyAddExtraPlugins = (plugins) => {
   if (process.env.GATSBY_ALGOLIA_APP_ID && process.env.ALGOLIA_ADMIN_KEY) {
-    const queries = require("./src/util/algolia.js")
+    const queries = require("./src/util/algolia.js");
     plugins.push({
       resolve: `gatsby-plugin-algolia`,
       options: {
         appId: process.env.GATSBY_ALGOLIA_APP_ID,
         apiKey: process.env.ALGOLIA_ADMIN_KEY,
         queries: queries,
-      }
+      },
     });
   }
   if (process.env.SITE_URL) {
@@ -32,32 +32,32 @@ const conditionallyAddExtraPlugins = (plugins) => {
       resolve: `gatsby-plugin-canonical-urls`,
       options: {
         siteUrl: process.env.SITE_URL,
-      }
+      },
     });
   }
   return plugins;
-}
+};
 
 const plugins = [
-  'gatsby-plugin-react-helmet',
+  "gatsby-plugin-react-helmet",
   {
     resolve: `gatsby-plugin-manifest`,
     options: {
-      name: 'JustFix.nyc',
-      short_name: 'JustFix.nyc',
-      start_url: '/',
-      background_color: '#663399',
-      theme_color: '#663399',
-      display: 'minimal-ui',
-      icon: 'src/img/brand/favicon-96x96.png', // This path is relative to the root of the site.
+      name: "JustFix.nyc",
+      short_name: "JustFix.nyc",
+      start_url: "/",
+      background_color: "#663399",
+      theme_color: "#663399",
+      display: "minimal-ui",
+      icon: "src/img/brand/favicon-96x96.png", // This path is relative to the root of the site.
     },
   },
   {
-    resolve: 'gatsby-plugin-i18n',
-    options: {        
-      langKeyDefault: 'en',
-      useLangKeyLayout: false
-    }
+    resolve: "gatsby-plugin-i18n",
+    options: {
+      langKeyDefault: "en",
+      useLangKeyLayout: false,
+    },
   },
   {
     resolve: "gatsby-plugin-google-tagmanager",
@@ -89,23 +89,23 @@ const plugins = [
       captureUncaught: true,
       captureUnhandledRejections: true,
       payload: {
-        environment: "production"
-      }
-    }
-  },
-  {
-    resolve: 'gatsby-plugin-heap',
-    options: {
-      appId: tracking.heap,
-      enableOnDevMode: false // if 'false', heap will be fired on NODE_ENV=production only
+        environment: "production",
+      },
     },
   },
-  'gatsby-plugin-offline',
-  'gatsby-plugin-sass',
+  {
+    resolve: "gatsby-plugin-heap",
+    options: {
+      appId: tracking.heap,
+      enableOnDevMode: false, // if 'false', heap will be fired on NODE_ENV=production only
+    },
+  },
+  "gatsby-plugin-offline",
+  "gatsby-plugin-sass",
   `gatsby-plugin-typescript`,
-  'gatsby-transformer-remark',
-  'gatsby-transformer-sharp',
-  'gatsby-plugin-sharp',
+  "gatsby-transformer-remark",
+  "gatsby-transformer-sharp",
+  "gatsby-plugin-sharp",
   {
     resolve: `gatsby-source-contentful`,
     options: contentfulConfig,
@@ -120,16 +120,16 @@ const plugins = [
       fonts: [
         {
           family: `Open Sans`,
-          variants: [`400`,`400i`,`600`,`700`]
+          variants: [`400`, `400i`, `600`, `700`],
         },
       ],
     },
   },
-]
+];
 
 module.exports = {
   siteMetadata: {
-    title: 'JustFix.nyc',
+    title: "JustFix.nyc",
   },
   plugins: conditionallyAddExtraPlugins(plugins),
-}
+};

@@ -1,36 +1,36 @@
 .footer {
-    img {
-        max-width: 180px;
+  img {
+    max-width: 180px;
+  }
+  .column {
+    .link {
+      &:hover {
+        color: #fff;
+      }
+      &:focus {
+        text-decoration: underline;
+      }
+      &.legal {
+        margin-right: 1.5rem;
+      }
+      p {
+        line-height: 2;
+      }
     }
-    .column {
-        .link {
-            &:hover {
-                color: #FFF;
-            }
-            &:focus {
-                text-decoration: underline;
-            }
-            &.legal {
-                margin-right: 1.5rem;
-            }
-            p {
-                line-height: 2;
-            }
-        }
-        form {
-            margin-bottom: 1rem;
-            max-width: 400px;
-            .control {
-                padding: 0 0.8rem 0.8rem 0;
-            }
-        }
-        .field {
-            .social-icon {
-                margin: 0 0.85rem 0.85rem 0;
-            }
-        }
+    form {
+      margin-bottom: 1rem;
+      max-width: 400px;
+      .control {
+        padding: 0 0.8rem 0.8rem 0;
+      }
     }
-    .is-divider {
-        margin-top: 0;
+    .field {
+      .social-icon {
+        margin: 0 0.85rem 0.85rem 0;
+      }
     }
+  }
+  .is-divider {
+    margin-top: 0;
+  }
 }
