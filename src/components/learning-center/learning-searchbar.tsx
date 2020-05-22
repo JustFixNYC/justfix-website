@@ -124,7 +124,7 @@ class LearningSearchBar extends Component<Props, State> {
             <img
               width="100"
               height="20"
-              src="https://www.algolia.com/gatsby-images/shared/algolia_logo/search-by-algolia-light-background.svg"
+              src={require("../../img/brand/algolia.svg")}
             />
           </div>
         )}
