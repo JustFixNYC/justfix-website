@@ -1,63 +1,73 @@
-import React from 'react'
-import { StaticQuery, graphql } from 'gatsby'
-import { Link } from 'gatsby'
+import React from "react";
+import { StaticQuery, graphql } from "gatsby";
+import { Link } from "gatsby";
 
-import '../styles/mission.scss' 
+import "../styles/mission.scss";
 
-import Layout from '../components/layout'
-import ReadMore from '../components/read-more'
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
-import { ContentfulContent } from '.'
-import { Trans } from '@lingui/macro'
+import Layout from "../components/layout";
+import ReadMore from "../components/read-more";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import { ContentfulContent } from ".";
+import { Trans } from "@lingui/macro";
 
-
-export function CollaborationBanner(props: {title: string, subtitle: string}): JSX.Element {
+export function CollaborationBanner(props: {
+  title: string;
+  subtitle: string;
+}): JSX.Element {
   return (
-  <section className="hero collaborate is-small is-primary is-horizontal-center">
-
-    <div className="hero-body has-text-centered is-horizontal-center">
-      <div className="container">
-        <h1 className="title is-size-4 has-text-weight-bold is-spaced">
-          {props.title}
-        </h1>
-        <p className="subtitle has-text-weight-medium">
-          {props.subtitle}
-        </p>
-        <div className="buttons is-centered">
-          <Link to="/contact-us" className="button is-medium is-primary is-outlined is-inverted is-uppercase"><Trans>Contact Us</Trans></Link>
-          <a href="https://donorbox.org/donate-to-justfix-nyc" className="button is-medium is-primary is-outlined is-inverted is-uppercase" target="_blank" rel="noopener noreferrer">
-            <Trans>Donate</Trans>
-          </a>
-        </div> 
+    <section className="hero collaborate is-small is-primary is-horizontal-center">
+      <div className="hero-body has-text-centered is-horizontal-center">
+        <div className="container">
+          <h1 className="title is-size-4 has-text-weight-bold is-spaced">
+            {props.title}
+          </h1>
+          <p className="subtitle has-text-weight-medium">{props.subtitle}</p>
+          <div className="buttons is-centered">
+            <Link
+              to="/contact-us"
+              className="button is-medium is-primary is-outlined is-inverted is-uppercase"
+            >
+              <Trans>Contact Us</Trans>
+            </Link>
+            <a
+              href="https://donorbox.org/donate-to-justfix-nyc"
+              className="button is-medium is-primary is-outlined is-inverted is-uppercase"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Trans>Donate</Trans>
+            </a>
+          </div>
+        </div>
       </div>
-    </div>
-  
-  </section>
-    
+    </section>
   );
 }
 
-export const MissionPageScaffolding = (props: ContentfulContent) => 
-  (<Layout metadata={props.content.metadata} locale={props.locale}>
-    <div id="mission" className="mission-page" >
-
+export const MissionPageScaffolding = (props: ContentfulContent) => (
+  <Layout metadata={props.content.metadata} locale={props.locale}>
+    <div id="mission" className="mission-page">
       <section className="hero is-small">
         <div className="hero-body has-text-centered is-horizontal-center">
           <div className="container">
             <h1 className="title is-size-2 has-text-grey-dark has-text-weight-normal is-spaced">
-            {props.content.title}
+              {props.content.title}
             </h1>
             <h6 className="subtitle has-text-grey-dark is-italic">
-            {props.content.briefDescription}
+              {props.content.briefDescription}
             </h6>
           </div>
         </div>
       </section>
 
       <section className="content-wrapper video tight">
-          <figure className="image is-16by9">
-            <iframe className="has-ratio" allowFullScreen={true} src={props.content.videoUrl} />
-          </figure>
+        <figure className="image is-16by9">
+          <iframe
+            className="has-ratio"
+            allowFullScreen={true}
+            src={props.content.videoUrl}
+          />
+        </figure>
       </section>
 
       <section className="hero problem is-medium">
@@ -66,18 +76,27 @@ export const MissionPageScaffolding = (props: ContentfulContent) =>
             {documentToReactComponents(props.content.serveSection.json)}
             <div className="cta has-text-centered has-background-primary">
               <h1 className="title is-size-4 has-text-white has-text-weight-bold is-spaced">
-              {props.content.impactTitle}
+                {props.content.impactTitle}
               </h1>
               <span className="subtitle has-text-white has-text-weight-medium">
-              {props.content.impactSubtitle}
+                {props.content.impactSubtitle}
               </span>
               <br />
               <div className="buttons is-centered">
-                { (props.content.impactReportButtons).map( (button: any, i: number) => 
-                  (<a href={button.link} target="_blank" rel="noopener noreferrer" key={i}
-                    className="button is-medium is-primary is-inverted is-outlined">
-                    <span className="is-size-6-mobile is-uppercase">{button.title}</span>
-                  </a>)
+                {props.content.impactReportButtons.map(
+                  (button: any, i: number) => (
+                    <a
+                      href={button.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      key={i}
+                      className="button is-medium is-primary is-inverted is-outlined"
+                    >
+                      <span className="is-size-6-mobile is-uppercase">
+                        {button.title}
+                      </span>
+                    </a>
+                  )
                 )}
               </div>
             </div>
@@ -86,22 +105,28 @@ export const MissionPageScaffolding = (props: ContentfulContent) =>
         </div>
       </section>
 
-      <CollaborationBanner title={props.content.collaborationBanner.title} 
-        subtitle={props.content.collaborationBanner.subtitle} />
+      <CollaborationBanner
+        title={props.content.collaborationBanner.title}
+        subtitle={props.content.collaborationBanner.subtitle}
+      />
 
-      <ReadMore title={props.content.readMore.title} link={props.content.readMore.link} locale={props.locale} />
-      
+      <ReadMore
+        title={props.content.readMore.title}
+        link={props.content.readMore.link}
+        locale={props.locale}
+      />
     </div>
-  </Layout>); 
+  </Layout>
+);
 
 export const MissionPageFragment = graphql`
   fragment MissionPage on Query {
-    contentfulMissionPage( node_locale: { eq: $locale } )  {
+    contentfulMissionPage(node_locale: { eq: $locale }) {
       metadata {
         title
         description
-        keywords { 
-          keywords 
+        keywords {
+          keywords
         }
         shareImage {
           file {
@@ -133,14 +158,19 @@ export const MissionPageFragment = graphql`
         link
       }
     }
-  }`;
+  }
+`;
 
-const MissionPage  = () => (
-<StaticQuery
-  query={graphql`
-   query ($locale: String! = "en-US") { ...MissionPage }
- `}
-  render = {data => (<MissionPageScaffolding content={data.contentfulMissionPage} />)}
+const MissionPage = () => (
+  <StaticQuery
+    query={graphql`
+      query($locale: String! = "en-US") {
+        ...MissionPage
+      }
+    `}
+    render={(data) => (
+      <MissionPageScaffolding content={data.contentfulMissionPage} />
+    )}
   />
 );
 

@@ -12,3 +12,6 @@ package-lock.json
 /src/locales/**/*.js
 
 .env
+
+# Other
+.vscode/

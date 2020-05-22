@@ -1,13 +1,17 @@
-import React from 'react'
-import { StaticQuery, graphql } from 'gatsby'
-import { PressPageScaffolding } from './press';
+import React from "react";
+import { StaticQuery, graphql } from "gatsby";
+import { PressPageScaffolding } from "./press";
 
-const PressPage  = () => (
-<StaticQuery
-  query={graphql`
-    query ($locale: String! = "es") { ...PressPage }
-  `}
-  render = {data => (<PressPageScaffolding content={data.contentfulPressPage} locale="es" />)}
+const PressPage = () => (
+  <StaticQuery
+    query={graphql`
+      query($locale: String! = "es") {
+        ...PressPage
+      }
+    `}
+    render={(data) => (
+      <PressPageScaffolding content={data.contentfulPressPage} locale="es" />
+    )}
   />
 );
 

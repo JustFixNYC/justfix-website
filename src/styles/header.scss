@@ -2,74 +2,75 @@
 @import "~bulma/sass/utilities/initial-variables.sass";
 
 .header {
-    width: 100%;
-    z-index: 30;
+  width: 100%;
+  z-index: 30;
 
-    // Make only the navbar have absolute position on mobile
-    &.is-absolute {
-        @media screen and (max-width: $tablet) {
-            position: unset;
+  // Make only the navbar have absolute position on mobile
+  &.is-absolute {
+    @media screen and (max-width: $tablet) {
+      position: unset;
 
-            .navbar {
-                position: absolute;
-                width: 100%;
-            }
+      .navbar {
+        position: absolute;
+        width: 100%;
+      }
+    }
+  }
+
+  .hero.is-small.is-warning {
+    padding: 0;
+    .container {
+      max-width: 1200px;
+      p {
+        padding-right: 2rem;
+        a {
+          color: inherit;
+          text-decoration: underline;
+          white-space: nowrap;
+
+          &:hover {
+            text-decoration: none;
+          }
         }
+      }
     }
 
-    .hero.is-small.is-warning {
-        padding: 0;
-            .container {
-                max-width: 1200px;
-                p {
-                    padding-right: 2rem;
-                    a {
-                        color: inherit;
-                        text-decoration: underline;
-                        white-space: nowrap;
+    button.delete {
+      &::before,
+      &::after {
+        background-color: $grey-darker;
+      }
+    }
+  }
 
-                        &:hover {
-                            text-decoration: none;
-                        }
-                    }
-                }
-            }
-        
-        button.delete {
-            &::before, &::after {
-                background-color: $grey-darker;
-            }
-        }
-    }
+  .navbar.is-transparent {
+    background-color: $transparent;
 
+    .navbar-item {
+      .button:hover,
+      .button:focus {
+        color: #434a54;
+      }
+    }
+  }
+  .navbar-dropdown {
+    min-width: 180px;
+    .navbar-item:hover {
+      font-weight: 600;
+      transition: 0.1s;
+      background-color: white;
+    }
+  }
 
-    .navbar.is-transparent {
-        background-color: $transparent;
-
-        .navbar-item {
-            .button:hover, .button:focus {
-                color: #434a54;
-            } 
-        }
-    }
-    .navbar-dropdown {
-        min-width: 180px;
-        .navbar-item:hover {
-            font-weight: 600;
-            transition: 0.1s;
-            background-color: white;
-        }
-    }
-
-    /** Patch for IE Bug with bulma navbar class */
-    .navbar-item.is-hoverable:hover .navbar-dropdown {
-        display: block;
-    }
-    .button {
-        min-width: 120px;
-    }
-    .tag.is-warning {
-        border-radius: 0;
-        transform: rotate(-4deg);
-    }
+  /** Patch for IE Bug with bulma navbar class */
+  .navbar-item.is-hoverable:hover .navbar-dropdown {
+    display: block;
+  }
+  .button {
+    min-width: 120px;
+  }
+  .tag.is-warning {
+    border-radius: 0;
+    transform: rotate(-4deg);
+  }
 }

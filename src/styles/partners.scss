@@ -1,33 +1,33 @@
 .partners-page {
-    .hero {
-        .hero-body {
-            width: 100%;
-            max-width: 720px;
+  .hero {
+    .hero-body {
+      width: 100%;
+      max-width: 720px;
 
-            .buttons.is-centered {
-                margin-top: 1.5rem;
+      .buttons.is-centered {
+        margin-top: 1.5rem;
 
-                .button {
-                    margin: 0.75rem;
-                }
-            }
+        .button {
+          margin: 0.75rem;
         }
+      }
     }
-    .logos {
-        padding-bottom: 3rem;
-        .logo {
-            padding: 2rem; 
-            .image {
-                width: 150px;
-                height: 150px;
-                transition: transform 100ms ease-in-out;
-                transform-origin: center;
+  }
+  .logos {
+    padding-bottom: 3rem;
+    .logo {
+      padding: 2rem;
+      .image {
+        width: 150px;
+        height: 150px;
+        transition: transform 100ms ease-in-out;
+        transform-origin: center;
 
-                &:hover {
-                    opacity: 0.6;
-                    transform: scale(1.10);
-                }
-            }
+        &:hover {
+          opacity: 0.6;
+          transform: scale(1.1);
         }
+      }
     }
+  }
 }

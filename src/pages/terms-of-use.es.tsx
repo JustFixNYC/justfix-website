@@ -1,14 +1,20 @@
-import React from 'react'
-import { StaticQuery, graphql } from 'gatsby'
-import { TermsOfUsePageScaffolding } from './terms-of-use';
+import React from "react";
+import { StaticQuery, graphql } from "gatsby";
+import { TermsOfUsePageScaffolding } from "./terms-of-use";
 
-
-const TermsOfUsePage  = () => (
-<StaticQuery
-  query={graphql`
-    query ($locale: String! = "es") { ...TermsOfUsePage }
-  `}
-  render = {data => (<TermsOfUsePageScaffolding content={data.contentfulGenericPage} locale="es" />)}
+const TermsOfUsePage = () => (
+  <StaticQuery
+    query={graphql`
+      query($locale: String! = "es") {
+        ...TermsOfUsePage
+      }
+    `}
+    render={(data) => (
+      <TermsOfUsePageScaffolding
+        content={data.contentfulGenericPage}
+        locale="es"
+      />
+    )}
   />
 );
 
