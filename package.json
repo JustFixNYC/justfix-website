@@ -72,7 +72,7 @@
   "scripts": {
     "postinstall": "lingui compile",
     "lingui": "lingui",
-    "build": "gatsby build",
+    "build": "yarn prettier:check && gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write '**/*.tsx'",
     "prettier": "prettier",
