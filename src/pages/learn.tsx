@@ -13,7 +13,8 @@ import classnames from "classnames";
 
 const widont = require("widont");
 
-export const isCovidRelated = (word: string) => /COVID/.test(word.toUpperCase());
+export const isCovidRelated = (word: string) =>
+  /COVID/.test(word.toUpperCase());
 
 export type Category = {
   title: string;
