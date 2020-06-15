@@ -41,6 +41,10 @@
 
       &.is-outlined:not(:hover):not(:focus) {
         opacity: 0.5;
+        &.is-warning {
+          opacity: 1;
+          color: $warning-darkened;
+        }
       }
     }
 

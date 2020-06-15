@@ -9,8 +9,11 @@ import { ThankYouBanner } from "../components/learning-center/thank-you-banner";
 import LearningSearchBar from "../components/learning-center/learning-searchbar";
 import CategoryMenu from "../components/learning-center/category-menu";
 import { Trans } from "@lingui/macro";
+import classnames from "classnames";
 
 const widont = require("widont");
+
+export const isCovidRelated = (word: string) => /COVID/.test(word.toUpperCase());
 
 export type Category = {
   title: string;
@@ -26,7 +29,12 @@ export const ArticlePreviewCard = (props: any) => {
       <Link
         key={i}
         to={localePrefix + "/learn/category/" + category.slug}
-        className="tag is-primary is-light is-uppercase"
+        className={classnames(
+          "tag",
+          "is-uppercase",
+          "is-light",
+          isCovidRelated(category.title) ? "is-warning" : "is-primary"
+        )}
       >
         {category.title}
       </Link>

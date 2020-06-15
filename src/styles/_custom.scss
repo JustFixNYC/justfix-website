@@ -38,8 +38,13 @@
   display: inline-table;
 }
 
-.button.is-primary:not(.is-outlined):hover {
-  background-color: $justfix-blue-lightened;
+.button {
+  &.is-primary:not(.is-outlined):hover {
+    background-color: $justfix-blue-lightened;
+  }
+  &.is-warning:not(.is-outlined):hover {
+    background-color: $warning-lightened;
+  }
 }
 
 .button,

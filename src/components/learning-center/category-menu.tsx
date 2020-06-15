@@ -1,7 +1,7 @@
 import React from "react";
 import { StaticQuery, graphql, Link } from "gatsby";
 import { ContentfulContent, Locale } from "../../pages";
-import { Category } from "../../pages/learn";
+import { Category, isCovidRelated } from "../../pages/learn";
 import classnames from "classnames";
 
 type CategoryMenuProps = ContentfulContent & {
@@ -16,12 +16,17 @@ const CategoryMenuScaffolding = (props: CategoryMenuProps) => {
         <Link
           key={i}
           to={localePrefix + "/learn/category/" + category.slug}
-          className={classnames("button", "is-primary", "is-uppercase", {
-            "is-small": props.selectedCategory,
-            "is-outlined":
-              props.selectedCategory &&
-              props.selectedCategory !== category.slug,
-          })}
+          className={classnames(
+            "button",
+            "is-uppercase",
+            isCovidRelated(category.title) ? "is-warning" : "is-primary",
+            {
+              "is-small": props.selectedCategory,
+              "is-outlined":
+                props.selectedCategory &&
+                props.selectedCategory !== category.slug,
+            }
+          )}
         >
           {category.title}
         </Link>
