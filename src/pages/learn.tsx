@@ -13,6 +13,12 @@ import classnames from "classnames";
 
 const widont = require("widont");
 
+const sortArticlesByDate = (article1: any, article2: any) => {
+  const date1 = new Date(article1.dateUpdated).getTime();
+  const date2 = new Date(article2.dateUpdated).getTime();
+  return date2 - date1;
+};
+
 export const isCovidRelated = (word: string) =>
   /COVID/.test(word.toUpperCase());
 
@@ -90,13 +96,15 @@ export const LearningPageScaffolding = (props: ContentfulContent) => (
         </div>
       </section>
       <section className="content-wrapper tight">
-        {props.content.articles.map((article: any, i: number) => (
-          <ArticlePreviewCard
-            articleData={article}
-            key={i}
-            locale={props.locale}
-          />
-        ))}
+        {props.content.articles
+          .sort(sortArticlesByDate)
+          .map((article: any, i: number) => (
+            <ArticlePreviewCard
+              articleData={article}
+              key={i}
+              locale={props.locale}
+            />
+          ))}
       </section>
       <ThankYouBanner content={props.content.thankYouText} />
     </div>
@@ -128,6 +136,7 @@ export const LearningPageFragment = graphql`
       articles {
         slug
         title
+        dateUpdated
         previewText {
           previewText
         }
