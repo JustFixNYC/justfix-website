@@ -30,7 +30,7 @@ msgstr ""
 msgid "About us"
 msgstr ""
 
-#: src/components/subscribe.tsx:37
+#: src/components/subscribe.tsx:38
 msgid "All set! Thanks for subscribing!"
 msgstr ""
 
@@ -60,8 +60,7 @@ msgstr ""
 msgid "Donate"
 msgstr ""
 
-#: src/components/subscribe.tsx:69
-#: src/pages/contact-us.tsx:39
+#: src/components/subscribe.tsx:72
 msgid "Email Address"
 msgstr ""
 
@@ -98,12 +97,12 @@ msgstr ""
 msgid "Not found"
 msgstr ""
 
-#: src/components/subscribe.tsx:47
-#: src/components/subscribe.tsx:53
+#: src/components/subscribe.tsx:48
+#: src/components/subscribe.tsx:54
 msgid "Oops! A network error occurred. Try again later."
 msgstr ""
 
-#: src/components/subscribe.tsx:42
+#: src/components/subscribe.tsx:43
 msgid "Oops! That email is invalid."
 msgstr ""
 
@@ -112,7 +111,7 @@ msgstr ""
 msgid "Partners"
 msgstr ""
 
-#: src/components/subscribe.tsx:18
+#: src/components/subscribe.tsx:19
 msgid "Please enter an email address!"
 msgstr ""
 
@@ -148,8 +147,7 @@ msgstr ""
 msgid "Sign in"
 msgstr ""
 
-#: src/components/subscribe.tsx:73
-#: src/pages/contact-us.tsx:44
+#: src/components/subscribe.tsx:76
 msgid "Sign up"
 msgstr ""
 
