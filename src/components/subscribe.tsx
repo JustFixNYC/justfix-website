@@ -2,8 +2,11 @@ import React from "react";
 import { Trans, t } from "@lingui/macro";
 import { withI18n, withI18nProps } from "@lingui/react";
 import { Locale } from "../pages";
+import classnames from "classnames";
 
-type SubscribeProps = Locale & withI18nProps;
+type FormLocation = "footer" | "page";
+
+type SubscribeProps = { location?: FormLocation } & Locale & withI18nProps;
 
 type SubscribeState = {
   email: string;
@@ -84,11 +87,21 @@ class SubscribeWithoutI18n extends React.Component<
   };
 
   render() {
-    const { i18n } = this.props;
+    const { i18n, location } = this.props;
+
+    // Default styling is for "footer"
+    const defaultResponseTextClass =
+      location === "page" ? "has-text-grey-dark" : "has-text-white";
+
     return (
       <div>
-        <form className="is-horizontal-center" onSubmit={this.handleSubmit}>
-          <div>
+        <form
+          className="email-form is-horizontal-center"
+          onSubmit={this.handleSubmit}
+        >
+          <div
+            className={classnames(location === "page" && "field has-addons")}
+          >
             <div className="control is-expanded">
               <input
                 type="email"
@@ -109,7 +122,9 @@ class SubscribeWithoutI18n extends React.Component<
           <>
             <p
               className={
-                this.state.success ? "has-text-white" : "has-text-danger"
+                this.state.success
+                  ? defaultResponseTextClass
+                  : "has-text-danger"
               }
             >
               {this.state.response}

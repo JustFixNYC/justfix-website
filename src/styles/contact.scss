@@ -7,6 +7,11 @@
     }
     .email-form {
       max-width: 400px;
+      // Remove bottom margin when field is part of email form
+      // to accomodate response messages that appear below
+      .field {
+        margin-bottom: 1rem;
+      }
     }
   }
 }
