@@ -8,9 +8,8 @@ import classnames from "classnames";
 
 /** The URL for Data-Driven Onboarding (DDO) on the JustFix Tenant Platform. */
 const DDO_URL =
-  "https://" +
-  (process.env.GATSBY_DEMO_SITE === "1" ? "demo" : "app") +
-  ".justfix.nyc/ddo";
+  (process.env.GATSBY_TENANT_PLATFORM_SITE_ORIGIN ||
+    "https://demo.justfix.nyc") + "/ddo";
 
 /** The querystring variable used to communicate the address for DDO. */
 const DDO_ADDRESS_VAR = "address";
