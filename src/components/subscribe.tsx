@@ -50,7 +50,9 @@ class SubscribeWithoutI18n extends React.Component<
     fetch(`${tenantPlatformOrigin}/mailchimp/subscribe`, {
       method: "POST",
       mode: "cors",
-      body: `email=${encodeURIComponent(email)}&language=${locale}&source=orgsite`,
+      body: `email=${encodeURIComponent(
+        email
+      )}&language=${locale}&source=orgsite`,
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
       },
