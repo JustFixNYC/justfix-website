@@ -91,6 +91,7 @@ class SubscribeWithoutI18n extends React.Component<
               <input
                 type="email"
                 name="EMAIL"
+                className="input"
                 onChange={this.handleChange}
                 placeholder={i18n._(t`Email Address`)}
               />
