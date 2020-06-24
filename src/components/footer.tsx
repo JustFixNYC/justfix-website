@@ -1,14 +1,12 @@
 import React from "react";
 import { SocialIcon } from "react-social-icons";
 import { Link } from "gatsby";
-import { Trans, t } from "@lingui/macro";
+import { Trans } from "@lingui/macro";
 import { withI18n, withI18nProps } from "@lingui/react";
 
 import "../styles/footer.scss";
 import { Locale } from "../pages";
-
-const MAILCHIMP_URL =
-  "https://nyc.us13.list-manage.com/subscribe/post?u=d4f5d1addd4357eb77c3f8a99&amp;id=588f6c6ef4";
+import Subscribe from "./subscribe";
 
 const Footer = withI18n()(({ locale, i18n }: Locale & withI18nProps) => {
   const localePrefix = locale ? "/" + locale : "";
@@ -113,32 +111,7 @@ const Footer = withI18n()(({ locale, i18n }: Locale & withI18nProps) => {
           <h4 className="title is-size-5 has-text-white">
             <Trans>Join our mailing list!</Trans>
           </h4>
-          <form
-            action={MAILCHIMP_URL}
-            className="email-form is-horizontal-center"
-            method="post"
-            target="_blank"
-          >
-            <div className="mc-field-group">
-              <div className="control is-expanded">
-                <input
-                  type="email"
-                  name="EMAIL"
-                  className="required email input"
-                  id="mce-EMAIL"
-                  placeholder={i18n._(t`Email Address`)}
-                />
-              </div>
-              <div className="control has-text-centered-touch">
-                <button
-                  className="button is-primary is-uppercase"
-                  type="submit"
-                >
-                  <Trans>Sign up</Trans>
-                </button>
-              </div>
-            </div>
-          </form>
+          <Subscribe />
           <div className="field">
             <SocialIcon
               url="http://twitter.com/justfixnyc"

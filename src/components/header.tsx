@@ -8,7 +8,8 @@ import { Locale } from "../pages";
 const isDemoSite = process.env.GATSBY_DEMO_SITE === "1";
 
 const TENANT_PLATFORM_URL =
-  "https://" + (isDemoSite ? "demo" : "app") + ".justfix.nyc/login";
+  (process.env.GATSBY_TENANT_PLATFORM_SITE_ORIGIN ||
+    "https://demo.justfix.nyc") + "/login";
 
 type Props = {
   isLandingPage?: boolean;
