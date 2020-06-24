@@ -35,7 +35,7 @@ msgstr "Sobre nosotros"
 
 #: src/components/subscribe.tsx:38
 msgid "All set! Thanks for subscribing!"
-msgstr ""
+msgstr "¡Todo listo! ¡Gracias por suscribirte!"
 
 #: src/components/learning-center/category-page-template.tsx:32
 msgid "Back to Overview"
@@ -103,11 +103,11 @@ msgstr "No encontrado"
 #: src/components/subscribe.tsx:48
 #: src/components/subscribe.tsx:54
 msgid "Oops! A network error occurred. Try again later."
-msgstr ""
+msgstr "¡Vaya! Hubo un error en la red. Inténtalo más tarde."
 
 #: src/components/subscribe.tsx:43
 msgid "Oops! That email is invalid."
-msgstr ""
+msgstr "¡Vaya! Ese correo electrónico no es válido."
 
 #: src/components/footer.tsx:54
 #: src/components/header.tsx:78
@@ -116,7 +116,7 @@ msgstr "Aliados"
 
 #: src/components/subscribe.tsx:19
 msgid "Please enter an email address!"
-msgstr ""
+msgstr "Por favor, ¡introduzca una dirección de correo electrónico!"
 
 #: src/components/footer.tsx:38
 #: src/components/header.tsx:81
