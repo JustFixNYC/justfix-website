@@ -8,7 +8,7 @@ msgstr ""
 "Language: es\n"
 "Project-Id-Version: justfix-website\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2020-06-24 22:36\n"
+"PO-Revision-Date: 2020-07-16 15:40\n"
 "Last-Translator: \n"
 "Language-Team: Spanish\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -37,11 +37,11 @@ msgstr "Sobre nosotros"
 
 #: src/components/subscribe.tsx:38
 msgid "All set! Thanks for subscribing!"
-msgstr ""
+msgstr "¡Todo listo! ¡Gracias por suscribirte!"
 
 #: src/components/learning-center/category-page-template.tsx:32
 msgid "Back to Overview"
-msgstr "Vuelve a Vista General"
+msgstr "Volver a la Vista General"
 
 #: src/components/learning-center/article-template.tsx:50
 msgid "Back to top"
@@ -105,11 +105,11 @@ msgstr "No encontrado"
 #: src/components/subscribe.tsx:48
 #: src/components/subscribe.tsx:54
 msgid "Oops! A network error occurred. Try again later."
-msgstr ""
+msgstr "¡Vaya! Hubo un error en la red. Inténtalo más tarde."
 
 #: src/components/subscribe.tsx:43
 msgid "Oops! That email is invalid."
-msgstr ""
+msgstr "¡Vaya! Ese correo electrónico no es válido."
 
 #: src/components/footer.tsx:54
 #: src/components/header.tsx:78
@@ -118,7 +118,7 @@ msgstr "Aliados"
 
 #: src/components/subscribe.tsx:19
 msgid "Please enter an email address!"
-msgstr ""
+msgstr "Por favor, ¡introduzca una dirección de correo electrónico!"
 
 #: src/components/footer.tsx:38
 #: src/components/header.tsx:81
@@ -163,7 +163,7 @@ msgstr "Equipo"
 
 #: src/components/footer.tsx:111
 msgid "Terms of use"
-msgstr "Condiciones de Uso"
+msgstr "Condiciones de uso"
 
 #: src/components/learning-center/article-template.tsx:103
 msgid "Updated"
