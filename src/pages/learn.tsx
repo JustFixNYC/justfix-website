@@ -91,7 +91,10 @@ export const LearningPageScaffolding = (props: ContentfulContent) => (
             </h6>
             <LearningSearchBar locale={props.locale} />
             <br />
-            <CategoryMenu locale={props.locale} />
+            <CategoryMenu
+              content={props.content.categoryButtons}
+              locale={props.locale}
+            />
           </div>
         </div>
       </section>
@@ -133,6 +136,10 @@ export const LearningPageFragment = graphql`
         }
       }
       subtitle
+      categoryButtons {
+        title
+        slug
+      }
       articles {
         slug
         title
