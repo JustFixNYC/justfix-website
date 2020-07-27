@@ -13,6 +13,7 @@ type Props = {
   pageContext: {
     content: any;
     thankYouBanner: any;
+    categoryButtons: any;
     articlePreviews: any;
   } & Locale;
 };
@@ -63,6 +64,7 @@ const LearningCategoryPage = (props: Props) => {
                 {widont(content.description)}
               </h6>
               <CategoryMenu
+                content={props.pageContext.categoryButtons}
                 selectedCategory={content.slug}
                 locale={props.pageContext.locale}
               />
