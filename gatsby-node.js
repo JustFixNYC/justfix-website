@@ -95,8 +95,15 @@ const generateLearningPages = async function ({ actions, graphql }, locale) {
 
   const articlePreviews = data.contentfulLearningCenterSearchPage.articles.map(
     (article) => {
-      const { title, slug, previewText, categories, ...rest } = article;
-      const subset = { title, slug, previewText, categories };
+      const {
+        title,
+        slug,
+        previewText,
+        categories,
+        dateUpdated,
+        ...rest
+      } = article;
+      const subset = { title, slug, previewText, categories, dateUpdated };
       return subset;
     }
   );

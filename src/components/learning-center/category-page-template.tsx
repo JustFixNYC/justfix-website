@@ -1,6 +1,6 @@
 import React from "react";
 import Layout from "../layout";
-import { ArticlePreviewCard } from "../../pages/learn";
+import { ArticlePreviewCard, sortArticlesByDate } from "../../pages/learn";
 import { Link } from "gatsby";
 import { ThankYouBanner } from "./thank-you-banner";
 import CategoryMenu from "./category-menu";
@@ -73,13 +73,15 @@ const LearningCategoryPage = (props: Props) => {
         </section>
         <section className="content-wrapper tight">
           {articlePreviews && articlePreviews.length > 0 ? (
-            articlePreviews.map((article: any, i: number) => (
-              <ArticlePreviewCard
-                articleData={article}
-                key={i}
-                locale={props.pageContext.locale}
-              />
-            ))
+            articlePreviews
+              .sort(sortArticlesByDate)
+              .map((article: any, i: number) => (
+                <ArticlePreviewCard
+                  articleData={article}
+                  key={i}
+                  locale={props.pageContext.locale}
+                />
+              ))
           ) : (
             <NoArticlesYet />
           )}
