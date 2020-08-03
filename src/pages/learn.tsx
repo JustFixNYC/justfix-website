@@ -13,7 +13,7 @@ import classnames from "classnames";
 
 const widont = require("widont");
 
-const sortArticlesByDate = (article1: any, article2: any) => {
+export const sortArticlesByDate = (article1: any, article2: any) => {
   const date1 = new Date(article1.dateUpdated).getTime();
   const date2 = new Date(article2.dateUpdated).getTime();
   return date2 - date1;
