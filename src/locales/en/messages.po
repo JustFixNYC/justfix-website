@@ -14,7 +14,7 @@ msgstr ""
 "Plural-Forms: \n"
 
 #: src/components/header.tsx:15
-msgid "<0>COVID-19 Update: </0>JustFix.nyc remains in operation, and we are adapting our products to match new rules put in place during the Covid-19 public health crisis. Thanks to organizing from tenant leaders, renters now have stronger protections during this time, including a full halt on eviction cases. <1><2>Learn more</2></1>"
+msgid "<0>COVID-19 Update: </0>JustFix.nyc is operating, and has adapted our products to match preliminary rules put in place during the COVID-19 crisis. We recommend you take full precautions to stay safe during this public health crisis. Thanks to tenant organizing during this time, renters cannot be evicted for any reason. Visit <1><2>Right to Council’s Eviction Moratorium FAQs</2></1> to learn more."
 msgstr ""
 
 #: src/components/footer.tsx:93
@@ -26,7 +26,7 @@ msgid "<0>JustFix.nyc</0> is a registered 501(c)(3) nonprofit organization."
 msgstr ""
 
 #: src/components/footer.tsx:45
-#: src/components/header.tsx:67
+#: src/components/header.tsx:70
 msgid "About us"
 msgstr ""
 
@@ -43,7 +43,7 @@ msgid "Back to top"
 msgstr ""
 
 #: src/components/footer.tsx:64
-#: src/components/header.tsx:101
+#: src/components/header.tsx:104
 msgid "Contact"
 msgstr ""
 
@@ -51,7 +51,7 @@ msgstr ""
 msgid "Contact Us"
 msgstr ""
 
-#: src/components/header.tsx:51
+#: src/components/header.tsx:54
 msgid "DEMO SITE"
 msgstr ""
 
@@ -71,7 +71,7 @@ msgid "Enter your address to learn more."
 msgstr ""
 
 #: src/components/footer.tsx:59
-#: src/components/header.tsx:84
+#: src/components/header.tsx:87
 msgid "Jobs"
 msgstr ""
 
@@ -80,12 +80,12 @@ msgid "Join our mailing list!"
 msgstr ""
 
 #: src/components/footer.tsx:28
-#: src/components/header.tsx:96
+#: src/components/header.tsx:99
 msgid "Learn"
 msgstr ""
 
 #: src/components/footer.tsx:33
-#: src/components/header.tsx:72
+#: src/components/header.tsx:75
 msgid "Mission"
 msgstr ""
 
@@ -107,7 +107,7 @@ msgid "Oops! That email is invalid."
 msgstr ""
 
 #: src/components/footer.tsx:54
-#: src/components/header.tsx:78
+#: src/components/header.tsx:81
 msgid "Partners"
 msgstr ""
 
@@ -116,7 +116,7 @@ msgid "Please enter an email address!"
 msgstr ""
 
 #: src/components/footer.tsx:38
-#: src/components/header.tsx:81
+#: src/components/header.tsx:84
 msgid "Press"
 msgstr ""
 
@@ -125,7 +125,7 @@ msgid "Privacy policy"
 msgstr ""
 
 #: src/components/footer.tsx:23
-#: src/components/header.tsx:91
+#: src/components/header.tsx:94
 msgid "Products"
 msgstr ""
 
@@ -142,8 +142,8 @@ msgstr ""
 msgid "Search articles..."
 msgstr ""
 
-#: src/components/header.tsx:107
-#: src/components/header.tsx:113
+#: src/components/header.tsx:110
+#: src/components/header.tsx:116
 msgid "Sign in"
 msgstr ""
 
@@ -152,7 +152,7 @@ msgid "Sign up"
 msgstr ""
 
 #: src/components/footer.tsx:49
-#: src/components/header.tsx:75
+#: src/components/header.tsx:78
 msgid "Team"
 msgstr ""
 
