@@ -36,10 +36,10 @@ const MoratoriumBanner = () => {
             <Trans>
               <span className="has-text-weight-bold">COVID-19 Update: </span>
               JustFix.nyc is operating, and has adapted our products to match
-              preliminary rules put in place during the COVID-19 crisis. While
-              NYC is in Phase 2, we still recommend full precautions. Thanks to
-              tenant organizing during this time, renters cannot be evicted for
-              any reason until August 6. Visit{" "}
+              preliminary rules put in place during the COVID-19 crisis. We
+              recommend you take full precautions to stay safe during this
+              public health crisis. Thanks to tenant organizing during this
+              time, renters cannot be evicted for any reason. Visit{" "}
               <a
                 href="https://www.righttocounselnyc.org/ny_eviction_moratorium_faq"
                 target="_blank"
