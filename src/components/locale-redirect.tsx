@@ -2,6 +2,8 @@ import React from "react";
 import { useEffect } from "react";
 import { navigate } from "gatsby";
 
+import "../styles/locale-redirect.scss";
+
 // This component redirects users to a localized version of the given route
 // based on their browser's preferred language
 //
@@ -47,7 +49,7 @@ const IndexPage = (props: Props) => {
     <html lang="en">
       <meta httpEquiv="refresh" content={`3;url=${redirectURL}`} />
       <body>
-        <p>
+        <p className="jf-redirect-message">
           If you're not automatically redirected, please visit{" "}
           <a href={redirectURL}>{redirectURL}</a>.
         </p>
