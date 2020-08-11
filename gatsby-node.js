@@ -187,3 +187,34 @@ exports.createPages = async function ({ actions, graphql }) {
     isPermanent: true,
   });
 };
+
+/* Add a redirect page for any route that doesn't specify the locale in the url */
+
+const DEFAULT_LOCALE = "en";
+const ACCEPTED_LOCALES = ["en", "es"];
+
+exports.onCreatePage = async ({ page, boundActionCreators }) => {
+  const { createPage, deletePage } = boundActionCreators;
+
+  if (!(page.context.slug && page.context.langKey === DEFAULT_LOCALE)) return;
+  return new Promise((resolve, reject) => {
+    const rootSlug = page.context.slug
+      .replace(page.context.langKey, "")
+      .replace("//", "/");
+
+    let newPage = Object.assign({}, page, {
+      path: rootSlug,
+      component: require.resolve(`./src/components/locale-redirect.tsx`),
+      context: {
+        slug: rootSlug,
+        defaultLocale: DEFAULT_LOCALE,
+        acceptedLocales: ACCEPTED_LOCALES,
+      },
+    });
+
+    // console.log('creating', newPage)
+    createPage(newPage);
+
+    resolve();
+  });
+};
