@@ -1,6 +1,7 @@
 # Yikes! Don't go in there!
 node_modules
 src/locales
+.devcontainer
 
 .cache
 .circleci

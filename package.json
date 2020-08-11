@@ -58,7 +58,7 @@
     "react-social-icons": "^4.1.0",
     "react-text-loop": "^2.1.1",
     "read-more-react": "^1.0.9",
-    "serialize-javascript": "^2.1.1",
+    "serialize-javascript": "^3.1.0",
     "tslint": "^5.11.0",
     "typescript": "^3.5.1",
     "webpack": "^4.0.0",
