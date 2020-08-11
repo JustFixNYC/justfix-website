@@ -226,6 +226,8 @@ exports.onCreatePage = async ({ page, boundActionCreators }) => {
   const { createPage, deletePage } = boundActionCreators;
 
   if (!(page.context.slug && page.context.langKey === DEFAULT_LOCALE)) return;
+  /* Do we need to return a Promise here? All of the examples I saw of returns from `onCreatePage` 
+  returned a promise, but not entirely sure why... */
   return new Promise((resolve, reject) => {
     const rootSlug = page.context.slug
       .replace(page.context.langKey, "")
