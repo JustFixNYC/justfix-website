@@ -34,7 +34,7 @@ type Props = {
   };
 };
 
-const IndexPage = (props: Props) => {
+const LocaleRedirectPage = (props: Props) => {
   const urlLang = getRedirectLanguage(
     props.pageContext.defaultLocale,
     props.pageContext.acceptedLocales
@@ -58,4 +58,4 @@ const IndexPage = (props: Props) => {
   );
 };
 
-export default IndexPage;
+export default LocaleRedirectPage;
