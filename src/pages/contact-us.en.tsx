@@ -86,7 +86,10 @@ const ContactPage = () => (
       }
     `}
     render={(data) => (
-      <ContactPageScaffolding content={data.contentfulContactPage} locale="en" />
+      <ContactPageScaffolding
+        content={data.contentfulContactPage}
+        locale="en"
+      />
     )}
   />
 );

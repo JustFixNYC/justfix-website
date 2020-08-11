@@ -169,7 +169,10 @@ const MissionPage = () => (
       }
     `}
     render={(data) => (
-      <MissionPageScaffolding content={data.contentfulMissionPage} locale="en" />
+      <MissionPageScaffolding
+        content={data.contentfulMissionPage}
+        locale="en"
+      />
     )}
   />
 );

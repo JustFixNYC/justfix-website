@@ -225,7 +225,9 @@ const TeamPage = () => (
         ...TeamPage
       }
     `}
-    render={(data) => <TeamPageScaffolding content={data.contentfulTeamPage} locale="en" />}
+    render={(data) => (
+      <TeamPageScaffolding content={data.contentfulTeamPage} locale="en" />
+    )}
   />
 );
 

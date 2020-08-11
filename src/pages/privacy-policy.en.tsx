@@ -40,7 +40,10 @@ const PrivacyPolicyPage = () => (
       }
     `}
     render={(data) => (
-      <PrivacyPolicyPageScaffolding content={data.contentfulGenericPage} locale="en" />
+      <PrivacyPolicyPageScaffolding
+        content={data.contentfulGenericPage}
+        locale="en"
+      />
     )}
   />
 );

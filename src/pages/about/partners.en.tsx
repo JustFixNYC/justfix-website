@@ -138,7 +138,10 @@ const PartnersPage = () => (
       }
     `}
     render={(data) => (
-      <PartnersPageScaffolding content={data.contentfulPartnersPage} locale="en" />
+      <PartnersPageScaffolding
+        content={data.contentfulPartnersPage}
+        locale="en"
+      />
     )}
   />
 );
