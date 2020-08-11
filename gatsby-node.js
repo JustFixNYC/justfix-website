@@ -14,9 +14,9 @@ const ACCEPTED_LOCALES = ["en", "es"];
 const getFullLocaleName = (locale) => (locale === "en" ? "en-US" : locale);
 
 /**
- * For urls with no locale specified, this helper generates params for the `createPage` 
+ * For urls with no locale specified, this helper generates params for the `createPage`
  * method to generate a page that programmatically adds on the browser's default locale.
- * See `locale-redirect.tsx` for details on how the redirect works. 
+ * See `locale-redirect.tsx` for details on how the redirect works.
  */
 const createLocaleRedirectOptions = (path) => {
   let options = {
@@ -132,7 +132,7 @@ const generateLearningPages = async function ({ actions, graphql }, locale) {
       } = article;
       const subset = { title, slug, previewText, categories, dateUpdated };
       return subset;
-    },
+    }
   );
 
   /* Create each Learning Center category page with appropriate data */
@@ -145,7 +145,7 @@ const generateLearningPages = async function ({ actions, graphql }, locale) {
       actions.createPage({
         path: locale + "/learn/category/" + category.slug,
         component: require.resolve(
-          `./src/components/learning-center/category-page-template.tsx`,
+          `./src/components/learning-center/category-page-template.tsx`
         ),
         context: {
           locale: locale,
@@ -154,16 +154,16 @@ const generateLearningPages = async function ({ actions, graphql }, locale) {
           thankYouBanner: thankYouBanner,
           articlePreviews: articlePreviews.filter((article) =>
             article.categories.some(
-              (articleCategory) => articleCategory.title === category.title,
-            ),
+              (articleCategory) => articleCategory.title === category.title
+            )
           ),
         },
       });
       /* Create a redirect for urls with no locale specified */
       actions.createPage(
-        createLocaleRedirectOptions("/learn/category/" + category.slug),
+        createLocaleRedirectOptions("/learn/category/" + category.slug)
       );
-    },
+    }
   );
 
   /* Create each Learning Center article page with appropriate data */
@@ -182,7 +182,7 @@ const generateLearningPages = async function ({ actions, graphql }, locale) {
     actions.createPage({
       path: locale + "/learn/" + article.slug,
       component: require.resolve(
-        `./src/components/learning-center/article-template.tsx`,
+        `./src/components/learning-center/article-template.tsx`
       ),
       context: {
         locale: locale,
