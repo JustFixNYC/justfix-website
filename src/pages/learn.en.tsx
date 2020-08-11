@@ -109,7 +109,10 @@ export const LearningPageScaffolding = (props: ContentfulContent) => (
             />
           ))}
       </section>
-      <ThankYouBanner content={props.content.thankYouText} locale={props.locale} />
+      <ThankYouBanner
+        content={props.content.thankYouText}
+        locale={props.locale}
+      />
     </div>
   </Layout>
 );

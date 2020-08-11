@@ -66,7 +66,7 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
                     {props.content.landingTextLoopText.map(
                       (textBlock: string, i: number) => (
                         <span key={i}>{textBlock}</span>
-                      ),
+                      )
                     )}
                   </TextLoop>
                 </div>
@@ -136,7 +136,7 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
                       <br />
                       <p className="subtitle">
                         {documentToReactComponents(
-                          product.descriptionText.json,
+                          product.descriptionText.json
                         )}
                       </p>
                       <br />
@@ -177,7 +177,7 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
                       <br />
                       <p className="subtitle">
                         {documentToReactComponents(
-                          product.descriptionText.json,
+                          product.descriptionText.json
                         )}
                       </p>
                       <br />
@@ -195,7 +195,7 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
                   </div>
                 </div>
               </div>
-            ),
+            )
           )}
         </div>
       </section>
@@ -208,7 +208,7 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
             </h3>
             <span className="subtitle has-text-weight-medium">
               {documentToReactComponents(
-                props.content.rentHistory.description.json,
+                props.content.rentHistory.description.json
               )}
             </span>
           </div>
