@@ -4,6 +4,22 @@
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 
+const DEFAULT_LOCALE = "en";
+const ACCEPTED_LOCALES = ["en", "es"];
+
+const createLocaleRedirectOptions = (path) => {
+  let page = {
+    path: path,
+    component: require.resolve(`./src/components/locale-redirect.tsx`),
+    context: {
+      slug: path,
+      defaultLocale: DEFAULT_LOCALE,
+      acceptedLocales: ACCEPTED_LOCALES,
+    },
+  };
+  return page;
+};
+
 /* Generate Learning Center pages */
 const generateLearningPages = async function ({ actions, graphql }, locale) {
   const query =
@@ -105,7 +121,7 @@ const generateLearningPages = async function ({ actions, graphql }, locale) {
       } = article;
       const subset = { title, slug, previewText, categories, dateUpdated };
       return subset;
-    }
+    },
   );
 
   /* Create each Learning Center category page with appropriate data */
@@ -116,9 +132,9 @@ const generateLearningPages = async function ({ actions, graphql }, locale) {
   data.contentfulLearningCenterSearchPage.categoryButtons.forEach(
     (category) => {
       actions.createPage({
-        path: (locale || "") + "/learn/category/" + category.slug,
+        path: (locale || "en") + "/learn/category/" + category.slug,
         component: require.resolve(
-          `./src/components/learning-center/category-page-template.tsx`
+          `./src/components/learning-center/category-page-template.tsx`,
         ),
         context: {
           locale: locale,
@@ -127,12 +143,15 @@ const generateLearningPages = async function ({ actions, graphql }, locale) {
           thankYouBanner: thankYouBanner,
           articlePreviews: articlePreviews.filter((article) =>
             article.categories.some(
-              (articleCategory) => articleCategory.title === category.title
-            )
+              (articleCategory) => articleCategory.title === category.title,
+            ),
           ),
         },
       });
-    }
+      actions.createPage(
+        createLocaleRedirectOptions("/learn/category/" + category.slug),
+      );
+    },
   );
 
   /* Create each Learning Center article page with appropriate data */
@@ -149,9 +168,9 @@ const generateLearningPages = async function ({ actions, graphql }, locale) {
 
   data.contentfulLearningCenterSearchPage.articles.forEach((article) => {
     actions.createPage({
-      path: (locale || "") + "/learn/" + article.slug,
+      path: (locale || "en") + "/learn/" + article.slug,
       component: require.resolve(
-        `./src/components/learning-center/article-template.tsx`
+        `./src/components/learning-center/article-template.tsx`,
       ),
       context: {
         locale: locale,
@@ -161,6 +180,7 @@ const generateLearningPages = async function ({ actions, graphql }, locale) {
         content: article,
       },
     });
+    actions.createPage(createLocaleRedirectOptions("/learn/" + article.slug));
   });
 };
 
@@ -189,10 +209,6 @@ exports.createPages = async function ({ actions, graphql }) {
 };
 
 /* Add a redirect page for any route that doesn't specify the locale in the url */
-
-const DEFAULT_LOCALE = "en";
-const ACCEPTED_LOCALES = ["en", "es"];
-
 exports.onCreatePage = async ({ page, boundActionCreators }) => {
   const { createPage, deletePage } = boundActionCreators;
 
@@ -202,17 +218,7 @@ exports.onCreatePage = async ({ page, boundActionCreators }) => {
       .replace(page.context.langKey, "")
       .replace("//", "/");
 
-    let newPage = Object.assign({}, page, {
-      path: rootSlug,
-      component: require.resolve(`./src/components/locale-redirect.tsx`),
-      context: {
-        slug: rootSlug,
-        defaultLocale: DEFAULT_LOCALE,
-        acceptedLocales: ACCEPTED_LOCALES,
-      },
-    });
-
-    // console.log('creating', newPage)
+    const newPage = createLocaleRedirectOptions(rootSlug);
     createPage(newPage);
 
     resolve();
