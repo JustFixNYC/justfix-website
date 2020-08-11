@@ -33,16 +33,27 @@ type Props = {
 };
 
 const IndexPage = (props: Props) => {
-  useEffect(() => {
-    const urlLang = getRedirectLanguage(
-      props.pageContext.defaultLocale,
-      props.pageContext.acceptedLocales
-    );
+  const urlLang = getRedirectLanguage(
+    props.pageContext.defaultLocale,
+    props.pageContext.acceptedLocales
+  );
+  const redirectURL = `/${urlLang}${props.pageContext.slug}`;
 
-    navigate(`/${urlLang}${props.pageContext.slug}`);
+  useEffect(() => {
+    navigate(redirectURL);
   }, []);
 
-  return <></>;
+  return (
+    <html lang="en">
+      <meta
+        httpEquiv="refresh"
+        content={`3;url=${redirectURL}`}
+      />
+      <body>
+        <p>If you're not automatically redirected, please visit <a href={redirectURL}>{redirectURL}</a>.</p>
+      </body>
+    </html>
+  );
 };
 
 export default IndexPage;
