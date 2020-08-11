@@ -9,7 +9,7 @@ const SpanishChangelogPage: React.FC<{}> = () => (
         ...LocalizedChangelogEntries
       }
     `}
-    render={(data) => <ChangelogPageScaffolding content={data} />}
+    render={(data) => <ChangelogPageScaffolding content={data} locale="es" />}
   />
 );
 

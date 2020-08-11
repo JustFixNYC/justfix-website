@@ -19,7 +19,7 @@ type TableOfContentsSection = {
 } & Locale;
 
 const TableOfContentsSection = (props: TableOfContentsSection) => {
-  const localePrefix = props.locale ? "/" + props.locale : "";
+  const localePrefix = "/" + props.locale;
   return props.articles.length > 0 ? (
     <div className="table-of-contents-section">
       <p className="menu-label">{props.categoryTitle}</p>

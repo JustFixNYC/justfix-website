@@ -41,7 +41,7 @@ export const ContactPageScaffolding = (props: ContentfulContent) => (
             <span className="subtitle has-text-grey-dark">
               {props.content.mailingListSubtitle}
             </span>
-            <Subscribe location="page" />
+            <Subscribe location="page" locale={props.locale} />
           </div>
         </div>
       </section>

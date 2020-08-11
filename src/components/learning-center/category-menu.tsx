@@ -9,7 +9,7 @@ type CategoryMenuProps = ContentfulContent & {
 } & Locale;
 
 const CategoryMenu = (props: CategoryMenuProps) => {
-  const localePrefix = props.locale ? "/" + props.locale : "";
+  const localePrefix = "/" + props.locale;
   return (
     <div className="field is-centered is-hidden-mobile">
       {props.content.map((category: Category, i: number) => (

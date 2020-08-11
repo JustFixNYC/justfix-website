@@ -2,8 +2,8 @@ import React from "react";
 import { useEffect } from "react";
 import { navigate } from "gatsby";
 
-// This is a dummy component for the root of our site that redirects people
-// to a localized landing page based on their browser's preferred language
+// This component redirects users to a localized version of the given route 
+// based on their browser's preferred language
 //
 // Adapted from this very useful StackOverflow post:
 // https://stackoverflow.com/questions/59908989/redirect-based-on-browser-language-in-gatsby

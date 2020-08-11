@@ -71,7 +71,7 @@ class Header extends Component<Props, State> {
     this.setState({ burgerMenuIsOpen: !this.state.burgerMenuIsOpen });
 
   render() {
-    const localePrefix = this.props.locale ? "/" + this.props.locale : "";
+    const localePrefix = "/" + this.props.locale;
 
     return (
       <div className={"header " + (this.props.isLandingPage && "is-absolute")}>

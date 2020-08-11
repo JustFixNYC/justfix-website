@@ -34,9 +34,7 @@ const NoArticlesYet = () => (
 );
 
 const LearningCategoryPage = (props: Props) => {
-  const localePrefix = props.pageContext.locale
-    ? "/" + props.pageContext.locale
-    : "";
+  const localePrefix = "/" + props.pageContext.locale;
   const content = props.pageContext.content;
   const articlePreviews = props.pageContext.articlePreviews;
   return (
@@ -86,7 +84,7 @@ const LearningCategoryPage = (props: Props) => {
             <NoArticlesYet />
           )}
         </section>
-        <ThankYouBanner content={props.pageContext.thankYouBanner} />
+        <ThankYouBanner content={props.pageContext.thankYouBanner} locale={props.pageContext.locale} />
       </div>
     </Layout>
   );

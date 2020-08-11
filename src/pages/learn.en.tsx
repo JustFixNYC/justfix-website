@@ -29,7 +29,7 @@ export type Category = {
 };
 
 export const ArticlePreviewCard = (props: any) => {
-  const localePrefix = props.locale ? "/" + props.locale : "";
+  const localePrefix = "/" + props.locale;
   const url = localePrefix + "/learn/" + props.articleData.slug;
   const categoryLabels = props.articleData.categories.map(
     (category: Category, i: number) => (
@@ -109,7 +109,7 @@ export const LearningPageScaffolding = (props: ContentfulContent) => (
             />
           ))}
       </section>
-      <ThankYouBanner content={props.content.thankYouText} />
+      <ThankYouBanner content={props.content.thankYouText} locale={props.locale} />
     </div>
   </Layout>
 );
