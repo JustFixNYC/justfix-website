@@ -45,12 +45,12 @@ const IndexPage = (props: Props) => {
 
   return (
     <html lang="en">
-      <meta
-        httpEquiv="refresh"
-        content={`3;url=${redirectURL}`}
-      />
+      <meta httpEquiv="refresh" content={`3;url=${redirectURL}`} />
       <body>
-        <p>If you're not automatically redirected, please visit <a href={redirectURL}>{redirectURL}</a>.</p>
+        <p>
+          If you're not automatically redirected, please visit{" "}
+          <a href={redirectURL}>{redirectURL}</a>.
+        </p>
       </body>
     </html>
   );
