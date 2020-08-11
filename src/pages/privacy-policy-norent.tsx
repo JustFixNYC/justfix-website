@@ -47,6 +47,7 @@ const NorentPrivacyPolicyPage = () => (
     render={(data) => (
       <NorentPrivacyPolicyPageScaffolding
         content={data.contentfulGenericPage}
+        locale="en"
       />
     )}
   />

@@ -86,7 +86,7 @@ const ContactPage = () => (
       }
     `}
     render={(data) => (
-      <ContactPageScaffolding content={data.contentfulContactPage} />
+      <ContactPageScaffolding content={data.contentfulContactPage} locale="en" />
     )}
   />
 );

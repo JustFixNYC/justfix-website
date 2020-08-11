@@ -182,6 +182,7 @@ const LearningPage = () => (
     render={(data) => (
       <LearningPageScaffolding
         content={data.contentfulLearningCenterSearchPage}
+        locale="en"
       />
     )}
   />
