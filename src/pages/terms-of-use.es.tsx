@@ -1,6 +1,6 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
-import { TermsOfUsePageScaffolding } from "./terms-of-use";
+import { TermsOfUsePageScaffolding } from "./terms-of-use.en";
 
 const TermsOfUsePage = () => (
   <StaticQuery

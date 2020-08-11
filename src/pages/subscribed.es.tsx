@@ -1,6 +1,6 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
-import { SubscribedPageScaffolding } from "./subscribed";
+import { SubscribedPageScaffolding } from "./subscribed.en";
 
 const SubscribedPage = () => (
   <StaticQuery

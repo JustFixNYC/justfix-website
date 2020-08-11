@@ -1,10 +1,10 @@
 import React from "react";
 import Layout from "../layout";
-import { ArticlePreviewCard, sortArticlesByDate } from "../../pages/learn";
+import { ArticlePreviewCard, sortArticlesByDate } from "../../pages/learn.en";
 import { Link } from "gatsby";
 import { ThankYouBanner } from "./thank-you-banner";
 import CategoryMenu from "./category-menu";
-import { Locale } from "../../pages";
+import { Locale } from "../../pages/index.en";
 import { Trans } from "@lingui/macro";
 
 const widont = require("widont");

@@ -3,7 +3,7 @@ import { StaticQuery, graphql } from "gatsby";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 import Layout from "../components/layout";
-import { ContentfulContent } from ".";
+import { ContentfulContent } from "./index.en";
 
 export const SubscribedPageScaffolding = (props: ContentfulContent) => (
   <Layout metadata={{ title: "Subscribed" }} locale={props.locale}>

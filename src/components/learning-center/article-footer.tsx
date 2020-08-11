@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "gatsby";
-import { ContentfulContent, Locale } from "../../pages";
-import { Category } from "../../pages/learn";
+import { ContentfulContent, Locale } from "../../pages/index.en";
+import { Category } from "../../pages/learn.en";
 
 const widont = require("widont");
 

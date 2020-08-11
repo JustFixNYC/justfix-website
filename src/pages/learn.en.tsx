@@ -4,7 +4,7 @@ import { StaticQuery, graphql, Link } from "gatsby";
 import "../styles/learn.scss";
 
 import Layout from "../components/layout";
-import { ContentfulContent } from ".";
+import { ContentfulContent } from "./index.en";
 import { ThankYouBanner } from "../components/learning-center/thank-you-banner";
 import LearningSearchBar from "../components/learning-center/learning-searchbar";
 import CategoryMenu from "../components/learning-center/category-menu";

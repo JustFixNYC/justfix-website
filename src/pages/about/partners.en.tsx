@@ -5,8 +5,8 @@ import "../../styles/partners.scss";
 
 import Layout from "../../components/layout";
 import ReadMore from "../../components/read-more";
-import { ContentfulContent } from "..";
-import { CollaborationBanner } from "../our-mission";
+import { ContentfulContent } from "../index.en";
+import { CollaborationBanner } from "../our-mission.en";
 
 export const PartnersPageScaffolding = (props: ContentfulContent) => (
   <Layout metadata={props.content.metadata} locale={props.locale}>

@@ -3,7 +3,7 @@ import { Link } from "gatsby";
 import { Trans } from "@lingui/macro";
 
 import "../styles/read-more.scss";
-import { Locale } from "../pages";
+import { Locale } from "../pages/index.en";
 
 type Props = {
   title: string;

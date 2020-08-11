@@ -1,7 +1,7 @@
 import React from "react";
 import { Trans, t } from "@lingui/macro";
 import { withI18n, withI18nProps } from "@lingui/react";
-import { Locale } from "../pages";
+import { Locale } from "../pages/index.en";
 import classnames from "classnames";
 
 type FormLocation = "footer" | "page";

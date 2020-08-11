@@ -6,7 +6,7 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import "../styles/contact.scss";
 
 import Layout from "../components/layout";
-import { ContentfulContent } from ".";
+import { ContentfulContent } from "./index.en";
 import Subscribe from "../components/subscribe";
 
 export const ContactPageScaffolding = (props: ContentfulContent) => (

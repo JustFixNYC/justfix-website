@@ -5,7 +5,7 @@ import { Trans } from "@lingui/macro";
 import { withI18n, withI18nProps } from "@lingui/react";
 
 import "../styles/footer.scss";
-import { Locale } from "../pages";
+import { Locale } from "../pages/index.en";
 import Subscribe from "./subscribe";
 
 const Footer = withI18n()(({ locale, i18n }: Locale & withI18nProps) => {

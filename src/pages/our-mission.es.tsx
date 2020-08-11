@@ -1,6 +1,6 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
-import { MissionPageScaffolding } from "./our-mission";
+import { MissionPageScaffolding } from "./our-mission.en";
 
 const MissionPage = () => (
   <StaticQuery

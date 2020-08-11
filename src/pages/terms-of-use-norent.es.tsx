@@ -1,6 +1,6 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
-import { NorentTermsOfUsePageScaffolding } from "./terms-of-use-norent";
+import { NorentTermsOfUsePageScaffolding } from "./terms-of-use-norent.en";
 
 const NorentTermsOfUsePage = () => (
   <StaticQuery

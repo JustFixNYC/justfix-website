@@ -7,7 +7,7 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
 import "../../styles/learn.scss";
 import { AllToolsCta } from "./all-tools-cta";
-import { Locale } from "../../pages";
+import { Locale } from "../../pages/index.en";
 import { Trans } from "@lingui/macro";
 
 const widont = require("widont");

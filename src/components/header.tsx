@@ -3,7 +3,7 @@ import { Link } from "gatsby";
 import { Trans } from "@lingui/macro";
 
 import "../styles/header.scss";
-import { Locale } from "../pages";
+import { Locale } from "../pages/index.en";
 
 const isDemoSite = process.env.GATSBY_DEMO_SITE === "1";
 

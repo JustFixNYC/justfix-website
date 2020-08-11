@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "gatsby";
-import { ContentfulContent, Locale } from "../../pages";
-import { Category, isCovidRelated } from "../../pages/learn";
+import { ContentfulContent, Locale } from "../../pages/index.en";
+import { Category, isCovidRelated } from "../../pages/learn.en";
 import classnames from "classnames";
 
 type CategoryMenuProps = ContentfulContent & {
