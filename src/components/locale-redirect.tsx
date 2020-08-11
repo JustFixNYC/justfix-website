@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect } from "react";
 import { navigate } from "gatsby";
 
-// This component redirects users to a localized version of the given route 
+// This component redirects users to a localized version of the given route
 // based on their browser's preferred language
 //
 // Adapted from this very useful StackOverflow post:
