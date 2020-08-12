@@ -5,7 +5,7 @@
  */
 
 const DEFAULT_LOCALE = "en";
-const ACCEPTED_LOCALES = ["en", "es"];
+const ACCEPTED_LOCALES = ["en"];
 
 /**
  * Our Contentful space uses the full "en-US" locale name for English, so this
