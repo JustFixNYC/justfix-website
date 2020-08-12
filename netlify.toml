@@ -1,0 +1,23 @@
+[[redirects]]
+  from = "http://beta.justfix.nyc/*"
+  to = "https://www.justfix.nyc"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://beta.justfix.nyc/*"
+  to = "https://www.justfix.nyc"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://findhelp.justfix.nyc/*"
+  to = "https://www.justfix.nyc"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://findhelp.justfix.nyc/*"
+  to = "https://www.justfix.nyc"
+  status = 301
+  force = true

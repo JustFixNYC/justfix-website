@@ -4,10 +4,40 @@
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 
+const DEFAULT_LOCALE = "en";
+const ACCEPTED_LOCALES = ["en"];
+
+/**
+ * Our Contentful space uses the full "en-US" locale name for English, so this
+ * helper function let's us easily grab the long name when we need it.
+ */
+const getFullLocaleName = (locale) => (locale === "en" ? "en-US" : locale);
+
+/**
+ * For urls with no locale specified, this helper generates params for the `createPage`
+ * method to generate a page that programmatically adds on the browser's default locale.
+ * See `locale-redirect.tsx` for details on how the redirect works.
+ */
+const createLocaleRedirectOptions = (path) => {
+  let options = {
+    path: path,
+    component: require.resolve(`./src/components/locale-redirect.tsx`),
+    context: {
+      slug: path,
+      defaultLocale: DEFAULT_LOCALE,
+      acceptedLocales: ACCEPTED_LOCALES,
+    },
+  };
+  return options;
+};
+
 /* Generate Learning Center pages */
-const generateLearningPages = async function({ actions, graphql }, locale) {
-  const query = `query {
-    contentfulLearningCenterSearchPage(node_locale: { eq:"` + (locale || 'en-US') + `" } ){
+const generateLearningPages = async function ({ actions, graphql }, locale) {
+  const query =
+    `query {
+    contentfulLearningCenterSearchPage(node_locale: { eq:"` +
+    getFullLocaleName(locale) +
+    `" } ){
       title
       categoryButtons {
         title
@@ -86,71 +116,125 @@ const generateLearningPages = async function({ actions, graphql }, locale) {
       }
     }
   }
-` 
-  
-  const { data } = await graphql(query)
+`;
 
-  const articlePreviews = 
-    (data.contentfulLearningCenterSearchPage.articles).map( article => {
-      const {title, slug, previewText, categories, ...rest} = article;
-      const subset = { title, slug, previewText, categories };
-      return subset; 
-    } 
+  const { data } = await graphql(query);
+
+  const articlePreviews = data.contentfulLearningCenterSearchPage.articles.map(
+    (article) => {
+      const {
+        title,
+        slug,
+        previewText,
+        categories,
+        dateUpdated,
+        ...rest
+      } = article;
+      const subset = { title, slug, previewText, categories, dateUpdated };
+      return subset;
+    }
   );
-  
+
   /* Create each Learning Center category page with appropriate data */
   const thankYouBanner = data.contentfulLearningCenterSearchPage.thankYouText;
-  
-  data.contentfulLearningCenterSearchPage.categoryButtons.forEach(category => {
-    actions.createPage({
-      path: (locale || "") + '/learn/category/' + category.slug,
-      component: require.resolve(`./src/components/learning-center/category-page-template.tsx`),
-      context: { 
-        locale: locale,
-        content: category,
-        thankYouBanner: thankYouBanner,
-        articlePreviews: articlePreviews.filter( 
-          article => (article.categories).some( articleCategory => articleCategory.title === category.title)
-        )
-      },
-    })
-  })
+  const allCategoryButtons =
+    data.contentfulLearningCenterSearchPage.categoryButtons;
 
-  /* Create each Learning Center article page with appropriate data */  
+  data.contentfulLearningCenterSearchPage.categoryButtons.forEach(
+    (category) => {
+      actions.createPage({
+        path: locale + "/learn/category/" + category.slug,
+        component: require.resolve(
+          `./src/components/learning-center/category-page-template.tsx`
+        ),
+        context: {
+          locale: locale,
+          content: category,
+          categoryButtons: allCategoryButtons,
+          thankYouBanner: thankYouBanner,
+          articlePreviews: articlePreviews.filter((article) =>
+            article.categories.some(
+              (articleCategory) => articleCategory.title === category.title
+            )
+          ),
+        },
+      });
+      /* Create a redirect for urls with no locale specified */
+      actions.createPage(
+        createLocaleRedirectOptions("/learn/category/" + category.slug)
+      );
+    }
+  );
+
+  /* Create each Learning Center article page with appropriate data */
+
   const learningCenterTitle = data.contentfulLearningCenterSearchPage.title;
   const allToolsCta = data.contentfulLearningCenterSearchPage.allToolsCta;
   const articleFooter = {
     categoryButtons: data.contentfulLearningCenterSearchPage.categoryButtons,
-    learningCenterCta: data.contentfulLearningCenterSearchPage.learningCenterCta,
+    learningCenterCta:
+      data.contentfulLearningCenterSearchPage.learningCenterCta,
     justFixCta: data.contentfulLearningCenterSearchPage.justFixCta,
-    articles: articlePreviews
+    articles: articlePreviews,
   };
-  
-  data.contentfulLearningCenterSearchPage.articles.forEach(article => {
+
+  data.contentfulLearningCenterSearchPage.articles.forEach((article) => {
     actions.createPage({
-      path: (locale || "") + '/learn/' + article.slug,
-      component: require.resolve(`./src/components/learning-center/article-template.tsx`),
-      context: { 
+      path: locale + "/learn/" + article.slug,
+      component: require.resolve(
+        `./src/components/learning-center/article-template.tsx`
+      ),
+      context: {
         locale: locale,
         learningCenterTitle: learningCenterTitle,
         allToolsCta: allToolsCta,
         articleFooter: articleFooter,
-        content: article
+        content: article,
       },
-    })
-  })
+    });
+    /* Create a redirect for urls with no locale specified */
+    actions.createPage(createLocaleRedirectOptions("/learn/" + article.slug));
+  });
 };
 
-exports.createPages = async function({ actions, graphql }) {
-
-  generateLearningPages({ actions, graphql }); // English pages
+exports.createPages = async function ({ actions, graphql }) {
+  generateLearningPages({ actions, graphql }, "en"); // English pages
   generateLearningPages({ actions, graphql }, "es"); // Spanish pages
 
   /* Redirects for old site pages */
-  const {createRedirect} = actions //actions is collection of many actions - https://www.gatsbyjs.org/docs/actions
-  createRedirect({ fromPath: '/donate', toPath: 'https://donorbox.org/donate-to-justfix-nyc', isPermanent: true });
-  createRedirect({ fromPath: '/get-repairs', toPath: '/', isPermanent: true });
-  createRedirect({ fromPath: '/about/products-and-services', toPath: '/#products', isPermanent: true });
+  const { createRedirect } = actions; //actions is collection of many actions - https://www.gatsbyjs.org/docs/actions
+  createRedirect({
+    fromPath: "/donate",
+    toPath: "https://donorbox.org/donate-to-justfix-nyc",
+    isPermanent: true,
+  });
+  createRedirect({
+    fromPath: "/ehp",
+    toPath: "https://app.justfix.nyc/ehp",
+    isPermanent: true,
+  });
+  createRedirect({ fromPath: "/get-repairs", toPath: "/", isPermanent: true });
+  createRedirect({
+    fromPath: "/about/products-and-services",
+    toPath: "/#products",
+    isPermanent: true,
+  });
+};
 
-}
+/* Add a redirect page for any remaining route that doesn't specify the locale in the url */
+exports.onCreatePage = async ({ page, boundActionCreators }) => {
+  const { createPage, deletePage } = boundActionCreators;
 
+  if (!(page.context.slug && page.context.langKey === DEFAULT_LOCALE)) return;
+  /* Do we need to return a Promise here? All of the examples I saw of returns from `onCreatePage` 
+  returned a promise, but not entirely sure why... */
+  return new Promise((resolve, reject) => {
+    const rootSlug = page.context.slug
+      .replace(page.context.langKey, "")
+      .replace("//", "/");
+
+    const newPage = createLocaleRedirectOptions(rootSlug);
+    createPage(newPage);
+    resolve();
+  });
+};

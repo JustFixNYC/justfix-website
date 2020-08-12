@@ -48,6 +48,7 @@
     "gatsby-transformer-sharp": "^2.3.3",
     "intersection-observer": "^0.7.0",
     "node-sass": "^4.12.0",
+    "prettier": "^2.0.5",
     "react": "^16.5.1",
     "react-anchor-link-smooth-scroll": "^1.0.12",
     "react-dom": "^16.9.0",
@@ -57,7 +58,7 @@
     "react-social-icons": "^4.1.0",
     "react-text-loop": "^2.1.1",
     "read-more-react": "^1.0.9",
-    "serialize-javascript": "^2.1.1",
+    "serialize-javascript": "^3.1.0",
     "tslint": "^5.11.0",
     "typescript": "^3.5.1",
     "webpack": "^4.0.0",
@@ -74,9 +75,12 @@
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write '**/*.tsx'",
+    "prettier": "prettier",
+    "prettier:check": "prettier \"**/*.{ts,tsx,js,scss}\" --check",
+    "prettier:fix": "prettier \"**/*.{ts,tsx,js,scss}\" --write",
     "typecheck": "tsc --noEmit",
     "test:watch": "jest --watch",
-    "test": "jest"
+    "test": "yarn prettier:check && jest"
   },
   "devDependencies": {
     "@babel/plugin-transform-react-jsx": "^7.3.0",
