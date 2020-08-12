@@ -147,7 +147,7 @@ msgstr "Busca artículos..."
 
 #: src/components/learning-center/article-template.tsx:59
 msgid "Sections"
-msgstr ""
+msgstr "Secciones"
 
 #: src/components/header.tsx:110
 #: src/components/header.tsx:116
