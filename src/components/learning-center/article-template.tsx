@@ -108,7 +108,9 @@ const LearningArticle = (props: Props) => {
       id="navmenu"
       className={"menu " + ((props && props.styleClass) || "")}
     >
-      <p className="menu-label">Sections</p>
+      <p className="menu-label">
+        <Trans>Sections</Trans>
+      </p>
       <ul className="menu-list">
         {content.articleSections.map((articleSection: any, i: number) =>
           articleSection.__typename === "ContentfulLearningArticleSection" ? (
