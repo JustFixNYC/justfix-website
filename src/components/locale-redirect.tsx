@@ -14,7 +14,7 @@ const allowRedirects = process.env.GATSBY_ENABLE_PUBLIC_FACING_I18N === "1";
 
 const getRedirectLanguage = (
   defaultLocale: string,
-  acceptedLocales: string[],
+  acceptedLocales: string[]
 ) => {
   if (typeof navigator === `undefined`) {
     return defaultLocale;
@@ -40,7 +40,7 @@ const LocaleRedirectPage = (props: Props) => {
   const urlLang = allowRedirects
     ? getRedirectLanguage(
         props.pageContext.defaultLocale,
-        props.pageContext.acceptedLocales,
+        props.pageContext.acceptedLocales
       )
     : props.pageContext.defaultLocale;
   const redirectURL = `/${urlLang}${props.pageContext.slug}`;
