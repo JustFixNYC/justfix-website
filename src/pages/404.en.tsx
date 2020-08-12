@@ -2,7 +2,7 @@ import React from "react";
 import { Trans } from "@lingui/macro";
 import Layout from "../components/layout";
 
-const NotFoundPage = () => (
+export const NotFoundPage = () => (
   <Layout metadata={{ title: "Page Not Found" }} locale="en">
     <section className="hero is-large has-background-info">
       <div className="hero-body has-text-centered">
