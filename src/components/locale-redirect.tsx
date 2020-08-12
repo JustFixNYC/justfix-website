@@ -10,6 +10,8 @@ import "../styles/locale-redirect.scss";
 // Adapted from this very useful StackOverflow post:
 // https://stackoverflow.com/questions/59908989/redirect-based-on-browser-language-in-gatsby
 
+const allowRedirects = process.env.GATSBY_ENABLE_PUBLIC_FACING_I18N === "1";
+
 const getRedirectLanguage = (
   defaultLocale: string,
   acceptedLocales: string[]
@@ -35,10 +37,12 @@ type Props = {
 };
 
 const LocaleRedirectPage = (props: Props) => {
-  const urlLang = getRedirectLanguage(
-    props.pageContext.defaultLocale,
-    props.pageContext.acceptedLocales
-  );
+  const urlLang = allowRedirects
+    ? getRedirectLanguage(
+        props.pageContext.defaultLocale,
+        props.pageContext.acceptedLocales
+      )
+    : props.pageContext.defaultLocale;
   const redirectURL = `/${urlLang}${props.pageContext.slug}`;
 
   useEffect(() => {
