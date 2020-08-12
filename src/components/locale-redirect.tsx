@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect } from "react";
 import { navigate } from "gatsby";
+import localeConfig from "../util/locale-config.json";
 
 import "../styles/locale-redirect.scss";
 
@@ -31,18 +32,16 @@ const getRedirectLanguage = (
 type Props = {
   pageContext: {
     slug: string;
-    defaultLocale: string;
-    acceptedLocales: string[];
   };
 };
 
 const LocaleRedirectPage = (props: Props) => {
   const urlLang = allowRedirects
     ? getRedirectLanguage(
-        props.pageContext.defaultLocale,
-        props.pageContext.acceptedLocales
+        localeConfig.DEFAULT_LOCALE,
+        localeConfig.ACCEPTED_LOCALES
       )
-    : props.pageContext.defaultLocale;
+    : localeConfig.DEFAULT_LOCALE;
   const redirectURL = `/${urlLang}${props.pageContext.slug}`;
 
   useEffect(() => {

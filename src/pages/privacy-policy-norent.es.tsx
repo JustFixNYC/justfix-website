@@ -1,6 +1,6 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
-import { NorentPrivacyPolicyPageScaffolding } from "./privacy-policy-norent";
+import { NorentPrivacyPolicyPageScaffolding } from "./privacy-policy-norent.en";
 
 const NorentPrivacyPolicyPage = () => (
   <StaticQuery

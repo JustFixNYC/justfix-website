@@ -108,7 +108,7 @@ const LayoutScaffolding = ({
         <meta name="twitter:image" content={encodeURI(shareImageURL)} />
         <meta name="twitter:image:alt" content={title} />
       </Helmet>
-      <Header isLandingPage={isLandingPage} locale={locale} />
+      <Header isLandingPage={isLandingPage} />
       <div>{children}</div>
       <Footer locale={locale} />
     </I18nProvider>
