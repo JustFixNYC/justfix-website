@@ -47,7 +47,13 @@ const LocaleRedirectPage = (props: Props) => {
 
   return (
     <html lang="en">
-      <meta httpEquiv="refresh" content={`3;url=${redirectURL}`} />
+      <noscript>
+        <meta
+          httpEquiv="refresh"
+          content={`3;url=${redirectURL}`}
+          data-react-helmet="false"
+        />
+      </noscript>
       <body>
         <p className="jf-redirect-message">
           If you're not automatically redirected, please visit{" "}
