@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "gatsby";
-import { ContentfulContent, Locale } from "../../pages";
-import { Category, isCovidRelated } from "../../pages/learn";
+import { ContentfulContent, Locale } from "../../pages/index.en";
+import { Category, isCovidRelated } from "../../pages/learn.en";
 import classnames from "classnames";
 
 type CategoryMenuProps = ContentfulContent & {
@@ -9,7 +9,7 @@ type CategoryMenuProps = ContentfulContent & {
 } & Locale;
 
 const CategoryMenu = (props: CategoryMenuProps) => {
-  const localePrefix = props.locale ? "/" + props.locale : "";
+  const localePrefix = "/" + props.locale;
   return (
     <div className="field is-centered is-hidden-mobile">
       {props.content.map((category: Category, i: number) => (

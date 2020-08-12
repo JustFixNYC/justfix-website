@@ -1,6 +1,6 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
-import { PrivacyPolicyPageScaffolding } from "./privacy-policy";
+import { PrivacyPolicyPageScaffolding } from "./privacy-policy.en";
 
 const PrivacyPolicyPage = () => (
   <StaticQuery

@@ -3,7 +3,7 @@ import { Link } from "gatsby";
 import { Trans } from "@lingui/macro";
 
 import "../styles/header.scss";
-import { Locale } from "../pages";
+import { Locale } from "../pages/index.en";
 
 const isDemoSite = process.env.GATSBY_DEMO_SITE === "1";
 
@@ -71,7 +71,7 @@ class Header extends Component<Props, State> {
     this.setState({ burgerMenuIsOpen: !this.state.burgerMenuIsOpen });
 
   render() {
-    const localePrefix = this.props.locale ? "/" + this.props.locale : "";
+    const localePrefix = "/" + this.props.locale;
 
     return (
       <div className={"header " + (this.props.isLandingPage && "is-absolute")}>

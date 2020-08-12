@@ -7,7 +7,7 @@ import { StaticQuery, graphql } from "gatsby";
 
 import Header from "./header";
 import Footer from "./footer";
-import { Locale, StringLocales } from "../pages";
+import { Locale, StringLocales } from "../pages/index.en";
 
 const favicon16 = require("../img/brand/favicon-16x16.png");
 const favicon32 = require("../img/brand/favicon-32x32.png");

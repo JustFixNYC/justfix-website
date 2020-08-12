@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "gatsby";
-import { ContentfulContent, Locale } from "../../pages";
-import { Category } from "../../pages/learn";
+import { ContentfulContent, Locale } from "../../pages/index.en";
+import { Category } from "../../pages/learn.en";
 
 const widont = require("widont");
 
@@ -19,7 +19,7 @@ type TableOfContentsSection = {
 } & Locale;
 
 const TableOfContentsSection = (props: TableOfContentsSection) => {
-  const localePrefix = props.locale ? "/" + props.locale : "";
+  const localePrefix = "/" + props.locale;
   return props.articles.length > 0 ? (
     <div className="table-of-contents-section">
       <p className="menu-label">{props.categoryTitle}</p>

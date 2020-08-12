@@ -7,7 +7,7 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
 import "../../styles/learn.scss";
 import { AllToolsCta } from "./all-tools-cta";
-import { Locale } from "../../pages";
+import { Locale } from "../../pages/index.en";
 import { Trans } from "@lingui/macro";
 
 const widont = require("widont");
@@ -100,9 +100,7 @@ function renderSection(articleSection: any, i: number): JSX.Element {
 }
 
 const LearningArticle = (props: Props) => {
-  const localePrefix = props.pageContext.locale
-    ? "/" + props.pageContext.locale
-    : "";
+  const localePrefix = "/" + props.pageContext.locale;
   const content = props.pageContext.content;
 
   const NavMenu = (props?: navMenuProps) => (
@@ -213,7 +211,10 @@ const LearningArticle = (props: Props) => {
                     );
                   }
                 )}
-                <AllToolsCta content={props.pageContext.allToolsCta} />
+                <AllToolsCta
+                  content={props.pageContext.allToolsCta}
+                  locale={props.pageContext.locale}
+                />
                 <br />
               </div>
             </div>

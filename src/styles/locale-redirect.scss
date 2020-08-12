@@ -1,0 +1,17 @@
+.jf-redirect-message {
+  padding: 1.5rem;
+  font-size: 1.15rem;
+  animation: appear 5s;
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  90% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

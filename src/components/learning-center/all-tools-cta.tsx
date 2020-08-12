@@ -1,5 +1,5 @@
 import React from "react";
-import { ContentfulContent } from "../../pages";
+import { ContentfulContent } from "../../pages/index.en";
 import { DDOSearchBar } from "../ddo-searchbar";
 import { I18n } from "@lingui/react";
 import { t } from "@lingui/macro";

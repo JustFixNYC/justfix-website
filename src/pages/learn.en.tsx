@@ -4,7 +4,7 @@ import { StaticQuery, graphql, Link } from "gatsby";
 import "../styles/learn.scss";
 
 import Layout from "../components/layout";
-import { ContentfulContent } from ".";
+import { ContentfulContent } from "./index.en";
 import { ThankYouBanner } from "../components/learning-center/thank-you-banner";
 import LearningSearchBar from "../components/learning-center/learning-searchbar";
 import CategoryMenu from "../components/learning-center/category-menu";
@@ -29,7 +29,7 @@ export type Category = {
 };
 
 export const ArticlePreviewCard = (props: any) => {
-  const localePrefix = props.locale ? "/" + props.locale : "";
+  const localePrefix = "/" + props.locale;
   const url = localePrefix + "/learn/" + props.articleData.slug;
   const categoryLabels = props.articleData.categories.map(
     (category: Category, i: number) => (
@@ -109,7 +109,10 @@ export const LearningPageScaffolding = (props: ContentfulContent) => (
             />
           ))}
       </section>
-      <ThankYouBanner content={props.content.thankYouText} />
+      <ThankYouBanner
+        content={props.content.thankYouText}
+        locale={props.locale}
+      />
     </div>
   </Layout>
 );
@@ -182,6 +185,7 @@ const LearningPage = () => (
     render={(data) => (
       <LearningPageScaffolding
         content={data.contentfulLearningCenterSearchPage}
+        locale="en"
       />
     )}
   />

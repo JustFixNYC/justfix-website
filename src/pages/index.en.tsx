@@ -17,11 +17,11 @@ import { I18n } from "@lingui/react";
 const TEXTLOOP_ANIMATION_INTERVAL = 2750;
 const PRODUCT_CTA_UTM_CODE = "?utm_source=orgsite&utm_medium=productcta";
 
-// All our supported locales, excluding English (en).
-export type StringLocales = "es";
+// All our supported locales.
+export type StringLocales = "es" | "en";
 
 export type Locale = {
-  locale?: StringLocales | null;
+  locale: StringLocales;
 };
 
 export type ContentfulContent = Locale & {
@@ -301,7 +301,7 @@ const LandingPage = () => (
       }
     `}
     render={(data) => (
-      <LandingPageScaffolding content={data.contentfulHomePage} />
+      <LandingPageScaffolding content={data.contentfulHomePage} locale="en" />
     )}
   />
 );

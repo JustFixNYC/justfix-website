@@ -1,10 +1,10 @@
 import React from "react";
 import Layout from "../layout";
-import { ArticlePreviewCard, sortArticlesByDate } from "../../pages/learn";
+import { ArticlePreviewCard, sortArticlesByDate } from "../../pages/learn.en";
 import { Link } from "gatsby";
 import { ThankYouBanner } from "./thank-you-banner";
 import CategoryMenu from "./category-menu";
-import { Locale } from "../../pages";
+import { Locale } from "../../pages/index.en";
 import { Trans } from "@lingui/macro";
 
 const widont = require("widont");
@@ -34,9 +34,7 @@ const NoArticlesYet = () => (
 );
 
 const LearningCategoryPage = (props: Props) => {
-  const localePrefix = props.pageContext.locale
-    ? "/" + props.pageContext.locale
-    : "";
+  const localePrefix = "/" + props.pageContext.locale;
   const content = props.pageContext.content;
   const articlePreviews = props.pageContext.articlePreviews;
   return (
@@ -86,7 +84,10 @@ const LearningCategoryPage = (props: Props) => {
             <NoArticlesYet />
           )}
         </section>
-        <ThankYouBanner content={props.pageContext.thankYouBanner} />
+        <ThankYouBanner
+          content={props.pageContext.thankYouBanner}
+          locale={props.pageContext.locale}
+        />
       </div>
     </Layout>
   );

@@ -1,6 +1,6 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
-import { PartnersPageScaffolding } from "./partners";
+import { PartnersPageScaffolding } from "./partners.en";
 
 const PartnersPage = () => (
   <StaticQuery

@@ -1,6 +1,6 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
-import { ContactPageScaffolding } from "./contact-us";
+import { ContactPageScaffolding } from "./contact-us.en";
 
 const ContactPage = () => (
   <StaticQuery

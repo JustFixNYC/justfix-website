@@ -1,6 +1,6 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
-import { LearningPageScaffolding } from "./learn";
+import { LearningPageScaffolding } from "./learn.en";
 
 const LearningPage = () => (
   <StaticQuery

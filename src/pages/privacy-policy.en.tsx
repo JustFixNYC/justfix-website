@@ -3,13 +3,13 @@ import { StaticQuery, graphql } from "gatsby";
 
 import Layout from "../components/layout";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import { ContentfulContent } from ".";
+import { ContentfulContent } from "./index.en";
 
-export const NorentTermsOfUsePageScaffolding = (props: ContentfulContent) => (
-  <Layout metadata={{ title: "Terms of Use for NoRent" }} locale={props.locale}>
+export const PrivacyPolicyPageScaffolding = (props: ContentfulContent) => (
+  <Layout metadata={{ title: "Privacy Policy" }} locale={props.locale}>
     <div
-      id="terms-of-use"
-      className="terms-of-use-page content-wrapper tight section"
+      id="privacy-policy"
+      className="privacy-policy-page content-wrapper tight section"
     >
       <div className="content">
         {documentToReactComponents(props.content.pageContents.json)}
@@ -18,10 +18,10 @@ export const NorentTermsOfUsePageScaffolding = (props: ContentfulContent) => (
   </Layout>
 );
 
-export const NorentTermsOfUsePageFragment = graphql`
-  fragment NorentTermsOfUsePage on Query {
+export const PrivacyPolicyPageFragment = graphql`
+  fragment PrivacyPolicyPage on Query {
     contentfulGenericPage(
-      title: { eq: "NoRent Terms of Use" }
+      title: { eq: "Privacy Policy" }
       node_locale: { eq: $locale }
     ) {
       title
@@ -32,17 +32,20 @@ export const NorentTermsOfUsePageFragment = graphql`
   }
 `;
 
-const NorentTermsOfUsePage = () => (
+const PrivacyPolicyPage = () => (
   <StaticQuery
     query={graphql`
       query($locale: String! = "en-US") {
-        ...NorentTermsOfUsePage
+        ...PrivacyPolicyPage
       }
     `}
     render={(data) => (
-      <NorentTermsOfUsePageScaffolding content={data.contentfulGenericPage} />
+      <PrivacyPolicyPageScaffolding
+        content={data.contentfulGenericPage}
+        locale="en"
+      />
     )}
   />
 );
 
-export default NorentTermsOfUsePage;
+export default PrivacyPolicyPage;

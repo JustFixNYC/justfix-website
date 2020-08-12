@@ -10,7 +10,7 @@ import {
 } from "react-instantsearch-dom";
 import { Link } from "gatsby";
 import { SearchBoxExposed } from "react-instantsearch-core";
-import { Locale } from "../../pages";
+import { Locale } from "../../pages/index.en";
 import { I18n } from "@lingui/react";
 import { t, Trans } from "@lingui/macro";
 
@@ -99,8 +99,9 @@ class LearningSearchBar extends Component<Props, State> {
         <InstantSearch
           searchClient={algoliasearch(appId, searchKey)}
           indexName={
-            "learning_center" +
-            (this.props.locale ? "_" + this.props.locale : "")
+            this.props.locale && this.props.locale !== "en"
+              ? `learning_center_${this.props.locale}`
+              : "learning_center"
           }
           resultsState={[]}
         >

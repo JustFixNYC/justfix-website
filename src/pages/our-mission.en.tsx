@@ -7,7 +7,7 @@ import "../styles/mission.scss";
 import Layout from "../components/layout";
 import ReadMore from "../components/read-more";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import { ContentfulContent } from ".";
+import { ContentfulContent } from "./index.en";
 import { Trans } from "@lingui/macro";
 
 export function CollaborationBanner(props: {
@@ -169,7 +169,10 @@ const MissionPage = () => (
       }
     `}
     render={(data) => (
-      <MissionPageScaffolding content={data.contentfulMissionPage} />
+      <MissionPageScaffolding
+        content={data.contentfulMissionPage}
+        locale="en"
+      />
     )}
   />
 );

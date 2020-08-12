@@ -5,11 +5,11 @@ import { Trans } from "@lingui/macro";
 import { withI18n, withI18nProps } from "@lingui/react";
 
 import "../styles/footer.scss";
-import { Locale } from "../pages";
+import { Locale } from "../pages/index.en";
 import Subscribe from "./subscribe";
 
 const Footer = withI18n()(({ locale, i18n }: Locale & withI18nProps) => {
-  const localePrefix = locale ? "/" + locale : "";
+  const localePrefix = "/" + locale;
 
   return (
     <div className="footer has-background-info">
@@ -111,7 +111,7 @@ const Footer = withI18n()(({ locale, i18n }: Locale & withI18nProps) => {
           <h4 className="title is-size-5 has-text-white">
             <Trans>Join our mailing list!</Trans>
           </h4>
-          <Subscribe />
+          <Subscribe locale={locale} />
           <div className="field">
             <SocialIcon
               url="http://twitter.com/justfixnyc"

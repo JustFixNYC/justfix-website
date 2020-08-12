@@ -1,6 +1,6 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
-import { PressPageScaffolding } from "./press";
+import { PressPageScaffolding } from "./press.en";
 
 const PressPage = () => (
   <StaticQuery

@@ -4,12 +4,39 @@
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 
+const DEFAULT_LOCALE = "en";
+const ACCEPTED_LOCALES = ["en", "es"];
+
+/**
+ * Our Contentful space uses the full "en-US" locale name for English, so this
+ * helper function let's us easily grab the long name when we need it.
+ */
+const getFullLocaleName = (locale) => (locale === "en" ? "en-US" : locale);
+
+/**
+ * For urls with no locale specified, this helper generates params for the `createPage`
+ * method to generate a page that programmatically adds on the browser's default locale.
+ * See `locale-redirect.tsx` for details on how the redirect works.
+ */
+const createLocaleRedirectOptions = (path) => {
+  let options = {
+    path: path,
+    component: require.resolve(`./src/components/locale-redirect.tsx`),
+    context: {
+      slug: path,
+      defaultLocale: DEFAULT_LOCALE,
+      acceptedLocales: ACCEPTED_LOCALES,
+    },
+  };
+  return options;
+};
+
 /* Generate Learning Center pages */
 const generateLearningPages = async function ({ actions, graphql }, locale) {
   const query =
     `query {
     contentfulLearningCenterSearchPage(node_locale: { eq:"` +
-    (locale || "en-US") +
+    getFullLocaleName(locale) +
     `" } ){
       title
       categoryButtons {
@@ -116,7 +143,7 @@ const generateLearningPages = async function ({ actions, graphql }, locale) {
   data.contentfulLearningCenterSearchPage.categoryButtons.forEach(
     (category) => {
       actions.createPage({
-        path: (locale || "") + "/learn/category/" + category.slug,
+        path: locale + "/learn/category/" + category.slug,
         component: require.resolve(
           `./src/components/learning-center/category-page-template.tsx`
         ),
@@ -132,6 +159,10 @@ const generateLearningPages = async function ({ actions, graphql }, locale) {
           ),
         },
       });
+      /* Create a redirect for urls with no locale specified */
+      actions.createPage(
+        createLocaleRedirectOptions("/learn/category/" + category.slug)
+      );
     }
   );
 
@@ -149,7 +180,7 @@ const generateLearningPages = async function ({ actions, graphql }, locale) {
 
   data.contentfulLearningCenterSearchPage.articles.forEach((article) => {
     actions.createPage({
-      path: (locale || "") + "/learn/" + article.slug,
+      path: locale + "/learn/" + article.slug,
       component: require.resolve(
         `./src/components/learning-center/article-template.tsx`
       ),
@@ -161,11 +192,13 @@ const generateLearningPages = async function ({ actions, graphql }, locale) {
         content: article,
       },
     });
+    /* Create a redirect for urls with no locale specified */
+    actions.createPage(createLocaleRedirectOptions("/learn/" + article.slug));
   });
 };
 
 exports.createPages = async function ({ actions, graphql }) {
-  generateLearningPages({ actions, graphql }); // English pages
+  generateLearningPages({ actions, graphql }, "en"); // English pages
   generateLearningPages({ actions, graphql }, "es"); // Spanish pages
 
   /* Redirects for old site pages */
@@ -185,5 +218,23 @@ exports.createPages = async function ({ actions, graphql }) {
     fromPath: "/about/products-and-services",
     toPath: "/#products",
     isPermanent: true,
+  });
+};
+
+/* Add a redirect page for any remaining route that doesn't specify the locale in the url */
+exports.onCreatePage = async ({ page, boundActionCreators }) => {
+  const { createPage, deletePage } = boundActionCreators;
+
+  if (!(page.context.slug && page.context.langKey === DEFAULT_LOCALE)) return;
+  /* Do we need to return a Promise here? All of the examples I saw of returns from `onCreatePage` 
+  returned a promise, but not entirely sure why... */
+  return new Promise((resolve, reject) => {
+    const rootSlug = page.context.slug
+      .replace(page.context.langKey, "")
+      .replace("//", "/");
+
+    const newPage = createLocaleRedirectOptions(rootSlug);
+    createPage(newPage);
+    resolve();
   });
 };
