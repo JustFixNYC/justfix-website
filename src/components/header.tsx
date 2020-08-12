@@ -53,7 +53,6 @@ const MoratoriumBanner = () => {
 const Header: React.FC<{
   isLandingPage?: boolean;
 }> = ({ isLandingPage }) => {
-
   const [burgerMenuIsOpen, setBurgerMenuStatus] = useState(false);
   const localePrefix = "/" + useCurrentLocale();
 
