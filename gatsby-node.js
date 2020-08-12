@@ -23,8 +23,6 @@ const createLocaleRedirectOptions = (path) => {
     component: require.resolve(`./src/components/locale-redirect.tsx`),
     context: {
       slug: path,
-      defaultLocale: localeConfig.DEFAULT_LOCALE,
-      acceptedLocales: localeConfig.ACCEPTED_LOCALES,
     },
   };
   return options;
