@@ -1,7 +1,7 @@
 import React from "react";
-import { Link } from "gatsby";
-import { ContentfulContent, Locale } from "../../pages/index.en";
+import { ContentfulContent } from "../../pages/index.en";
 import { Category } from "../../pages/learn.en";
+import { LocaleLink } from "../locale-link";
 
 const widont = require("widont");
 
@@ -16,20 +16,19 @@ type TableOfContentsSection = {
   categoryTitle: string;
   articles: ArticleListing[];
   noDivider?: boolean;
-} & Locale;
+};
 
 const TableOfContentsSection = (props: TableOfContentsSection) => {
-  const localePrefix = "/" + props.locale;
   return props.articles.length > 0 ? (
     <div className="table-of-contents-section">
       <p className="menu-label">{props.categoryTitle}</p>
       <ul>
         {props.articles.map((article: ArticleListing, i: number) => (
           <li key={i}>
-            <Link to={localePrefix + "/learn/" + article.slug}>
+            <LocaleLink to={"/learn/" + article.slug}>
               {" "}
               {article.title}{" "}
-            </Link>
+            </LocaleLink>
           </li>
         ))}
         <div
@@ -44,8 +43,16 @@ const TableOfContentsSection = (props: TableOfContentsSection) => {
   );
 };
 
-const FooterCta = (props: any) => {
-  const localePrefix = props.locale ? "/" + props.locale : "";
+type FooterCtaProps = {
+  content: {
+    title: string;
+    subtitle: string;
+    ctaLink: string;
+    ctaText: string;
+  };
+};
+
+const FooterCta = (props: FooterCtaProps) => {
   return (
     <div className="hero footer-cta is-white-ter">
       <div className="hero-body">
@@ -57,15 +64,15 @@ const FooterCta = (props: any) => {
             {widont(props.content.subtitle)}
           </p>
         )}
-        <Link to={localePrefix + props.content.ctaLink}>
+        <LocaleLink to={props.content.ctaLink}>
           {props.content.ctaText} →
-        </Link>
+        </LocaleLink>
       </div>
     </div>
   );
 };
 
-export const LearningArticleFooter = (props: ContentfulContent & Locale) => {
+export const LearningArticleFooter = (props: ContentfulContent) => {
   const AllArticles = props.content.articles;
   const ArticlesSortedByCategory = props.content.categoryButtons.map(
     (category: Category) => ({
@@ -84,11 +91,8 @@ export const LearningArticleFooter = (props: ContentfulContent & Locale) => {
   return (
     <div className="columns is-desktop has-background-white-ter">
       <div className="column footer-ctas">
-        <FooterCta
-          locale={props.locale}
-          content={props.content.learningCenterCta}
-        />
-        <FooterCta locale={props.locale} content={props.content.justFixCta} />
+        <FooterCta content={props.content.learningCenterCta} />
+        <FooterCta content={props.content.justFixCta} />
       </div>
       <div className="column table-of-contents is-half-desktop">
         <div className="columns hero-body">
@@ -98,7 +102,6 @@ export const LearningArticleFooter = (props: ContentfulContent & Locale) => {
                 i % NUM_COLUMNS === 0 ? (
                   <TableOfContentsSection
                     key={i}
-                    locale={props.locale}
                     noDivider={ArticlesSortedByCategory.length <= i + 3}
                     categoryTitle={section.categoryTitle}
                     articles={section.articles}
@@ -114,7 +117,6 @@ export const LearningArticleFooter = (props: ContentfulContent & Locale) => {
                 i % NUM_COLUMNS === 1 ? (
                   <TableOfContentsSection
                     key={i}
-                    locale={props.locale}
                     noDivider={ArticlesSortedByCategory.length <= i + 3}
                     categoryTitle={section.categoryTitle}
                     articles={section.articles}
@@ -130,7 +132,6 @@ export const LearningArticleFooter = (props: ContentfulContent & Locale) => {
                 i % NUM_COLUMNS === 2 ? (
                   <TableOfContentsSection
                     key={i}
-                    locale={props.locale}
                     noDivider={ArticlesSortedByCategory.length <= i + 3}
                     categoryTitle={section.categoryTitle}
                     articles={section.articles}

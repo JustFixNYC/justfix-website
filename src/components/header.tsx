@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import { Link } from "gatsby";
 import { Trans } from "@lingui/macro";
 
 import "../styles/header.scss";
-import { useCurrentLocale } from "../util/use-locale";
+import { LocaleLink as Link } from "../components/locale-link";
 
 const isDemoSite = process.env.GATSBY_DEMO_SITE === "1";
 
@@ -54,7 +53,6 @@ const Header: React.FC<{
   isLandingPage?: boolean;
 }> = ({ isLandingPage }) => {
   const [burgerMenuIsOpen, setBurgerMenuStatus] = useState(false);
-  const localePrefix = "/" + useCurrentLocale();
 
   return (
     <div className={"header " + (isLandingPage && "is-absolute")}>
@@ -65,7 +63,7 @@ const Header: React.FC<{
         aria-label="main navigation"
       >
         <div className="navbar-brand">
-          <Link to={localePrefix + "/"} className="navbar-item">
+          <Link to="/" className="navbar-item">
             <img
               src={require("../img/brand/logo.png")}
               width="112"
@@ -112,25 +110,16 @@ const Header: React.FC<{
               </a>
 
               <div className="navbar-dropdown">
-                <Link
-                  to={localePrefix + "/our-mission"}
-                  className="navbar-item"
-                >
+                <Link to="/our-mission" className="navbar-item">
                   <Trans>Mission</Trans>
                 </Link>
-                <Link to={localePrefix + "/about/team"} className="navbar-item">
+                <Link to="/about/team" className="navbar-item">
                   <Trans>Team</Trans>
                 </Link>
-                <Link
-                  to={localePrefix + "/about/partners"}
-                  className="navbar-item"
-                >
+                <Link to="/about/partners" className="navbar-item">
                   <Trans>Partners</Trans>
                 </Link>
-                <Link
-                  to={localePrefix + "/about/press"}
-                  className="navbar-item"
-                >
+                <Link to="/about/press" className="navbar-item">
                   <Trans>Press</Trans>
                 </Link>
                 <a
@@ -145,7 +134,7 @@ const Header: React.FC<{
             </div>
 
             <Link
-              to={localePrefix + "/#products"}
+              to="/#products"
               className={
                 "navbar-item is-uppercase has-text-" +
                 (burgerMenuIsOpen ? "black" : "white")
@@ -155,7 +144,7 @@ const Header: React.FC<{
             </Link>
 
             <Link
-              to={localePrefix + "/learn"}
+              to="/learn"
               className={
                 "navbar-item is-uppercase has-text-" +
                 (burgerMenuIsOpen ? "black" : "white")
@@ -165,7 +154,7 @@ const Header: React.FC<{
             </Link>
 
             <Link
-              to={localePrefix + "/contact-us"}
+              to="/contact-us"
               className={
                 "navbar-item is-uppercase has-text-" +
                 (burgerMenuIsOpen ? "black" : "white")

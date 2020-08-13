@@ -1,6 +1,5 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
-import { Link } from "gatsby";
 
 import "../styles/mission.scss";
 
@@ -9,6 +8,7 @@ import ReadMore from "../components/read-more";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { ContentfulContent } from "./index.en";
 import { Trans } from "@lingui/macro";
+import { LocaleLink } from "../components/locale-link";
 
 export function CollaborationBanner(props: {
   title: string;
@@ -23,12 +23,12 @@ export function CollaborationBanner(props: {
           </h1>
           <p className="subtitle has-text-weight-medium">{props.subtitle}</p>
           <div className="buttons is-centered">
-            <Link
+            <LocaleLink
               to="/contact-us"
               className="button is-medium is-primary is-outlined is-inverted is-uppercase"
             >
               <Trans>Contact Us</Trans>
-            </Link>
+            </LocaleLink>
             <a
               href="https://donorbox.org/donate-to-justfix-nyc"
               className="button is-medium is-primary is-outlined is-inverted is-uppercase"
@@ -113,7 +113,6 @@ export const MissionPageScaffolding = (props: ContentfulContent) => (
       <ReadMore
         title={props.content.readMore.title}
         link={props.content.readMore.link}
-        locale={props.locale}
       />
     </div>
   </Layout>

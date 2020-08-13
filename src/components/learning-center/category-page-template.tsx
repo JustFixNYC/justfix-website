@@ -1,11 +1,11 @@
 import React from "react";
 import Layout from "../layout";
 import { ArticlePreviewCard, sortArticlesByDate } from "../../pages/learn.en";
-import { Link } from "gatsby";
 import { ThankYouBanner } from "./thank-you-banner";
 import CategoryMenu from "./category-menu";
 import { Locale } from "../../pages/index.en";
 import { Trans } from "@lingui/macro";
+import { LocaleLink } from "../locale-link";
 
 const widont = require("widont");
 
@@ -34,7 +34,6 @@ const NoArticlesYet = () => (
 );
 
 const LearningCategoryPage = (props: Props) => {
-  const localePrefix = "/" + props.pageContext.locale;
   const content = props.pageContext.content;
   const articlePreviews = props.pageContext.articlePreviews;
   return (
@@ -45,12 +44,9 @@ const LearningCategoryPage = (props: Props) => {
       <div className="category-page">
         <section className="hero is-small">
           <div className="content-wrapper tight back-to-overview">
-            <Link
-              to={localePrefix + "/learn"}
-              className="has-text-weight-semibold"
-            >
+            <LocaleLink to="/learn" className="has-text-weight-semibold">
               ← <Trans>Back to Overview</Trans>
-            </Link>
+            </LocaleLink>
           </div>
 
           <div className="hero-body has-text-centered is-horizontal-center">

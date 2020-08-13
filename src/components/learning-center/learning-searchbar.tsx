@@ -8,11 +8,11 @@ import {
   connectHits,
   Hits,
 } from "react-instantsearch-dom";
-import { Link } from "gatsby";
 import { SearchBoxExposed } from "react-instantsearch-core";
 import { Locale } from "../../pages/index.en";
 import { I18n } from "@lingui/react";
 import { t, Trans } from "@lingui/macro";
+import { LocaleLink } from "../locale-link";
 
 const appId = process.env.GATSBY_ALGOLIA_APP_ID;
 const searchKey = process.env.GATSBY_ALGOLIA_SEARCH_KEY;
@@ -45,14 +45,21 @@ const SearchBox = ({ currentRefinement, refine, updateSearchQuery }: any) => (
   </I18n>
 );
 
-const SearchHits = ({ hits, locale }: any) =>
+type SearchHitsProps = {
+  hits?: {
+    slug: string;
+    title: string;
+  }[];
+};
+
+const SearchHits = ({ hits }: SearchHitsProps) =>
   hits && hits.length > 0 ? (
     <div className="dropdown-content">
       {hits
         .map((hit: any) => (
-          <Link
+          <LocaleLink
             key={hit.slug}
-            to={(locale ? "/" + locale : "") + "/learn/" + hit.slug}
+            to={"/learn/" + hit.slug}
             className="dropdown-item"
           >
             <div className="is-size-6 has-text-primary has-text-weight-semibold">
@@ -61,7 +68,7 @@ const SearchHits = ({ hits, locale }: any) =>
             <div className="result__snippet">
               <Snippet attribute="articleContent" hit={hit} tagName="u" />
             </div>
-          </Link>
+          </LocaleLink>
         ))
         .slice(0, SEARCH_RESULTS_LIMIT)}
     </div>
