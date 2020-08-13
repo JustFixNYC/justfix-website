@@ -1,17 +1,16 @@
 import React from "react";
-import { Link } from "gatsby";
 import { Trans } from "@lingui/macro";
 
 import "../styles/read-more.scss";
-import { Locale } from "../pages/index.en";
+import { LocaleLink } from "./locale-link";
 
 type Props = {
   title: string;
   link: string;
-} & Locale;
+};
 
-const ReadMore = ({ title, link, locale }: Props) => (
-  <Link to={(locale ? "/" + locale : "") + link}>
+const ReadMore = ({ title, link }: Props) => (
+  <LocaleLink to={link}>
     <div className="level read-more section content">
       <div className="level-left">
         <div className="level-item">
@@ -32,7 +31,7 @@ const ReadMore = ({ title, link, locale }: Props) => (
         </div>
       </div>
     </div>
-  </Link>
+  </LocaleLink>
 );
 
 export default ReadMore;

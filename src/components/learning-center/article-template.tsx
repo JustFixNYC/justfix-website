@@ -1,7 +1,6 @@
 import React from "react";
 import { LearningArticleFooter } from "./article-footer";
 import Layout from "../layout";
-import { Link } from "gatsby";
 import { Link as ScrollLink } from "react-scroll";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
@@ -9,6 +8,7 @@ import "../../styles/learn.scss";
 import { AllToolsCta } from "./all-tools-cta";
 import { Locale } from "../../pages/index.en";
 import { Trans } from "@lingui/macro";
+import { LocaleLink } from "../locale-link";
 
 const widont = require("widont");
 
@@ -100,7 +100,6 @@ function renderSection(articleSection: any, i: number): JSX.Element {
 }
 
 const LearningArticle = (props: Props) => {
-  const localePrefix = "/" + props.pageContext.locale;
   const content = props.pageContext.content;
 
   const NavMenu = (props?: navMenuProps) => (
@@ -146,21 +145,18 @@ const LearningArticle = (props: Props) => {
                 <nav className="breadcrumb" aria-label="breadcrumbs">
                   <ul>
                     <li>
-                      <Link to={localePrefix + "/learn/"}>
+                      <LocaleLink to="/learn/">
                         {props.pageContext.learningCenterTitle}
-                      </Link>
+                      </LocaleLink>
                     </li>
                     <li>
-                      <Link
+                      <LocaleLink
                         to={
-                          localePrefix +
-                          "/learn/category/" +
-                          content.categories[0].slug +
-                          "/"
+                          "/learn/category/" + content.categories[0].slug + "/"
                         }
                       >
                         {content.categories[0].title}
-                      </Link>
+                      </LocaleLink>
                     </li>
                   </ul>
                 </nav>

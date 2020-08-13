@@ -74,7 +74,6 @@ export const PartnersPageScaffolding = (props: ContentfulContent) => (
       <ReadMore
         title={props.content.readMore.title}
         link={props.content.readMore.link}
-        locale={props.locale}
       />
     </div>
   </Layout>

@@ -1,21 +1,19 @@
 import React from "react";
 import { SocialIcon } from "react-social-icons";
-import { Link } from "gatsby";
 import { Trans } from "@lingui/macro";
 import { withI18n, withI18nProps } from "@lingui/react";
 
 import "../styles/footer.scss";
 import { Locale } from "../pages/index.en";
 import Subscribe from "./subscribe";
+import { LocaleLink as Link } from "./locale-link";
 
 const Footer = withI18n()(({ locale, i18n }: Locale & withI18nProps) => {
-  const localePrefix = "/" + locale;
-
   return (
     <div className="footer has-background-info">
       <div className="columns has-text-centered-touch is-desktop">
         <div className="column">
-          <Link to={localePrefix + "/"} className="button is-info">
+          <Link to="/" className="button is-info">
             <img src={require("../img/brand/logo.png")} alt="JustFix.nyc" />
           </Link>
         </div>
@@ -25,7 +23,7 @@ const Footer = withI18n()(({ locale, i18n }: Locale & withI18nProps) => {
           </p>
           <Link
             className="link has-text-weight-semibold is-uppercase"
-            to={localePrefix + "/#products"}
+            to="/#products"
           >
             <p>
               <Trans>Products</Trans>
@@ -33,7 +31,7 @@ const Footer = withI18n()(({ locale, i18n }: Locale & withI18nProps) => {
           </Link>
           <Link
             className="link has-text-weight-semibold is-uppercase"
-            to={localePrefix + "/learn"}
+            to="/learn"
           >
             <p>
               <Trans>Learn</Trans>
@@ -41,7 +39,7 @@ const Footer = withI18n()(({ locale, i18n }: Locale & withI18nProps) => {
           </Link>
           <Link
             className="link has-text-weight-semibold is-uppercase"
-            to={localePrefix + "/our-mission"}
+            to="/our-mission"
           >
             <p>
               <Trans>Mission</Trans>
@@ -49,7 +47,7 @@ const Footer = withI18n()(({ locale, i18n }: Locale & withI18nProps) => {
           </Link>
           <Link
             className="link has-text-weight-semibold is-uppercase"
-            to={localePrefix + "/about/press"}
+            to="/about/press"
           >
             <p>
               <Trans>Press</Trans>
@@ -63,7 +61,7 @@ const Footer = withI18n()(({ locale, i18n }: Locale & withI18nProps) => {
           </p>
           <Link
             className="link has-text-weight-semibold is-uppercase"
-            to={localePrefix + "/about/team"}
+            to="/about/team"
           >
             <p>
               <Trans>Team</Trans>
@@ -71,7 +69,7 @@ const Footer = withI18n()(({ locale, i18n }: Locale & withI18nProps) => {
           </Link>
           <Link
             className="link has-text-weight-semibold is-uppercase"
-            to={localePrefix + "/about/partners"}
+            to="/about/partners"
           >
             <p>
               <Trans>Partners</Trans>
@@ -89,7 +87,7 @@ const Footer = withI18n()(({ locale, i18n }: Locale & withI18nProps) => {
           </a>
           <Link
             className="link has-text-weight-semibold is-uppercase"
-            to={localePrefix + "/contact-us"}
+            to="/contact-us"
           >
             <p>
               <Trans>Contact</Trans>
@@ -166,13 +164,13 @@ const Footer = withI18n()(({ locale, i18n }: Locale & withI18nProps) => {
           </p>
           <Link
             className="link legal is-inline-block has-text-weight-semibold is-uppercase"
-            to={localePrefix + "/privacy-policy"}
+            to="/privacy-policy"
           >
             <Trans>Privacy policy</Trans>
           </Link>
           <Link
             className="link legal is-inline-block has-text-weight-semibold is-uppercase"
-            to={localePrefix + "/terms-of-use"}
+            to="/terms-of-use"
           >
             <Trans>Terms of use</Trans>
           </Link>
