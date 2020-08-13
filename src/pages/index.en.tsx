@@ -24,7 +24,7 @@ export type Locale = {
   locale: StringLocales;
 };
 
-export type ContentfulContent = Locale & {
+export type ContentfulContent = {
   content: any;
 };
 
@@ -46,7 +46,7 @@ const DDO = () => (
 );
 
 export const LandingPageScaffolding = (props: ContentfulContent) => (
-  <Layout isLandingPage={true} locale={props.locale}>
+  <Layout isLandingPage={true}>
     <div id="home" className="home-page">
       <BackgroundImage
         className="landing-image hero is-fullheight"
@@ -301,7 +301,7 @@ const LandingPage = () => (
       }
     `}
     render={(data) => (
-      <LandingPageScaffolding content={data.contentfulHomePage} locale="en" />
+      <LandingPageScaffolding content={data.contentfulHomePage} />
     )}
   />
 );

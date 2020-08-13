@@ -1,12 +1,11 @@
 import React from "react";
 import { Trans, t } from "@lingui/macro";
 import { withI18n, withI18nProps } from "@lingui/react";
-import { Locale } from "../pages/index.en";
 import classnames from "classnames";
 
 type FormLocation = "footer" | "page";
 
-type SubscribeProps = { location?: FormLocation } & Locale & withI18nProps;
+type SubscribeProps = { location?: FormLocation } & withI18nProps;
 
 type SubscribeState = {
   email: string;
@@ -54,7 +53,7 @@ class SubscribeWithoutI18n extends React.Component<
       method: "POST",
       mode: "cors",
       body: `email=${encodeURIComponent(
-        email
+        email,
       )}&language=${locale}&source=orgsite`,
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
@@ -74,7 +73,7 @@ class SubscribeWithoutI18n extends React.Component<
         } else {
           this.setState({
             response: i18n._(
-              t`Oops! A network error occurred. Try again later.`
+              t`Oops! A network error occurred. Try again later.`,
             ),
           });
         }

@@ -7,7 +7,8 @@ import { StaticQuery, graphql } from "gatsby";
 
 import Header from "./header";
 import Footer from "./footer";
-import { Locale, StringLocales } from "../pages/index.en";
+import { StringLocales } from "../pages/index.en";
+import { useCurrentLocale } from "../util/use-locale";
 
 const favicon16 = require("../img/brand/favicon-16x16.png");
 const favicon32 = require("../img/brand/favicon-32x32.png");
@@ -38,7 +39,7 @@ type Props = {
   };
   children: React.ReactNode;
   isLandingPage?: boolean;
-} & Locale;
+};
 
 /** Component checks for custom metadata attributes, and then uses the default homepage values as a fallback */
 const LayoutScaffolding = ({
@@ -46,7 +47,6 @@ const LayoutScaffolding = ({
   children,
   isLandingPage,
   defaultContent,
-  locale,
 }: Props) => {
   var title, description, keywords, shareImageURL;
   if (defaultContent && defaultContent.metadata) {
@@ -65,6 +65,8 @@ const LayoutScaffolding = ({
         metadata.shareImage.file.url) ||
       defaultContent.metadata.shareImage.file.url;
   }
+
+  const locale = useCurrentLocale();
 
   return (
     <I18nProvider language={locale || "en"} catalogs={catalogs}>
@@ -110,12 +112,12 @@ const LayoutScaffolding = ({
       </Helmet>
       <Header isLandingPage={isLandingPage} />
       <div>{children}</div>
-      <Footer locale={locale} />
+      <Footer />
     </I18nProvider>
   );
 };
 
-const Layout = ({ metadata, children, isLandingPage, locale }: Props) => (
+const Layout = ({ metadata, children, isLandingPage }: Props) => (
   <StaticQuery
     query={graphql`
       query {
@@ -141,7 +143,6 @@ const Layout = ({ metadata, children, isLandingPage, locale }: Props) => (
         defaultContent={data.contentfulHomePage}
         children={children}
         isLandingPage={isLandingPage}
-        locale={locale}
       />
     )}
   />
