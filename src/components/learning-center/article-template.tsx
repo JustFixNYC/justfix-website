@@ -6,7 +6,6 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
 import "../../styles/learn.scss";
 import { AllToolsCta } from "./all-tools-cta";
-import { Locale } from "../../pages/index.en";
 import { Trans } from "@lingui/macro";
 import { LocaleLink } from "../locale-link";
 
@@ -18,7 +17,7 @@ type Props = {
     content: any;
     articleFooter: any;
     allToolsCta: any;
-  } & Locale;
+  };
 };
 
 type navMenuProps = {

@@ -20,10 +20,6 @@ const PRODUCT_CTA_UTM_CODE = "?utm_source=orgsite&utm_medium=productcta";
 // All our supported locales.
 export type StringLocales = "es" | "en";
 
-export type Locale = {
-  locale: StringLocales;
-};
-
 export type ContentfulContent = {
   content: any;
 };

@@ -3,7 +3,6 @@ import Layout from "../layout";
 import { ArticlePreviewCard, sortArticlesByDate } from "../../pages/learn.en";
 import { ThankYouBanner } from "./thank-you-banner";
 import CategoryMenu from "./category-menu";
-import { Locale } from "../../pages/index.en";
 import { Trans } from "@lingui/macro";
 import { LocaleLink } from "../locale-link";
 
@@ -15,7 +14,7 @@ type Props = {
     thankYouBanner: any;
     categoryButtons: any;
     articlePreviews: any;
-  } & Locale;
+  };
 };
 
 const NoArticlesYet = () => (
