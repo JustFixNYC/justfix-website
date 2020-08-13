@@ -10,7 +10,7 @@ import { useCurrentLocale } from "../util/use-locale";
  * the path!
  */
 export function LocaleLink<TState>(
-  props: GatsbyLinkProps<TState> & { ref?: any }
+  props: GatsbyLinkProps<TState> & { ref?: never }
 ): JSX.Element {
   const locale = useCurrentLocale();
 
