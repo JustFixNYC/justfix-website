@@ -9,7 +9,7 @@ import { ContentfulContent } from "../index.en";
 import { CollaborationBanner } from "../our-mission.en";
 
 export const PartnersPageScaffolding = (props: ContentfulContent) => (
-  <Layout metadata={props.content.metadata} locale={props.locale}>
+  <Layout metadata={props.content.metadata} >
     <div id="partners" className="partners-page">
       <section className="hero is-small">
         <div className="hero-body has-text-centered is-horizontal-center">
@@ -139,7 +139,6 @@ const PartnersPage = () => (
     render={(data) => (
       <PartnersPageScaffolding
         content={data.contentfulPartnersPage}
-        locale="en"
       />
     )}
   />

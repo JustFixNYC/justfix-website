@@ -10,7 +10,7 @@ import ReadMore from "../../components/read-more";
 import { ContentfulContent } from "../index.en";
 
 export const PressPageScaffolding = (props: ContentfulContent) => (
-  <Layout metadata={props.content.metadata} locale={props.locale}>
+  <Layout metadata={props.content.metadata}>
     <div id="press" className="press-page">
       <section className="hero is-small">
         <div className="hero-body has-text-centered is-horizontal-center">
@@ -109,7 +109,7 @@ const PressPage = () => (
       }
     `}
     render={(data) => (
-      <PressPageScaffolding content={data.contentfulPressPage} locale="en" />
+      <PressPageScaffolding content={data.contentfulPressPage}  />
     )}
   />
 );

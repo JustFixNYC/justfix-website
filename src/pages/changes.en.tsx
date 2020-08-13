@@ -79,7 +79,7 @@ export const ChangelogPageScaffolding: React.FC<{
   const { nodes } = content.allContentfulChangelogEntry;
 
   return (
-    <Layout locale={locale}>
+    <Layout>
       <div className="changes-page">
         <section className="hero is-small">
           <div className="hero-body has-text-centered is-horizontal-center content-wrapper tight">

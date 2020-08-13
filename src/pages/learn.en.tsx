@@ -75,7 +75,7 @@ export const ArticlePreviewCard = (props: any) => {
 };
 
 export const LearningPageScaffolding = (props: ContentfulContent) => (
-  <Layout metadata={props.content.metadata} locale={props.locale}>
+  <Layout metadata={props.content.metadata}>
     <div id="learning-center" className="learning-center-page">
       <section className="hero is-small">
         <div className="hero-body has-text-centered is-horizontal-center">
@@ -185,7 +185,6 @@ const LearningPage = () => (
     render={(data) => (
       <LearningPageScaffolding
         content={data.contentfulLearningCenterSearchPage}
-        locale="en"
       />
     )}
   />

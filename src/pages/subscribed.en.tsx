@@ -6,7 +6,7 @@ import Layout from "../components/layout";
 import { ContentfulContent } from "./index.en";
 
 export const SubscribedPageScaffolding = (props: ContentfulContent) => (
-  <Layout metadata={{ title: "Subscribed" }} locale={props.locale}>
+  <Layout metadata={{ title: "Subscribed" }}>
     <section className="hero is-small">
       <div className="hero-body has-text-centered is-horizontal-center">
         <div className="content content-wrapper tight">
@@ -61,7 +61,6 @@ const SubscribedPage = () => (
     render={(data) => (
       <SubscribedPageScaffolding
         content={data.contentfulSubscriptionConfirmationPage}
-        locale="en"
       />
     )}
   />

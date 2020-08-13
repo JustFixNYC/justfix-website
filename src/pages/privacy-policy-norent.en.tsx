@@ -10,7 +10,6 @@ export const NorentPrivacyPolicyPageScaffolding = (
 ) => (
   <Layout
     metadata={{ title: "Privacy Policy for NoRent" }}
-    locale={props.locale}
   >
     <div
       id="privacy-policy"
@@ -47,7 +46,6 @@ const NorentPrivacyPolicyPage = () => (
     render={(data) => (
       <NorentPrivacyPolicyPageScaffolding
         content={data.contentfulGenericPage}
-        locale="en"
       />
     )}
   />

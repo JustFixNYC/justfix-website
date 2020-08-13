@@ -12,7 +12,6 @@ const MissionPage = () => (
     render={(data) => (
       <MissionPageScaffolding
         content={data.contentfulMissionPage}
-        locale="es"
       />
     )}
   />

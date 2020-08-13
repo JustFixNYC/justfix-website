@@ -10,7 +10,7 @@ const LandingPage = () => (
       }
     `}
     render={(data) => (
-      <LandingPageScaffolding content={data.contentfulHomePage} locale="es" />
+      <LandingPageScaffolding content={data.contentfulHomePage} />
     )}
   />
 );

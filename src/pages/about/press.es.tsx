@@ -10,7 +10,7 @@ const PressPage = () => (
       }
     `}
     render={(data) => (
-      <PressPageScaffolding content={data.contentfulPressPage} locale="es" />
+      <PressPageScaffolding content={data.contentfulPressPage} />
     )}
   />
 );

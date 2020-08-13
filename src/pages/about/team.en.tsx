@@ -11,7 +11,7 @@ import ReadMore from "../../components/read-more";
 import { ContentfulContent } from "../index.en";
 
 export const TeamPageScaffolding = (props: ContentfulContent) => (
-  <Layout metadata={props.content.metadata} locale={props.locale}>
+  <Layout metadata={props.content.metadata} >
     <div id="team" className="team-page">
       <section className="hero is-small">
         <div className="hero-body has-text-centered is-horizontal-center">
@@ -225,7 +225,7 @@ const TeamPage = () => (
       }
     `}
     render={(data) => (
-      <TeamPageScaffolding content={data.contentfulTeamPage} locale="en" />
+      <TeamPageScaffolding content={data.contentfulTeamPage} />
     )}
   />
 );
