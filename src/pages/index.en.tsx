@@ -17,9 +17,6 @@ import { I18n } from "@lingui/react";
 const TEXTLOOP_ANIMATION_INTERVAL = 2750;
 const PRODUCT_CTA_UTM_CODE = "?utm_source=orgsite&utm_medium=productcta";
 
-// All our supported locales.
-export type StringLocales = "es" | "en";
-
 export type ContentfulContent = {
   content: any;
 };

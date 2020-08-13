@@ -7,8 +7,8 @@ import { StaticQuery, graphql } from "gatsby";
 
 import Header from "./header";
 import Footer from "./footer";
-import { StringLocales } from "../pages/index.en";
 import { useCurrentLocale } from "../util/use-locale";
+import localeConfig from "../util/locale-config.json";
 
 const favicon16 = require("../img/brand/favicon-16x16.png");
 const favicon32 = require("../img/brand/favicon-32x32.png");
@@ -18,6 +18,9 @@ const SITE_TITLE_SUFFIX = " | JustFix.nyc";
 const TWITTER_HANDLE = "@JustFixNYC";
 const SITE_MAIN_URL = "https://www.justfix.nyc";
 const FB_APP_ID = "247990609143668";
+
+// All our supported locales.
+type StringLocales = "es" | "en";
 
 type LocaleCatalogs = {
   [K in StringLocales]: any;
@@ -66,10 +69,10 @@ const LayoutScaffolding = ({
       defaultContent.metadata.shareImage.file.url;
   }
 
-  const locale = useCurrentLocale();
+  const locale = useCurrentLocale() || localeConfig.DEFAULT_LOCALE;
 
   return (
-    <I18nProvider language={locale || "en"} catalogs={catalogs}>
+    <I18nProvider language={locale} catalogs={catalogs}>
       <Helmet
         link={[
           {
@@ -87,7 +90,7 @@ const LayoutScaffolding = ({
           { rel: "shortcut icon", type: "image/png", href: `${favicon96}` },
         ]}
       >
-        <html lang="en" />
+        <html lang={locale} />
         <title>{title}</title>
         <meta name="description" content={description} />
         <meta name="keywords" content={keywords} />
