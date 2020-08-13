@@ -145,7 +145,6 @@ const generateLearningPages = async function ({ actions, graphql }, locale) {
           `./src/components/learning-center/category-page-template.tsx`
         ),
         context: {
-          locale: locale,
           content: category,
           categoryButtons: allCategoryButtons,
           thankYouBanner: thankYouBanner,
@@ -182,7 +181,6 @@ const generateLearningPages = async function ({ actions, graphql }, locale) {
         `./src/components/learning-center/article-template.tsx`
       ),
       context: {
-        locale: locale,
         learningCenterTitle: learningCenterTitle,
         allToolsCta: allToolsCta,
         articleFooter: articleFooter,

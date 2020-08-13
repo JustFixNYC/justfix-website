@@ -6,7 +6,6 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { EmbeddedAsset } from "../components/embedded-asset-node";
 
 import "../styles/changes.scss";
-import { StringLocales } from "./index.en";
 
 type ChangelogEntries = {
   allContentfulChangelogEntry: {
@@ -74,7 +73,7 @@ const ChangelogEntry: React.FC<{
 
 export const ChangelogPageScaffolding: React.FC<{
   content: ChangelogEntries;
-}> = ({ content, locale }) => {
+}> = ({ content }) => {
   const { nodes } = content.allContentfulChangelogEntry;
 
   return (
