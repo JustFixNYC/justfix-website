@@ -6,7 +6,6 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
 import "../../styles/learn.scss";
 import { AllToolsCta } from "./all-tools-cta";
-import { Locale } from "../../pages/index.en";
 import { Trans } from "@lingui/macro";
 import { LocaleLink } from "../locale-link";
 
@@ -18,7 +17,7 @@ type Props = {
     content: any;
     articleFooter: any;
     allToolsCta: any;
-  } & Locale;
+  };
 };
 
 type navMenuProps = {
@@ -135,7 +134,7 @@ const LearningArticle = (props: Props) => {
   );
 
   return (
-    <Layout metadata={content.metadata} locale={props.pageContext.locale}>
+    <Layout metadata={content.metadata}>
       <div className="article-page">
         <div className="columns is-desktop">
           <div className="column" />
@@ -209,10 +208,7 @@ const LearningArticle = (props: Props) => {
                     );
                   }
                 )}
-                <AllToolsCta
-                  content={props.pageContext.allToolsCta}
-                  locale={props.pageContext.locale}
-                />
+                <AllToolsCta content={props.pageContext.allToolsCta} />
                 <br />
               </div>
             </div>
@@ -221,10 +217,7 @@ const LearningArticle = (props: Props) => {
             <NavMenu styleClass="sticky is-hidden-touch" />
           </div>
         </div>
-        <LearningArticleFooter
-          content={props.pageContext.articleFooter}
-          locale={props.pageContext.locale}
-        />
+        <LearningArticleFooter content={props.pageContext.articleFooter} />
       </div>
     </Layout>
   );

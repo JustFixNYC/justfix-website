@@ -17,14 +17,7 @@ import { I18n } from "@lingui/react";
 const TEXTLOOP_ANIMATION_INTERVAL = 2750;
 const PRODUCT_CTA_UTM_CODE = "?utm_source=orgsite&utm_medium=productcta";
 
-// All our supported locales.
-export type StringLocales = "es" | "en";
-
-export type Locale = {
-  locale: StringLocales;
-};
-
-export type ContentfulContent = Locale & {
+export type ContentfulContent = {
   content: any;
 };
 
@@ -46,7 +39,7 @@ const DDO = () => (
 );
 
 export const LandingPageScaffolding = (props: ContentfulContent) => (
-  <Layout isLandingPage={true} locale={props.locale}>
+  <Layout isLandingPage={true}>
     <div id="home" className="home-page">
       <BackgroundImage
         className="landing-image hero is-fullheight"
@@ -301,7 +294,7 @@ const LandingPage = () => (
       }
     `}
     render={(data) => (
-      <LandingPageScaffolding content={data.contentfulHomePage} locale="en" />
+      <LandingPageScaffolding content={data.contentfulHomePage} />
     )}
   />
 );

@@ -6,7 +6,7 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { ContentfulContent } from "./index.en";
 
 export const TermsOfUsePageScaffolding = (props: ContentfulContent) => (
-  <Layout metadata={{ title: "Terms of Use" }} locale={props.locale}>
+  <Layout metadata={{ title: "Terms of Use" }}>
     <div
       id="terms-of-use"
       className="terms-of-use-page content-wrapper tight section"
@@ -40,10 +40,7 @@ const TermsOfUsePage = () => (
       }
     `}
     render={(data) => (
-      <TermsOfUsePageScaffolding
-        content={data.contentfulGenericPage}
-        locale="en"
-      />
+      <TermsOfUsePageScaffolding content={data.contentfulGenericPage} />
     )}
   />
 );

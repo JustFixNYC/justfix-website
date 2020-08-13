@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import algoliasearch from "algoliasearch/lite";
 import {
   InstantSearch,
@@ -9,10 +9,10 @@ import {
   Hits,
 } from "react-instantsearch-dom";
 import { SearchBoxExposed } from "react-instantsearch-core";
-import { Locale } from "../../pages/index.en";
 import { I18n } from "@lingui/react";
 import { t, Trans } from "@lingui/macro";
 import { LocaleLink } from "../locale-link";
+import { useCurrentLocale } from "../../util/use-locale";
 
 const appId = process.env.GATSBY_ALGOLIA_APP_ID;
 const searchKey = process.env.GATSBY_ALGOLIA_SEARCH_KEY;
@@ -89,58 +89,45 @@ const CustomSearchBox = connectSearchBox(SearchBox) as React.ComponentClass<
 >;
 const CustomHits = connectHits(SearchHits) as React.ComponentClass<Hits & any>;
 
-type Props = any & Locale;
-type State = { query: string };
+const LearningSearchBar = () => {
+  const [query, setQuery] = useState("");
+  const locale = useCurrentLocale();
 
-class LearningSearchBar extends Component<Props, State> {
-  constructor(props: Props) {
-    super(props);
-    this.state = {
-      query: "",
-    };
-  }
+  return appId && searchKey ? (
+    <div className="search-bar">
+      <InstantSearch
+        searchClient={algoliasearch(appId, searchKey)}
+        indexName={
+          locale !== "en" ? `learning_center_${locale}` : "learning_center"
+        }
+        resultsState={[]}
+      >
+        <CustomSearchBox updateSearchQuery={(e: any) => setQuery(e)} />
 
-  render() {
-    return appId && searchKey ? (
-      <div className="search-bar">
-        <InstantSearch
-          searchClient={algoliasearch(appId, searchKey)}
-          indexName={
-            this.props.locale && this.props.locale !== "en"
-              ? `learning_center_${this.props.locale}`
-              : "learning_center"
-          }
-          resultsState={[]}
-        >
-          <CustomSearchBox
-            updateSearchQuery={(e: any) => this.setState({ query: e })}
-          />
-
-          {(this.state.query || "").length > 0 && (
-            <React.Fragment>
-              <Configure
-                attributesToSnippet={["articleContent"]}
-                analytics={enableAnalytics === "1" || false}
-              />
-              <CustomHits locale={this.props.locale} />
-            </React.Fragment>
-          )}
-        </InstantSearch>
-
-        {this.state.query && (
-          <div className="search-by is-pulled-right">
-            <img
-              width="100"
-              height="20"
-              src={require("../../img/brand/algolia.svg")}
+        {(query || "").length > 0 && (
+          <React.Fragment>
+            <Configure
+              attributesToSnippet={["articleContent"]}
+              analytics={enableAnalytics === "1" || false}
             />
-          </div>
+            <CustomHits />
+          </React.Fragment>
         )}
-      </div>
-    ) : (
-      <React.Fragment />
-    );
-  }
-}
+      </InstantSearch>
+
+      {query && (
+        <div className="search-by is-pulled-right">
+          <img
+            width="100"
+            height="20"
+            src={require("../../img/brand/algolia.svg")}
+          />
+        </div>
+      )}
+    </div>
+  ) : (
+    <React.Fragment />
+  );
+};
 
 export default LearningSearchBar;

@@ -75,7 +75,7 @@ export const ArticlePreviewCard = (props: any) => {
 };
 
 export const LearningPageScaffolding = (props: ContentfulContent) => (
-  <Layout metadata={props.content.metadata} locale={props.locale}>
+  <Layout metadata={props.content.metadata}>
     <div id="learning-center" className="learning-center-page">
       <section className="hero is-small">
         <div className="hero-body has-text-centered is-horizontal-center">
@@ -89,12 +89,9 @@ export const LearningPageScaffolding = (props: ContentfulContent) => (
             <h6 className="subtitle has-text-grey-dark is-italic">
               {widont(props.content.subtitle)}
             </h6>
-            <LearningSearchBar locale={props.locale} />
+            <LearningSearchBar />
             <br />
-            <CategoryMenu
-              content={props.content.categoryButtons}
-              locale={props.locale}
-            />
+            <CategoryMenu content={props.content.categoryButtons} />
           </div>
         </div>
       </section>
@@ -102,17 +99,10 @@ export const LearningPageScaffolding = (props: ContentfulContent) => (
         {props.content.articles
           .sort(sortArticlesByDate)
           .map((article: any, i: number) => (
-            <ArticlePreviewCard
-              articleData={article}
-              key={i}
-              locale={props.locale}
-            />
+            <ArticlePreviewCard articleData={article} key={i} />
           ))}
       </section>
-      <ThankYouBanner
-        content={props.content.thankYouText}
-        locale={props.locale}
-      />
+      <ThankYouBanner content={props.content.thankYouText} />
     </div>
   </Layout>
 );
@@ -185,7 +175,6 @@ const LearningPage = () => (
     render={(data) => (
       <LearningPageScaffolding
         content={data.contentfulLearningCenterSearchPage}
-        locale="en"
       />
     )}
   />

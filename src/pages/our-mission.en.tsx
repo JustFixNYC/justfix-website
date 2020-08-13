@@ -45,7 +45,7 @@ export function CollaborationBanner(props: {
 }
 
 export const MissionPageScaffolding = (props: ContentfulContent) => (
-  <Layout metadata={props.content.metadata} locale={props.locale}>
+  <Layout metadata={props.content.metadata}>
     <div id="mission" className="mission-page">
       <section className="hero is-small">
         <div className="hero-body has-text-centered is-horizontal-center">
@@ -168,10 +168,7 @@ const MissionPage = () => (
       }
     `}
     render={(data) => (
-      <MissionPageScaffolding
-        content={data.contentfulMissionPage}
-        locale="en"
-      />
+      <MissionPageScaffolding content={data.contentfulMissionPage} />
     )}
   />
 );

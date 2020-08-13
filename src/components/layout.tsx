@@ -7,7 +7,8 @@ import { StaticQuery, graphql } from "gatsby";
 
 import Header from "./header";
 import Footer from "./footer";
-import { Locale, StringLocales } from "../pages/index.en";
+import { useCurrentLocale } from "../util/use-locale";
+import localeConfig from "../util/locale-config.json";
 
 const favicon16 = require("../img/brand/favicon-16x16.png");
 const favicon32 = require("../img/brand/favicon-32x32.png");
@@ -17,6 +18,9 @@ const SITE_TITLE_SUFFIX = " | JustFix.nyc";
 const TWITTER_HANDLE = "@JustFixNYC";
 const SITE_MAIN_URL = "https://www.justfix.nyc";
 const FB_APP_ID = "247990609143668";
+
+// All our supported locales.
+type StringLocales = "es" | "en";
 
 type LocaleCatalogs = {
   [K in StringLocales]: any;
@@ -38,7 +42,7 @@ type Props = {
   };
   children: React.ReactNode;
   isLandingPage?: boolean;
-} & Locale;
+};
 
 /** Component checks for custom metadata attributes, and then uses the default homepage values as a fallback */
 const LayoutScaffolding = ({
@@ -46,7 +50,6 @@ const LayoutScaffolding = ({
   children,
   isLandingPage,
   defaultContent,
-  locale,
 }: Props) => {
   var title, description, keywords, shareImageURL;
   if (defaultContent && defaultContent.metadata) {
@@ -66,8 +69,10 @@ const LayoutScaffolding = ({
       defaultContent.metadata.shareImage.file.url;
   }
 
+  const locale = useCurrentLocale() || localeConfig.DEFAULT_LOCALE;
+
   return (
-    <I18nProvider language={locale || "en"} catalogs={catalogs}>
+    <I18nProvider language={locale} catalogs={catalogs}>
       <Helmet
         link={[
           {
@@ -85,7 +90,7 @@ const LayoutScaffolding = ({
           { rel: "shortcut icon", type: "image/png", href: `${favicon96}` },
         ]}
       >
-        <html lang="en" />
+        <html lang={locale} />
         <title>{title}</title>
         <meta name="description" content={description} />
         <meta name="keywords" content={keywords} />
@@ -110,12 +115,12 @@ const LayoutScaffolding = ({
       </Helmet>
       <Header isLandingPage={isLandingPage} />
       <div>{children}</div>
-      <Footer locale={locale} />
+      <Footer />
     </I18nProvider>
   );
 };
 
-const Layout = ({ metadata, children, isLandingPage, locale }: Props) => (
+const Layout = ({ metadata, children, isLandingPage }: Props) => (
   <StaticQuery
     query={graphql`
       query {
@@ -141,7 +146,6 @@ const Layout = ({ metadata, children, isLandingPage, locale }: Props) => (
         defaultContent={data.contentfulHomePage}
         children={children}
         isLandingPage={isLandingPage}
-        locale={locale}
       />
     )}
   />

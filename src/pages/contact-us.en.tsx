@@ -10,7 +10,7 @@ import { ContentfulContent } from "./index.en";
 import Subscribe from "../components/subscribe";
 
 export const ContactPageScaffolding = (props: ContentfulContent) => (
-  <Layout metadata={props.content.metadata} locale={props.locale}>
+  <Layout metadata={props.content.metadata}>
     <div id="contact" className="contact-page">
       <section className="hero is-medium">
         <div className="hero-body has-text-centered is-horizontal-center content-wrapper">
@@ -41,7 +41,7 @@ export const ContactPageScaffolding = (props: ContentfulContent) => (
             <span className="subtitle has-text-grey-dark">
               {props.content.mailingListSubtitle}
             </span>
-            <Subscribe location="page" locale={props.locale} />
+            <Subscribe location="page" />
           </div>
         </div>
       </section>
@@ -86,10 +86,7 @@ const ContactPage = () => (
       }
     `}
     render={(data) => (
-      <ContactPageScaffolding
-        content={data.contentfulContactPage}
-        locale="en"
-      />
+      <ContactPageScaffolding content={data.contentfulContactPage} />
     )}
   />
 );

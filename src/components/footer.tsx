@@ -4,11 +4,10 @@ import { Trans } from "@lingui/macro";
 import { withI18n, withI18nProps } from "@lingui/react";
 
 import "../styles/footer.scss";
-import { Locale } from "../pages/index.en";
 import Subscribe from "./subscribe";
 import { LocaleLink as Link } from "./locale-link";
 
-const Footer = withI18n()(({ locale, i18n }: Locale & withI18nProps) => {
+const Footer = withI18n()(({ i18n }: withI18nProps) => {
   return (
     <div className="footer has-background-info">
       <div className="columns has-text-centered-touch is-desktop">
@@ -109,7 +108,7 @@ const Footer = withI18n()(({ locale, i18n }: Locale & withI18nProps) => {
           <h4 className="title is-size-5 has-text-white">
             <Trans>Join our mailing list!</Trans>
           </h4>
-          <Subscribe locale={locale} />
+          <Subscribe />
           <div className="field">
             <SocialIcon
               url="http://twitter.com/justfixnyc"

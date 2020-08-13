@@ -10,10 +10,7 @@ const TermsOfUsePage = () => (
       }
     `}
     render={(data) => (
-      <TermsOfUsePageScaffolding
-        content={data.contentfulGenericPage}
-        locale="es"
-      />
+      <TermsOfUsePageScaffolding content={data.contentfulGenericPage} />
     )}
   />
 );

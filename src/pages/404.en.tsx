@@ -2,14 +2,10 @@ import React from "react";
 import { Trans } from "@lingui/macro";
 import Layout from "../components/layout";
 import { withI18n } from "@lingui/react";
-import { useCurrentLocale } from "../util/use-locale";
-import { StringLocales } from "./index.en";
 
 export const NotFoundPage = withI18n()(() => {
-  // TO DO: Fix this forced typing here:
-  const locale = useCurrentLocale() as StringLocales;
   return (
-    <Layout metadata={{ title: "Page Not Found" }} locale={locale}>
+    <Layout metadata={{ title: "Page Not Found" }}>
       <section className="hero is-large has-background-info">
         <div className="hero-body has-text-centered">
           <h1 className="title has-text-danger is-uppercase">

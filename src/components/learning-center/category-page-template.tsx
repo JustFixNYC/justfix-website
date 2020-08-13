@@ -3,7 +3,6 @@ import Layout from "../layout";
 import { ArticlePreviewCard, sortArticlesByDate } from "../../pages/learn.en";
 import { ThankYouBanner } from "./thank-you-banner";
 import CategoryMenu from "./category-menu";
-import { Locale } from "../../pages/index.en";
 import { Trans } from "@lingui/macro";
 import { LocaleLink } from "../locale-link";
 
@@ -15,7 +14,7 @@ type Props = {
     thankYouBanner: any;
     categoryButtons: any;
     articlePreviews: any;
-  } & Locale;
+  };
 };
 
 const NoArticlesYet = () => (
@@ -39,7 +38,6 @@ const LearningCategoryPage = (props: Props) => {
   return (
     <Layout
       metadata={{ title: content.title, description: content.description }}
-      locale={props.pageContext.locale}
     >
       <div className="category-page">
         <section className="hero is-small">
@@ -60,7 +58,6 @@ const LearningCategoryPage = (props: Props) => {
               <CategoryMenu
                 content={props.pageContext.categoryButtons}
                 selectedCategory={content.slug}
-                locale={props.pageContext.locale}
               />
             </div>
           </div>
@@ -70,20 +67,13 @@ const LearningCategoryPage = (props: Props) => {
             articlePreviews
               .sort(sortArticlesByDate)
               .map((article: any, i: number) => (
-                <ArticlePreviewCard
-                  articleData={article}
-                  key={i}
-                  locale={props.pageContext.locale}
-                />
+                <ArticlePreviewCard articleData={article} key={i} />
               ))
           ) : (
             <NoArticlesYet />
           )}
         </section>
-        <ThankYouBanner
-          content={props.pageContext.thankYouBanner}
-          locale={props.pageContext.locale}
-        />
+        <ThankYouBanner content={props.pageContext.thankYouBanner} />
       </div>
     </Layout>
   );
