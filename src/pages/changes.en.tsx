@@ -74,7 +74,6 @@ const ChangelogEntry: React.FC<{
 
 export const ChangelogPageScaffolding: React.FC<{
   content: ChangelogEntries;
-  locale: StringLocales;
 }> = ({ content, locale }) => {
   const { nodes } = content.allContentfulChangelogEntry;
 
@@ -134,7 +133,7 @@ const EnglishChangelogPage: React.FC<{}> = () => (
         ...LocalizedChangelogEntries
       }
     `}
-    render={(data) => <ChangelogPageScaffolding content={data} locale="en" />}
+    render={(data) => <ChangelogPageScaffolding content={data} />}
   />
 );
 

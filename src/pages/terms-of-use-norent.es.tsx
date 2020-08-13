@@ -10,9 +10,7 @@ const NorentTermsOfUsePage = () => (
       }
     `}
     render={(data) => (
-      <NorentTermsOfUsePageScaffolding
-        content={data.contentfulGenericPage}
-      />
+      <NorentTermsOfUsePageScaffolding content={data.contentfulGenericPage} />
     )}
   />
 );

@@ -53,7 +53,7 @@ class SubscribeWithoutI18n extends React.Component<
       method: "POST",
       mode: "cors",
       body: `email=${encodeURIComponent(
-        email,
+        email
       )}&language=${locale}&source=orgsite`,
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
@@ -73,7 +73,7 @@ class SubscribeWithoutI18n extends React.Component<
         } else {
           this.setState({
             response: i18n._(
-              t`Oops! A network error occurred. Try again later.`,
+              t`Oops! A network error occurred. Try again later.`
             ),
           });
         }

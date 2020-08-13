@@ -10,9 +10,7 @@ const PrivacyPolicyPage = () => (
       }
     `}
     render={(data) => (
-      <PrivacyPolicyPageScaffolding
-        content={data.contentfulGenericPage}
-      />
+      <PrivacyPolicyPageScaffolding content={data.contentfulGenericPage} />
     )}
   />
 );

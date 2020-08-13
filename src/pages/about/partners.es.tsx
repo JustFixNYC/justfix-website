@@ -10,9 +10,7 @@ const PartnersPage = () => (
       }
     `}
     render={(data) => (
-      <PartnersPageScaffolding
-        content={data.contentfulPartnersPage}
-      />
+      <PartnersPageScaffolding content={data.contentfulPartnersPage} />
     )}
   />
 );

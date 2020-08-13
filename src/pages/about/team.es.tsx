@@ -9,9 +9,7 @@ const TeamPage = () => (
         ...TeamPage
       }
     `}
-    render={(data) => (
-      <TeamPageScaffolding content={data.contentfulTeamPage} />
-    )}
+    render={(data) => <TeamPageScaffolding content={data.contentfulTeamPage} />}
   />
 );
 

@@ -6,7 +6,7 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { ContentfulContent } from "./index.en";
 
 export const PrivacyPolicyPageScaffolding = (props: ContentfulContent) => (
-  <Layout metadata={{ title: "Privacy Policy" }} >
+  <Layout metadata={{ title: "Privacy Policy" }}>
     <div
       id="privacy-policy"
       className="privacy-policy-page content-wrapper tight section"
@@ -40,9 +40,7 @@ const PrivacyPolicyPage = () => (
       }
     `}
     render={(data) => (
-      <PrivacyPolicyPageScaffolding
-        content={data.contentfulGenericPage}
-      />
+      <PrivacyPolicyPageScaffolding content={data.contentfulGenericPage} />
     )}
   />
 );

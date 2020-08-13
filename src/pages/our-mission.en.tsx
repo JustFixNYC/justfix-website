@@ -168,9 +168,7 @@ const MissionPage = () => (
       }
     `}
     render={(data) => (
-      <MissionPageScaffolding
-        content={data.contentfulMissionPage}
-      />
+      <MissionPageScaffolding content={data.contentfulMissionPage} />
     )}
   />
 );

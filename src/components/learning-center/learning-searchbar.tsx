@@ -9,7 +9,6 @@ import {
   Hits,
 } from "react-instantsearch-dom";
 import { SearchBoxExposed } from "react-instantsearch-core";
-import { Locale } from "../../pages/index.en";
 import { I18n } from "@lingui/react";
 import { t, Trans } from "@lingui/macro";
 import { LocaleLink } from "../locale-link";
@@ -89,7 +88,7 @@ const CustomSearchBox = connectSearchBox(SearchBox) as React.ComponentClass<
 >;
 const CustomHits = connectHits(SearchHits) as React.ComponentClass<Hits & any>;
 
-type Props = any & Locale;
+type Props = any;
 type State = { query: string };
 
 class LearningSearchBar extends Component<Props, State> {
@@ -122,7 +121,7 @@ class LearningSearchBar extends Component<Props, State> {
                 attributesToSnippet={["articleContent"]}
                 analytics={enableAnalytics === "1" || false}
               />
-              <CustomHits locale={this.props.locale} />
+              <CustomHits />
             </React.Fragment>
           )}
         </InstantSearch>
