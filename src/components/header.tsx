@@ -1,23 +1,14 @@
-import React, { Component, useState } from "react";
-import { Link } from "gatsby";
+import React, { useState } from "react";
 import { Trans } from "@lingui/macro";
 
 import "../styles/header.scss";
-import { Locale } from "../pages/index.en";
+import { LocaleLink as Link } from "../components/locale-link";
 
 const isDemoSite = process.env.GATSBY_DEMO_SITE === "1";
 
 const TENANT_PLATFORM_URL =
   (process.env.GATSBY_TENANT_PLATFORM_SITE_ORIGIN ||
     "https://demo.justfix.nyc") + "/login";
-
-type Props = {
-  isLandingPage?: boolean;
-} & Locale;
-
-type State = {
-  burgerMenuIsOpen?: boolean;
-};
 
 const MoratoriumBanner = () => {
   const [isVisible, setVisibility] = useState(true);
@@ -58,176 +49,147 @@ const MoratoriumBanner = () => {
   );
 };
 
-class Header extends Component<Props, State> {
-  constructor(Props: Props) {
-    super(Props);
+const Header: React.FC<{
+  isLandingPage?: boolean;
+}> = ({ isLandingPage }) => {
+  const [burgerMenuIsOpen, setBurgerMenuStatus] = useState(false);
 
-    this.state = {
-      burgerMenuIsOpen: false,
-    };
-  }
-
-  toggleBurgerMenu = () =>
-    this.setState({ burgerMenuIsOpen: !this.state.burgerMenuIsOpen });
-
-  render() {
-    const localePrefix = "/" + this.props.locale;
-
-    return (
-      <div className={"header " + (this.props.isLandingPage && "is-absolute")}>
-        {this.props.isLandingPage && <MoratoriumBanner />}
-        <nav
-          className={
-            "navbar is-primary " +
-            (this.props.isLandingPage && "is-transparent")
-          }
-          role="navigation"
-          aria-label="main navigation"
-        >
-          <div className="navbar-brand">
-            <Link to={localePrefix + "/"} className="navbar-item">
-              <img
-                src={require("../img/brand/logo.png")}
-                width="112"
-                height="28"
-                alt="JustFix.nyc"
-              />
-            </Link>
-            {isDemoSite && (
-              <div className="navbar-item">
-                <span className="tag is-warning">
-                  <Trans>DEMO SITE</Trans>
-                </span>
-              </div>
-            )}
-            <a
-              role="button"
-              className={
-                "navbar-burger burger " +
-                (this.state.burgerMenuIsOpen && "is-active")
-              }
-              aria-label="menu"
-              aria-expanded="false"
-              onClick={this.toggleBurgerMenu}
-              data-target="navbar"
-            >
-              <span aria-hidden="true"></span>
-              <span aria-hidden="true"></span>
-              <span aria-hidden="true"></span>
-            </a>
-          </div>
-
-          <div
-            id="main-navbar-menu"
+  return (
+    <div className={"header " + (isLandingPage && "is-absolute")}>
+      {isLandingPage && <MoratoriumBanner />}
+      <nav
+        className={"navbar is-primary " + (isLandingPage && "is-transparent")}
+        role="navigation"
+        aria-label="main navigation"
+      >
+        <div className="navbar-brand">
+          <Link to="/" className="navbar-item">
+            <img
+              src={require("../img/brand/logo.png")}
+              width="112"
+              height="28"
+              alt="JustFix.nyc"
+            />
+          </Link>
+          {isDemoSite && (
+            <div className="navbar-item">
+              <span className="tag is-warning">
+                <Trans>DEMO SITE</Trans>
+              </span>
+            </div>
+          )}
+          <a
+            role="button"
             className={
-              "navbar-menu " + (this.state.burgerMenuIsOpen && "is-active")
+              "navbar-burger burger " + (burgerMenuIsOpen && "is-active")
             }
+            aria-label="menu"
+            aria-expanded="false"
+            onClick={() => setBurgerMenuStatus(!burgerMenuIsOpen)}
+            data-target="navbar"
           >
-            <div className="navbar-end">
-              <div className="navbar-item has-dropdown is-hoverable">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+
+        <div
+          id="main-navbar-menu"
+          className={"navbar-menu " + (burgerMenuIsOpen && "is-active")}
+        >
+          <div className="navbar-end">
+            <div className="navbar-item has-dropdown is-hoverable">
+              <a
+                className={
+                  "navbar-link is-uppercase has-text-" +
+                  (burgerMenuIsOpen ? "black" : "white")
+                }
+              >
+                <Trans>About us</Trans>
+              </a>
+
+              <div className="navbar-dropdown">
+                <Link to="/our-mission" className="navbar-item">
+                  <Trans>Mission</Trans>
+                </Link>
+                <Link to="/about/team" className="navbar-item">
+                  <Trans>Team</Trans>
+                </Link>
+                <Link to="/about/partners" className="navbar-item">
+                  <Trans>Partners</Trans>
+                </Link>
+                <Link to="/about/press" className="navbar-item">
+                  <Trans>Press</Trans>
+                </Link>
                 <a
-                  className={
-                    "navbar-link is-uppercase has-text-" +
-                    (this.state.burgerMenuIsOpen ? "black" : "white")
-                  }
+                  href="https://justfix.breezy.hr/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="navbar-item"
                 >
-                  <Trans>About us</Trans>
+                  <Trans>Jobs</Trans>
                 </a>
-
-                <div className="navbar-dropdown">
-                  <Link
-                    to={localePrefix + "/our-mission"}
-                    className="navbar-item"
-                  >
-                    <Trans>Mission</Trans>
-                  </Link>
-                  <Link
-                    to={localePrefix + "/about/team"}
-                    className="navbar-item"
-                  >
-                    <Trans>Team</Trans>
-                  </Link>
-                  <Link
-                    to={localePrefix + "/about/partners"}
-                    className="navbar-item"
-                  >
-                    <Trans>Partners</Trans>
-                  </Link>
-                  <Link
-                    to={localePrefix + "/about/press"}
-                    className="navbar-item"
-                  >
-                    <Trans>Press</Trans>
-                  </Link>
-                  <a
-                    href="https://justfix.breezy.hr/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="navbar-item"
-                  >
-                    <Trans>Jobs</Trans>
-                  </a>
-                </div>
               </div>
+            </div>
 
-              <Link
-                to={localePrefix + "/#products"}
-                className={
-                  "navbar-item is-uppercase has-text-" +
-                  (this.state.burgerMenuIsOpen ? "black" : "white")
-                }
-              >
-                <Trans>Products</Trans>
-              </Link>
+            <Link
+              to="/#products"
+              className={
+                "navbar-item is-uppercase has-text-" +
+                (burgerMenuIsOpen ? "black" : "white")
+              }
+            >
+              <Trans>Products</Trans>
+            </Link>
 
-              <Link
-                to={localePrefix + "/learn"}
-                className={
-                  "navbar-item is-uppercase has-text-" +
-                  (this.state.burgerMenuIsOpen ? "black" : "white")
-                }
-              >
-                <Trans>Learn</Trans>
-              </Link>
+            <Link
+              to="/learn"
+              className={
+                "navbar-item is-uppercase has-text-" +
+                (burgerMenuIsOpen ? "black" : "white")
+              }
+            >
+              <Trans>Learn</Trans>
+            </Link>
 
-              <Link
-                to={localePrefix + "/contact-us"}
-                className={
-                  "navbar-item is-uppercase has-text-" +
-                  (this.state.burgerMenuIsOpen ? "black" : "white")
-                }
-              >
-                <Trans>Contact</Trans>
-              </Link>
+            <Link
+              to="/contact-us"
+              className={
+                "navbar-item is-uppercase has-text-" +
+                (burgerMenuIsOpen ? "black" : "white")
+              }
+            >
+              <Trans>Contact</Trans>
+            </Link>
 
-              {/* <Link to={this.props.locale === 'es' ? "/" : "/es"} className={"navbar-item has-text-" + (this.state.burgerMenuIsOpen ? "black" : "white")}>
+            {/* <Link to={this.props.locale === 'es' ? "/" : "/es"} className={"navbar-item has-text-" + (burgerMenuIsOpen ? "black" : "white")}>
             {this.props.locale === 'es' ? "ENGLISH" : "ESPAÑOL" }
           </Link> */}
 
-              {this.state.burgerMenuIsOpen && (
-                <a
-                  className="navbar-item has-text-black is-uppercase"
-                  href={TENANT_PLATFORM_URL}
-                >
-                  <Trans>Sign in</Trans>
-                </a>
-              )}
-            </div>
-            <div className="navbar-item is-hidden-touch">
-              <div className="buttons">
-                <a
-                  className="button is-primary is-uppercase is-inverted is-outlined"
-                  href={TENANT_PLATFORM_URL}
-                >
-                  <Trans>Sign in</Trans>
-                </a>
-              </div>
+            {burgerMenuIsOpen && (
+              <a
+                className="navbar-item has-text-black is-uppercase"
+                href={TENANT_PLATFORM_URL}
+              >
+                <Trans>Sign in</Trans>
+              </a>
+            )}
+          </div>
+          <div className="navbar-item is-hidden-touch">
+            <div className="buttons">
+              <a
+                className="button is-primary is-uppercase is-inverted is-outlined"
+                href={TENANT_PLATFORM_URL}
+              >
+                <Trans>Sign in</Trans>
+              </a>
             </div>
           </div>
-        </nav>
-      </div>
-    );
-  }
-}
+        </div>
+      </nav>
+    </div>
+  );
+};
 
 export default Header;

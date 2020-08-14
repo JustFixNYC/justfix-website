@@ -1,5 +1,5 @@
 import React from "react";
-import { StaticQuery, graphql, Link } from "gatsby";
+import { StaticQuery, graphql } from "gatsby";
 
 import "../styles/learn.scss";
 
@@ -10,6 +10,7 @@ import LearningSearchBar from "../components/learning-center/learning-searchbar"
 import CategoryMenu from "../components/learning-center/category-menu";
 import { Trans } from "@lingui/macro";
 import classnames from "classnames";
+import { LocaleLink } from "../components/locale-link";
 
 const widont = require("widont");
 
@@ -29,13 +30,12 @@ export type Category = {
 };
 
 export const ArticlePreviewCard = (props: any) => {
-  const localePrefix = "/" + props.locale;
-  const url = localePrefix + "/learn/" + props.articleData.slug;
+  const url = "/learn/" + props.articleData.slug;
   const categoryLabels = props.articleData.categories.map(
     (category: Category, i: number) => (
-      <Link
+      <LocaleLink
         key={i}
-        to={localePrefix + "/learn/category/" + category.slug}
+        to={"/learn/category/" + category.slug}
         className={classnames(
           "tag",
           "is-uppercase",
@@ -44,25 +44,25 @@ export const ArticlePreviewCard = (props: any) => {
         )}
       >
         {category.title}
-      </Link>
+      </LocaleLink>
     )
   );
   return (
     <div className="box article-preview">
       <h1 className="title is-size-3 has-text-primary is-spaced has-text-weight-semibold">
-        <Link to={url}>{widont(props.articleData.title)}</Link>
+        <LocaleLink to={url}>{widont(props.articleData.title)}</LocaleLink>
       </h1>
       <h6 className="has-text-grey-dark">
         {widont(props.articleData.previewText.previewText)}
       </h6>
       <br />
       <div>
-        <Link
+        <LocaleLink
           to={url}
           className="is-inline-block is-size-7 is-uppercase has-text-weight-semibold has-letters-spaced"
         >
           <Trans>Read More</Trans> →
-        </Link>
+        </LocaleLink>
         <div className="tags is-hidden-mobile is-inline-block is-uppercase is-pulled-right has-letters-spaced">
           {categoryLabels}
         </div>
@@ -75,7 +75,7 @@ export const ArticlePreviewCard = (props: any) => {
 };
 
 export const LearningPageScaffolding = (props: ContentfulContent) => (
-  <Layout metadata={props.content.metadata} locale={props.locale}>
+  <Layout metadata={props.content.metadata}>
     <div id="learning-center" className="learning-center-page">
       <section className="hero is-small">
         <div className="hero-body has-text-centered is-horizontal-center">
@@ -89,12 +89,9 @@ export const LearningPageScaffolding = (props: ContentfulContent) => (
             <h6 className="subtitle has-text-grey-dark is-italic">
               {widont(props.content.subtitle)}
             </h6>
-            <LearningSearchBar locale={props.locale} />
+            <LearningSearchBar />
             <br />
-            <CategoryMenu
-              content={props.content.categoryButtons}
-              locale={props.locale}
-            />
+            <CategoryMenu content={props.content.categoryButtons} />
           </div>
         </div>
       </section>
@@ -102,17 +99,10 @@ export const LearningPageScaffolding = (props: ContentfulContent) => (
         {props.content.articles
           .sort(sortArticlesByDate)
           .map((article: any, i: number) => (
-            <ArticlePreviewCard
-              articleData={article}
-              key={i}
-              locale={props.locale}
-            />
+            <ArticlePreviewCard articleData={article} key={i} />
           ))}
       </section>
-      <ThankYouBanner
-        content={props.content.thankYouText}
-        locale={props.locale}
-      />
+      <ThankYouBanner content={props.content.thankYouText} />
     </div>
   </Layout>
 );
@@ -185,7 +175,6 @@ const LearningPage = () => (
     render={(data) => (
       <LearningPageScaffolding
         content={data.contentfulLearningCenterSearchPage}
-        locale="en"
       />
     )}
   />

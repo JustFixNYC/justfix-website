@@ -10,10 +10,7 @@ const PartnersPage = () => (
       }
     `}
     render={(data) => (
-      <PartnersPageScaffolding
-        content={data.contentfulPartnersPage}
-        locale="es"
-      />
+      <PartnersPageScaffolding content={data.contentfulPartnersPage} />
     )}
   />
 );

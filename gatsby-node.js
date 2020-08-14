@@ -4,8 +4,7 @@
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 
-const DEFAULT_LOCALE = "en";
-const ACCEPTED_LOCALES = ["en"];
+const localeConfig = require("./src/util/locale-config.json");
 
 /**
  * Our Contentful space uses the full "en-US" locale name for English, so this
@@ -24,8 +23,6 @@ const createLocaleRedirectOptions = (path) => {
     component: require.resolve(`./src/components/locale-redirect.tsx`),
     context: {
       slug: path,
-      defaultLocale: DEFAULT_LOCALE,
-      acceptedLocales: ACCEPTED_LOCALES,
     },
   };
   return options;
@@ -148,7 +145,6 @@ const generateLearningPages = async function ({ actions, graphql }, locale) {
           `./src/components/learning-center/category-page-template.tsx`
         ),
         context: {
-          locale: locale,
           content: category,
           categoryButtons: allCategoryButtons,
           thankYouBanner: thankYouBanner,
@@ -185,7 +181,6 @@ const generateLearningPages = async function ({ actions, graphql }, locale) {
         `./src/components/learning-center/article-template.tsx`
       ),
       context: {
-        locale: locale,
         learningCenterTitle: learningCenterTitle,
         allToolsCta: allToolsCta,
         articleFooter: articleFooter,
@@ -225,7 +220,10 @@ exports.createPages = async function ({ actions, graphql }) {
 exports.onCreatePage = async ({ page, boundActionCreators }) => {
   const { createPage, deletePage } = boundActionCreators;
 
-  if (!(page.context.slug && page.context.langKey === DEFAULT_LOCALE)) return;
+  if (
+    !(page.context.slug && page.context.langKey === localeConfig.DEFAULT_LOCALE)
+  )
+    return;
   /* Do we need to return a Promise here? All of the examples I saw of returns from `onCreatePage` 
   returned a promise, but not entirely sure why... */
   return new Promise((resolve, reject) => {

@@ -12,7 +12,6 @@ const SubscribedPage = () => (
     render={(data) => (
       <SubscribedPageScaffolding
         content={data.contentfulSubscriptionConfirmationPage}
-        locale="es"
       />
     )}
   />

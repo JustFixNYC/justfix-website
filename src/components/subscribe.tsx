@@ -1,12 +1,11 @@
 import React from "react";
 import { Trans, t } from "@lingui/macro";
 import { withI18n, withI18nProps } from "@lingui/react";
-import { Locale } from "../pages/index.en";
 import classnames from "classnames";
 
 type FormLocation = "footer" | "page";
 
-type SubscribeProps = { location?: FormLocation } & Locale & withI18nProps;
+type SubscribeProps = { location?: FormLocation } & withI18nProps;
 
 type SubscribeState = {
   email: string;
