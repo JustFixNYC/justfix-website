@@ -6,7 +6,7 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { ContentfulContent } from "./index.en";
 
 export const NorentTermsOfUsePageScaffolding = (props: ContentfulContent) => (
-  <Layout metadata={{ title: "Terms of Use for NoRent" }}>
+  <Layout metadata={{ title: props.content.pageTitle }}>
     <div
       id="terms-of-use"
       className="terms-of-use-page content-wrapper tight section"
@@ -25,6 +25,7 @@ export const NorentTermsOfUsePageFragment = graphql`
       node_locale: { eq: $locale }
     ) {
       title
+      pageTitle
       pageContents {
         json
       }

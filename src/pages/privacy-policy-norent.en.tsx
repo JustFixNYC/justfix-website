@@ -8,7 +8,7 @@ import { ContentfulContent } from "./index.en";
 export const NorentPrivacyPolicyPageScaffolding = (
   props: ContentfulContent
 ) => (
-  <Layout metadata={{ title: "Privacy Policy for NoRent" }}>
+  <Layout metadata={{ title: props.content.pageTitle }}>
     <div
       id="privacy-policy"
       className="privacy-policy-page content-wrapper tight section"
@@ -27,6 +27,7 @@ export const NorentPrivacyPolicyPageFragment = graphql`
       node_locale: { eq: $locale }
     ) {
       title
+      pageTitle
       pageContents {
         json
       }

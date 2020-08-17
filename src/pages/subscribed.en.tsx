@@ -6,7 +6,7 @@ import Layout from "../components/layout";
 import { ContentfulContent } from "./index.en";
 
 export const SubscribedPageScaffolding = (props: ContentfulContent) => (
-  <Layout metadata={{ title: "Subscribed" }}>
+  <Layout metadata={{ title: props.content.title }}>
     <section className="hero is-small">
       <div className="hero-body has-text-centered is-horizontal-center">
         <div className="content content-wrapper tight">
