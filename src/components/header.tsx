@@ -3,6 +3,8 @@ import { Trans } from "@lingui/macro";
 
 import "../styles/header.scss";
 import { LocaleLink as Link } from "../components/locale-link";
+import { CovidMoratoriumBanner } from "@justfixnyc/react-common";
+import { useCurrentLocale } from "../util/use-locale";
 
 const isDemoSite = process.env.GATSBY_DEMO_SITE === "1";
 
@@ -12,6 +14,7 @@ const TENANT_PLATFORM_URL =
 
 const MoratoriumBanner = () => {
   const [isVisible, setVisibility] = useState(true);
+  const locale = useCurrentLocale();
 
   return (
     <section
@@ -24,24 +27,7 @@ const MoratoriumBanner = () => {
             onClick={() => setVisibility(false)}
           />
           <p>
-            <Trans>
-              <span className="has-text-weight-bold">COVID-19 Update: </span>
-              JustFix.nyc is operating, and has adapted our products to match
-              preliminary rules put in place during the COVID-19 crisis. We
-              recommend you take full precautions to stay safe during this
-              public health crisis. Thanks to tenant organizing during this
-              time, renters cannot be evicted for any reason. Visit{" "}
-              <a
-                href="https://www.righttocounselnyc.org/ny_eviction_moratorium_faq"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <span className="has-text-weight-bold">
-                  Right to Council’s Eviction Moratorium FAQs
-                </span>
-              </a>{" "}
-              to learn more.
-            </Trans>
+            <CovidMoratoriumBanner locale={locale} />
           </p>
         </div>
       </div>
