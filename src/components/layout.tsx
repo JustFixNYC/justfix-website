@@ -120,35 +120,64 @@ const LayoutScaffolding = ({
   );
 };
 
-const Layout = ({ metadata, children, isLandingPage }: Props) => (
-  <StaticQuery
-    query={graphql`
-      query {
-        contentfulHomePage {
-          metadata {
-            title
-            description
-            keywords {
-              keywords
-            }
-            shareImage {
-              file {
-                url
+type MetadataNodes = {
+  node_locale: string;
+  metadata: Props["metadata"];
+};
+
+function getDefaultContentForLocale(
+  locale: string,
+  nodes: MetadataNodes[]
+): Props["defaultContent"] {
+  for (let node of nodes) {
+    if (node.node_locale.startsWith(locale)) {
+      return { metadata: node.metadata };
+    }
+  }
+  throw new Error(
+    `Unable to find default content metadata for locale "${locale}"`
+  );
+}
+
+const Layout = ({ metadata, children, isLandingPage }: Props) => {
+  const locale = useCurrentLocale();
+
+  return (
+    <StaticQuery
+      query={graphql`
+        query {
+          allContentfulHomePage {
+            nodes {
+              node_locale
+              metadata {
+                title
+                description
+                keywords {
+                  keywords
+                }
+                shareImage {
+                  file {
+                    url
+                  }
+                }
               }
             }
           }
         }
-      }
-    `}
-    render={(data) => (
-      <LayoutScaffolding
-        metadata={metadata}
-        defaultContent={data.contentfulHomePage}
-        children={children}
-        isLandingPage={isLandingPage}
-      />
-    )}
-  />
-);
+      `}
+      render={(data) => (
+        <LayoutScaffolding
+          metadata={metadata}
+          defaultContent={getDefaultContentForLocale(
+            locale,
+            data.allContentfulHomePage.nodes
+          )}
+          children={children}
+          isLandingPage={isLandingPage}
+        />
+      )}
+    />
+  );
+};
 
 export default Layout;
