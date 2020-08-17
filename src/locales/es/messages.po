@@ -8,13 +8,15 @@ msgstr ""
 "Language: es\n"
 "Project-Id-Version: justfix-website\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2020-04-02 00:49\n"
+"PO-Revision-Date: 2020-08-12 18:10\n"
 "Last-Translator: \n"
 "Language-Team: Spanish\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Crowdin-Project: justfix-website\n"
+"X-Crowdin-Project-ID: 383639\n"
 "X-Crowdin-Language: es-ES\n"
 "X-Crowdin-File: /master/src/locales/en/messages.po\n"
+"X-Crowdin-File-ID: 19\n"
 
 #: src/components/header.tsx:15
 msgid "<0>COVID-19 Update: </0>JustFix.nyc is operating, and has adapted our products to match preliminary rules put in place during the COVID-19 crisis. We recommend you take full precautions to stay safe during this public health crisis. Thanks to tenant organizing during this time, renters cannot be evicted for any reason. Visit <1><2>Right to Council’s Eviction Moratorium FAQs</2></1> to learn more."
@@ -39,7 +41,7 @@ msgstr "¡Todo listo! ¡Gracias por suscribirte!"
 
 #: src/components/learning-center/category-page-template.tsx:30
 msgid "Back to Overview"
-msgstr "Vuelve a Vista General"
+msgstr "Volver a la Vista General"
 
 #: src/components/learning-center/article-template.tsx:50
 msgid "Back to top"
@@ -165,7 +167,7 @@ msgstr "Equipo"
 
 #: src/components/footer.tsx:111
 msgid "Terms of use"
-msgstr "Condiciones de Uso"
+msgstr "Condiciones de uso"
 
 #: src/components/learning-center/article-template.tsx:103
 msgid "Updated"
@@ -190,3 +192,4 @@ msgstr "Escrita por"
 #: src/pages/404.tsx:11
 msgid "You just found a page that doesn't exist... the sadness."
 msgstr "Acabas de llegar a una ruta que no existe... es muy triste."
+
