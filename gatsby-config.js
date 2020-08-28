@@ -12,7 +12,6 @@ const tracking = {
   gtm: "GTM-NMPT5JP",
   ga: "UA-67069242-1",
   rollbar: "61296a1fcbc94b408bf1c1e71a851794",
-  heap: "3368297951",
 };
 
 const conditionallyAddExtraPlugins = (plugins) => {
@@ -91,13 +90,6 @@ const plugins = [
       payload: {
         environment: "production",
       },
-    },
-  },
-  {
-    resolve: "gatsby-plugin-heap",
-    options: {
-      appId: tracking.heap,
-      enableOnDevMode: false, // if 'false', heap will be fired on NODE_ENV=production only
     },
   },
   "gatsby-plugin-offline",
