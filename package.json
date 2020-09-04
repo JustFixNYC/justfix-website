@@ -50,7 +50,7 @@
     "gatsby-transformer-remark": "^2.1.5",
     "gatsby-transformer-sharp": "^2.3.3",
     "intersection-observer": "^0.7.0",
-    "node-sass": "^4.12.0",
+    "node-sass": "^4.13.1",
     "prettier": "^2.0.5",
     "react": "^16.5.1",
     "react-anchor-link-smooth-scroll": "^1.0.12",
