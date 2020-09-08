@@ -146,7 +146,7 @@ const Header: React.FC<{
                 (burgerMenuIsOpen ? "black" : "white")
               }
             >
-              <Trans>Contact</Trans>
+              <Trans>Contact Us</Trans>
             </Link>
 
             {/* <Link to={this.props.locale === 'es' ? "/" : "/es"} className={"navbar-item has-text-" + (burgerMenuIsOpen ? "black" : "white")}>
