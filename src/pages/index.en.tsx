@@ -206,21 +206,6 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
         </div>
       </section>
 
-      <section className="hero is-small is-primary" id="rental-history">
-        <div className="content-wrapper tight">
-          <div className="hero-body has-text-centered is-horizontal-center">
-            <h3 className="title is-spaced">
-              {props.content.rentHistory.title}
-            </h3>
-            <span className="subtitle has-text-weight-medium">
-              {documentToReactComponents(
-                props.content.rentHistory.description.json
-              )}
-            </span>
-          </div>
-        </div>
-      </section>
-
       <section id="as-seen-in">
         <div className="content-wrapper">
           <div className="hero is-small">
@@ -278,12 +263,6 @@ export const LandingPageFragment = graphql`
           fluid {
             ...GatsbyContentfulFluid
           }
-        }
-      }
-      rentHistory {
-        title
-        description {
-          json
         }
       }
       pressTitle
