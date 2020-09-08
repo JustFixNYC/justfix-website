@@ -8,7 +8,7 @@ msgstr ""
 "Language: es\n"
 "Project-Id-Version: justfix-website\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2020-09-08 17:59\n"
+"PO-Revision-Date: 2020-09-08 18:38\n"
 "Last-Translator: \n"
 "Language-Team: Spanish\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -45,9 +45,6 @@ msgstr "Vuelve a Inicio"
 
 #: src/components/footer.tsx:63
 #: src/components/header.tsx:84
-msgid "Contact"
-msgstr "Contacto"
-
 #: src/pages/our-mission.en.tsx:19
 msgid "Contact Us"
 msgstr "Contáctanos"
