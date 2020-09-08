@@ -40,9 +40,6 @@ msgstr "Back to top"
 
 #: src/components/footer.tsx:63
 #: src/components/header.tsx:84
-msgid "Contact"
-msgstr "Contact"
-
 #: src/pages/our-mission.en.tsx:19
 msgid "Contact Us"
 msgstr "Contact Us"
