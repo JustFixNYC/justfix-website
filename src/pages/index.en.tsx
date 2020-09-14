@@ -207,7 +207,7 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
       </section>
 
       <section className="columns is-centered">
-        <div className="column is-three-quarters">
+        <div className="column is-four-fifths">
           <div className="is-divider" />
         </div>
       </section>
