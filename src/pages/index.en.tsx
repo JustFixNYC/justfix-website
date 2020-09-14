@@ -206,6 +206,12 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
         </div>
       </section>
 
+      <section className="columns is-centered">
+        <div className="column is-three-quarters">
+          <div className="is-divider" />
+        </div>
+      </section>
+
       <section id="as-seen-in">
         <div className="content-wrapper">
           <div className="hero is-small">
