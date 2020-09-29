@@ -80,9 +80,6 @@ const generateLearningPages = async function ({ actions, graphql }, locale) {
         subtitle {
           json
         }
-        previewText {
-          previewText
-        }
         author
         dateUpdated
         categories {
@@ -122,12 +119,12 @@ const generateLearningPages = async function ({ actions, graphql }, locale) {
       const {
         title,
         slug,
-        previewText,
+        metadata,
         categories,
         dateUpdated,
         ...rest
       } = article;
-      const subset = { title, slug, previewText, categories, dateUpdated };
+      const subset = { title, slug, metadata, categories, dateUpdated };
       return subset;
     }
   );
