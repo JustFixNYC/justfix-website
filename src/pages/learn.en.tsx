@@ -53,7 +53,7 @@ export const ArticlePreviewCard = (props: any) => {
         <LocaleLink to={url}>{widont(props.articleData.title)}</LocaleLink>
       </h1>
       <h6 className="has-text-grey-dark">
-        {widont(props.articleData.previewText.previewText)}
+        {widont(props.articleData.metadata.description)}
       </h6>
       <br />
       <div>
@@ -136,10 +136,10 @@ export const LearningPageFragment = graphql`
       articles {
         slug
         title
-        dateUpdated
-        previewText {
-          previewText
+        metadata {
+          description
         }
+        dateUpdated
         categories {
           title
           description

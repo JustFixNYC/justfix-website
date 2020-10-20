@@ -89,7 +89,7 @@ const Footer = withI18n()(({ i18n }: withI18nProps) => {
             to="/contact-us"
           >
             <p>
-              <Trans>Contact</Trans>
+              <Trans>Contact Us</Trans>
             </p>
           </Link>
           <a

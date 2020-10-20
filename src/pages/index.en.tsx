@@ -21,6 +21,8 @@ export type ContentfulContent = {
   content: any;
 };
 
+const linkIsSms = (link: string) => link.slice(0, 4) === "sms:";
+
 const DDO = () => (
   <>
     <h2 className="subtitle is-size-5 has-text-white">
@@ -133,14 +135,20 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
                         )}
                       </p>
                       <br />
-                      <a
-                        className="button is-large is-primary is-uppercase"
-                        href={product.button.link + PRODUCT_CTA_UTM_CODE}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        {product.button.title}
-                      </a>
+                      {linkIsSms(product.button.link) ? (
+                        <p className="subtitle is-uppercase has-text-weight-bold">
+                          {product.button.title}
+                        </p>
+                      ) : (
+                        <a
+                          className="button is-large is-primary is-uppercase"
+                          href={product.button.link + PRODUCT_CTA_UTM_CODE}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {product.button.title}
+                        </a>
+                      )}
                     </div>
                   </div>
                   {i % 2 === 0 && (
@@ -176,7 +184,12 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
                       <br />
                       <a
                         className="button is-medium is-primary"
-                        href={product.button.link + PRODUCT_CTA_UTM_CODE}
+                        href={
+                          product.button.link +
+                          (linkIsSms(product.button.link)
+                            ? ""
+                            : PRODUCT_CTA_UTM_CODE)
+                        }
                         target="_blank"
                         rel="noopener noreferrer"
                       >
@@ -193,18 +206,9 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
         </div>
       </section>
 
-      <section className="hero is-small is-primary" id="rental-history">
-        <div className="content-wrapper tight">
-          <div className="hero-body has-text-centered is-horizontal-center">
-            <h3 className="title is-spaced">
-              {props.content.rentHistory.title}
-            </h3>
-            <span className="subtitle has-text-weight-medium">
-              {documentToReactComponents(
-                props.content.rentHistory.description.json
-              )}
-            </span>
-          </div>
+      <section className="columns is-centered">
+        <div className="column is-four-fifths">
+          <div className="is-divider" />
         </div>
       </section>
 
@@ -265,12 +269,6 @@ export const LandingPageFragment = graphql`
           fluid {
             ...GatsbyContentfulFluid
           }
-        }
-      }
-      rentHistory {
-        title
-        description {
-          json
         }
       }
       pressTitle

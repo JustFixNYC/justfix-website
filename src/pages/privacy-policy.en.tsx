@@ -6,7 +6,7 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { ContentfulContent } from "./index.en";
 
 export const PrivacyPolicyPageScaffolding = (props: ContentfulContent) => (
-  <Layout metadata={{ title: "Privacy Policy" }}>
+  <Layout metadata={{ title: props.content.pageTitle }}>
     <div
       id="privacy-policy"
       className="privacy-policy-page content-wrapper tight section"
@@ -25,6 +25,7 @@ export const PrivacyPolicyPageFragment = graphql`
       node_locale: { eq: $locale }
     ) {
       title
+      pageTitle
       pageContents {
         json
       }
