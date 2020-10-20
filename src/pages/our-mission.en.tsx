@@ -107,7 +107,7 @@ export const MissionPageScaffolding = (props: ContentfulContent) => (
 
       <CollaborationBanner
         title={props.content.collaborationBanner.title}
-        subtitle={props.content.collaborationBanner.subtitle}
+        subtitle={props.content.collaborationBanner.description.description}
       />
 
       <ReadMore
@@ -150,7 +150,9 @@ export const MissionPageFragment = graphql`
       }
       collaborationBanner {
         title
-        subtitle
+        description {
+          description
+        }
       }
       readMore {
         title
