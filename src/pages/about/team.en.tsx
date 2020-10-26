@@ -134,17 +134,7 @@ export const TeamPageScaffolding = (props: ContentfulContent) => (
                   className="has-text-weight-semibold has-text-grey-dark"
                   key={i}
                 >
-                  {contributor.link ? (
-                    <a
-                      href={contributor.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {contributor.name}
-                    </a>
-                  ) : (
-                    <>{contributor.name}</>
-                  )}
+                  {contributor.name}
                 </p>
               )
             )}
@@ -207,7 +197,6 @@ export const TeamPageFragment = graphql`
       otherContributorsTitle
       otherContributors {
         name
-        link
       }
       readMore {
         title
