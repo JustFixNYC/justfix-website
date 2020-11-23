@@ -11,6 +11,7 @@ import CategoryMenu from "../components/learning-center/category-menu";
 import { Trans } from "@lingui/macro";
 import classnames from "classnames";
 import { LocaleLink } from "../components/locale-link";
+import { useCurrentLocale } from "../util/use-locale";
 
 const widont = require("widont");
 
@@ -74,38 +75,43 @@ export const ArticlePreviewCard = (props: any) => {
   );
 };
 
-export const LearningPageScaffolding = (props: ContentfulContent) => (
-  <Layout metadata={props.content.metadata}>
-    <div id="learning-center" className="learning-center-page">
-      <section className="hero is-small">
-        <div className="hero-body has-text-centered is-horizontal-center">
-          <figure className="image landing-illustration is-3by1 is-horizontal-center">
-            <img src={props.content.headerImage.file.url} />
-          </figure>
-          <div className="container content-wrapper tight">
-            <h1 className="title is-size-2 has-text-grey-dark has-text-weight-normal is-spaced">
-              {props.content.title}
-            </h1>
-            <h6 className="subtitle has-text-grey-dark is-italic">
-              {widont(props.content.subtitle)}
-            </h6>
-            <LearningSearchBar />
-            <br />
-            <CategoryMenu content={props.content.categoryButtons} />
+export const LearningPageScaffolding = (props: ContentfulContent) => {
+  const locale = useCurrentLocale();
+  const articles =
+    locale !== "en"
+      ? props.content.articles.filter((article: any) => !article.englishOnly)
+      : props.content.articles;
+  return (
+    <Layout metadata={props.content.metadata}>
+      <div id="learning-center" className="learning-center-page">
+        <section className="hero is-small">
+          <div className="hero-body has-text-centered is-horizontal-center">
+            <figure className="image landing-illustration is-3by1 is-horizontal-center">
+              <img src={props.content.headerImage.file.url} />
+            </figure>
+            <div className="container content-wrapper tight">
+              <h1 className="title is-size-2 has-text-grey-dark has-text-weight-normal is-spaced">
+                {props.content.title}
+              </h1>
+              <h6 className="subtitle has-text-grey-dark is-italic">
+                {widont(props.content.subtitle)}
+              </h6>
+              <LearningSearchBar />
+              <br />
+              <CategoryMenu content={props.content.categoryButtons} />
+            </div>
           </div>
-        </div>
-      </section>
-      <section className="content-wrapper tight">
-        {props.content.articles
-          .sort(sortArticlesByDate)
-          .map((article: any, i: number) => (
+        </section>
+        <section className="content-wrapper tight">
+          {articles.sort(sortArticlesByDate).map((article: any, i: number) => (
             <ArticlePreviewCard articleData={article} key={i} />
           ))}
-      </section>
-      <ThankYouBanner content={props.content.thankYouText} />
-    </div>
-  </Layout>
-);
+        </section>
+        <ThankYouBanner content={props.content.thankYouText} />
+      </div>
+    </Layout>
+  );
+};
 
 export const LearningPageFragment = graphql`
   fragment LearningPage on Query {
@@ -136,6 +142,7 @@ export const LearningPageFragment = graphql`
       articles {
         slug
         title
+        englishOnly
         metadata {
           description
         }

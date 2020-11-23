@@ -76,6 +76,7 @@ const generateLearningPages = async function ({ actions, graphql }, locale) {
           }
         }
         slug
+        englishOnly
         title
         subtitle {
           json
