@@ -5,6 +5,7 @@ import "../styles/header.scss";
 import { LocaleLink as Link, LocaleToggle } from "../components/locale-link";
 import { CovidMoratoriumBanner } from "@justfixnyc/react-common";
 import { useCurrentLocale } from "../util/use-locale";
+import localeConfig from "../util/locale-config.json";
 
 const isDemoSite = process.env.GATSBY_DEMO_SITE === "1";
 
@@ -157,12 +158,13 @@ const Header: React.FC<{
               </a>
 
               <div className="navbar-dropdown is-right">
-                <LocaleToggle
-                  to={locale === "es" ? "en" : "es"}
-                  className="navbar-item"
-                >
-                  {locale === "es" ? "EN" : "ES"}
-                </LocaleToggle>
+                {localeConfig.ACCEPTED_LOCALES.filter(
+                  (otherLocale) => otherLocale !== locale
+                ).map((otherLocale) => (
+                  <LocaleToggle to={otherLocale} className="navbar-item">
+                    {otherLocale.toUpperCase()}
+                  </LocaleToggle>
+                ))}
               </div>
             </div>
           </div>
