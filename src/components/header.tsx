@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Trans } from "@lingui/macro";
 
 import "../styles/header.scss";
-import { LocaleLink as Link } from "../components/locale-link";
+import { LocaleLink as Link, LocaleToggle } from "../components/locale-link";
 import { CovidMoratoriumBanner } from "@justfixnyc/react-common";
 import { useCurrentLocale } from "../util/use-locale";
 
@@ -39,6 +39,7 @@ const Header: React.FC<{
   isLandingPage?: boolean;
 }> = ({ isLandingPage }) => {
   const [burgerMenuIsOpen, setBurgerMenuStatus] = useState(false);
+  const locale = useCurrentLocale();
 
   return (
     <div className={"header " + (isLandingPage && "is-absolute")}>
@@ -149,9 +150,14 @@ const Header: React.FC<{
               <Trans>Contact Us</Trans>
             </Link>
 
-            {/* <Link to={this.props.locale === 'es' ? "/" : "/es"} className={"navbar-item has-text-" + (burgerMenuIsOpen ? "black" : "white")}>
-            {this.props.locale === 'es' ? "ENGLISH" : "ESPAÑOL" }
-          </Link> */}
+            <LocaleToggle
+              to={locale === "es" ? "en" : "es"}
+              className={
+                "navbar-item has-text-" + (burgerMenuIsOpen ? "black" : "white")
+              }
+            >
+              {locale === "es" ? "ENGLISH" : "ESPAÑOL"}
+            </LocaleToggle>
 
             {burgerMenuIsOpen && (
               <a
