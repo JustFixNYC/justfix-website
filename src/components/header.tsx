@@ -8,10 +8,6 @@ import { useCurrentLocale } from "../util/use-locale";
 
 const isDemoSite = process.env.GATSBY_DEMO_SITE === "1";
 
-const TENANT_PLATFORM_URL =
-  (process.env.GATSBY_TENANT_PLATFORM_SITE_ORIGIN ||
-    "https://demo.justfix.nyc") + "/login";
-
 const MoratoriumBanner = () => {
   const [isVisible, setVisibility] = useState(true);
   const locale = useCurrentLocale();
@@ -150,32 +146,24 @@ const Header: React.FC<{
               <Trans>Contact Us</Trans>
             </Link>
 
-            <LocaleToggle
-              to={locale === "es" ? "en" : "es"}
-              className={
-                "navbar-item has-text-" + (burgerMenuIsOpen ? "black" : "white")
-              }
-            >
-              {locale === "es" ? "ENGLISH" : "ESPAÑOL"}
-            </LocaleToggle>
+            <div className="navbar-item has-dropdown is-hoverable">
+              <a
+                className={
+                  "navbar-link is-uppercase has-text-" +
+                  (burgerMenuIsOpen ? "black" : "white")
+                }
+              >
+                {locale.toUpperCase()}
+              </a>
 
-            {burgerMenuIsOpen && (
-              <a
-                className="navbar-item has-text-black is-uppercase"
-                href={TENANT_PLATFORM_URL}
-              >
-                <Trans>Sign in</Trans>
-              </a>
-            )}
-          </div>
-          <div className="navbar-item is-hidden-touch">
-            <div className="buttons">
-              <a
-                className="button is-primary is-uppercase is-inverted is-outlined"
-                href={TENANT_PLATFORM_URL}
-              >
-                <Trans>Sign in</Trans>
-              </a>
+              <div className="navbar-dropdown is-right">
+                <LocaleToggle
+                  to={locale === "es" ? "en" : "es"}
+                  className="navbar-item"
+                >
+                  {locale === "es" ? "EN" : "ES"}
+                </LocaleToggle>
+              </div>
             </div>
           </div>
         </div>
