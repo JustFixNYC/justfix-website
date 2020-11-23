@@ -107,14 +107,16 @@ const plugins = [
   },
   `gatsby-plugin-client-side-redirect`,
   {
-    resolve: `gatsby-plugin-prefetch-google-fonts`,
+    resolve: `gatsby-plugin-webfonts`,
     options: {
-      fonts: [
-        {
-          family: `Open Sans`,
-          variants: [`400`, `400i`, `600`, `700`],
-        },
-      ],
+      fonts: {
+        google: [
+          {
+            family: "Open Sans",
+            variants: [`400`, `400i`, `600`, `700`],
+          },
+        ],
+      },
     },
   },
 ];
