@@ -2,15 +2,12 @@ import React, { useState } from "react";
 import { Trans } from "@lingui/macro";
 
 import "../styles/header.scss";
-import { LocaleLink as Link } from "../components/locale-link";
+import { LocaleLink as Link, LocaleToggle } from "../components/locale-link";
 import { CovidMoratoriumBanner } from "@justfixnyc/react-common";
 import { useCurrentLocale } from "../util/use-locale";
+import localeConfig from "../util/locale-config.json";
 
 const isDemoSite = process.env.GATSBY_DEMO_SITE === "1";
-
-const TENANT_PLATFORM_URL =
-  (process.env.GATSBY_TENANT_PLATFORM_SITE_ORIGIN ||
-    "https://demo.justfix.nyc") + "/login";
 
 const MoratoriumBanner = () => {
   const [isVisible, setVisibility] = useState(true);
@@ -39,6 +36,7 @@ const Header: React.FC<{
   isLandingPage?: boolean;
 }> = ({ isLandingPage }) => {
   const [burgerMenuIsOpen, setBurgerMenuStatus] = useState(false);
+  const locale = useCurrentLocale();
 
   return (
     <div className={"header " + (isLandingPage && "is-absolute")}>
@@ -149,27 +147,25 @@ const Header: React.FC<{
               <Trans>Contact Us</Trans>
             </Link>
 
-            {/* <Link to={this.props.locale === 'es' ? "/" : "/es"} className={"navbar-item has-text-" + (burgerMenuIsOpen ? "black" : "white")}>
-            {this.props.locale === 'es' ? "ENGLISH" : "ESPAÑOL" }
-          </Link> */}
+            <div className="navbar-item has-dropdown is-hoverable">
+              <a
+                className={
+                  "navbar-link is-uppercase has-text-" +
+                  (burgerMenuIsOpen ? "black" : "white")
+                }
+              >
+                {locale.toUpperCase()}
+              </a>
 
-            {burgerMenuIsOpen && (
-              <a
-                className="navbar-item has-text-black is-uppercase"
-                href={TENANT_PLATFORM_URL}
-              >
-                <Trans>Sign in</Trans>
-              </a>
-            )}
-          </div>
-          <div className="navbar-item is-hidden-touch">
-            <div className="buttons">
-              <a
-                className="button is-primary is-uppercase is-inverted is-outlined"
-                href={TENANT_PLATFORM_URL}
-              >
-                <Trans>Sign in</Trans>
-              </a>
+              <div className="navbar-dropdown is-right">
+                {localeConfig.ACCEPTED_LOCALES.filter(
+                  (otherLocale) => otherLocale !== locale
+                ).map((otherLocale) => (
+                  <LocaleToggle to={otherLocale} className="navbar-item">
+                    {otherLocale.toUpperCase()}
+                  </LocaleToggle>
+                ))}
+              </div>
             </div>
           </div>
         </div>

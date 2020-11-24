@@ -76,6 +76,7 @@ const generateLearningPages = async function ({ actions, graphql }, locale) {
           }
         }
         slug
+        englishOnly
         title
         subtitle {
           json
@@ -119,12 +120,20 @@ const generateLearningPages = async function ({ actions, graphql }, locale) {
       const {
         title,
         slug,
+        englishOnly,
         metadata,
         categories,
         dateUpdated,
         ...rest
       } = article;
-      const subset = { title, slug, metadata, categories, dateUpdated };
+      const subset = {
+        title,
+        slug,
+        englishOnly,
+        metadata,
+        categories,
+        dateUpdated,
+      };
       return subset;
     }
   );

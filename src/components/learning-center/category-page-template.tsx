@@ -1,6 +1,6 @@
 import React from "react";
 import Layout from "../layout";
-import { ArticlePreviewCard, sortArticlesByDate } from "../../pages/learn.en";
+import { ArticlePreviewCard, orderArticles } from "../../pages/learn.en";
 import { ThankYouBanner } from "./thank-you-banner";
 import CategoryMenu from "./category-menu";
 import { Trans } from "@lingui/macro";
@@ -34,7 +34,7 @@ const NoArticlesYet = () => (
 
 const LearningCategoryPage = (props: Props) => {
   const content = props.pageContext.content;
-  const articlePreviews = props.pageContext.articlePreviews;
+  const articlePreviews = orderArticles(props.pageContext.articlePreviews);
   return (
     <Layout
       metadata={{ title: content.title, description: content.description }}
@@ -64,11 +64,9 @@ const LearningCategoryPage = (props: Props) => {
         </section>
         <section className="content-wrapper tight">
           {articlePreviews && articlePreviews.length > 0 ? (
-            articlePreviews
-              .sort(sortArticlesByDate)
-              .map((article: any, i: number) => (
-                <ArticlePreviewCard articleData={article} key={i} />
-              ))
+            articlePreviews.map((article: any, i: number) => (
+              <ArticlePreviewCard articleData={article} key={i} />
+            ))
           ) : (
             <NoArticlesYet />
           )}

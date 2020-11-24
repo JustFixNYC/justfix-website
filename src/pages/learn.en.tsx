@@ -11,13 +11,34 @@ import CategoryMenu from "../components/learning-center/category-menu";
 import { Trans } from "@lingui/macro";
 import classnames from "classnames";
 import { LocaleLink } from "../components/locale-link";
+import { useCurrentLocale } from "../util/use-locale";
 
 const widont = require("widont");
 
-export const sortArticlesByDate = (article1: any, article2: any) => {
+const sortArticlesByDate = (article1: any, article2: any) => {
   const date1 = new Date(article1.dateUpdated).getTime();
   const date2 = new Date(article2.dateUpdated).getTime();
   return date2 - date1;
+};
+
+/**
+ * Orders an array of Learning Center article content objects based on two criteria:
+ * 1. Article are ordered by date last updated, from most recent to oldest
+ * 2. For non-English locales, articles marked as "English Only" will be ordered last
+ */
+export const orderArticles = (articles: any[]) => {
+  const locale = useCurrentLocale();
+  return locale !== "en"
+    ? articles
+        /* Make sure "English Only" articles appear last */
+        .filter((article: any) => !article.englishOnly)
+        .sort(sortArticlesByDate)
+        .concat(
+          articles
+            .filter((article: any) => article.englishOnly)
+            .sort(sortArticlesByDate)
+        )
+    : articles.sort(sortArticlesByDate);
 };
 
 export const isCovidRelated = (word: string) =>
@@ -31,6 +52,7 @@ export type Category = {
 
 export const ArticlePreviewCard = (props: any) => {
   const url = "/learn/" + props.articleData.slug;
+  const locale = useCurrentLocale();
   const categoryLabels = props.articleData.categories.map(
     (category: Category, i: number) => (
       <LocaleLink
@@ -49,6 +71,12 @@ export const ArticlePreviewCard = (props: any) => {
   );
   return (
     <div className="box article-preview">
+      {locale === "es" && props.articleData.englishOnly && (
+        <>
+          <p className="has-text-danger is-italic">Solo en inglés</p>
+          <br />
+        </>
+      )}
       <h1 className="title is-size-3 has-text-primary is-spaced has-text-weight-semibold">
         <LocaleLink to={url}>{widont(props.articleData.title)}</LocaleLink>
       </h1>
@@ -74,38 +102,39 @@ export const ArticlePreviewCard = (props: any) => {
   );
 };
 
-export const LearningPageScaffolding = (props: ContentfulContent) => (
-  <Layout metadata={props.content.metadata}>
-    <div id="learning-center" className="learning-center-page">
-      <section className="hero is-small">
-        <div className="hero-body has-text-centered is-horizontal-center">
-          <figure className="image landing-illustration is-3by1 is-horizontal-center">
-            <img src={props.content.headerImage.file.url} />
-          </figure>
-          <div className="container content-wrapper tight">
-            <h1 className="title is-size-2 has-text-grey-dark has-text-weight-normal is-spaced">
-              {props.content.title}
-            </h1>
-            <h6 className="subtitle has-text-grey-dark is-italic">
-              {widont(props.content.subtitle)}
-            </h6>
-            <LearningSearchBar />
-            <br />
-            <CategoryMenu content={props.content.categoryButtons} />
+export const LearningPageScaffolding = (props: ContentfulContent) => {
+  const articles = orderArticles(props.content.articles);
+  return (
+    <Layout metadata={props.content.metadata}>
+      <div id="learning-center" className="learning-center-page">
+        <section className="hero is-small">
+          <div className="hero-body has-text-centered is-horizontal-center">
+            <figure className="image landing-illustration is-3by1 is-horizontal-center">
+              <img src={props.content.headerImage.file.url} />
+            </figure>
+            <div className="container content-wrapper tight">
+              <h1 className="title is-size-2 has-text-grey-dark has-text-weight-normal is-spaced">
+                {props.content.title}
+              </h1>
+              <h6 className="subtitle has-text-grey-dark is-italic">
+                {widont(props.content.subtitle)}
+              </h6>
+              <LearningSearchBar />
+              <br />
+              <CategoryMenu content={props.content.categoryButtons} />
+            </div>
           </div>
-        </div>
-      </section>
-      <section className="content-wrapper tight">
-        {props.content.articles
-          .sort(sortArticlesByDate)
-          .map((article: any, i: number) => (
+        </section>
+        <section className="content-wrapper tight">
+          {articles.map((article: any, i: number) => (
             <ArticlePreviewCard articleData={article} key={i} />
           ))}
-      </section>
-      <ThankYouBanner content={props.content.thankYouText} />
-    </div>
-  </Layout>
-);
+        </section>
+        <ThankYouBanner content={props.content.thankYouText} />
+      </div>
+    </Layout>
+  );
+};
 
 export const LearningPageFragment = graphql`
   fragment LearningPage on Query {
@@ -136,6 +165,7 @@ export const LearningPageFragment = graphql`
       articles {
         slug
         title
+        englishOnly
         metadata {
           description
         }

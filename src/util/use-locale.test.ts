@@ -11,13 +11,13 @@ describe("getLocaleFromPathname()", () => {
 
   it("raises an error if there is no locale specified in the pathname", () => {
     expect(() => getLocaleFromPathname("/boop/jones/hello")).toThrowError(
-      "Locale parameter in url is not an accepted locale!"
+      "Locale parameter boop in url is not an accepted locale!"
     );
   });
 
   it("raises an error if locale in pathname is not an accepted one", () => {
     expect(() => getLocaleFromPathname("/tr/boop/jones/hello")).toThrowError(
-      "Locale parameter in url is not an accepted locale!"
+      "Locale parameter tr in url is not an accepted locale!"
     );
   });
 });

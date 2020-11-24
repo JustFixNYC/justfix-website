@@ -1,6 +1,7 @@
 import React from "react";
 import { ContentfulContent } from "../../pages/index.en";
 import { Category } from "../../pages/learn.en";
+import { useCurrentLocale } from "../../util/use-locale";
 import { LocaleLink } from "../locale-link";
 
 const widont = require("widont");
@@ -10,6 +11,7 @@ const NUM_COLUMNS = 3;
 type ArticleListing = {
   title: string;
   slug: string;
+  englishOnly: boolean;
 };
 
 type TableOfContentsSection = {
@@ -19,6 +21,7 @@ type TableOfContentsSection = {
 };
 
 const TableOfContentsSection = (props: TableOfContentsSection) => {
+  const locale = useCurrentLocale();
   return props.articles.length > 0 ? (
     <div className="table-of-contents-section">
       <p className="menu-label">{props.categoryTitle}</p>
@@ -29,6 +32,9 @@ const TableOfContentsSection = (props: TableOfContentsSection) => {
               {" "}
               {article.title}{" "}
             </LocaleLink>
+            {locale === "es" && article.englishOnly && (
+              <span className="has-text-danger">({widont("en inglés")})</span>
+            )}
           </li>
         ))}
         <div

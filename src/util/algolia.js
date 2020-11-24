@@ -9,6 +9,7 @@ const generatePageQuery = (locale) =>
           node {
             slug
             title
+            englishOnly
             author
             subtitle {
               json
