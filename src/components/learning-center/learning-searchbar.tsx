@@ -65,8 +65,11 @@ const SearchHits = ({ hits }: SearchHitsProps) => {
             className="dropdown-item"
           >
             <div className="is-size-6 has-text-primary has-text-weight-semibold">
-              {locale === "es" && hit.englishOnly && "(en inglés) "}
-              {hit.title} →
+              {hit.title}{" "}
+              {locale === "es" && hit.englishOnly && (
+                <span className="has-text-danger">(en inglés)</span>
+              )}{" "}
+              →
             </div>
             <div className="result__snippet">
               <Snippet attribute="articleContent" hit={hit} tagName="u" />

@@ -29,9 +29,12 @@ const TableOfContentsSection = (props: TableOfContentsSection) => {
         {props.articles.map((article: ArticleListing, i: number) => (
           <li key={i}>
             <LocaleLink to={"/learn/" + article.slug}>
-              {locale === "es" && article.englishOnly && "(en inglés)"}{" "}
+              {" "}
               {article.title}{" "}
             </LocaleLink>
+            {locale === "es" && article.englishOnly && (
+              <span className="has-text-danger">({widont("en inglés")})</span>
+            )}
           </li>
         ))}
         <div
