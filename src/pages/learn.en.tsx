@@ -32,6 +32,7 @@ export type Category = {
 
 export const ArticlePreviewCard = (props: any) => {
   const url = "/learn/" + props.articleData.slug;
+  const locale = useCurrentLocale();
   const categoryLabels = props.articleData.categories.map(
     (category: Category, i: number) => (
       <LocaleLink
@@ -41,15 +42,21 @@ export const ArticlePreviewCard = (props: any) => {
           "tag",
           "is-uppercase",
           "is-light",
-          isCovidRelated(category.title) ? "is-warning" : "is-primary"
+          isCovidRelated(category.title) ? "is-warning" : "is-primary",
         )}
       >
         {category.title}
       </LocaleLink>
-    )
+    ),
   );
   return (
     <div className="box article-preview">
+      {locale === "es" && props.articleData.englishOnly && (
+        <>
+          <p className="has-text-danger is-italic">Solo en inglés</p>
+          <br />
+        </>
+      )}
       <h1 className="title is-size-3 has-text-primary is-spaced has-text-weight-semibold">
         <LocaleLink to={url}>{widont(props.articleData.title)}</LocaleLink>
       </h1>
@@ -86,7 +93,7 @@ export const LearningPageScaffolding = (props: ContentfulContent) => {
           .concat(
             props.content.articles
               .filter((article: any) => article.englishOnly)
-              .sort(sortArticlesByDate)
+              .sort(sortArticlesByDate),
           )
       : props.content.articles.sort(sortArticlesByDate);
   return (
