@@ -21,6 +21,11 @@ const sortArticlesByDate = (article1: any, article2: any) => {
   return date2 - date1;
 };
 
+/**
+ * Orders an array of Learning Center article content objects based on two criteria:
+ * 1. Article are ordered by date last updated, from most recent to oldest
+ * 2. For non-English locales, articles marked as "English Only" will be ordered last
+ */
 export const orderArticles = (articles: any[]) => {
   const locale = useCurrentLocale();
   return locale !== "en"
