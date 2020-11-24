@@ -21,6 +21,21 @@ export const sortArticlesByDate = (article1: any, article2: any) => {
   return date2 - date1;
 };
 
+export const orderArticles = (articles: any[]) => {
+  const locale = useCurrentLocale();
+  return locale !== "en"
+    ? articles
+        /* Make sure "English Only" articles appear last */
+        .filter((article: any) => !article.englishOnly)
+        .sort(sortArticlesByDate)
+        .concat(
+          articles
+            .filter((article: any) => article.englishOnly)
+            .sort(sortArticlesByDate)
+        )
+    : articles.sort(sortArticlesByDate);
+};
+
 export const isCovidRelated = (word: string) =>
   /COVID/.test(word.toUpperCase());
 
@@ -42,12 +57,12 @@ export const ArticlePreviewCard = (props: any) => {
           "tag",
           "is-uppercase",
           "is-light",
-          isCovidRelated(category.title) ? "is-warning" : "is-primary",
+          isCovidRelated(category.title) ? "is-warning" : "is-primary"
         )}
       >
         {category.title}
       </LocaleLink>
-    ),
+    )
   );
   return (
     <div className="box article-preview">
@@ -83,19 +98,7 @@ export const ArticlePreviewCard = (props: any) => {
 };
 
 export const LearningPageScaffolding = (props: ContentfulContent) => {
-  const locale = useCurrentLocale();
-  const articles =
-    locale !== "en"
-      ? props.content.articles
-          /* Make sure "English Only" articles appear last */
-          .filter((article: any) => !article.englishOnly)
-          .sort(sortArticlesByDate)
-          .concat(
-            props.content.articles
-              .filter((article: any) => article.englishOnly)
-              .sort(sortArticlesByDate),
-          )
-      : props.content.articles.sort(sortArticlesByDate);
+  const articles = orderArticles(props.content.articles);
   return (
     <Layout metadata={props.content.metadata}>
       <div id="learning-center" className="learning-center-page">
