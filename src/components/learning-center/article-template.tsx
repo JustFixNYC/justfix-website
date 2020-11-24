@@ -8,6 +8,7 @@ import "../../styles/learn.scss";
 import { AllToolsCta } from "./all-tools-cta";
 import { Trans } from "@lingui/macro";
 import { LocaleLink } from "../locale-link";
+import { useCurrentLocale } from "../../util/use-locale";
 
 const widont = require("widont");
 
@@ -100,6 +101,7 @@ function renderSection(articleSection: any, i: number): JSX.Element {
 
 const LearningArticle = (props: Props) => {
   const content = props.pageContext.content;
+  const locale = useCurrentLocale();
 
   const NavMenu = (props?: navMenuProps) => (
     <aside
@@ -160,6 +162,14 @@ const LearningArticle = (props: Props) => {
                   </ul>
                 </nav>
                 <div className="container content-wrapper">
+                  {locale === "es" && content.englishOnly && (
+                    <>
+                      <p className="has-text-danger is-italic">
+                        Solo en inglés
+                      </p>
+                      <br />
+                    </>
+                  )}
                   <h1 className="title is-size-2 is-size-3-mobile has-text-grey-dark has-text-weight-semibold is-spaced">
                     {widont(content.title)}
                   </h1>
