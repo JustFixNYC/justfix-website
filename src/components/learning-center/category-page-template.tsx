@@ -1,10 +1,6 @@
 import React from "react";
 import Layout from "../layout";
-import {
-  ArticlePreviewCard,
-  orderArticles,
-  sortArticlesByDate,
-} from "../../pages/learn.en";
+import { ArticlePreviewCard, orderArticles } from "../../pages/learn.en";
 import { ThankYouBanner } from "./thank-you-banner";
 import CategoryMenu from "./category-menu";
 import { Trans } from "@lingui/macro";
