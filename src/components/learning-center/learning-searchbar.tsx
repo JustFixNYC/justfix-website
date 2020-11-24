@@ -49,11 +49,13 @@ type SearchHitsProps = {
   hits?: {
     slug: string;
     title: string;
+    englishOnly: boolean | null;
   }[];
 };
 
-const SearchHits = ({ hits }: SearchHitsProps) =>
-  hits && hits.length > 0 ? (
+const SearchHits = ({ hits }: SearchHitsProps) => {
+  const locale = useCurrentLocale();
+  return hits && hits.length > 0 ? (
     <div className="dropdown-content">
       {hits
         .map((hit: any) => (
@@ -63,6 +65,7 @@ const SearchHits = ({ hits }: SearchHitsProps) =>
             className="dropdown-item"
           >
             <div className="is-size-6 has-text-primary has-text-weight-semibold">
+              {locale === "es" && hit.englishOnly && "(en inglés) "}
               {hit.title} →
             </div>
             <div className="result__snippet">
@@ -78,6 +81,7 @@ const SearchHits = ({ hits }: SearchHitsProps) =>
       <Trans>No articles match your search.</Trans>
     </div>
   );
+};
 
 /* 
 NOTE: We are including a type assertion here because the official type definition 
