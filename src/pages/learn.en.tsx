@@ -79,8 +79,15 @@ export const LearningPageScaffolding = (props: ContentfulContent) => {
   const locale = useCurrentLocale();
   const articles =
     locale !== "en"
-      ? props.content.articles.filter((article: any) => !article.englishOnly)
-      : props.content.articles;
+      ? props.content.articles
+          .filter((article: any) => !article.englishOnly)
+          .sort(sortArticlesByDate)
+          .concat(
+            props.content.articles
+              .filter((article: any) => article.englishOnly)
+              .sort(sortArticlesByDate)
+          )
+      : props.content.articles.sort(sortArticlesByDate);
   return (
     <Layout metadata={props.content.metadata}>
       <div id="learning-center" className="learning-center-page">
@@ -103,7 +110,7 @@ export const LearningPageScaffolding = (props: ContentfulContent) => {
           </div>
         </section>
         <section className="content-wrapper tight">
-          {articles.sort(sortArticlesByDate).map((article: any, i: number) => (
+          {articles.map((article: any, i: number) => (
             <ArticlePreviewCard articleData={article} key={i} />
           ))}
         </section>
