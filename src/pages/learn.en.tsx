@@ -80,6 +80,7 @@ export const LearningPageScaffolding = (props: ContentfulContent) => {
   const articles =
     locale !== "en"
       ? props.content.articles
+          /* Make sure "English Only" articles appear last */
           .filter((article: any) => !article.englishOnly)
           .sort(sortArticlesByDate)
           .concat(
