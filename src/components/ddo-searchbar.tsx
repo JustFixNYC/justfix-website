@@ -5,7 +5,6 @@ import {
   GeoAutocompleteProps,
 } from "./geo-autocomplete";
 import classnames from "classnames";
-import { useCurrentLocale } from "../util/use-locale";
 
 /** The URL for Data-Driven Onboarding (DDO) on the JustFix Tenant Platform. */
 const DDO_URL =
