@@ -18,7 +18,7 @@ describe("getDDOURL()", () => {
     ).toBe("http://boop/?address=blarg&borough=BRONX");
   });
 
-  it("includes locale path if providedincludes utm tags if provided", () => {
+  it("includes locale path if provided", () => {
     expect(
       getDDOURL({ address: "blarg", borough: "BRONX" }, "http://boop/", "es")
     ).toBe("http://boop/es/?address=blarg&borough=BRONX");
