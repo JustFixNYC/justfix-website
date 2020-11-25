@@ -9,7 +9,7 @@ import classnames from "classnames";
 /** The URL for Data-Driven Onboarding (DDO) on the JustFix Tenant Platform. */
 const DDO_URL =
   (process.env.GATSBY_TENANT_PLATFORM_SITE_ORIGIN ||
-    "https://demo.justfix.nyc") + "/ddo";
+    "https://demo.justfix.nyc") + "/";
 
 /** The querystring variable used to communicate the address for DDO. */
 const DDO_ADDRESS_VAR = "address";
@@ -30,6 +30,9 @@ export type DDOSearchBarProps = {
   /** The URL for DDO. */
   action?: string;
 
+  /** The specified locale for the DDO URL. */
+  locale?: string;
+
   /** Whether to forcibly disable address autocompletion functionality. */
   disableAutocomplete?: boolean;
 
@@ -43,13 +46,17 @@ export type DDOSearchBarProps = {
   customUtmTags?: string;
 };
 
-/** Return the DDO URL for the given address and/or borough. */
+/** Return the DDO URL for the given address and/or borough, and locale (optional). */
 export function getDDOURL(
   item: GeoAutocompleteItem,
   baseURL: string = DDO_URL,
+  locale?: string,
   utmTags?: string
 ): string {
-  let url = `${baseURL}?${DDO_ADDRESS_VAR}=${encodeURIComponent(item.address)}`;
+  const localePath = locale ? locale + "/" : "";
+  let url = `${baseURL}${localePath}?${DDO_ADDRESS_VAR}=${encodeURIComponent(
+    item.address
+  )}`;
 
   if (item.borough) {
     url += `&${DDO_BOROUGH_VAR}=${encodeURIComponent(item.borough)}`;
@@ -98,7 +105,12 @@ export function DDOSearchBar(props: DDOSearchBarProps): JSX.Element {
   const gotoDDO = (item: GeoAutocompleteItem) => {
     setIsNavigating(true);
     window.location.assign(
-      getDDOURL(item, props.action, props.customUtmTags || DDO_URL_UTM_TAGS)
+      getDDOURL(
+        item,
+        props.action,
+        props.locale,
+        props.customUtmTags || DDO_URL_UTM_TAGS
+      )
     );
   };
 

@@ -32,6 +32,7 @@ const DDO = () => (
     <I18n>
       {({ i18n }) => (
         <DDOSearchBar
+          locale={i18n.language}
           hiddenFieldLabel={i18n._(t`Enter your address to learn more.`)}
           submitLabel={i18n._(t`Search address`)}
         />
