@@ -31,6 +31,9 @@ export type DDOSearchBarProps = {
   /** The URL for DDO. */
   action?: string;
 
+  /** The specified locale for the DDO URL. */
+  locale?: string;
+
   /** Whether to forcibly disable address autocompletion functionality. */
   disableAutocomplete?: boolean;
 
@@ -44,7 +47,7 @@ export type DDOSearchBarProps = {
   customUtmTags?: string;
 };
 
-/** Return the DDO URL for the given address and/or borough. */
+/** Return the DDO URL for the given address and/or borough, and locale (optional). */
 export function getDDOURL(
   item: GeoAutocompleteItem,
   baseURL: string = DDO_URL,
@@ -100,14 +103,13 @@ export function DDOSearchBar(props: DDOSearchBarProps): JSX.Element {
   const [isNavigating, setIsNavigating] = useState(false);
   const GeoAutocompleteComponent =
     props.geoAutocompleteComponent || GeoAutocomplete;
-  const locale = useCurrentLocale();
   const gotoDDO = (item: GeoAutocompleteItem) => {
     setIsNavigating(true);
     window.location.assign(
       getDDOURL(
         item,
         props.action,
-        locale,
+        props.locale,
         props.customUtmTags || DDO_URL_UTM_TAGS
       )
     );

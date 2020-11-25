@@ -25,6 +25,7 @@ export const AllToolsCta = (props: ContentfulContent) => (
               <DDOSearchBar
                 hiddenFieldLabel={i18n._(t`Enter your address to learn more.`)}
                 submitLabel={i18n._(t`Search address`)}
+                locale={i18n.language}
                 customUtmTags="utm_source=orgsite&utm_medium=learning_center_cta"
                 withinCTA={true}
               />
