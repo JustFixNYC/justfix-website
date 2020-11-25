@@ -18,14 +18,21 @@ describe("getDDOURL()", () => {
     ).toBe("http://boop/?address=blarg&borough=BRONX");
   });
 
+  it("includes locale path if providedincludes utm tags if provided", () => {
+    expect(
+      getDDOURL({ address: "blarg", borough: "BRONX" }, "http://boop/", "es")
+    ).toBe("http://boop/es/?address=blarg&borough=BRONX");
+  });
+
   it("includes utm tags if provided", () => {
     expect(
       getDDOURL(
         { address: "blarg", borough: "BRONX" },
         "http://boop/",
+        "en",
         "utm_source=boop"
       )
-    ).toBe("http://boop/?address=blarg&borough=BRONX&utm_source=boop");
+    ).toBe("http://boop/en/?address=blarg&borough=BRONX&utm_source=boop");
   });
 });
 
