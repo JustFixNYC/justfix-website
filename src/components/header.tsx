@@ -9,6 +9,16 @@ import localeConfig from "../util/locale-config.json";
 
 const isDemoSite = process.env.GATSBY_DEMO_SITE === "1";
 
+type LocaleChoice = "en" | "es";
+
+/**
+ * Names of languages in the language itself.
+ */
+const LANGUAGE_NAMES: { [k in LocaleChoice]: string } = {
+  en: "English",
+  es: "Español",
+};
+
 const MoratoriumBanner = () => {
   const [isVisible, setVisibility] = useState(true);
   const locale = useCurrentLocale();
@@ -154,7 +164,7 @@ const Header: React.FC<{
                   (burgerMenuIsOpen ? "black" : "white")
                 }
               >
-                {locale.toUpperCase()}
+                {LANGUAGE_NAMES[locale]}
               </a>
 
               <div className="navbar-dropdown is-right">
@@ -162,7 +172,7 @@ const Header: React.FC<{
                   (otherLocale) => otherLocale !== locale
                 ).map((otherLocale) => (
                   <LocaleToggle to={otherLocale} className="navbar-item">
-                    {otherLocale.toUpperCase()}
+                    {LANGUAGE_NAMES[otherLocale]}
                   </LocaleToggle>
                 ))}
               </div>
