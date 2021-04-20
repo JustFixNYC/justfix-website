@@ -22,21 +22,26 @@ export function CollaborationBanner(props: {
             {props.title}
           </h1>
           <p className="subtitle has-text-weight-medium">{props.subtitle}</p>
-          <div className="buttons is-centered">
-            <LocaleLink
-              to="/contact-us"
-              className="button is-medium is-primary is-outlined is-inverted is-uppercase"
-            >
-              <Trans>Contact Us</Trans>
-            </LocaleLink>
-            <a
-              href="https://donorbox.org/donate-to-justfix-nyc"
-              className="button is-medium is-primary is-outlined is-inverted is-uppercase"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Trans>Donate</Trans>
-            </a>
+          <div className="columns">
+            <div className="column">
+              <LocaleLink
+                to="/contact-us"
+                className="button is-medium is-primary is-outlined is-inverted is-uppercase"
+              >
+                <Trans>Contact Us</Trans>
+              </LocaleLink>
+            </div>
+
+            <div className="column">
+              <a
+                href="https://donorbox.org/donate-to-justfix-nyc"
+                className="button is-medium is-primary is-outlined is-inverted is-uppercase"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Trans>Donate</Trans>
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -82,20 +87,22 @@ export const MissionPageScaffolding = (props: ContentfulContent) => (
                 {props.content.impactSubtitle}
               </span>
               <br />
-              <div className="buttons is-centered">
+              <div className="columns is-multiline">
                 {props.content.impactReportButtons.map(
                   (button: any, i: number) => (
-                    <a
-                      href={button.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      key={i}
-                      className="button is-medium is-primary is-inverted is-outlined"
-                    >
-                      <span className="is-size-6-mobile is-uppercase">
-                        {button.title}
-                      </span>
-                    </a>
+                    <div className="column is-half">
+                      <a
+                        href={button.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        key={i}
+                        className="button is-medium is-primary is-inverted is-outlined"
+                      >
+                        <span className="is-size-6-mobile is-uppercase">
+                          {button.title}
+                        </span>
+                      </a>
+                    </div>
                   )
                 )}
               </div>
