@@ -4,11 +4,11 @@
       width: 100%;
       max-width: 720px;
 
-      .buttons.is-centered {
+      .columns {
         margin-top: 1.5rem;
 
         .button {
-          margin: 0.75rem;
+          width: 100%;
         }
       }
     }
