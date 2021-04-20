@@ -7,42 +7,7 @@ import Layout from "../components/layout";
 import ReadMore from "../components/read-more";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { ContentfulContent } from "./index.en";
-import { Trans } from "@lingui/macro";
-import { LocaleLink } from "../components/locale-link";
-
-export function CollaborationBanner(props: {
-  title: string;
-  subtitle: string;
-}): JSX.Element {
-  return (
-    <section className="hero collaborate is-small is-primary is-horizontal-center">
-      <div className="hero-body has-text-centered is-horizontal-center">
-        <div className="container">
-          <h1 className="title is-size-4 has-text-weight-bold is-spaced">
-            {props.title}
-          </h1>
-          <p className="subtitle has-text-weight-medium">{props.subtitle}</p>
-          <div className="buttons is-centered">
-            <LocaleLink
-              to="/contact-us"
-              className="button is-medium is-primary is-outlined is-inverted is-uppercase"
-            >
-              <Trans>Contact Us</Trans>
-            </LocaleLink>
-            <a
-              href="https://donorbox.org/donate-to-justfix-nyc"
-              className="button is-medium is-primary is-outlined is-inverted is-uppercase"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Trans>Donate</Trans>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
+import { CollaborationBanner } from "../components/collaboration-banner";
 
 export const MissionPageScaffolding = (props: ContentfulContent) => (
   <Layout metadata={props.content.metadata}>
@@ -82,20 +47,22 @@ export const MissionPageScaffolding = (props: ContentfulContent) => (
                 {props.content.impactSubtitle}
               </span>
               <br />
-              <div className="buttons is-centered">
+              <div className="columns is-multiline">
                 {props.content.impactReportButtons.map(
                   (button: any, i: number) => (
-                    <a
-                      href={button.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      key={i}
-                      className="button is-medium is-primary is-inverted is-outlined"
-                    >
-                      <span className="is-size-6-mobile is-uppercase">
-                        {button.title}
-                      </span>
-                    </a>
+                    <div className="column is-half">
+                      <a
+                        href={button.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        key={i}
+                        className="button is-medium is-primary is-inverted is-outlined"
+                      >
+                        <span className="is-size-6-mobile is-uppercase">
+                          {button.title}
+                        </span>
+                      </a>
+                    </div>
                   )
                 )}
               </div>
