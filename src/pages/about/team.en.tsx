@@ -67,6 +67,43 @@ export const TeamPageScaffolding = (props: ContentfulContent) => (
         <div className="hero-body has-text-centered is-horizontal-center">
           <div className="container">
             <h1 className="title is-size-2 has-text-grey-dark has-text-weight-normal is-spaced">
+              {props.content.designAdvisorsTitle}
+            </h1>
+          </div>
+        </div>
+      </section>
+
+      <section className="content-wrapper design-advisors">
+        <div className="columns is-multiline">
+          {props.content.designAdvisors.map((advisor: any, i: number) => (
+            <div
+              className="column team-member is-one-third has-text-centered "
+              key={i}
+            >
+              <figure className="image is-128x128 is-horizontal-center">
+                <img
+                  className="is-rounded"
+                  src={advisor.photo.file.url}
+                  alt={advisor.name}
+                />
+              </figure>
+
+              <h4 className="title is-size-5 has-text-grey-dark">
+                {advisor.name}
+              </h4>
+              <h4 className="subtitle is-size-5 has-text-grey-dark">
+                {advisor.title}
+              </h4>
+              <p>{advisor.description.description}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="hero is-small">
+        <div className="hero-body has-text-centered is-horizontal-center">
+          <div className="container">
+            <h1 className="title is-size-2 has-text-grey-dark has-text-weight-normal is-spaced">
               {props.content.directorsTitle}
             </h1>
           </div>
@@ -190,6 +227,19 @@ export const TeamPageFragment = graphql`
         }
         organization
         organizationLink
+        description {
+          description
+        }
+      }
+      designAdvisorsTitle
+      designAdvisors {
+        name
+        title
+        photo {
+          file {
+            url
+          }
+        }
         description {
           description
         }
