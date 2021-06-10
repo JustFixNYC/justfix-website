@@ -220,6 +220,21 @@ exports.createPages = async function ({ actions, graphql }) {
     toPath: "/#products",
     isPermanent: true,
   });
+  createRedirect({
+    fromPath: "/about/partners",
+    toPath: "/partners",
+    isPermanent: true,
+  });
+  createRedirect({
+    fromPath: "/about/press",
+    toPath: "/press",
+    isPermanent: true,
+  });
+  createRedirect({
+    fromPath: "/about/team",
+    toPath: "/team",
+    isPermanent: true,
+  });
 };
 
 /* Add a redirect page for any remaining route that doesn't specify the locale in the url */
