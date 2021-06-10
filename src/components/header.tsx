@@ -107,13 +107,13 @@ const Header: React.FC<{
                 <Link to="/our-mission" className="navbar-item">
                   <Trans>Mission</Trans>
                 </Link>
-                <Link to="/about/team" className="navbar-item">
+                <Link to="/team" className="navbar-item">
                   <Trans>Team</Trans>
                 </Link>
-                <Link to="/about/partners" className="navbar-item">
+                <Link to="/partners" className="navbar-item">
                   <Trans>Partners</Trans>
                 </Link>
-                <Link to="/about/press" className="navbar-item">
+                <Link to="/press" className="navbar-item">
                   <Trans>Press</Trans>
                 </Link>
                 <a

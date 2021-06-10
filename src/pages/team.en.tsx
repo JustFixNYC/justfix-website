@@ -4,7 +4,7 @@ import { SocialIcon } from "react-social-icons";
 import ReadMoreReact from "read-more-react";
 // import { Link } from 'gatsby'
 
-import "../../styles/team.scss";
+import "../styles/team.scss";
 
 import Layout from "../components/layout";
 import ReadMore from "../components/read-more";

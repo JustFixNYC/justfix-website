@@ -46,7 +46,7 @@ const Footer = withI18n()(({ i18n }: withI18nProps) => {
           </Link>
           <Link
             className="link has-text-weight-semibold is-uppercase"
-            to="/about/press"
+            to="/press"
           >
             <p>
               <Trans>Press</Trans>
@@ -60,7 +60,7 @@ const Footer = withI18n()(({ i18n }: withI18nProps) => {
           </p>
           <Link
             className="link has-text-weight-semibold is-uppercase"
-            to="/about/team"
+            to="/team"
           >
             <p>
               <Trans>Team</Trans>
@@ -68,7 +68,7 @@ const Footer = withI18n()(({ i18n }: withI18nProps) => {
           </Link>
           <Link
             className="link has-text-weight-semibold is-uppercase"
-            to="/about/partners"
+            to="/partners"
           >
             <p>
               <Trans>Partners</Trans>
