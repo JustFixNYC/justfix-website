@@ -5,9 +5,9 @@ import { StaticQuery, graphql } from "gatsby";
 
 import "../../styles/press.scss";
 
-import Layout from "../../components/layout";
-import ReadMore from "../../components/read-more";
-import { ContentfulContent } from "../index.en";
+import Layout from "../components/layout";
+import ReadMore from "../components/read-more";
+import { ContentfulContent } from "./index.en";
 
 export const PressPageScaffolding = (props: ContentfulContent) => (
   <Layout metadata={props.content.metadata}>
