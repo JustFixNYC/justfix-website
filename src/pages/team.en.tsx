@@ -4,11 +4,11 @@ import { SocialIcon } from "react-social-icons";
 import ReadMoreReact from "read-more-react";
 // import { Link } from 'gatsby'
 
-import "../../styles/team.scss";
+import "../styles/team.scss";
 
-import Layout from "../../components/layout";
-import ReadMore from "../../components/read-more";
-import { ContentfulContent } from "../index.en";
+import Layout from "../components/layout";
+import ReadMore from "../components/read-more";
+import { ContentfulContent } from "./index.en";
 
 export const TeamPageScaffolding = (props: ContentfulContent) => (
   <Layout metadata={props.content.metadata}>

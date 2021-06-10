@@ -220,6 +220,16 @@ exports.createPages = async function ({ actions, graphql }) {
     toPath: "/#products",
     isPermanent: true,
   });
+  // Create redirects for all pages that used to be in the old `/about` directory:
+  ["partners", "press", "team"].map((path) =>
+    localeConfig.ACCEPTED_LOCALES.map((locale) =>
+      createRedirect({
+        fromPath: `/${locale}/about/${path}`,
+        toPath: `/${locale}/${path}`,
+        isPermanent: true,
+      })
+    )
+  );
 };
 
 /* Add a redirect page for any remaining route that doesn't specify the locale in the url */
