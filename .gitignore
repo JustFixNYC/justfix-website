@@ -11,6 +11,8 @@ package-lock.json
 /src/locales/_build
 /src/locales/**/*.js
 
+/src/common-strings.json
+
 .env
 
 # Other
