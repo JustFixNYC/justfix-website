@@ -1,7 +1,7 @@
-version: '2'
+version: "2"
 services:
-  app: 
-    image: node:10
+  app:
+    image: node:12
     volumes:
       - .:/website:delegated
       - node-modules:/website/node_modules/
