@@ -3,9 +3,15 @@ import { Trans } from "@lingui/macro";
 
 import "../styles/header.scss";
 import { LocaleLink as Link, LocaleToggle } from "../components/locale-link";
-import { CovidMoratoriumBanner } from "@justfixnyc/react-common";
 import { useCurrentLocale } from "../util/use-locale";
 import localeConfig from "../util/locale-config.json";
+import { ContentfulCommonStrings } from "@justfixnyc/contentful-common-strings";
+import _commonStrings from "../common-strings.json";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import { INLINES } from "@contentful/rich-text-types";
+import { OutboundLink } from "gatsby-plugin-google-analytics";
+
+const commonStrings = new ContentfulCommonStrings(_commonStrings as any);
 
 const isDemoSite = process.env.GATSBY_DEMO_SITE === "1";
 
@@ -19,9 +25,12 @@ const LANGUAGE_NAMES: { [k in LocaleChoice]: string } = {
   es: "Español",
 };
 
-const MoratoriumBanner = () => {
+const MoratoriumBanner: React.FC<{}> = () => {
   const [isVisible, setVisibility] = useState(true);
   const locale = useCurrentLocale();
+
+  const content = commonStrings.get("covidMoratoriumBanner", locale);
+  if (!content) return null;
 
   return (
     <section
@@ -34,7 +43,13 @@ const MoratoriumBanner = () => {
             onClick={() => setVisibility(false)}
           />
           <p>
-            <CovidMoratoriumBanner locale={locale} />
+            {documentToReactComponents(content, {
+              renderNode: {
+                [INLINES.HYPERLINK]: (node, children) => (
+                  <OutboundLink href={node.data.uri}>{children}</OutboundLink>
+                ),
+              },
+            })}
           </p>
         </div>
       </div>

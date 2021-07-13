@@ -6,10 +6,10 @@
   "dependencies": {
     "@babel/core": "^7.6.4",
     "@contentful/rich-text-plain-text-renderer": "^13.4.0",
-    "@contentful/rich-text-react-renderer": "^13.4.0",
+    "@contentful/rich-text-react-renderer": "^15.0.0",
     "@contentful/rich-text-types": "^14.1.0",
+    "@justfixnyc/contentful-common-strings": "^0.1.0",
     "@justfixnyc/geosearch-requester": "^0.0.6",
-    "@justfixnyc/react-common": "^0.0.12",
     "@lingui/react": "^2.8.3",
     "@reach/router": "1.3.4",
     "@types/classnames": "^2.2.9",
@@ -75,8 +75,9 @@
   "scripts": {
     "postinstall": "lingui compile",
     "lingui": "lingui",
-    "build": "gatsby build",
-    "develop": "gatsby develop",
+    "build": "yarn contentful-common-strings && gatsby build",
+    "develop": "yarn contentful-common-strings --dev && gatsby develop",
+    "contentful-common-strings": "contentful-common-strings fetch -o src/common-strings.json",
     "format": "prettier --write '**/*.tsx'",
     "prettier": "prettier",
     "prettier:check": "prettier \"**/*.{ts,tsx,js,scss}\" --check",
@@ -103,6 +104,9 @@
     "jest": "^24.9.0",
     "tslint-config-prettier": "^1.15.0",
     "tslint-react": "^3.6.0"
+  },
+  "engines": {
+    "node": ">=12.0.0"
   },
   "repository": {
     "type": "git",
