@@ -41,6 +41,17 @@ const DDO = () => (
   </>
 );
 
+const ResponsiveSectionDivider = () => (
+  <>
+    <section className="columns is-centered is-hidden-mobile">
+      <div className="column is-four-fifths">
+        <div className="is-divider" />
+      </div>
+    </section>
+    <div className="is-divider is-hidden-tablet" />
+  </>
+);
+
 export const LandingPageScaffolding = (props: ContentfulContent) => (
   <Layout isLandingPage={true}>
     <div id="home" className="home-page">
@@ -207,11 +218,7 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
         </div>
       </section>
 
-      <section className="columns is-centered">
-        <div className="column is-four-fifths">
-          <div className="is-divider" />
-        </div>
-      </section>
+      <ResponsiveSectionDivider />
 
       <section id="as-seen-in">
         <div className="content-wrapper">
