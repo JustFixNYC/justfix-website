@@ -147,20 +147,21 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
                         )}
                       </p>
                       <br />
-                      {linkIsSms(product.button.link) ? (
-                        <p className="subtitle is-uppercase has-text-weight-bold">
-                          {product.button.title}
-                        </p>
-                      ) : (
-                        <a
-                          className="button is-large is-primary is-uppercase"
-                          href={product.button.link + PRODUCT_CTA_UTM_CODE}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          {product.button.title}
-                        </a>
-                      )}
+                      {product.button !== null &&
+                        (linkIsSms(product.button.link) ? (
+                          <p className="subtitle is-uppercase has-text-weight-bold">
+                            {product.button.title}
+                          </p>
+                        ) : (
+                          <a
+                            className="button is-large is-primary is-uppercase"
+                            href={product.button.link + PRODUCT_CTA_UTM_CODE}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            {product.button.title}
+                          </a>
+                        ))}
                     </div>
                   </div>
                   {i % 2 === 0 && (
@@ -194,21 +195,23 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
                         )}
                       </p>
                       <br />
-                      <a
-                        className="button is-medium is-primary"
-                        href={
-                          product.button.link +
-                          (linkIsSms(product.button.link)
-                            ? ""
-                            : PRODUCT_CTA_UTM_CODE)
-                        }
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <span className="is-size-6 is-uppercase">
-                          {product.button.title}
-                        </span>
-                      </a>
+                      {product.button !== null && (
+                        <a
+                          className="button is-medium is-primary"
+                          href={
+                            product.button.link +
+                            (linkIsSms(product.button.link)
+                              ? ""
+                              : PRODUCT_CTA_UTM_CODE)
+                          }
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <span className="is-size-6 is-uppercase">
+                            {product.button.title}
+                          </span>
+                        </a>
+                      )}
                     </div>
                   </div>
                 </div>
