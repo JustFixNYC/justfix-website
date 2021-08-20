@@ -147,7 +147,7 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
                         )}
                       </p>
                       <br />
-                      {product.button != null &&
+                      {product.button !== null &&
                         (linkIsSms(product.button.link) ? (
                           <p className="subtitle is-uppercase has-text-weight-bold">
                             {product.button.title}
