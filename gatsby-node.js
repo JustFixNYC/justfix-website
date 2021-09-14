@@ -200,11 +200,39 @@ const generateLearningPages = async function ({ actions, graphql }, locale) {
 
 const deprecatedLearningCenterArticles = [
   {
-    slug: "how-to-break-a-leasey",
+    slug: "how-to-break-a-lease",
     redirectCategory: "laws",
   },
   {
     slug: "public-eviction-records",
+    redirectCategory: "eviction",
+  },
+  {
+    slug: "housing-discrimination-examples",
+    redirectCategory: "discrimination",
+  },
+  {
+    slug: "fair-housing-act",
+    redirectCategory: "laws",
+  },
+  {
+    slug: "eviction-notice-what-to-do",
+    redirectCategory: "eviction",
+  },
+  {
+    slug: "ny-eviction-moratorium-faq",
+    redirectCategory: "eviction",
+  },
+  {
+    slug: "nyc-housing-during-coronavirus",
+    redirectCategory: "laws",
+  },
+  {
+    slug: "homeless-during-coronavirus-nyc",
+    redirectCategory: "discrimination",
+  },
+  {
+    slug: "rent-freeze-faq",
     redirectCategory: "eviction",
   },
 ];
