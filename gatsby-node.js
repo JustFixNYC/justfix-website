@@ -200,8 +200,12 @@ const generateLearningPages = async function ({ actions, graphql }, locale) {
 
 const deprecatedLearningCenterArticles = [
   {
-    slug: "how-to-break-a-lease",
+    slug: "how-to-break-a-leasey",
     redirectCategory: "laws",
+  },
+  {
+    slug: "public-eviction-records",
+    redirectCategory: "eviction",
   },
 ];
 
@@ -239,13 +243,16 @@ exports.createPages = async function ({ actions, graphql }) {
   );
   // Create redirects for old Learning Center articles that have been removed:
   deprecatedLearningCenterArticles.map(({ slug, redirectCategory }) =>
-    localeConfig.ACCEPTED_LOCALES.map((locale) =>
+    localeConfig.ACCEPTED_LOCALES.map((locale) => {
+      console.log(
+        `from /${locale}/learn/${slug} to /${locale}/learn/category/${redirectCategory}`
+      );
       createRedirect({
         fromPath: `/${locale}/learn/${slug}`,
         toPath: `/${locale}/learn/category/${redirectCategory}`,
         isPermanent: true,
-      })
-    )
+      });
+    })
   );
 };
 
