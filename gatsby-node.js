@@ -198,6 +198,45 @@ const generateLearningPages = async function ({ actions, graphql }, locale) {
   });
 };
 
+const deprecatedLearningCenterArticles = [
+  {
+    slug: "how-to-break-a-lease",
+    redirectCategory: "laws",
+  },
+  {
+    slug: "public-eviction-records",
+    redirectCategory: "eviction",
+  },
+  {
+    slug: "housing-discrimination-examples",
+    redirectCategory: "discrimination",
+  },
+  {
+    slug: "fair-housing-act",
+    redirectCategory: "laws",
+  },
+  {
+    slug: "eviction-notice-what-to-do",
+    redirectCategory: "eviction",
+  },
+  {
+    slug: "ny-eviction-moratorium-faq",
+    redirectCategory: "eviction",
+  },
+  {
+    slug: "nyc-housing-during-coronavirus",
+    redirectCategory: "laws",
+  },
+  {
+    slug: "homeless-during-coronavirus-nyc",
+    redirectCategory: "discrimination",
+  },
+  {
+    slug: "rent-freeze-faq",
+    redirectCategory: "eviction",
+  },
+];
+
 exports.createPages = async function ({ actions, graphql }) {
   generateLearningPages({ actions, graphql }, "en"); // English pages
   generateLearningPages({ actions, graphql }, "es"); // Spanish pages
@@ -226,6 +265,16 @@ exports.createPages = async function ({ actions, graphql }) {
       createRedirect({
         fromPath: `/${locale}/about/${path}`,
         toPath: `/${locale}/${path}`,
+        isPermanent: true,
+      })
+    )
+  );
+  // Create redirects for old Learning Center articles that have been removed:
+  deprecatedLearningCenterArticles.map(({ slug, redirectCategory }) =>
+    localeConfig.ACCEPTED_LOCALES.map((locale) =>
+      createRedirect({
+        fromPath: `/${locale}/learn/${slug}`,
+        toPath: `/${locale}/learn/category/${redirectCategory}`,
         isPermanent: true,
       })
     )
