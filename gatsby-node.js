@@ -271,16 +271,13 @@ exports.createPages = async function ({ actions, graphql }) {
   );
   // Create redirects for old Learning Center articles that have been removed:
   deprecatedLearningCenterArticles.map(({ slug, redirectCategory }) =>
-    localeConfig.ACCEPTED_LOCALES.map((locale) => {
-      console.log(
-        `from /${locale}/learn/${slug} to /${locale}/learn/category/${redirectCategory}`
-      );
+    localeConfig.ACCEPTED_LOCALES.map((locale) =>
       createRedirect({
         fromPath: `/${locale}/learn/${slug}`,
         toPath: `/${locale}/learn/category/${redirectCategory}`,
         isPermanent: true,
-      });
-    })
+      })
+    )
   );
 };
 
