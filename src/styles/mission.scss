@@ -16,6 +16,13 @@
         border-radius: 10px;
       }
 
+      // Override default blockquote styling:
+      blockquote {
+        background-color: unset;
+        border-left: none;
+        padding-top: 0px;
+      }
+
       .columns {
         margin-top: 1.5rem;
 
