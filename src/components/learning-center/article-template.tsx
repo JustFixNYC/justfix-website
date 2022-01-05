@@ -9,6 +9,7 @@ import { AllToolsCta } from "./all-tools-cta";
 import { Trans } from "@lingui/macro";
 import { LocaleLink } from "../locale-link";
 import { useCurrentLocale } from "../../util/use-locale";
+import Img from "gatsby-image/withIEPolyfill";
 
 const widont = require("widont");
 
@@ -173,6 +174,14 @@ const LearningArticle = (props: Props) => {
                   <h1 className="title is-size-2 is-size-3-mobile has-text-grey-dark has-text-weight-semibold is-spaced">
                     {widont(content.title)}
                   </h1>
+                  {content.coverPhoto && (
+                    <div className="container">
+                      <figure className="image is-horizontal-center">
+                        <Img fluid={content.coverPhoto.fluid} alt="" />
+                      </figure>
+                      <br />
+                    </div>
+                  )}
                   <p className="subtitle is-size-6 has-text-grey-dark">
                     <span className="is-size-6">
                       <Trans>Written by</Trans> {content.author}

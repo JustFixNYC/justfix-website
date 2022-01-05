@@ -78,6 +78,15 @@ const generateLearningPages = async function ({ actions, graphql }, locale) {
         slug
         englishOnly
         title
+        coverPhoto {
+          fluid {
+            base64
+            aspectRatio
+            src
+            srcSet
+            sizes
+          }
+        }
         subtitle {
           json
         }
