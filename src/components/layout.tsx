@@ -31,6 +31,9 @@ const catalogs: LocaleCatalogs = {
   es: catalogEs,
 };
 
+export const formatImageUrlForSEO = (url: string) =>
+  url.startsWith("//") ? encodeURI(`https:${url}`) : encodeURI(url);
+
 // import './layout.css'
 
 type Props = {
@@ -51,7 +54,7 @@ const LayoutScaffolding = ({
   isLandingPage,
   defaultContent,
 }: Props) => {
-  var title, description, keywords, shareImageURL;
+  var title, description, keywords, imageUrl, shareImageURL;
   if (defaultContent && defaultContent.metadata) {
     title =
       (metadata && metadata.title + SITE_TITLE_SUFFIX) ||
@@ -61,12 +64,13 @@ const LayoutScaffolding = ({
     keywords =
       (metadata && metadata.keywords && metadata.keywords.keywords) ||
       defaultContent.metadata.keywords.keywords;
-    shareImageURL =
+    imageUrl =
       (metadata &&
         metadata.shareImage &&
         metadata.shareImage.file &&
         metadata.shareImage.file.url) ||
       defaultContent.metadata.shareImage.file.url;
+    shareImageURL = formatImageUrlForSEO(imageUrl);
   }
 
   const locale = useCurrentLocale() || localeConfig.DEFAULT_LOCALE;
@@ -101,7 +105,7 @@ const LayoutScaffolding = ({
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:url" content={SITE_MAIN_URL} />
-        <meta property="og:image" content={encodeURI(shareImageURL)} />
+        <meta property="og:image" content={shareImageURL} />
         <meta property="og:type" content="website" />
 
         <meta name="twitter:card" content="summary_large_image" />
@@ -110,7 +114,7 @@ const LayoutScaffolding = ({
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
         <meta name="twitter:url" content={SITE_MAIN_URL} />
-        <meta name="twitter:image" content={encodeURI(shareImageURL)} />
+        <meta name="twitter:image" content={shareImageURL} />
         <meta name="twitter:image:alt" content={title} />
       </Helmet>
       <Header isLandingPage={isLandingPage} />
