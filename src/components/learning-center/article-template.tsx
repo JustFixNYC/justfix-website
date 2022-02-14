@@ -10,6 +10,8 @@ import { Trans } from "@lingui/macro";
 import { LocaleLink } from "../locale-link";
 import { useCurrentLocale } from "../../util/use-locale";
 import Img from "gatsby-image/withIEPolyfill";
+import { EmbeddedAsset } from "../embedded-asset-node";
+import { BLOCKS } from "@contentful/rich-text-types";
 
 const widont = require("widont");
 
@@ -31,6 +33,7 @@ function makeSectionID(index: number): string {
 }
 
 function renderSection(articleSection: any, i: number): JSX.Element {
+  const locale = useCurrentLocale();
   return (
     <div key={i} id={makeSectionID(i)} className="article-section">
       {articleSection.__typename === "ContentfulLearningArticleCtaBlock" ? (
@@ -82,7 +85,15 @@ function renderSection(articleSection: any, i: number): JSX.Element {
             {widont(articleSection.title)}
           </h1>
           <span className="has-text-grey-dark">
-            {documentToReactComponents(articleSection.content.json)}
+            {documentToReactComponents(articleSection.content.json, {
+              renderNode: {
+                [BLOCKS.EMBEDDED_ASSET]: (eaNode) => (
+                  <p className="mt-5">
+                    <EmbeddedAsset node={eaNode} locale={locale} />
+                  </p>
+                ),
+              },
+            })}
           </span>
         </div>
       )}
