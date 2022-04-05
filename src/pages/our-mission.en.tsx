@@ -25,16 +25,6 @@ export const MissionPageScaffolding = (props: ContentfulContent) => (
         </div>
       </section>
 
-      <section className="content-wrapper video tight">
-        <figure className="image is-16by9">
-          <iframe
-            className="has-ratio"
-            allowFullScreen={true}
-            src={props.content.videoUrl}
-          />
-        </figure>
-      </section>
-
       <section className="hero problem is-medium">
         <div className="hero-body is-horizontal-center">
           <div className="content has-text-grey-dark">
