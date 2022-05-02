@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import algoliasearch from "algoliasearch/lite";
 import {
   InstantSearch,
@@ -20,30 +20,45 @@ const enableAnalytics = process.env.GATSBY_ENABLE_ALGOLIA_ANALYTICS;
 
 const SEARCH_RESULTS_LIMIT = 5;
 
-const SearchBox = ({ currentRefinement, refine, updateSearchQuery }: any) => (
-  <I18n>
-    {({ i18n }) => (
-      <form
-        className="control"
-        noValidate
-        action=""
-        role="search"
-        onSubmit={(e) => e.preventDefault()}
-      >
-        <input
-          className="input is-primary is-size-5"
-          type="search"
-          placeholder={i18n._(t`Search articles...`)}
-          value={currentRefinement}
-          onChange={(event) => {
-            refine(event.currentTarget.value);
-            updateSearchQuery(event.currentTarget.value);
-          }}
-        />
-      </form>
-    )}
-  </I18n>
-);
+const SearchBox = ({ currentRefinement, refine }: any) => {
+  return (
+    <>
+      <I18n>
+        {({ i18n }) => (
+          <form
+            className="control"
+            noValidate
+            action=""
+            role="search"
+            onSubmit={(e) => e.preventDefault()}
+          >
+            <input
+              className="input is-primary is-size-5"
+              type="search"
+              placeholder={i18n._(t`Search articles...`)}
+              value={currentRefinement}
+              onChange={(event) => {
+                refine(event.currentTarget.value);
+              }}
+            />
+          </form>
+        )}
+      </I18n>
+      {!!currentRefinement && (
+        <>
+          <CustomHits />
+          <div className="search-by is-pulled-right">
+            <img
+              width="100"
+              height="20"
+              src={require("../../img/brand/algolia.svg")}
+            />
+          </div>
+        </>
+      )}
+    </>
+  );
+};
 
 type SearchHitsProps = {
   hits?: {
@@ -97,7 +112,6 @@ const CustomSearchBox = connectSearchBox(SearchBox) as React.ComponentClass<
 const CustomHits = connectHits(SearchHits) as React.ComponentClass<Hits & any>;
 
 const LearningSearchBar = () => {
-  const [query, setQuery] = useState("");
   const locale = useCurrentLocale();
 
   return appId && searchKey ? (
@@ -109,28 +123,12 @@ const LearningSearchBar = () => {
         }
         resultsState={[]}
       >
-        <CustomSearchBox updateSearchQuery={(e: any) => setQuery(e)} />
-
-        {(query || "").length > 0 && (
-          <React.Fragment>
-            <Configure
-              attributesToSnippet={["articleContent"]}
-              analytics={enableAnalytics === "1" || false}
-            />
-            <CustomHits />
-          </React.Fragment>
-        )}
+        <Configure
+          attributesToSnippet={["articleContent"]}
+          analytics={enableAnalytics === "1" || false}
+        />
+        <CustomSearchBox />
       </InstantSearch>
-
-      {query && (
-        <div className="search-by is-pulled-right">
-          <img
-            width="100"
-            height="20"
-            src={require("../../img/brand/algolia.svg")}
-          />
-        </div>
-      )}
     </div>
   ) : (
     <React.Fragment />
