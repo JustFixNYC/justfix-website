@@ -106,19 +106,6 @@ const plugins = [
     resolve: `gatsby-plugin-emotion`,
   },
   `gatsby-plugin-client-side-redirect`,
-  {
-    resolve: `gatsby-plugin-webfonts`,
-    options: {
-      fonts: {
-        google: [
-          {
-            family: "Open Sans",
-            variants: [`400`, `400i`, `600`, `700`],
-          },
-        ],
-      },
-    },
-  },
 ];
 
 module.exports = {
