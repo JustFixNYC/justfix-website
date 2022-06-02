@@ -21,3 +21,15 @@
   to = "https://www.justfix.nyc"
   status = 301
   force = true
+
+[[redirects]]
+  from = "https://justfix.org/*"
+  to = "https://www.justfix.nyc/:splat"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "https://www.justfix.org/*"
+  to = "https://www.justfix.nyc/:splat"
+  status = 302
+  force = true
