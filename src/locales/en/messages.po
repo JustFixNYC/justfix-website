@@ -14,15 +14,15 @@ msgstr ""
 "Plural-Forms: \n"
 
 #: src/components/footer.tsx:92
-msgid "<0>Disclaimer:</0> The information in JustFix.nyc does not constitute legal advice and must not be used as a substitute for the advice of a lawyer qualified to give advice on legal issues pertaining to housing. We can help direct you to free legal services if necessary."
-msgstr "<0>Disclaimer:</0> The information in JustFix.nyc does not constitute legal advice and must not be used as a substitute for the advice of a lawyer qualified to give advice on legal issues pertaining to housing. We can help direct you to free legal services if necessary."
+msgid "<0>Disclaimer:</0> The information in JustFix does not constitute legal advice and must not be used as a substitute for the advice of a lawyer qualified to give advice on legal issues pertaining to housing. We can help direct you to free legal services if necessary."
+msgstr ""
 
 #: src/components/footer.tsx:101
-msgid "<0>JustFix.nyc</0> is a registered 501(c)(3) nonprofit organization."
-msgstr "<0>JustFix.nyc</0> is a registered 501(c)(3) nonprofit organization."
+msgid "<0>JustFix</0> is a registered 501(c)(3) nonprofit organization."
+msgstr ""
 
 #: src/components/footer.tsx:44
-#: src/components/header.tsx:50
+#: src/components/header.tsx:69
 msgid "About us"
 msgstr "About us"
 
@@ -34,22 +34,22 @@ msgstr "All set! Thanks for subscribing!"
 msgid "Back to Overview"
 msgstr "Back to Overview"
 
-#: src/components/learning-center/article-template.tsx:50
+#: src/components/learning-center/article-template.tsx:61
 msgid "Back to top"
 msgstr "Back to top"
 
+#: src/components/collaboration-banner.tsx:16
 #: src/components/footer.tsx:63
-#: src/components/header.tsx:84
-#: src/pages/our-mission.en.tsx:19
+#: src/components/header.tsx:103
 msgid "Contact Us"
 msgstr "Contact Us"
 
-#: src/components/header.tsx:35
+#: src/components/header.tsx:54
 msgid "DEMO SITE"
 msgstr "DEMO SITE"
 
+#: src/components/collaboration-banner.tsx:22
 #: src/components/footer.tsx:68
-#: src/pages/our-mission.en.tsx:22
 msgid "Donate"
 msgstr "Donate"
 
@@ -58,13 +58,13 @@ msgid "Email Address"
 msgstr "Email Address"
 
 #: src/components/learning-center/all-tools-cta.tsx:18
-#: src/pages/index.en.tsx:19
-#: src/pages/index.en.tsx:23
+#: src/pages/index.en.tsx:20
+#: src/pages/index.en.tsx:24
 msgid "Enter your address to learn more."
 msgstr "Enter your address to learn more."
 
 #: src/components/footer.tsx:58
-#: src/components/header.tsx:67
+#: src/components/header.tsx:86
 msgid "Jobs"
 msgstr "Jobs"
 
@@ -73,16 +73,16 @@ msgid "Join our mailing list!"
 msgstr "Join our mailing list!"
 
 #: src/components/footer.tsx:27
-#: src/components/header.tsx:79
+#: src/components/header.tsx:98
 msgid "Learn"
 msgstr "Learn"
 
 #: src/components/footer.tsx:32
-#: src/components/header.tsx:55
+#: src/components/header.tsx:74
 msgid "Mission"
 msgstr "Mission"
 
-#: src/components/learning-center/learning-searchbar.tsx:33
+#: src/components/learning-center/learning-searchbar.tsx:46
 msgid "No articles match your search."
 msgstr "No articles match your search."
 
@@ -100,7 +100,7 @@ msgid "Oops! That email is invalid."
 msgstr "Oops! That email is invalid."
 
 #: src/components/footer.tsx:53
-#: src/components/header.tsx:61
+#: src/components/header.tsx:80
 msgid "Partners"
 msgstr "Partners"
 
@@ -109,55 +109,50 @@ msgid "Please enter an email address!"
 msgstr "Please enter an email address!"
 
 #: src/components/footer.tsx:37
-#: src/components/header.tsx:64
+#: src/components/header.tsx:83
 msgid "Press"
 msgstr "Press"
 
-#: src/components/footer.tsx:107
+#: src/components/footer.tsx:106
 msgid "Privacy policy"
 msgstr "Privacy policy"
 
 #: src/components/footer.tsx:22
-#: src/components/header.tsx:74
+#: src/components/header.tsx:93
 msgid "Products"
 msgstr "Products"
 
-#: src/pages/learn.en.tsx:33
+#: src/pages/learn.en.tsx:56
 msgid "Read More"
 msgstr "Read More"
 
 #: src/components/learning-center/all-tools-cta.tsx:18
-#: src/pages/index.en.tsx:23
+#: src/pages/index.en.tsx:24
 msgid "Search address"
 msgstr "Search address"
 
-#: src/components/learning-center/learning-searchbar.tsx:14
+#: src/components/learning-center/learning-searchbar.tsx:16
 msgid "Search articles..."
 msgstr "Search articles..."
 
-#: src/components/learning-center/article-template.tsx:58
+#: src/components/learning-center/article-template.tsx:70
 msgid "Sections"
 msgstr "Sections"
-
-#: src/components/header.tsx:90
-#: src/components/header.tsx:96
-msgid "Sign in"
-msgstr "Sign in"
 
 #: src/components/subscribe.tsx:76
 msgid "Sign up"
 msgstr "Sign up"
 
 #: src/components/footer.tsx:48
-#: src/components/header.tsx:58
+#: src/components/header.tsx:77
 msgid "Team"
 msgstr "Team"
 
-#: src/components/footer.tsx:110
+#: src/components/footer.tsx:109
 msgid "Terms of use"
 msgstr "Terms of use"
 
-#: src/components/learning-center/article-template.tsx:99
+#: src/components/learning-center/article-template.tsx:118
 msgid "Updated"
 msgstr "Updated"
 
@@ -165,7 +160,7 @@ msgstr "Updated"
 msgid "Want to know more?"
 msgstr "Want to know more?"
 
-#: src/components/learning-center/article-template.tsx:20
+#: src/components/learning-center/article-template.tsx:25
 msgid "Want to take action?"
 msgstr "Want to take action?"
 
@@ -173,7 +168,7 @@ msgstr "Want to take action?"
 msgid "What we do"
 msgstr "What we do"
 
-#: src/components/learning-center/article-template.tsx:95
+#: src/components/learning-center/article-template.tsx:114
 msgid "Written by"
 msgstr "Written by"
 

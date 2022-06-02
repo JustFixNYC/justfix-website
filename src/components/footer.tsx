@@ -13,7 +13,7 @@ const Footer = withI18n()(({ i18n }: withI18nProps) => {
       <div className="columns has-text-centered-touch is-desktop">
         <div className="column">
           <Link to="/" className="button is-info">
-            <img src={require("../img/brand/logo.png")} alt="JustFix.nyc" />
+            <img src={require("../img/brand/logo.png")} alt="JustFix" />
           </Link>
         </div>
         <div className="column">
@@ -148,17 +148,16 @@ const Footer = withI18n()(({ i18n }: withI18nProps) => {
         <div className="column is-three-quarters">
           <p className="subtitle is-size-6 has-text-white">
             <Trans>
-              <b>Disclaimer:</b> The information in JustFix.nyc does not
-              constitute legal advice and must not be used as a substitute for
-              the advice of a lawyer qualified to give advice on legal issues
-              pertaining to housing. We can help direct you to free legal
-              services if necessary.
+              <b>Disclaimer:</b> The information in JustFix does not constitute
+              legal advice and must not be used as a substitute for the advice
+              of a lawyer qualified to give advice on legal issues pertaining to
+              housing. We can help direct you to free legal services if
+              necessary.
             </Trans>
           </p>
           <p className="subtitle is-size-6 has-text-white">
             <Trans>
-              <b>JustFix.nyc</b> is a registered 501(c)(3) nonprofit
-              organization.
+              <b>JustFix</b> is a registered 501(c)(3) nonprofit organization.
             </Trans>
           </p>
           <Link

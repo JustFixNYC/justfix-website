@@ -14,9 +14,9 @@ const favicon16 = require("../img/brand/favicon-16x16.png");
 const favicon32 = require("../img/brand/favicon-32x32.png");
 const favicon96 = require("../img/brand/favicon-96x96.png");
 
-const SITE_TITLE_SUFFIX = " | JustFix.nyc";
+const SITE_TITLE_SUFFIX = " | JustFix";
 const TWITTER_HANDLE = "@JustFixNYC";
-const SITE_MAIN_URL = "https://www.justfix.nyc";
+const SITE_MAIN_URL = "https://www.justfix.org";
 const FB_APP_ID = "247990609143668";
 
 // All our supported locales.
@@ -98,7 +98,7 @@ const LayoutScaffolding = ({
         <title>{title}</title>
         <meta name="description" content={description} />
         <meta name="keywords" content={keywords} />
-        <meta name="author" content="JustFix.nyc" />
+        <meta name="author" content="JustFix" />
 
         <meta property="fb:app_id" content={FB_APP_ID} />
         <meta property="og:site_name" content={title} />

@@ -77,7 +77,7 @@ const Header: React.FC<{
               src={require("../img/brand/logo.png")}
               width="112"
               height="28"
-              alt="JustFix.nyc"
+              alt="JustFix"
             />
           </Link>
           {isDemoSite && (

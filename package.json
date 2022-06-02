@@ -1,8 +1,8 @@
 {
   "name": "justfix-nyc",
-  "description": "JustFix.nyc Website",
+  "description": "JustFix Website",
   "version": "0.3.0",
-  "author": "JustFix.nyc <hello@justfix.nyc>",
+  "author": "JustFix <hello@justfix.nyc>",
   "dependencies": {
     "@babel/core": "^7.6.4",
     "@contentful/rich-text-plain-text-renderer": "^13.4.0",
