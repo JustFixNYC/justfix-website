@@ -1,7 +1,5 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
-import AnchorLink from "react-anchor-link-smooth-scroll";
-import TextLoop from "react-text-loop";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import BackgroundImage from "gatsby-background-image";
 import Img from "gatsby-image/withIEPolyfill";
@@ -14,7 +12,6 @@ import Layout from "../components/layout";
 import { DDOSearchBar } from "../components/ddo-searchbar";
 import { t, Trans } from "@lingui/macro";
 import { I18n } from "@lingui/react";
-const TEXTLOOP_ANIMATION_INTERVAL = 2750;
 const PRODUCT_CTA_UTM_CODE = "?utm_source=orgsite&utm_medium=productcta";
 
 export type ContentfulContent = {
@@ -63,49 +60,10 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
         <div className="hero-body">
           <div className="container content-wrapper tight">
             <h1 className="title is-size-1 is-size-3-mobile has-text-white is-spaced">
-              <span className="is-hidden-mobile">
-                {props.content.landingLeadInText}
-                <div className="title-carousel">
-                  <TextLoop
-                    interval={TEXTLOOP_ANIMATION_INTERVAL}
-                    springConfig={{ stiffness: 70, damping: 31 }}
-                  >
-                    {props.content.landingTextLoopText.map(
-                      (textBlock: string, i: number) => (
-                        <span key={i}>{textBlock}</span>
-                      )
-                    )}
-                  </TextLoop>
-                </div>
-              </span>
-              <span className="is-hidden-tablet">
-                {props.content.landingFallbackText}
-              </span>
+              {props.content.landingLeadInText}
             </h1>
 
             <DDO />
-          </div>
-        </div>
-        <div className="landing-footer">
-          <div className="columns is-vcentered">
-            <div className="column is-size-6 has-text-white has-text-weight-semibold">
-              {props.content.landingFooterText}
-            </div>
-            <div className="column more-arrow">
-              <AnchorLink
-                href="#products"
-                className="has-text-white has-text-weight-light"
-              >
-                <figure className="image is-32x32 is-horizontal-center">
-                  <img
-                    className="img-centered"
-                    src={require("../img/down-arrow.png")}
-                    alt=""
-                  />
-                </figure>
-              </AnchorLink>
-            </div>
-            <div className="column" />
           </div>
         </div>
       </BackgroundImage>
@@ -222,31 +180,6 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
       </section>
 
       <ResponsiveSectionDivider />
-
-      <section id="as-seen-in">
-        <div className="content-wrapper">
-          <div className="hero is-small">
-            <div className="hero-body has-text-centered">
-              <h1 className="title is-size-2 has-text-grey-dark has-text-weight-normal">
-                {props.content.pressTitle}
-              </h1>
-              <div className="columns">
-                {props.content.pressLogos.map((logo: any, i: number) => (
-                  <div className="column" key={i}>
-                    <figure className="image">
-                      <img
-                        className="is-horizontal-center"
-                        src={logo.logo.file.url}
-                        alt={logo.title}
-                      />
-                    </figure>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
     </div>
   </Layout>
 );
@@ -254,19 +187,19 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
 export const LandingPageFragment = graphql`
   fragment LandingPage on Query {
     contentfulHomePage(node_locale: { eq: $locale }) {
-      moratoriumBanner {
-        json
-      }
       landingLeadInText
-      landingTextLoopText
-      landingFallbackText
-      landingFooterText
       landingImage {
         fluid {
           ...GatsbyContentfulFluid
         }
       }
+      whoWeAreSection
+      whoWeAreButton {
+        title
+        link
+      }
       productSectionTitle
+      productSectionSubtitle
       homePageProductBlocks {
         title
         descriptionText {
@@ -276,20 +209,47 @@ export const LandingPageFragment = graphql`
           title
           link
         }
+        location
+        language
         screenshot {
           fluid {
             ...GatsbyContentfulFluid
           }
         }
       }
-      pressTitle
-      pressLogos {
-        title
-        logo {
-          file {
-            url
-          }
+      productIdeaBanner {
+        content {
+          json
         }
+        button {
+          title
+          link
+        }
+      }
+      learningCenterPreviewTitle
+      learningCenterPreviewSubtitle
+      learningCenterPreviewArticles {
+        title
+        metadata {
+          description
+        }
+        slug
+      }
+      partnershipsSectionTitle
+      partnershipsSectionSubtitle
+      partnershipsSectionButton {
+        title
+        link
+      }
+      policySectionTitle
+      policySectionSubtitle
+      policySectionButton {
+        title
+        link
+      }
+      outroSectionTitle
+      outroSectionBodyText {
+        json
       }
     }
   }
