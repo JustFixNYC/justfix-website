@@ -64,29 +64,26 @@ const Header: React.FC<{
   const locale = useCurrentLocale();
 
   return (
-    <div className={"header " + (isLandingPage && "is-absolute")}>
+    <div className="header">
       {isLandingPage && <MoratoriumBanner />}
-      <nav
-        className={"navbar is-primary " + (isLandingPage && "is-transparent")}
-        role="navigation"
-        aria-label="main navigation"
-      >
+      <nav className="navbar" role="navigation" aria-label="main navigation">
         <div className="navbar-brand">
           <Link to="/" className="navbar-item">
             <img
-              src={require("../img/brand/logo.png")}
-              width="112"
-              height="28"
+              src={require("../img/brand/logo.svg")}
+              width="164"
+              height="38"
               alt="JustFix.nyc"
             />
-          </Link>
-          {isDemoSite && (
-            <div className="navbar-item">
+            {isDemoSite && (
               <span className="tag is-warning">
                 <Trans>DEMO SITE</Trans>
               </span>
-            </div>
-          )}
+            )}
+          </Link>
+          <div className="navbar-item is-size-3	has-text-black">
+            <Trans>Technology for Housing Justice</Trans>
+          </div>
           <a
             role="button"
             className={
