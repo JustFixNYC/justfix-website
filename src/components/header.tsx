@@ -81,7 +81,7 @@ const Header: React.FC<{
               </span>
             )}
           </Link>
-          <div className="navbar-item is-size-3	has-text-black">
+          <div className="navbar-item is-size-3 has-text-black is-hidden-touch">
             <Trans>Technology for Housing Justice</Trans>
           </div>
           <a

@@ -25,6 +25,12 @@ $navbar-height: 7rem;
           max-height: unset;
         }
       }
+      .navbar-burger {
+        align-self: center;
+        span {
+          height: 2px;
+        }
+      }
     }
   }
 
@@ -44,7 +50,7 @@ $navbar-height: 7rem;
     .navbar-item:hover {
       font-weight: 600;
       transition: 0.1s;
-      background-color: $justfix-white;
+      background-color: $white;
     }
   }
 

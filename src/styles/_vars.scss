@@ -1,5 +1,7 @@
 @import "../../node_modules/bulma/sass/utilities/functions.sass";
 
+// COLORS:
+
 $justfix-white: #faf8f4;
 $justfix-black: #242323;
 $justfix-grey: #d4d5d0;
@@ -30,3 +32,9 @@ $read-more: #37bc9b;
 
 $warning-lightened: #ffefb2;
 $warning-darkened: #f7c913;
+
+// NAVBAR STYLES:
+
+// Since we want our navbar to always show the hamburger menu, let's set
+// the navbar breakpoint to be impossibly high:
+$navbar-breakpoint: 10000px;
