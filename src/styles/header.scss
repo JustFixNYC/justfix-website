@@ -2,6 +2,7 @@
 @import "~bulma/sass/utilities/initial-variables.sass";
 
 $navbar-height: 7rem;
+$navbar-height-mobile: 4.375rem;
 
 .header {
   width: 100%;
@@ -13,13 +14,19 @@ $navbar-height: 7rem;
     height: $navbar-height;
     border-bottom: 1px solid $black;
 
+    @media screen and (max-width: $desktop) {
+      height: $navbar-height-mobile;
+    }
+
     .navbar-brand {
       height: inherit;
 
       .navbar-item {
         padding: 2rem 1.75rem;
         &:first-child {
-          border-right: 2px solid $black;
+          @media screen and (min-width: $desktop) {
+            border-right: 2px solid $black;
+          }
         }
         img {
           max-height: unset;

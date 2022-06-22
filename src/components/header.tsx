@@ -70,10 +70,18 @@ const Header: React.FC<{
         <div className="navbar-brand">
           <Link to="/" className="navbar-item">
             <img
+              className="is-hidden-touch"
               src={require("../img/brand/logo.svg")}
               width="164"
               height="38"
-              alt="JustFix.nyc"
+              alt="JustFix"
+            />
+            <img
+              className="is-hidden-desktop"
+              src={require("../img/brand/logo.svg")}
+              width="120"
+              height="27"
+              alt="JustFix"
             />
             {isDemoSite && (
               <span className="tag is-warning">
