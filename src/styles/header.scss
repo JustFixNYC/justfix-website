@@ -4,6 +4,42 @@
 .header {
   width: 100%;
   z-index: 30;
+  background-color: $white;
+  font-size: 2.25rem;
+
+  .navbar {
+    height: $navbar-height;
+    border-bottom: 1px solid $black;
+
+    @media screen and (max-width: $desktop) {
+      height: $navbar-height-mobile;
+    }
+
+    .navbar-brand {
+      height: inherit;
+
+      .navbar-item {
+        padding: 2rem 1.75rem;
+        &:first-child {
+          @media screen and (min-width: $desktop) {
+            border-right: 2px solid $black;
+          }
+        }
+        img {
+          max-height: unset;
+        }
+        .tag {
+          margin-left: 1rem;
+        }
+      }
+      .navbar-burger {
+        align-self: center;
+        span {
+          height: 2px;
+        }
+      }
+    }
+  }
 
   // Make only the navbar have absolute position on mobile
   &.is-absolute {
@@ -16,50 +52,12 @@
       }
     }
   }
-
-  .hero.is-small.is-warning {
-    padding: 0;
-    .container {
-      max-width: 1300px;
-      p {
-        padding-right: 2rem;
-        text-align: center;
-        a {
-          color: inherit;
-          text-decoration: underline;
-          font-weight: 700;
-
-          &:hover {
-            text-decoration: none;
-          }
-        }
-      }
-    }
-
-    button.delete {
-      &::before,
-      &::after {
-        background-color: $grey-darker;
-      }
-    }
-  }
-
-  .navbar.is-transparent {
-    background-color: $transparent;
-
-    .navbar-item {
-      .button:hover,
-      .button:focus {
-        color: #434a54;
-      }
-    }
-  }
   .navbar-dropdown {
     width: 100%;
     .navbar-item:hover {
       font-weight: 600;
       transition: 0.1s;
-      background-color: white;
+      background-color: $white;
     }
   }
 

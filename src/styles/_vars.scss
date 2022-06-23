@@ -1,5 +1,7 @@
 @import "../../node_modules/bulma/sass/utilities/functions.sass";
 
+// COLORS:
+
 $justfix-white: #faf8f4;
 $justfix-black: #242323;
 $justfix-grey: #d4d5d0;
@@ -15,6 +17,9 @@ $transparent: rgba(0, 0, 0, 0);
 $primary: $justfix-blue;
 $primary-invert: findColorInvert($primary);
 
+$white: $justfix-white;
+$black: $justfix-black;
+
 $button-padding-horizontal: 1.5rem;
 
 // TODO: Remove these old color variables:
@@ -25,5 +30,15 @@ $link: $justfix-blue;
 $info: #003d57;
 $read-more: #37bc9b;
 
+$warning: $justfix-yellow;
 $warning-lightened: #ffefb2;
 $warning-darkened: #f7c913;
+
+// NAVBAR STYLES:
+
+$navbar-height: 7rem;
+$navbar-height-mobile: 4.375rem;
+
+// Since we want our navbar to always show the hamburger menu, let's set
+// the navbar breakpoint to be impossibly high:
+$navbar-breakpoint: 10000px;
