@@ -259,7 +259,8 @@ exports.createPages = async function ({ actions, graphql }) {
   });
   createRedirect({
     fromPath: "/ehp",
-    toPath: "https://app.justfix.nyc/ehp",
+    toPath:
+      "https://medium.com/justfixnyc/housing-court-blocks-tenants-from-suing-their-landlords-d7b9e3629a32",
     isPermanent: true,
   });
   createRedirect({ fromPath: "/get-repairs", toPath: "/", isPermanent: true });
