@@ -50,4 +50,4 @@ We deploy our version of the site using [Netlify](https://www.netlify.com/), whi
 
 ## Code of Conduct
 
-Read about JustFix's code of conduct as an organization on our [Mission page](https://www.justfix.org/).
+Read about JustFix's code of conduct as an organization on our [Mission page](https://www.justfix.org/our-mission).
