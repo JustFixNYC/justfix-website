@@ -1,0 +1,77 @@
+@import "./design-system";
+
+section {
+  background-color: $justfix-white !important;
+  .section-title {
+    padding: 10px;
+  }
+}
+
+// COLORS:
+
+div {
+  &.jf-black {
+    background-color: $justfix-black;
+  }
+
+  &.jf-white {
+    background-color: $justfix-white;
+  }
+
+  &.jf-grey-light {
+    background-color: $justfix-grey-light;
+  }
+
+  &.jf-grey-dark {
+    background-color: $justfix-grey-dark;
+  }
+
+  &.jf-green {
+    background-color: $justfix-green;
+  }
+
+  &.jf-pink {
+    background-color: $justfix-pink;
+  }
+
+  &.jf-yellow {
+    background-color: $justfix-yellow;
+  }
+
+  &.jf-orange {
+    background-color: $justfix-orange;
+  }
+
+  &.jf-blue {
+    background-color: $justfix-blue;
+  }
+}
+
+#palette-swatches {
+  display: flex;
+
+  div.jf-black,
+  div.jf-grey-dark {
+    color: $justfix-white;
+  }
+
+  .color-info {
+    padding: 10px;
+  }
+}
+
+// TYPOGRAPHY:
+
+#type-samples {
+  display: flex;
+  div {
+    padding: 10px;
+  }
+  #mobile-text {
+    @include mobile-typography;
+  }
+
+  #desktop-text {
+    @include desktop-typography;
+  }
+}
