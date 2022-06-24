@@ -1,7 +1,6 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import BackgroundImage from "gatsby-background-image";
 import Img from "gatsby-image/withIEPolyfill";
 // import { Link } from 'gatsby'
 
@@ -52,21 +51,17 @@ const ResponsiveSectionDivider = () => (
 export const LandingPageScaffolding = (props: ContentfulContent) => (
   <Layout isLandingPage={true}>
     <div id="home" className="home-page">
-      <BackgroundImage
-        className="landing-image hero is-fullheight"
-        fluid={props.content.landingImage.fluid}
-        alt="background-image"
-      >
-        <div className="hero-body">
-          <div className="container content-wrapper tight">
-            <h1 className="title is-size-1 is-size-3-mobile has-text-white is-spaced">
-              {props.content.landingLeadInText}
-            </h1>
-
-            <DDO />
-          </div>
+      <div className="columns">
+        <div className="column is-1" />
+        <div className="column is-10">
+          <h1>{props.content.landingLeadInText}</h1>
         </div>
-      </BackgroundImage>
+      </div>
+      <div className="columns is-desktop is-centered">
+        <div className="column is-11 is-12-mobile">
+          <Img fluid={props.content.landingImage.fluid} alt="" />
+        </div>
+      </div>
 
       <section id="products" className="is-horizontal-center">
         <div className="content-wrapper">
