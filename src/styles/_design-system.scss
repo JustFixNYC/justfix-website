@@ -1,38 +1,5 @@
 @import "~bulma/sass/utilities/initial-variables.sass";
-
-// COLORS:
-
-$justfix-black: #242323;
-$justfix-white: #faf8f4;
-$justfix-grey-dark: #676565;
-$justfix-grey-light: #d4d5d0;
-
-$justfix-green: #1aa551;
-$justfix-pink: #ffa0c7;
-$justfix-yellow: #ffba33;
-$justfix-orange: #ff813a;
-$justfix-blue: #5188ff;
-
-$primary: $justfix-black;
-$secondary: $justfix-white;
-$light: $justfix-grey-light;
-$dark: $justfix-grey-dark;
-
-// SPACING:
-
-$spacing-01: 0.125rem;
-$spacing-02: 0.25rem;
-$spacing-03: 0.5rem;
-$spacing-04: 0.75rem;
-$spacing-05: 1rem;
-$spacing-06: 1.5rem;
-$spacing-07: 2rem;
-$spacing-08: 2.5rem;
-$spacing-09: 3rem;
-$spacing-10: 4rem;
-$spacing-11: 5rem;
-$spacing-12: 6rem;
-$spacing-13: 10rem;
+@import "./vars";
 
 // MEDIA:
 
@@ -223,16 +190,16 @@ body {
 // BUTTONS:
 
 // Override of Standard Mixin:
-@mixin button-variant($color: $primary) {
+@mixin button-variant($color: $justfix-black) {
   background-color: $color;
   @extend %mobile-eyebrow;
 
-  @if $color == $secondary {
-    color: $primary;
-    border: 0.0625rem solid $primary;
+  @if $color == $justfix-white {
+    color: $justfix-black;
+    border: 0.0625rem solid $justfix-black;
   } @else {
-    color: $secondary;
-    border: 0.0625rem solid $secondary;
+    color: $justfix-white;
+    border: 0.0625rem solid $justfix-white;
   }
 
   border-radius: 6.25rem;
@@ -241,7 +208,7 @@ body {
   height: fit-content;
   // IE support:
   display: table;
-  box-shadow: 0.25rem 0.25rem 0rem $light;
+  box-shadow: 0.25rem 0.25rem 0rem $justfix-grey-light;
   max-width: 100%;
   white-space: normal;
   word-wrap: break-word;
@@ -256,33 +223,33 @@ body {
   }
   &:hover {
     transition: all 0.1s linear;
-    box-shadow: 0rem 0.4375rem 0rem 0rem $light;
+    box-shadow: 0rem 0.4375rem 0rem 0rem $justfix-grey-light;
     transform: translateX(0.4375rem);
   }
   &:active,
   &.active {
-    @if $color == $secondary {
-      color: $primary;
+    @if $color == $justfix-white {
+      color: $justfix-black;
     } @else {
-      color: $secondary;
+      color: $justfix-white;
     }
     border-style: solid;
     background-color: $color;
-    box-shadow: inset 0rem 0.25rem 0rem $light;
+    box-shadow: inset 0rem 0.25rem 0rem $justfix-grey-light;
   }
 }
 
 .button.is-primary {
-  @include button-variant($primary);
+  @include button-variant($justfix-black);
 }
 
 .button.is-secondary {
-  @include button-variant($secondary);
+  @include button-variant($justfix-white);
 }
 
 .button.is-text {
   padding: 0;
-  color: $primary;
+  color: $justfix-black;
 }
 
 // PILLS:
