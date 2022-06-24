@@ -47,9 +47,9 @@ $eyebrow-font: "Suisse Int'l Mono", "Courier New", Courier, monospace;
 
 $family-primary: $body-font;
 
-// TEXT:
+// TYPOGRAPHY:
 
-%body-standard {
+@mixin body-standard {
   font-family: $body-font;
   font-size: 1.125rem;
   line-height: 100%;
@@ -59,132 +59,209 @@ $family-primary: $body-font;
   color: $justfix-black;
 }
 
-%desktop-eyebrow {
-  @extend %body-standard;
+@mixin link {
+  text-decoration: underline;
+  color: inherit;
+
+  &:hover,
+  &:focus,
+  &:active {
+    text-decoration: underline;
+  }
+}
+
+// TYPOGRAPHY-DESKTOP:
+@mixin desktop-h1 {
+  @include body-standard;
+  font-family: $title-font;
+  font-size: 6rem;
+  letter-spacing: 0.03em;
+}
+
+@mixin desktop-h2 {
+  @include body-standard;
+  font-family: $title-font;
+  font-size: 4rem;
+  line-height: 90%;
+  letter-spacing: 0.03em;
+}
+
+@mixin desktop-h3 {
+  @include body-standard;
+  font-weight: 600;
+  font-size: 2.25rem;
+}
+
+@mixin desktop-h4 {
+  @include body-standard;
+  font-size: 1.5rem;
+  line-height: 120%;
+}
+
+@mixin desktop-text-small {
+  @include body-standard;
+  font-size: 0.875rem;
+}
+
+@mixin desktop-text-small-bold {
+  @include body-standard;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+@mixin desktop-eyebrow {
+  @include body-standard;
   font-family: $eyebrow-font;
   line-height: 115%;
   letter-spacing: 0.03em;
   text-transform: uppercase;
-  &-small {
-    font-size: 1rem;
+}
+
+@mixin desktop-eyebrow-small {
+  @include desktop-eyebrow;
+  font-size: 1rem;
+}
+
+@mixin desktop-typography {
+  body,
+  p,
+  a,
+  span {
+    @include body-standard;
+
+    .is-small {
+      @include desktop-text-small;
+    }
+
+    &.is-bold {
+      @include desktop-text-small-bold;
+    }
+  }
+
+  a,
+  .link {
+    @include link;
+  }
+
+  h1 {
+    @include desktop-h1;
+  }
+
+  h2 {
+    @include desktop-h2;
+  }
+
+  h3 {
+    @include desktop-h3;
+  }
+
+  h4 {
+    @include desktop-h4;
+  }
+
+  .eyebrow {
+    @include desktop-eyebrow;
+
+    &.is-small {
+      @include desktop-eyebrow-small;
+    }
   }
 }
 
-%mobile-eyebrow {
-  @extend %body-standard;
+@include desktop {
+  @include desktop-typography;
+}
+
+// TYPOGRAPHY-MOBILE:
+
+@mixin mobile-h1 {
+  @include body-standard;
+  font-weight: 600;
+  font-size: 2.25rem;
+}
+
+@mixin mobile-h2 {
+  @include body-standard;
+  font-weight: 600;
+  font-size: 1.125rem;
+  letter-spacing: 0.02em;
+  font-variant: small-caps;
+}
+
+@mixin mobile-h3 {
+  @include body-standard;
+  font-size: 1.5rem;
+  line-height: 110%;
+}
+
+@mixin mobile-eyebrow {
+  @include body-standard;
   font-size: 0.875rem;
   line-height: 115%;
   letter-spacing: 0.03em;
   text-transform: uppercase;
 }
 
-%mobile-text {
-  @extend %body-standard;
-  &-large {
-    font-size: 1.5rem;
-    line-height: 110%;
-  }
-  &-small {
-    font-size: 0.875rem;
-    &-bold {
-      font-weight: 600;
-    }
-    &-link {
-      text-decoration-line: underline;
-      line-height: 115%;
-    }
-  }
+@mixin mobile-text-small {
+  @include body-standard;
+  font-size: 0.875rem;
 }
 
-body {
-  @extend %body-standard;
+@mixin mobile-text-small-bold {
+  @include mobile-text-small;
+  font-weight: 600;
+}
 
-  @include desktop {
-    h1 {
-      font-family: $title-font;
-      font-size: 6rem;
-      letter-spacing: 0.03em;
-    }
+@mixin mobile-text-small-link {
+  @include mobile-text-small;
+  @include link;
+  line-height: 115%;
+}
 
-    h2 {
-      font-family: $title-font;
-      font-size: 4rem;
-      line-height: 90%;
-      letter-spacing: 0.03em;
-    }
-
-    h3 {
-      font-weight: 600;
-      font-size: 2.25rem;
-    }
-
-    h4 {
-      font-size: 1.5rem;
-      line-height: 120%;
-    }
-
-    .link {
-      text-decoration-line: underline;
-    }
+@mixin mobile-typography {
+  body,
+  p,
+  a,
+  span {
+    @include body-standard;
 
     .is-small {
-      font-size: 0.875rem;
+      @include mobile-text-small;
 
       &.is-bold {
-        font-weight: 600;
-        letter-spacing: 0.02em;
+        @include mobile-text-small-bold;
       }
-    }
-
-    .eyebrow {
-      @extend %desktop-eyebrow;
-
-      &.is-small {
-        @extend %desktop-eyebrow-small;
-      }
-    }
-  }
-
-  @include mobile {
-    h1 {
-      font-weight: 600;
-      font-size: 2.25rem;
-    }
-
-    h2 {
-      font-weight: 600;
-      letter-spacing: 0.02em;
-      font-variant: small-caps;
-    }
-
-    h3 {
-      @extend %mobile-text-large;
-    }
-
-    .eyebrow {
-      @extend %mobile-eyebrow;
-    }
-
-    .link {
-      text-decoration-line: underline;
     }
 
     .is-large {
-      @extend %mobile-text-large;
-    }
-
-    .is-small {
-      @extend %mobile-text-small;
-
-      &.is-bold {
-        @extend %mobile-text-small-bold;
-      }
-
-      &.link {
-        @extend %mobile-text-small-link;
-      }
+      @include mobile-h3;
     }
   }
+
+  a,
+  .link {
+    @include link;
+  }
+
+  h1 {
+    @include mobile-h1;
+  }
+
+  h2 {
+    @include mobile-h2;
+  }
+
+  h3 {
+    @include mobile-h3;
+  }
+
+  .eyebrow {
+    @include mobile-eyebrow;
+  }
+}
+
+@include mobile {
+  @include mobile-typography;
 }
 
 // BUTTONS:
@@ -192,9 +269,9 @@ body {
 // Override of Standard Mixin:
 @mixin button-variant($color: $justfix-black) {
   background-color: $color;
-  @extend %mobile-eyebrow;
+  @include mobile-eyebrow;
 
-  @if $color == $justfix-white {
+  @if $color ==$justfix-white {
     color: $justfix-black;
     border: 0.0625rem solid $justfix-black;
   } @else {
@@ -221,18 +298,21 @@ body {
     border-color: initial;
     background-color: $color;
   }
+
   &:hover {
     transition: all 0.1s linear;
     box-shadow: 0rem 0.4375rem 0rem 0rem $justfix-grey-light;
     transform: translateX(0.4375rem);
   }
+
   &:active,
   &.active {
-    @if $color == $justfix-white {
+    @if $color ==$justfix-white {
       color: $justfix-black;
     } @else {
       color: $justfix-white;
     }
+
     border-style: solid;
     background-color: $color;
     box-shadow: inset 0rem 0.25rem 0rem $justfix-grey-light;
@@ -255,7 +335,7 @@ body {
 // PILLS:
 
 .tag {
-  @extend %mobile-text-small-bold;
+  @include mobile-text-small-bold;
   display: flex;
   flex-direction: row;
   justify-content: center;
