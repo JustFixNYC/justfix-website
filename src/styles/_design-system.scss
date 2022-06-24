@@ -59,7 +59,7 @@ $family-primary: $body-font;
   color: $justfix-black;
 }
 
-%desktop-eyebrow {
+%eyebrow {
   @extend %body-standard;
   font-family: $eyebrow-font;
   line-height: 115%;
@@ -68,80 +68,59 @@ $family-primary: $body-font;
   &-small {
     font-size: 1rem;
   }
-}
 
-%mobile-eyebrow {
-  @extend %body-standard;
-  font-size: 0.875rem;
-  line-height: 115%;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
-}
-
-%mobile-text {
-  @extend %body-standard;
-  &-large {
-    font-size: 1.5rem;
-    line-height: 110%;
-  }
-  &-small {
+  @include mobile {
     font-size: 0.875rem;
-    &-bold {
-      font-weight: 600;
-    }
-    &-link {
-      text-decoration-line: underline;
-      line-height: 115%;
-    }
+    line-height: 115%;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
   }
 }
 
 body {
   @extend %body-standard;
 
-  @include desktop {
-    h1 {
-      font-family: $title-font;
-      font-size: 6rem;
-      letter-spacing: 0.03em;
-    }
+  h1 {
+    font-family: $title-font;
+    font-size: 6rem;
+    letter-spacing: 0.03em;
+  }
 
-    h2 {
-      font-family: $title-font;
-      font-size: 4rem;
-      line-height: 90%;
-      letter-spacing: 0.03em;
-    }
+  h2 {
+    font-family: $title-font;
+    font-size: 4rem;
+    line-height: 90%;
+    letter-spacing: 0.03em;
+  }
 
-    h3 {
+  h3 {
+    font-weight: 600;
+    font-size: 2.25rem;
+  }
+
+  h4 {
+    font-size: 1.5rem;
+    line-height: 120%;
+  }
+
+  .link {
+    text-decoration-line: underline;
+  }
+
+  .is-small {
+    font-size: 0.875rem;
+
+    &.is-bold {
       font-weight: 600;
-      font-size: 2.25rem;
+      letter-spacing: 0.02em;
     }
+  }
 
-    h4 {
-      font-size: 1.5rem;
-      line-height: 120%;
-    }
+  .eyebrow {
+    @extend %eyebrow;
 
-    .link {
-      text-decoration-line: underline;
-    }
-
-    .is-small {
-      font-size: 0.875rem;
-
-      &.is-bold {
-        font-weight: 600;
-        letter-spacing: 0.02em;
-      }
-    }
-
-    .eyebrow {
-      @extend %desktop-eyebrow;
-
-      &.is-small {
-        @extend %desktop-eyebrow-small;
-      }
+    &.is-small {
+      @extend %eyebrow-small;
     }
   }
 
@@ -157,31 +136,22 @@ body {
       font-variant: small-caps;
     }
 
-    h3 {
-      @extend %mobile-text-large;
-    }
-
-    .eyebrow {
-      @extend %mobile-eyebrow;
-    }
-
-    .link {
-      text-decoration-line: underline;
-    }
-
+    h3,
     .is-large {
-      @extend %mobile-text-large;
+      font-size: 1.5rem;
+      line-height: 110%;
     }
 
     .is-small {
-      @extend %mobile-text-small;
+      font-size: 0.875rem;
 
       &.is-bold {
-        @extend %mobile-text-small-bold;
+        font-weight: 600;
       }
 
       &.link {
-        @extend %mobile-text-small-link;
+        text-decoration-line: underline;
+        line-height: 115%;
       }
     }
   }
@@ -192,7 +162,7 @@ body {
 // Override of Standard Mixin:
 @mixin button-variant($color: $justfix-black) {
   background-color: $color;
-  @extend %mobile-eyebrow;
+  @extend %eyebrow;
 
   @if $color == $justfix-white {
     color: $justfix-black;
@@ -255,7 +225,8 @@ body {
 // PILLS:
 
 .tag {
-  @extend %mobile-text-small-bold;
+  font-size: 0.875rem;
+  font-weight: 600;
   display: flex;
   flex-direction: row;
   justify-content: center;
