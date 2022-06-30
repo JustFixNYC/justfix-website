@@ -120,9 +120,18 @@ export const DevDesignPage = () => {
       </section>
       <section id="section-buttons" className="hero-body has-text">
         <h2 className="section-title">Buttons</h2>
-        <div id="button-samples">
+        <div id="button-samples" className="buttons">
           <button className="button is-primary">Primary</button>
           <button className="button is-secondary">Secondary</button>
+        </div>
+      </section>
+      <section id="section-pills" className="hero-body has-text">
+        <h2 className="section-title">Pills</h2>
+        <div id="pill-samples">
+          <span className="tag is-yellow">text</span>
+          <span className="tag is-blue">text</span>
+          <span className="tag is-pink">text</span>
+          <span className="tag is-empty">text</span>
         </div>
       </section>
       </div>

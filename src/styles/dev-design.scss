@@ -8,8 +8,6 @@
 @import "_custom.scss";
 @import "_design-system.scss";
 
-
-
 section {
   background-color: $justfix-white  !important;
 }
@@ -86,14 +84,18 @@ section {
 
 // BUTTONS:
 
-#button-samples {
-  display: flex;
-  flex-wrap: wrap;
+// #button-samples {
+//   display: flex;
+//   flex-wrap: wrap;
 
-  .button {
-    margin: 10px;
-  }
-}
+//   .button {
+//     margin: 10px;
+//   }
+// }
 
-@import "~bulma/bulma.sass";
-@import "~bulma-divider";
+// // PILLS:
+
+// #pill-samples {
+//   display: flex;
+//   flex-wrap: wrap;
+// }
