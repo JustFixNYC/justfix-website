@@ -61,7 +61,6 @@ $family-primary: $body-font;
 
 @mixin link {
   text-decoration: underline;
-  color: inherit;
 
   &:hover,
   &:focus,
@@ -72,14 +71,14 @@ $family-primary: $body-font;
 
 // TYPOGRAPHY-DESKTOP:
 @mixin desktop-h1 {
-  @include body-standard;
+  @include body-standard();
   font-family: $title-font;
   font-size: 6rem;
   letter-spacing: 0.03em;
 }
 
 @mixin desktop-h2 {
-  @include body-standard;
+  @include body-standard();
   font-family: $title-font;
   font-size: 4rem;
   line-height: 90%;
@@ -87,30 +86,30 @@ $family-primary: $body-font;
 }
 
 @mixin desktop-h3 {
-  @include body-standard;
+  @include body-standard();
   font-weight: 600;
   font-size: 2.25rem;
 }
 
 @mixin desktop-h4 {
-  @include body-standard;
+  @include body-standard();
   font-size: 1.5rem;
   line-height: 120%;
 }
 
 @mixin desktop-text-small {
-  @include body-standard;
+  @include body-standard();
   font-size: 0.875rem;
 }
 
 @mixin desktop-text-small-bold {
-  @include body-standard;
+  @include body-standard();
   font-weight: 600;
   letter-spacing: 0.02em;
 }
 
 @mixin desktop-eyebrow {
-  @include body-standard;
+  @include body-standard();
   font-family: $eyebrow-font;
   line-height: 115%;
   letter-spacing: 0.03em;
@@ -118,7 +117,7 @@ $family-primary: $body-font;
 }
 
 @mixin desktop-eyebrow-small {
-  @include desktop-eyebrow;
+  @include desktop-eyebrow();
   font-size: 1rem;
 }
 
@@ -127,61 +126,57 @@ $family-primary: $body-font;
   p,
   a,
   span {
-    @include body-standard;
+    @include body-standard();
 
-    .is-small {
-      @include desktop-text-small;
+    &.is-small {
+      @include desktop-text-small();
     }
 
     &.is-bold {
-      @include desktop-text-small-bold;
+      @include desktop-text-small-bold();
     }
   }
 
   a,
   .link {
-    @include link;
+    @include link();
   }
 
-  h1 {
-    @include desktop-h1;
+  .title.is-1, h1 {
+    @include desktop-h1();
   }
 
-  h2 {
-    @include desktop-h2;
+  .title.is-2, h2 {
+    @include desktop-h2();
   }
 
-  h3 {
-    @include desktop-h3;
+  .title.is-3, h3 {
+    @include desktop-h3();
   }
 
-  h4 {
-    @include desktop-h4;
+  .title.is-4, h4 {
+    @include desktop-h4();
   }
 
   .eyebrow {
-    @include desktop-eyebrow;
+    @include desktop-eyebrow();
 
     &.is-small {
-      @include desktop-eyebrow-small;
+      @include desktop-eyebrow-small();
     }
   }
-}
-
-@include desktop {
-  @include desktop-typography;
 }
 
 // TYPOGRAPHY-MOBILE:
 
 @mixin mobile-h1 {
-  @include body-standard;
+  @include body-standard();
   font-weight: 600;
   font-size: 2.25rem;
 }
 
 @mixin mobile-h2 {
-  @include body-standard;
+  @include body-standard();
   font-weight: 600;
   font-size: 1.125rem;
   letter-spacing: 0.02em;
@@ -189,13 +184,13 @@ $family-primary: $body-font;
 }
 
 @mixin mobile-h3 {
-  @include body-standard;
+  @include body-standard();
   font-size: 1.5rem;
   line-height: 110%;
 }
 
 @mixin mobile-eyebrow {
-  @include body-standard;
+  @include body-standard();
   font-size: 0.875rem;
   line-height: 115%;
   letter-spacing: 0.03em;
@@ -203,18 +198,18 @@ $family-primary: $body-font;
 }
 
 @mixin mobile-text-small {
-  @include body-standard;
+  @include body-standard();
   font-size: 0.875rem;
 }
 
 @mixin mobile-text-small-bold {
-  @include mobile-text-small;
+  @include mobile-text-small();
   font-weight: 600;
 }
 
 @mixin mobile-text-small-link {
-  @include mobile-text-small;
-  @include link;
+  @include mobile-text-small();
+  @include link();
   line-height: 115%;
 }
 
@@ -223,55 +218,117 @@ $family-primary: $body-font;
   p,
   a,
   span {
-    @include body-standard;
+    @include body-standard();
 
-    .is-small {
-      @include mobile-text-small;
+    &.is-small {
+      @include mobile-text-small();
 
       &.is-bold {
-        @include mobile-text-small-bold;
+        @include mobile-text-small-bold();
       }
     }
 
-    .is-large {
-      @include mobile-h3;
+    &.is-large {
+      @include mobile-h3();
     }
   }
 
   a,
   .link {
-    @include link;
+    @include link();
   }
 
-  h1 {
-    @include mobile-h1;
+  .title.is-1, h1 {
+    @include mobile-h1();
   }
 
-  h2 {
-    @include mobile-h2;
+  .title.is-2, h2 {
+    @include mobile-h2();
   }
 
-  h3 {
-    @include mobile-h3;
+  .title.is-3, h3 {
+    @include mobile-h3();
   }
 
   .eyebrow {
-    @include mobile-eyebrow;
+    @include mobile-eyebrow();
   }
 }
 
-@include mobile {
-  @include mobile-typography;
+.page-content {
+  @include desktop() {
+    @include desktop-typography();
+  }
+  @include mobile() {
+    @include mobile-typography();
+  }
 }
+
+// COLORS:
+
+
+.bg-jf-black {
+  background-color: $justfix-black;
+}
+
+.bg-jf-white {
+  background-color: $justfix-white;
+}
+
+.bg-jf-grey-light {
+  background-color: $justfix-grey-light;
+}
+
+.bg-jf-grey-dark {
+  background-color: $justfix-grey-dark;
+}
+
+.bg-jf-green {
+  background-color: $justfix-green;
+}
+
+.bg-jf-pink {
+  background-color: $justfix-pink;
+}
+
+.bg-jf-yellow {
+  background-color: $justfix-yellow;
+}
+
+.bg-jf-orange {
+  background-color: $justfix-orange;
+}
+
+.bg-jf-blue {
+  background-color: $justfix-blue;
+}
+
+
+.c-jf-black {
+  color: $justfix-black;
+}
+
+.c-jf-white {
+  color: $justfix-white;
+}
+
+.c-jf-grey-light {
+  color: $justfix-grey-light;
+}
+
+.c-jf-grey-dark {
+  color: $justfix-grey-dark;
+}
+
 
 // BUTTONS:
 
 // Override of Standard Mixin:
 @mixin button-variant($color: $justfix-black) {
   background-color: $color;
-  @include mobile-eyebrow;
+  @include mobile-eyebrow();
 
-  @if $color ==$justfix-white {
+  @if $color == $justfix-white {
     color: $justfix-black;
     border: 0.0625rem solid $justfix-black;
   } @else {
@@ -319,11 +376,13 @@ $family-primary: $body-font;
   }
 }
 
-.button.is-primary {
+.button.is-primary,
+.button.is-primary:not(.is-outlined) {
   @include button-variant($justfix-black);
 }
 
-.button.is-secondary {
+.button.is-secondary,
+.button.is-secondary:not(.is-outlined) {
   @include button-variant($justfix-white);
 }
 
