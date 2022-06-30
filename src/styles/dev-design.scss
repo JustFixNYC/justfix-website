@@ -9,7 +9,7 @@
 @import "_design-system.scss";
 
 section {
-  background-color: $justfix-white  !important;
+  background-color: $justfix-white !important;
 }
 
 .section-title {
@@ -18,16 +18,13 @@ section {
 
 // COLORS:
 
-
 #palette-swatches {
   display: flex;
 
   .color-info {
     padding: 10px;
   }
-
 }
-
 
 #green-box {
   background-color: $justfix-green;
@@ -59,7 +56,7 @@ section {
 #black-box,
 #grey-dark-box {
   p {
-    color: $justfix-white
+    color: $justfix-white;
   }
 }
 

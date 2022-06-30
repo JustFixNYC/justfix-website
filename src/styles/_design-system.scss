@@ -142,19 +142,23 @@ $family-primary: $body-font;
     @include link();
   }
 
-  .title.is-1, h1 {
+  .title.is-1,
+  h1 {
     @include desktop-h1();
   }
 
-  .title.is-2, h2 {
+  .title.is-2,
+  h2 {
     @include desktop-h2();
   }
 
-  .title.is-3, h3 {
+  .title.is-3,
+  h3 {
     @include desktop-h3();
   }
 
-  .title.is-4, h4 {
+  .title.is-4,
+  h4 {
     @include desktop-h4();
   }
 
@@ -238,15 +242,18 @@ $family-primary: $body-font;
     @include link();
   }
 
-  .title.is-1, h1 {
+  .title.is-1,
+  h1 {
     @include mobile-h1();
   }
 
-  .title.is-2, h2 {
+  .title.is-2,
+  h2 {
     @include mobile-h2();
   }
 
-  .title.is-3, h3 {
+  .title.is-3,
+  h3 {
     @include mobile-h3();
   }
 
@@ -337,8 +344,7 @@ $family-primary: $body-font;
 
 // PILLS:
 
-
-.tag, 
+.tag,
 .tag:not(body) {
   @include mobile-text-small-bold;
   letter-spacing: 0.02rem;
@@ -348,7 +354,7 @@ $family-primary: $body-font;
   gap: 0.625rem;
 
   // this is 12px/0.75rem in mocks, but it looks too sqaure - not sure how/why
-  border-radius: 1rem; 
+  border-radius: 1rem;
 
   &.is-yellow {
     background: $justfix-yellow;
