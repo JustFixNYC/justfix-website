@@ -4,8 +4,10 @@
 @import "~bulma/sass/utilities/initial-variables.sass";
 
 @import "_vars.scss";
-@import "_design-system.scss";
+@import "_fonts.scss";
 @import "_custom.scss";
+@import "_design-system.scss";
+
 
 
 section {
@@ -26,14 +28,40 @@ section {
     padding: 10px;
   }
 
-  div div {
+}
 
-    &.bg-jf-black,
-    &.bg-jf-grey-dark {
-      p {
-        color: $justfix-white
-      }
-    }
+
+#green-box {
+  background-color: $justfix-green;
+}
+#pink-box {
+  background-color: $justfix-pink;
+}
+#yellow-box {
+  background-color: $justfix-yellow;
+}
+#orange-box {
+  background-color: $justfix-orange;
+}
+#blue-box {
+  background-color: $justfix-blue;
+}
+#white-box {
+  background-color: $justfix-white;
+}
+#grey-light-box {
+  background-color: $justfix-grey-light;
+}
+#grey-dark-box {
+  background-color: $justfix-grey-dark;
+}
+#black-box {
+  background-color: $justfix-black;
+}
+#black-box,
+#grey-dark-box {
+  p {
+    color: $justfix-white
   }
 }
 
@@ -58,8 +86,13 @@ section {
 
 // BUTTONS:
 
-#button-samples .button {
-  margin: 10px;
+#button-samples {
+  display: flex;
+  flex-wrap: wrap;
+
+  .button {
+    margin: 10px;
+  }
 }
 
 @import "~bulma/bulma.sass";

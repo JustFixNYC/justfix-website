@@ -14,7 +14,7 @@ export const DevDesignPage = () => {
         <h2 className="section-title">Color Palette</h2>
         <div id="palette-swatches">
           <div id="colors-box">
-            <div className="color-box bg-jf-green">
+            <div id="green-box">
               <div className="color-info">
                 <p>Green</p>
                 <p>#1AA551</p>
@@ -22,7 +22,7 @@ export const DevDesignPage = () => {
                 <p>CMYK 82 8 96 0</p>
               </div>
             </div>
-            <div className="color-box bg-jf-pink">
+            <div id="pink-box">
               <div className="color-info">
                 <p>Pink</p>
                 <p>#FFA0C7</p>
@@ -30,7 +30,7 @@ export const DevDesignPage = () => {
                 <p>CMYK 0 48 0 0 </p>
               </div>
             </div>
-            <div className="bg-jf-yellow">
+            <div id="yellow-box">
               <div className="color-info">
                 <p>Yellow</p>
                 <p>#FFBA33</p>
@@ -38,7 +38,7 @@ export const DevDesignPage = () => {
                 <p>CMYK 0 30 90 </p>
               </div>
             </div>
-            <div className="bg-jf-orange">
+            <div id="orange-box">
               <div className="color-info">
                 <p>Orange</p>
                 <p>#FF813A</p>
@@ -46,7 +46,7 @@ export const DevDesignPage = () => {
                 <p>CMYK 0 61 84 0 </p>
               </div>
             </div>
-            <div className="bg-jf-blue">
+            <div id="blue-box">
               <div className="color-info">
                 <p>Blue</p>
                 <p>#5188FF</p>
@@ -56,7 +56,7 @@ export const DevDesignPage = () => {
             </div>
           </div>
           <div id="greyscale-box">
-            <div className="bg-jf-white">
+            <div id="white-box">
               <div className="color-info">
                 <p>Off White</p>
                 <p>#FAF8F4</p>
@@ -64,7 +64,7 @@ export const DevDesignPage = () => {
                 <p>CMYK 1 1 3 0 </p>
               </div>
             </div>
-            <div className="bg-jf-grey-light">
+            <div id="grey-light-box">
               <div className="color-info">
                 <p>Light Gray</p>
                 <p>#D4D5D0</p>
@@ -72,7 +72,7 @@ export const DevDesignPage = () => {
                 <p>CMYK 0 0 2 16</p>
               </div>
             </div>
-            <div className="bg-jf-grey-dark">
+            <div id="grey-dark-box">
               <div className="color-info">
                 <p>Dark Gray</p>
                 <p>#676565</p>
@@ -80,7 +80,7 @@ export const DevDesignPage = () => {
                 <p>CMYK 0 1 1 60 </p>
               </div>
             </div>
-            <div className="bg-jf-black">
+            <div id="black-box">
               <div className="color-info">
                 <p>Off Black</p>
                 <p>#242323</p>
