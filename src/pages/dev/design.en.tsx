@@ -5,15 +5,16 @@ import "../../styles/dev-design.scss";
 
 export const DevDesignPage = () => {
   return (
-    <Layout metadata={{ title: "Page Not Found" }}>
+    <Layout metadata={{ title: "JustFix Design System" }}>
+      <div className="page-content">
       <section className="hero-body">
-        <h1 className="section-title">JustFix Design System</h1>
+        <h1 className="title">JustFix Design System</h1>
       </section>
       <section id="section-palette" className="hero-body">
         <h2 className="section-title">Color Palette</h2>
         <div id="palette-swatches">
           <div id="colors-box">
-            <div className="color-box jf-green">
+            <div className="color-box bg-jf-green">
               <div className="color-info">
                 <p>Green</p>
                 <p>#1AA551</p>
@@ -21,7 +22,7 @@ export const DevDesignPage = () => {
                 <p>CMYK 82 8 96 0</p>
               </div>
             </div>
-            <div className="color-box jf-pink">
+            <div className="color-box bg-jf-pink">
               <div className="color-info">
                 <p>Pink</p>
                 <p>#FFA0C7</p>
@@ -29,7 +30,7 @@ export const DevDesignPage = () => {
                 <p>CMYK 0 48 0 0 </p>
               </div>
             </div>
-            <div className="jf-yellow">
+            <div className="bg-jf-yellow">
               <div className="color-info">
                 <p>Yellow</p>
                 <p>#FFBA33</p>
@@ -37,7 +38,7 @@ export const DevDesignPage = () => {
                 <p>CMYK 0 30 90 </p>
               </div>
             </div>
-            <div className="jf-orange">
+            <div className="bg-jf-orange">
               <div className="color-info">
                 <p>Orange</p>
                 <p>#FF813A</p>
@@ -45,7 +46,7 @@ export const DevDesignPage = () => {
                 <p>CMYK 0 61 84 0 </p>
               </div>
             </div>
-            <div className="jf-blue">
+            <div className="bg-jf-blue">
               <div className="color-info">
                 <p>Blue</p>
                 <p>#5188FF</p>
@@ -55,7 +56,7 @@ export const DevDesignPage = () => {
             </div>
           </div>
           <div id="greyscale-box">
-            <div className="jf-white">
+            <div className="bg-jf-white">
               <div className="color-info">
                 <p>Off White</p>
                 <p>#FAF8F4</p>
@@ -63,7 +64,7 @@ export const DevDesignPage = () => {
                 <p>CMYK 1 1 3 0 </p>
               </div>
             </div>
-            <div className="jf-grey-light">
+            <div className="bg-jf-grey-light">
               <div className="color-info">
                 <p>Light Gray</p>
                 <p>#D4D5D0</p>
@@ -71,7 +72,7 @@ export const DevDesignPage = () => {
                 <p>CMYK 0 0 2 16</p>
               </div>
             </div>
-            <div className="jf-grey-dark">
+            <div className="bg-jf-grey-dark">
               <div className="color-info">
                 <p>Dark Gray</p>
                 <p>#676565</p>
@@ -79,7 +80,7 @@ export const DevDesignPage = () => {
                 <p>CMYK 0 1 1 60 </p>
               </div>
             </div>
-            <div className="jf-black">
+            <div className="bg-jf-black">
               <div className="color-info">
                 <p>Off Black</p>
                 <p>#242323</p>
@@ -117,6 +118,14 @@ export const DevDesignPage = () => {
           </div>
         </div>
       </section>
+      <section id="section-buttons" className="hero-body has-text">
+        <h2 className="section-title">Buttons</h2>
+        <div id="button-samples">
+          <button className="button is-primary">Primary</button>
+          <button className="button is-secondary">Secondary</button>
+        </div>
+      </section>
+      </div>
     </Layout>
   );
 };

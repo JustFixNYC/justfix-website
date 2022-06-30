@@ -1,62 +1,39 @@
-@import "./design-system";
+@charset "utf-8";
+
+@import "../../node_modules/bulma/sass/utilities/functions.sass";
+@import "~bulma/sass/utilities/initial-variables.sass";
+
+@import "_vars.scss";
+@import "_design-system.scss";
+@import "_custom.scss";
+
 
 section {
-  background-color: $justfix-white !important;
-  .section-title {
-    padding: 10px;
-  }
+  background-color: $justfix-white  !important;
+}
+
+.section-title {
+  margin-bottom: 0.5rem;
 }
 
 // COLORS:
 
-div {
-  &.jf-black {
-    background-color: $justfix-black;
-  }
-
-  &.jf-white {
-    background-color: $justfix-white;
-  }
-
-  &.jf-grey-light {
-    background-color: $justfix-grey-light;
-  }
-
-  &.jf-grey-dark {
-    background-color: $justfix-grey-dark;
-  }
-
-  &.jf-green {
-    background-color: $justfix-green;
-  }
-
-  &.jf-pink {
-    background-color: $justfix-pink;
-  }
-
-  &.jf-yellow {
-    background-color: $justfix-yellow;
-  }
-
-  &.jf-orange {
-    background-color: $justfix-orange;
-  }
-
-  &.jf-blue {
-    background-color: $justfix-blue;
-  }
-}
 
 #palette-swatches {
   display: flex;
 
-  div.jf-black,
-  div.jf-grey-dark {
-    color: $justfix-white;
-  }
-
   .color-info {
     padding: 10px;
+  }
+
+  div div {
+
+    &.bg-jf-black,
+    &.bg-jf-grey-dark {
+      p {
+        color: $justfix-white
+      }
+    }
   }
 }
 
@@ -64,9 +41,12 @@ div {
 
 #type-samples {
   display: flex;
+  flex-wrap: wrap;
+
   div {
-    padding: 10px;
+    margin: 10px;
   }
+
   #mobile-text {
     @include mobile-typography;
   }
@@ -75,3 +55,12 @@ div {
     @include desktop-typography;
   }
 }
+
+// BUTTONS:
+
+#button-samples .button {
+  margin: 10px;
+}
+
+@import "~bulma/bulma.sass";
+@import "~bulma-divider";
