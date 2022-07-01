@@ -11,6 +11,7 @@ import Layout from "../components/layout";
 import { DDOSearchBar } from "../components/ddo-searchbar";
 import { t, Trans } from "@lingui/macro";
 import { I18n } from "@lingui/react";
+import { Link } from "@reach/router";
 const PRODUCT_CTA_UTM_CODE = "?utm_source=orgsite&utm_medium=productcta";
 
 export type ContentfulContent = {
@@ -45,8 +46,22 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
         </div>
       </div>
       <div className="columns has-background-black has-text-white">
-        <div className="column is-12 mx-9 mx-6-mobile mt-10 mt-8-mobile mb-12 mb-9-mobile">
-          <h1>{props.content.whoWeAreSection}</h1>
+        <div className="column is-12 pt-10 pt-8-mobile pb-12 pb-9-mobile">
+          <h1>
+            {props.content.whoWeAreSection}
+            <Link
+              to={props.content.whoWeAreButton.link}
+              className="button is-primary is-inline-block mt-2 ml-4 is-hidden-touch"
+            >
+              {props.content.whoWeAreButton.title}
+            </Link>
+          </h1>
+          <Link
+            to={props.content.whoWeAreButton.link}
+            className="button is-primary mt-7 is-hidden-desktop"
+          >
+            {props.content.whoWeAreButton.title}
+          </Link>
         </div>
       </div>
 

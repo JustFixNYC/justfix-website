@@ -96,6 +96,15 @@ $spacing-values: (
 
 // OTHER BULMA OVERRIDES
 
+.columns {
+  padding-left: $spacing-09;
+  padding-right: $spacing-09;
+  @include mobile {
+    padding-left: $spacing-06;
+    padding-right: $spacing-06;
+  }
+}
+
 .hero.is-small {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
