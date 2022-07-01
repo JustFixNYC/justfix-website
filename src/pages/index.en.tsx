@@ -19,24 +19,6 @@ export type ContentfulContent = {
 
 const linkIsSms = (link: string) => link.slice(0, 4) === "sms:";
 
-const DDO = () => (
-  <>
-    <h2 className="subtitle is-size-5 has-text-white">
-      <Trans>Enter your address to learn more.</Trans>
-    </h2>
-    <br />
-    <I18n>
-      {({ i18n }) => (
-        <DDOSearchBar
-          locale={i18n.language}
-          hiddenFieldLabel={i18n._(t`Enter your address to learn more.`)}
-          submitLabel={i18n._(t`Search address`)}
-        />
-      )}
-    </I18n>
-  </>
-);
-
 const ResponsiveSectionDivider = () => (
   <>
     <section className="columns is-centered is-hidden-mobile">
