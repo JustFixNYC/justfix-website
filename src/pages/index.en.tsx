@@ -33,7 +33,7 @@ const ResponsiveSectionDivider = () => (
 export const LandingPageScaffolding = (props: ContentfulContent) => (
   <Layout isLandingPage={true}>
     <div id="home" className="home-page">
-      <div className="columns">
+      <div className="columns mt-8-mobile mt-12">
         <div className="column is-1" />
         <div className="column is-10">
           <h1>{props.content.landingLeadInText}</h1>

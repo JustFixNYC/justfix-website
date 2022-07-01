@@ -6,22 +6,29 @@
 @import "_vars.scss";
 @import "_design-system.scss";
 
-.home-page {
-  // .columns {
-  //   margin-top: $spacing-10;
-  //   @include mobile {
-  //     margin-top: $spacing-07;
-  //   }
+// BULMA CORE FILES:
+@import "~bulma/sass/base/_all.sass";
+@import "~bulma/sass/components/_all.sass";
+@import "~bulma/sass/elements/_all.sass";
+@import "~bulma/sass/form/_all.sass";
+@import "~bulma/sass/grid/_all.sass";
+@import "~bulma/sass/layout/_all.sass";
+@import "~bulma/sass/utilities/_all.sass";
 
-  //   &:first-child() {
-  //     margin-top: $spacing-12;
-  //     @include mobile {
-  //       margin-top: $spacing-08;
-  //     }
-  //   }
-  // }
-}
+// BULMA HELPER FILES:
+// Not importing `spacing.sass` given our custom spacing helpers in `_custom.scss`
+@import "~bulma/sass/helpers/color.sass";
+@import "~bulma/sass/helpers/flexbox.sass";
+@import "~bulma/sass/helpers/float.sass";
+@import "~bulma/sass/helpers/other.sass";
+@import "~bulma/sass/helpers/overflow.sass";
+@import "~bulma/sass/helpers/position.sass";
+@import "~bulma/sass/helpers/typography.sass";
+@import "~bulma/sass/helpers/visibility.sass";
 
-@import "~bulma/bulma.sass";
 @import "~bulma-divider";
+
 @import "_custom.scss";
+
+.home-page {
+}
