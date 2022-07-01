@@ -1,6 +1,63 @@
+@import "../../node_modules/bulma/sass/helpers/spacing.sass";
 @import "_vars.scss";
+@import "_design-system.scss";
 
-// BULMA OVERRIDES
+// SPACING HELPER CLASSES OVERRIDES:
+// These rules customize the spacing helpers defined in `spacing.sass` in the Bulma package
+
+$spacing-values: (
+  "0": 0,
+  "1": $spacing-01,
+  "2": $spacing-02,
+  "3": $spacing-03,
+  "4": $spacing-04,
+  "5": $spacing-05,
+  "6": $spacing-06,
+  "7": $spacing-07,
+  "8": $spacing-08,
+  "9": $spacing-09,
+  "10": $spacing-10,
+  "11": $spacing-11,
+  "12": $spacing-12,
+  "13": $spacing-13,
+  "auto": auto,
+);
+
+@each $property, $shortcut in $spacing-shortcuts {
+  @each $name, $value in $spacing-values {
+    // All directions
+    .#{$shortcut}-#{$name} {
+      #{$property}: $value !important;
+    }
+    .#{$shortcut}-#{$name}-mobile {
+      @include mobile {
+        #{$property}: $value !important;
+      }
+    }
+    // Cardinal directions
+    @each $direction, $suffix in $spacing-directions {
+      .#{$shortcut}#{$suffix}-#{$name} {
+        #{$property}-#{$direction}: $value !important;
+      }
+    }
+    // Horizontal axis
+    @if $spacing-horizontal != null {
+      .#{$shortcut}#{$spacing-horizontal}-#{$name} {
+        #{$property}-left: $value !important;
+        #{$property}-right: $value !important;
+      }
+    }
+    // Vertical axis
+    @if $spacing-vertical != null {
+      .#{$shortcut}#{$spacing-vertical}-#{$name} {
+        #{$property}-top: $value !important;
+        #{$property}-bottom: $value !important;
+      }
+    }
+  }
+}
+
+// OTHER BULMA OVERRIDES
 
 .hero.is-small {
   padding-top: 1.5rem;

@@ -5,23 +5,23 @@
 
 @import "_vars.scss";
 @import "_design-system.scss";
-@import "_custom.scss";
 
 .home-page {
-  .columns {
-    margin-top: $spacing-10;
-    @include mobile {
-      margin-top: $spacing-07;
-    }
+  // .columns {
+  //   margin-top: $spacing-10;
+  //   @include mobile {
+  //     margin-top: $spacing-07;
+  //   }
 
-    &:first-child() {
-      margin-top: $spacing-12;
-      @include mobile {
-        margin-top: $spacing-08;
-      }
-    }
-  }
+  //   &:first-child() {
+  //     margin-top: $spacing-12;
+  //     @include mobile {
+  //       margin-top: $spacing-08;
+  //     }
+  //   }
+  // }
 }
 
 @import "~bulma/bulma.sass";
 @import "~bulma-divider";
+@import "_custom.scss";
