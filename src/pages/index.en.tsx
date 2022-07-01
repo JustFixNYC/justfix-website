@@ -9,13 +9,14 @@ import "../styles/data-driven-onboarding.scss";
 
 import Layout from "../components/layout";
 import { Link } from "@reach/router";
+import { OutboundLink } from "gatsby-plugin-google-analytics";
 const PRODUCT_CTA_UTM_CODE = "?utm_source=orgsite&utm_medium=productcta";
 
 export type ContentfulContent = {
   content: any;
 };
 
-const linkIsSms = (link: string) => link.slice(0, 4) === "sms:";
+// const linkIsSms = (link: string) => link.slice(0, 4) === "sms:";
 
 const ResponsiveSectionDivider = () => (
   <>
@@ -64,116 +65,37 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
         </div>
       </div>
 
-      <section id="products" className="is-horizontal-center">
-        <div className="content-wrapper">
-          <div className="hero is-small">
-            <div className="hero-body has-text-centered">
-              <div className="container content-wrapper tight">
-                <h1 className="title is-size-2 has-text-grey-dark has-text-weight-normal">
-                  {props.content.productSectionTitle}
-                </h1>
-              </div>
-            </div>
-          </div>
-
-          {props.content.homePageProductBlocks.map(
-            (product: any, i: number) => (
-              <div className="product" key={i}>
-                <div className="columns is-tablet is-vcentered is-hidden-mobile">
-                  {i % 2 === 1 && (
-                    <div className="column">
-                      <div className="container">
-                        <figure className="image is-horizontal-center">
-                          <Img fluid={product.screenshot.fluid} alt="" />
-                        </figure>
-                      </div>
-                    </div>
-                  )}
-                  <div className="column">
-                    <div className="container">
-                      <h3 className="title has-text-grey-dark has-text-weight-medium">
-                        {product.title}
-                      </h3>
-                      <br />
-                      <p className="subtitle">
-                        {documentToReactComponents(
-                          product.descriptionText.json
-                        )}
-                      </p>
-                      <br />
-                      {product.button !== null &&
-                        (linkIsSms(product.button.link) ? (
-                          <p className="subtitle is-uppercase has-text-weight-bold">
-                            {product.button.title}
-                          </p>
-                        ) : (
-                          <a
-                            className="button is-large is-primary is-uppercase"
-                            href={product.button.link + PRODUCT_CTA_UTM_CODE}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            {product.button.title}
-                          </a>
-                        ))}
-                    </div>
-                  </div>
-                  {i % 2 === 0 && (
-                    <div className="column">
-                      <div className="container">
-                        <figure className="image is-horizontal-center">
-                          <Img fluid={product.screenshot.fluid} alt="" />
-                        </figure>
-                      </div>
-                    </div>
-                  )}
-                </div>
-
-                <div className="columns is-vcentered is-hidden-tablet">
-                  <div className="column">
-                    <div className="container">
-                      <figure className="image is-horizontal-center">
-                        <Img fluid={product.screenshot.fluid} alt="" />
-                      </figure>
-                    </div>
-                  </div>
-                  <div className="column">
-                    <div className="container has-text-centered">
-                      <h3 className="title has-text-grey-dark has-text-weight-medium">
-                        {product.title}
-                      </h3>
-                      <br />
-                      <p className="subtitle">
-                        {documentToReactComponents(
-                          product.descriptionText.json
-                        )}
-                      </p>
-                      <br />
-                      {product.button !== null && (
-                        <a
-                          className="button is-medium is-primary"
-                          href={
-                            product.button.link +
-                            (linkIsSms(product.button.link)
-                              ? ""
-                              : PRODUCT_CTA_UTM_CODE)
-                          }
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <span className="is-size-6 is-uppercase">
-                            {product.button.title}
-                          </span>
-                        </a>
-                      )}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            )
-          )}
+      <div
+        id="products"
+        className="columns is-multiline has-background-link has-text-black"
+      >
+        <div className="column is-12 pt-10 pt-7-mobile pb-9">
+          <h1 className="is-hidden-touch">
+            {props.content.productSectionTitle}
+          </h1>
+          <h2 className="is-hidden-desktop">
+            {props.content.productSectionTitle}
+          </h2>
+          <h3 className="mt-2">{props.content.productSectionSubtitle}</h3>
         </div>
-      </section>
+        {props.content.homePageProductBlocks.map((product: any, i: number) => (
+          <div className="column is-4 is-12-mobile">
+            <span className="eyebrow is-small">{product.productName}</span>
+            <h3>{product.title}</h3>
+            {documentToReactComponents(product.descriptionText.json)}
+            <span>
+              {product.location} · {product.language.join(" · ")}
+            </span>
+
+            <OutboundLink
+              href={product.button.link + PRODUCT_CTA_UTM_CODE}
+              className="button is-primary"
+            >
+              {product.button.title}
+            </OutboundLink>
+          </div>
+        ))}
+      </div>
 
       <div className="columns">
         <div className="column is-12 pt-10 pt-7-mobile pb-9">
@@ -211,6 +133,7 @@ export const LandingPageFragment = graphql`
       productSectionTitle
       productSectionSubtitle
       homePageProductBlocks {
+        productName
         title
         descriptionText {
           json
