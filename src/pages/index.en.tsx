@@ -79,20 +79,26 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
           <h3 className="mt-2">{props.content.productSectionSubtitle}</h3>
         </div>
         {props.content.homePageProductBlocks.map((product: any, i: number) => (
-          <div className="column is-4 is-12-mobile">
-            <span className="eyebrow is-small">{product.productName}</span>
-            <h3>{product.title}</h3>
-            {documentToReactComponents(product.descriptionText.json)}
-            <span>
-              {product.location} · {product.language.join(" · ")}
-            </span>
+          <div className="column is-4 is-12-mobile jf-card has-background-white p-8 p-6-mobile">
+            <div className="eyebrow is-small mb-5 mb-4-mobile">
+              {product.productName}
+            </div>
+            <h3 className="mb-6 mb-5-mobile">{product.title}</h3>
+            <div className="mb-6 mb-3-mobile">
+              {documentToReactComponents(product.descriptionText.json)}
+            </div>
+            <div className="mt-auto">
+              <div className="mb-6">
+                {product.location} · {product.language.join(" · ")}
+              </div>
 
-            <OutboundLink
-              href={product.button.link + PRODUCT_CTA_UTM_CODE}
-              className="button is-primary"
-            >
-              {product.button.title}
-            </OutboundLink>
+              <OutboundLink
+                href={product.button.link + PRODUCT_CTA_UTM_CODE}
+                className="button is-primary mb-6 mb-4-mobile"
+              >
+                {product.button.title}
+              </OutboundLink>
+            </div>
           </div>
         ))}
       </div>
