@@ -29,6 +29,12 @@ const ResponsiveSectionDivider = () => (
   </>
 );
 
+const shuffleArray = (array: any[]) =>
+  array
+    .map((value) => ({ value, sort: Math.random() }))
+    .sort((a, b) => a.sort - b.sort)
+    .map(({ value }) => value);
+
 export const LandingPageScaffolding = (props: ContentfulContent) => (
   <Layout isLandingPage={true}>
     <div id="home" className="home-page">
@@ -67,7 +73,7 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
 
       <div
         id="products"
-        className="columns is-multiline has-background-link has-text-black"
+        className="columns is-multiline has-background-link has-text-black pr-4 pr-6-mobile pb-12 pb-6-mobile"
       >
         <div className="column is-12 pt-10 pt-7-mobile pb-9">
           <h1 className="is-hidden-touch">
@@ -78,29 +84,33 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
           </h2>
           <h3 className="mt-2">{props.content.productSectionSubtitle}</h3>
         </div>
-        {props.content.homePageProductBlocks.map((product: any, i: number) => (
-          <div className="column is-4 is-12-mobile jf-card has-background-white p-8 p-6-mobile">
-            <div className="eyebrow is-small mb-5 mb-4-mobile">
-              {product.productName}
-            </div>
-            <h3 className="mb-6 mb-5-mobile">{product.title}</h3>
-            <div className="mb-6 mb-3-mobile">
-              {documentToReactComponents(product.descriptionText.json)}
-            </div>
-            <div className="mt-auto">
-              <div className="mb-6">
-                {product.location} · {product.language.join(" · ")}
-              </div>
+        {shuffleArray(props.content.homePageProductBlocks).map(
+          (product: any, i: number) => (
+            <div className="column is-4 is-12-mobile">
+              <div className="jf-card has-background-white mr-7 mr-0-mobile mb-8 mb-6-mobile p-8 p-6-mobile">
+                <div className="eyebrow is-small mb-5 mb-4-mobile">
+                  {product.productName}
+                </div>
+                <h3 className="mb-6 mb-5-mobile">{product.title}</h3>
+                <div className="mb-6 mb-3-mobile">
+                  {documentToReactComponents(product.descriptionText.json)}
+                </div>
+                <div className="mt-auto">
+                  <div className="mb-6">
+                    {product.location} · {product.language.join(" · ")}
+                  </div>
 
-              <OutboundLink
-                href={product.button.link + PRODUCT_CTA_UTM_CODE}
-                className="button is-primary mb-6 mb-4-mobile"
-              >
-                {product.button.title}
-              </OutboundLink>
+                  <OutboundLink
+                    href={product.button.link + PRODUCT_CTA_UTM_CODE}
+                    className="button is-primary mb-6 mb-4-mobile"
+                  >
+                    {product.button.title}
+                  </OutboundLink>
+                </div>
+              </div>
             </div>
-          </div>
-        ))}
+          )
+        )}
       </div>
 
       <div className="columns">
