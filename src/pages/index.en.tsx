@@ -37,11 +37,13 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
           <h1>{props.content.landingLeadInText}</h1>
         </div>
       </div>
+
       <div className="columns is-desktop is-centered">
         <div className="column is-11 is-12-mobile">
           <Img fluid={props.content.landingImage.fluid} alt="" />
         </div>
       </div>
+
       <div className="columns has-background-black has-text-white">
         <div className="column is-12 pt-10 pt-8-mobile pb-12 pb-9-mobile">
           <h1>
@@ -172,6 +174,20 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
           )}
         </div>
       </section>
+
+      <div className="columns">
+        <div className="column is-12 pt-10 pt-7-mobile pb-9">
+          <h1 className="is-hidden-touch">
+            {props.content.learningCenterPreviewTitle}
+          </h1>
+          <h2 className="is-hidden-desktop">
+            {props.content.learningCenterPreviewTitle}
+          </h2>
+          <h3 className="mt-2">
+            {props.content.learningCenterPreviewSubtitle}
+          </h3>
+        </div>
+      </div>
 
       <ResponsiveSectionDivider />
     </div>
