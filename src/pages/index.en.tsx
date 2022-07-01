@@ -8,9 +8,6 @@ import "../styles/index.scss";
 import "../styles/data-driven-onboarding.scss";
 
 import Layout from "../components/layout";
-import { DDOSearchBar } from "../components/ddo-searchbar";
-import { t, Trans } from "@lingui/macro";
-import { I18n } from "@lingui/react";
 import { Link } from "@reach/router";
 const PRODUCT_CTA_UTM_CODE = "?utm_source=orgsite&utm_medium=productcta";
 
