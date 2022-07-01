@@ -44,6 +44,11 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
           <Img fluid={props.content.landingImage.fluid} alt="" />
         </div>
       </div>
+      <div className="columns has-background-black has-text-white">
+        <div className="column is-12 mx-9 mx-6-mobile mt-10 mt-8-mobile mb-12 mb-9-mobile">
+          <h1>{props.content.whoWeAreSection}</h1>
+        </div>
+      </div>
 
       <section id="products" className="is-horizontal-center">
         <div className="content-wrapper">
