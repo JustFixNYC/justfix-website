@@ -1,0 +1,98 @@
+@charset "utf-8";
+
+@import "../../node_modules/bulma/sass/utilities/functions.sass";
+@import "~bulma/sass/utilities/initial-variables.sass";
+
+@import "_vars.scss";
+@import "_fonts.scss";
+@import "_custom.scss";
+@import "_design-system.scss";
+
+section {
+  background-color: $justfix-white !important;
+}
+
+.section-title {
+  margin-bottom: 0.5rem;
+}
+
+// COLORS:
+
+#palette-swatches {
+  display: flex;
+
+  .color-info {
+    padding: 10px;
+  }
+}
+
+#green-box {
+  background-color: $justfix-green;
+}
+#pink-box {
+  background-color: $justfix-pink;
+}
+#yellow-box {
+  background-color: $justfix-yellow;
+}
+#orange-box {
+  background-color: $justfix-orange;
+}
+#blue-box {
+  background-color: $justfix-blue;
+}
+#white-box {
+  background-color: $justfix-white;
+}
+#grey-light-box {
+  background-color: $justfix-grey-light;
+}
+#grey-dark-box {
+  background-color: $justfix-grey-dark;
+}
+#black-box {
+  background-color: $justfix-black;
+}
+#black-box,
+#grey-dark-box {
+  p {
+    color: $justfix-white;
+  }
+}
+
+// TYPOGRAPHY:
+
+#type-samples {
+  display: flex;
+  flex-wrap: wrap;
+
+  div {
+    margin: 10px;
+  }
+
+  #mobile-text {
+    @include mobile-typography;
+  }
+
+  #desktop-text {
+    @include desktop-typography;
+  }
+}
+
+// BUTTONS:
+
+// #button-samples {
+//   display: flex;
+//   flex-wrap: wrap;
+
+//   .button {
+//     margin: 10px;
+//   }
+// }
+
+// // PILLS:
+
+// #pill-samples {
+//   display: flex;
+//   flex-wrap: wrap;
+// }
