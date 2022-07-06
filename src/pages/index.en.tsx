@@ -73,7 +73,7 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
 
       <div
         id="products"
-        className="columns is-multiline has-background-link has-text-black pr-4 pr-6-mobile pb-12 pb-6-mobile"
+        className="columns is-multiline has-background-link has-text-black pb-12 pb-6-mobile"
       >
         <div className="column is-12 pt-10 pt-7-mobile pb-9">
           <h1 className="is-hidden-touch">
@@ -87,7 +87,7 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
         {shuffleArray(props.content.homePageProductBlocks).map(
           (product: any, i: number) => (
             <div className="column is-4 is-12-mobile">
-              <div className="jf-card has-background-white mr-7 mr-0-mobile mb-8 mb-6-mobile p-8 p-6-mobile">
+              <div className="jf-card has-background-white p-8 p-6-mobile">
                 <div className="eyebrow is-small mb-5 mb-4-mobile">
                   {product.productName}
                 </div>

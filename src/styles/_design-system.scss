@@ -270,3 +270,19 @@ body {
   flex-direction: column;
   align-items: baseline;
 }
+
+// COLUMN STYLES:
+.columns {
+  padding-left: $spacing-09;
+  padding-right: $spacing-09;
+  @include mobile {
+    padding-left: $spacing-06;
+    padding-right: $spacing-06;
+  }
+}
+
+$column-gap: 18px;
+
+@include mobile {
+  $column-gap: 6px;
+}
