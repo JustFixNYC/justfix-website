@@ -3,6 +3,9 @@
 @import "../../node_modules/bulma/sass/utilities/functions.sass";
 @import "~bulma/sass/utilities/initial-variables.sass";
 
+@import "~bulma/bulma.sass";
+@import "~bulma-divider";
+
 @import "_vars.scss";
 @import "_design-system.scss";
 
@@ -29,6 +32,7 @@
 @import "~bulma-divider";
 
 @import "_custom.scss";
+@import "_design-system.scss";
 
 .home-page {
   .jf-learning-center-preview {
