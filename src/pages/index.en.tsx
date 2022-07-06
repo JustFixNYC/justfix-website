@@ -111,6 +111,22 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
             </div>
           )
         )}
+        <div className="column is-4 is-12-mobile">
+          <div className="jf-card has-background-black has-text-white p-8 p-6-mobile">
+            <h3 className="mb-6 mb-5-mobile">
+              {documentToReactComponents(
+                props.content.productIdeaBanner.content.json
+              )}
+            </h3>
+
+            <OutboundLink
+              href={props.content.productIdeaBanner.button.link}
+              className="button is-primary mb-6 mb-4-mobile mt-auto"
+            >
+              {props.content.productIdeaBanner.button.title}
+            </OutboundLink>
+          </div>
+        </div>
       </div>
 
       <div className="columns">
