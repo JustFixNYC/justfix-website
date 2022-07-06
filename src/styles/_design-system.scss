@@ -269,7 +269,6 @@ $family-primary: $body-font;
   @include mobile-typography();
 }
 
-
 // BUTTONS:
 
 // Override of Standard Mixin:
@@ -277,7 +276,7 @@ $family-primary: $body-font;
   background-color: $color;
   @include mobile-eyebrow();
 
-  @if $color == $justfix-white {
+  @if $color ==$justfix-white {
     color: $justfix-black;
     border: 0.0625rem solid $justfix-black;
   } @else {
@@ -391,6 +390,7 @@ $family-primary: $body-font;
   margin-bottom: 0;
   padding-left: $spacing-09;
   padding-right: $spacing-09;
+
   @include mobile {
     padding-left: $spacing-06;
     padding-right: $spacing-06;
