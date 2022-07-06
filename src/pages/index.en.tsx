@@ -144,15 +144,31 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
       </div>
 
       <div className="columns">
-        <div className="column is-6 is-12-mobile">
-          <h1 className="is-hidden-touch">
-            {props.content.partnershipsSectionTitle}
-          </h1>
+        <div className="column is-6 is-12-mobile is-flex is-flex-direction-column">
+          <h1 className="mb-6">{props.content.partnershipsSectionTitle}</h1>
+          <div className="has-background-info p-8 pt-11 is-flex-grow-1 is-flex is-flex-direction-column">
+            <h2 className="mb-11">
+              {props.content.partnershipsSectionSubtitle}
+            </h2>
+            <OutboundLink
+              href={props.content.partnershipsSectionButton.link}
+              className="button is-primary mt-auto is-align-self-flex-start"
+            >
+              {props.content.partnershipsSectionButton.title}
+            </OutboundLink>
+          </div>
         </div>
-        <div className="column is-6 is-12-mobile">
-          <h1 className="is-hidden-touch">
-            {props.content.policySectionTitle}
-          </h1>
+        <div className="column is-6 is-12-mobile is-flex is-flex-direction-column">
+          <h1 className="mb-6">{props.content.policySectionTitle}</h1>
+          <div className="has-background-link p-8 pt-11 is-flex-grow-1 is-flex is-flex-direction-column">
+            <h2 className="mb-11">{props.content.policySectionSubtitle}</h2>
+            <OutboundLink
+              href={props.content.policySectionButton.link}
+              className="button is-primary mt-auto is-align-self-flex-start"
+            >
+              {props.content.policySectionButton.title}
+            </OutboundLink>
+          </div>
         </div>
       </div>
 
