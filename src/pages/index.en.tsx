@@ -10,6 +10,7 @@ import "../styles/data-driven-onboarding.scss";
 import Layout from "../components/layout";
 import { Link } from "@reach/router";
 import { OutboundLink } from "gatsby-plugin-google-analytics";
+import { Trans } from "@lingui/macro";
 const PRODUCT_CTA_UTM_CODE = "?utm_source=orgsite&utm_medium=productcta";
 
 export type ContentfulContent = {
@@ -124,17 +125,113 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
         </div>
       </div>
 
-      <div className="columns">
-        <div className="column is-12 pt-10 pt-7-mobile pb-9">
-          <h1 className="is-hidden-touch">
-            {props.content.learningCenterPreviewTitle}
-          </h1>
-          <h2 className="is-hidden-desktop">
-            {props.content.learningCenterPreviewTitle}
-          </h2>
-          <h3 className="mt-2">
-            {props.content.learningCenterPreviewSubtitle}
-          </h3>
+      <div className="jf-learning-center-preview">
+        <div className="columns">
+          <div className="column is-12 pt-10 pt-7-mobile pb-9">
+            <h1 className="is-hidden-touch">
+              {props.content.learningCenterPreviewTitle}
+            </h1>
+            <h2 className="is-hidden-desktop">
+              {props.content.learningCenterPreviewTitle}
+            </h2>
+            <h3 className="mt-2">
+              {props.content.learningCenterPreviewSubtitle}
+            </h3>
+            <div className="has-background-warning mt-9">
+              <div className="columns is-marginless is-paddingless">
+                <div className="column is-marginless is-5 is-12-mobile p-9">
+                  <div className="eyebrow is-large mb-6">
+                    <Trans>Featured article</Trans>
+                  </div>
+                  <h2 className="mb-6">
+                    {props.content.learningCenterPreviewArticles[0].title}
+                  </h2>
+                  <div className="eyebrow is-large mb-5">
+                    <Trans>Updated</Trans>{" "}
+                    {props.content.learningCenterPreviewArticles[0].dateUpdated}
+                  </div>
+                  <p>
+                    {
+                      props.content.learningCenterPreviewArticles[0].metadata
+                        .description
+                    }{" "}
+                    <Link
+                      className="has-text-black is-underlined"
+                      to={props.content.learningCenterPreviewArticles[0].slug}
+                    >
+                      <Trans>Read more</Trans>
+                      <img
+                        className="ml-2"
+                        width={16}
+                        height={16}
+                        src={require("../img/internal-arrow.svg")}
+                        alt=""
+                      />
+                    </Link>
+                  </p>
+                </div>
+                <div className="column is-marginless is-paddingless is-7 is-12-mobile">
+                  <div className="columns is-marginless is-paddingless is-multiline">
+                    <div className="column is-marginless is-12 py-6 px-9">
+                      <h3 className="mb-4">
+                        {props.content.learningCenterPreviewArticles[1].title}
+                      </h3>
+                      <div className="eyebrow is-large mb-4">
+                        <Trans>Updated</Trans>{" "}
+                        {
+                          props.content.learningCenterPreviewArticles[1]
+                            .dateUpdated
+                        }
+                      </div>
+                      <Link
+                        className="has-text-black is-underlined"
+                        to={props.content.learningCenterPreviewArticles[1].slug}
+                      >
+                        <Trans>Read more</Trans>
+                        <img
+                          className="ml-2"
+                          width={16}
+                          height={16}
+                          src={require("../img/internal-arrow.svg")}
+                          alt=""
+                        />
+                      </Link>
+                    </div>
+                    <div className="column is-marginless is-12 py-6 px-9">
+                      <h3 className="mb-4">
+                        {props.content.learningCenterPreviewArticles[2].title}
+                      </h3>
+                      <div className="eyebrow is-large mb-4">
+                        <Trans>Updated</Trans>{" "}
+                        {
+                          props.content.learningCenterPreviewArticles[2]
+                            .dateUpdated
+                        }
+                      </div>
+                      <Link
+                        className="has-text-black is-underlined"
+                        to={props.content.learningCenterPreviewArticles[2].slug}
+                      >
+                        <Trans>Read more</Trans>
+                        <img
+                          className="ml-2"
+                          width={16}
+                          height={16}
+                          src={require("../img/internal-arrow.svg")}
+                          alt=""
+                        />
+                      </Link>
+                    </div>
+                    <div className="column is-marginless is-12 py-6 px-9">
+                      <Link to="/learn" className="button is-primary">
+                        <Trans>See all articles</Trans>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -239,6 +336,7 @@ export const LandingPageFragment = graphql`
       learningCenterPreviewSubtitle
       learningCenterPreviewArticles {
         title
+        dateUpdated
         metadata {
           description
         }
