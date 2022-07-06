@@ -143,6 +143,19 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
         </div>
       </div>
 
+      <div className="columns">
+        <div className="column is-6 is-12-mobile">
+          <h1 className="is-hidden-touch">
+            {props.content.partnershipsSectionTitle}
+          </h1>
+        </div>
+        <div className="column is-6 is-12-mobile">
+          <h1 className="is-hidden-touch">
+            {props.content.policySectionTitle}
+          </h1>
+        </div>
+      </div>
+
       <ResponsiveSectionDivider />
     </div>
   </Layout>
