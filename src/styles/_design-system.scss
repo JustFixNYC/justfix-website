@@ -56,7 +56,6 @@ $family-primary: $body-font;
   font-weight: 400;
   font-style: normal;
   letter-spacing: 0.01rem;
-  color: $justfix-black;
 }
 
 @mixin link {
@@ -262,13 +261,12 @@ $family-primary: $body-font;
   }
 }
 
-.page-content {
-  @include desktop() {
-    @include desktop-typography();
-  }
-  @include mobile() {
-    @include mobile-typography();
-  }
+@include desktop() {
+  @include desktop-typography();
+}
+
+@include mobile() {
+  @include mobile-typography();
 }
 
 // BUTTONS:
@@ -278,7 +276,7 @@ $family-primary: $body-font;
   background-color: $color;
   @include mobile-eyebrow();
 
-  @if $color == $justfix-white {
+  @if $color ==$justfix-white {
     color: $justfix-black;
     border: 0.0625rem solid $justfix-black;
   } @else {
@@ -392,6 +390,7 @@ $family-primary: $body-font;
   margin-bottom: 0;
   padding-left: $spacing-09;
   padding-right: $spacing-09;
+
   @include mobile {
     padding-left: $spacing-06;
     padding-right: $spacing-06;
