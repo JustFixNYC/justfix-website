@@ -56,7 +56,6 @@ $family-primary: $body-font;
   font-weight: 400;
   font-style: normal;
   letter-spacing: 0.01rem;
-  color: $justfix-black;
 }
 
 @mixin link {
@@ -262,14 +261,14 @@ $family-primary: $body-font;
   }
 }
 
-.page-content {
-  @include desktop() {
-    @include desktop-typography();
-  }
-  @include mobile() {
-    @include mobile-typography();
-  }
+@include desktop() {
+  @include desktop-typography();
 }
+
+@include mobile() {
+  @include mobile-typography();
+}
+
 
 // BUTTONS:
 
