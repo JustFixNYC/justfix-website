@@ -273,7 +273,10 @@ body {
 }
 
 // COLUMN STYLES:
-.columns {
+.columns,
+.columns:not(:last-child) {
+  margin-top: 0;
+  margin-bottom: 0;
   padding-left: $spacing-09;
   padding-right: $spacing-09;
   @include mobile {
