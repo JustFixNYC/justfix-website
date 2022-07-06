@@ -21,18 +21,15 @@ $primary-invert: findColorInvert($primary);
 $white: $justfix-white;
 $black: $justfix-black;
 
-$button-padding-horizontal: 1.5rem;
+$link: $justfix-blue;
+$warning: $justfix-yellow;
+$success: $justfix-green;
+$info: $justfix-pink;
+$read-more: #37bc9b;
 
 // TODO: Remove these old color variables:
 $justfix-blue-lightened: #84c2e1;
 $justfix-blue-white: #ebf9ff;
-
-$link: $justfix-blue;
-$warning: $justfix-yellow;
-$info: $justfix-green;
-$read-more: #37bc9b;
-
-$warning: $justfix-yellow;
 $warning-lightened: #ffefb2;
 $warning-darkened: #f7c913;
 
@@ -60,3 +57,6 @@ $navbar-height-mobile: 4.375rem;
 // Since we want our navbar to always show the hamburger menu, let's set
 // the navbar breakpoint to be impossibly high:
 $navbar-breakpoint: 10000px;
+
+// BUTTON STYLES:
+$button-padding-horizontal: 1.5rem;

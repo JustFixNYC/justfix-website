@@ -18,17 +18,6 @@ export type ContentfulContent = {
 
 // const linkIsSms = (link: string) => link.slice(0, 4) === "sms:";
 
-const ResponsiveSectionDivider = () => (
-  <>
-    <section className="columns is-centered is-hidden-mobile">
-      <div className="column is-four-fifths">
-        <div className="is-divider" />
-      </div>
-    </section>
-    <div className="is-divider is-hidden-tablet" />
-  </>
-);
-
 const shuffleArray = (array: any[]) =>
   array
     .map((value) => ({ value, sort: Math.random() }))
@@ -146,7 +135,7 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
       <div className="columns">
         <div className="column is-6 is-12-mobile is-flex is-flex-direction-column">
           <h1 className="mb-6">{props.content.partnershipsSectionTitle}</h1>
-          <div className="has-background-info p-8 pt-11 is-flex-grow-1 is-flex is-flex-direction-column">
+          <div className="has-background-success p-8 pt-11 is-flex-grow-1 is-flex is-flex-direction-column">
             <h2 className="mb-11">
               {props.content.partnershipsSectionSubtitle}
             </h2>
@@ -172,7 +161,25 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
         </div>
       </div>
 
-      <ResponsiveSectionDivider />
+      <div className="columns has-background-info">
+        <div className="column is-12 pt-10 pt-8-mobile pb-12 pb-9-mobile">
+          <h1>
+            {props.content.outroSectionTitle}
+            <Link
+              to={props.content.outroSectionButton.link}
+              className="button is-primary is-inline-block mt-2 ml-4 is-hidden-touch"
+            >
+              {props.content.outroSectionButton.title}
+            </Link>
+          </h1>
+          <Link
+            to={props.content.outroSectionButton.link}
+            className="button is-primary mt-7 is-hidden-desktop"
+          >
+            {props.content.outroSectionButton.title}
+          </Link>
+        </div>
+      </div>
     </div>
   </Layout>
 );
@@ -242,8 +249,9 @@ export const LandingPageFragment = graphql`
         link
       }
       outroSectionTitle
-      outroSectionBodyText {
-        json
+      outroSectionButton {
+        title
+        link
       }
     }
   }
