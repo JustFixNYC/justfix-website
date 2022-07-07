@@ -1,7 +1,6 @@
 import React from "react";
 import { Trans, t } from "@lingui/macro";
 import { withI18n, withI18nProps } from "@lingui/react";
-import classnames from "classnames";
 
 type FormLocation = "footer" | "page";
 
@@ -95,26 +94,24 @@ class SubscribeWithoutI18n extends React.Component<
     return (
       <div>
         <form
-          className="email-form is-horizontal-center"
+          className="jf-email-form is-horizontal-center field has-addons"
           onSubmit={this.handleSubmit}
         >
-          <div
-            className={classnames(location === "page" && "field has-addons")}
-          >
-            <div className="control is-expanded">
-              <input
-                type="email"
-                name="EMAIL"
-                className="input"
-                onChange={this.handleChange}
-                placeholder={i18n._(t`Email Address`)}
-              />
-            </div>
-            <div className="control has-text-centered-touch">
-              <button className="button is-primary is-uppercase" type="submit">
+          <div className="control is-expanded is-paddingless">
+            <input
+              type="email"
+              name="EMAIL"
+              className="input"
+              onChange={this.handleChange}
+              placeholder={i18n._(t`Email Address`)}
+            />
+          </div>
+          <div className="control is-paddingless">
+            <button className="button" type="submit">
+              <span className="eyebrow is-small">
                 <Trans>Sign up</Trans>
-              </button>
-            </div>
+              </span>
+            </button>
           </div>
         </form>
         {this.state.response && (

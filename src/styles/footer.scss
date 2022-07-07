@@ -1,36 +1,22 @@
+@import "_vars.scss";
+
 .footer {
-  img {
-    max-width: 180px;
-  }
-  .column {
-    .link {
+  .jf-email-form {
+    input,
+    .button {
+      height: $spacing-09;
+    }
+    .button {
+      background-color: $justfix-black;
+      color: $justfix-white;
+      border: 1px solid $justfix-white;
+
+      &:focus,
       &:hover {
-        color: #fff;
-      }
-      &:focus {
-        text-decoration: underline;
-      }
-      &.legal {
-        margin-right: 1.5rem;
-      }
-      p {
-        line-height: 2;
+        background-color: $justfix-white;
+        color: $justfix-black;
+        transition: all 0.1s linear;
       }
     }
-    form {
-      margin-bottom: 1rem;
-      max-width: 400px;
-      .control {
-        padding: 0 0.8rem 0.8rem 0;
-      }
-    }
-    .field {
-      .social-icon {
-        margin: 0 0.85rem 0.85rem 0;
-      }
-    }
-  }
-  .is-divider {
-    margin-top: 0;
   }
 }

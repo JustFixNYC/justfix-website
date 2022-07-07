@@ -133,8 +133,9 @@ const Footer = withI18n()(({ i18n }: withI18nProps) => {
             <Trans>Join our mailing list!</Trans>
           </h4>
           <Subscribe />
-          <div className="field">
+          <div className="field mt-3">
             <SocialIcon
+              className="mr-3"
               url="http://twitter.com/justfixnyc"
               target="_blank"
               rel="noopener noreferrer"
@@ -142,6 +143,7 @@ const Footer = withI18n()(({ i18n }: withI18nProps) => {
               style={{ height: 40, width: 40 }}
             />
             <SocialIcon
+              className="mr-3"
               url="https://facebook.com/JustFixNYC"
               target="_blank"
               rel="noopener noreferrer"
@@ -149,6 +151,7 @@ const Footer = withI18n()(({ i18n }: withI18nProps) => {
               style={{ height: 40, width: 40 }}
             />
             <SocialIcon
+              className="mr-3"
               url="https://www.linkedin.com/company/justfix-nyc"
               target="_blank"
               rel="noopener noreferrer"
@@ -156,6 +159,7 @@ const Footer = withI18n()(({ i18n }: withI18nProps) => {
               style={{ height: 40, width: 40 }}
             />
             <SocialIcon
+              className="mr-3"
               url="https://github.com/JustFixNYC"
               target="_blank"
               rel="noopener noreferrer"
