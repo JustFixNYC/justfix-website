@@ -10,3 +10,5 @@ export const OutboundLink = (props: OutboundLinkProps) => (
     {props.children}
   </a>
 );
+
+export const linkIsSms = (link: string) => link.slice(0, 4) === "sms:";

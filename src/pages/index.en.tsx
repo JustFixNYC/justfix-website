@@ -8,16 +8,15 @@ import "../styles/index.scss";
 import "../styles/data-driven-onboarding.scss";
 
 import Layout from "../components/layout";
-import { Link } from "@reach/router";
+
 import { OutboundLink } from "../util/links";
 import { Trans } from "@lingui/macro";
+import { LocaleLink as Link } from "../components/locale-link";
 const PRODUCT_CTA_UTM_CODE = "?utm_source=orgsite&utm_medium=productcta";
 
 export type ContentfulContent = {
   content: any;
 };
-
-// const linkIsSms = (link: string) => link.slice(0, 4) === "sms:";
 
 const shuffleArray = (array: any[]) =>
   array
@@ -150,7 +149,7 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
                     }{" "}
                     <Link
                       className="has-text-black is-underlined"
-                      to={props.content.learningCenterPreviewArticles[0].slug}
+                      to={`/learn/${props.content.learningCenterPreviewArticles[0].slug}`}
                     >
                       <Trans>Read more</Trans>
                       <img
@@ -178,7 +177,7 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
                       </div>
                       <Link
                         className="has-text-black is-underlined"
-                        to={props.content.learningCenterPreviewArticles[1].slug}
+                        to={`/learn/${props.content.learningCenterPreviewArticles[1].slug}`}
                       >
                         <Trans>Read more</Trans>
                         <img
@@ -203,7 +202,7 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
                       </div>
                       <Link
                         className="has-text-black is-underlined"
-                        to={props.content.learningCenterPreviewArticles[2].slug}
+                        to={`/learn/${props.content.learningCenterPreviewArticles[2].slug}`}
                       >
                         <Trans>Read more</Trans>
                         <img
@@ -236,24 +235,24 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
               <h2 className="mb-11">
                 {props.content.partnershipsSectionSubtitle}
               </h2>
-              <OutboundLink
-                href={props.content.partnershipsSectionButton.link}
+              <Link
+                to={props.content.partnershipsSectionButton.link}
                 className="button is-primary mt-auto is-align-self-flex-start"
               >
                 {props.content.partnershipsSectionButton.title}
-              </OutboundLink>
+              </Link>
             </div>
           </div>
           <div className="column is-6 is-12-mobile is-flex is-flex-direction-column">
             <h1 className="mb-6">{props.content.policySectionTitle}</h1>
             <div className="has-background-link p-8 pt-11 is-flex-grow-1 is-flex is-flex-direction-column">
               <h2 className="mb-11">{props.content.policySectionSubtitle}</h2>
-              <OutboundLink
-                href={props.content.policySectionButton.link}
+              <Link
+                to={props.content.policySectionButton.link}
                 className="button is-primary mt-auto is-align-self-flex-start"
               >
                 {props.content.policySectionButton.title}
-              </OutboundLink>
+              </Link>
             </div>
           </div>
         </div>
