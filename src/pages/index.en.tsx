@@ -73,7 +73,7 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
           </div>
           {shuffleArray(props.content.homePageProductBlocks).map(
             (product: any, i: number) => (
-              <div className="column is-4 is-12-mobile">
+              <div className="column is-4 is-12-mobile" key={i}>
                 <div className="jf-card has-background-white p-8 p-6-mobile">
                   <div className="eyebrow is-small mb-5 mb-4-mobile">
                     {product.productName}
@@ -100,11 +100,11 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
           )}
           <div className="column is-4 is-12-mobile">
             <div className="jf-card has-background-black has-text-white p-8 p-6-mobile">
-              <h3 className="mb-6 mb-5-mobile">
+              <div className="mb-6 mb-5-mobile">
                 {documentToReactComponents(
                   props.content.productIdeaBanner.content.json
                 )}
-              </h3>
+              </div>
 
               <OutboundLink
                 href={props.content.productIdeaBanner.button.link}

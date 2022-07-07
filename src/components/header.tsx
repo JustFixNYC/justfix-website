@@ -190,8 +190,12 @@ const Header: React.FC<{
               <div className="navbar-dropdown is-right">
                 {localeConfig.ACCEPTED_LOCALES.filter(
                   (otherLocale) => otherLocale !== locale
-                ).map((otherLocale) => (
-                  <LocaleToggle to={otherLocale} className="navbar-item">
+                ).map((otherLocale, i) => (
+                  <LocaleToggle
+                    to={otherLocale}
+                    className="navbar-item"
+                    key={i}
+                  >
                     {LANGUAGE_NAMES[otherLocale]}
                   </LocaleToggle>
                 ))}
