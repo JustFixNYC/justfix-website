@@ -43,7 +43,7 @@ const Footer = withI18n()(({ i18n }: withI18nProps) => {
           <FooterLanguageToggle />
 
           {/* TODO: Update these footer links with actual links to internal pages */}
-          <div className="columns is-paddingless is-hidden-touch">
+          <div className="columns is-paddingless is-hidden-touch ml-0">
             <div className="column is-3 is-paddingless mx-0">
               <Link className="no-underline" to="/#products">
                 <p className="title is-4 has-text-white">
@@ -95,7 +95,7 @@ const Footer = withI18n()(({ i18n }: withI18nProps) => {
           </div>
         </div>
 
-        <div className="column is-paddingless">
+        <div className="column">
           <h4 className="mb-4">
             <Trans>Join our mailing list!</Trans>
           </h4>
@@ -136,7 +136,11 @@ const Footer = withI18n()(({ i18n }: withI18nProps) => {
         </div>
       </div>
 
-      <div className="is-divider" />
+      <div className="columns">
+        <div className="column is-12 pb-0">
+          <div className="is-divider" />
+        </div>
+      </div>
 
       <div className="columns">
         <div className="column is-9">
