@@ -65,6 +65,10 @@ $body-color: $justfix-black;
 @mixin link {
   text-decoration: underline;
 
+  &.no-underline {
+    text-decoration: none;
+  }
+
   &:hover,
   &:focus,
   &:active {
