@@ -50,7 +50,7 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
             <br />
             <Link
               to={props.content.whoWeAreButton.link}
-              className="button is-primary mb-10 mb-7-mobile"
+              className="button is-primary mt-5 mb-10 mb-7-mobile"
             >
               {props.content.whoWeAreButton.title}
             </Link>
@@ -260,19 +260,12 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
       </div>
 
       <div className="columns has-background-info">
-        <div className="column is-12 pt-10 pt-8-mobile pb-12 pb-9-mobile">
-          <h1>
-            {props.content.outroSectionTitle}
-            <Link
-              to={props.content.outroSectionButton.link}
-              className="button is-primary is-inline-block mt-2 ml-4 is-hidden-touch"
-            >
-              {props.content.outroSectionButton.title}
-            </Link>
-          </h1>
+        <div className="column is-12 pt-9 pt-6-mobile pb-12 pb-9-mobile">
+          <h1>{props.content.outroSectionTitle}</h1>
+          <br />
           <Link
             to={props.content.outroSectionButton.link}
-            className="button is-primary mt-7 is-hidden-desktop"
+            className="button is-primary mt-5"
           >
             {props.content.outroSectionButton.title}
           </Link>
