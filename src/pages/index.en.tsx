@@ -118,7 +118,7 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
         </div>
       </div>
 
-      <div className="jf-learning-center-preview">
+      <div className="jf-learning-center-preview mb-12">
         <div className="columns">
           <div className="column is-12 pt-10 pt-7-mobile pb-9">
             <h1 className="is-hidden-touch">
