@@ -50,6 +50,7 @@ $family-primary: $body-font;
 // TYPOGRAPHY:
 
 // Default text color:
+$title-color: $justfix-black;
 $body-color: $justfix-black;
 
 @mixin body-standard {
@@ -318,7 +319,7 @@ $body-color: $justfix-black;
 
   &:active,
   &.active {
-    @if $color ==$justfix-white {
+    @if $color == $justfix-white {
       color: $justfix-black;
     } @else {
       color: $justfix-white;
@@ -343,6 +344,31 @@ $body-color: $justfix-black;
 .button.is-text {
   padding: 0;
   color: $justfix-black;
+}
+
+.buttons.has-addons {
+  width: fit-content;
+  border-radius: 0.25rem;
+  border: 1px solid $justfix-white;
+
+  .button {
+    margin: 0;
+    text-decoration: none;
+    background-color: $justfix-black;
+    color: $justfix-white;
+
+    &:focus,
+    &:hover,
+    &.is-selected {
+      background-color: $justfix-white;
+      color: $justfix-black;
+      transition: all 0.1s linear;
+    }
+
+    &.is-selected {
+      pointer-events: none;
+    }
+  }
 }
 
 // PILLS:
@@ -381,7 +407,7 @@ $body-color: $justfix-black;
 // CARDS:
 .jf-card {
   border: 1px solid $justfix-black;
-  border-radius: 4px;
+  border-radius: 0.25rem;
   display: flex;
   height: 100%;
   flex-direction: column;

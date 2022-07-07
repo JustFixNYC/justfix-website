@@ -5,19 +5,43 @@ import { withI18n, withI18nProps } from "@lingui/react";
 
 import "../styles/footer.scss";
 import Subscribe from "./subscribe";
-import { LocaleLink as Link } from "./locale-link";
+import { LocaleLink as Link, LocaleToggle } from "./locale-link";
+import { useCurrentLocale } from "../util/use-locale";
+import classnames from "classnames";
+
+const FooterLanguageToggle = () => {
+  const locale = useCurrentLocale();
+  return (
+    <div className="buttons has-addons">
+      <LocaleToggle
+        to="en"
+        className={classnames(
+          "button title is-4",
+          locale === "en" && "is-selected"
+        )}
+      >
+        English
+      </LocaleToggle>
+      <LocaleToggle
+        to="es"
+        className={classnames(
+          "button title is-4",
+          locale === "es" && "is-selected"
+        )}
+      >
+        Español
+      </LocaleToggle>
+    </div>
+  );
+};
 
 const Footer = withI18n()(({ i18n }: withI18nProps) => {
   return (
-    <div className="footer has-background-info">
+    <div className="footer has-background-black has-text-white">
       <div className="columns has-text-centered-touch is-desktop">
         <div className="column">
-          <Link to="/" className="button is-info">
-            <img src={require("../img/brand/logo.png")} alt="JustFix.nyc" />
-          </Link>
-        </div>
-        <div className="column">
-          <p className="link-header has-text-white has-text-weight-bold is-uppercase">
+          <FooterLanguageToggle />
+          <p className="">
             <Trans>What we do</Trans>
           </p>
           <Link
@@ -145,8 +169,8 @@ const Footer = withI18n()(({ i18n }: withI18nProps) => {
       <div className="is-divider" />
 
       <div className="columns">
-        <div className="column is-three-quarters">
-          <p className="subtitle is-size-6 has-text-white">
+        <div className="column is-9">
+          <p>
             <Trans>
               <b>Disclaimer:</b> The information in JustFix.nyc does not
               constitute legal advice and must not be used as a substitute for
@@ -155,24 +179,27 @@ const Footer = withI18n()(({ i18n }: withI18nProps) => {
               services if necessary.
             </Trans>
           </p>
-          <p className="subtitle is-size-6 has-text-white">
+          <br />
+          <p>
             <Trans>
               <b>JustFix.nyc</b> is a registered 501(c)(3) nonprofit
               organization.
             </Trans>
           </p>
-          <Link
-            className="link legal is-inline-block has-text-weight-semibold is-uppercase"
-            to="/privacy-policy"
-          >
-            <Trans>Privacy policy</Trans>
-          </Link>
-          <Link
-            className="link legal is-inline-block has-text-weight-semibold is-uppercase"
-            to="/terms-of-use"
-          >
-            <Trans>Terms of use</Trans>
-          </Link>
+          <div className="mt-9">
+            <Link
+              className="eyebrow is-small has-text-white mr-12 mr-6-mobile"
+              to="/privacy-policy"
+            >
+              <Trans>Privacy policy</Trans>
+            </Link>
+            <Link
+              className="eyebrow is-small has-text-white"
+              to="/terms-of-use"
+            >
+              <Trans>Terms of use</Trans>
+            </Link>
+          </div>
         </div>
         <div className="column is-one-quarter">
           <a
