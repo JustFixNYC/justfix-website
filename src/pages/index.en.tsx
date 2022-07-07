@@ -109,7 +109,7 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
 
               <OutboundLink
                 href={props.content.productIdeaBanner.button.link}
-                className="button is-primary mb-6 mb-4-mobile mt-auto"
+                className="button is-primary mt-auto"
               >
                 {props.content.productIdeaBanner.button.title}
               </OutboundLink>
