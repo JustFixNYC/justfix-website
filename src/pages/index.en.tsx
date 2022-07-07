@@ -153,9 +153,7 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
                     >
                       <Trans>Read more</Trans>
                       <img
-                        className="ml-2"
-                        width={16}
-                        height={16}
+                        className="jf-internal-arrow-icon ml-2"
                         src={require("../img/internal-arrow.svg")}
                         alt=""
                       />
@@ -181,9 +179,7 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
                       >
                         <Trans>Read more</Trans>
                         <img
-                          className="ml-2"
-                          width={16}
-                          height={16}
+                          className="jf-internal-arrow-icon ml-2"
                           src={require("../img/internal-arrow.svg")}
                           alt=""
                         />
@@ -206,9 +202,7 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
                       >
                         <Trans>Read more</Trans>
                         <img
-                          className="ml-2"
-                          width={16}
-                          height={16}
+                          className="jf-internal-arrow-icon ml-2"
                           src={require("../img/internal-arrow.svg")}
                           alt=""
                         />
