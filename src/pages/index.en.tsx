@@ -151,7 +151,7 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
                       className="has-text-black is-underlined"
                       to={`/learn/${props.content.learningCenterPreviewArticles[0].slug}`}
                     >
-                      <Trans>Read more</Trans>
+                      <Trans>Read More</Trans>
                       <img
                         className="jf-internal-arrow-icon ml-2"
                         src={require("../img/internal-arrow.svg")}
@@ -177,7 +177,7 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
                         className="has-text-black is-underlined"
                         to={`/learn/${props.content.learningCenterPreviewArticles[1].slug}`}
                       >
-                        <Trans>Read more</Trans>
+                        <Trans>Read More</Trans>
                         <img
                           className="jf-internal-arrow-icon ml-2"
                           src={require("../img/internal-arrow.svg")}
@@ -200,7 +200,7 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
                         className="has-text-black is-underlined"
                         to={`/learn/${props.content.learningCenterPreviewArticles[2].slug}`}
                       >
-                        <Trans>Read more</Trans>
+                        <Trans>Read More</Trans>
                         <img
                           className="jf-internal-arrow-icon ml-2"
                           src={require("../img/internal-arrow.svg")}
