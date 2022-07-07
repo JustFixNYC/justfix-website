@@ -1,11 +1,11 @@
 @import "_vars.scss";
 
 .jf-footer {
+  input,
+  .button {
+    height: $spacing-09;
+  }
   .jf-email-form {
-    input,
-    .button {
-      height: $spacing-09;
-    }
     .button {
       background-color: $justfix-black;
       color: $justfix-white;

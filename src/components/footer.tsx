@@ -16,7 +16,7 @@ const FooterLanguageToggle = () => {
       <LocaleToggle
         to="en"
         className={classnames(
-          "button title is-4",
+          "button eyebrow is-small",
           locale === "en" && "is-selected"
         )}
       >
@@ -25,7 +25,7 @@ const FooterLanguageToggle = () => {
       <LocaleToggle
         to="es"
         className={classnames(
-          "button title is-4",
+          "button eyebrow is-small",
           locale === "es" && "is-selected"
         )}
       >
@@ -35,68 +35,45 @@ const FooterLanguageToggle = () => {
   );
 };
 
+type FooterLink = [string, JSX.Element];
+// TODO: Update these footer links with actual links to internal pages
+const footerLinks: FooterLink[] = [
+  ["/our-mission", <Trans>Mission</Trans>],
+  ["/learn", <Trans>Learn</Trans>],
+  ["/our-mission", <Trans>Mission</Trans>],
+  ["/learn", <Trans>Learn</Trans>],
+  ["/our-mission", <Trans>Mission</Trans>],
+  ["/learn", <Trans>Learn</Trans>],
+  ["/our-mission", <Trans>Mission</Trans>],
+  ["/learn", <Trans>Learn</Trans>],
+];
+
 const Footer = withI18n()(({ i18n }: withI18nProps) => {
   return (
     <div className="jf-footer has-background-black has-text-white py-7">
-      <div className="columns">
+      <div className="columns is-multiline">
         <div className="column is-9 is-12-touch pt-9">
           <FooterLanguageToggle />
-
-          {/* TODO: Update these footer links with actual links to internal pages */}
           <div className="columns is-paddingless is-hidden-touch ml-0">
-            <div className="column is-3 is-paddingless mx-0">
-              <Link className="no-underline" to="/#products">
-                <p className="title is-4 has-text-white">
-                  <Trans>Products</Trans>
-                </p>
-              </Link>
-              <Link className="no-underline" to="/learn">
-                <p className="title is-4 has-text-white">
-                  <Trans>Learn</Trans>
-                </p>
-              </Link>
-            </div>
-            <div className="column is-3 is-paddingless">
-              <Link className="no-underline" to="/#products">
-                <p className="title is-4 has-text-white">
-                  <Trans>Products</Trans>
-                </p>
-              </Link>
-              <Link className="no-underline" to="/learn">
-                <p className="title is-4 has-text-white">
-                  <Trans>Learn</Trans>
-                </p>
-              </Link>
-            </div>
-            <div className="column is-3 is-paddingless">
-              <Link className="no-underline" to="/#products">
-                <p className="title is-4 has-text-white">
-                  <Trans>Products</Trans>
-                </p>
-              </Link>
-              <Link className="no-underline" to="/learn">
-                <p className="title is-4 has-text-white">
-                  <Trans>Learn</Trans>
-                </p>
-              </Link>
-            </div>
-            <div className="column is-3 is-paddingless">
-              <Link className="no-underline" to="/#products">
-                <p className="title is-4 has-text-white">
-                  <Trans>Products</Trans>
-                </p>
-              </Link>
-              <Link className="no-underline" to="/learn">
-                <p className="title is-4 has-text-white">
-                  <Trans>Learn</Trans>
-                </p>
-              </Link>
-            </div>
+            {[0, 2, 4, 6].map((i) => (
+              <div className="column is-3 is-paddingless mx-0" key={i}>
+                <Link className="no-underline" to={footerLinks[i][0]}>
+                  <p className="title is-4 has-text-white">
+                    {footerLinks[i][1]}
+                  </p>
+                </Link>
+                <Link className="no-underline" to={footerLinks[i + 1][0]}>
+                  <p className="title is-4 has-text-white">
+                    {footerLinks[i + 1][1]}
+                  </p>
+                </Link>
+              </div>
+            ))}
           </div>
         </div>
 
-        <div className="column">
-          <h4 className="mb-4">
+        <div className="column is-3 is-12-touch">
+          <h4 className="mb-2">
             <Trans>Join our mailing list!</Trans>
           </h4>
           <Subscribe />
@@ -132,6 +109,13 @@ const Footer = withI18n()(({ i18n }: withI18nProps) => {
               bgColor="#FFF"
               style={{ height: 40, width: 40 }}
             />
+          </div>
+          <div className="mt-8 is-hidden-desktop">
+            {footerLinks.map((link, i) => (
+              <Link className="no-underline" to={link[0]} key={i}>
+                <p className="title is-4 has-text-white">{link[1]}</p>
+              </Link>
+            ))}
           </div>
         </div>
       </div>
