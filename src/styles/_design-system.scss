@@ -49,6 +49,9 @@ $family-primary: $body-font;
 
 // TYPOGRAPHY:
 
+// Default text color:
+$body-color: $justfix-black;
+
 @mixin body-standard {
   font-family: $body-font;
   font-size: 1.125rem;
@@ -194,6 +197,7 @@ $family-primary: $body-font;
 
 @mixin mobile-eyebrow {
   @include body-standard();
+  font-family: $eyebrow-font;
   font-size: 0.875rem;
   line-height: 115%;
   letter-spacing: 0.03em;
@@ -295,6 +299,7 @@ $family-primary: $body-font;
   max-width: 100%;
   white-space: normal;
   word-wrap: break-word;
+  text-decoration: none;
 
   transition: all 0.1s linear;
   transform: translateX(0rem);
