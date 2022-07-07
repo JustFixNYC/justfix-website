@@ -21,35 +21,33 @@ $primary-invert: findColorInvert($primary);
 $white: $justfix-white;
 $black: $justfix-black;
 
-$button-padding-horizontal: 1.5rem;
+$link: $justfix-blue;
+$warning: $justfix-yellow;
+$success: $justfix-green;
+$info: $justfix-pink;
+$read-more: #37bc9b;
 
 // TODO: Remove these old color variables:
 $justfix-blue-lightened: #84c2e1;
 $justfix-blue-white: #ebf9ff;
-
-$link: $justfix-blue;
-$info: #003d57;
-$read-more: #37bc9b;
-
-$warning: $justfix-yellow;
 $warning-lightened: #ffefb2;
 $warning-darkened: #f7c913;
 
 // SPACING:
 
-$spacing-01: 0.125rem;
-$spacing-02: 0.25rem;
-$spacing-03: 0.5rem;
-$spacing-04: 0.75rem;
-$spacing-05: 1rem;
-$spacing-06: 1.5rem;
-$spacing-07: 2rem;
-$spacing-08: 2.5rem;
-$spacing-09: 3rem;
-$spacing-10: 4rem;
-$spacing-11: 5rem;
-$spacing-12: 6rem;
-$spacing-13: 10rem;
+$spacing-01: 0.125rem; // 2px
+$spacing-02: 0.25rem; // 4px
+$spacing-03: 0.5rem; // 8px
+$spacing-04: 0.75rem; // 12px
+$spacing-05: 1rem; // 16px
+$spacing-06: 1.5rem; // 24px
+$spacing-07: 2rem; // 32px
+$spacing-08: 2.5rem; // 40px
+$spacing-09: 3rem; // 48px
+$spacing-10: 4rem; // 64px
+$spacing-11: 5rem; // 80px
+$spacing-12: 6rem; // 96px
+$spacing-13: 10rem; // 160px
 
 // NAVBAR STYLES:
 
@@ -59,3 +57,6 @@ $navbar-height-mobile: 4.375rem;
 // Since we want our navbar to always show the hamburger menu, let's set
 // the navbar breakpoint to be impossibly high:
 $navbar-breakpoint: 10000px;
+
+// BUTTON STYLES:
+$button-padding-horizontal: 1.5rem;

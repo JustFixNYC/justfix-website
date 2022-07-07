@@ -1,9 +1,6 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
-import AnchorLink from "react-anchor-link-smooth-scroll";
-import TextLoop from "react-text-loop";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import BackgroundImage from "gatsby-background-image";
 import Img from "gatsby-image/withIEPolyfill";
 // import { Link } from 'gatsby'
 
@@ -11,242 +8,262 @@ import "../styles/index.scss";
 import "../styles/data-driven-onboarding.scss";
 
 import Layout from "../components/layout";
-import { DDOSearchBar } from "../components/ddo-searchbar";
-import { t, Trans } from "@lingui/macro";
-import { I18n } from "@lingui/react";
-const TEXTLOOP_ANIMATION_INTERVAL = 2750;
+
+import { OutboundLink } from "../util/links";
+import { Trans } from "@lingui/macro";
+import { LocaleLink as Link } from "../components/locale-link";
 const PRODUCT_CTA_UTM_CODE = "?utm_source=orgsite&utm_medium=productcta";
 
 export type ContentfulContent = {
   content: any;
 };
 
-const linkIsSms = (link: string) => link.slice(0, 4) === "sms:";
-
-const DDO = () => (
-  <>
-    <h2 className="subtitle is-size-5 has-text-white">
-      <Trans>Enter your address to learn more.</Trans>
-    </h2>
-    <br />
-    <I18n>
-      {({ i18n }) => (
-        <DDOSearchBar
-          locale={i18n.language}
-          hiddenFieldLabel={i18n._(t`Enter your address to learn more.`)}
-          submitLabel={i18n._(t`Search address`)}
-        />
-      )}
-    </I18n>
-  </>
-);
-
-const ResponsiveSectionDivider = () => (
-  <>
-    <section className="columns is-centered is-hidden-mobile">
-      <div className="column is-four-fifths">
-        <div className="is-divider" />
-      </div>
-    </section>
-    <div className="is-divider is-hidden-tablet" />
-  </>
-);
+const shuffleArray = (array: any[]) =>
+  array
+    .map((value) => ({ value, sort: Math.random() }))
+    .sort((a, b) => a.sort - b.sort)
+    .map(({ value }) => value);
 
 export const LandingPageScaffolding = (props: ContentfulContent) => (
   <Layout isLandingPage={true}>
     <div id="home" className="home-page">
-      <BackgroundImage
-        className="landing-image hero is-fullheight"
-        fluid={props.content.landingImage.fluid}
-        alt="background-image"
+      <div className="my-8-mobile mt-12 mb-11">
+        <div className="columns">
+          <div className="column is-1" />
+          <div className="column is-10">
+            <h1>{props.content.landingLeadInText}</h1>
+          </div>
+        </div>
+      </div>
+
+      <div className="columns is-desktop is-centered">
+        <div className="column is-paddingless is-11 is-12-mobile">
+          <Img fluid={props.content.landingImage.fluid} alt="" />
+        </div>
+      </div>
+
+      <div className="has-background-black has-text-white">
+        <div className="columns">
+          <div className="column is-12 pt-9 py-8-mobile">
+            <h1>{props.content.whoWeAreSection}</h1>
+            <br />
+            <Link
+              to={props.content.whoWeAreButton.link}
+              className="button is-primary mt-5 mb-10 mb-7-mobile"
+            >
+              {props.content.whoWeAreButton.title}
+            </Link>
+          </div>
+        </div>
+      </div>
+
+      <div
+        id="products"
+        className="has-background-link has-text-black pb-12 pb-6-mobile"
       >
-        <div className="hero-body">
-          <div className="container content-wrapper tight">
-            <h1 className="title is-size-1 is-size-3-mobile has-text-white is-spaced">
-              <span className="is-hidden-mobile">
-                {props.content.landingLeadInText}
-                <div className="title-carousel">
-                  <TextLoop
-                    interval={TEXTLOOP_ANIMATION_INTERVAL}
-                    springConfig={{ stiffness: 70, damping: 31 }}
-                  >
-                    {props.content.landingTextLoopText.map(
-                      (textBlock: string, i: number) => (
-                        <span key={i}>{textBlock}</span>
-                      )
-                    )}
-                  </TextLoop>
-                </div>
-              </span>
-              <span className="is-hidden-tablet">
-                {props.content.landingFallbackText}
-              </span>
+        <div className="columns is-multiline">
+          <div className="column is-12 pt-10 pt-7-mobile pb-9">
+            <h1 className="is-hidden-touch">
+              {props.content.productSectionTitle}
             </h1>
-
-            <DDO />
+            <h2 className="is-hidden-desktop">
+              {props.content.productSectionTitle}
+            </h2>
+            <h3 className="mt-2">{props.content.productSectionSubtitle}</h3>
           </div>
-        </div>
-        <div className="landing-footer">
-          <div className="columns is-vcentered">
-            <div className="column is-size-6 has-text-white has-text-weight-semibold">
-              {props.content.landingFooterText}
-            </div>
-            <div className="column more-arrow">
-              <AnchorLink
-                href="#products"
-                className="has-text-white has-text-weight-light"
-              >
-                <figure className="image is-32x32 is-horizontal-center">
-                  <img
-                    className="img-centered"
-                    src={require("../img/down-arrow.png")}
-                    alt=""
-                  />
-                </figure>
-              </AnchorLink>
-            </div>
-            <div className="column" />
-          </div>
-        </div>
-      </BackgroundImage>
-
-      <section id="products" className="is-horizontal-center">
-        <div className="content-wrapper">
-          <div className="hero is-small">
-            <div className="hero-body has-text-centered">
-              <div className="container content-wrapper tight">
-                <h1 className="title is-size-2 has-text-grey-dark has-text-weight-normal">
-                  {props.content.productSectionTitle}
-                </h1>
-              </div>
-            </div>
-          </div>
-
-          {props.content.homePageProductBlocks.map(
+          {shuffleArray(props.content.homePageProductBlocks).map(
             (product: any, i: number) => (
-              <div className="product" key={i}>
-                <div className="columns is-tablet is-vcentered is-hidden-mobile">
-                  {i % 2 === 1 && (
-                    <div className="column">
-                      <div className="container">
-                        <figure className="image is-horizontal-center">
-                          <Img fluid={product.screenshot.fluid} alt="" />
-                        </figure>
-                      </div>
-                    </div>
-                  )}
-                  <div className="column">
-                    <div className="container">
-                      <h3 className="title has-text-grey-dark has-text-weight-medium">
-                        {product.title}
-                      </h3>
-                      <br />
-                      <p className="subtitle">
-                        {documentToReactComponents(
-                          product.descriptionText.json
-                        )}
-                      </p>
-                      <br />
-                      {product.button !== null &&
-                        (linkIsSms(product.button.link) ? (
-                          <p className="subtitle is-uppercase has-text-weight-bold">
-                            {product.button.title}
-                          </p>
-                        ) : (
-                          <a
-                            className="button is-large is-primary is-uppercase"
-                            href={product.button.link + PRODUCT_CTA_UTM_CODE}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            {product.button.title}
-                          </a>
-                        ))}
-                    </div>
+              <div className="column is-4 is-12-mobile">
+                <div className="jf-card has-background-white p-8 p-6-mobile">
+                  <div className="eyebrow is-small mb-5 mb-4-mobile">
+                    {product.productName}
                   </div>
-                  {i % 2 === 0 && (
-                    <div className="column">
-                      <div className="container">
-                        <figure className="image is-horizontal-center">
-                          <Img fluid={product.screenshot.fluid} alt="" />
-                        </figure>
-                      </div>
+                  <h3 className="mb-6 mb-5-mobile">{product.title}</h3>
+                  <div className="mb-6 mb-5-mobile">
+                    {documentToReactComponents(product.descriptionText.json)}
+                  </div>
+                  <div className="mt-auto">
+                    <div className="mb-6">
+                      {product.location} · {product.language.join(" · ")}
                     </div>
-                  )}
-                </div>
 
-                <div className="columns is-vcentered is-hidden-tablet">
-                  <div className="column">
-                    <div className="container">
-                      <figure className="image is-horizontal-center">
-                        <Img fluid={product.screenshot.fluid} alt="" />
-                      </figure>
-                    </div>
-                  </div>
-                  <div className="column">
-                    <div className="container has-text-centered">
-                      <h3 className="title has-text-grey-dark has-text-weight-medium">
-                        {product.title}
-                      </h3>
-                      <br />
-                      <p className="subtitle">
-                        {documentToReactComponents(
-                          product.descriptionText.json
-                        )}
-                      </p>
-                      <br />
-                      {product.button !== null && (
-                        <a
-                          className="button is-medium is-primary"
-                          href={
-                            product.button.link +
-                            (linkIsSms(product.button.link)
-                              ? ""
-                              : PRODUCT_CTA_UTM_CODE)
-                          }
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <span className="is-size-6 is-uppercase">
-                            {product.button.title}
-                          </span>
-                        </a>
-                      )}
-                    </div>
+                    <OutboundLink
+                      href={product.button.link + PRODUCT_CTA_UTM_CODE}
+                      className="button is-primary"
+                    >
+                      {product.button.title}
+                    </OutboundLink>
                   </div>
                 </div>
               </div>
             )
           )}
+          <div className="column is-4 is-12-mobile">
+            <div className="jf-card has-background-black has-text-white p-8 p-6-mobile">
+              <h3 className="mb-6 mb-5-mobile">
+                {documentToReactComponents(
+                  props.content.productIdeaBanner.content.json
+                )}
+              </h3>
+
+              <OutboundLink
+                href={props.content.productIdeaBanner.button.link}
+                className="button is-primary mt-auto"
+              >
+                {props.content.productIdeaBanner.button.title}
+              </OutboundLink>
+            </div>
+          </div>
         </div>
-      </section>
+      </div>
 
-      <ResponsiveSectionDivider />
-
-      <section id="as-seen-in">
-        <div className="content-wrapper">
-          <div className="hero is-small">
-            <div className="hero-body has-text-centered">
-              <h1 className="title is-size-2 has-text-grey-dark has-text-weight-normal">
-                {props.content.pressTitle}
-              </h1>
-              <div className="columns">
-                {props.content.pressLogos.map((logo: any, i: number) => (
-                  <div className="column" key={i}>
-                    <figure className="image">
-                      <img
-                        className="is-horizontal-center"
-                        src={logo.logo.file.url}
-                        alt={logo.title}
-                      />
-                    </figure>
+      <div className="jf-learning-center-preview mb-12">
+        <div className="columns">
+          <div className="column is-12 pt-10 pt-7-mobile pb-9">
+            <h1 className="is-hidden-touch">
+              {props.content.learningCenterPreviewTitle}
+            </h1>
+            <h2 className="is-hidden-desktop">
+              {props.content.learningCenterPreviewTitle}
+            </h2>
+            <h3 className="mt-2">
+              {props.content.learningCenterPreviewSubtitle}
+            </h3>
+            <div className="has-background-warning mt-9">
+              <div className="columns is-marginless is-paddingless">
+                <div className="column is-marginless is-5 is-12-mobile p-9">
+                  <div className="eyebrow is-large mb-6">
+                    <Trans>Featured article</Trans>
                   </div>
-                ))}
+                  <h2 className="mb-6">
+                    {props.content.learningCenterPreviewArticles[0].title}
+                  </h2>
+                  <div className="eyebrow is-large mb-5">
+                    <Trans>Updated</Trans>{" "}
+                    {props.content.learningCenterPreviewArticles[0].dateUpdated}
+                  </div>
+                  <p>
+                    {
+                      props.content.learningCenterPreviewArticles[0].metadata
+                        .description
+                    }{" "}
+                    <Link
+                      className="has-text-black is-underlined"
+                      to={`/learn/${props.content.learningCenterPreviewArticles[0].slug}`}
+                    >
+                      <Trans>Read More</Trans>
+                      <img
+                        className="jf-internal-arrow-icon ml-2"
+                        src={require("../img/internal-arrow.svg")}
+                        alt=""
+                      />
+                    </Link>
+                  </p>
+                </div>
+                <div className="column is-marginless is-paddingless is-7 is-12-mobile">
+                  <div className="columns is-marginless is-paddingless is-multiline">
+                    <div className="column is-marginless is-12 py-6 px-9">
+                      <h3 className="mb-4">
+                        {props.content.learningCenterPreviewArticles[1].title}
+                      </h3>
+                      <div className="eyebrow is-large mb-4">
+                        <Trans>Updated</Trans>{" "}
+                        {
+                          props.content.learningCenterPreviewArticles[1]
+                            .dateUpdated
+                        }
+                      </div>
+                      <Link
+                        className="has-text-black is-underlined"
+                        to={`/learn/${props.content.learningCenterPreviewArticles[1].slug}`}
+                      >
+                        <Trans>Read More</Trans>
+                        <img
+                          className="jf-internal-arrow-icon ml-2"
+                          src={require("../img/internal-arrow.svg")}
+                          alt=""
+                        />
+                      </Link>
+                    </div>
+                    <div className="column is-marginless is-12 py-6 px-9">
+                      <h3 className="mb-4">
+                        {props.content.learningCenterPreviewArticles[2].title}
+                      </h3>
+                      <div className="eyebrow is-large mb-4">
+                        <Trans>Updated</Trans>{" "}
+                        {
+                          props.content.learningCenterPreviewArticles[2]
+                            .dateUpdated
+                        }
+                      </div>
+                      <Link
+                        className="has-text-black is-underlined"
+                        to={`/learn/${props.content.learningCenterPreviewArticles[2].slug}`}
+                      >
+                        <Trans>Read More</Trans>
+                        <img
+                          className="jf-internal-arrow-icon ml-2"
+                          src={require("../img/internal-arrow.svg")}
+                          alt=""
+                        />
+                      </Link>
+                    </div>
+                    <div className="column is-marginless is-12 py-6 px-9">
+                      <Link to="/learn" className="button is-primary">
+                        <Trans>See all articles</Trans>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+
+      <div className="mb-12">
+        <div className="columns">
+          <div className="column is-6 is-12-mobile is-flex is-flex-direction-column">
+            <h1 className="mb-6">{props.content.partnershipsSectionTitle}</h1>
+            <div className="has-background-success p-8 pt-11 is-flex-grow-1 is-flex is-flex-direction-column">
+              <h2 className="mb-11">
+                {props.content.partnershipsSectionSubtitle}
+              </h2>
+              <Link
+                to={props.content.partnershipsSectionButton.link}
+                className="button is-primary mt-auto is-align-self-flex-start"
+              >
+                {props.content.partnershipsSectionButton.title}
+              </Link>
+            </div>
+          </div>
+          <div className="column is-6 is-12-mobile is-flex is-flex-direction-column">
+            <h1 className="mb-6">{props.content.policySectionTitle}</h1>
+            <div className="has-background-link p-8 pt-11 is-flex-grow-1 is-flex is-flex-direction-column">
+              <h2 className="mb-11">{props.content.policySectionSubtitle}</h2>
+              <Link
+                to={props.content.policySectionButton.link}
+                className="button is-primary mt-auto is-align-self-flex-start"
+              >
+                {props.content.policySectionButton.title}
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="columns has-background-info">
+        <div className="column is-12 pt-9 pt-6-mobile pb-12 pb-9-mobile">
+          <h1>{props.content.outroSectionTitle}</h1>
+          <br />
+          <Link
+            to={props.content.outroSectionButton.link}
+            className="button is-primary mt-5"
+          >
+            {props.content.outroSectionButton.title}
+          </Link>
+        </div>
+      </div>
     </div>
   </Layout>
 );
@@ -254,20 +271,21 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
 export const LandingPageFragment = graphql`
   fragment LandingPage on Query {
     contentfulHomePage(node_locale: { eq: $locale }) {
-      moratoriumBanner {
-        json
-      }
       landingLeadInText
-      landingTextLoopText
-      landingFallbackText
-      landingFooterText
       landingImage {
         fluid {
           ...GatsbyContentfulFluid
         }
       }
+      whoWeAreSection
+      whoWeAreButton {
+        title
+        link
+      }
       productSectionTitle
+      productSectionSubtitle
       homePageProductBlocks {
+        productName
         title
         descriptionText {
           json
@@ -276,20 +294,49 @@ export const LandingPageFragment = graphql`
           title
           link
         }
+        location
+        language
         screenshot {
           fluid {
             ...GatsbyContentfulFluid
           }
         }
       }
-      pressTitle
-      pressLogos {
-        title
-        logo {
-          file {
-            url
-          }
+      productIdeaBanner {
+        content {
+          json
         }
+        button {
+          title
+          link
+        }
+      }
+      learningCenterPreviewTitle
+      learningCenterPreviewSubtitle
+      learningCenterPreviewArticles {
+        title
+        dateUpdated
+        metadata {
+          description
+        }
+        slug
+      }
+      partnershipsSectionTitle
+      partnershipsSectionSubtitle
+      partnershipsSectionButton {
+        title
+        link
+      }
+      policySectionTitle
+      policySectionSubtitle
+      policySectionButton {
+        title
+        link
+      }
+      outroSectionTitle
+      outroSectionButton {
+        title
+        link
       }
     }
   }

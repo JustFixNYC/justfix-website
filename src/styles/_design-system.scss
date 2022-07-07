@@ -49,6 +49,9 @@ $family-primary: $body-font;
 
 // TYPOGRAPHY:
 
+// Default text color:
+$body-color: $justfix-black;
+
 @mixin body-standard {
   font-family: $body-font;
   font-size: 1.125rem;
@@ -56,7 +59,6 @@ $family-primary: $body-font;
   font-weight: 400;
   font-style: normal;
   letter-spacing: 0.01rem;
-  color: $justfix-black;
 }
 
 @mixin link {
@@ -195,6 +197,7 @@ $family-primary: $body-font;
 
 @mixin mobile-eyebrow {
   @include body-standard();
+  font-family: $eyebrow-font;
   font-size: 0.875rem;
   line-height: 115%;
   letter-spacing: 0.03em;
@@ -262,13 +265,12 @@ $family-primary: $body-font;
   }
 }
 
-.page-content {
-  @include desktop() {
-    @include desktop-typography();
-  }
-  @include mobile() {
-    @include mobile-typography();
-  }
+@include desktop() {
+  @include desktop-typography();
+}
+
+@include mobile() {
+  @include mobile-typography();
 }
 
 // BUTTONS:
@@ -278,7 +280,7 @@ $family-primary: $body-font;
   background-color: $color;
   @include mobile-eyebrow();
 
-  @if $color == $justfix-white {
+  @if $color ==$justfix-white {
     color: $justfix-black;
     border: 0.0625rem solid $justfix-black;
   } @else {
@@ -297,6 +299,7 @@ $family-primary: $body-font;
   max-width: 100%;
   white-space: normal;
   word-wrap: break-word;
+  text-decoration: none;
 
   transition: all 0.1s linear;
   transform: translateX(0rem);
@@ -373,4 +376,34 @@ $family-primary: $body-font;
     border: 0.0625rem solid $justfix-black;
     box-sizing: border-box;
   }
+}
+
+// CARDS:
+.jf-card {
+  border: 1px solid $justfix-black;
+  border-radius: 4px;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  align-items: baseline;
+}
+
+// COLUMN STYLES:
+.columns,
+.columns:not(:last-child) {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: $spacing-09;
+  padding-right: $spacing-09;
+
+  @include mobile {
+    padding-left: $spacing-06;
+    padding-right: $spacing-06;
+  }
+}
+
+$column-gap: 18px;
+
+@include mobile {
+  $column-gap: 6px;
 }

@@ -3,76 +3,48 @@
 @import "../../node_modules/bulma/sass/utilities/functions.sass";
 @import "~bulma/sass/utilities/initial-variables.sass";
 
-@import "~bulma/bulma.sass";
+@import "_vars.scss";
+@import "_design-system.scss";
+
+// BULMA CORE FILES:
+@import "~bulma/sass/base/_all.sass";
+@import "~bulma/sass/components/_all.sass";
+@import "~bulma/sass/elements/_all.sass";
+@import "~bulma/sass/form/_all.sass";
+@import "~bulma/sass/grid/_all.sass";
+@import "~bulma/sass/layout/_all.sass";
+@import "~bulma/sass/utilities/_all.sass";
+
+// BULMA HELPER FILES:
+// Not importing `spacing.sass` given our custom spacing helpers in `_custom.scss`
+@import "~bulma/sass/helpers/color.sass";
+@import "~bulma/sass/helpers/flexbox.sass";
+@import "~bulma/sass/helpers/float.sass";
+@import "~bulma/sass/helpers/other.sass";
+@import "~bulma/sass/helpers/overflow.sass";
+@import "~bulma/sass/helpers/position.sass";
+@import "~bulma/sass/helpers/typography.sass";
+@import "~bulma/sass/helpers/visibility.sass";
+
 @import "~bulma-divider";
 
-@import "_vars.scss";
-@import "_fonts.scss";
 @import "_custom.scss";
 @import "_design-system.scss";
 
 .home-page {
-  .landing-image.hero.is-fullheight {
-    min-height: 100vh;
+  .jf-learning-center-preview {
+    .column.is-5 {
+      @include desktop {
+        border-right: 1px solid $justfix-black;
+      }
 
-    .hero-body {
-      padding-bottom: 0;
-
-      .container {
-        width: 100%;
-        // Moratorium Banner Offset
-        @media screen and (min-width: $tablet) {
-          margin-top: 5.5rem;
-        }
+      @include mobile {
+        border-bottom: 1px solid $justfix-black;
       }
     }
 
-    .title {
-      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-
-      .title-carousel {
-        margin-top: 0.5rem;
-      }
-    }
-
-    .button {
-      background-color: $transparent;
-    }
-
-    .landing-footer {
-      padding: 3rem 1.5rem 1rem 1.5rem;
-
-      .column.more-arrow {
-        figure:hover {
-          opacity: 0.7;
-        }
-      }
-    }
-  }
-  #products {
-    .product {
-      padding-bottom: 4rem;
-    }
-    .columns {
-      min-height: 60vh;
-      &.is-hidden-tablet {
-        width: 100%;
-        margin-left: 0;
-        margin-right: 0;
-      }
-    }
-    .image {
-      max-width: 80%;
-    }
-    .container {
-      padding: 0 1.5rem 1.5rem 1.5rem;
-    }
-  }
-  #as-seen-in {
-    img {
-      max-width: 200px;
-      filter: grayscale(100%);
-      opacity: 0.5;
+    .column.is-7 .column:not(:last-child) {
+      border-bottom: 1px solid $justfix-black;
     }
   }
 }

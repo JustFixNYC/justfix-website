@@ -1,27 +1,104 @@
 @import "_vars.scss";
+@import "_design-system.scss";
 
-// BULMA OVERRIDES
+// SPACING HELPER CLASSES OVERRIDES:
+// These rules customize the spacing helpers defined in `spacing.sass` in the Bulma package
 
-.hero.is-small {
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
+.is-marginless {
+  margin: 0 !important;
 }
+
+.is-paddingless {
+  padding: 0 !important;
+}
+
+$spacing-shortcuts: (
+  "margin": "m",
+  "padding": "p",
+);
+$spacing-directions: (
+  "top": "t",
+  "right": "r",
+  "bottom": "b",
+  "left": "l",
+);
+$spacing-horizontal: "x";
+$spacing-vertical: "y";
+$spacing-values: (
+  "0": 0,
+  "1": $spacing-01,
+  "2": $spacing-02,
+  "3": $spacing-03,
+  "4": $spacing-04,
+  "5": $spacing-05,
+  "6": $spacing-06,
+  "7": $spacing-07,
+  "8": $spacing-08,
+  "9": $spacing-09,
+  "10": $spacing-10,
+  "11": $spacing-11,
+  "12": $spacing-12,
+  "13": $spacing-13,
+  "auto": auto,
+);
+
+@each $property, $shortcut in $spacing-shortcuts {
+  @each $name, $value in $spacing-values {
+    // All directions
+    .#{$shortcut}-#{$name} {
+      #{$property}: $value;
+    }
+    .#{$shortcut}-#{$name}-mobile {
+      @include mobile {
+        #{$property}: $value !important;
+      }
+    }
+    // Cardinal directions
+    @each $direction, $suffix in $spacing-directions {
+      .#{$shortcut}#{$suffix}-#{$name} {
+        #{$property}-#{$direction}: $value;
+      }
+      .#{$shortcut}#{$suffix}-#{$name}-mobile {
+        @include mobile {
+          #{$property}-#{$direction}: $value !important;
+        }
+      }
+    }
+    // Horizontal axis
+    @if $spacing-horizontal != null {
+      .#{$shortcut}#{$spacing-horizontal}-#{$name} {
+        #{$property}-left: $value;
+        #{$property}-right: $value;
+      }
+      .#{$shortcut}#{$spacing-horizontal}-#{$name}-mobile {
+        @include mobile {
+          #{$property}-left: $value !important;
+          #{$property}-right: $value !important;
+        }
+      }
+    }
+    // Vertical axis
+    @if $spacing-vertical != null {
+      .#{$shortcut}#{$spacing-vertical}-#{$name} {
+        #{$property}-top: $value;
+        #{$property}-bottom: $value;
+      }
+      .#{$shortcut}#{$spacing-vertical}-#{$name}-mobile {
+        @include mobile {
+          #{$property}-top: $value !important;
+          #{$property}-bottom: $value !important;
+        }
+      }
+    }
+  }
+}
+
+// OTHER BULMA OVERRIDES
 
 .social-icon {
   margin: 0 0.85rem;
   &:hover {
     opacity: 0.5;
-  }
-}
-
-/* Override default styling for links inside white hero containers */
-.hero.is-white
-  p
-  a:not(.button):not(.dropdown-item):not(.tag):not(.pagination-link.is-current),
-.hero.is-white strong {
-  color: $primary;
-  &:hover {
-    color: inherit;
   }
 }
 
@@ -38,15 +115,6 @@
   display: inline-table;
 }
 
-.button {
-  &.is-primary:not(.is-outlined):hover {
-    background-color: $justfix-blue-lightened;
-  }
-  &.is-warning:not(.is-outlined):hover {
-    background-color: $warning-lightened;
-  }
-}
-
 .button,
 .social-icon,
 .navbar-link,
@@ -61,11 +129,6 @@
   letter-spacing: 0.1em;
 }
 
-a.button.is-large {
-  font-size: 1.25rem;
-  padding: 2rem 2.5rem;
-}
-
 .is-divider {
   opacity: 0.7;
 
@@ -76,60 +139,10 @@ a.button.is-large {
   }
 }
 
-.content {
-  overflow-wrap: break-word;
-}
-
-/* Navbar Hover Animations */
-.navbar-link.has-text-white,
-.navbar-item.has-text-white {
-  &:before {
-    content: "";
-    position: absolute;
-    width: 85%;
-    height: 2px;
-    bottom: 10px;
-    left: 7.5%;
-    background-color: #fff;
-    visibility: hidden;
-    -webkit-transform: scaleX(0);
-    transform: scaleX(0);
-    -webkit-transition: all 0.3s ease-in-out 0s;
-    transition: all 0.3s ease-in-out 0s;
-  }
-
-  &:hover:before {
-    visibility: visible;
-    -webkit-transform: scaleX(1);
-    transform: scaleX(1);
-  }
-}
-
 // CUSTOM CLASSES
 
 .is-absolute {
   position: absolute;
-}
-
-.content-wrapper {
-  width: 100%;
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-
-  &.tight {
-    max-width: 700px;
-  }
-}
-
-.background-image {
-  width: 150px;
-  height: 150px;
-  display: inline-block;
-}
-
-.has-background-primary-white {
-  background-color: $justfix-blue-white;
 }
 
 .is-horizontal-center {
@@ -146,4 +159,10 @@ a.button.is-large {
 
 .bold-shadow {
   text-shadow: 0.4px 0px 0.1px, -0.4px 0px 0.1px;
+}
+
+.jf-internal-arrow-icon {
+  width: 16px;
+  height: 16px;
+  transform: translateY(3px);
 }
