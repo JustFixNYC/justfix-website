@@ -92,20 +92,32 @@ const Header: React.FC<{
           <div className="navbar-item is-size-3 has-text-black is-hidden-touch">
             <Trans>Technology for Housing Justice</Trans>
           </div>
-          <a
-            role="button"
-            className={
-              "navbar-burger burger " + (burgerMenuIsOpen && "is-active")
-            }
-            aria-label="menu"
-            aria-expanded="false"
-            onClick={() => setBurgerMenuStatus(!burgerMenuIsOpen)}
-            data-target="navbar"
-          >
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-          </a>
+          <div className="navbar-item is-paddingless is-flex-grow-1" />
+          <div className="navbar-item is-hidden-touch">
+            <Link to="/tools" className="button is-primary">
+              <Trans>See our tools</Trans>
+            </Link>
+          </div>
+          <div className="navbar-item">
+            <button
+              role="button"
+              className={
+                "navbar-burger burger " + (burgerMenuIsOpen && "is-active")
+              }
+              aria-label="menu"
+              aria-expanded="false"
+              onClick={() => setBurgerMenuStatus(!burgerMenuIsOpen)}
+              data-target="navbar"
+            >
+              <img
+                src={require("../img/menu.svg")}
+                className="mr-2"
+                width="16"
+                height="12"
+              />{" "}
+              <Trans>Menu</Trans>
+            </button>
+          </div>
         </div>
 
         <div
@@ -190,8 +202,12 @@ const Header: React.FC<{
               <div className="navbar-dropdown is-right">
                 {localeConfig.ACCEPTED_LOCALES.filter(
                   (otherLocale) => otherLocale !== locale
-                ).map((otherLocale) => (
-                  <LocaleToggle to={otherLocale} className="navbar-item">
+                ).map((otherLocale, i) => (
+                  <LocaleToggle
+                    to={otherLocale}
+                    className="navbar-item"
+                    key={i}
+                  >
                     {LANGUAGE_NAMES[otherLocale]}
                   </LocaleToggle>
                 ))}
