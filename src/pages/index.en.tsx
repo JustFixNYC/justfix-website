@@ -45,19 +45,12 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
 
       <div className="has-background-black has-text-white">
         <div className="columns">
-          <div className="column is-12 pt-10 pt-8-mobile pb-12 pb-9-mobile">
-            <h1>
-              {props.content.whoWeAreSection}
-              <Link
-                to={props.content.whoWeAreButton.link}
-                className="button is-primary is-inline-block mt-2 ml-4 is-hidden-touch"
-              >
-                {props.content.whoWeAreButton.title}
-              </Link>
-            </h1>
+          <div className="column is-12 pt-9 py-8-mobile">
+            <h1>{props.content.whoWeAreSection}</h1>
+            <br />
             <Link
               to={props.content.whoWeAreButton.link}
-              className="button is-primary mt-7 is-hidden-desktop"
+              className="button is-primary mb-10 mb-7-mobile"
             >
               {props.content.whoWeAreButton.title}
             </Link>
@@ -87,7 +80,7 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
                     {product.productName}
                   </div>
                   <h3 className="mb-6 mb-5-mobile">{product.title}</h3>
-                  <div className="mb-6 mb-3-mobile">
+                  <div className="mb-6 mb-5-mobile">
                     {documentToReactComponents(product.descriptionText.json)}
                   </div>
                   <div className="mt-auto">
@@ -97,7 +90,7 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
 
                     <OutboundLink
                       href={product.button.link + PRODUCT_CTA_UTM_CODE}
-                      className="button is-primary mb-6 mb-4-mobile"
+                      className="button is-primary"
                     >
                       {product.button.title}
                     </OutboundLink>
