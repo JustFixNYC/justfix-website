@@ -9,7 +9,7 @@ import "../styles/data-driven-onboarding.scss";
 
 import Layout from "../components/layout";
 import { Link } from "@reach/router";
-import { OutboundLink } from "gatsby-plugin-google-analytics";
+import { OutboundLink } from "../util/links";
 import { Trans } from "@lingui/macro";
 const PRODUCT_CTA_UTM_CODE = "?utm_source=orgsite&utm_medium=productcta";
 
