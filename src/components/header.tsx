@@ -92,7 +92,7 @@ const Header: React.FC<{
           <div className="navbar-item is-size-3 has-text-black is-hidden-touch">
             <Trans>Technology for Housing Justice</Trans>
           </div>
-          <div className="navbar-item is-flex-grow-1" />
+          <div className="navbar-item is-paddingless is-flex-grow-1" />
           <div className="navbar-item is-hidden-touch">
             <Link to="/tools" className="button is-primary">
               <Trans>See our tools</Trans>
