@@ -5,6 +5,16 @@ import Layout from "../components/layout";
 import { ContentfulContent, ProductList } from "./index.en";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { ReadMoreLink } from "../components/read-more";
+import localeConfig from "../util/locale-config.json";
+import { useCurrentLocale } from "../util/use-locale";
+
+function formatDate(dateString: string, locale?: string): string {
+  var date = new Date(dateString);
+  return date.toLocaleDateString(locale || localeConfig.DEFAULT_LOCALE, {
+    month: "short",
+    year: "numeric",
+  });
+}
 
 export const ToolsPageScaffolding = (props: ContentfulContent) => {
   const {
@@ -13,6 +23,8 @@ export const ToolsPageScaffolding = (props: ContentfulContent) => {
     productPageProductBlocks,
     productIdeaBanner,
   } = props.content;
+
+  const locale = useCurrentLocale();
 
   return (
     <Layout metadata={props.content.metadata}>
@@ -31,7 +43,8 @@ export const ToolsPageScaffolding = (props: ContentfulContent) => {
           <div className="column is-3 is-12-mobile pt-0 pb-10" key={i}>
             <h3 className="mb-3">{tool.toolName}</h3>
             <div className="eyebrow is-small mb-5">
-              {tool.toolStartDate} - {tool.toolEndDate}
+              {formatDate(tool.toolStartDate, locale)} -{" "}
+              {formatDate(tool.toolEndDate, locale)}
             </div>
             <div className="title is-4 mb-5">
               {documentToReactComponents(tool.toolDescription.json)}
