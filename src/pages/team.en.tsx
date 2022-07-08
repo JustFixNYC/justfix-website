@@ -156,6 +156,9 @@ export const TeamPageFragment = graphql`
       directors {
         name
         title
+        description {
+          description
+        }
         photo {
           fluid {
             src
