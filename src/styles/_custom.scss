@@ -173,6 +173,9 @@ $page-hero-offset: $spacing-06;
 
     li {
       list-style: none;
+      // We need to indent the text to offset the margin between the bullet point and text
+      // plus the width of the bullet
+      text-indent: calc(-1 * #{$spacing-05 + $spacing-04});
       &::before {
         content: "▪";
         margin-right: $spacing-05;

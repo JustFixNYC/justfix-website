@@ -27,7 +27,10 @@ const PageHero: React.FC<PageHeroInfo> = ({
           </div>
           <ul className="mt-4">
             {onThisPageList.map((item: string, i: number) => (
-              <li className="title is-3 has-text-white is-marginless" key={i}>
+              <li
+                className="title is-3 has-text-white is-marginless pl-8"
+                key={i}
+              >
                 {item}
               </li>
             ))}
