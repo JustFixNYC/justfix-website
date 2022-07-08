@@ -12,6 +12,54 @@ import Layout from "../components/layout";
 import ReadMore from "../components/read-more";
 import { ContentfulContent } from "./index.en";
 
+/**
+ * Returns an array with arrays of the given size.
+ * https://ourcodeworld.com/articles/read/278/how-to-split-an-array-into-chunks-of-the-same-size-easily-in-javascript
+ *
+ * @param myArray {Array} Array to split
+ * @param chunkSize {Integer} Size of every group
+ */
+const chunkArray = (myArray: Array<any>, chunk_size: number) => {
+  var results = [];
+
+  while (myArray.length) {
+    results.push(myArray.splice(0, chunk_size));
+  }
+
+  return results;
+};
+
+type MemberCardInfo = {
+  name: string;
+  title: string;
+  description: {
+    description: string;
+  };
+  photo: {
+    fluid: {
+      src: string;
+    };
+  };
+};
+const MemberCard: React.FC<MemberCardInfo> = (props) => (
+  <div className="column is-3 is-paddingless has-background-warning">
+    <figure className="image">
+      <img
+        className="is-rounded"
+        src={props.photo.fluid.src}
+        alt={props.name}
+      />
+    </figure>
+    <div className="has-text-centered my-7">
+      <h3 className="has-centered-text">{props.name}</h3>
+      <h4 className="has-centered-text">{props.title}</h4>
+    </div>
+    <div>
+      <p>{props.description.description}</p>
+    </div>
+  </div>
+);
+
 export const TeamPageScaffolding = (props: ContentfulContent) => (
   <Layout metadata={props.content.metadata}>
     <div id="team" className="team-page">
@@ -23,33 +71,27 @@ export const TeamPageScaffolding = (props: ContentfulContent) => (
             <h1 className="team-title">{props.content.title}</h1>
           </div>
         </div>
-        <div className="columns is-centered my-9">
-          {/* TODO: how to space for half columns? */}
-          <div className="column is-3 is-paddingless has-background-warning">
-            <figure className="image">
-              <img
-                className="is-rounded"
-                src={props.content.teamMembers[0].photo.fluid.src}
-                alt={props.content.teamMembers[0].name}
-              />
-            </figure>
-            <div className="has-text-centered my-7">
-              <h3 className="has-centered-text">
-                {props.content.teamMembers[0].name}
-              </h3>
-              <h4 className="has-centered-text">
-                {props.content.teamMembers[0].title}
-              </h4>
+
+        {/* TODO: how to space for half columns? */}
+        {chunkArray(props.content.teamMembers, 3).map(
+          (members: Array<any>, i: number) => (
+            <div className="columns is-centered py-9" key={i}>
+              <MemberCard {...members[0]} />
+              <div className="column is-1" />
+              {members[1] ? (
+                <MemberCard {...members[1]} />
+              ) : (
+                <div className="column is-3" />
+              )}
+              <div className="column is-1" />
+              {members[2] ? (
+                <MemberCard {...members[2]} />
+              ) : (
+                <div className="column is-3" />
+              )}
             </div>
-            <div>
-              <p>{props.content.teamMembers[0].description.description}</p>
-            </div>
-          </div>
-          <div className="column is-1" />
-          <div className="column is-3 has-background-warning"></div>
-          <div className="column is-1" />
-          <div className="column is-3 has-background-warning"></div>
-        </div>
+          )
+        )}
       </div>
 
       {/* <section className="hero is-small">
