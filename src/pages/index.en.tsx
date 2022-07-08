@@ -2,7 +2,6 @@ import React from "react";
 import { StaticQuery, graphql } from "gatsby";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import Img from "gatsby-image/withIEPolyfill";
-// import { Link } from 'gatsby'
 
 import "../styles/index.scss";
 import "../styles/data-driven-onboarding.scss";
@@ -12,6 +11,7 @@ import Layout from "../components/layout";
 import { OutboundLink } from "../util/links";
 import { Trans } from "@lingui/macro";
 import { LocaleLink as Link } from "../components/locale-link";
+import { ReadMoreLink } from "../components/read-more";
 const PRODUCT_CTA_UTM_CODE = "?utm_source=orgsite&utm_medium=productcta";
 
 export type ContentfulContent = {
@@ -23,6 +23,101 @@ const shuffleArray = (array: any[]) =>
     .map((value) => ({ value, sort: Math.random() }))
     .sort((a, b) => a.sort - b.sort)
     .map(({ value }) => value);
+
+type ProductCardInfo = {
+  productName: string;
+  title: string;
+  descriptionText: {
+    json: any;
+  };
+  location: string;
+  language: string[];
+  button: {
+    title: string;
+    link: string;
+  };
+};
+
+const Dot = () => <span className="mx-3">·</span>;
+
+const ProductCard: React.FC<ProductCardInfo> = (props) => (
+  <div className="column is-4 is-12-mobile">
+    <div className="jf-card has-background-white p-8 p-6-mobile">
+      <div className="eyebrow is-small mb-5 mb-4-mobile">
+        {props.productName}
+      </div>
+      <h3 className="mb-6 mb-5-mobile">{props.title}</h3>
+      <div className="mb-6 mb-5-mobile">
+        {documentToReactComponents(props.descriptionText.json)}
+      </div>
+      <div className="mt-auto">
+        <div className="has-text-dark	is-uppercase has-text-weight-bold is-size-7 mb-6">
+          {props.location}
+          <Dot />
+          {props.language
+            .map<React.ReactNode>((lang, i) => <span key={i}>{lang}</span>)
+            .reduce((lang1, lang2) => [lang1, <Dot />, lang2])}
+        </div>
+
+        <OutboundLink
+          href={props.button.link + PRODUCT_CTA_UTM_CODE}
+          className="button is-primary"
+        >
+          {props.button.title}
+        </OutboundLink>
+      </div>
+    </div>
+  </div>
+);
+
+type ProductListInfo = {
+  productSectionTitle: string;
+  productSectionSubtitle: string;
+  homePageProductBlocks: ProductCardInfo[];
+  productIdeaBanner: {
+    content: {
+      json: any;
+    };
+    button: {
+      title: string;
+      link: string;
+    };
+  };
+};
+
+export const ProductList: React.FC<ProductListInfo> = (props) => (
+  <div
+    id="products"
+    className="has-background-link has-text-black pb-12 pb-6-mobile"
+  >
+    <div className="columns is-multiline">
+      <div className="column is-12 pt-10 pt-7-mobile pb-9">
+        <h1 className="is-hidden-touch">{props.productSectionTitle}</h1>
+        <h2 className="is-hidden-desktop">{props.productSectionTitle}</h2>
+        <h3 className="mt-2">{props.productSectionSubtitle}</h3>
+      </div>
+      {shuffleArray(props.homePageProductBlocks).map(
+        (product: any, i: number) => (
+          <ProductCard {...product} key={i} />
+        )
+      )}
+      <div className="column is-4 is-12-mobile">
+        <div className="jf-card has-background-black has-text-white p-8 p-6-mobile">
+          <div className="mb-6 mb-5-mobile">
+            {documentToReactComponents(props.productIdeaBanner.content.json)}
+          </div>
+
+          <OutboundLink
+            href={props.productIdeaBanner.button.link}
+            className="button is-primary mt-auto"
+          >
+            {props.productIdeaBanner.button.title}
+          </OutboundLink>
+        </div>
+      </div>
+    </div>
+  </div>
+);
 
 export const LandingPageScaffolding = (props: ContentfulContent) => (
   <Layout isLandingPage={true}>
@@ -57,65 +152,7 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
         </div>
       </div>
 
-      <div
-        id="products"
-        className="has-background-link has-text-black pb-12 pb-6-mobile"
-      >
-        <div className="columns is-multiline">
-          <div className="column is-12 pt-10 pt-7-mobile pb-9">
-            <h1 className="is-hidden-touch">
-              {props.content.productSectionTitle}
-            </h1>
-            <h2 className="is-hidden-desktop">
-              {props.content.productSectionTitle}
-            </h2>
-            <h3 className="mt-2">{props.content.productSectionSubtitle}</h3>
-          </div>
-          {shuffleArray(props.content.homePageProductBlocks).map(
-            (product: any, i: number) => (
-              <div className="column is-4 is-12-mobile" key={i}>
-                <div className="jf-card has-background-white p-8 p-6-mobile">
-                  <div className="eyebrow is-small mb-5 mb-4-mobile">
-                    {product.productName}
-                  </div>
-                  <h3 className="mb-6 mb-5-mobile">{product.title}</h3>
-                  <div className="mb-6 mb-5-mobile">
-                    {documentToReactComponents(product.descriptionText.json)}
-                  </div>
-                  <div className="mt-auto">
-                    <div className="mb-6">
-                      {product.location} · {product.language.join(" · ")}
-                    </div>
-
-                    <OutboundLink
-                      href={product.button.link + PRODUCT_CTA_UTM_CODE}
-                      className="button is-primary"
-                    >
-                      {product.button.title}
-                    </OutboundLink>
-                  </div>
-                </div>
-              </div>
-            )
-          )}
-          <div className="column is-4 is-12-mobile">
-            <div className="jf-card has-background-black has-text-white p-8 p-6-mobile">
-              <div className="mb-6 mb-5-mobile">
-                {documentToReactComponents(
-                  props.content.productIdeaBanner.content.json
-                )}
-              </div>
-
-              <OutboundLink
-                href={props.content.productIdeaBanner.button.link}
-                className="button is-primary mt-auto"
-              >
-                {props.content.productIdeaBanner.button.title}
-              </OutboundLink>
-            </div>
-          </div>
-        </div>
-      </div>
+      <ProductList {...props.content} />
 
       <div className="jf-learning-center-preview mb-12">
         <div className="columns">
@@ -147,17 +184,9 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
                       props.content.learningCenterPreviewArticles[0].metadata
                         .description
                     }{" "}
-                    <Link
-                      className="has-text-black is-underlined"
-                      to={`/learn/${props.content.learningCenterPreviewArticles[0].slug}`}
-                    >
-                      <Trans>Read More</Trans>
-                      <img
-                        className="jf-internal-arrow-icon ml-2"
-                        src={require("../img/internal-arrow.svg")}
-                        alt=""
-                      />
-                    </Link>
+                    <ReadMoreLink
+                      url={`/learn/${props.content.learningCenterPreviewArticles[0].slug}`}
+                    />
                   </p>
                 </div>
                 <div className="column is-marginless is-paddingless is-7 is-12-mobile">
@@ -173,17 +202,9 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
                             .dateUpdated
                         }
                       </div>
-                      <Link
-                        className="has-text-black is-underlined"
-                        to={`/learn/${props.content.learningCenterPreviewArticles[1].slug}`}
-                      >
-                        <Trans>Read More</Trans>
-                        <img
-                          className="jf-internal-arrow-icon ml-2"
-                          src={require("../img/internal-arrow.svg")}
-                          alt=""
-                        />
-                      </Link>
+                      <ReadMoreLink
+                        url={`/learn/${props.content.learningCenterPreviewArticles[1].slug}`}
+                      />
                     </div>
                     <div className="column is-marginless is-12 py-6 px-9">
                       <h3 className="mb-4">
@@ -196,17 +217,9 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
                             .dateUpdated
                         }
                       </div>
-                      <Link
-                        className="has-text-black is-underlined"
-                        to={`/learn/${props.content.learningCenterPreviewArticles[2].slug}`}
-                      >
-                        <Trans>Read More</Trans>
-                        <img
-                          className="jf-internal-arrow-icon ml-2"
-                          src={require("../img/internal-arrow.svg")}
-                          alt=""
-                        />
-                      </Link>
+                      <ReadMoreLink
+                        url={`/learn/${props.content.learningCenterPreviewArticles[2].slug}`}
+                      />
                     </div>
                     <div className="column is-marginless is-12 py-6 px-9">
                       <Link to="/learn" className="button is-primary">

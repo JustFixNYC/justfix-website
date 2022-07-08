@@ -95,6 +95,17 @@ $spacing-values: (
 
 // OTHER BULMA OVERRIDES
 
+/* 
+  Make sure descendants of the .title class inherit it's font size properties.
+
+  This is especially helpful when using "Rich Text" type content from Contentful, which
+  by default provides content in <p> tags. This rule makes sure we can override the size
+  of the text. 
+*/
+.title p {
+  font-size: inherit;
+}
+
 /* Make grouped buttons same size */
 .buttons {
   .button {
@@ -123,16 +134,57 @@ $spacing-values: (
 }
 
 .is-divider {
-  opacity: 0.7;
+  border-top: 1px solid $justfix-black;
 
   &.light {
-    opacity: 0.4;
-    margin: 1rem 0;
-    border-top-width: 1px;
+    border-top: 1px solid $justfix-white;
   }
 }
 
 // CUSTOM CLASSES
+
+// For our full-height page heros, this variable defines how much
+// the next section bleeds "above the fold"
+$page-hero-offset: $spacing-06;
+
+.jf-page-hero {
+  min-height: calc(100vh - #{$navbar-height} - #{$page-hero-offset});
+
+  @include mobile {
+    min-height: unset;
+  }
+
+  .columns {
+    .eyebrow {
+      border-bottom: 1px solid $justfix-white;
+    }
+
+    .column:first-child {
+      border-right: 1px solid $justfix-white;
+
+      @include mobile {
+        border-bottom: 2px solid $justfix-white;
+      }
+
+      .eyebrow {
+        width: 50%;
+      }
+    }
+
+    li {
+      list-style: none;
+      // We need to indent the text to offset the margin between the bullet point and text
+      // plus the width of the bullet
+      text-indent: calc(-1 * #{$spacing-05 + $spacing-04});
+      &::before {
+        content: "▪";
+        margin-right: $spacing-05;
+        font-size: 1.5rem;
+        vertical-align: middle;
+      }
+    }
+  }
+}
 
 .is-absolute {
   position: absolute;
@@ -154,7 +206,7 @@ $spacing-values: (
   text-shadow: 0.4px 0px 0.1px, -0.4px 0px 0.1px;
 }
 
-.jf-internal-arrow-icon {
+.jf-link-arrow-icon {
   width: 16px;
   height: 16px;
   transform: translateY(3px);
