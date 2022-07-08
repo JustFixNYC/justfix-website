@@ -122,7 +122,7 @@ const Footer = withI18n()(({ i18n }: withI18nProps) => {
 
       <div className="columns">
         <div className="column is-12 pb-0">
-          <div className="is-divider" />
+          <div className="is-divider is-light" />
         </div>
       </div>
 

@@ -416,6 +416,11 @@ $body-color: $justfix-black;
   height: 100%;
   flex-direction: column;
   align-items: baseline;
+
+  span {
+    font-size: inherit;
+    font-weight: inherit;
+  }
 }
 
 // COLUMN STYLES:
