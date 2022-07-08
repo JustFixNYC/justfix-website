@@ -24,6 +24,95 @@ const shuffleArray = (array: any[]) =>
     .sort((a, b) => a.sort - b.sort)
     .map(({ value }) => value);
 
+type ProductCardInfo = {
+  productName: string;
+  title: string;
+  descriptionText: {
+    json: any;
+  };
+  location: string;
+  language: string[];
+  button: {
+    title: string;
+    link: string;
+  };
+};
+
+const ProductCard: React.FC<ProductCardInfo> = (props) => (
+  <div className="column is-4 is-12-mobile">
+    <div className="jf-card has-background-white p-8 p-6-mobile">
+      <div className="eyebrow is-small mb-5 mb-4-mobile">
+        {props.productName}
+      </div>
+      <h3 className="mb-6 mb-5-mobile">{props.title}</h3>
+      <div className="mb-6 mb-5-mobile">
+        {documentToReactComponents(props.descriptionText.json)}
+      </div>
+      <div className="mt-auto">
+        <div className="mb-6">
+          {props.location} · {props.language.join(" · ")}
+        </div>
+
+        <OutboundLink
+          href={props.button.link + PRODUCT_CTA_UTM_CODE}
+          className="button is-primary"
+        >
+          {props.button.title}
+        </OutboundLink>
+      </div>
+    </div>
+  </div>
+);
+
+type ProductListInfo = {
+  productSectionTitle: string;
+  productSectionSubtitle: string;
+  homePageProductBlocks: ProductCardInfo[];
+  productIdeaBanner: {
+    content: {
+      json: any;
+    };
+    button: {
+      title: string;
+      link: string;
+    };
+  };
+};
+
+const ProductList: React.FC<ProductListInfo> = (props) => (
+  <div
+    id="products"
+    className="has-background-link has-text-black pb-12 pb-6-mobile"
+  >
+    <div className="columns is-multiline">
+      <div className="column is-12 pt-10 pt-7-mobile pb-9">
+        <h1 className="is-hidden-touch">{props.productSectionTitle}</h1>
+        <h2 className="is-hidden-desktop">{props.productSectionTitle}</h2>
+        <h3 className="mt-2">{props.productSectionSubtitle}</h3>
+      </div>
+      {shuffleArray(props.homePageProductBlocks).map(
+        (product: any, i: number) => (
+          <ProductCard {...product} key={i} />
+        )
+      )}
+      <div className="column is-4 is-12-mobile">
+        <div className="jf-card has-background-black has-text-white p-8 p-6-mobile">
+          <div className="mb-6 mb-5-mobile">
+            {documentToReactComponents(props.productIdeaBanner.content.json)}
+          </div>
+
+          <OutboundLink
+            href={props.productIdeaBanner.button.link}
+            className="button is-primary mt-auto"
+          >
+            {props.productIdeaBanner.button.title}
+          </OutboundLink>
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
 export const LandingPageScaffolding = (props: ContentfulContent) => (
   <Layout isLandingPage={true}>
     <div id="home" className="home-page">
@@ -57,65 +146,7 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
         </div>
       </div>
 
-      <div
-        id="products"
-        className="has-background-link has-text-black pb-12 pb-6-mobile"
-      >
-        <div className="columns is-multiline">
-          <div className="column is-12 pt-10 pt-7-mobile pb-9">
-            <h1 className="is-hidden-touch">
-              {props.content.productSectionTitle}
-            </h1>
-            <h2 className="is-hidden-desktop">
-              {props.content.productSectionTitle}
-            </h2>
-            <h3 className="mt-2">{props.content.productSectionSubtitle}</h3>
-          </div>
-          {shuffleArray(props.content.homePageProductBlocks).map(
-            (product: any, i: number) => (
-              <div className="column is-4 is-12-mobile" key={i}>
-                <div className="jf-card has-background-white p-8 p-6-mobile">
-                  <div className="eyebrow is-small mb-5 mb-4-mobile">
-                    {product.productName}
-                  </div>
-                  <h3 className="mb-6 mb-5-mobile">{product.title}</h3>
-                  <div className="mb-6 mb-5-mobile">
-                    {documentToReactComponents(product.descriptionText.json)}
-                  </div>
-                  <div className="mt-auto">
-                    <div className="mb-6">
-                      {product.location} · {product.language.join(" · ")}
-                    </div>
-
-                    <OutboundLink
-                      href={product.button.link + PRODUCT_CTA_UTM_CODE}
-                      className="button is-primary"
-                    >
-                      {product.button.title}
-                    </OutboundLink>
-                  </div>
-                </div>
-              </div>
-            )
-          )}
-          <div className="column is-4 is-12-mobile">
-            <div className="jf-card has-background-black has-text-white p-8 p-6-mobile">
-              <div className="mb-6 mb-5-mobile">
-                {documentToReactComponents(
-                  props.content.productIdeaBanner.content.json
-                )}
-              </div>
-
-              <OutboundLink
-                href={props.content.productIdeaBanner.button.link}
-                className="button is-primary mt-auto"
-              >
-                {props.content.productIdeaBanner.button.title}
-              </OutboundLink>
-            </div>
-          </div>
-        </div>
-      </div>
+      <ProductList {...props.content} />
 
       <div className="jf-learning-center-preview mb-12">
         <div className="columns">
