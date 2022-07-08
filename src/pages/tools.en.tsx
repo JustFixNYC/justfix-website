@@ -1,10 +1,10 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
 import { LocaleLink as Link } from "../components/locale-link";
-// import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-
 import Layout from "../components/layout";
 import { ContentfulContent, ProductList } from "./index.en";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import { ReadMoreLink } from "../components/read-more";
 
 export const ToolsPageScaffolding = (props: ContentfulContent) => {
   const {
@@ -22,6 +22,25 @@ export const ToolsPageScaffolding = (props: ContentfulContent) => {
         homePageProductBlocks={productPageProductBlocks}
         productIdeaBanner={productIdeaBanner}
       />
+
+      <div className="columns is-multiline">
+        <div className="column is-12 my-9 mb-6-mobile">
+          <h2>{props.content.pastToolsTitle}</h2>
+        </div>
+        {props.content.pastToolsBlocks.map((tool: any, i: number) => (
+          <div className="column is-3 is-12-mobile pt-0 pb-10" key={i}>
+            <h3 className="mb-3">{tool.toolName}</h3>
+            <div className="eyebrow is-small mb-5">
+              {tool.toolStartDate} - {tool.toolEndDate}
+            </div>
+            <div className="title is-4 mb-5">
+              {documentToReactComponents(tool.toolDescription.json)}
+            </div>
+            <ReadMoreLink url={tool.readMoreLink} />
+          </div>
+        ))}
+      </div>
+
       <div className="columns has-background-success">
         <div className="column is-12 pt-9 pt-6-mobile pb-12 pb-9-mobile">
           <h1>{props.content.outroSectionTitle}</h1>

@@ -95,6 +95,17 @@ $spacing-values: (
 
 // OTHER BULMA OVERRIDES
 
+/* 
+  Make sure descendants of the .title class inherit it's font size properties.
+
+  This is especially helpful when using "Rich Text" type content from Contentful, which
+  by default provides content in <p> tags. This rule makes sure we can override the size
+  of the text. 
+*/
+.title p {
+  font-size: inherit;
+}
+
 /* Make grouped buttons same size */
 .buttons {
   .button {
