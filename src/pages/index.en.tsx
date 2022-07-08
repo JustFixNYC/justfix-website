@@ -79,7 +79,7 @@ type ProductListInfo = {
   };
 };
 
-const ProductList: React.FC<ProductListInfo> = (props) => (
+export const ProductList: React.FC<ProductListInfo> = (props) => (
   <div
     id="products"
     className="has-background-link has-text-black pb-12 pb-6-mobile"
