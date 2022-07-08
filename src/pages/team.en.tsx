@@ -1,5 +1,7 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
+// import Img from "gatsby-image/withIEPolyfill";
+
 import { SocialIcon } from "react-social-icons";
 import ReadMoreReact from "read-more-react";
 // import { Link } from 'gatsby'
@@ -13,7 +15,44 @@ import { ContentfulContent } from "./index.en";
 export const TeamPageScaffolding = (props: ContentfulContent) => (
   <Layout metadata={props.content.metadata}>
     <div id="team" className="team-page">
-      <section className="hero is-small">
+      <div>HERO</div>
+
+      <div>
+        <div className="columns">
+          <div className="column is-12">
+            <h1 className="team-title">{props.content.title}</h1>
+          </div>
+        </div>
+        <div className="columns is-centered my-9">
+          {/* TODO: how to space for half columns? */}
+          <div className="column is-3 is-paddingless has-background-warning">
+            <figure className="image">
+              <img
+                className="is-rounded"
+                src={props.content.teamMembers[0].photo.fluid.src}
+                alt={props.content.teamMembers[0].name}
+              />
+            </figure>
+            <div className="has-text-centered my-7">
+              <h3 className="has-centered-text">
+                {props.content.teamMembers[0].name}
+              </h3>
+              <h4 className="has-centered-text">
+                {props.content.teamMembers[0].title}
+              </h4>
+            </div>
+            <div>
+              <p>{props.content.teamMembers[0].description.description}</p>
+            </div>
+          </div>
+          <div className="column is-1" />
+          <div className="column is-3 has-background-warning"></div>
+          <div className="column is-1" />
+          <div className="column is-3 has-background-warning"></div>
+        </div>
+      </div>
+
+      {/* <section className="hero is-small">
         <div className="hero-body has-text-centered is-horizontal-center">
           <div className="container">
             <h1 className="title is-size-2 has-text-grey-dark has-text-weight-normal is-spaced">
@@ -182,7 +221,7 @@ export const TeamPageScaffolding = (props: ContentfulContent) => (
       <ReadMore
         title={props.content.readMore.title}
         link={props.content.readMore.link}
-      />
+      /> */}
     </div>
   </Layout>
 );
