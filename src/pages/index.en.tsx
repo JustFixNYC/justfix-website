@@ -2,7 +2,6 @@ import React from "react";
 import { StaticQuery, graphql } from "gatsby";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import Img from "gatsby-image/withIEPolyfill";
-// import { Link } from 'gatsby'
 
 import "../styles/index.scss";
 import "../styles/data-driven-onboarding.scss";
@@ -12,6 +11,7 @@ import Layout from "../components/layout";
 import { OutboundLink } from "../util/links";
 import { Trans } from "@lingui/macro";
 import { LocaleLink as Link } from "../components/locale-link";
+import { ReadMoreLink } from "../components/read-more";
 const PRODUCT_CTA_UTM_CODE = "?utm_source=orgsite&utm_medium=productcta";
 
 export type ContentfulContent = {
@@ -147,17 +147,9 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
                       props.content.learningCenterPreviewArticles[0].metadata
                         .description
                     }{" "}
-                    <Link
-                      className="has-text-black is-underlined"
-                      to={`/learn/${props.content.learningCenterPreviewArticles[0].slug}`}
-                    >
-                      <Trans>Read More</Trans>
-                      <img
-                        className="jf-internal-arrow-icon ml-2"
-                        src={require("../img/internal-arrow.svg")}
-                        alt=""
-                      />
-                    </Link>
+                    <ReadMoreLink
+                      url={`/learn/${props.content.learningCenterPreviewArticles[0].slug}`}
+                    />
                   </p>
                 </div>
                 <div className="column is-marginless is-paddingless is-7 is-12-mobile">
@@ -173,17 +165,9 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
                             .dateUpdated
                         }
                       </div>
-                      <Link
-                        className="has-text-black is-underlined"
-                        to={`/learn/${props.content.learningCenterPreviewArticles[1].slug}`}
-                      >
-                        <Trans>Read More</Trans>
-                        <img
-                          className="jf-internal-arrow-icon ml-2"
-                          src={require("../img/internal-arrow.svg")}
-                          alt=""
-                        />
-                      </Link>
+                      <ReadMoreLink
+                        url={`/learn/${props.content.learningCenterPreviewArticles[1].slug}`}
+                      />
                     </div>
                     <div className="column is-marginless is-12 py-6 px-9">
                       <h3 className="mb-4">
@@ -196,17 +180,9 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
                             .dateUpdated
                         }
                       </div>
-                      <Link
-                        className="has-text-black is-underlined"
-                        to={`/learn/${props.content.learningCenterPreviewArticles[2].slug}`}
-                      >
-                        <Trans>Read More</Trans>
-                        <img
-                          className="jf-internal-arrow-icon ml-2"
-                          src={require("../img/internal-arrow.svg")}
-                          alt=""
-                        />
-                      </Link>
+                      <ReadMoreLink
+                        url={`/learn/${props.content.learningCenterPreviewArticles[2].slug}`}
+                      />
                     </div>
                     <div className="column is-marginless is-12 py-6 px-9">
                       <Link to="/learn" className="button is-primary">
