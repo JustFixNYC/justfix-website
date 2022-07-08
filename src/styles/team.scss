@@ -1,59 +1,14 @@
 @import "index.scss";
 
-.team-title {
-  @include mobile {
-    text-align: center;
+#team {
+  .team-title {
+    @include mobile {
+      text-align: center;
+    }
+  }
+
+  .members.columns {
+    flex-wrap: wrap;
+    justify-content: space-between;
   }
 }
-
-.columns {
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
-.photo {
-  height: 20.4375rem; // 327px
-  width: 20.4375rem; // 327px
-}
-
-// .team-page {
-//   .columns {
-//     margin: 2rem;
-//     &.is-multiline {
-//       margin: 0 2rem 2rem 2rem;
-//     }
-//     .column.team-member {
-//       padding: 2rem;
-//       .image {
-//         margin-bottom: 1.25rem;
-//       }
-//     }
-//     .field {
-//       margin-bottom: 1.25rem;
-//     }
-//     .column.director {
-//       margin: 1.25rem 0;
-//       padding: 0 2rem;
-//       .read-more-button {
-//         display: inline;
-//         color: $link;
-//         cursor: pointer;
-//         text-decoration: none;
-//         font-style: oblique;
-//         white-space: nowrap;
-
-//         &:hover {
-//           color: $grey-darker;
-//         }
-//       }
-//     }
-//   }
-
-//   .directors {
-//     margin-bottom: 4rem;
-//   }
-
-//   .design-advisors .subtitle {
-//     margin-bottom: 0.5rem;
-//   }
-// }

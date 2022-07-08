@@ -58,7 +58,7 @@ msgstr "Email Address"
 msgid "Enter your address to learn more."
 msgstr "Enter your address to learn more."
 
-#: src/pages/index.en.tsx:107
+#: src/pages/index.en.tsx:110
 msgid "Featured article"
 msgstr ""
 
@@ -98,6 +98,10 @@ msgstr "No articles match your search."
 msgid "Not found"
 msgstr "Not found"
 
+#: src/components/page-hero.tsx:14
+msgid "On this page"
+msgstr ""
+
 #: src/components/subscribe.tsx:47
 #: src/components/subscribe.tsx:53
 msgid "Oops! A network error occurred. Try again later."
@@ -127,9 +131,8 @@ msgstr "Privacy policy"
 msgid "Products"
 msgstr "Products"
 
-#: src/pages/index.en.tsx:120
-#: src/pages/index.en.tsx:137
-#: src/pages/index.en.tsx:151
+#: src/components/read-more.tsx:37
+#: src/components/read-more.tsx:40
 #: src/pages/learn.en.tsx:56
 msgid "Read More"
 msgstr "Read More"
@@ -146,7 +149,7 @@ msgstr "Search articles..."
 msgid "Sections"
 msgstr "Sections"
 
-#: src/pages/index.en.tsx:157
+#: src/pages/index.en.tsx:151
 msgid "See all articles"
 msgstr ""
 
@@ -171,13 +174,13 @@ msgid "Terms of use"
 msgstr "Terms of use"
 
 #: src/components/learning-center/article-template.tsx:118
-#: src/pages/index.en.tsx:113
+#: src/pages/index.en.tsx:116
 #: src/pages/index.en.tsx:132
-#: src/pages/index.en.tsx:146
+#: src/pages/index.en.tsx:143
 msgid "Updated"
 msgstr "Updated"
 
-#: src/components/read-more.tsx:11
+#: src/components/read-more.tsx:13
 msgid "Want to know more?"
 msgstr "Want to know more?"
 
