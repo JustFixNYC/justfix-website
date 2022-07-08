@@ -1,5 +1,6 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
+import { LocaleLink as Link } from "../components/locale-link";
 // import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 import Layout from "../components/layout";
@@ -21,6 +22,18 @@ export const ToolsPageScaffolding = (props: ContentfulContent) => {
         homePageProductBlocks={productPageProductBlocks}
         productIdeaBanner={productIdeaBanner}
       />
+      <div className="columns has-background-success">
+        <div className="column is-12 pt-9 pt-6-mobile pb-12 pb-9-mobile">
+          <h1>{props.content.outroSectionTitle}</h1>
+          <br />
+          <Link
+            to={props.content.outroSectionButton.link}
+            className="button is-primary mt-5"
+          >
+            {props.content.outroSectionButton.title}
+          </Link>
+        </div>
+      </div>
     </Layout>
   );
 };
