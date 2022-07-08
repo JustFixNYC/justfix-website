@@ -143,6 +143,40 @@ $spacing-values: (
 
 // CUSTOM CLASSES
 
+// For our full-height page heros, this variable defines how much
+// the next section bleeds "above the fold"
+$page-hero-offset: $spacing-06;
+
+.jf-page-hero {
+  min-height: calc(100vh - #{$navbar-height} - #{$page-hero-offset});
+
+  .columns {
+    min-height: calc(100vh - #{$navbar-height} - #{$page-hero-offset});
+
+    .eyebrow {
+      border-bottom: 1px solid $justfix-white;
+    }
+
+    .column:first-child {
+      border-right: 1px solid $justfix-white;
+
+      .eyebrow {
+        width: 50%;
+      }
+    }
+
+    li {
+      list-style: none;
+      &::before {
+        content: "▪";
+        margin-right: $spacing-05;
+        font-size: 1.5rem;
+        vertical-align: middle;
+      }
+    }
+  }
+}
+
 .is-absolute {
   position: absolute;
 }
