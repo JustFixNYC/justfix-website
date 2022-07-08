@@ -150,15 +150,21 @@ $page-hero-offset: $spacing-06;
 .jf-page-hero {
   min-height: calc(100vh - #{$navbar-height} - #{$page-hero-offset});
 
-  .columns {
-    min-height: calc(100vh - #{$navbar-height} - #{$page-hero-offset});
+  @include mobile {
+    min-height: unset;
+  }
 
+  .columns {
     .eyebrow {
       border-bottom: 1px solid $justfix-white;
     }
 
     .column:first-child {
       border-right: 1px solid $justfix-white;
+
+      @include mobile {
+        border-bottom: 2px solid $justfix-white;
+      }
 
       .eyebrow {
         width: 50%;
