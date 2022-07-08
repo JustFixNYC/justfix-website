@@ -134,12 +134,10 @@ $spacing-values: (
 }
 
 .is-divider {
-  opacity: 0.7;
+  border-top: 1px solid $justfix-black;
 
   &.light {
-    opacity: 0.4;
-    margin: 1rem 0;
-    border-top-width: 1px;
+    border-top: 1px solid $justfix-white;
   }
 }
 

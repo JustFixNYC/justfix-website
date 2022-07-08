@@ -40,7 +40,10 @@ export const ToolsPageScaffolding = (props: ContentfulContent) => {
           <h2>{props.content.pastToolsTitle}</h2>
         </div>
         {props.content.pastToolsBlocks.map((tool: any, i: number) => (
-          <div className="column is-3 is-12-mobile pt-0 pb-10" key={i}>
+          <div
+            className="column is-3 is-12-mobile pt-0 pb-10 pb-7-mobile"
+            key={i}
+          >
             <h3 className="mb-3">{tool.toolName}</h3>
             <div className="eyebrow is-small mb-5">
               {formatDate(tool.toolStartDate, locale)} -{" "}
@@ -50,6 +53,7 @@ export const ToolsPageScaffolding = (props: ContentfulContent) => {
               {documentToReactComponents(tool.toolDescription.json)}
             </div>
             <ReadMoreLink url={tool.readMoreLink} />
+            <div className="is-divider is-hidden-tablet mt-10" />
           </div>
         ))}
       </div>
