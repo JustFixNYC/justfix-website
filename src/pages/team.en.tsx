@@ -41,8 +41,9 @@ type MemberCardInfo = {
     };
   };
 };
+
 const MemberCard: React.FC<MemberCardInfo> = (props) => (
-  <div className="column is-3 is-paddingless has-background-warning">
+  <div className="column is-one-quarter is-paddingless">
     <figure className="image">
       <img
         className="is-rounded"
@@ -51,12 +52,42 @@ const MemberCard: React.FC<MemberCardInfo> = (props) => (
       />
     </figure>
     <div className="has-text-centered my-7">
-      <h3 className="has-centered-text">{props.name}</h3>
-      <h4 className="has-centered-text">{props.title}</h4>
+      <h3>{props.name}</h3>
+      <h4>{props.title}</h4>
     </div>
     <div>
       <p>{props.description.description}</p>
     </div>
+  </div>
+);
+
+type MemberCardsListInfo = {
+  sectionTitle: string;
+  memberList: MemberCardInfo[];
+};
+
+const MemberCardsList: React.FC<MemberCardsListInfo> = (props) => (
+  <div className="py-9">
+    <div className="columns">
+      <div className="column is-12">
+        <h1 className="team-title">{props.sectionTitle}</h1>
+      </div>
+    </div>
+    {chunkArray(props.memberList, 3).map((members: Array<any>, i: number) => (
+      <div className="columns py-9" key={i}>
+        <MemberCard {...members[0]} />
+        {members[1] ? (
+          <MemberCard {...members[1]} />
+        ) : (
+          <div className="column is-3" />
+        )}
+        {members[2] ? (
+          <MemberCard {...members[2]} />
+        ) : (
+          <div className="column is-3" />
+        )}
+      </div>
+    ))}
   </div>
 );
 
@@ -65,34 +96,15 @@ export const TeamPageScaffolding = (props: ContentfulContent) => (
     <div id="team" className="team-page">
       <div>HERO</div>
 
-      <div>
-        <div className="columns">
-          <div className="column is-12">
-            <h1 className="team-title">{props.content.title}</h1>
-          </div>
-        </div>
+      <MemberCardsList
+        sectionTitle={props.content.title}
+        memberList={props.content.teamMembers}
+      />
 
-        {/* TODO: how to space for half columns? */}
-        {chunkArray(props.content.teamMembers, 3).map(
-          (members: Array<any>, i: number) => (
-            <div className="columns is-centered py-9" key={i}>
-              <MemberCard {...members[0]} />
-              <div className="column is-1" />
-              {members[1] ? (
-                <MemberCard {...members[1]} />
-              ) : (
-                <div className="column is-3" />
-              )}
-              <div className="column is-1" />
-              {members[2] ? (
-                <MemberCard {...members[2]} />
-              ) : (
-                <div className="column is-3" />
-              )}
-            </div>
-          )
-        )}
-      </div>
+      <MemberCardsList
+        sectionTitle={props.content.directorsTitle}
+        memberList={props.content.directors}
+      />
 
       {/* <section className="hero is-small">
         <div className="hero-body has-text-centered is-horizontal-center">
@@ -302,8 +314,8 @@ export const TeamPageFragment = graphql`
         name
         title
         photo {
-          file {
-            url
+          fluid {
+            src
           }
         }
         organization
