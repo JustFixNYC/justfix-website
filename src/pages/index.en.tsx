@@ -38,6 +38,8 @@ type ProductCardInfo = {
   };
 };
 
+const Dot = () => <span className="mx-3">·</span>;
+
 const ProductCard: React.FC<ProductCardInfo> = (props) => (
   <div className="column is-4 is-12-mobile">
     <div className="jf-card has-background-white p-8 p-6-mobile">
@@ -49,8 +51,12 @@ const ProductCard: React.FC<ProductCardInfo> = (props) => (
         {documentToReactComponents(props.descriptionText.json)}
       </div>
       <div className="mt-auto">
-        <div className="mb-6">
-          {props.location} · {props.language.join(" · ")}
+        <div className="has-text-dark	is-uppercase has-text-weight-bold is-size-7 mb-6">
+          {props.location}
+          <Dot />
+          {props.language
+            .map<React.ReactNode>((lang, i) => <span key={i}>{lang}</span>)
+            .reduce((lang1, lang2) => [lang1, <Dot />, lang2])}
         </div>
 
         <OutboundLink
