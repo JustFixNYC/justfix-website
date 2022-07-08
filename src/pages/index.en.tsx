@@ -131,7 +131,7 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
             </h3>
             <div className="has-background-warning mt-9">
               <div className="columns is-marginless is-paddingless">
-                <div className="column is-marginless is-5 is-12-mobile p-9">
+                <div className="column is-marginless is-6 is-12-mobile p-9 pr-0">
                   <div className="eyebrow is-large mb-6">
                     <Trans>Featured article</Trans>
                   </div>
@@ -160,7 +160,7 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
                     </Link>
                   </p>
                 </div>
-                <div className="column is-marginless is-paddingless is-7 is-12-mobile">
+                <div className="column is-marginless is-paddingless is-6 is-12-mobile">
                   <div className="columns is-marginless is-paddingless is-multiline">
                     <div className="column is-marginless is-12 py-6 px-9">
                       <h3 className="mb-4">
