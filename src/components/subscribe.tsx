@@ -94,7 +94,7 @@ class SubscribeWithoutI18n extends React.Component<
     return (
       <div>
         <form
-          className="jf-email-form is-horizontal-center field has-addons"
+          className="jf-email-form field has-addons"
           onSubmit={this.handleSubmit}
         >
           <div className="control is-expanded is-paddingless">
