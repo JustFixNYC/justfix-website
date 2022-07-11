@@ -1,6 +1,7 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import Img from "gatsby-image/withIEPolyfill";
 
 import Layout from "../components/layout";
 import { ContentfulContent } from "./index.en";
@@ -18,7 +19,7 @@ export const SubscribedPageScaffolding = (props: ContentfulContent) => (
       </div>
       <div className="column is-8 is-12-mobile">
         <figure className="image is-256x256 mb-5">
-          <img src={props.content.teamPhoto.file.url} alt="" />
+          <Img fluid={props.content.teamPhoto.fluid} alt="" />
         </figure>
       </div>
       <div className="column is-12 pb-11">
@@ -38,8 +39,8 @@ export const SubscribedPageFragment = graphql`
         json
       }
       teamPhoto {
-        file {
-          url
+        fluid {
+          ...GatsbyContentfulFluid
         }
       }
       descriptionBelowPhoto {
