@@ -56,7 +56,11 @@ const ProductCard: React.FC<ProductCardInfo> = (props) => (
           <Dot />
           {props.language
             .map<React.ReactNode>((lang, i) => <span key={i}>{lang}</span>)
-            .reduce((lang1, lang2) => [lang1, <Dot />, lang2])}
+            .reduce((lang1, lang2, i) => [
+              lang1,
+              <Dot key={Math.random()} />,
+              lang2,
+            ])}
         </div>
 
         <OutboundLink
