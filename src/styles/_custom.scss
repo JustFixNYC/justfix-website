@@ -163,6 +163,7 @@ $page-hero-offset: $spacing-06;
       border-right: 1px solid $justfix-white;
 
       @include mobile {
+        border-right: none;
         border-bottom: 2px solid $justfix-white;
       }
 
