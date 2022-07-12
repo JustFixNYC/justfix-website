@@ -1,8 +1,6 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
 
-import "../styles/mission.scss";
-
 import Layout from "../components/layout";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { ContentfulContent } from "./index.en";
