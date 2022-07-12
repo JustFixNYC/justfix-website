@@ -382,6 +382,7 @@ $body-color: $justfix-black;
 .tag,
 .tag:not(body) {
   @include mobile-text-small-bold;
+  color: $justfix-black;
   letter-spacing: 0.02rem;
   text-transform: uppercase;
   padding: 0.25rem 0.5rem;
@@ -426,21 +427,18 @@ $body-color: $justfix-black;
 }
 
 // COLUMN STYLES:
-.columns,
-.columns:not(:last-child) {
-  margin-top: 0;
-  margin-bottom: 0;
-  padding-left: $spacing-09;
-  padding-right: $spacing-09;
-
-  @include mobile {
-    padding-left: $spacing-06;
-    padding-right: $spacing-06;
-  }
-}
 
 $column-gap: 18px;
 
-@include mobile {
-  $column-gap: 6px;
+.columns,
+.columns:not(:last-child),
+.columns:last-child {
+  margin: 0;
+  padding-left: calc(#{$spacing-09} - #{$column-gap});
+  padding-right: calc(#{$spacing-09} - #{$column-gap});
+
+  @include mobile {
+    padding-left: calc(#{$spacing-06} - #{$column-gap});
+    padding-right: calc(#{$spacing-06} - #{$column-gap});
+  }
 }

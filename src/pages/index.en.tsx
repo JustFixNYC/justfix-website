@@ -56,7 +56,11 @@ const ProductCard: React.FC<ProductCardInfo> = (props) => (
           <Dot />
           {props.language
             .map<React.ReactNode>((lang, i) => <span key={i}>{lang}</span>)
-            .reduce((lang1, lang2) => [lang1, <Dot />, lang2])}
+            .reduce((lang1, lang2, i) => [
+              lang1,
+              <Dot key={Math.random()} />,
+              lang2,
+            ])}
         </div>
 
         <OutboundLink
@@ -167,8 +171,8 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
               {props.content.learningCenterPreviewSubtitle}
             </h3>
             <div className="has-background-warning mt-9">
-              <div className="columns is-marginless is-paddingless">
-                <div className="column is-marginless is-5 is-12-mobile p-9">
+              <div className="columns is-desktop is-marginless is-paddingless">
+                <div className="column is-marginless is-5 is-12-touch p-9">
                   <div className="eyebrow is-large mb-6">
                     <Trans>Featured article</Trans>
                   </div>
@@ -189,7 +193,7 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
                     />
                   </p>
                 </div>
-                <div className="column is-marginless is-paddingless is-7 is-12-mobile">
+                <div className="column is-marginless is-paddingless is-7 is-12-touch">
                   <div className="columns is-marginless is-paddingless is-multiline">
                     <div className="column is-marginless is-12 py-6 px-9">
                       <h3 className="mb-4">
