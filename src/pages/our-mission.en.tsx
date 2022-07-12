@@ -35,7 +35,7 @@ export const MissionPageScaffolding = (props: ContentfulContent) => {
           <h2>{props.content.visionTitle}</h2>
         </div>
         <div className="column is-1" />
-        <div className="column is-7 pt-13 pb-12">
+        <div className="column is-7 pt-13 pb-12 jf-text-block-with-spacing">
           {documentToReactComponents(props.content.visionContent.json)}
         </div>
       </div>
@@ -84,7 +84,7 @@ export const MissionPageScaffolding = (props: ContentfulContent) => {
           {props.content.valuesList.map((value: any, i: number) => (
             <div key={i}>
               {i > 0 && <div className="is-divider" />}
-              <h3>{value.title}</h3>
+              <h3 className="mb-5">{value.title}</h3>
               <p>{value.description.description}</p>
             </div>
           ))}
