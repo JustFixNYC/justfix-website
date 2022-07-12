@@ -269,6 +269,15 @@ $page-hero-offset: $spacing-06;
       .jf-accordion-open-text-label {
         display: none;
       }
+
+      img {
+        transition: transform 0.2s linear;
+        transform: rotateX(0deg) translateY(-3px);
+      }
+    }
+    &:not([open]) summary img {
+      transition: transform 0.2s linear;
+      transform: rotateX(180deg) translateY(0px);
     }
   }
 }
