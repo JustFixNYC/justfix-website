@@ -33,7 +33,7 @@ export const MissionPageScaffolding = (props: ContentfulContent) => {
           </ResponsiveSectionTitle>
         </div>
         <div className="column is-1 is-hidden-mobile" />
-        <div className="column is-7 pt-13 pb-12 pt-6-mobile px-6-mobile pb-0-mobile">
+        <div className="column is-7 pt-13 pb-12 pt-0-mobile px-6-mobile pb-6-mobile">
           <span className="title is-3">
             {documentToReactComponents(props.content.missionContent.json)}
           </span>
