@@ -20,11 +20,11 @@ export const MissionPageScaffolding = (props: ContentfulContent) => {
       <PageHero {...props.content.pageHero} />
 
       <div className="columns">
-        <div className="column is-4 pt-13 pb-12">
+        <div className="column is-4 pt-13 pb-12 p-6-mobile">
           <h2>{props.content.missionTitle}</h2>
         </div>
-        <div className="column is-1" />
-        <div className="column is-7 pt-13 pb-12">
+        <div className="column is-1 is-hidden-mobile" />
+        <div className="column is-7 pt-13 pb-12 p-6-mobile">
           <span className="title is-3">
             {documentToReactComponents(props.content.missionContent.json)}
           </span>
@@ -32,22 +32,22 @@ export const MissionPageScaffolding = (props: ContentfulContent) => {
       </div>
 
       <div className="columns has-background-warning">
-        <div className="column is-4 pt-13 pb-12">
+        <div className="column is-4 pt-13 pb-12 pt-6-mobile px-6-mobile pb-0-mobile">
           <h2>{props.content.visionTitle}</h2>
         </div>
-        <div className="column is-1" />
-        <div className="column is-7 pt-13 pb-12 jf-text-block-with-spacing">
+        <div className="column is-1 is-hidden-mobile" />
+        <div className="column is-7 pt-13 pb-12 p-6-mobile jf-text-block-with-spacing">
           {documentToReactComponents(props.content.visionContent.json)}
         </div>
       </div>
 
       <div className="columns">
-        <div className="column is-4 pt-13 pb-12">
+        <div className="column is-4 pt-13 pb-12 pt-6-mobile px-6-mobile pb-0-mobile">
           <h2>{props.content.impactTitle}</h2>
         </div>
-        <div className="column is-1" />
-        <div className="column is-7 pt-13 pb-12">
-          <h3 className="mb-10">{props.content.impactSubtitle}</h3>
+        <div className="column is-1 is-hidden-mobile" />
+        <div className="column is-7 pt-13 pb-12 p-6-mobile">
+          <h3 className="mb-10 mb-6-mobile">{props.content.impactSubtitle}</h3>
           <div className="columns is-paddingless">
             <div className="column is-9 has-background-black has-text-white">
               <div className="columns is-paddingless">
@@ -64,7 +64,9 @@ export const MissionPageScaffolding = (props: ContentfulContent) => {
               </div>
             </div>
           </div>
-          <h3 className="mt-10 mb-7">{props.content.pastReportsSubtitle}</h3>
+          <h3 className="mt-10 mb-7 my-6-mobile">
+            {props.content.pastReportsSubtitle}
+          </h3>
           <div className="columns is-paddingless is-multiline">
             {pastReports.map((report: any, i: number) => (
               <div className="column is-paddingless is-4 mb-7" key={i}>
@@ -77,11 +79,11 @@ export const MissionPageScaffolding = (props: ContentfulContent) => {
       </div>
 
       <div className="columns has-background-info">
-        <div className="column is-4 pt-13 pb-12">
+        <div className="column is-4 pt-13 pb-12 p-6-mobile">
           <h2>{props.content.valuesTitle}</h2>
         </div>
-        <div className="column is-1" />
-        <div className="column is-7 pt-13 pb-12">
+        <div className="column is-1 is-hidden-mobile" />
+        <div className="column is-7 pt-13 pb-12 p-6-mobile">
           {props.content.valuesList.map((value: any, i: number) => (
             <div key={i}>
               {i > 0 && <div className="is-divider" />}
