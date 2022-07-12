@@ -12,39 +12,40 @@ import Subscribe from "../components/subscribe";
 export const ContactPageScaffolding = (props: ContentfulContent) => (
   <Layout metadata={props.content.metadata}>
     <div id="contact" className="contact-page">
-      <section className="hero is-medium">
-        <div className="hero-body has-text-centered is-horizontal-center content-wrapper">
-          <div className="container">
-            <h1 className="title is-size-2 has-text-grey-dark has-text-weight-normal is-spaced">
-              {props.content.pageTitle}
-            </h1>
-            <span className="is-size-5 has-text-grey-dark">
+      <div className="columns is-centered">
+        <div className="column is-12 py-11">
+          <h1>{props.content.pageTitle}</h1>
+          <div className="mt-5 mb-8">
+            <span className="title is-3">
               {documentToReactComponents(props.content.contactCta.json)}
             </span>
+          </div>
 
-            <div className="field">
-              {props.content.socialButtons.map((button: any, i: number) => (
-                <SocialIcon
-                  key={i}
-                  url={button.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  bgColor="#0096D7"
-                  style={{ height: 40, width: 40 }}
-                />
-              ))}
-            </div>
-
-            <h1 className="title is-size-4 has-text-grey-dark is-spaced ">
-              {props.content.mailingListTitle}
-            </h1>
-            <span className="subtitle has-text-grey-dark">
-              {props.content.mailingListSubtitle}
-            </span>
-            <Subscribe location="page" />
+          <div className="field">
+            {props.content.socialButtons.map((button: any, i: number) => (
+              <SocialIcon
+                key={i}
+                url={button.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mr-3 mb-3"
+                style={{ height: 40, width: 40 }}
+              />
+            ))}
           </div>
         </div>
-      </section>
+      </div>
+      <div className="columns is-centered has-background-info">
+        <div className="column is-12 py-11">
+          <h1>{props.content.mailingListTitle}</h1>
+          <div className="mt-5 mb-9">
+            <span className="title is-3">
+              <p>{props.content.mailingListSubtitle}</p>
+            </span>
+          </div>
+          <Subscribe location="page" />
+        </div>
+      </div>
     </div>
   </Layout>
 );

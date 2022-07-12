@@ -89,12 +89,12 @@ class SubscribeWithoutI18n extends React.Component<
 
     // Default styling is for "footer"
     const defaultResponseTextClass =
-      location === "page" ? "has-text-grey-dark" : "has-text-white";
+      location === "page" ? "has-text-black" : "has-text-white";
 
     return (
       <div>
         <form
-          className="jf-email-form is-horizontal-center field has-addons"
+          className="jf-email-form field has-addons"
           onSubmit={this.handleSubmit}
         >
           <div className="control is-expanded is-paddingless">

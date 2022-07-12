@@ -211,3 +211,19 @@ $page-hero-offset: $spacing-06;
   height: 16px;
   transform: translateY(3px);
 }
+
+.jf-email-form {
+  max-width: 400px;
+  .button {
+    background-color: $justfix-black;
+    color: $justfix-white;
+    border: 1px solid $justfix-white;
+
+    &:focus,
+    &:hover {
+      background-color: $justfix-white;
+      color: $justfix-black;
+      transition: all 0.1s linear;
+    }
+  }
+}
