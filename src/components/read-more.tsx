@@ -1,7 +1,6 @@
 import React from "react";
 import { Trans } from "@lingui/macro";
 
-import "../styles/read-more.scss";
 import { LocaleLink } from "./locale-link";
 import { OutboundLink } from "../util/links";
 import classnames from "classnames";
