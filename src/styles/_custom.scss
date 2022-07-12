@@ -243,3 +243,32 @@ $page-hero-offset: $spacing-06;
     margin-bottom: $spacing-06;
   }
 }
+
+.jf-accordion-item {
+  details {
+    summary {
+      // Make question box feel clickable to user
+      cursor: pointer;
+      // Remove default marker
+      list-style-type: none;
+      &::-webkit-details-marker {
+        display: none;
+      }
+      .jf-accordion-close-text-label {
+        display: none;
+      }
+      .jf-accordion-open-text-label {
+        display: block;
+      }
+    }
+
+    &[open] summary {
+      .jf-accordion-close-text-label {
+        display: block;
+      }
+      .jf-accordion-open-text-label {
+        display: none;
+      }
+    }
+  }
+}

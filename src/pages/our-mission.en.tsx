@@ -8,11 +8,12 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { ContentfulContent } from "./index.en";
 import PageHero from "../components/page-hero";
 import { ReadMoreLink } from "../components/read-more";
+import { Accordion } from "../components/accordion";
 
 export const MissionPageScaffolding = (props: ContentfulContent) => {
-  const { impactReportButtons } = props.content;
-  const latestReport = impactReportButtons[0];
-  const pastReports = impactReportButtons.slice(1);
+  const { content } = props;
+  const latestReport = content.impactReportButtons[0];
+  const pastReports = content.impactReportButtons.slice(1);
 
   return (
     <Layout metadata={props.content.metadata}>
@@ -84,8 +85,15 @@ export const MissionPageScaffolding = (props: ContentfulContent) => {
           {props.content.valuesList.map((value: any, i: number) => (
             <div key={i}>
               {i > 0 && <div className="is-divider" />}
-              <h3 className="mb-5">{value.title}</h3>
-              <p>{value.description.description}</p>
+              <div className="is-hidden-mobile">
+                <h3 className="mb-5">{value.title}</h3>
+                <p>{value.description.description}</p>
+              </div>
+              <div className="is-hidden-tablet">
+                <Accordion question={value.title}>
+                  <p>{value.description.description}</p>
+                </Accordion>
+              </div>
             </div>
           ))}
         </div>
