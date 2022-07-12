@@ -4,76 +4,95 @@ import { StaticQuery, graphql } from "gatsby";
 import "../styles/mission.scss";
 
 import Layout from "../components/layout";
-import ReadMore from "../components/read-more";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { ContentfulContent } from "./index.en";
-import { CollaborationBanner } from "../components/collaboration-banner";
+import PageHero from "../components/page-hero";
+import { ReadMoreLink } from "../components/read-more";
 
-export const MissionPageScaffolding = (props: ContentfulContent) => (
-  <Layout metadata={props.content.metadata}>
-    <div id="mission" className="mission-page">
-      <section className="hero is-small">
-        <div className="hero-body has-text-centered is-horizontal-center">
-          <div className="container">
-            <h1 className="title is-size-2 has-text-grey-dark has-text-weight-normal is-spaced">
-              {props.content.title}
-            </h1>
-            <h6 className="subtitle has-text-grey-dark is-italic">
-              {props.content.briefDescription}
-            </h6>
-          </div>
+export const MissionPageScaffolding = (props: ContentfulContent) => {
+  const { impactReportButtons } = props.content;
+  const latestReport = impactReportButtons[0];
+  const pastReports = impactReportButtons.slice(1);
+
+  return (
+    <Layout metadata={props.content.metadata}>
+      <PageHero {...props.content.pageHero} />
+
+      <div className="columns">
+        <div className="column is-4 pt-13 pb-12">
+          <h2>{props.content.missionTitle}</h2>
         </div>
-      </section>
+        <div className="column is-1" />
+        <div className="column is-7 pt-13 pb-12">
+          <span className="title is-3">
+            {documentToReactComponents(props.content.missionContent.json)}
+          </span>
+        </div>
+      </div>
 
-      <section className="hero problem is-medium">
-        <div className="hero-body is-horizontal-center">
-          <div className="content has-text-grey-dark">
-            {documentToReactComponents(props.content.serveSection.json)}
-            <div className="cta has-text-centered has-background-primary">
-              <h1 className="title is-size-4 has-text-white has-text-weight-bold is-spaced">
-                {props.content.impactTitle}
-              </h1>
-              <span className="subtitle has-text-white has-text-weight-medium">
-                {props.content.impactSubtitle}
-              </span>
-              <br />
-              <div className="columns is-multiline">
-                {props.content.impactReportButtons.map(
-                  (button: any, i: number) => (
-                    <div className="column is-half">
-                      <a
-                        href={button.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        key={i}
-                        className="button is-medium is-primary is-inverted is-outlined"
-                      >
-                        <span className="is-size-6-mobile is-uppercase">
-                          {button.title}
-                        </span>
-                      </a>
-                    </div>
-                  )
-                )}
+      <div className="columns has-background-warning">
+        <div className="column is-4 pt-13 pb-12">
+          <h2>{props.content.visionTitle}</h2>
+        </div>
+        <div className="column is-1" />
+        <div className="column is-7 pt-13 pb-12">
+          {documentToReactComponents(props.content.visionContent.json)}
+        </div>
+      </div>
+
+      <div className="columns">
+        <div className="column is-4 pt-13 pb-12">
+          <h2>{props.content.impactTitle}</h2>
+        </div>
+        <div className="column is-1" />
+        <div className="column is-7 pt-13 pb-12">
+          <h3 className="mb-10">{props.content.impactSubtitle}</h3>
+          <div className="columns is-paddingless">
+            <div className="column is-9 has-background-black has-text-white">
+              <div className="columns is-paddingless">
+                <div className="column is-7">
+                  <h2>{latestReport.title}</h2>
+                </div>
+                <div className="column is-5">
+                  <h3 className="mb-3">{props.content.impactCallout}</h3>
+                  <ReadMoreLink
+                    url={latestReport.link}
+                    customClasses="is-underlined has-text-white"
+                  />
+                </div>
               </div>
             </div>
-            {documentToReactComponents(props.content.approachSection.json)}
+          </div>
+          <h3 className="mt-10 mb-7">{props.content.pastReportsSubtitle}</h3>
+          <div className="columns is-paddingless is-multiline">
+            {pastReports.map((report: any, i: number) => (
+              <div className="column is-paddingless is-4 mb-7" key={i}>
+                <h4 className="mb-3">{report.title}</h4>
+                <ReadMoreLink url={report.link} />
+              </div>
+            ))}
           </div>
         </div>
-      </section>
+      </div>
 
-      <CollaborationBanner
-        title={props.content.collaborationBanner.title}
-        subtitle={props.content.collaborationBanner.description.description}
-      />
-
-      <ReadMore
-        title={props.content.readMore.title}
-        link={props.content.readMore.link}
-      />
-    </div>
-  </Layout>
-);
+      <div className="columns has-background-info">
+        <div className="column is-4 pt-13 pb-12">
+          <h2>{props.content.valuesTitle}</h2>
+        </div>
+        <div className="column is-1" />
+        <div className="column is-7 pt-13 pb-12">
+          {props.content.valuesList.map((value: any, i: number) => (
+            <div key={i}>
+              {i > 0 && <div className="is-divider" />}
+              <h3>{value.title}</h3>
+              <p>{value.description.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </Layout>
+  );
+};
 
 export const MissionPageFragment = graphql`
   fragment MissionPage on Query {
@@ -90,30 +109,33 @@ export const MissionPageFragment = graphql`
           }
         }
       }
-      title
-      briefDescription
-      videoUrl
-      serveSection {
+      pageHero {
+        pageName
+        description
+        onThisPageList
+      }
+      missionTitle
+      missionContent {
+        json
+      }
+      visionTitle
+      visionContent {
         json
       }
       impactTitle
       impactSubtitle
+      impactCallout
+      pastReportsSubtitle
       impactReportButtons {
         title
         link
       }
-      approachSection {
-        json
-      }
-      collaborationBanner {
+      valuesTitle
+      valuesList {
         title
         description {
           description
         }
-      }
-      readMore {
-        title
-        link
       }
     }
   }
