@@ -212,6 +212,11 @@ $page-hero-offset: $spacing-06;
   transform: translateY(3px);
 }
 
+// When our arrow icon's on a black background, let's invert the colors
+.has-background-black .jf-link-arrow-icon {
+  filter: invert(1) contrast(1.3);
+}
+
 .jf-email-form {
   max-width: 400px;
   .button {
