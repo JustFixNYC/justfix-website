@@ -2,8 +2,6 @@ import React from "react";
 import { Trans } from "@lingui/macro";
 import { LocaleLink } from "../components/locale-link";
 
-import "../styles/collaboration-banner.scss";
-
 export function CollaborationBanner(props: {
   title: string;
   subtitle: string;
