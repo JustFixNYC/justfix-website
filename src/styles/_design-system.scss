@@ -380,6 +380,7 @@ $body-color: $justfix-black;
 .tag,
 .tag:not(body) {
   @include mobile-text-small-bold;
+  color: $justfix-black;
   letter-spacing: 0.02rem;
   text-transform: uppercase;
   padding: 0.25rem 0.5rem;

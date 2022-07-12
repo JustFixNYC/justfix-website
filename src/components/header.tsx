@@ -68,27 +68,29 @@ const Header: React.FC<{
       {isLandingPage && <MoratoriumBanner />}
       <nav className="navbar" role="navigation" aria-label="main navigation">
         <div className="navbar-brand">
-          <Link to="/" className="navbar-item">
-            <img
-              className="is-hidden-touch"
-              src={require("../img/brand/logo.svg")}
-              width="164"
-              height="38"
-              alt="JustFix"
-            />
-            <img
-              className="is-hidden-desktop"
-              src={require("../img/brand/logo.svg")}
-              width="120"
-              height="27"
-              alt="JustFix"
-            />
+          <div className="navbar-item is-flex-direction-column is-justify-content-center no-underline">
+            <Link to="/">
+              <img
+                className="is-hidden-touch"
+                src={require("../img/brand/logo.svg")}
+                width="164"
+                height="38"
+                alt="JustFix"
+              />
+              <img
+                className="is-hidden-desktop"
+                src={require("../img/brand/logo.svg")}
+                width="120"
+                height="27"
+                alt="JustFix"
+              />
+            </Link>
             {isDemoSite && (
-              <span className="tag is-warning">
+              <span className="tag is-yellow">
                 <Trans>DEMO SITE</Trans>
               </span>
             )}
-          </Link>
+          </div>
           <div className="navbar-item is-size-3 has-text-black is-hidden-touch">
             <Trans>Technology for Housing Justice</Trans>
           </div>
