@@ -163,6 +163,7 @@ $page-hero-offset: $spacing-06;
       border-right: 1px solid $justfix-white;
 
       @include mobile {
+        border-right: none;
         border-bottom: 2px solid $justfix-white;
       }
 
@@ -210,4 +211,74 @@ $page-hero-offset: $spacing-06;
   width: 16px;
   height: 16px;
   transform: translateY(3px);
+}
+
+// When our arrow icon's on a black background, let's invert the colors
+.has-background-black .jf-link-arrow-icon {
+  filter: invert(1) contrast(1.3);
+}
+
+.jf-email-form {
+  max-width: 400px;
+  .button {
+    background-color: $justfix-black;
+    color: $justfix-white;
+    border: 1px solid $justfix-white;
+
+    &:focus,
+    &:hover {
+      background-color: $justfix-white;
+      color: $justfix-black;
+      transition: all 0.1s linear;
+    }
+  }
+}
+
+.jf-text-block-with-spacing {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-bottom: $spacing-06;
+  }
+}
+
+.jf-accordion-item {
+  details {
+    summary {
+      // Make question box feel clickable to user
+      cursor: pointer;
+      // Remove default marker
+      list-style-type: none;
+      &::-webkit-details-marker {
+        display: none;
+      }
+      .jf-accordion-close-text-label {
+        display: none;
+      }
+      .jf-accordion-open-text-label {
+        display: block;
+      }
+    }
+
+    &[open] summary {
+      .jf-accordion-close-text-label {
+        display: block;
+      }
+      .jf-accordion-open-text-label {
+        display: none;
+      }
+
+      img {
+        transition: transform 0.2s linear;
+        transform: rotateX(0deg) translateY(-3px);
+      }
+    }
+    &:not([open]) summary img {
+      transition: transform 0.2s linear;
+      transform: rotateX(180deg) translateY(0px);
+    }
+  }
 }

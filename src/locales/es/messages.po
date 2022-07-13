@@ -26,7 +26,7 @@ msgstr "<0>Aviso:</0> La información en JustFix.nyc no constituye asesoramiento
 msgid "<0>JustFix.nyc</0> is a registered 501(c)(3) nonprofit organization."
 msgstr "<0>JustFix.nyc</0> es una organización sin fines de lucro registrada."
 
-#: src/components/header.tsx:78
+#: src/components/header.tsx:80
 msgid "About us"
 msgstr "Sobre nosotros"
 
@@ -42,12 +42,16 @@ msgstr "Volver a la Vista General"
 msgid "Back to top"
 msgstr "Vuelve a Inicio"
 
+#: src/components/accordion.tsx:12
+msgid "Close"
+msgstr ""
+
 #: src/components/collaboration-banner.tsx:16
-#: src/components/header.tsx:112
+#: src/components/header.tsx:114
 msgid "Contact Us"
 msgstr "Contáctanos"
 
-#: src/components/header.tsx:53
+#: src/components/header.tsx:55
 msgid "DEMO SITE"
 msgstr "SITIO DEMO"
 
@@ -63,11 +67,15 @@ msgstr "Correo electrónico"
 msgid "Enter your address to learn more."
 msgstr "Introduce tu dirección para empezar."
 
-#: src/pages/index.en.tsx:110
+#: src/components/accordion.tsx:9
+msgid "Expand"
+msgstr ""
+
+#: src/pages/index.en.tsx:114
 msgid "Featured article"
 msgstr ""
 
-#: src/components/header.tsx:95
+#: src/components/header.tsx:97
 msgid "Jobs"
 msgstr "Empleos"
 
@@ -79,11 +87,11 @@ msgstr "¡Únete a nuestra lista de correo!"
 #: src/components/footer.tsx:26
 #: src/components/footer.tsx:28
 #: src/components/footer.tsx:30
-#: src/components/header.tsx:107
+#: src/components/header.tsx:109
 msgid "Learn"
 msgstr "Aprende"
 
-#: src/components/header.tsx:68
+#: src/components/header.tsx:70
 msgid "Menu"
 msgstr ""
 
@@ -91,7 +99,7 @@ msgstr ""
 #: src/components/footer.tsx:25
 #: src/components/footer.tsx:27
 #: src/components/footer.tsx:29
-#: src/components/header.tsx:83
+#: src/components/header.tsx:85
 msgid "Mission"
 msgstr "Misión"
 
@@ -116,7 +124,7 @@ msgstr "¡Vaya! Hubo un error en la red. Inténtalo más tarde."
 msgid "Oops! That email is invalid."
 msgstr "¡Vaya! Ese correo electrónico no es válido."
 
-#: src/components/header.tsx:89
+#: src/components/header.tsx:91
 msgid "Partners"
 msgstr "Aliados"
 
@@ -124,7 +132,7 @@ msgstr "Aliados"
 msgid "Please enter an email address!"
 msgstr "Por favor, ¡introduzca una dirección de correo electrónico!"
 
-#: src/components/header.tsx:92
+#: src/components/header.tsx:94
 msgid "Press"
 msgstr "Prensa"
 
@@ -132,7 +140,7 @@ msgstr "Prensa"
 msgid "Privacy policy"
 msgstr "Política de privacidad"
 
-#: src/components/header.tsx:102
+#: src/components/header.tsx:104
 msgid "Products"
 msgstr "Herramientas"
 
@@ -154,11 +162,11 @@ msgstr "Busca artículos..."
 msgid "Sections"
 msgstr "Secciones"
 
-#: src/pages/index.en.tsx:151
+#: src/pages/index.en.tsx:155
 msgid "See all articles"
 msgstr ""
 
-#: src/components/header.tsx:62
+#: src/components/header.tsx:64
 msgid "See our tools"
 msgstr ""
 
@@ -166,11 +174,11 @@ msgstr ""
 msgid "Sign up"
 msgstr "Únete"
 
-#: src/components/header.tsx:86
+#: src/components/header.tsx:88
 msgid "Team"
 msgstr "Equipo"
 
-#: src/components/header.tsx:57
+#: src/components/header.tsx:59
 msgid "Technology for Housing Justice"
 msgstr ""
 
@@ -179,9 +187,9 @@ msgid "Terms of use"
 msgstr "Condiciones de uso"
 
 #: src/components/learning-center/article-template.tsx:118
-#: src/pages/index.en.tsx:116
-#: src/pages/index.en.tsx:132
-#: src/pages/index.en.tsx:143
+#: src/pages/index.en.tsx:120
+#: src/pages/index.en.tsx:136
+#: src/pages/index.en.tsx:147
 msgid "Updated"
 msgstr "Actualizado"
 
