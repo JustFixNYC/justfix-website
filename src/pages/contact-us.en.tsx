@@ -3,8 +3,6 @@ import { StaticQuery, graphql } from "gatsby";
 import { SocialIcon } from "react-social-icons";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
-import "../styles/contact.scss";
-
 import Layout from "../components/layout";
 import { ContentfulContent } from "./index.en";
 import Subscribe from "../components/subscribe";

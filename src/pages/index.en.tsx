@@ -4,7 +4,6 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import Img from "gatsby-image/withIEPolyfill";
 
 import "../styles/index.scss";
-import "../styles/data-driven-onboarding.scss";
 
 import Layout from "../components/layout";
 
