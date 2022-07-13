@@ -6,18 +6,6 @@ import { ContentfulContent } from "./index.en";
 
 import "../styles/team.scss";
 
-// Returns an array with arrays of the given size.
-// https://ourcodeworld.com/articles/read/278/how-to-split-an-array-into-chunks-of-the-same-size-easily-in-javascript
-const chunkArray = (myArray: Array<any>, chunk_size: number) => {
-  var results = [];
-
-  while (myArray.length) {
-    results.push(myArray.splice(0, chunk_size));
-  }
-
-  return results;
-};
-
 type MemberCardInfo = {
   name: string;
   title: string;
@@ -29,10 +17,11 @@ type MemberCardInfo = {
       src: string;
     };
   };
+  className?: string;
 };
 
 const MemberCard: React.FC<MemberCardInfo> = (props) => (
-  <div className="column is-3 is-paddingless">
+  <div className={`column is-9 ${props.className}`}>
     <figure className="image">
       <img
         className="is-rounded"
@@ -59,24 +48,24 @@ const MemberCardsList: React.FC<MemberCardsListInfo> = (props) => (
   <div className="py-9">
     <div className="columns">
       <div className="column is-12">
-        <h1 className="team-title">{props.sectionTitle}</h1>
+        <h1 className="jf-team-title">{props.sectionTitle}</h1>
       </div>
     </div>
-    {chunkArray(props.memberList, 3).map((members: Array<any>, i: number) => (
-      <div className="members columns py-9" key={i}>
-        <MemberCard {...members[0]} />
-        {members[1] ? (
-          <MemberCard {...members[1]} />
-        ) : (
-          <div className="column is-3" />
-        )}
-        {members[2] ? (
-          <MemberCard {...members[2]} />
-        ) : (
-          <div className="column is-3" />
-        )}
-      </div>
-    ))}
+    <div className="jf-members columns is-multiline is-centered py-9">
+      {props.memberList.map((member: any, i: number) => {
+        const alignments = [
+          "is-pulled-left",
+          "is-horizontal-center",
+          "is-pulled-right",
+        ];
+        return (
+          <div className="column is-4 is-paddingless" key={i}>
+            <MemberCard {...member} className={alignments[i % 3]} />
+          </div>
+        );
+      })}
+      {props.memberList.length % 3 == 2 && <div className="column is-4" />}
+    </div>
   </div>
 );
 
@@ -97,14 +86,14 @@ export const TeamPageScaffolding = (props: ContentfulContent) => (
 
       <div className="py-9">
         <div className="columns">
-          <div className="column is-12">
-            <h1 className="team-title">
+          <div className="column">
+            <h1 className="jf-team-title">
               {props.content.otherContributorsTitle}
             </h1>
           </div>
         </div>
         <div className="columns">
-          <div className="column is-12">
+          <div className="column">
             {props.content.otherContributors.map(
               (contributor: any, i: number) => (
                 <p className="py-4" key={i}>

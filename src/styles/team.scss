@@ -1,13 +1,13 @@
 @import "index.scss";
 
 #team {
-  .team-title {
+  .jf-team-title {
     @include mobile {
       text-align: center;
     }
   }
 
-  .members.columns {
+  .jf-members.columns {
     flex-wrap: wrap;
     justify-content: space-between;
   }
