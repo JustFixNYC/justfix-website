@@ -18,6 +18,85 @@ function formatDate(dateString: string, locale?: string): string {
     year: "numeric",
   });
 }
+
+type EndorsementInfo = {
+  userName: string;
+  userImage: {
+    fluid: {
+      src: string;
+    };
+  };
+  userLink: string;
+  message: {
+    json: any;
+  };
+  messageLink: string;
+};
+
+const Endorsement: React.FC<EndorsementInfo> = (props) => (
+  <div>
+    <div className="is-flex has-text-centered is-align-items-center">
+      <figure className="image is-48x48">
+        <img className="is-rounded" src={props.userImage.fluid.src} alt="" />
+      </figure>
+      <span className="is-small is-bold pl-5">
+        {props.userName}
+        {" says:"} {/* TODO: translate */}
+      </span>
+    </div>
+    <div className="pl-10 pl-0-mobile pt-5-mobile">
+      {documentToReactComponents(props.message.json)}
+    </div>
+  </div>
+);
+
+type ReportCardInfo = {
+  reportTitle: string;
+  publicationDate: string;
+  blurb: {
+    json: any;
+  };
+  reportUrl: string;
+  image: {
+    fluid: {
+      src: string;
+    };
+  };
+  endorsements: EndorsementInfo[];
+  locale: string;
+  hasDivider: boolean;
+};
+
+const ReportCard: React.FC<ReportCardInfo> = (props) => (
+  <div>
+    {props.hasDivider && <div className="is-divider" />}
+    <div className="is-hidden-mobile">
+      <div className="columns is-paddingless">
+        <div className="column is-6 is-paddingless">
+          <img src={props.image.fluid.src} alt="" />
+        </div>
+        <div className="column is-6 is-paddingless has-background-white">
+          <div className="px-9 pt-8 pb-11">
+            <h2 className="pb-5">{props.reportTitle}</h2>
+            <span className="eyebrow">
+              {formatDate(props.publicationDate, props.locale)}
+            </span>
+            {props.blurb ? (
+              <div className="py-6">
+                {documentToReactComponents(props.blurb.json)}
+              </div>
+            ) : (
+              <br />
+            )}
+            <ReadMoreLink url={props.reportUrl} customClasses="mt-auto" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div className="is-hidden-tablet"></div>
+  </div>
+);
+
 export const PolicyPageScaffolding = (props: ContentfulContent) => {
   const locale = useCurrentLocale();
 
@@ -40,64 +119,19 @@ export const PolicyPageScaffolding = (props: ContentfulContent) => {
       </div>
 
       <div className="columns has-background-warning">
-        {" "}
         {/*TODO: swap for orange, no class available */}
         <div className="column is-3 pt-13 pb-12 p-6-mobile">
           <ResponsiveSectionTitle>
-            {props.content.valuesTitle}
+            {props.content.approachTitle}
           </ResponsiveSectionTitle>
         </div>
         <div className="column is-9 pt-13 pb-12 p-6-mobile">
           {props.content.reportBlocks.map((report: any, i: number) => (
             <div key={i}>
-              {i > 0 && <div className="is-divider" />}
-              <div className="is-hidden-mobile">
-                <div className="columns is-paddingless">
-                  <div className="column is-6 is-paddingless">
-                    <Img fluid={report.image.fluid} alt="" />
-                  </div>
-                  <div className="column is-6 is-paddingless has-background-white">
-                    <div className="px-9 pt-8 pb-11">
-                      <h2 className="pb-5">{report.reportTitle}</h2>
-                      <span className="eyebrow">
-                        {formatDate(report.publicationDate, locale)}
-                      </span>
-                      {report.blurb ? (
-                        <div className="py-6">
-                          {documentToReactComponents(report.blurb.json)}
-                        </div>
-                      ) : (
-                        <br />
-                      )}
-                      <ReadMoreLink
-                        url={report.reportUrl}
-                        customClasses="mt-auto"
-                      />
-                    </div>
-                  </div>
-                </div>
-                <div>
-                  <div className="is-flex has-text-centered is-align-items-center">
-                    <figure className="image is-48x48">
-                      <img
-                        className="is-rounded"
-                        src={report.endorsements[0].userImage.fluid.src}
-                        alt=""
-                      />
-                    </figure>
-                    <span className="is-small is-bold pl-5">
-                      {report.endorsements[0].userName}
-                      {" says:"} {/* TODO: translate */}
-                    </span>
-                  </div>
-                  <div className="pl-10">
-                    {documentToReactComponents(
-                      report.endorsements[0].message.json
-                    )}
-                  </div>
-                </div>
-              </div>
-              <div className="is-hidden-tablet"></div>
+              <ReportCard {...report} locale={locale} hasDivider={i > 0} />
+              {report.endorsements.map((endorsement: any, i: number) => (
+                <Endorsement {...endorsement} key={i} />
+              ))}
             </div>
           ))}
         </div>
