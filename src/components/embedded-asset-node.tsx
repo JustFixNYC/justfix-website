@@ -64,9 +64,10 @@ export const EmbeddedAsset: React.FC<{
   }
   const { fields } = node.data.target;
   const altText =
-    fields && fields.description
-      ? fields.description[locale] || fields.description[DEFAULT_LOCALE] || ""
-      : "";
+    (fields &&
+      fields.description &&
+      (fields.description[locale] || fields.description[DEFAULT_LOCALE])) ||
+    "";
   const file = fields.file[locale] || fields.file[DEFAULT_LOCALE];
   if (!file) {
     throw new Error("No file information on embedded asset node!");
