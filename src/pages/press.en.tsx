@@ -13,6 +13,8 @@ import localeConfig from "../util/locale-config.json";
 import { useCurrentLocale } from "../util/use-locale";
 import classnames from "classnames";
 import { Trans } from "@lingui/macro";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import { OutboundLink } from "../util/links";
 
 function formatDate(dateString: string, locale?: string): string {
   var date = new Date(dateString);
@@ -70,6 +72,18 @@ export const PressPageScaffolding = (props: ContentfulContent) => {
               </div>
             </div>
           ))}
+          <div className="column is-8 has-background-black has-text-white py-10 px-7 mt-6 mb-12">
+            {documentToReactComponents(
+              props.content.pressInquiryBanner.content.json
+            )}
+            <br />
+            <OutboundLink
+              href={props.content.pressInquiryBanner.button.link}
+              className="button is-primary mt-5"
+            >
+              {props.content.pressInquiryBanner.button.title}
+            </OutboundLink>
+          </div>
         </div>
       </div>
     </Layout>
