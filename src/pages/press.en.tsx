@@ -72,7 +72,7 @@ export const PressPageScaffolding = (props: ContentfulContent) => {
               </div>
             </div>
           ))}
-          <div className="column is-8 has-background-black has-text-white py-10 px-7 mt-6 mb-12">
+          <div className="column is-8 has-background-black has-text-white py-10 px-7 mt-6 mb-12 mx-5-mobile">
             {documentToReactComponents(
               props.content.pressInquiryBanner.content.json
             )}
