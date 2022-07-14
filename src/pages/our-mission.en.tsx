@@ -8,7 +8,7 @@ import PageHero from "../components/page-hero";
 import { ReadMoreLink } from "../components/read-more";
 import { Accordion } from "../components/accordion";
 
-export const ResponsiveSectionTitle: React.FC<{
+const ResponsiveSectionTitle: React.FC<{
   children: React.ReactNode;
 }> = ({ children }) => (
   <>

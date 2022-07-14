@@ -8,7 +8,31 @@ import { ReadMoreLink } from "../components/read-more";
 import localeConfig from "../util/locale-config.json";
 import { useCurrentLocale } from "../util/use-locale";
 import { ContentfulContent } from "./index.en";
-import { ResponsiveSectionTitle } from "./our-mission.en";
+
+import "../styles/policy.scss";
+
+type ResponsiveElementInfo = {
+  desktop: string;
+  touch: string;
+  children: React.ReactNode;
+  className?: string;
+};
+
+const ResponsiveElement = ({
+  desktop,
+  touch,
+  children,
+  className,
+}: ResponsiveElementInfo) => {
+  const Desktop = desktop as keyof JSX.IntrinsicElements;
+  const Touch = touch as keyof JSX.IntrinsicElements;
+  return (
+    <>
+      <Desktop className={`is-hidden-touch ${className}`}>{children}</Desktop>
+      <Touch className={`is-hidden-desktop ${className}`}>{children}</Touch>
+    </>
+  );
+};
 
 function formatDate(dateString: string, locale?: string): string {
   var date = new Date(dateString);
@@ -44,7 +68,7 @@ const Endorsement: React.FC<EndorsementInfo> = (props) => (
         {" says:"} {/* TODO: translate */}
       </span>
     </div>
-    <div className="pl-10 pl-0-mobile pt-5-mobile">
+    <div className="title is-4 pl-10 pl-0-mobile pt-5-mobile">
       {documentToReactComponents(props.message.json)}
     </div>
   </div>
@@ -58,9 +82,7 @@ type ReportCardInfo = {
   };
   reportUrl: string;
   image: {
-    fluid: {
-      src: string;
-    };
+    fluid: any;
   };
   endorsements: EndorsementInfo[];
   locale: string;
@@ -68,32 +90,34 @@ type ReportCardInfo = {
 };
 
 const ReportCard: React.FC<ReportCardInfo> = (props) => (
-  <div>
+  <div className={`pb-8 ${!props.hasDivider && "pt-7"}`}>
     {props.hasDivider && <div className="is-divider" />}
-    <div className="is-hidden-mobile">
-      <div className="columns is-paddingless">
-        <div className="column is-6 is-paddingless">
-          <img src={props.image.fluid.src} alt="" />
-        </div>
-        <div className="column is-6 is-paddingless has-background-white">
-          <div className="px-9 pt-8 pb-11">
-            <h2 className="pb-5">{props.reportTitle}</h2>
-            <span className="eyebrow">
-              {formatDate(props.publicationDate, props.locale)}
-            </span>
-            {props.blurb ? (
-              <div className="py-6">
-                {documentToReactComponents(props.blurb.json)}
-              </div>
-            ) : (
-              <br />
-            )}
-            <ReadMoreLink url={props.reportUrl} customClasses="mt-auto" />
-          </div>
+    <div className="columns is-paddingless is-multiline">
+      <div className="column is-6 is-paddingless">
+        <Img fluid={props.image.fluid} alt="" />
+      </div>
+      <div className="column is-6 is-paddingless has-background-white">
+        <div className="px-9 px-6-mobile pt-8 pb-10 py-7-mobile">
+          <ResponsiveElement
+            desktop="h2"
+            touch="h3"
+            children={props.reportTitle}
+            className="pb-5"
+          />
+          <span className="eyebrow">
+            {formatDate(props.publicationDate, props.locale)}
+          </span>
+          {props.blurb ? (
+            <div className="py-6">
+              {documentToReactComponents(props.blurb.json)}
+            </div>
+          ) : (
+            <br />
+          )}
+          <ReadMoreLink url={props.reportUrl} customClasses="mt-auto" />
         </div>
       </div>
     </div>
-    <div className="is-hidden-tablet"></div>
   </div>
 );
 
@@ -106,9 +130,11 @@ export const PolicyPageScaffolding = (props: ContentfulContent) => {
 
       <div className="columns">
         <div className="column is-4 pt-13 pb-12 p-6-mobile">
-          <ResponsiveSectionTitle>
-            {props.content.approachTitle}
-          </ResponsiveSectionTitle>
+          <ResponsiveElement
+            desktop="h2"
+            touch="h1"
+            children={props.content.approachTitle}
+          />
         </div>
         <div className="column is-1 is-hidden-mobile" />
         <div className="column is-7 pt-13 pb-12 pt-0-mobile px-6-mobile pb-6-mobile">
@@ -118,12 +144,13 @@ export const PolicyPageScaffolding = (props: ContentfulContent) => {
         </div>
       </div>
 
-      <div className="columns has-background-warning">
-        {/*TODO: swap for orange, no class available */}
+      <div id="report-section" className="columns">
         <div className="column is-3 pt-13 pb-12 p-6-mobile">
-          <ResponsiveSectionTitle>
-            {props.content.approachTitle}
-          </ResponsiveSectionTitle>
+          <ResponsiveElement
+            desktop="h2"
+            touch="h1"
+            children={props.content.reportsTitle}
+          />
         </div>
         <div className="column is-9 pt-13 pb-12 p-6-mobile">
           {props.content.reportBlocks.map((report: any, i: number) => (

@@ -267,6 +267,11 @@ $body-color: $justfix-black;
     @include mobile-h3();
   }
 
+  .title.is-4,
+  h4 {
+    @include body-standard();
+  }
+
   .eyebrow {
     @include mobile-eyebrow();
   }
