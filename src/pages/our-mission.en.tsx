@@ -8,9 +8,9 @@ import PageHero from "../components/page-hero";
 import { ReadMoreLink } from "../components/read-more";
 import { Accordion } from "../components/accordion";
 
-const ResponsiveSectionTitle: React.FC<{ children: React.ReactNode }> = ({
-  children,
-}) => (
+export const ResponsiveSectionTitle: React.FC<{
+  children: React.ReactNode;
+}> = ({ children }) => (
   <>
     <h2 className="is-hidden-touch">{children}</h2>
     <h1 className="is-hidden-desktop">{children}</h1>
