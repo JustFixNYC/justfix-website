@@ -11,6 +11,8 @@ import PageHero from "../components/page-hero";
 import { ReadMoreLink } from "../components/read-more";
 import localeConfig from "../util/locale-config.json";
 import { useCurrentLocale } from "../util/use-locale";
+import classnames from "classnames";
+import { Trans } from "@lingui/macro";
 
 function formatDate(dateString: string, locale?: string): string {
   var date = new Date(dateString);
@@ -32,22 +34,40 @@ export const PressPageScaffolding = (props: ContentfulContent) => {
         <div className="columns is-centered is-multiline pt-7">
           {props.content.pressItems.map((press: any, i: number) => (
             <div className="column is-8 pt-0" key={i}>
-              {i > 0 && <div className="is-divider mt-3 mb-10" />}
-              <div className="media is-align-items-center mt-7 mb-6">
-                <figure className="media-left image is-48x48">
-                  <img
-                    className="is-rounded"
-                    src={press.logo.fluid.src}
-                    alt={press.title}
-                  />
-                </figure>
-                <div className="title is-3">{press.title}</div>
+              {i > 0 &&
+                !press.isFeaturedArticle &&
+                !props.content.pressItems[i - 1].isFeaturedArticle && (
+                  <div className="is-divider mt-3 mb-10" />
+                )}
+              <div
+                className={classnames(
+                  press.isFeaturedArticle &&
+                    "has-background-warning mt-4 py-7 px-6"
+                )}
+              >
+                {press.isFeaturedArticle && (
+                  <div className="eyebrow is-large mb-6">
+                    <Trans>Featured press</Trans>
+                  </div>
+                )}
+                <div className="media is-align-items-center mt-7 mb-6">
+                  <figure className="media-left image is-48x48">
+                    <img
+                      className="is-rounded"
+                      src={press.logo.fluid.src}
+                      alt={press.title}
+                    />
+                  </figure>
+                  <div className="title is-3">{press.title}</div>
+                </div>
+                <h2 className="mb-6">{press.linkText}</h2>
+                {!press.isFeaturedArticle && (
+                  <div className="eyebrow is-large mb-6">
+                    {formatDate(press.publicationDate, locale)}
+                  </div>
+                )}
+                <ReadMoreLink url={press.hyperlink} />
               </div>
-              <h2 className="mb-6">{press.linkText}</h2>
-              <div className="eyebrow is-large mb-6">
-                {formatDate(press.publicationDate, locale)}
-              </div>
-              <ReadMoreLink url={press.hyperlink} />
             </div>
           ))}
         </div>
