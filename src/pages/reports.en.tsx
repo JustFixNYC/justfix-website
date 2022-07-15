@@ -11,7 +11,7 @@ import { useCurrentLocale } from "../util/use-locale";
 import { ContentfulContent } from "./index.en";
 import classnames from "classnames";
 
-import "../styles/policy.scss";
+import "../styles/reports.scss";
 
 type ResponsiveElementInfo = {
   desktop: string;
@@ -136,7 +136,7 @@ export const PolicyPageScaffolding = (props: ContentfulContent) => {
 
   return (
     <Layout metadata={props.content.metadata}>
-      <div id="policy" className="policy-page">
+      <div id="reports" className="reports-page">
         <PageHero {...props.content.pageHero} />
 
         <div className="columns pt-13 pb-11 p-6-mobile">
