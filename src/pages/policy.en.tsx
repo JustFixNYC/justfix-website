@@ -62,7 +62,7 @@ type EndorsementInfo = {
 };
 
 const Endorsement: React.FC<EndorsementInfo> = (props) => (
-  <div>
+  <div className="mt-8 mt-6-mobile pb-5 pb-0-mobile">
     <div className="is-flex has-text-centered is-align-items-center">
       <figure className="image is-48x48">
         <img className="is-rounded" src={props.userImage.fluid.src} alt="" />
@@ -94,7 +94,7 @@ type ReportCardInfo = {
 };
 
 const ReportCard: React.FC<ReportCardInfo> = (props) => (
-  <div className={`mb-8 ${!props.hasDivider ? "mt-6" : ""} mt-0-mobile`}>
+  <div className={`${!props.hasDivider ? "mt-6" : ""} mt-0-mobile`}>
     {props.hasDivider && <div className="is-divider" />}
     <div className="jf-report-card columns is-paddingless is-multiline has-background-white">
       <div className="column is-6 is-paddingless">
@@ -102,7 +102,7 @@ const ReportCard: React.FC<ReportCardInfo> = (props) => (
           fluid={props.image.fluid}
           alt=""
           objectFit="cover"
-          objectPosition="100% 100%"
+          objectPosition="100% 0%"
           className="jf-report-img"
         />
       </div>
@@ -164,7 +164,7 @@ export const PolicyPageScaffolding = (props: ContentfulContent) => {
             children={props.content.reportsTitle}
           />
         </div>
-        <div className="column is-9 pb-9 pb-0-mobile">
+        <div className="column is-9 pb-9 py-0-mobile">
           {props.content.reportBlocks.map((report: any, i: number) => (
             <div key={i}>
               <ReportCard {...report} locale={locale} hasDivider={i > 0} />
