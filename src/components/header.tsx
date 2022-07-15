@@ -150,6 +150,9 @@ const Header: React.FC<{
                 <Link to="/press" className="navbar-item">
                   <Trans>Press</Trans>
                 </Link>
+                <Link to="/reports" className="navbar-item">
+                  <Trans>Reports</Trans>
+                </Link>
                 <a
                   href="https://justfix.breezy.hr/"
                   target="_blank"
