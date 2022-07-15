@@ -28,8 +28,12 @@ const ResponsiveElement = ({
   const Touch = touch as keyof JSX.IntrinsicElements;
   return (
     <>
-      <Desktop className={`is-hidden-touch ${className}`}>{children}</Desktop>
-      <Touch className={`is-hidden-desktop ${className}`}>{children}</Touch>
+      <Desktop className={`is-hidden-touch ${className || ""}`}>
+        {children}
+      </Desktop>
+      <Touch className={`is-hidden-desktop ${className || ""}`}>
+        {children}
+      </Touch>
     </>
   );
 };
@@ -90,32 +94,37 @@ type ReportCardInfo = {
 };
 
 const ReportCard: React.FC<ReportCardInfo> = (props) => (
-  <div className={`pb-8 ${!props.hasDivider && "pt-7"}`}>
+  <div className={`mb-8 ${!props.hasDivider ? "mt-6" : ""} mt-0-mobile`}>
     {props.hasDivider && <div className="is-divider" />}
-    <div className="columns is-paddingless is-multiline">
+    <div className="jf-report-card columns is-paddingless is-multiline has-background-white">
       <div className="column is-6 is-paddingless">
-        <Img fluid={props.image.fluid} alt="" />
+        <Img
+          fluid={props.image.fluid}
+          alt=""
+          objectFit="cover"
+          objectPosition="100% 100%"
+          className="jf-report-img"
+        />
       </div>
-      <div className="column is-6 is-paddingless has-background-white">
-        <div className="px-9 px-6-mobile pt-8 pb-10 py-7-mobile">
-          <ResponsiveElement
-            desktop="h2"
-            touch="h3"
-            children={props.reportTitle}
-            className="pb-5"
-          />
-          <span className="eyebrow">
-            {formatDate(props.publicationDate, props.locale)}
-          </span>
-          {props.blurb ? (
-            <div className="py-6">
-              {documentToReactComponents(props.blurb.json)}
-            </div>
-          ) : (
-            <br />
-          )}
-          <ReadMoreLink url={props.reportUrl} customClasses="mt-auto" />
-        </div>
+      <div className="column is-6 px-9 px-6-mobile pt-8 pb-11 py-7-mobile is-flex is-flex-direction-column">
+        <ResponsiveElement
+          desktop="h2"
+          touch="h3"
+          children={props.reportTitle}
+          className="pb-6"
+        />
+        <span className="eyebrow pb-6">
+          {formatDate(props.publicationDate, props.locale)}
+        </span>
+        {props.blurb && (
+          <div className="pb-6">
+            {documentToReactComponents(props.blurb.json)}
+          </div>
+        )}
+        <ReadMoreLink
+          url={props.reportUrl}
+          customClasses="is-align-self-stretch"
+        />
       </div>
     </div>
   </div>
@@ -128,8 +137,8 @@ export const PolicyPageScaffolding = (props: ContentfulContent) => {
     <Layout metadata={props.content.metadata}>
       <PageHero {...props.content.pageHero} />
 
-      <div className="columns">
-        <div className="column is-4 pt-13 pb-12 p-6-mobile">
+      <div className="columns pt-13 pb-11 p-6-mobile">
+        <div className="column is-4 py-0 p-0-mobile">
           <ResponsiveElement
             desktop="h2"
             touch="h1"
@@ -137,22 +146,25 @@ export const PolicyPageScaffolding = (props: ContentfulContent) => {
           />
         </div>
         <div className="column is-1 is-hidden-mobile" />
-        <div className="column is-7 pt-13 pb-12 pt-0-mobile px-6-mobile pb-6-mobile">
+        <div className="column is-7 py-0 pt-6-mobile px-0-mobile">
           <span className="title is-3">
             {documentToReactComponents(props.content.approachContent.json)}
           </span>
         </div>
       </div>
 
-      <div id="report-section" className="columns">
-        <div className="column is-3 pt-13 pb-12 p-6-mobile">
+      <div
+        id="report-section"
+        className="columns pt-10 pb-12 pt-0-mobile pb-8-mobile"
+      >
+        <div className="column is-3">
           <ResponsiveElement
             desktop="h2"
             touch="h1"
             children={props.content.reportsTitle}
           />
         </div>
-        <div className="column is-9 pt-13 pb-12 p-6-mobile">
+        <div className="column is-9 pb-9 pb-0-mobile">
           {props.content.reportBlocks.map((report: any, i: number) => (
             <div key={i}>
               <ReportCard {...report} locale={locale} hasDivider={i > 0} />

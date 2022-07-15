@@ -2,4 +2,15 @@
 
 #report-section {
   background-color: $justfix-orange;
+
+  .jf-report-card {
+    border-radius: 0.25rem; // 4px
+
+    .jf-report-img {
+      border-radius: 0.25rem 0 0 0.25rem; // 4px
+      @include mobile {
+        height: 15rem; // 240px
+      }
+    }
+  }
 }
