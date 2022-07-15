@@ -9,6 +9,7 @@ import { ReadMoreLink } from "../components/read-more";
 import localeConfig from "../util/locale-config.json";
 import { useCurrentLocale } from "../util/use-locale";
 import { ContentfulContent } from "./index.en";
+import classnames from "classnames";
 
 import "../styles/policy.scss";
 
@@ -29,10 +30,10 @@ const ResponsiveElement = ({
   const Touch = touch as keyof JSX.IntrinsicElements;
   return (
     <>
-      <Desktop className={`is-hidden-touch ${className || ""}`}>
+      <Desktop className={classnames("is-hidden-touch", className || "")}>
         {children}
       </Desktop>
-      <Touch className={`is-hidden-desktop ${className || ""}`}>
+      <Touch className={classnames("is-hidden-desktop", className || "")}>
         {children}
       </Touch>
     </>
@@ -135,44 +136,46 @@ export const PolicyPageScaffolding = (props: ContentfulContent) => {
 
   return (
     <Layout metadata={props.content.metadata}>
-      <PageHero {...props.content.pageHero} />
+      <div id="policy" className="policy-page">
+        <PageHero {...props.content.pageHero} />
 
-      <div className="columns pt-13 pb-11 p-6-mobile">
-        <div className="column is-4 py-0 p-0-mobile">
-          <ResponsiveElement
-            desktop="h2"
-            touch="h1"
-            children={props.content.approachTitle}
-          />
+        <div className="columns pt-13 pb-11 p-6-mobile">
+          <div className="column is-4 py-0 p-0-mobile">
+            <ResponsiveElement
+              desktop="h2"
+              touch="h1"
+              children={props.content.approachTitle}
+            />
+          </div>
+          <div className="column is-1 is-hidden-mobile" />
+          <div className="column is-7 py-0 pt-6-mobile px-0-mobile">
+            <span className="title is-3">
+              {documentToReactComponents(props.content.approachContent.json)}
+            </span>
+          </div>
         </div>
-        <div className="column is-1 is-hidden-mobile" />
-        <div className="column is-7 py-0 pt-6-mobile px-0-mobile">
-          <span className="title is-3">
-            {documentToReactComponents(props.content.approachContent.json)}
-          </span>
-        </div>
-      </div>
 
-      <div
-        id="report-section"
-        className="columns pt-10 pb-12 pt-0-mobile pb-8-mobile"
-      >
-        <div className="column is-3">
-          <ResponsiveElement
-            desktop="h2"
-            touch="h1"
-            children={props.content.reportsTitle}
-          />
-        </div>
-        <div className="column is-9 pb-9 py-0-mobile">
-          {props.content.reportBlocks.map((report: any, i: number) => (
-            <div key={i}>
-              <ReportCard {...report} locale={locale} hasDivider={i > 0} />
-              {report.endorsements.map((endorsement: any, i: number) => (
-                <Endorsement {...endorsement} key={i} />
-              ))}
-            </div>
-          ))}
+        <div
+          id="report-section"
+          className="columns pt-10 pb-12 pt-0-mobile pb-8-mobile"
+        >
+          <div className="column is-3">
+            <ResponsiveElement
+              desktop="h2"
+              touch="h1"
+              children={props.content.reportsTitle}
+            />
+          </div>
+          <div className="column is-9 pb-9 py-0-mobile">
+            {props.content.reportBlocks.map((report: any, i: number) => (
+              <div key={i}>
+                <ReportCard {...report} locale={locale} hasDivider={i > 0} />
+                {report.endorsements.map((endorsement: any, i: number) => (
+                  <Endorsement {...endorsement} key={i} />
+                ))}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </Layout>
