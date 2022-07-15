@@ -41,7 +41,6 @@ msgstr "Back to top"
 msgid "Close"
 msgstr ""
 
-#: src/components/collaboration-banner.tsx:16
 #: src/components/header.tsx:114
 msgid "Contact Us"
 msgstr "Contact Us"
@@ -51,8 +50,8 @@ msgid "DEMO SITE"
 msgstr "DEMO SITE"
 
 #: src/components/collaboration-banner.tsx:22
-msgid "Donate"
-msgstr "Donate"
+#~ msgid "Donate"
+#~ msgstr "Donate"
 
 #: src/components/subscribe.tsx:70
 msgid "Email Address"
@@ -66,7 +65,7 @@ msgstr "Enter your address to learn more."
 msgid "Expand"
 msgstr ""
 
-#: src/pages/index.en.tsx:114
+#: src/pages/index.en.tsx:113
 msgid "Featured article"
 msgstr ""
 
@@ -139,8 +138,8 @@ msgstr "Privacy policy"
 msgid "Products"
 msgstr "Products"
 
-#: src/components/read-more.tsx:37
-#: src/components/read-more.tsx:40
+#: src/components/read-more.tsx:36
+#: src/components/read-more.tsx:39
 #: src/pages/learn.en.tsx:56
 msgid "Read More"
 msgstr "Read More"
@@ -157,7 +156,7 @@ msgstr "Search articles..."
 msgid "Sections"
 msgstr "Sections"
 
-#: src/pages/index.en.tsx:155
+#: src/pages/index.en.tsx:154
 msgid "See all articles"
 msgstr ""
 
@@ -182,13 +181,13 @@ msgid "Terms of use"
 msgstr "Terms of use"
 
 #: src/components/learning-center/article-template.tsx:118
-#: src/pages/index.en.tsx:120
-#: src/pages/index.en.tsx:136
-#: src/pages/index.en.tsx:147
+#: src/pages/index.en.tsx:119
+#: src/pages/index.en.tsx:135
+#: src/pages/index.en.tsx:146
 msgid "Updated"
 msgstr "Updated"
 
-#: src/components/read-more.tsx:13
+#: src/components/read-more.tsx:12
 msgid "Want to know more?"
 msgstr "Want to know more?"
 
@@ -203,3 +202,7 @@ msgstr "Written by"
 #: src/pages/404.en.tsx:13
 msgid "You just found a page that doesn't exist... the sadness."
 msgstr "You just found a page that doesn't exist... the sadness."
+
+#: src/pages/policy.en.tsx:39
+msgid "says:"
+msgstr ""
