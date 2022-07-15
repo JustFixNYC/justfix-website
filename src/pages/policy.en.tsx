@@ -1,4 +1,5 @@
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import { Trans } from "@lingui/macro";
 import { graphql, StaticQuery } from "gatsby";
 import Img from "gatsby-image/withIEPolyfill";
 import React from "react";
@@ -68,8 +69,7 @@ const Endorsement: React.FC<EndorsementInfo> = (props) => (
         <img className="is-rounded" src={props.userImage.fluid.src} alt="" />
       </figure>
       <span className="is-small is-bold pl-5">
-        {props.userName}
-        {" says:"} {/* TODO: translate */}
+        {props.userName} <Trans>says:</Trans>
       </span>
     </div>
     <div className="title is-4 pl-10 pl-0-mobile pt-5-mobile">
