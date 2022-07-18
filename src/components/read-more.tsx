@@ -5,36 +5,6 @@ import { LocaleLink } from "./locale-link";
 import { OutboundLink } from "../util/links";
 import classnames from "classnames";
 
-type Props = {
-  title: string;
-  link: string;
-};
-
-const ReadMore = ({ title, link }: Props) => (
-  <LocaleLink to={link}>
-    <div className="level read-more section content">
-      <div className="level-left">
-        <div className="level-item">
-          <div>
-            <p className="title has-text-info is-size-6">
-              <Trans>Want to know more?</Trans>
-            </p>
-            <p className="title has-text-white is-size-4">{title}</p>
-          </div>
-          <div className="is-hidden-tablet">
-            <span className="arrow-mobile is-size-2 has-text-white"> ❯ </span>
-          </div>
-        </div>
-      </div>
-      <div className="level-right is-hidden-mobile">
-        <div className="level-item">
-          <span className="arrow is-size-1 has-text-white"> ❯ </span>
-        </div>
-      </div>
-    </div>
-  </LocaleLink>
-);
-
 /**
  * This component takes a url path and, depending on whether the path is for an
  * internal page or an external page, generates the appropriate link with icon.
@@ -71,5 +41,3 @@ export const ReadMoreLink: React.FC<{
       />
     </OutboundLink>
   );
-
-export default ReadMore;

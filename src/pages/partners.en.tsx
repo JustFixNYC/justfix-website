@@ -4,7 +4,6 @@ import { StaticQuery, graphql } from "gatsby";
 import "../styles/partners.scss";
 
 import Layout from "../components/layout";
-import ReadMore from "../components/read-more";
 import { ContentfulContent } from "./index.en";
 
 export const PartnersPageScaffolding = (props: ContentfulContent) => (
@@ -64,11 +63,6 @@ export const PartnersPageScaffolding = (props: ContentfulContent) => (
           </div>
         ))}
       </section>
-
-      <ReadMore
-        title={props.content.readMore.title}
-        link={props.content.readMore.link}
-      />
     </div>
   </Layout>
 );
