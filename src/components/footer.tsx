@@ -8,6 +8,7 @@ import { LocaleLink as Link, LocaleToggle } from "./locale-link";
 import { useCurrentLocale } from "../util/use-locale";
 import classnames from "classnames";
 import { CAREERS_PAGE_URL } from "./header";
+import { OutboundLink } from "../util/links";
 
 const FooterLanguageToggle = () => {
   const locale = useCurrentLocale();
@@ -37,6 +38,17 @@ const FooterLanguageToggle = () => {
 
 type FooterLink = [string, JSX.Element];
 
+const FooterLink: React.FC<{ link: FooterLink }> = ({ link }) =>
+  link[0].charAt(0) === "/" ? (
+    <Link className="no-underline" to={link[0]}>
+      <p className="title is-4 has-text-white">{link[1]}</p>
+    </Link>
+  ) : (
+    <OutboundLink className="no-underline" href={link[0]}>
+      <p className="title is-4 has-text-white">{link[1]}</p>
+    </OutboundLink>
+  );
+
 const footerLinks: FooterLink[] = [
   ["/our-mission", <Trans>Mission</Trans>],
   ["/team", <Trans>Team</Trans>],
@@ -55,14 +67,8 @@ const FooterLinksList: React.FC<{ links: FooterLink[] }> = ({ links }) => {
         if (i % 2 === 0) {
           return (
             <div className="column is-3 is-paddingless mx-0" key={i}>
-              <Link className="no-underline" to={link[0]}>
-                <p className="title is-4 has-text-white">{link[1]}</p>
-              </Link>
-              {!!links[i + 1] && (
-                <Link className="no-underline" to={links[i + 1][0]}>
-                  <p className="title is-4 has-text-white">{links[i + 1][1]}</p>
-                </Link>
-              )}
+              <FooterLink link={link} />
+              {!!links[i + 1] && <FooterLink link={links[i + 1]} />}
             </div>
           );
         } else return;
