@@ -96,69 +96,82 @@ const Header: React.FC<{
   return (
     <div className="header">
       {isLandingPage && <MoratoriumBanner />}
-      <nav className="navbar" role="navigation" aria-label="main navigation">
-        <div className="navbar-brand">
-          <div className="navbar-item is-flex-direction-column is-justify-content-center no-underline">
             <Link to="/">
-              <img
-                className="is-hidden-touch"
-                src={require("../img/brand/logo.svg")}
-                width="164"
-                height="38"
-                alt="JustFix"
-              />
-              <img
-                className="is-hidden-desktop"
-                src={require("../img/brand/logo.svg")}
-                width="120"
-                height="27"
-                alt="JustFix"
-              />
-            </Link>
-            {isDemoSite && (
-              <span className="tag is-yellow">
-                <Trans>DEMO SITE</Trans>
-              </span>
-            )}
-          </div>
-          <div className="navbar-item is-size-3 has-text-black is-hidden-touch">
-            <Trans>Technology for Housing Justice</Trans>
-          </div>
-          <div className="navbar-item is-paddingless is-flex-grow-1" />
-          <div className="navbar-item is-hidden-touch">
-            <Link to="/tools" className="button is-primary">
-              <Trans>See our tools</Trans>
-            </Link>
-          </div>
-          <div className="navbar-item">
-            <button
-              role="button"
-              className={
-                "navbar-burger burger " + (burgerMenuIsOpen && "is-active")
-              }
-              aria-label="menu"
-              aria-expanded="false"
-              onClick={() => setBurgerMenuStatus(!burgerMenuIsOpen)}
-              data-target="navbar"
+      <FocusTrap
+        active={burgerMenuIsOpen}
+        focusTrapOptions={{
+          onDeactivate: () => setBurgerMenuStatus(false),
+          clickOutsideDeactivates: true,
+        }}
+      >
+        <nav className="navbar" role="navigation" aria-label="main navigation">
+          <div className="navbar-brand">
+            <div
+              className="navbar-item is-flex-direction-column is-justify-content-center no-underline"
+              onClick={() => setBurgerMenuStatus(false)}
             >
-              <img
-                src={require("../img/menu.svg")}
-                className="mr-2"
-                width="16"
-                height="12"
-              />{" "}
-              <Trans>Menu</Trans>
-            </button>
+              <Link to="/">
+                <img
+                  className="is-hidden-touch"
+                  src={require("../img/brand/logo.svg")}
+                  width="164"
+                  height="38"
+                  alt="JustFix"
+                />
+                <img
+                  className="is-hidden-desktop"
+                  src={require("../img/brand/logo.svg")}
+                  width="120"
+                  height="27"
+                  alt="JustFix"
+                />
+              </Link>
+              {isDemoSite && (
+                <span className="tag is-yellow">
+                  <Trans>DEMO SITE</Trans>
+                </span>
+              )}
+            </div>
+            <div
+              className="navbar-item is-size-3 has-text-black is-hidden-touch"
+              onClick={() => setBurgerMenuStatus(false)}
+            >
+              <Trans>Technology for Housing Justice</Trans>
+            </div>
+            <div
+              className="navbar-item is-paddingless is-flex-grow-1"
+              onClick={() => setBurgerMenuStatus(false)}
+            />
+            <div
+              className="navbar-item is-hidden-touch"
+              onClick={() => setBurgerMenuStatus(false)}
+            >
+              <Link to="/tools" className="button is-primary">
+                <Trans>See our tools</Trans>
+              </Link>
+            </div>
+            <div className="navbar-item">
+              <button
+                role="button"
+                className={
+                  "navbar-burger burger " + (burgerMenuIsOpen && "is-active")
+                }
+                aria-label="menu"
+                aria-expanded="false"
+                onClick={() => setBurgerMenuStatus(!burgerMenuIsOpen)}
+                data-target="navbar"
+              >
+                <img
+                  src={require("../img/menu.svg")}
+                  className="mr-2"
+                  width="16"
+                  height="12"
+                />{" "}
+                <Trans>Menu</Trans>
+              </button>
+            </div>
           </div>
-        </div>
 
-        <FocusTrap
-          active={burgerMenuIsOpen}
-          focusTrapOptions={{
-            onDeactivate: () => setBurgerMenuStatus(false),
-            clickOutsideDeactivates: true,
-          }}
-        >
           <div
             id="main-navbar-menu"
             className={"navbar-menu " + (burgerMenuIsOpen && "is-active")}
@@ -191,8 +204,8 @@ const Header: React.FC<{
               </div>
             </div>
           </div>
-        </FocusTrap>
-      </nav>
+        </nav>
+      </FocusTrap>
     </div>
   );
 };
