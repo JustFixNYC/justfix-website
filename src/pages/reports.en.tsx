@@ -1,7 +1,6 @@
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { Trans } from "@lingui/macro";
 import { graphql, StaticQuery } from "gatsby";
-import Img from "gatsby-image/withIEPolyfill";
 import React from "react";
 import Layout from "../components/layout";
 import PageHero from "../components/page-hero";
@@ -10,6 +9,7 @@ import localeConfig from "../util/locale-config.json";
 import { useCurrentLocale } from "../util/use-locale";
 import { ContentfulContent } from "./index.en";
 import classnames from "classnames";
+import Img from "gatsby-image/withIEPolyfill";
 
 import "../styles/reports.scss";
 
@@ -52,9 +52,7 @@ function formatDate(dateString: string, locale?: string): string {
 type EndorsementInfo = {
   userName: string;
   userImage: {
-    fluid: {
-      src: string;
-    };
+    fluid: any;
   };
   userLink: string;
   message: {
@@ -67,7 +65,11 @@ const Endorsement: React.FC<EndorsementInfo> = (props) => (
   <div className="mt-8 mt-6-mobile pb-5 pb-0-mobile">
     <div className="is-flex has-text-centered is-align-items-center">
       <figure className="image is-48x48">
-        <img className="is-rounded" src={props.userImage.fluid.src} alt="" />
+        <Img
+          fluid={props.userImage.fluid}
+          alt=""
+          className="is-rounded img-centered"
+        />
       </figure>
       <span className="is-small is-bold pl-5">
         {props.userName} <Trans>says:</Trans>
