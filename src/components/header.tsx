@@ -27,6 +27,19 @@ const LANGUAGE_NAMES: { [k in LocaleChoice]: string } = {
   es: "Español",
 };
 
+export type LinkWithLabel = [string, JSX.Element];
+
+export const SITE_LINKS: LinkWithLabel[] = [
+  ["/our-mission", <Trans>Mission</Trans>],
+  ["/team", <Trans>Team</Trans>],
+  ["/partners", <Trans>Partners & Funders</Trans>],
+  ["/press", <Trans>Press</Trans>],
+  ["/tools", <Trans>Tools</Trans>],
+  ["/reports", <Trans>Research & Policy</Trans>],
+  ["/learn", <Trans>Learning Center</Trans>],
+  [CAREERS_PAGE_URL, <Trans>Careers</Trans>],
+];
+
 const MoratoriumBanner: React.FC<{}> = () => {
   const [isVisible, setVisibility] = useState(true);
   const locale = useCurrentLocale();
@@ -58,6 +71,20 @@ const MoratoriumBanner: React.FC<{}> = () => {
     </section>
   );
 };
+
+const HeaderLink: React.FC<{ link: LinkWithLabel }> = ({ link }) =>
+  link[0].charAt(0) === "/" ? (
+    <Link className="navbar-item is-uppercase no-underline" to={link[0]}>
+      {link[1]}
+    </Link>
+  ) : (
+    <OutboundLink
+      className="navbar-item is-uppercase no-underline"
+      href={link[0]}
+    >
+      {link[1]}
+    </OutboundLink>
+  );
 
 const Header: React.FC<{
   isLandingPage?: boolean;
@@ -129,80 +156,14 @@ const Header: React.FC<{
           className={"navbar-menu " + (burgerMenuIsOpen && "is-active")}
         >
           <div className="navbar-end">
-            <div className="navbar-item has-dropdown is-hoverable">
-              <a
-                className={
-                  "navbar-link is-uppercase has-text-" +
-                  (burgerMenuIsOpen ? "black" : "white")
-                }
-              >
-                <Trans>About us</Trans>
-              </a>
+            {SITE_LINKS.map((link, i) => (
+              <HeaderLink link={link} key={i} />
+            ))}
 
-              <div className="navbar-dropdown">
-                <Link to="/our-mission" className="navbar-item">
-                  <Trans>Mission</Trans>
-                </Link>
-                <Link to="/team" className="navbar-item">
-                  <Trans>Team</Trans>
-                </Link>
-                <Link to="/partners" className="navbar-item">
-                  <Trans>Partners</Trans>
-                </Link>
-                <Link to="/press" className="navbar-item">
-                  <Trans>Press</Trans>
-                </Link>
-                <Link to="/reports" className="navbar-item">
-                  <Trans>Reports</Trans>
-                </Link>
-                <a
-                  href={CAREERS_PAGE_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="navbar-item"
-                >
-                  <Trans>Jobs</Trans>
-                </a>
-              </div>
-            </div>
-
-            <Link
-              to="/#products"
-              className={
-                "navbar-item is-uppercase has-text-" +
-                (burgerMenuIsOpen ? "black" : "white")
-              }
-            >
-              <Trans>Products</Trans>
-            </Link>
-
-            <Link
-              to="/learn"
-              className={
-                "navbar-item is-uppercase has-text-" +
-                (burgerMenuIsOpen ? "black" : "white")
-              }
-            >
-              <Trans>Learn</Trans>
-            </Link>
-
-            <Link
-              to="/contact-us"
-              className={
-                "navbar-item is-uppercase has-text-" +
-                (burgerMenuIsOpen ? "black" : "white")
-              }
-            >
-              <Trans>Contact Us</Trans>
-            </Link>
+            <HeaderLink link={["/contact-us", <Trans>Contact Us</Trans>]} />
 
             <div className="navbar-item has-dropdown is-hoverable">
-              <a
-                className={
-                  "navbar-link is-uppercase has-text-" +
-                  (burgerMenuIsOpen ? "black" : "white")
-                }
-              >
+              <a className="navbar-link is-uppercase no-underline">
                 {LANGUAGE_NAMES[locale]}
               </a>
 
@@ -212,7 +173,7 @@ const Header: React.FC<{
                 ).map((otherLocale, i) => (
                   <LocaleToggle
                     to={otherLocale}
-                    className="navbar-item"
+                    className="navbar-item no-underline"
                     key={i}
                   >
                     {LANGUAGE_NAMES[otherLocale]}

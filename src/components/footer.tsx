@@ -7,7 +7,7 @@ import Subscribe from "./subscribe";
 import { LocaleLink as Link, LocaleToggle } from "./locale-link";
 import { useCurrentLocale } from "../util/use-locale";
 import classnames from "classnames";
-import { CAREERS_PAGE_URL } from "./header";
+import { LinkWithLabel, SITE_LINKS } from "./header";
 import { OutboundLink } from "../util/links";
 
 const FooterLanguageToggle = () => {
@@ -36,9 +36,7 @@ const FooterLanguageToggle = () => {
   );
 };
 
-type FooterLink = [string, JSX.Element];
-
-const FooterLink: React.FC<{ link: FooterLink }> = ({ link }) =>
+const FooterLink: React.FC<{ link: LinkWithLabel }> = ({ link }) =>
   link[0].charAt(0) === "/" ? (
     <Link className="no-underline" to={link[0]}>
       <p className="title is-4 has-text-white">{link[1]}</p>
@@ -49,18 +47,7 @@ const FooterLink: React.FC<{ link: FooterLink }> = ({ link }) =>
     </OutboundLink>
   );
 
-const footerLinks: FooterLink[] = [
-  ["/our-mission", <Trans>Mission</Trans>],
-  ["/team", <Trans>Team</Trans>],
-  ["/partners", <Trans>Partners & Funders</Trans>],
-  ["/press", <Trans>Press</Trans>],
-  ["/tools", <Trans>Tools</Trans>],
-  ["/reports", <Trans>Research & Policy</Trans>],
-  ["/learn", <Trans>Learning Center</Trans>],
-  [CAREERS_PAGE_URL, <Trans>Careers</Trans>],
-];
-
-const FooterLinksList: React.FC<{ links: FooterLink[] }> = ({ links }) => {
+const FooterLinksList: React.FC<{ links: LinkWithLabel[] }> = ({ links }) => {
   return (
     <div className="columns is-paddingless is-hidden-touch ml-0">
       {links.map((link, i) => {
@@ -82,7 +69,7 @@ const Footer = () => (
     <div className="columns is-multiline">
       <div className="column is-9 is-12-touch pt-9">
         <FooterLanguageToggle />
-        <FooterLinksList links={footerLinks} />
+        <FooterLinksList links={SITE_LINKS} />
       </div>
 
       <div className="column is-3 is-12-touch">
@@ -124,10 +111,8 @@ const Footer = () => (
           />
         </div>
         <div className="mt-8 is-hidden-desktop">
-          {footerLinks.map((link, i) => (
-            <Link className="no-underline" to={link[0]} key={i}>
-              <p className="title is-4 has-text-white">{link[1]}</p>
-            </Link>
+          {SITE_LINKS.map((link, i) => (
+            <FooterLink link={link} key={i} />
           ))}
         </div>
       </div>
