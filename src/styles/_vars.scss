@@ -16,7 +16,6 @@ $justfix-blue: #5188ff;
 $transparent: rgba(0, 0, 0, 0);
 
 $primary: $justfix-blue;
-$primary-invert: findColorInvert($primary);
 
 $white: $justfix-white;
 $black: $justfix-black;
@@ -27,13 +26,6 @@ $link: $justfix-blue;
 $warning: $justfix-yellow;
 $success: $justfix-green;
 $info: $justfix-pink;
-$read-more: #37bc9b;
-
-// TODO: Remove these old color variables:
-$justfix-blue-lightened: #84c2e1;
-$justfix-blue-white: #ebf9ff;
-$warning-lightened: #ffefb2;
-$warning-darkened: #f7c913;
 
 // SPACING:
 

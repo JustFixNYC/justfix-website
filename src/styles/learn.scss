@@ -43,7 +43,7 @@
         opacity: 0.5;
         &.is-warning {
           opacity: 1;
-          color: $warning-darkened;
+          color: $justfix-yellow;
         }
       }
     }
@@ -158,7 +158,7 @@
       }
 
       &.all-tools {
-        border-color: $justfix-blue-lightened;
+        border-color: $justfix-blue;
       }
 
       p {
