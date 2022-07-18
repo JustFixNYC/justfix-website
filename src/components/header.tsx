@@ -10,6 +10,7 @@ import _commonStrings from "../common-strings.json";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { INLINES } from "@contentful/rich-text-types";
 import { OutboundLink } from "gatsby-plugin-google-analytics";
+import FocusTrap from "focus-trap-react";
 
 const commonStrings = new ContentfulCommonStrings(_commonStrings as any);
 
@@ -151,38 +152,46 @@ const Header: React.FC<{
           </div>
         </div>
 
-        <div
-          id="main-navbar-menu"
-          className={"navbar-menu " + (burgerMenuIsOpen && "is-active")}
+        <FocusTrap
+          active={burgerMenuIsOpen}
+          focusTrapOptions={{
+            onDeactivate: () => setBurgerMenuStatus(false),
+            clickOutsideDeactivates: true,
+          }}
         >
-          <div className="navbar-end">
-            {SITE_LINKS.map((link, i) => (
-              <HeaderLink link={link} key={i} />
-            ))}
+          <div
+            id="main-navbar-menu"
+            className={"navbar-menu " + (burgerMenuIsOpen && "is-active")}
+          >
+            <div className="navbar-end">
+              {SITE_LINKS.map((link, i) => (
+                <HeaderLink link={link} key={i} />
+              ))}
 
-            <HeaderLink link={["/contact-us", <Trans>Contact Us</Trans>]} />
+              <HeaderLink link={["/contact-us", <Trans>Contact Us</Trans>]} />
 
-            <div className="navbar-item has-dropdown is-hoverable">
-              <a className="navbar-link is-uppercase no-underline">
-                {LANGUAGE_NAMES[locale]}
-              </a>
+              <div className="navbar-item has-dropdown is-hoverable">
+                <a className="navbar-link is-uppercase no-underline">
+                  {LANGUAGE_NAMES[locale]}
+                </a>
 
-              <div className="navbar-dropdown is-right">
-                {localeConfig.ACCEPTED_LOCALES.filter(
-                  (otherLocale) => otherLocale !== locale
-                ).map((otherLocale, i) => (
-                  <LocaleToggle
-                    to={otherLocale}
-                    className="navbar-item no-underline"
-                    key={i}
-                  >
-                    {LANGUAGE_NAMES[otherLocale]}
-                  </LocaleToggle>
-                ))}
+                <div className="navbar-dropdown is-right">
+                  {localeConfig.ACCEPTED_LOCALES.filter(
+                    (otherLocale) => otherLocale !== locale
+                  ).map((otherLocale, i) => (
+                    <LocaleToggle
+                      to={otherLocale}
+                      className="navbar-item no-underline"
+                      key={i}
+                    >
+                      {LANGUAGE_NAMES[otherLocale]}
+                    </LocaleToggle>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        </FocusTrap>
       </nav>
     </div>
   );
