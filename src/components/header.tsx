@@ -15,6 +15,8 @@ const commonStrings = new ContentfulCommonStrings(_commonStrings as any);
 
 const isDemoSite = process.env.GATSBY_DEMO_SITE === "1";
 
+export const CAREERS_PAGE_URL = "https://justfix.breezy.hr/";
+
 type LocaleChoice = "en" | "es";
 
 /**
@@ -154,7 +156,7 @@ const Header: React.FC<{
                   <Trans>Reports</Trans>
                 </Link>
                 <a
-                  href="https://justfix.breezy.hr/"
+                  href={CAREERS_PAGE_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="navbar-item"
