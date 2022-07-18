@@ -13,11 +13,11 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/footer.tsx:85
+#: src/components/footer.tsx:86
 msgid "<0>Disclaimer:</0> The information in JustFix.nyc does not constitute legal advice and must not be used as a substitute for the advice of a lawyer qualified to give advice on legal issues pertaining to housing. We can help direct you to free legal services if necessary."
 msgstr "<0>Disclaimer:</0> The information in JustFix.nyc does not constitute legal advice and must not be used as a substitute for the advice of a lawyer qualified to give advice on legal issues pertaining to housing. We can help direct you to free legal services if necessary."
 
-#: src/components/footer.tsx:95
+#: src/components/footer.tsx:96
 msgid "<0>JustFix.nyc</0> is a registered 501(c)(3) nonprofit organization."
 msgstr "<0>JustFix.nyc</0> is a registered 501(c)(3) nonprofit organization."
 
@@ -37,7 +37,7 @@ msgstr "Back to Overview"
 msgid "Back to top"
 msgstr "Back to top"
 
-#: src/components/footer.tsx:30
+#: src/components/footer.tsx:35
 msgid "Careers"
 msgstr ""
 
@@ -77,7 +77,7 @@ msgstr ""
 msgid "Jobs"
 msgstr "Jobs"
 
-#: src/components/footer.tsx:59
+#: src/components/footer.tsx:60
 msgid "Join our mailing list!"
 msgstr "Join our mailing list!"
 
@@ -85,7 +85,7 @@ msgstr "Join our mailing list!"
 msgid "Learn"
 msgstr "Learn"
 
-#: src/components/footer.tsx:29
+#: src/components/footer.tsx:34
 msgid "Learning Center"
 msgstr ""
 
@@ -93,7 +93,7 @@ msgstr ""
 msgid "Menu"
 msgstr ""
 
-#: src/components/footer.tsx:23
+#: src/components/footer.tsx:28
 #: src/components/header.tsx:86
 msgid "Mission"
 msgstr "Mission"
@@ -123,7 +123,7 @@ msgstr "Oops! That email is invalid."
 msgid "Partners"
 msgstr "Partners"
 
-#: src/components/footer.tsx:25
+#: src/components/footer.tsx:30
 msgid "Partners & Funders"
 msgstr ""
 
@@ -131,12 +131,12 @@ msgstr ""
 msgid "Please enter an email address!"
 msgstr "Please enter an email address!"
 
-#: src/components/footer.tsx:26
+#: src/components/footer.tsx:31
 #: src/components/header.tsx:95
 msgid "Press"
 msgstr "Press"
 
-#: src/components/footer.tsx:101
+#: src/components/footer.tsx:102
 msgid "Privacy policy"
 msgstr "Privacy policy"
 
@@ -154,7 +154,7 @@ msgstr "Read More"
 msgid "Reports"
 msgstr ""
 
-#: src/components/footer.tsx:28
+#: src/components/footer.tsx:33
 msgid "Research & Policy"
 msgstr ""
 
@@ -182,7 +182,7 @@ msgstr ""
 msgid "Sign up"
 msgstr "Sign up"
 
-#: src/components/footer.tsx:24
+#: src/components/footer.tsx:29
 #: src/components/header.tsx:89
 msgid "Team"
 msgstr "Team"
@@ -191,11 +191,11 @@ msgstr "Team"
 msgid "Technology for Housing Justice"
 msgstr ""
 
-#: src/components/footer.tsx:104
+#: src/components/footer.tsx:105
 msgid "Terms of use"
 msgstr "Terms of use"
 
-#: src/components/footer.tsx:27
+#: src/components/footer.tsx:32
 msgid "Tools"
 msgstr ""
 
