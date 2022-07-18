@@ -1,5 +1,6 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
+import Img from "gatsby-image/withIEPolyfill";
 // import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 // import { Link } from 'gatsby'
 
@@ -54,9 +55,9 @@ export const PressPageScaffolding = (props: ContentfulContent) => {
                 )}
                 <div className="media is-align-items-center mt-7 mb-6">
                   <figure className="media-left image is-48x48">
-                    <img
-                      className="is-rounded"
-                      src={press.logo.fluid.src}
+                    <Img
+                      fluid={press.logo.fluid}
+                      className="is-rounded img-centered"
                       alt={press.title}
                     />
                   </figure>

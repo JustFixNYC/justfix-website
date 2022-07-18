@@ -203,6 +203,12 @@ $page-hero-offset: $spacing-06;
   transform: translate(-50%, -50%);
 }
 
+// With Gatsby <Img> className goes on a div and the actual
+// <img> is nested within.
+div.is-rounded img {
+  border-radius: 50%;
+}
+
 .bold-shadow {
   text-shadow: 0.4px 0px 0.1px, -0.4px 0px 0.1px;
 }

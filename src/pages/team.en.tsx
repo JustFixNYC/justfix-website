@@ -1,5 +1,6 @@
 import React from "react";
 import { graphql, StaticQuery } from "gatsby";
+import Img from "gatsby-image/withIEPolyfill";
 import Layout from "../components/layout";
 import PageHero from "../components/page-hero";
 import { ContentfulContent } from "./index.en";
@@ -13,9 +14,7 @@ type MemberCardInfo = {
     description: string;
   };
   photo: {
-    fluid: {
-      src: string;
-    };
+    fluid: any;
   };
   className?: string;
 };
@@ -23,11 +22,7 @@ type MemberCardInfo = {
 const MemberCard: React.FC<MemberCardInfo> = (props) => (
   <div className={`column is-9 ${props.className}`}>
     <figure className="image">
-      <img
-        className="is-rounded"
-        src={props.photo.fluid.src}
-        alt={props.name}
-      />
+      <Img fluid={props.photo.fluid} className="is-rounded" alt={props.name} />
     </figure>
     <div className="has-text-centered my-7">
       <h3>{props.name}</h3>
@@ -137,7 +132,7 @@ export const TeamPageFragment = graphql`
         }
         photo {
           fluid {
-            src
+            ...GatsbyContentfulFluid
           }
         }
       }
@@ -150,7 +145,7 @@ export const TeamPageFragment = graphql`
         }
         photo {
           fluid {
-            src
+            ...GatsbyContentfulFluid
           }
         }
       }
