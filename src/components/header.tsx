@@ -96,7 +96,6 @@ const Header: React.FC<{
   return (
     <div className="header">
       {isLandingPage && <MoratoriumBanner />}
-            <Link to="/">
       <FocusTrap
         active={burgerMenuIsOpen}
         focusTrapOptions={{
