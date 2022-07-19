@@ -1,6 +1,7 @@
 import React from "react";
 import { Trans } from "@lingui/macro";
 import BackgroundImage from "gatsby-background-image";
+import ResponsiveElement from "./responsive-element";
 
 type PageHeroInfo = {
   pageName: string;
@@ -27,10 +28,16 @@ const PageHero: React.FC<PageHeroInfo> = ({
             backgroundPosition: "center bottom",
           }}
         />
-        <div className="column is-6 px-9 py-10 p-6-mobile is-flex is-align-items-flex-end">
+        <div className="column is-6 px-10 py-9 p-6-mobile is-flex is-align-items-flex-end">
           <div>
-            <div className="eyebrow is-large pb-4">{pageName}</div>
-            <h1 className="mt-4">{description}</h1>
+            <ResponsiveElement
+              desktop="h2"
+              touch="h1"
+              className="mb-9 mb-5-mobile"
+            >
+              {description}
+            </ResponsiveElement>
+            <div className="eyebrow is-large pt-4">{pageName}</div>
           </div>
         </div>
       </div>
