@@ -1,6 +1,9 @@
 @import "_vars.scss";
 
 .press-page {
+  .jf-press-title {
+    font-variant: small-caps;
+  }
   .image {
     border: 1px solid $justfix-black;
     border-radius: 9999px;

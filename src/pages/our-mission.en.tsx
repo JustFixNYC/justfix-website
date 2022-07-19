@@ -7,15 +7,7 @@ import { ContentfulContent } from "./index.en";
 import PageHero from "../components/page-hero";
 import { ReadMoreLink } from "../components/read-more";
 import { Accordion } from "../components/accordion";
-
-const ResponsiveSectionTitle: React.FC<{ children: React.ReactNode }> = ({
-  children,
-}) => (
-  <>
-    <h2 className="is-hidden-touch">{children}</h2>
-    <h1 className="is-hidden-desktop">{children}</h1>
-  </>
-);
+import ResponsiveElement from "../components/responsive-element";
 
 export const MissionPageScaffolding = (props: ContentfulContent) => {
   const { content } = props;
@@ -28,9 +20,9 @@ export const MissionPageScaffolding = (props: ContentfulContent) => {
 
       <div className="columns">
         <div className="column is-4 pt-13 pb-12 p-6-mobile">
-          <ResponsiveSectionTitle>
+          <ResponsiveElement desktop="h2" touch="h1">
             {props.content.missionTitle}
-          </ResponsiveSectionTitle>
+          </ResponsiveElement>
         </div>
         <div className="column is-1 is-hidden-mobile" />
         <div className="column is-7 pt-13 pb-12 pt-0-mobile px-6-mobile pb-6-mobile">
@@ -42,9 +34,9 @@ export const MissionPageScaffolding = (props: ContentfulContent) => {
 
       <div className="columns has-background-warning">
         <div className="column is-4 pt-13 pb-12 pt-6-mobile px-6-mobile pb-0-mobile">
-          <ResponsiveSectionTitle>
+          <ResponsiveElement desktop="h2" touch="h1">
             {props.content.visionTitle}
-          </ResponsiveSectionTitle>
+          </ResponsiveElement>
         </div>
         <div className="column is-1 is-hidden-mobile" />
         <div className="column is-7 pt-13 pb-12 p-6-mobile jf-text-block-with-spacing">
@@ -54,9 +46,9 @@ export const MissionPageScaffolding = (props: ContentfulContent) => {
 
       <div className="columns">
         <div className="column is-4 pt-13 pb-12 pt-6-mobile px-6-mobile pb-0-mobile">
-          <ResponsiveSectionTitle>
+          <ResponsiveElement desktop="h2" touch="h1">
             {props.content.impactTitle}
-          </ResponsiveSectionTitle>
+          </ResponsiveElement>
         </div>
         <div className="column is-1 is-hidden-mobile" />
         <div className="column is-7 pt-13 pb-12 p-6-mobile">
@@ -93,9 +85,9 @@ export const MissionPageScaffolding = (props: ContentfulContent) => {
 
       <div className="columns has-background-info">
         <div className="column is-4 pt-13 pb-12 p-6-mobile">
-          <ResponsiveSectionTitle>
+          <ResponsiveElement desktop="h2" touch="h1">
             {props.content.valuesTitle}
-          </ResponsiveSectionTitle>
+          </ResponsiveElement>
         </div>
         <div className="column is-1 is-hidden-mobile" />
         <div className="column is-7 pt-13 pb-12 p-6-mobile">

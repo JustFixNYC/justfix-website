@@ -8,37 +8,10 @@ import { ReadMoreLink } from "../components/read-more";
 import localeConfig from "../util/locale-config.json";
 import { useCurrentLocale } from "../util/use-locale";
 import { ContentfulContent } from "./index.en";
-import classnames from "classnames";
 import Img from "gatsby-image/withIEPolyfill";
+import ResponsiveElement from "../components/responsive-element";
 
 import "../styles/reports.scss";
-
-type ResponsiveElementInfo = {
-  desktop: string;
-  touch: string;
-  children: React.ReactNode;
-  className?: string;
-};
-
-const ResponsiveElement = ({
-  desktop,
-  touch,
-  children,
-  className,
-}: ResponsiveElementInfo) => {
-  const Desktop = desktop as keyof JSX.IntrinsicElements;
-  const Touch = touch as keyof JSX.IntrinsicElements;
-  return (
-    <>
-      <Desktop className={classnames("is-hidden-touch", className || "")}>
-        {children}
-      </Desktop>
-      <Touch className={classnames("is-hidden-desktop", className || "")}>
-        {children}
-      </Touch>
-    </>
-  );
-};
 
 function formatDate(dateString: string, locale?: string): string {
   var date = new Date(dateString);
