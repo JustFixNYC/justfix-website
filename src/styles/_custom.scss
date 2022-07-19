@@ -155,8 +155,20 @@ $page-hero-offset: $spacing-06;
   }
 
   .columns {
+    width: 100%;
+
+    .gatsby-image-wrapper {
+      min-height: 375px;
+    }
+
     .eyebrow {
       border-bottom: 1px solid $justfix-white;
+    }
+
+    // Let's reverse the orientation of this eyeborow border on hero's with images:
+    .column.is-6 .eyebrow {
+      border-bottom: none;
+      border-top: 1px solid $justfix-white;
     }
 
     .column:first-child {
