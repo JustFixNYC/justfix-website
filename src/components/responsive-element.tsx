@@ -18,7 +18,6 @@ const ResponsiveElement = ({
 }: ResponsiveElementInfo) => {
   const Desktop = desktop as keyof JSX.IntrinsicElements;
   const Touch = touch as keyof JSX.IntrinsicElements;
-  // console.log(Touch instanceof)
   return (
     <>
       <Desktop className={classnames("is-hidden-touch", className || "")}>

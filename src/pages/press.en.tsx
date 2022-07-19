@@ -1,8 +1,6 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image/withIEPolyfill";
-// import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
-// import { Link } from 'gatsby'
 
 import "../styles/press.scss";
 
@@ -64,7 +62,6 @@ export const PressPageScaffolding = (props: ContentfulContent) => {
                   </figure>
                   <div className="jf-press-title title is-3">{press.title}</div>
                 </div>
-                {/* <h2 className="mb-6">{press.linkText}</h2> */}
                 <ResponsiveElement desktop="h2" touch="h3" className="mb-6">
                   {press.linkText}
                 </ResponsiveElement>

@@ -10,6 +10,7 @@ import { useCurrentLocale } from "../util/use-locale";
 import { ContentfulContent } from "./index.en";
 import Img from "gatsby-image/withIEPolyfill";
 import ResponsiveElement from "../components/responsive-element";
+
 import "../styles/reports.scss";
 
 function formatDate(dateString: string, locale?: string): string {
