@@ -155,6 +155,12 @@ $page-hero-offset: $spacing-06;
   }
 
   .columns {
+    width: 100%;
+
+    .gatsby-image-wrapper {
+      min-height: 375px;
+    }
+
     .eyebrow {
       border-bottom: 1px solid $justfix-white;
     }
