@@ -5,64 +5,52 @@ import "../styles/partners.scss";
 
 import Layout from "../components/layout";
 import { ContentfulContent } from "./index.en";
+import PageHero from "../components/page-hero";
+import ResponsiveElement from "../components/responsive-element";
+
+/**
+ * This array of exactly 2 characters defines the points in the alphabet
+ * in which we split up our list of partners when sorted.
+ *
+ * For example, if the first element is "D", that will split
+ * up our partners list into partners A-D and partners E-? etc.
+ */
+const PARTNERS_LIST_ALPHABETICAL_BREAKS: [string, string, string] = [
+  "A-D",
+  "E-L",
+  "M-Z",
+];
 
 export const PartnersPageScaffolding = (props: ContentfulContent) => (
   <Layout metadata={props.content.metadata}>
     <div id="partners" className="partners-page">
-      <section className="hero is-small">
-        <div className="hero-body has-text-centered is-horizontal-center">
-          <div className="container">
-            <h1 className="title is-size-2 has-text-grey-dark has-text-weight-normal is-spaced">
-              {props.content.title}
-            </h1>
-            <h6 className="subtitle has-text-grey-dark is-italic">
-              {props.content.subtitle.subtitle}
-            </h6>
-          </div>
+      <PageHero {...props.content.pageHero} />
+
+      <div className="columns">
+        <div className="column is-4 pt-13 pb-12 p-6-mobile">
+          <ResponsiveElement desktop="h2" touch="h1">
+            {props.content.title}
+          </ResponsiveElement>
         </div>
-      </section>
-
-      <section className="partners logos container has-text-centered">
-        {props.content.partnerOrganizations.map((partner: any, i: number) => (
-          <div className="logo is-inline-flex" key={i}>
-            <a href={partner.link} target="_blank" rel="noopener noreferrer">
-              <figure className="image">
-                <img
-                  className="img-centered"
-                  src={partner.logo.fluid.src}
-                  alt={partner.name}
-                />
-              </figure>
-            </a>
-          </div>
-        ))}
-      </section>
-
-      <section className="hero is-small">
-        <div className="hero-body has-text-centered is-horizontal-center">
-          <div className="container">
-            <h1 className="title is-size-2 has-text-grey-dark has-text-weight-normal">
-              {props.content.fundersTitle}
-            </h1>
-          </div>
+        <div className="column is-1 is-hidden-mobile" />
+        <div className="column is-7 pt-13 pb-12 p-6-mobile">
+          <span className="title is-3">{props.content.subtitle.subtitle}</span>
         </div>
-      </section>
+      </div>
 
-      <section className="funders logos container has-text-centered">
-        {props.content.funders.map((funder: any, i: number) => (
-          <div className="logo is-inline-flex" key={i}>
-            <a href={funder.link} target="_blank" rel="noopener noreferrer">
-              <figure className="image">
-                <img
-                  className="img-centered"
-                  src={funder.logo.fluid.src}
-                  alt={funder.name}
-                />
-              </figure>
-            </a>
-          </div>
-        ))}
-      </section>
+      <div className="columns has-background-info">
+        <div className="column pt-13 pb-12 p-6-mobile">
+          <h2 className="pb-3 pb-6-mobile">
+            {props.content.partnersListTitle}{" "}
+            <span className="is-hidden-tablet">
+              PARTNERS_LIST_ALPHABETICAL_BREAKS[0]
+            </span>
+          </h2>
+          <h3 className="is-hidden-mobile">
+            {PARTNERS_LIST_ALPHABETICAL_BREAKS[0]}
+          </h3>
+        </div>
+      </div>
     </div>
   </Layout>
 );
@@ -82,20 +70,38 @@ export const PartnersPageFragment = graphql`
           }
         }
       }
+      pageHero {
+        pageName
+        description
+        onThisPageList
+        image {
+          fluid {
+            ...GatsbyContentfulFluid
+          }
+        }
+      }
       title
       subtitle {
         subtitle
       }
+      partnersListTitle
       partnerOrganizations {
         name
         link
         logo {
           fluid {
-            src
+            ...GatsbyContentfulFluid
           }
         }
       }
+      partnershipCaseStudies {
+        title
+        description {
+          json
+        }
+      }
       fundersTitle
+      fundersSubtitle
       funders {
         name
         link
@@ -104,10 +110,6 @@ export const PartnersPageFragment = graphql`
             src
           }
         }
-      }
-      readMore {
-        title
-        link
       }
     }
   }
