@@ -51,11 +51,12 @@ const FooterLinksList: React.FC<{ links: LinkWithLabel[] }> = ({ links }) => {
   return (
     <div className="columns is-paddingless is-hidden-touch ml-0">
       {links.map((link, i) => {
-        if (i % 2 === 0) {
+        if (i % 3 === 0) {
           return (
-            <div className="column is-3 is-paddingless mx-0" key={i}>
+            <div className="column is-4 is-paddingless mx-0" key={i}>
               <FooterLink link={link} />
               {!!links[i + 1] && <FooterLink link={links[i + 1]} />}
+              {!!links[i + 2] && <FooterLink link={links[i + 2]} />}
             </div>
           );
         } else return;
