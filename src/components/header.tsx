@@ -39,6 +39,7 @@ export const SITE_LINKS: LinkWithLabel[] = [
   ["/reports", <Trans>Research & Policy</Trans>],
   ["/learn", <Trans>Learning Center</Trans>],
   [CAREERS_PAGE_URL, <Trans>Careers</Trans>],
+  ["/contact-us", <Trans>Contact Us</Trans>],
 ];
 
 const MoratoriumBanner: React.FC<{}> = () => {
@@ -179,8 +180,6 @@ const Header: React.FC<{
               {SITE_LINKS.map((link, i) => (
                 <HeaderLink link={link} key={i} />
               ))}
-
-              <HeaderLink link={["/contact-us", <Trans>Contact Us</Trans>]} />
 
               <div className="navbar-item has-dropdown is-hoverable">
                 <a className="navbar-link is-uppercase no-underline">
