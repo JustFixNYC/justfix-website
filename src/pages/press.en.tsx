@@ -1,8 +1,6 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image/withIEPolyfill";
-// import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
-// import { Link } from 'gatsby'
 
 import "../styles/press.scss";
 
@@ -16,6 +14,7 @@ import classnames from "classnames";
 import { Trans } from "@lingui/macro";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { OutboundLink } from "../util/links";
+import ResponsiveElement from "../components/responsive-element";
 
 function formatDate(dateString: string, locale?: string): string {
   var date = new Date(dateString);
@@ -61,9 +60,11 @@ export const PressPageScaffolding = (props: ContentfulContent) => {
                       alt={press.title}
                     />
                   </figure>
-                  <div className="title is-3">{press.title}</div>
+                  <div className="jf-press-title title is-3">{press.title}</div>
                 </div>
-                <h2 className="mb-6">{press.linkText}</h2>
+                <ResponsiveElement desktop="h2" touch="h3" className="mb-6">
+                  {press.linkText}
+                </ResponsiveElement>
                 {!press.isFeaturedArticle && (
                   <div className="eyebrow is-large mb-6">
                     {formatDate(press.publicationDate, locale)}
@@ -74,10 +75,11 @@ export const PressPageScaffolding = (props: ContentfulContent) => {
             </div>
           ))}
           <div className="column is-8 has-background-black has-text-white py-10 px-7 mt-6 mb-12 mx-5-mobile">
-            {documentToReactComponents(
-              props.content.pressInquiryBanner.content.json
-            )}
-            <br />
+            <ResponsiveElement desktop="h2" touch="h3" className="mb-6">
+              {documentToReactComponents(
+                props.content.pressInquiryBanner.content.json
+              )}
+            </ResponsiveElement>
             <OutboundLink
               href={props.content.pressInquiryBanner.button.link}
               className="button is-primary mt-5"
