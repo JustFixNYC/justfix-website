@@ -11,6 +11,7 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { INLINES } from "@contentful/rich-text-types";
 import { OutboundLink } from "gatsby-plugin-google-analytics";
 import FocusTrap from "focus-trap-react";
+import { FooterLanguageToggle } from "./footer";
 
 const commonStrings = new ContentfulCommonStrings(_commonStrings as any);
 
@@ -76,12 +77,12 @@ const MoratoriumBanner: React.FC<{}> = () => {
 
 const HeaderLink: React.FC<{ link: LinkWithLabel }> = ({ link }) =>
   link[0].charAt(0) === "/" ? (
-    <Link className="navbar-item is-uppercase no-underline" to={link[0]}>
+    <Link className="navbar-item no-underline p-0 has-text-white" to={link[0]}>
       {link[1]}
     </Link>
   ) : (
     <OutboundLink
-      className="navbar-item is-uppercase no-underline"
+      className="navbar-item no-underline p-0 has-text-white"
       href={link[0]}
     >
       {link[1]}
@@ -92,7 +93,6 @@ const Header: React.FC<{
   isLandingPage?: boolean;
 }> = ({ isLandingPage }) => {
   const [burgerMenuIsOpen, setBurgerMenuStatus] = useState(false);
-  const locale = useCurrentLocale();
 
   return (
     <div className="header">
@@ -163,10 +163,10 @@ const Header: React.FC<{
               >
                 <img
                   src={require("../img/menu.svg")}
-                  className="mr-2"
+                  className="mr-3"
                   width="16"
                   height="12"
-                />{" "}
+                />
                 <Trans>Menu</Trans>
               </button>
             </div>
@@ -174,20 +174,20 @@ const Header: React.FC<{
 
           <div
             id="main-navbar-menu"
-            className={"navbar-menu " + (burgerMenuIsOpen && "is-active")}
+            className={"navbar-menu has-background-black px-1-mobile " + (burgerMenuIsOpen && "is-active")}
           >
-            <div className="navbar-end">
-              {SITE_LINKS.map((link, i) => (
-                <HeaderLink link={link} key={i} />
-              ))}
+            <div className="navbar-end is-flex is-flex-direction-column is-justify-content-space-between py-3 px-5">
 
-              <div className="navbar-item has-dropdown is-hoverable">
-                <a className="navbar-link is-uppercase no-underline">
-                  {LANGUAGE_NAMES[locale]}
-                </a>
+              <div>
+                {SITE_LINKS.map((link, i) => (
+                  <HeaderLink link={link} key={i} />
+                ))}
+              </div>
 
-                <div className="navbar-dropdown is-right">
-                  {localeConfig.ACCEPTED_LOCALES.filter(
+              <div className="navbar-item has-dropdown is-hoverable mt-7 mb-4 mb-7-mobile">
+                <div className="navbar-dropdown is-right pt-1 pb-0">
+                  <FooterLanguageToggle />
+                  {/* {localeConfig.ACCEPTED_LOCALES.filter(
                     (otherLocale) => otherLocale !== locale
                   ).map((otherLocale, i) => (
                     <LocaleToggle
@@ -197,7 +197,7 @@ const Header: React.FC<{
                     >
                       {LANGUAGE_NAMES[otherLocale]}
                     </LocaleToggle>
-                  ))}
+                  ))} */}
                 </div>
               </div>
             </div>

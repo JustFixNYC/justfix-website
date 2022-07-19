@@ -10,7 +10,7 @@ import classnames from "classnames";
 import { LinkWithLabel, SITE_LINKS } from "./header";
 import { OutboundLink } from "../util/links";
 
-const FooterLanguageToggle = () => {
+export const FooterLanguageToggle = () => {
   const locale = useCurrentLocale();
   return (
     <div className="buttons has-addons">
