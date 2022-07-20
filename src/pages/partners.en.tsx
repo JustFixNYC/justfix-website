@@ -255,7 +255,7 @@ export const PartnersPageScaffolding = (props: ContentfulContent) => (
                 {props.content.fundersTitle}
               </ResponsiveElement>
             </div>
-            <div className="column mb-12 mb-0-mobile px-0-mobile">
+            <div className="column mb-12 mb-6-mobile px-0-mobile">
               <h3>{props.content.fundersSubtitle}</h3>
             </div>
           </div>
@@ -264,7 +264,10 @@ export const PartnersPageScaffolding = (props: ContentfulContent) => (
               // Sort alphabetically:
               .sort((a: any, b: any) => a.name.localeCompare(b.name))
               .map((funder: PartnerDetails, i: number) => (
-                <PartnerCard {...funder} key={i} />
+                <>
+                  <PartnerCard {...funder} key={i} />
+                  <PartnerCardMobile {...funder} key={i} />
+                </>
               ))}
           </div>
         </div>
