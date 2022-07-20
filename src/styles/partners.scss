@@ -1,24 +1,11 @@
-.partners-page {
-  .hero {
-    .hero-body {
-      width: 100%;
-      max-width: 720px;
-    }
-  }
-  .logos {
-    padding-bottom: 3rem;
-    .logo {
-      padding: 2rem;
-      .image {
-        width: 150px;
-        height: 150px;
-        transition: transform 100ms ease-in-out;
-        transform-origin: center;
+@import "_vars.scss";
 
-        &:hover {
-          opacity: 0.6;
-          transform: scale(1.1);
-        }
+.partners-page {
+  .jf-partner-card {
+    .has-background-black {
+      width: 100%;
+      .eyebrow {
+        min-height: $spacing-11;
       }
     }
   }

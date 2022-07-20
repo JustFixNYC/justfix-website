@@ -7,6 +7,9 @@ import Layout from "../components/layout";
 import { ContentfulContent } from "./index.en";
 import PageHero from "../components/page-hero";
 import ResponsiveElement from "../components/responsive-element";
+import Img from "gatsby-image/withIEPolyfill";
+import { FluidObject } from "gatsby-image";
+import { OutboundLink } from "../util/links";
 
 /**
  * This array of exactly 2 characters defines the points in the alphabet
@@ -20,6 +23,46 @@ const PARTNERS_LIST_ALPHABETICAL_BREAKS: [string, string, string] = [
   "E-L",
   "M-Z",
 ];
+
+type PartnerDetails = {
+  name: string;
+  link: string;
+  logo: {
+    fluid: FluidObject;
+  };
+};
+
+const formatLinkLabel = (link: string) => {
+  let trimmedLink = link.replace("https://", "").replace("http://", "");
+  if (trimmedLink.startsWith("www.")) {
+    trimmedLink = trimmedLink.slice(4);
+  }
+  return trimmedLink.split("/")[0];
+};
+
+const PartnerCard: React.FC<PartnerDetails> = ({ name, link, logo }) => (
+  <div className="column is-3 jf-partner-card pl-0 pr-7">
+    <div className="has-background-white is-flex is-flex-direction-column is-align-items-center is-justify-content-space-between">
+      <div className="has-background-black has-text-white">
+        <div className="eyebrow is-large has-text-centered is-flex is-flex-direction-column is-justify-content-center">
+          {name}
+        </div>
+      </div>
+      <Img
+        fluid={logo.fluid}
+        alt={name}
+        className="my-5"
+        style={{
+          width: "150px",
+          height: "150px",
+        }}
+      />
+      <OutboundLink className="mb-9" href={link}>
+        {formatLinkLabel(link)}
+      </OutboundLink>
+    </div>
+  </div>
+);
 
 export const PartnersPageScaffolding = (props: ContentfulContent) => (
   <Layout metadata={props.content.metadata}>
@@ -46,9 +89,20 @@ export const PartnersPageScaffolding = (props: ContentfulContent) => (
               PARTNERS_LIST_ALPHABETICAL_BREAKS[0]
             </span>
           </h2>
-          <h3 className="is-hidden-mobile">
+          <h3 className="is-hidden-mobile mb-11">
             {PARTNERS_LIST_ALPHABETICAL_BREAKS[0]}
           </h3>
+          <div className="columns is-paddingless is-multiline">
+            {props.content.partnerOrganizations
+              .filter(
+                (partner: PartnerDetails) =>
+                  partner.name <
+                  PARTNERS_LIST_ALPHABETICAL_BREAKS[1].slice(0, 1)
+              )
+              .map((partner: PartnerDetails, i: number) => (
+                <PartnerCard {...partner} />
+              ))}
+          </div>
         </div>
       </div>
     </div>
