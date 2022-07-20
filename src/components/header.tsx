@@ -3,7 +3,7 @@ import { Trans } from "@lingui/macro";
 
 import "../styles/header.scss";
 import { LocaleLink as Link } from "../components/locale-link";
-import { useCurrentLocale } from "../util/use-locale";
+import { removeLocaleFromPathname, useCurrentLocale } from "../util/use-locale";
 import { ContentfulCommonStrings } from "@justfixnyc/contentful-common-strings";
 import _commonStrings from "../common-strings.json";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
@@ -11,6 +11,7 @@ import { INLINES } from "@contentful/rich-text-types";
 import { OutboundLink } from "gatsby-plugin-google-analytics";
 import FocusTrap from "focus-trap-react";
 import { FooterLanguageToggle } from "./footer";
+import { useLocation } from "@reach/router";
 
 const commonStrings = new ContentfulCommonStrings(_commonStrings as any);
 
@@ -82,6 +83,10 @@ const Header: React.FC<{
   isLandingPage?: boolean;
 }> = ({ isLandingPage }) => {
   const [burgerMenuIsOpen, setBurgerMenuStatus] = useState(false);
+  // const location = useLocation();
+  // const existingPath = removeLocaleFromPathname(location.pathname);
+  // console.log(location);
+  // console.log(existingPath);
 
   return (
     <div className="header">
@@ -139,7 +144,7 @@ const Header: React.FC<{
                 <Trans>See our tools</Trans>
               </Link>
             </div>
-            <div className="navbar-item">
+            <div className={"navbar-item " + (burgerMenuIsOpen && "is-active")}>
               <button
                 role="button"
                 className={
@@ -151,12 +156,21 @@ const Header: React.FC<{
                 data-target="navbar"
               >
                 <img
-                  src={require("../img/menu.svg")}
-                  className="mr-3"
+                  src={
+                    burgerMenuIsOpen
+                      ? require("../img/close.svg")
+                      : require("../img/menu.svg")
+                  }
+                  className={"mr-3 " + (burgerMenuIsOpen && "is-active")}
                   width="16"
                   height="12"
                 />
-                <Trans>Menu</Trans>
+                {/* <svg xmlns={require("../img/menu.svg")}
+                  className={"mr-3 " +  (burgerMenuIsOpen && "is-active")}
+                  color="white"
+                  width="16"
+                  height="12" /> */}
+                {burgerMenuIsOpen ? <Trans>Close</Trans> : <Trans>Menu</Trans>}
               </button>
             </div>
           </div>

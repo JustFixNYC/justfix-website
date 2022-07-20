@@ -23,6 +23,11 @@
 
       .navbar-item {
         padding: 2rem 1.75rem;
+        transition: none;
+        &.is-active {
+          background-color: $black;
+          color: $white;
+        }
         &:first-child {
           @include desktop {
             border-right: 2px solid $black;
@@ -69,6 +74,16 @@
           background-color: inherit;
           &a:hover {
             text-decoration: underline;
+          }
+          &[aria-current="page"] {
+            padding-left: 2.5rem;
+            text-indent: calc(-1 * #{$spacing-05 + $spacing-04});
+            &::before {
+              content: "▪";
+              margin-right: $spacing-05;
+              font-size: 1.5rem;
+              vertical-align: middle;
+            }
           }
         }
       }
