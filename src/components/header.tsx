@@ -174,10 +174,12 @@ const Header: React.FC<{
 
           <div
             id="main-navbar-menu"
-            className={"navbar-menu has-background-black px-1-mobile " + (burgerMenuIsOpen && "is-active")}
+            className={
+              "navbar-menu has-background-black px-1-mobile " +
+              (burgerMenuIsOpen && "is-active")
+            }
           >
             <div className="navbar-end is-flex is-flex-direction-column is-justify-content-space-between py-3 px-5">
-
               <div>
                 {SITE_LINKS.map((link, i) => (
                   <HeaderLink link={link} key={i} />

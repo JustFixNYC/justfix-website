@@ -14,15 +14,17 @@
 
     @include mobile {
       height: $navbar-height-mobile;
+      min-height: unset;
     }
 
     .navbar-brand {
       height: inherit;
+      min-height: unset;
 
       .navbar-item {
         padding: 2rem 1.75rem;
         &:first-child {
-          @media screen and (min-width: $desktop) {
+          @include desktop {
             border-right: 2px solid $black;
           }
         }
@@ -46,11 +48,11 @@
     }
     .navbar-menu {
       @include desktop {
-        width: 325px; 
+        width: 325px;
         box-sizing: border-box;
         border-width: 0px 0px 1px 1px;
         border-style: solid;
-        border-color: #FAF8F4;
+        border-color: #faf8f4;
         margin-left: auto;
       }
 
@@ -61,7 +63,7 @@
 
       .navbar-end {
         height: 100%;
-        .navbar-item{
+        .navbar-item {
           @include mobile-h3;
           font-variant: normal;
           background-color: inherit;
