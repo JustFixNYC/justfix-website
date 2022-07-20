@@ -10,6 +10,8 @@ import ResponsiveElement from "../components/responsive-element";
 import Img from "gatsby-image/withIEPolyfill";
 import { FluidObject } from "gatsby-image";
 import { OutboundLink } from "../util/links";
+import { Trans } from "@lingui/macro";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 /**
  * This array of exactly 2 characters defines the points in the alphabet
@@ -64,6 +66,66 @@ const PartnerCard: React.FC<PartnerDetails> = ({ name, link, logo }) => (
   </div>
 );
 
+type PartnersSectionDetails = {
+  title: string;
+  letterRange: string;
+  partners: PartnerDetails[];
+};
+
+const PartnersSection: React.FC<PartnersSectionDetails> = ({
+  title,
+  letterRange,
+  partners,
+}) => (
+  <div className="columns has-background-info">
+    <div className="column pt-13 pb-12 p-6-mobile">
+      <h2 className="pb-3 pb-6-mobile">
+        {title} <span className="is-hidden-tablet">{letterRange}</span>
+      </h2>
+      <h3 className="is-hidden-mobile mb-11">{letterRange}</h3>
+      <div className="columns is-paddingless is-multiline">
+        {partners.map((partner: PartnerDetails, i: number) => (
+          <PartnerCard {...partner} key={i} />
+        ))}
+      </div>
+    </div>
+  </div>
+);
+
+type PartnershipCaseStudyDetails = {
+  title: string;
+  description: {
+    json: any;
+  };
+};
+
+const PartnershipCaseStudy: React.FC<PartnershipCaseStudyDetails> = ({
+  title,
+  description,
+}) => (
+  <div className="columns has-background-info is-multiline">
+    <div className="column is-12">
+      <div className="is-divider my-10" />
+    </div>
+    <div className="column is-4 my-6">
+      <div className="eyebrow is-large mb-3">
+        <Trans>Partnership case study</Trans>
+      </div>
+      <ResponsiveElement desktop="h2" touch="h1">
+        {title}
+      </ResponsiveElement>
+    </div>
+    <div className="column is-8 my-6">
+      <span className="title is-4">
+        {documentToReactComponents(description.json)}
+      </span>
+    </div>
+    <div className="column is-12">
+      <div className="is-divider my-10" />
+    </div>
+  </div>
+);
+
 export const PartnersPageScaffolding = (props: ContentfulContent) => (
   <Layout metadata={props.content.metadata}>
     <div id="partners" className="partners-page">
@@ -81,30 +143,16 @@ export const PartnersPageScaffolding = (props: ContentfulContent) => (
         </div>
       </div>
 
-      <div className="columns has-background-info">
-        <div className="column pt-13 pb-12 p-6-mobile">
-          <h2 className="pb-3 pb-6-mobile">
-            {props.content.partnersListTitle}{" "}
-            <span className="is-hidden-tablet">
-              PARTNERS_LIST_ALPHABETICAL_BREAKS[0]
-            </span>
-          </h2>
-          <h3 className="is-hidden-mobile mb-11">
-            {PARTNERS_LIST_ALPHABETICAL_BREAKS[0]}
-          </h3>
-          <div className="columns is-paddingless is-multiline">
-            {props.content.partnerOrganizations
-              .filter(
-                (partner: PartnerDetails) =>
-                  partner.name <
-                  PARTNERS_LIST_ALPHABETICAL_BREAKS[1].slice(0, 1)
-              )
-              .map((partner: PartnerDetails, i: number) => (
-                <PartnerCard {...partner} />
-              ))}
-          </div>
-        </div>
-      </div>
+      <PartnersSection
+        title={props.content.partnersListTitle}
+        letterRange={PARTNERS_LIST_ALPHABETICAL_BREAKS[0]}
+        partners={props.content.partnerOrganizations.filter(
+          (partner: PartnerDetails) =>
+            partner.name < PARTNERS_LIST_ALPHABETICAL_BREAKS[1].slice(0, 1)
+        )}
+      />
+
+      <PartnershipCaseStudy {...props.content.partnershipCaseStudies[0]} />
     </div>
   </Layout>
 );
