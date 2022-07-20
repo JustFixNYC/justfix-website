@@ -15,5 +15,26 @@
     a {
       overflow-wrap: anywhere;
     }
+
+    &.jf-accordion-item {
+      &:not(:last-child) {
+        border-bottom: 1px solid $justfix-white;
+      }
+      .jf-link-arrow-icon {
+        width: 20px;
+        height: 20px;
+      }
+
+      // Override default accordion styling:
+
+      details[open] summary img {
+        transition: transform 0.2s linear;
+        transform: rotate(-90deg);
+      }
+      details:not([open]) summary img {
+        transition: transform 0.2s linear;
+        transform: rotate(90deg);
+      }
+    }
   }
 }

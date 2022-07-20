@@ -43,7 +43,7 @@ const formatLinkLabel = (link: string) => {
 };
 
 const PartnerCard: React.FC<PartnerDetails> = ({ name, link, logo }) => (
-  <div className="column is-3 jf-partner-card pl-0 pr-7">
+  <div className="column is-3 jf-partner-card pl-0 pr-7 is-hidden-mobile">
     <div className="has-background-white is-flex is-flex-direction-column is-align-items-center is-justify-content-space-between">
       <div className="has-background-black has-text-white">
         <div className="eyebrow is-large has-text-centered is-flex is-flex-direction-column is-justify-content-center">
@@ -63,6 +63,37 @@ const PartnerCard: React.FC<PartnerDetails> = ({ name, link, logo }) => (
         {formatLinkLabel(link)}
       </OutboundLink>
     </div>
+  </div>
+);
+
+const PartnerCardMobile: React.FC<PartnerDetails> = ({ name, link, logo }) => (
+  <div className="column is-3 jf-partner-card jf-accordion-item p-0 is-hidden-tablet">
+    <details className="has-background-white">
+      <summary className="has-background-black has-text-white">
+        <div className="eyebrow is-large is-flex is-flex-direction-row is-align-items-center is-justify-content-space-between px-5">
+          <div className="is-unselectable">{name}</div>
+          <img
+            className="jf-link-arrow-icon"
+            src={require("../img/internal-arrow.svg")}
+            alt=""
+          />
+        </div>
+      </summary>
+      <div className="is-flex is-flex-direction-column is-align-items-center is-justify-content-space-between">
+        <Img
+          fluid={logo.fluid}
+          alt={name}
+          className="my-5"
+          style={{
+            width: "150px",
+            height: "150px",
+          }}
+        />
+        <OutboundLink className="mb-9 mx-2" href={link}>
+          {formatLinkLabel(link)}
+        </OutboundLink>
+      </div>
+    </details>
   </div>
 );
 
@@ -91,7 +122,10 @@ const PartnersSection: React.FC<PartnersSectionDetails> = ({
           // Sort alphabetically:
           .sort((a, b) => a.name.localeCompare(b.name))
           .map((partner: PartnerDetails, i: number) => (
-            <PartnerCard {...partner} key={i} />
+            <>
+              <PartnerCard {...partner} key={i} />
+              <PartnerCardMobile {...partner} key={i} />
+            </>
           ))}
       </div>
     </div>
