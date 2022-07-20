@@ -80,7 +80,10 @@ const PartnersSection: React.FC<PartnersSectionDetails> = ({
   <div className="columns has-background-info">
     <div className="column pt-13 pb-12 p-6-mobile">
       <h2 className="pb-3 pb-6-mobile">
-        {title} <span className="is-hidden-tablet">{letterRange}</span>
+        {title}{" "}
+        <span className="has-text-weight-bold is-hidden-tablet">
+          ({letterRange})
+        </span>
       </h2>
       <h3 className="is-hidden-mobile mb-11">{letterRange}</h3>
       <div className="columns is-paddingless is-multiline">
@@ -107,10 +110,10 @@ const PartnershipCaseStudy: React.FC<PartnershipCaseStudyDetails> = ({
   description,
 }) => (
   <div className="columns has-background-info is-multiline">
-    <div className="column is-12">
-      <div className="is-divider my-10" />
+    <div className="column is-12 pt-0-mobile">
+      <div className="is-divider my-10 my-0-mobile" />
     </div>
-    <div className="column is-4 my-6">
+    <div className="column is-4 my-6 my-0-mobile">
       <div className="eyebrow is-large mb-3">
         <Trans>Partnership case study</Trans>
       </div>
@@ -118,13 +121,13 @@ const PartnershipCaseStudy: React.FC<PartnershipCaseStudyDetails> = ({
         {title}
       </ResponsiveElement>
     </div>
-    <div className="column is-8 my-6">
+    <div className="column is-8 my-6 my-0-mobile">
       <span className="title is-4">
         {documentToReactComponents(description.json)}
       </span>
     </div>
-    <div className="column is-12">
-      <div className="is-divider my-10" />
+    <div className="column is-12 pb-0-mobile">
+      <div className="is-divider my-10 my-0-mobile" />
     </div>
   </div>
 );
@@ -141,7 +144,7 @@ export const PartnersPageScaffolding = (props: ContentfulContent) => (
           </ResponsiveElement>
         </div>
         <div className="column is-1 is-hidden-mobile" />
-        <div className="column is-7 pt-13 pb-12 p-6-mobile">
+        <div className="column is-7 pt-13 pb-12 pt-0-mobile px-6-mobile pb-6-mobile">
           <span className="title is-3">{props.content.subtitle.subtitle}</span>
         </div>
       </div>
@@ -179,9 +182,24 @@ export const PartnersPageScaffolding = (props: ContentfulContent) => (
       />
 
       <div className="columns has-background-info">
-        <div className="column is-8 has-background-black has-text-white py-10 px-7 mt-6 mb-12 mx-5-mobile">
+        <div className="column is-8 has-background-black has-text-white py-10 px-7 mt-6 mb-12 is-hidden-mobile">
           <h2 className="mb-6">{props.content.collaborationBanner.label}</h2>
           <span className="title is-4 has-text-white">
+            {documentToReactComponents(
+              props.content.collaborationBanner.content.json
+            )}
+          </span>
+          <OutboundLink
+            href={props.content.collaborationBanner.button.link}
+            className="button is-primary mt-6"
+          >
+            {props.content.collaborationBanner.button.title}
+          </OutboundLink>
+        </div>
+        <div className="column is-8 has-background-info is-hidden-tablet pt-0 pb-7">
+          <div className="is-divider mt-0" />
+          <h2 className="mb-6">{props.content.collaborationBanner.label}</h2>
+          <span className="title is-4">
             {documentToReactComponents(
               props.content.collaborationBanner.content.json
             )}
@@ -198,10 +216,12 @@ export const PartnersPageScaffolding = (props: ContentfulContent) => (
       <div className="columns">
         <div className="column pt-13 pb-12 p-6-mobile">
           <div className="columns is-paddingless">
-            <div className="column is-5 mb-12">
-              <h2>{props.content.fundersTitle}</h2>
+            <div className="column is-5 mb-12 mb-0-mobile px-0-mobile pb-4-mobile">
+              <ResponsiveElement desktop="h2" touch="h1">
+                {props.content.fundersTitle}
+              </ResponsiveElement>
             </div>
-            <div className="column mb-12">
+            <div className="column mb-12 mb-0-mobile px-0-mobile">
               <h3>{props.content.fundersSubtitle}</h3>
             </div>
           </div>
