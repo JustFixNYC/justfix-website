@@ -189,17 +189,6 @@ const Header: React.FC<{
               <div className="navbar-item has-dropdown is-hoverable mt-7 mb-4 mb-7-mobile">
                 <div className="navbar-dropdown is-right pt-1 pb-0">
                   <FooterLanguageToggle />
-                  {/* {localeConfig.ACCEPTED_LOCALES.filter(
-                    (otherLocale) => otherLocale !== locale
-                  ).map((otherLocale, i) => (
-                    <LocaleToggle
-                      to={otherLocale}
-                      className="navbar-item no-underline"
-                      key={i}
-                    >
-                      {LANGUAGE_NAMES[otherLocale]}
-                    </LocaleToggle>
-                  ))} */}
                 </div>
               </div>
             </div>
