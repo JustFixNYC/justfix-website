@@ -78,6 +78,7 @@
           &[aria-current="page"] {
             padding-left: 2.5rem;
             text-indent: calc(-1 * #{$spacing-05 + $spacing-04});
+            text-decoration: none;
             &::before {
               content: "▪";
               margin-right: $spacing-05;
