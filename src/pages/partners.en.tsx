@@ -194,6 +194,27 @@ export const PartnersPageScaffolding = (props: ContentfulContent) => (
           </OutboundLink>
         </div>
       </div>
+
+      <div className="columns">
+        <div className="column pt-13 pb-12 p-6-mobile">
+          <div className="columns is-paddingless">
+            <div className="column is-5 mb-12">
+              <h2>{props.content.fundersTitle}</h2>
+            </div>
+            <div className="column mb-12">
+              <h3>{props.content.fundersSubtitle}</h3>
+            </div>
+          </div>
+          <div className="columns is-paddingless is-multiline">
+            {props.content.funders
+              // Sort alphabetically:
+              .sort((a: any, b: any) => a.name.localeCompare(b.name))
+              .map((funder: PartnerDetails, i: number) => (
+                <PartnerCard {...funder} key={i} />
+              ))}
+          </div>
+        </div>
+      </div>
     </div>
   </Layout>
 );
