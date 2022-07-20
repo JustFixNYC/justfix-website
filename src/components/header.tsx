@@ -2,31 +2,21 @@ import React, { useState } from "react";
 import { Trans } from "@lingui/macro";
 
 import "../styles/header.scss";
-import { LocaleLink as Link, LocaleToggle } from "../components/locale-link";
+import { LocaleLink as Link } from "../components/locale-link";
 import { useCurrentLocale } from "../util/use-locale";
-import localeConfig from "../util/locale-config.json";
 import { ContentfulCommonStrings } from "@justfixnyc/contentful-common-strings";
 import _commonStrings from "../common-strings.json";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { INLINES } from "@contentful/rich-text-types";
 import { OutboundLink } from "gatsby-plugin-google-analytics";
 import FocusTrap from "focus-trap-react";
+import { FooterLanguageToggle } from "./footer";
 
 const commonStrings = new ContentfulCommonStrings(_commonStrings as any);
 
 const isDemoSite = process.env.GATSBY_DEMO_SITE === "1";
 
 export const CAREERS_PAGE_URL = "https://justfix.breezy.hr/";
-
-type LocaleChoice = "en" | "es";
-
-/**
- * Names of languages in the language itself.
- */
-const LANGUAGE_NAMES: { [k in LocaleChoice]: string } = {
-  en: "English",
-  es: "Español",
-};
 
 export type LinkWithLabel = [string, JSX.Element];
 
@@ -76,12 +66,12 @@ const MoratoriumBanner: React.FC<{}> = () => {
 
 const HeaderLink: React.FC<{ link: LinkWithLabel }> = ({ link }) =>
   link[0].charAt(0) === "/" ? (
-    <Link className="navbar-item is-uppercase no-underline" to={link[0]}>
+    <Link className="navbar-item no-underline p-0 has-text-white" to={link[0]}>
       {link[1]}
     </Link>
   ) : (
     <OutboundLink
-      className="navbar-item is-uppercase no-underline"
+      className="navbar-item no-underline p-0 has-text-white"
       href={link[0]}
     >
       {link[1]}
@@ -92,7 +82,10 @@ const Header: React.FC<{
   isLandingPage?: boolean;
 }> = ({ isLandingPage }) => {
   const [burgerMenuIsOpen, setBurgerMenuStatus] = useState(false);
-  const locale = useCurrentLocale();
+  // const location = useLocation();
+  // const existingPath = removeLocaleFromPathname(location.pathname);
+  // console.log(location);
+  // console.log(existingPath);
 
   return (
     <div className="header">
@@ -150,7 +143,7 @@ const Header: React.FC<{
                 <Trans>See our tools</Trans>
               </Link>
             </div>
-            <div className="navbar-item">
+            <div className={"navbar-item " + (burgerMenuIsOpen && "is-active")}>
               <button
                 role="button"
                 className={
@@ -162,42 +155,37 @@ const Header: React.FC<{
                 data-target="navbar"
               >
                 <img
-                  src={require("../img/menu.svg")}
-                  className="mr-2"
+                  src={
+                    burgerMenuIsOpen
+                      ? require("../img/close.svg")
+                      : require("../img/menu.svg")
+                  }
+                  className="mr-3"
                   width="16"
                   height="12"
-                />{" "}
-                <Trans>Menu</Trans>
+                />
+                {burgerMenuIsOpen ? <Trans>Close</Trans> : <Trans>Menu</Trans>}
               </button>
             </div>
           </div>
 
           <div
             id="main-navbar-menu"
-            className={"navbar-menu " + (burgerMenuIsOpen && "is-active")}
+            className={
+              "navbar-menu has-background-black px-1-mobile " +
+              (burgerMenuIsOpen && "is-active")
+            }
           >
-            <div className="navbar-end">
-              {SITE_LINKS.map((link, i) => (
-                <HeaderLink link={link} key={i} />
-              ))}
+            <div className="navbar-end is-flex is-flex-direction-column is-justify-content-space-between py-3 px-5">
+              <div>
+                {SITE_LINKS.map((link, i) => (
+                  <HeaderLink link={link} key={i} />
+                ))}
+              </div>
 
-              <div className="navbar-item has-dropdown is-hoverable">
-                <a className="navbar-link is-uppercase no-underline">
-                  {LANGUAGE_NAMES[locale]}
-                </a>
-
-                <div className="navbar-dropdown is-right">
-                  {localeConfig.ACCEPTED_LOCALES.filter(
-                    (otherLocale) => otherLocale !== locale
-                  ).map((otherLocale, i) => (
-                    <LocaleToggle
-                      to={otherLocale}
-                      className="navbar-item no-underline"
-                      key={i}
-                    >
-                      {LANGUAGE_NAMES[otherLocale]}
-                    </LocaleToggle>
-                  ))}
+              <div className="navbar-item has-dropdown is-hoverable mt-7 mb-4 mb-7-mobile">
+                <div className="navbar-dropdown is-right pt-1 pb-0">
+                  <FooterLanguageToggle />
                 </div>
               </div>
             </div>
