@@ -85,6 +85,7 @@ const PartnersSection: React.FC<PartnersSectionDetails> = ({
       <h3 className="is-hidden-mobile mb-11">{letterRange}</h3>
       <div className="columns is-paddingless is-multiline">
         {partners
+          // Sort alphabetically:
           .sort((a, b) => a.name.localeCompare(b.name))
           .map((partner: PartnerDetails, i: number) => (
             <PartnerCard {...partner} key={i} />
@@ -176,6 +177,23 @@ export const PartnersPageScaffolding = (props: ContentfulContent) => (
             partner.name >= PARTNERS_LIST_ALPHABETICAL_BREAKS[2].slice(0, 1)
         )}
       />
+
+      <div className="columns has-background-info">
+        <div className="column is-8 has-background-black has-text-white py-10 px-7 mt-6 mb-12 mx-5-mobile">
+          <h2 className="mb-6">{props.content.collaborationBanner.label}</h2>
+          <span className="title is-4 has-text-white">
+            {documentToReactComponents(
+              props.content.collaborationBanner.content.json
+            )}
+          </span>
+          <OutboundLink
+            href={props.content.collaborationBanner.button.link}
+            className="button is-primary mt-6"
+          >
+            {props.content.collaborationBanner.button.title}
+          </OutboundLink>
+        </div>
+      </div>
     </div>
   </Layout>
 );
@@ -223,6 +241,16 @@ export const PartnersPageFragment = graphql`
         title
         description {
           json
+        }
+      }
+      collaborationBanner {
+        label
+        content {
+          json
+        }
+        button {
+          title
+          link
         }
       }
       fundersTitle
