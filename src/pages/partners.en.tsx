@@ -84,9 +84,11 @@ const PartnersSection: React.FC<PartnersSectionDetails> = ({
       </h2>
       <h3 className="is-hidden-mobile mb-11">{letterRange}</h3>
       <div className="columns is-paddingless is-multiline">
-        {partners.map((partner: PartnerDetails, i: number) => (
-          <PartnerCard {...partner} key={i} />
-        ))}
+        {partners
+          .sort((a, b) => a.name.localeCompare(b.name))
+          .map((partner: PartnerDetails, i: number) => (
+            <PartnerCard {...partner} key={i} />
+          ))}
       </div>
     </div>
   </div>
@@ -153,6 +155,27 @@ export const PartnersPageScaffolding = (props: ContentfulContent) => (
       />
 
       <PartnershipCaseStudy {...props.content.partnershipCaseStudies[0]} />
+
+      <PartnersSection
+        title={props.content.partnersListTitle}
+        letterRange={PARTNERS_LIST_ALPHABETICAL_BREAKS[1]}
+        partners={props.content.partnerOrganizations.filter(
+          (partner: PartnerDetails) =>
+            partner.name >= PARTNERS_LIST_ALPHABETICAL_BREAKS[1].slice(0, 1) &&
+            partner.name < PARTNERS_LIST_ALPHABETICAL_BREAKS[2].slice(0, 1)
+        )}
+      />
+
+      <PartnershipCaseStudy {...props.content.partnershipCaseStudies[1]} />
+
+      <PartnersSection
+        title={props.content.partnersListTitle}
+        letterRange={PARTNERS_LIST_ALPHABETICAL_BREAKS[2]}
+        partners={props.content.partnerOrganizations.filter(
+          (partner: PartnerDetails) =>
+            partner.name >= PARTNERS_LIST_ALPHABETICAL_BREAKS[2].slice(0, 1)
+        )}
+      />
     </div>
   </Layout>
 );
