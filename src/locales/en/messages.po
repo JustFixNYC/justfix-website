@@ -13,11 +13,11 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/footer.tsx:74
+#: src/components/footer.tsx:75
 msgid "<0>Disclaimer:</0> The information in JustFix.nyc does not constitute legal advice and must not be used as a substitute for the advice of a lawyer qualified to give advice on legal issues pertaining to housing. We can help direct you to free legal services if necessary."
 msgstr "<0>Disclaimer:</0> The information in JustFix.nyc does not constitute legal advice and must not be used as a substitute for the advice of a lawyer qualified to give advice on legal issues pertaining to housing. We can help direct you to free legal services if necessary."
 
-#: src/components/footer.tsx:84
+#: src/components/footer.tsx:85
 msgid "<0>JustFix.nyc</0> is a registered 501(c)(3) nonprofit organization."
 msgstr "<0>JustFix.nyc</0> is a registered 501(c)(3) nonprofit organization."
 
@@ -33,7 +33,7 @@ msgstr "Back to Overview"
 msgid "Back to top"
 msgstr "Back to top"
 
-#: src/components/header.tsx:30
+#: src/components/header.tsx:31
 msgid "Careers"
 msgstr ""
 
@@ -41,11 +41,11 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-#: src/components/header.tsx:95
+#: src/components/header.tsx:32
 msgid "Contact Us"
 msgstr "Contact Us"
 
-#: src/components/header.tsx:71
+#: src/components/header.tsx:77
 msgid "DEMO SITE"
 msgstr "DEMO SITE"
 
@@ -69,19 +69,19 @@ msgstr ""
 msgid "Featured press"
 msgstr ""
 
-#: src/components/footer.tsx:50
+#: src/components/footer.tsx:51
 msgid "Join our mailing list!"
 msgstr "Join our mailing list!"
 
-#: src/components/header.tsx:29
+#: src/components/header.tsx:30
 msgid "Learning Center"
 msgstr ""
 
-#: src/components/header.tsx:86
+#: src/components/header.tsx:92
 msgid "Menu"
 msgstr ""
 
-#: src/components/header.tsx:23
+#: src/components/header.tsx:24
 msgid "Mission"
 msgstr "Mission"
 
@@ -93,7 +93,7 @@ msgstr "No articles match your search."
 msgid "Not found"
 msgstr "Not found"
 
-#: src/components/page-hero.tsx:14
+#: src/components/page-hero.tsx:28
 msgid "On this page"
 msgstr ""
 
@@ -106,29 +106,33 @@ msgstr "Oops! A network error occurred. Try again later."
 msgid "Oops! That email is invalid."
 msgstr "Oops! That email is invalid."
 
-#: src/components/header.tsx:25
+#: src/components/header.tsx:26
 msgid "Partners & Funders"
+msgstr ""
+
+#: src/pages/partners.en.tsx:69
+msgid "Partnership case study"
 msgstr ""
 
 #: src/components/subscribe.tsx:18
 msgid "Please enter an email address!"
 msgstr "Please enter an email address!"
 
-#: src/components/header.tsx:26
+#: src/components/header.tsx:27
 msgid "Press"
 msgstr "Press"
 
-#: src/components/footer.tsx:90
+#: src/components/footer.tsx:91
 msgid "Privacy policy"
 msgstr "Privacy policy"
 
-#: src/components/read-more.tsx:36
-#: src/components/read-more.tsx:39
+#: src/components/read-more.tsx:14
+#: src/components/read-more.tsx:17
 #: src/pages/learn.en.tsx:56
 msgid "Read More"
 msgstr "Read More"
 
-#: src/components/header.tsx:28
+#: src/components/header.tsx:29
 msgid "Research & Policy"
 msgstr ""
 
@@ -148,7 +152,7 @@ msgstr "Sections"
 msgid "See all articles"
 msgstr ""
 
-#: src/components/header.tsx:80
+#: src/components/header.tsx:86
 msgid "See our tools"
 msgstr ""
 
@@ -156,19 +160,19 @@ msgstr ""
 msgid "Sign up"
 msgstr "Sign up"
 
-#: src/components/header.tsx:24
+#: src/components/header.tsx:25
 msgid "Team"
 msgstr "Team"
 
-#: src/components/header.tsx:75
+#: src/components/header.tsx:81
 msgid "Technology for Housing Justice"
 msgstr ""
 
-#: src/components/footer.tsx:93
+#: src/components/footer.tsx:94
 msgid "Terms of use"
 msgstr "Terms of use"
 
-#: src/components/header.tsx:27
+#: src/components/header.tsx:28
 msgid "Tools"
 msgstr ""
 
@@ -178,10 +182,6 @@ msgstr ""
 #: src/pages/index.en.tsx:146
 msgid "Updated"
 msgstr "Updated"
-
-#: src/components/read-more.tsx:12
-msgid "Want to know more?"
-msgstr "Want to know more?"
 
 #: src/components/learning-center/article-template.tsx:25
 msgid "Want to take action?"
@@ -195,6 +195,6 @@ msgstr "Written by"
 msgid "You just found a page that doesn't exist... the sadness."
 msgstr "You just found a page that doesn't exist... the sadness."
 
-#: src/pages/reports.en.tsx:39
+#: src/pages/reports.en.tsx:27
 msgid "says:"
 msgstr ""
