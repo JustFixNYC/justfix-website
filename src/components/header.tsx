@@ -161,15 +161,10 @@ const Header: React.FC<{
                       ? require("../img/close.svg")
                       : require("../img/menu.svg")
                   }
-                  className={"mr-3 " + (burgerMenuIsOpen && "is-active")}
+                  className="mr-3"
                   width="16"
                   height="12"
                 />
-                {/* <svg xmlns={require("../img/menu.svg")}
-                  className={"mr-3 " +  (burgerMenuIsOpen && "is-active")}
-                  color="white"
-                  width="16"
-                  height="12" /> */}
                 {burgerMenuIsOpen ? <Trans>Close</Trans> : <Trans>Menu</Trans>}
               </button>
             </div>
