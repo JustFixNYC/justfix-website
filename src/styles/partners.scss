@@ -2,11 +2,18 @@
 
 .partners-page {
   .jf-partner-card {
+    height: 100%;
+    .has-background-white {
+      border: 1px solid $justfix-black;
+    }
     .has-background-black {
       width: 100%;
       .eyebrow {
         min-height: $spacing-11;
       }
+    }
+    a {
+      overflow-wrap: anywhere;
     }
   }
 }

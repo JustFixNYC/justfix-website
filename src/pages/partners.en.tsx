@@ -57,7 +57,7 @@ const PartnerCard: React.FC<PartnerDetails> = ({ name, link, logo }) => (
           height: "150px",
         }}
       />
-      <OutboundLink className="mb-9" href={link}>
+      <OutboundLink className="mb-9 mx-2" href={link}>
         {formatLinkLabel(link)}
       </OutboundLink>
     </div>
