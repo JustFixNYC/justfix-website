@@ -18,11 +18,11 @@ msgstr ""
 "X-Crowdin-File: /master/src/locales/en/messages.po\n"
 "X-Crowdin-File-ID: 19\n"
 
-#: src/components/footer.tsx:74
+#: src/components/footer.tsx:75
 msgid "<0>Disclaimer:</0> The information in JustFix.nyc does not constitute legal advice and must not be used as a substitute for the advice of a lawyer qualified to give advice on legal issues pertaining to housing. We can help direct you to free legal services if necessary."
 msgstr "<0>Aviso:</0> La información en JustFix.nyc no constituye asesoramiento jurídico y no debe ser utilizado como sustituto del asesoramiento de un abogado cualificado para asesorar sobre cuestiones jurídicas relativas a la vivienda. Nosotros podemos ayudarle a dirigirle a servicios legales gratuitos si es necesario."
 
-#: src/components/footer.tsx:84
+#: src/components/footer.tsx:85
 msgid "<0>JustFix.nyc</0> is a registered 501(c)(3) nonprofit organization."
 msgstr "<0>JustFix.nyc</0> es una organización sin fines de lucro registrada."
 
@@ -38,7 +38,7 @@ msgstr "Volver a la Vista General"
 msgid "Back to top"
 msgstr "Vuelve a Inicio"
 
-#: src/components/header.tsx:30
+#: src/components/header.tsx:31
 msgid "Careers"
 msgstr ""
 
@@ -46,11 +46,11 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-#: src/components/header.tsx:95
+#: src/components/header.tsx:32
 msgid "Contact Us"
 msgstr "Contáctanos"
 
-#: src/components/header.tsx:71
+#: src/components/header.tsx:77
 msgid "DEMO SITE"
 msgstr "SITIO DEMO"
 
@@ -74,19 +74,19 @@ msgstr ""
 msgid "Featured press"
 msgstr ""
 
-#: src/components/footer.tsx:50
+#: src/components/footer.tsx:51
 msgid "Join our mailing list!"
 msgstr "¡Únete a nuestra lista de correo!"
 
-#: src/components/header.tsx:29
+#: src/components/header.tsx:30
 msgid "Learning Center"
 msgstr ""
 
-#: src/components/header.tsx:86
+#: src/components/header.tsx:92
 msgid "Menu"
 msgstr ""
 
-#: src/components/header.tsx:23
+#: src/components/header.tsx:24
 msgid "Mission"
 msgstr "Misión"
 
@@ -98,7 +98,7 @@ msgstr "No hay resultados coincidan con su búsqueda."
 msgid "Not found"
 msgstr "No encontrado"
 
-#: src/components/page-hero.tsx:14
+#: src/components/page-hero.tsx:28
 msgid "On this page"
 msgstr ""
 
@@ -111,29 +111,33 @@ msgstr "¡Vaya! Hubo un error en la red. Inténtalo más tarde."
 msgid "Oops! That email is invalid."
 msgstr "¡Vaya! Ese correo electrónico no es válido."
 
-#: src/components/header.tsx:25
+#: src/components/header.tsx:26
 msgid "Partners & Funders"
+msgstr ""
+
+#: src/pages/partners.en.tsx:69
+msgid "Partnership case study"
 msgstr ""
 
 #: src/components/subscribe.tsx:18
 msgid "Please enter an email address!"
 msgstr "Por favor, ¡introduzca una dirección de correo electrónico!"
 
-#: src/components/header.tsx:26
+#: src/components/header.tsx:27
 msgid "Press"
 msgstr "Prensa"
 
-#: src/components/footer.tsx:90
+#: src/components/footer.tsx:91
 msgid "Privacy policy"
 msgstr "Política de privacidad"
 
-#: src/components/read-more.tsx:36
-#: src/components/read-more.tsx:39
+#: src/components/read-more.tsx:14
+#: src/components/read-more.tsx:17
 #: src/pages/learn.en.tsx:56
 msgid "Read More"
 msgstr "Lee más"
 
-#: src/components/header.tsx:28
+#: src/components/header.tsx:29
 msgid "Research & Policy"
 msgstr ""
 
@@ -153,7 +157,7 @@ msgstr "Secciones"
 msgid "See all articles"
 msgstr ""
 
-#: src/components/header.tsx:80
+#: src/components/header.tsx:86
 msgid "See our tools"
 msgstr ""
 
@@ -161,19 +165,19 @@ msgstr ""
 msgid "Sign up"
 msgstr "Únete"
 
-#: src/components/header.tsx:24
+#: src/components/header.tsx:25
 msgid "Team"
 msgstr "Equipo"
 
-#: src/components/header.tsx:75
+#: src/components/header.tsx:81
 msgid "Technology for Housing Justice"
 msgstr ""
 
-#: src/components/footer.tsx:93
+#: src/components/footer.tsx:94
 msgid "Terms of use"
 msgstr "Condiciones de uso"
 
-#: src/components/header.tsx:27
+#: src/components/header.tsx:28
 msgid "Tools"
 msgstr ""
 
@@ -183,10 +187,6 @@ msgstr ""
 #: src/pages/index.en.tsx:146
 msgid "Updated"
 msgstr "Actualizado"
-
-#: src/components/read-more.tsx:12
-msgid "Want to know more?"
-msgstr "¿Quieres saber más?"
 
 #: src/components/learning-center/article-template.tsx:25
 msgid "Want to take action?"
@@ -200,6 +200,6 @@ msgstr "Escrita por"
 msgid "You just found a page that doesn't exist... the sadness."
 msgstr "Acabas de llegar a una ruta que no existe... es muy triste."
 
-#: src/pages/reports.en.tsx:39
+#: src/pages/reports.en.tsx:27
 msgid "says:"
 msgstr ""
