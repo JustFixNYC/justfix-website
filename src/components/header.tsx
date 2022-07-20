@@ -2,9 +2,8 @@ import React, { useState } from "react";
 import { Trans } from "@lingui/macro";
 
 import "../styles/header.scss";
-import { LocaleLink as Link, LocaleToggle } from "../components/locale-link";
+import { LocaleLink as Link } from "../components/locale-link";
 import { useCurrentLocale } from "../util/use-locale";
-import localeConfig from "../util/locale-config.json";
 import { ContentfulCommonStrings } from "@justfixnyc/contentful-common-strings";
 import _commonStrings from "../common-strings.json";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
@@ -18,16 +17,6 @@ const commonStrings = new ContentfulCommonStrings(_commonStrings as any);
 const isDemoSite = process.env.GATSBY_DEMO_SITE === "1";
 
 export const CAREERS_PAGE_URL = "https://justfix.breezy.hr/";
-
-type LocaleChoice = "en" | "es";
-
-/**
- * Names of languages in the language itself.
- */
-const LANGUAGE_NAMES: { [k in LocaleChoice]: string } = {
-  en: "English",
-  es: "Español",
-};
 
 export type LinkWithLabel = [string, JSX.Element];
 
