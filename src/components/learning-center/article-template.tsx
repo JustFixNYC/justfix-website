@@ -1,5 +1,4 @@
 import React from "react";
-import { LearningArticleFooter } from "./article-footer";
 import Layout from "../layout";
 import { Link as ScrollLink } from "react-scroll";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
@@ -18,7 +17,6 @@ type Props = {
   pageContext: {
     learningCenterTitle: string;
     content: any;
-    articleFooter: any;
   };
 };
 
@@ -241,7 +239,6 @@ const LearningArticle = (props: Props) => {
             <NavMenu styleClass="sticky is-hidden-touch" />
           </div>
         </div>
-        <LearningArticleFooter content={props.pageContext.articleFooter} />
       </div>
     </Layout>
   );

@@ -41,9 +41,6 @@ const generateLearningPages = async function ({ actions, graphql }, locale) {
         description
         slug
       }
-      thankYouText {
-        json
-      }
       articles {
         metadata {
           title
@@ -68,6 +65,10 @@ const generateLearningPages = async function ({ actions, graphql }, locale) {
             srcSet
             sizes
           }
+        }
+        summary
+        whatCanIDo {
+          json
         }
         subtitle {
           json
@@ -96,6 +97,24 @@ const generateLearningPages = async function ({ actions, graphql }, locale) {
             title
             content {
               json
+            }
+          }
+        }
+        productBlocks {
+          productName
+          title
+          descriptionText {
+            json
+          }
+          button {
+            title
+            link
+          }
+          location
+          language
+          screenshot {
+            fluid {
+              ...GatsbyContentfulFluid
             }
           }
         }
@@ -130,7 +149,6 @@ const generateLearningPages = async function ({ actions, graphql }, locale) {
   );
 
   /* Create each Learning Center category page with appropriate data */
-  const thankYouBanner = data.contentfulLearningCenterSearchPage.thankYouText;
   const allCategoryButtons =
     data.contentfulLearningCenterSearchPage.categoryButtons;
 
@@ -162,10 +180,6 @@ const generateLearningPages = async function ({ actions, graphql }, locale) {
   /* Create each Learning Center article page with appropriate data */
 
   const learningCenterTitle = data.contentfulLearningCenterSearchPage.title;
-  const articleFooter = {
-    categoryButtons: data.contentfulLearningCenterSearchPage.categoryButtons,
-    articles: articlePreviews,
-  };
 
   data.contentfulLearningCenterSearchPage.articles.forEach((article) => {
     actions.createPage({
@@ -175,7 +189,6 @@ const generateLearningPages = async function ({ actions, graphql }, locale) {
       ),
       context: {
         learningCenterTitle: learningCenterTitle,
-        articleFooter: articleFooter,
         content: article,
       },
     });
