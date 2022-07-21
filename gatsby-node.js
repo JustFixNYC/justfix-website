@@ -157,7 +157,6 @@ const generateLearningPages = async function ({ actions, graphql }, locale) {
         context: {
           content: category,
           categoryButtons: allCategoryButtons,
-          thankYouBanner: thankYouBanner,
           articlePreviews: articlePreviews.filter((article) =>
             article.categories.some(
               (articleCategory) => articleCategory.title === category.title
