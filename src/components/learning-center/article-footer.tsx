@@ -96,9 +96,6 @@ export const LearningArticleFooter = (props: ContentfulContent) => {
 
   return (
     <div className="columns is-desktop has-background-white-ter">
-      <div className="column footer-ctas">
-        <FooterCta content={props.content.justFixCta} />
-      </div>
       <div className="column table-of-contents is-half-desktop">
         <div className="columns hero-body">
           <div className="column is-one-third">

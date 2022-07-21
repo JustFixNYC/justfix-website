@@ -41,12 +41,6 @@ const generateLearningPages = async function ({ actions, graphql }, locale) {
         description
         slug
       }
-      justFixCta {
-        title
-        subtitle
-        ctaText
-        ctaLink
-      }
       thankYouText {
         json
       }
@@ -170,7 +164,6 @@ const generateLearningPages = async function ({ actions, graphql }, locale) {
   const learningCenterTitle = data.contentfulLearningCenterSearchPage.title;
   const articleFooter = {
     categoryButtons: data.contentfulLearningCenterSearchPage.categoryButtons,
-    justFixCta: data.contentfulLearningCenterSearchPage.justFixCta,
     articles: articlePreviews,
   };
 
