@@ -1,11 +1,9 @@
 import React from "react";
-import { LearningArticleFooter } from "./article-footer";
 import Layout from "../layout";
 import { Link as ScrollLink } from "react-scroll";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 import "../../styles/learn.scss";
-import { AllToolsCta } from "./all-tools-cta";
 import { Trans } from "@lingui/macro";
 import { LocaleLink } from "../locale-link";
 import { useCurrentLocale } from "../../util/use-locale";
@@ -19,8 +17,6 @@ type Props = {
   pageContext: {
     learningCenterTitle: string;
     content: any;
-    articleFooter: any;
-    allToolsCta: any;
   };
 };
 
@@ -236,8 +232,6 @@ const LearningArticle = (props: Props) => {
                     );
                   }
                 )}
-                <AllToolsCta content={props.pageContext.allToolsCta} />
-                <br />
               </div>
             </div>
           </div>
@@ -245,7 +239,6 @@ const LearningArticle = (props: Props) => {
             <NavMenu styleClass="sticky is-hidden-touch" />
           </div>
         </div>
-        <LearningArticleFooter content={props.pageContext.articleFooter} />
       </div>
     </Layout>
   );

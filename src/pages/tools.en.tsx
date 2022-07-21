@@ -111,11 +111,6 @@ export const ToolsPageFragment = graphql`
         }
         location
         language
-        screenshot {
-          fluid {
-            ...GatsbyContentfulFluid
-          }
-        }
       }
       productIdeaBanner {
         content {

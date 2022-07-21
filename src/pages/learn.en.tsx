@@ -5,7 +5,6 @@ import "../styles/learn.scss";
 
 import Layout from "../components/layout";
 import { ContentfulContent } from "./index.en";
-import { ThankYouBanner } from "../components/learning-center/thank-you-banner";
 import LearningSearchBar from "../components/learning-center/learning-searchbar";
 import CategoryMenu from "../components/learning-center/category-menu";
 import { Trans } from "@lingui/macro";
@@ -109,16 +108,10 @@ export const LearningPageScaffolding = (props: ContentfulContent) => {
       <div id="learning-center" className="learning-center-page">
         <section className="hero is-small">
           <div className="hero-body has-text-centered is-horizontal-center">
-            <figure className="image landing-illustration is-3by1 is-horizontal-center">
-              <img src={props.content.headerImage.file.url} />
-            </figure>
             <div className="container content-wrapper tight">
               <h1 className="title is-size-2 has-text-grey-dark has-text-weight-normal is-spaced">
                 {props.content.title}
               </h1>
-              <h6 className="subtitle has-text-grey-dark is-italic">
-                {widont(props.content.subtitle)}
-              </h6>
               <LearningSearchBar />
               <br />
               <CategoryMenu content={props.content.categoryButtons} />
@@ -130,7 +123,6 @@ export const LearningPageScaffolding = (props: ContentfulContent) => {
             <ArticlePreviewCard articleData={article} key={i} />
           ))}
         </section>
-        <ThankYouBanner content={props.content.thankYouText} />
       </div>
     </Layout>
   );
@@ -152,15 +144,27 @@ export const LearningPageFragment = graphql`
         }
       }
       title
-      headerImage {
-        file {
-          url
-        }
-      }
-      subtitle
       categoryButtons {
         title
         slug
+      }
+      popularArticles {
+        slug
+        title
+      }
+      featuredArticle {
+        slug
+        title
+        englishOnly
+        metadata {
+          description
+        }
+        dateUpdated
+        coverPhoto {
+          fluid {
+            ...GatsbyContentfulFluid
+          }
+        }
       }
       articles {
         slug
@@ -175,21 +179,6 @@ export const LearningPageFragment = graphql`
           description
           slug
         }
-      }
-      learningCenterCta {
-        title
-        subtitle
-        ctaText
-        ctaLink
-      }
-      justFixCta {
-        title
-        subtitle
-        ctaText
-        ctaLink
-      }
-      thankYouText {
-        json
       }
     }
   }

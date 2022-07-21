@@ -1,7 +1,6 @@
 import React from "react";
 import Layout from "../layout";
 import { ArticlePreviewCard, orderArticles } from "../../pages/learn.en";
-import { ThankYouBanner } from "./thank-you-banner";
 import CategoryMenu from "./category-menu";
 import { Trans } from "@lingui/macro";
 import { LocaleLink } from "../locale-link";
@@ -11,7 +10,6 @@ const widont = require("widont");
 type Props = {
   pageContext: {
     content: any;
-    thankYouBanner: any;
     categoryButtons: any;
     articlePreviews: any;
   };
@@ -71,7 +69,6 @@ const LearningCategoryPage = (props: Props) => {
             <NoArticlesYet />
           )}
         </section>
-        <ThankYouBanner content={props.pageContext.thankYouBanner} />
       </div>
     </Layout>
   );
