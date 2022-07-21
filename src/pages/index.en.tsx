@@ -312,11 +312,6 @@ export const LandingPageFragment = graphql`
         }
         location
         language
-        screenshot {
-          fluid {
-            ...GatsbyContentfulFluid
-          }
-        }
       }
       productIdeaBanner {
         content {

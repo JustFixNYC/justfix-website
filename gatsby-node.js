@@ -112,11 +112,6 @@ const generateLearningPages = async function ({ actions, graphql }, locale) {
           }
           location
           language
-          screenshot {
-            fluid {
-              ...GatsbyContentfulFluid
-            }
-          }
         }
       }
     }
