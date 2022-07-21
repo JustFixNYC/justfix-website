@@ -1,5 +1,6 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
+import { useState } from "react";
 
 import "../styles/learn.scss";
 
@@ -106,13 +107,27 @@ export const LearningPageScaffolding = (props: ContentfulContent) => {
   return (
     <Layout metadata={props.content.metadata}>
       <div id="learning-center" className="learning-center-page">
-        <section className="hero is-small">
+        <div className="columns is-centered pt-12 pt-7-mobile">
+          <div className="column is-8">
+            <span className="eyebrow is-large">
+              <Trans>Learning Center</Trans>
+            </span>
+            <h1 className="mb-6">{props.content.title}</h1>
+            <LearningSearchBar props={props.content} />
+
+            {/* <ArticlePreviewCard articleData={props.content.featuredArticle} /> */}
+          </div>
+        </div>
+
+        {/* <section className="hero is-small">
           <div className="hero-body has-text-centered is-horizontal-center">
             <div className="container content-wrapper tight">
               <h1 className="title is-size-2 has-text-grey-dark has-text-weight-normal is-spaced">
                 {props.content.title}
               </h1>
-              <LearningSearchBar />
+              <h6 className="subtitle has-text-grey-dark is-italic">
+                {widont(props.content.subtitle)}
+              </h6>
               <br />
               <CategoryMenu content={props.content.categoryButtons} />
             </div>
@@ -122,7 +137,7 @@ export const LearningPageScaffolding = (props: ContentfulContent) => {
           {articles.map((article: any, i: number) => (
             <ArticlePreviewCard articleData={article} key={i} />
           ))}
-        </section>
+        </section> */}
       </div>
     </Layout>
   );
