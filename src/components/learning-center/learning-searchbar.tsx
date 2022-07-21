@@ -25,8 +25,6 @@ const SEARCH_RESULTS_LIMIT = 5;
 const SearchBox = ({ currentRefinement, refine, props }: any) => {
   const [searchFocused, setSearchFocused] = useState(false);
 
-  console.log(props.categoryButtons);
-
   return (
     <FocusTrap
       active={searchFocused}
@@ -107,12 +105,14 @@ const DropdownPlaceholder: React.FC<DropdownPlaceholderInfo> = ({
     <span className="eyebrow is-bold mb-3">Key Topics</span>
     <div className="mt-3 mb-7">
       {categoryButtons.map((category: any, i: number) => (
-        <a href={`/learn/category/${category.slug}`} className="no-underline">
-          <span
-            className={"tag is-empty " + (i === 0 ? "is-marginless mr-2" : "")}
-          >
-            {category.title}
-          </span>
+        <a
+          href={`/learn/category/${category.slug}`}
+          className={
+            "no-underline tag is-empty " + (i === 0 ? "is-marginless mr-2" : "")
+          }
+          key={i}
+        >
+          {category.title}
         </a>
       ))}
     </div>
@@ -120,8 +120,9 @@ const DropdownPlaceholder: React.FC<DropdownPlaceholderInfo> = ({
     <div className="is-flex is-flex-direction-column mt-3">
       {popularArticles.map((article: any, i: number) => (
         <LocaleLink
-          className="jf-popular-article mb-2 py-2"
+          className="jf-article-name mb-2 py-2"
           to={`/learn/${article.slug}`}
+          key={i}
         >
           {article.title}
           <img
@@ -153,16 +154,20 @@ const SearchHits = ({ hits }: SearchHitsProps) => {
           <LocaleLink
             key={hit.slug}
             to={"/learn/" + hit.slug}
-            className="jf-dropdown-item"
+            className="jf-dropdown-item no-underline"
           >
-            <div className="is-size-6 has-text-primary has-text-weight-semibold">
+            <div className="jf-article-name my-2 py-2">
               {hit.title}{" "}
               {locale === "es" && hit.englishOnly && (
                 <span className="has-text-danger">(en inglés)</span>
-              )}{" "}
-              →
+              )}
+              <img
+                className="jf-link-arrow-icon ml-2"
+                src={require("../../img/internal-arrow.svg")}
+                alt=""
+              />
             </div>
-            <div className="result__snippet">
+            <div className="result__snippet mb-4">
               <Snippet attribute="articleContent" hit={hit} tagName="u" />
             </div>
           </LocaleLink>

@@ -26,8 +26,22 @@
       border: 2px solid $justfix-black;
       border-radius: 4px;
     }
-    .jf-popular-article {
+    .jf-article-name {
+      text-decoration: underline;
       text-underline-position: under;
+    }
+
+    .result__snippet {
+      a,
+      u,
+      span {
+        @include desktop {
+          @include desktop-text-small;
+        }
+        @include mobile {
+          @include mobile-text-small;
+        }
+      }
     }
   }
 }
