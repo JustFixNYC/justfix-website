@@ -41,12 +41,6 @@ const generateLearningPages = async function ({ actions, graphql }, locale) {
         description
         slug
       }
-      allToolsCta {
-        title
-        subtitle
-        ctaText
-        ctaLink
-      }
       learningCenterCta {
         title
         subtitle
@@ -180,7 +174,6 @@ const generateLearningPages = async function ({ actions, graphql }, locale) {
   /* Create each Learning Center article page with appropriate data */
 
   const learningCenterTitle = data.contentfulLearningCenterSearchPage.title;
-  const allToolsCta = data.contentfulLearningCenterSearchPage.allToolsCta;
   const articleFooter = {
     categoryButtons: data.contentfulLearningCenterSearchPage.categoryButtons,
     learningCenterCta:
@@ -197,7 +190,6 @@ const generateLearningPages = async function ({ actions, graphql }, locale) {
       ),
       context: {
         learningCenterTitle: learningCenterTitle,
-        allToolsCta: allToolsCta,
         articleFooter: articleFooter,
         content: article,
       },
