@@ -11,6 +11,21 @@ import { Trans } from "@lingui/macro";
 import classnames from "classnames";
 import { LocaleLink } from "../components/locale-link";
 import { useCurrentLocale } from "../util/use-locale";
+import { FluidObject } from "gatsby-image";
+import localeConfig from "../util/locale-config.json";
+import { ReadMoreLink } from "../components/read-more";
+import { Button } from "react-scroll";
+
+const Dot = () => <span className="mx-3">·</span>;
+
+function formatDate(dateString: string, locale?: string): string {
+  var date = new Date(dateString);
+  return date.toLocaleDateString(locale || localeConfig.DEFAULT_LOCALE, {
+    month: "numeric",
+    day: "numeric",
+    year: "numeric",
+  });
+}
 
 const widont = require("widont");
 
@@ -40,62 +55,72 @@ export const orderArticles = (articles: any[]) => {
     : articles.sort(sortArticlesByDate);
 };
 
-export const isCovidRelated = (word: string) =>
-  /COVID/.test(word.toUpperCase());
-
 export type Category = {
   title: string;
   description: string;
   slug: string;
 };
 
-export const ArticlePreviewCard = (props: any) => {
-  const url = "/learn/" + props.articleData.slug;
+type ArticlePreviewInfo = {
+  slug: string;
+  title: string;
+  englishOnly: boolean;
+  metadata: {
+    description: string;
+  };
+  dateUpdated: string;
+  coverPhoto?: {
+    fluid: FluidObject;
+  };
+  categories?: Category[];
+};
+
+const ArticlePreviewCard = (props: ArticlePreviewInfo) => {
   const locale = useCurrentLocale();
-  const categoryLabels = props.articleData.categories.map(
-    (category: Category, i: number) => (
-      <LocaleLink
-        key={i}
-        to={"/learn/category/" + category.slug}
+  const isFeatured = !props.categories;
+  const articleUrl = "/learn/" + props.slug;
+  const categoryLabels =
+    !isFeatured &&
+    props
+      .categories!.map<React.ReactNode>((category: Category, i: number) => (
+        <LocaleLink
+          key={i}
+          to={"/learn/category/" + category.slug}
+          className="jf-category-label eyebrow is-small no-underline"
+        >
+          {category.title}
+        </LocaleLink>
+      ))
+      .reduce((cat1, cat2, i) => [cat1, <Dot key={Math.random()} />, cat2]);
+
+  return (
+    <div className="column is-8">
+      <div
         className={classnames(
-          "tag",
-          "is-uppercase",
-          "is-light",
-          isCovidRelated(category.title) ? "is-warning" : "is-primary"
+          "jf-article-card px-6 py-7 mb-2 ",
+          isFeatured ? "has-background-warning" : ""
         )}
       >
-        {category.title}
-      </LocaleLink>
-    )
-  );
-  return (
-    <div className="box article-preview">
-      {locale === "es" && props.articleData.englishOnly && (
-        <>
-          <p className="has-text-danger is-italic">Solo en inglés</p>
-          <br />
-        </>
-      )}
-      <h1 className="title is-size-3 has-text-primary is-spaced has-text-weight-semibold">
-        <LocaleLink to={url}>{widont(props.articleData.title)}</LocaleLink>
-      </h1>
-      <h6 className="has-text-grey-dark">
-        {widont(props.articleData.metadata.description)}
-      </h6>
-      <br />
-      <div>
-        <LocaleLink
-          to={url}
-          className="is-inline-block is-size-7 is-uppercase has-text-weight-semibold has-letters-spaced"
-        >
-          <Trans>Read More</Trans> →
-        </LocaleLink>
-        <div className="tags is-hidden-mobile is-inline-block is-uppercase is-pulled-right has-letters-spaced">
-          {categoryLabels}
+        <div className="mt-2 mb-6">
+          {isFeatured ? (
+            <span className="eyebrow">Featured Article</span>
+          ) : (
+            categoryLabels
+          )}
         </div>
-        <div className="tags is-hidden-tablet is-uppercase has-letters-spaced">
-          {categoryLabels}
+        <div className="mb-6">
+          <h3 className="mb-6">{props.title}</h3>
+          <span className="is-hidden-mobile eyebrow is-small mb-6">
+            <Trans>Updated</Trans> {formatDate(props.dateUpdated, locale)}
+          </span>
         </div>
+        {isFeatured ? (
+          <LocaleLink className={"button is-primary"} to={articleUrl}>
+            <Trans>Read More</Trans>
+          </LocaleLink>
+        ) : (
+          <ReadMoreLink url={articleUrl} />
+        )}
       </div>
     </div>
   );
@@ -106,16 +131,16 @@ export const LearningPageScaffolding = (props: ContentfulContent) => {
   return (
     <Layout metadata={props.content.metadata}>
       <div id="learning-center" className="learning-center-page">
-        <div className="columns is-centered pt-12 pt-7-mobile">
+        <div className="columns is-centered is-multiline pt-12 pt-7-mobile">
           <div className="column is-8">
             <span className="eyebrow is-large">
               <Trans>Learning Center</Trans>
             </span>
             <h1 className="mb-6">{props.content.title}</h1>
             <LearningSearchBar props={props.content} />
-
-            {/* <ArticlePreviewCard articleData={props.content.featuredArticle} /> */}
           </div>
+          <ArticlePreviewCard {...props.content.featuredArticle} />
+          <ArticlePreviewCard {...articles[0]} />
         </div>
 
         {/* <section className="hero is-small">

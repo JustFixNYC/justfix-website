@@ -30,7 +30,6 @@
       text-decoration: underline;
       text-underline-position: under;
     }
-
     .result__snippet {
       a,
       u,
@@ -42,6 +41,13 @@
           @include mobile-text-small;
         }
       }
+    }
+  }
+
+  .jf-article-card {
+    border-radius: 4px;
+    .jf-category-label {
+      color: $justfix-grey-dark;
     }
   }
 }
