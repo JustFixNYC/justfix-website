@@ -91,6 +91,11 @@ function renderSection(articleSection: any, i: number): JSX.Element {
               [BLOCKS.UL_LIST]: (node, children) => (
                 <ul className="ml-8 mb-6">{children}</ul>
               ),
+              [BLOCKS.QUOTE]: (node, children) => (
+                <div className="columns is-paddingless has-background-light">
+                  <div className="column p-5">{children}</div>
+                </div>
+              ),
             },
           })}
         </div>
