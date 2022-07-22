@@ -204,13 +204,24 @@ const LearningArticle = (props: Props) => {
             ))}
             <h3 className="mt-10 mt-9-mobile mb-6">
               <Trans>Take action</Trans>
-              {content.productBlocks && (
-                <div className="columns is-multiline is-marginless is-paddingless">
-                  {content.productBlocks.map((product: any, i: number) => (
+              <div className="columns is-multiline is-marginless is-paddingless">
+                {content.productBlocks ? (
+                  content.productBlocks.map((product: any, i: number) => (
                     <ProductCard isCondensed {...product} key={i} />
-                  ))}
-                </div>
-              )}
+                  ))
+                ) : (
+                  <div className="jf-all-tools-card column is-6 has-background-link mt-6 py-8 px-6">
+                    <ResponsiveElement desktop="h4" touch="h2" className="mb-5">
+                      <Trans>
+                        Assert your tenant rights by using our digital tools
+                      </Trans>
+                    </ResponsiveElement>
+                    <LocaleLink to="/tools" className="button is-primary">
+                      <Trans>See tools</Trans>
+                    </LocaleLink>
+                  </div>
+                )}
+              </div>
             </h3>
           </div>
           <div className="column">

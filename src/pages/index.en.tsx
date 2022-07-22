@@ -39,7 +39,7 @@ type ProductCardInfo = {
     link: string;
   };
   /**
-   * Whether or not the product card will use condensed styling
+   * Whether or not the product card will use condensed spacing styling
    */
   isCondensed?: boolean;
 };
