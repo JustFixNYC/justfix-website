@@ -304,3 +304,40 @@ div.is-rounded img {
     }
   }
 }
+
+.jf-cookies-banner {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  border-top: 1px solid $justfix-black;
+
+  img {
+    filter: invert(1) contrast(0.7);
+  }
+
+  .link {
+    display: inline;
+  }
+
+  .button.is-text {
+    width: 14px;
+    height: 14px;
+  }
+
+  .modal {
+    position: fixed;
+    z-index: 30;
+
+    .modal-background {
+      background-color: $justfix-grey;
+      opacity: 0.6;
+    }
+
+    .modal-content {
+      z-index: 40;
+      .has-background-white {
+        border-radius: 4px;
+      }
+    }
+  }
+}

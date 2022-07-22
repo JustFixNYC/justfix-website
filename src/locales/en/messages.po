@@ -33,15 +33,16 @@ msgstr ""
 msgid "Back to Overview"
 msgstr "Back to Overview"
 
-#: src/components/learning-center/article-template.tsx:61
-#~ msgid "Back to top"
-#~ msgstr "Back to top"
+#: src/components/cookies-banner.tsx:24
+msgid "By using our website you consent to the use of cookies."
+msgstr ""
 
 #: src/components/header.tsx:24
 msgid "Careers"
 msgstr ""
 
 #: src/components/accordion.tsx:12
+#: src/components/cookies-banner.tsx:32
 #: src/components/header.tsx:86
 msgid "Close"
 msgstr ""
@@ -62,10 +63,6 @@ msgstr "DEMO SITE"
 msgid "Email Address"
 msgstr "Email Address"
 
-#: src/components/learning-center/all-tools-cta.tsx:18
-#~ msgid "Enter your address to learn more."
-#~ msgstr "Enter your address to learn more."
-
 #: src/components/accordion.tsx:9
 msgid "Expand"
 msgstr ""
@@ -78,9 +75,17 @@ msgstr ""
 msgid "Featured press"
 msgstr ""
 
+#: src/components/cookies-banner.tsx:68
+msgid "Got it"
+msgstr ""
+
 #: src/components/footer.tsx:51
 msgid "Join our mailing list!"
 msgstr "Join our mailing list!"
+
+#: src/components/cookies-banner.tsx:26
+msgid "Learn more"
+msgstr ""
 
 #: src/components/header.tsx:23
 #: src/components/learning-center/article-template.tsx:74
@@ -155,18 +160,6 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
-#: src/components/learning-center/all-tools-cta.tsx:18
-#~ msgid "Search address"
-#~ msgstr "Search address"
-
-#: src/components/learning-center/learning-searchbar.tsx:16
-#~ msgid "Search articles..."
-#~ msgstr "Search articles..."
-
-#: src/components/learning-center/article-template.tsx:70
-#~ msgid "Sections"
-#~ msgstr "Sections"
-
 #: src/pages/index.en.tsx:156
 msgid "See all articles"
 msgstr ""
@@ -204,8 +197,16 @@ msgstr ""
 msgid "Terms of use"
 msgstr "Terms of use"
 
+#: src/components/cookies-banner.tsx:57
+msgid "These cookies track the performance of our tools and for marketing purposes. This data allows us to improve our tools to give you the best experience."
+msgstr ""
+
 #: src/components/learning-center/article-template.tsx:95
 msgid "This article was written by the team of NYC-based housing experts at nonprofit JustFix"
+msgstr ""
+
+#: src/components/cookies-banner.tsx:51
+msgid "This means that we’re able to see your approximate location, the type of device you’re using, and your operating system."
 msgstr ""
 
 #: src/components/header.tsx:21
@@ -219,17 +220,13 @@ msgstr ""
 msgid "Updated"
 msgstr "Updated"
 
-#: src/components/learning-center/article-template.tsx:25
-#~ msgid "Want to take action?"
-#~ msgstr "Want to take action?"
+#: src/components/cookies-banner.tsx:47
+msgid "We use cookies on this website"
+msgstr ""
 
 #: src/components/learning-center/article-template.tsx:110
 msgid "What can I do?"
 msgstr ""
-
-#: src/components/learning-center/article-template.tsx:114
-#~ msgid "Written by"
-#~ msgstr "Written by"
 
 #: src/pages/404.en.tsx:13
 msgid "You just found a page that doesn't exist... the sadness."

@@ -145,7 +145,6 @@ const Header: React.FC<{
                 className={
                   "navbar-burger burger " + (burgerMenuIsOpen && "is-active")
                 }
-                aria-label="menu"
                 aria-expanded="false"
                 onClick={() => setBurgerMenuStatus(!burgerMenuIsOpen)}
                 data-target="navbar"

@@ -4,13 +4,13 @@
 
 .header {
   width: 100%;
-  z-index: 30;
   background-color: $white;
   font-size: 2.25rem;
 
   .navbar {
     height: $navbar-height;
     border-bottom: 1px solid $black;
+    z-index: inherit;
 
     @include mobile {
       height: $navbar-height-mobile;
