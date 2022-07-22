@@ -6,7 +6,6 @@ import "../styles/learn.scss";
 import Layout from "../components/layout";
 import { ContentfulContent } from "./index.en";
 import LearningSearchBar from "../components/learning-center/learning-searchbar";
-import CategoryMenu from "../components/learning-center/category-menu";
 import { Trans } from "@lingui/macro";
 import classnames from "classnames";
 import { LocaleLink } from "../components/locale-link";
@@ -14,9 +13,13 @@ import { useCurrentLocale } from "../util/use-locale";
 import { FluidObject } from "gatsby-image";
 import localeConfig from "../util/locale-config.json";
 import { ReadMoreLink } from "../components/read-more";
-import { Button } from "react-scroll";
+import Img from "gatsby-image/withIEPolyfill";
 
-const Dot = () => <span className="mx-3">·</span>;
+// TODO: I don't think we need this - remove when we do category pages
+export const isCovidRelated = (word: string) =>
+  /COVID/.test(word.toUpperCase());
+
+const Dot = () => <span className="mx-3">•</span>;
 
 function formatDate(dateString: string, locale?: string): string {
   var date = new Date(dateString);
@@ -26,8 +29,6 @@ function formatDate(dateString: string, locale?: string): string {
     year: "numeric",
   });
 }
-
-const widont = require("widont");
 
 const sortArticlesByDate = (article1: any, article2: any) => {
   const date1 = new Date(article1.dateUpdated).getTime();
@@ -73,9 +74,10 @@ type ArticlePreviewInfo = {
     fluid: FluidObject;
   };
   categories?: Category[];
+  isLast?: boolean;
 };
 
-const ArticlePreviewCard = (props: ArticlePreviewInfo) => {
+export const ArticlePreviewCard = (props: ArticlePreviewInfo) => {
   const locale = useCurrentLocale();
   const isFeatured = !props.categories;
   const articleUrl = "/learn/" + props.slug;
@@ -86,7 +88,7 @@ const ArticlePreviewCard = (props: ArticlePreviewInfo) => {
         <LocaleLink
           key={i}
           to={"/learn/category/" + category.slug}
-          className="jf-category-label eyebrow is-small no-underline"
+          className="eyebrow is-small no-underline"
         >
           {category.title}
         </LocaleLink>
@@ -94,33 +96,58 @@ const ArticlePreviewCard = (props: ArticlePreviewInfo) => {
       .reduce((cat1, cat2, i) => [cat1, <Dot key={Math.random()} />, cat2]);
 
   return (
-    <div className="column is-8">
+    <div className="column is-8 py-0">
       <div
         className={classnames(
-          "jf-article-card px-6 py-7 mb-2 ",
+          "jf-article-card ",
           isFeatured ? "has-background-warning" : ""
         )}
       >
-        <div className="mt-2 mb-6">
+        {!!props.coverPhoto && (
+          <Img fluid={props.coverPhoto.fluid} className="jf-article-photo" />
+        )}
+        <div
+          className={classnames(
+            "py-7 mb-2 px-0",
+            isFeatured ? "px-6" : "px-0",
+            !isFeatured && !props.isLast ? "pb-0-mobile" : ""
+          )}
+        >
+          <div className="mt-2 mb-6 mb-3-mobile">
+            {isFeatured ? (
+              <span className="eyebrow">Featured Article</span>
+            ) : (
+              <div className="jf-category-labels">{categoryLabels}</div>
+            )}
+          </div>
+          <div className="mb-6 mb-3-mobile">
+            <h3 className="mb-6 mb-3-mobile">{props.title}</h3>
+            <span className="is-hidden-mobile eyebrow is-small">
+              <Trans>Updated</Trans> {formatDate(props.dateUpdated, locale)}
+            </span>
+            <h4 className="my-6 my-3-mobile">{props.metadata.description}</h4>
+          </div>
           {isFeatured ? (
-            <span className="eyebrow">Featured Article</span>
+            <div className="jf-article-link-container is-flex">
+              <LocaleLink
+                className={"button is-primary mt-0 mt-4-mobile"}
+                to={articleUrl}
+              >
+                <Trans>Read More</Trans>
+              </LocaleLink>
+            </div>
           ) : (
-            categoryLabels
+            <ReadMoreLink url={articleUrl} />
+          )}
+          {locale === "es" && props.englishOnly && (
+            <span className="has-text-danger is-italic px-3">
+              Solo en inglés
+            </span>
+          )}
+          {!isFeatured && !props.isLast && (
+            <div className="is-divider mt-24 mb-0"></div>
           )}
         </div>
-        <div className="mb-6">
-          <h3 className="mb-6">{props.title}</h3>
-          <span className="is-hidden-mobile eyebrow is-small mb-6">
-            <Trans>Updated</Trans> {formatDate(props.dateUpdated, locale)}
-          </span>
-        </div>
-        {isFeatured ? (
-          <LocaleLink className={"button is-primary"} to={articleUrl}>
-            <Trans>Read More</Trans>
-          </LocaleLink>
-        ) : (
-          <ReadMoreLink url={articleUrl} />
-        )}
       </div>
     </div>
   );
@@ -131,8 +158,8 @@ export const LearningPageScaffolding = (props: ContentfulContent) => {
   return (
     <Layout metadata={props.content.metadata}>
       <div id="learning-center" className="learning-center-page">
-        <div className="columns is-centered is-multiline pt-12 pt-7-mobile">
-          <div className="column is-8">
+        <div className="columns is-centered is-multiline pt-12 pt-7-mobile pb-10">
+          <div className="column is-8 pb-0 mb-12">
             <span className="eyebrow is-large">
               <Trans>Learning Center</Trans>
             </span>
@@ -140,28 +167,14 @@ export const LearningPageScaffolding = (props: ContentfulContent) => {
             <LearningSearchBar props={props.content} />
           </div>
           <ArticlePreviewCard {...props.content.featuredArticle} />
-          <ArticlePreviewCard {...articles[0]} />
-        </div>
-
-        {/* <section className="hero is-small">
-          <div className="hero-body has-text-centered is-horizontal-center">
-            <div className="container content-wrapper tight">
-              <h1 className="title is-size-2 has-text-grey-dark has-text-weight-normal is-spaced">
-                {props.content.title}
-              </h1>
-              <h6 className="subtitle has-text-grey-dark is-italic">
-                {widont(props.content.subtitle)}
-              </h6>
-              <br />
-              <CategoryMenu content={props.content.categoryButtons} />
-            </div>
-          </div>
-        </section>
-        <section className="content-wrapper tight">
-          {articles.map((article: any, i: number) => (
-            <ArticlePreviewCard articleData={article} key={i} />
+          {articles.map((article: ArticlePreviewInfo, i: number) => (
+            <ArticlePreviewCard
+              {...article}
+              isLast={i === articles.length - 1}
+              key={i}
+            />
           ))}
-        </section> */}
+        </div>
       </div>
     </Layout>
   );

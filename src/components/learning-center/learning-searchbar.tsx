@@ -107,9 +107,7 @@ const DropdownPlaceholder: React.FC<DropdownPlaceholderInfo> = ({
       {categoryButtons.map((category: any, i: number) => (
         <a
           href={`/learn/category/${category.slug}`}
-          className={
-            "no-underline tag is-empty " + (i === 0 ? "is-marginless mr-2" : "")
-          }
+          className="jf-category-tag tag no-underline is-empty"
           key={i}
         >
           {category.title}
