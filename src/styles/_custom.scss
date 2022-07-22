@@ -300,3 +300,14 @@ div.is-rounded img {
     }
   }
 }
+
+.jf-cookies-banner {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  border-top: 1px solid $justfix-black;
+
+  img {
+    filter: invert(1) contrast(0.7);
+  }
+}
