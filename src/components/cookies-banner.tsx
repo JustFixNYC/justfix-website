@@ -1,7 +1,8 @@
-import { Trans } from "@lingui/macro";
+import { t, Trans } from "@lingui/macro";
 import React, { useEffect, useState } from "react";
 import classnames from "classnames";
 import FocusTrap from "focus-trap-react";
+import { I18n } from "@lingui/react";
 
 export const CookiesBanner = () => {
   const [modalIsActive, setModalActive] = useState(false);
@@ -42,15 +43,23 @@ export const CookiesBanner = () => {
         </div>
       </div>
       <div className="pr-6 is-flex is-align-items-center">
-        <button
-          role="button"
-          className="button is-text"
-          aria-label="close"
-          aria-expanded="false"
-          onClick={handleClick}
-        >
-          <img src={require("../img/close.svg")} width="14px" height="14px" />
-        </button>
+        <I18n>
+          {({ i18n }) => (
+            <button
+              role="button"
+              className="button is-text"
+              aria-label={i18n._(t`Close`)}
+              aria-expanded="false"
+              onClick={handleClick}
+            >
+              <img
+                src={require("../img/close.svg")}
+                width="14px"
+                height="14px"
+              />
+            </button>
+          )}
+        </I18n>
       </div>
       <div className={classnames("modal", modalIsActive && "is-active")}>
         <div className="modal-background" />
@@ -85,7 +94,6 @@ export const CookiesBanner = () => {
                 <button
                   className="button is-primary"
                   role="button"
-                  aria-label="close"
                   onClick={() => {
                     setBannerClosed(true);
                     setModalActive(false);
