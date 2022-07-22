@@ -11,6 +11,9 @@ import { OutboundLink } from "../util/links";
 import { Trans } from "@lingui/macro";
 import { LocaleLink as Link } from "../components/locale-link";
 import { ReadMoreLink } from "../components/read-more";
+import classnames from "classnames";
+import classNames from "classnames";
+
 const PRODUCT_CTA_UTM_CODE = "?utm_source=orgsite&utm_medium=productcta";
 
 export type ContentfulContent = {
@@ -35,13 +38,27 @@ type ProductCardInfo = {
     title: string;
     link: string;
   };
+  /**
+   * Whether or not the product card will use condensed spacing styling
+   */
+  isCondensed?: boolean;
 };
 
 const Dot = () => <span className="mx-3">·</span>;
 
-const ProductCard: React.FC<ProductCardInfo> = (props) => (
-  <div className="column is-4 is-12-mobile">
-    <div className="jf-card has-background-white p-8 p-6-mobile">
+export const ProductCard: React.FC<ProductCardInfo> = (props) => (
+  <div
+    className={classNames(
+      "column is-4 is-12-mobile",
+      props.isCondensed && "pl-0 pr-6 px-0-mobile"
+    )}
+  >
+    <div
+      className={classnames(
+        "jf-card has-background-white",
+        props.isCondensed ? "p-6" : "p-8 p-6-mobile"
+      )}
+    >
       <div className="eyebrow is-small mb-5 mb-4-mobile">
         {props.productName}
       </div>
