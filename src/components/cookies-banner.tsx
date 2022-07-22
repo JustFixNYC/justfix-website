@@ -33,7 +33,7 @@ export const CookiesBanner = () => {
           <Trans>By using our website you consent to the use of cookies.</Trans>{" "}
           <div
             role="button"
-            className="link ml-2"
+            className="link is-clickable ml-2"
             aria-expanded="false"
             onClick={() => setModalActive(true)}
           >
@@ -86,7 +86,10 @@ export const CookiesBanner = () => {
                   className="button is-primary"
                   role="button"
                   aria-label="close"
-                  onClick={() => setModalActive(false)}
+                  onClick={() => {
+                    setBannerClosed(true);
+                    setModalActive(false);
+                  }}
                 >
                   <Trans>Got it</Trans>
                 </button>
