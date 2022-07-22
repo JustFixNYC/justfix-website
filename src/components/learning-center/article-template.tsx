@@ -12,6 +12,7 @@ import { LocaleLink } from "../locale-link";
 import ResponsiveElement from "../responsive-element";
 import classnames from "classnames";
 import { OutboundLink } from "../../util/links";
+import { ProductCard } from "../../pages/index.en";
 
 const widont = require("widont");
 
@@ -38,7 +39,7 @@ function renderSection(articleSection: any, i: number): JSX.Element {
         <div className="columns is-paddingless is-centered">
           <div className="jf-take-action-card column is-9 has-background-light my-7 my-6-mobile py-6 py-4-mobile">
             <h4 className="mb-4">
-              <Trans> Take action </Trans>
+              <Trans>Take action</Trans>
             </h4>
 
             <p className="mb-4">{widont(articleSection.title)}</p>
@@ -201,6 +202,16 @@ const LearningArticle = (props: Props) => {
             {content.articleSections.map((articleSection: any, i: number) => (
               <div key={i}>{renderSection(articleSection, i)}</div>
             ))}
+            <h3 className="mt-10 mt-9-mobile mb-6">
+              <Trans>Take action</Trans>
+              {content.productBlocks && (
+                <div className="columns is-multiline is-marginless is-paddingless">
+                  {content.productBlocks.map((product: any, i: number) => (
+                    <ProductCard isCondensed {...product} key={i} />
+                  ))}
+                </div>
+              )}
+            </h3>
           </div>
           <div className="column">
             <NavMenu styleClass="sticky is-hidden-touch" />
