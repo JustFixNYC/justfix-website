@@ -36,9 +36,6 @@ msgstr "Back to Overview"
 #: src/components/cookies-banner.tsx:24
 msgid "By using our website you consent to the use of cookies."
 msgstr ""
-#: src/components/learning-center/article-template.tsx:61
-#~ msgid "Back to top"
-#~ msgstr "Back to top"
 
 #: src/components/header.tsx:24
 msgid "Careers"
@@ -46,7 +43,6 @@ msgstr ""
 
 #: src/components/accordion.tsx:12
 #: src/components/cookies-banner.tsx:32
-#: src/components/header.tsx:90
 #: src/components/header.tsx:86
 msgid "Close"
 msgstr ""
@@ -59,7 +55,6 @@ msgstr "Contact Us"
 msgid "Contents"
 msgstr ""
 
-#: src/components/header.tsx:73
 #: src/components/header.tsx:69
 msgid "DEMO SITE"
 msgstr "DEMO SITE"
@@ -67,10 +62,6 @@ msgstr "DEMO SITE"
 #: src/components/subscribe.tsx:70
 msgid "Email Address"
 msgstr "Email Address"
-
-#: src/components/learning-center/all-tools-cta.tsx:18
-#~ msgid "Enter your address to learn more."
-#~ msgstr "Enter your address to learn more."
 
 #: src/components/accordion.tsx:9
 msgid "Expand"
@@ -96,12 +87,6 @@ msgstr "Join our mailing list!"
 msgid "Learn more"
 msgstr ""
 
-#: src/components/header.tsx:23
-#: src/components/learning-center/article-template.tsx:74
-msgid "Learning Center"
-msgstr ""
-
-#: src/components/header.tsx:90
 #: src/components/header.tsx:23
 #: src/components/learning-center/article-template.tsx:74
 #: src/pages/learn.en.tsx:90
@@ -163,7 +148,6 @@ msgstr ""
 
 #: src/components/read-more.tsx:14
 #: src/components/read-more.tsx:17
-#: src/pages/learn.en.tsx:55
 #: src/pages/learn.en.tsx:72
 msgid "Read More"
 msgstr "Read More"
@@ -176,23 +160,10 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
-#: src/components/learning-center/all-tools-cta.tsx:18
-#~ msgid "Search address"
-#~ msgstr "Search address"
-
-#: src/components/learning-center/learning-searchbar.tsx:16
-#~ msgid "Search articles..."
-#~ msgstr "Search articles..."
-
-#: src/components/learning-center/article-template.tsx:70
-#~ msgid "Sections"
-#~ msgstr "Sections"
-
 #: src/pages/index.en.tsx:156
 msgid "See all articles"
 msgstr ""
 
-#: src/components/header.tsx:82
 #: src/components/header.tsx:78
 msgid "See our tools"
 msgstr ""
@@ -218,7 +189,6 @@ msgstr ""
 msgid "Team"
 msgstr "Team"
 
-#: src/components/header.tsx:77
 #: src/components/header.tsx:73
 msgid "Technology for Housing Justice"
 msgstr ""
@@ -246,6 +216,7 @@ msgstr ""
 #: src/pages/index.en.tsx:121
 #: src/pages/index.en.tsx:137
 #: src/pages/index.en.tsx:148
+#: src/pages/learn.en.tsx:66
 msgid "Updated"
 msgstr "Updated"
 
@@ -256,21 +227,6 @@ msgstr ""
 #: src/components/learning-center/article-template.tsx:110
 msgid "What can I do?"
 msgstr ""
-#: src/pages/learn.en.tsx:66
-msgid "Updated"
-msgstr "Updated"
-
-#: src/components/learning-center/article-template.tsx:25
-#~ msgid "Want to take action?"
-#~ msgstr "Want to take action?"
-
-#: src/components/learning-center/article-template.tsx:110
-msgid "What can I do?"
-msgstr ""
-
-#: src/components/learning-center/article-template.tsx:114
-#~ msgid "Written by"
-#~ msgstr "Written by"
 
 #: src/pages/404.en.tsx:13
 msgid "You just found a page that doesn't exist... the sadness."
