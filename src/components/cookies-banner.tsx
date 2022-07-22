@@ -1,6 +1,7 @@
 import { Trans } from "@lingui/macro";
 import React, { useEffect, useState } from "react";
 import classnames from "classnames";
+import FocusTrap from "focus-trap-react";
 
 export const CookiesBanner = () => {
   const [modalIsActive, setModalActive] = useState(false);
@@ -53,36 +54,44 @@ export const CookiesBanner = () => {
       </div>
       <div className={classnames("modal", modalIsActive && "is-active")}>
         <div className="modal-background" />
-        <div className="modal-content has-background-white p-6">
-          <div className="has-text-centered mb-5">
-            <h3>
-              <Trans>We use cookies on this website</Trans>
-            </h3>
+        <FocusTrap
+          active={modalIsActive}
+          focusTrapOptions={{
+            onDeactivate: () => setModalActive(false),
+            clickOutsideDeactivates: true,
+          }}
+        >
+          <div className="modal-content has-background-white p-6">
+            <div className="has-text-centered mb-5">
+              <h3>
+                <Trans>We use cookies on this website</Trans>
+              </h3>
+            </div>
+            <p className="mb-5">
+              <Trans>
+                This means that we’re able to see your approximate location, the
+                type of device you’re using, and your operating system.
+              </Trans>
+            </p>
+            <p className="is-small mb-5">
+              <Trans>
+                These cookies track the performance of our tools and for
+                marketing purposes. This data allows us to improve our tools to
+                give you the best experience.
+              </Trans>
+            </p>
+            <div className="buttons is-centered">
+              <button
+                className="button is-primary"
+                role="button"
+                aria-label="close"
+                onClick={() => setModalActive(false)}
+              >
+                <Trans>Got it</Trans>
+              </button>
+            </div>
           </div>
-          <p className="mb-5">
-            <Trans>
-              This means that we’re able to see your approximate location, the
-              type of device you’re using, and your operating system.
-            </Trans>
-          </p>
-          <p className="is-small mb-5">
-            <Trans>
-              These cookies track the performance of our tools and for marketing
-              purposes. This data allows us to improve our tools to give you the
-              best experience.
-            </Trans>
-          </p>
-          <div className="buttons is-centered">
-            <button
-              className="button is-primary"
-              role="button"
-              aria-label="close"
-              onClick={() => setModalActive(false)}
-            >
-              <Trans>Got it</Trans>
-            </button>
-          </div>
-        </div>
+        </FocusTrap>
       </div>
     </div>
   );
