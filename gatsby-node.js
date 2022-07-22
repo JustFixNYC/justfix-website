@@ -144,9 +144,6 @@ const generateLearningPages = async function ({ actions, graphql }, locale) {
   );
 
   /* Create each Learning Center category page with appropriate data */
-  const allCategoryButtons =
-    data.contentfulLearningCenterSearchPage.categoryButtons;
-
   data.contentfulLearningCenterSearchPage.categoryButtons.forEach(
     (category) => {
       actions.createPage({
@@ -156,7 +153,6 @@ const generateLearningPages = async function ({ actions, graphql }, locale) {
         ),
         context: {
           content: category,
-          categoryButtons: allCategoryButtons,
           articlePreviews: articlePreviews.filter((article) =>
             article.categories.some(
               (articleCategory) => articleCategory.title === category.title

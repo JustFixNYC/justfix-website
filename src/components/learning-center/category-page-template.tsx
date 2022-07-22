@@ -1,34 +1,23 @@
 import React from "react";
 import Layout from "../layout";
-import { ArticlePreviewCard, orderArticles } from "../../pages/learn.en";
-import CategoryMenu from "./category-menu";
+import {
+  ArticlePreviewCard,
+  ArticlePreviewInfo,
+  orderArticles,
+} from "../../pages/learn.en";
 import { Trans } from "@lingui/macro";
-import { LocaleLink } from "../locale-link";
-
-const widont = require("widont");
+import ResponsiveElement from "../responsive-element";
 
 type Props = {
   pageContext: {
-    content: any;
-    categoryButtons: any;
-    articlePreviews: any;
+    content: {
+      title: string;
+      description: string;
+      slug: string;
+    };
+    articlePreviews: ArticlePreviewInfo[];
   };
 };
-
-const NoArticlesYet = () => (
-  <section className="hero">
-    <div className="hero-body has-text-centered is-horizontal-center">
-      <div className="container content-wrapper tight">
-        <h6 className="is-size-5 has-text-grey-dark">
-          <span className="has-text-danger has-text-weight-semibold">
-            No articles yet...
-          </span>
-          <br /> Check back soon for an update.
-        </h6>
-      </div>
-    </div>
-  </section>
-);
 
 const LearningCategoryPage = (props: Props) => {
   const content = props.pageContext.content;
@@ -38,37 +27,27 @@ const LearningCategoryPage = (props: Props) => {
       metadata={{ title: content.title, description: content.description }}
     >
       <div className="category-page">
-        <section className="hero is-small">
-          <div className="content-wrapper tight back-to-overview">
-            <LocaleLink to="/learn" className="has-text-weight-semibold">
-              ← <Trans>Back to Overview</Trans>
-            </LocaleLink>
+        <div className="columns is-centered is-multiline pt-12 pt-7-mobile pb-10">
+          <div className="column is-8 pb-0 mb-6">
+            <span className="eyebrow is-large">
+              <Trans>Learning Center</Trans>
+            </span>
+            <ResponsiveElement desktop="h1" touch="h2" className="mb-6">
+              {content.title}
+            </ResponsiveElement>
+            <h3>{content.description}</h3>
           </div>
 
-          <div className="hero-body has-text-centered is-horizontal-center">
-            <div className="container content-wrapper tight">
-              <h1 className="title is-size-2 has-text-grey-dark has-text-weight-normal is-spaced">
-                {content.title}
-              </h1>
-              <h6 className="subtitle has-text-grey-dark is-italic">
-                {widont(content.description)}
-              </h6>
-              <CategoryMenu
-                content={props.pageContext.categoryButtons}
-                selectedCategory={content.slug}
-              />
-            </div>
-          </div>
-        </section>
-        <section className="content-wrapper tight">
-          {articlePreviews && articlePreviews.length > 0 ? (
+          {articlePreviews &&
+            articlePreviews.length > 0 &&
             articlePreviews.map((article: any, i: number) => (
-              <ArticlePreviewCard {...article} key={i} />
-            ))
-          ) : (
-            <NoArticlesYet />
-          )}
-        </section>
+              <ArticlePreviewCard
+                {...article}
+                isLast={i === articlePreviews.length - 1}
+                key={i}
+              />
+            ))}
+        </div>
       </div>
     </Layout>
   );
