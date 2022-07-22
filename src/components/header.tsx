@@ -82,10 +82,6 @@ const Header: React.FC<{
   isLandingPage?: boolean;
 }> = ({ isLandingPage }) => {
   const [burgerMenuIsOpen, setBurgerMenuStatus] = useState(false);
-  // const location = useLocation();
-  // const existingPath = removeLocaleFromPathname(location.pathname);
-  // console.log(location);
-  // console.log(existingPath);
 
   return (
     <div className="header">

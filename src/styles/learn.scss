@@ -1,6 +1,76 @@
 @import "_vars.scss";
+@import "_design-system.scss";
 @import "~bulma/sass/utilities/initial-variables.sass";
 
+.learning-center-page {
+  .jf-search-bar {
+    form {
+      border: 2px solid $justfix-black;
+      border-radius: 4px;
+      width: 100%;
+    }
+    input {
+      border: none;
+      width: 100%;
+      height: 100%;
+      &:active,
+      &:focus {
+        box-shadow: none;
+      }
+      &::placeholder {
+        @include body-standard;
+        color: $justfix-grey-dark;
+      }
+      &::-webkit-search-cancel-button {
+        display: none;
+      }
+    }
+    .jf-dropdown-content {
+      border: 2px solid $justfix-black;
+      border-radius: 4px;
+      z-index: 99;
+      .jf-category-tag {
+        margin-left: 0;
+        margin-right: $spacing-02;
+      }
+    }
+    .jf-article-name {
+      text-decoration: underline;
+    }
+    .result__snippet {
+      a,
+      u,
+      span {
+        @include desktop {
+          @include desktop-text-small;
+        }
+        @include mobile {
+          @include mobile-text-small;
+        }
+      }
+    }
+  }
+}
+.jf-article-card {
+  border-radius: 0.25rem; // 4px
+  .jf-article-photo {
+    border-radius: 0.25rem 0.25rem 0 0; // 4px
+  }
+  .jf-category-labels {
+    a,
+    span {
+      color: $justfix-grey-dark;
+    }
+  }
+  .jf-article-link-container {
+    @include mobile {
+      justify-content: center;
+    }
+  }
+  .is-divider {
+    border-color: $justfix-grey-dark;
+  }
+}
 .jf-article-page {
   .article-section ul {
     list-style: square;

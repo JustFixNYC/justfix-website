@@ -63,7 +63,7 @@ const LearningCategoryPage = (props: Props) => {
         <section className="content-wrapper tight">
           {articlePreviews && articlePreviews.length > 0 ? (
             articlePreviews.map((article: any, i: number) => (
-              <ArticlePreviewCard articleData={article} key={i} />
+              <ArticlePreviewCard {...article} key={i} />
             ))
           ) : (
             <NoArticlesYet />
