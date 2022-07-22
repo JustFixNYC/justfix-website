@@ -25,15 +25,15 @@ msgstr "<0>JustFix.nyc</0> is a registered 501(c)(3) nonprofit organization."
 msgid "All set! Thanks for subscribing!"
 msgstr "All set! Thanks for subscribing!"
 
+#: src/components/learning-center/article-template.tsx:136
+msgid "Assert your tenant rights by using our digital tools"
+msgstr ""
+
 #: src/components/learning-center/category-page-template.tsx:28
 msgid "Back to Overview"
 msgstr "Back to Overview"
 
-#: src/components/learning-center/article-template.tsx:59
-msgid "Back to top"
-msgstr "Back to top"
-
-#: src/components/cookies-banner.tsx:23
+#: src/components/cookies-banner.tsx:24
 msgid "By using our website you consent to the use of cookies."
 msgstr ""
 
@@ -42,6 +42,7 @@ msgid "Careers"
 msgstr ""
 
 #: src/components/accordion.tsx:12
+#: src/components/cookies-banner.tsx:32
 #: src/components/header.tsx:90
 msgid "Close"
 msgstr ""
@@ -49,6 +50,10 @@ msgstr ""
 #: src/components/header.tsx:25
 msgid "Contact Us"
 msgstr "Contact Us"
+
+#: src/components/learning-center/article-template.tsx:56
+msgid "Contents"
+msgstr ""
 
 #: src/components/header.tsx:73
 msgid "DEMO SITE"
@@ -62,7 +67,7 @@ msgstr "Email Address"
 msgid "Expand"
 msgstr ""
 
-#: src/pages/index.en.tsx:113
+#: src/pages/index.en.tsx:115
 msgid "Featured article"
 msgstr ""
 
@@ -70,7 +75,7 @@ msgstr ""
 msgid "Featured press"
 msgstr ""
 
-#: src/components/cookies-banner.tsx:62
+#: src/components/cookies-banner.tsx:68
 msgid "Got it"
 msgstr ""
 
@@ -78,11 +83,12 @@ msgstr ""
 msgid "Join our mailing list!"
 msgstr "Join our mailing list!"
 
-#: src/components/cookies-banner.tsx:25
+#: src/components/cookies-banner.tsx:26
 msgid "Learn more"
 msgstr ""
 
 #: src/components/header.tsx:23
+#: src/components/learning-center/article-template.tsx:74
 msgid "Learning Center"
 msgstr ""
 
@@ -135,6 +141,10 @@ msgstr "Press"
 msgid "Privacy policy"
 msgstr "Privacy policy"
 
+#: src/components/learning-center/article-template.tsx:91
+msgid "Published"
+msgstr ""
+
 #: src/components/read-more.tsx:14
 #: src/components/read-more.tsx:17
 #: src/pages/learn.en.tsx:55
@@ -149,11 +159,7 @@ msgstr ""
 msgid "Search articles..."
 msgstr "Search articles..."
 
-#: src/components/learning-center/article-template.tsx:68
-msgid "Sections"
-msgstr "Sections"
-
-#: src/pages/index.en.tsx:154
+#: src/pages/index.en.tsx:156
 msgid "See all articles"
 msgstr ""
 
@@ -161,9 +167,22 @@ msgstr ""
 msgid "See our tools"
 msgstr ""
 
+#: src/components/learning-center/article-template.tsx:141
+msgid "See tools"
+msgstr ""
+
 #: src/components/subscribe.tsx:75
 msgid "Sign up"
 msgstr "Sign up"
+
+#: src/components/learning-center/article-template.tsx:104
+msgid "Summary"
+msgstr ""
+
+#: src/components/learning-center/article-template.tsx:25
+#: src/components/learning-center/article-template.tsx:132
+msgid "Take action"
+msgstr ""
 
 #: src/components/header.tsx:18
 msgid "Team"
@@ -177,11 +196,15 @@ msgstr ""
 msgid "Terms of use"
 msgstr "Terms of use"
 
-#: src/components/cookies-banner.tsx:54
+#: src/components/cookies-banner.tsx:57
 msgid "These cookies track the performance of our tools and for marketing purposes. This data allows us to improve our tools to give you the best experience."
 msgstr ""
 
-#: src/components/cookies-banner.tsx:48
+#: src/components/learning-center/article-template.tsx:95
+msgid "This article was written by the team of NYC-based housing experts at nonprofit JustFix"
+msgstr ""
+
+#: src/components/cookies-banner.tsx:51
 msgid "This means that we’re able to see your approximate location, the type of device you’re using, and your operating system."
 msgstr ""
 
@@ -189,24 +212,19 @@ msgstr ""
 msgid "Tools"
 msgstr ""
 
-#: src/components/learning-center/article-template.tsx:116
-#: src/pages/index.en.tsx:119
-#: src/pages/index.en.tsx:135
-#: src/pages/index.en.tsx:146
+#: src/pages/index.en.tsx:121
+#: src/pages/index.en.tsx:137
+#: src/pages/index.en.tsx:148
 msgid "Updated"
 msgstr "Updated"
 
-#: src/components/learning-center/article-template.tsx:23
-msgid "Want to take action?"
-msgstr "Want to take action?"
-
-#: src/components/cookies-banner.tsx:44
+#: src/components/cookies-banner.tsx:47
 msgid "We use cookies on this website"
 msgstr ""
 
-#: src/components/learning-center/article-template.tsx:112
-msgid "Written by"
-msgstr "Written by"
+#: src/components/learning-center/article-template.tsx:110
+msgid "What can I do?"
+msgstr ""
 
 #: src/pages/404.en.tsx:13
 msgid "You just found a page that doesn't exist... the sadness."
