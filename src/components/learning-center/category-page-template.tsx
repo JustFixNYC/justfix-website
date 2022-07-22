@@ -1,13 +1,20 @@
 import React from "react";
 import Layout from "../layout";
-import { ArticlePreviewCard, orderArticles } from "../../pages/learn.en";
+import {
+  ArticlePreviewCard,
+  ArticlePreviewInfo,
+  orderArticles,
+} from "../../pages/learn.en";
 import { Trans } from "@lingui/macro";
 
 type Props = {
   pageContext: {
-    content: any;
-    categoryButtons: any;
-    articlePreviews: any;
+    content: {
+      title: string;
+      description: string;
+      slug: string;
+    };
+    articlePreviews: ArticlePreviewInfo[];
   };
 };
 

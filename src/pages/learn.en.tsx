@@ -62,7 +62,7 @@ export type Category = {
   slug: string;
 };
 
-type ArticlePreviewInfo = {
+export type ArticlePreviewInfo = {
   slug: string;
   title: string;
   englishOnly: boolean;
