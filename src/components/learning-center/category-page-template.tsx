@@ -38,7 +38,11 @@ const LearningCategoryPage = (props: Props) => {
           {articlePreviews &&
             articlePreviews.length > 0 &&
             articlePreviews.map((article: any, i: number) => (
-              <ArticlePreviewCard {...article} key={i} />
+              <ArticlePreviewCard
+                {...article}
+                isLast={i === articlePreviews.length - 1}
+                key={i}
+              />
             ))}
         </div>
       </div>
