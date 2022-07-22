@@ -310,4 +310,19 @@ div.is-rounded img {
   img {
     filter: invert(1) contrast(0.7);
   }
+
+  .modal {
+    position: fixed;
+    z-index: 30;
+
+    .modal-background {
+      background-color: $justfix-grey;
+      opacity: 0.6;
+    }
+
+    .modal-content {
+      z-index: 40;
+      border-radius: 4px;
+    }
+  }
 }
