@@ -141,6 +141,10 @@ $spacing-values: (
   }
 }
 
+.breadcrumb li + li::before {
+  color: inherit;
+}
+
 // CUSTOM CLASSES
 
 // For our full-height page heros, this variable defines how much
