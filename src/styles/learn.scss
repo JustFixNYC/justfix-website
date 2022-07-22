@@ -1,6 +1,20 @@
 @import "_vars.scss";
 @import "~bulma/sass/utilities/initial-variables.sass";
 
-.article-section ul {
-  list-style: square;
+.jf-article-page {
+  .article-section ul {
+    list-style: square;
+  }
+
+  .menu {
+    &.sticky {
+      position: sticky;
+      top: $spacing-08;
+    }
+
+    li a:hover {
+      text-decoration: none;
+      background-color: $light;
+    }
+  }
 }

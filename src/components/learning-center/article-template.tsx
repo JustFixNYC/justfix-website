@@ -10,6 +10,7 @@ import { EmbeddedAsset } from "../embedded-asset-node";
 import { BLOCKS } from "@contentful/rich-text-types";
 import { LocaleLink } from "../locale-link";
 import ResponsiveElement from "../responsive-element";
+import classnames from "classnames";
 
 const widont = require("widont");
 
@@ -84,7 +85,7 @@ function renderSection(articleSection: any, i: number): JSX.Element {
                 <p className="title is-4">{children}</p>
               ),
               [BLOCKS.EMBEDDED_ASSET]: (eaNode) => (
-                <p className="mt-5">
+                <p className="my-6">
                   <EmbeddedAsset node={eaNode} locale={locale} />
                 </p>
               ),
@@ -92,8 +93,10 @@ function renderSection(articleSection: any, i: number): JSX.Element {
                 <ul className="ml-8 mb-6">{children}</ul>
               ),
               [BLOCKS.QUOTE]: (node, children) => (
-                <div className="columns is-paddingless has-background-light">
-                  <div className="column p-5">{children}</div>
+                <div className="columns is-paddingless">
+                  <div className="column has-background-light my-6 p-5">
+                    {children}
+                  </div>
                 </div>
               ),
             },
@@ -110,10 +113,10 @@ const LearningArticle = (props: Props) => {
   const NavMenu = (props?: navMenuProps) => (
     <aside
       id="navmenu"
-      className={"menu " + ((props && props.styleClass) || "")}
+      className={classnames("menu", props && props.styleClass)}
     >
-      <p className="menu-label">
-        <Trans>Sections</Trans>
+      <p className="p-4 is-uppercase has-text-weight-bold">
+        <Trans>Contents</Trans>
       </p>
       <ul className="menu-list">
         {content.articleSections.map((articleSection: any, i: number) =>
@@ -126,7 +129,7 @@ const LearningArticle = (props: Props) => {
                 smooth={true}
                 offset={-100}
                 duration={500}
-                className="has-text-primary"
+                className="p-4 has-text-black no-underline"
               >
                 {articleSection.title}
               </ScrollLink>
