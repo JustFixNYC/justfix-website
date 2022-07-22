@@ -75,6 +75,9 @@ $body-color: $justfix-black;
   &:focus,
   &:active {
     text-decoration: underline;
+    &.no-underline {
+      text-decoration: none;
+    }
   }
 }
 

@@ -25,27 +25,36 @@ msgstr "<0>JustFix.nyc</0> is a registered 501(c)(3) nonprofit organization."
 msgid "All set! Thanks for subscribing!"
 msgstr "All set! Thanks for subscribing!"
 
-#: src/components/learning-center/category-page-template.tsx:29
+#: src/components/learning-center/article-template.tsx:136
+msgid "Assert your tenant rights by using our digital tools"
+msgstr ""
+
+#: src/components/learning-center/category-page-template.tsx:28
 msgid "Back to Overview"
 msgstr "Back to Overview"
 
 #: src/components/learning-center/article-template.tsx:61
-msgid "Back to top"
-msgstr "Back to top"
+#~ msgid "Back to top"
+#~ msgstr "Back to top"
 
-#: src/components/header.tsx:31
+#: src/components/header.tsx:24
 msgid "Careers"
 msgstr ""
 
 #: src/components/accordion.tsx:12
+#: src/components/header.tsx:86
 msgid "Close"
 msgstr ""
 
-#: src/components/header.tsx:32
+#: src/components/header.tsx:25
 msgid "Contact Us"
 msgstr "Contact Us"
 
-#: src/components/header.tsx:77
+#: src/components/learning-center/article-template.tsx:56
+msgid "Contents"
+msgstr ""
+
+#: src/components/header.tsx:69
 msgid "DEMO SITE"
 msgstr "DEMO SITE"
 
@@ -54,14 +63,14 @@ msgid "Email Address"
 msgstr "Email Address"
 
 #: src/components/learning-center/all-tools-cta.tsx:18
-msgid "Enter your address to learn more."
-msgstr "Enter your address to learn more."
+#~ msgid "Enter your address to learn more."
+#~ msgstr "Enter your address to learn more."
 
 #: src/components/accordion.tsx:9
 msgid "Expand"
 msgstr ""
 
-#: src/pages/index.en.tsx:113
+#: src/pages/index.en.tsx:115
 msgid "Featured article"
 msgstr ""
 
@@ -73,19 +82,21 @@ msgstr ""
 msgid "Join our mailing list!"
 msgstr "Join our mailing list!"
 
-#: src/components/header.tsx:30
+#: src/components/header.tsx:23
+#: src/components/learning-center/article-template.tsx:74
+#: src/pages/learn.en.tsx:90
 msgid "Learning Center"
 msgstr ""
 
-#: src/components/header.tsx:92
+#: src/components/header.tsx:86
 msgid "Menu"
 msgstr ""
 
-#: src/components/header.tsx:24
+#: src/components/header.tsx:17
 msgid "Mission"
 msgstr "Mission"
 
-#: src/components/learning-center/learning-searchbar.tsx:46
+#: src/components/learning-center/learning-searchbar.tsx:73
 msgid "No articles match your search."
 msgstr "No articles match your search."
 
@@ -106,11 +117,11 @@ msgstr "Oops! A network error occurred. Try again later."
 msgid "Oops! That email is invalid."
 msgstr "Oops! That email is invalid."
 
-#: src/components/header.tsx:26
+#: src/components/header.tsx:19
 msgid "Partners & Funders"
 msgstr ""
 
-#: src/pages/partners.en.tsx:69
+#: src/pages/partners.en.tsx:91
 msgid "Partnership case study"
 msgstr ""
 
@@ -118,7 +129,7 @@ msgstr ""
 msgid "Please enter an email address!"
 msgstr "Please enter an email address!"
 
-#: src/components/header.tsx:27
+#: src/components/header.tsx:20
 msgid "Press"
 msgstr "Press"
 
@@ -126,45 +137,66 @@ msgstr "Press"
 msgid "Privacy policy"
 msgstr "Privacy policy"
 
+#: src/components/learning-center/article-template.tsx:91
+msgid "Published"
+msgstr ""
+
 #: src/components/read-more.tsx:14
 #: src/components/read-more.tsx:17
-#: src/pages/learn.en.tsx:56
+#: src/pages/learn.en.tsx:72
 msgid "Read More"
 msgstr "Read More"
 
-#: src/components/header.tsx:29
+#: src/components/header.tsx:22
 msgid "Research & Policy"
 msgstr ""
 
+#: src/components/learning-center/learning-searchbar.tsx:24
+msgid "Search"
+msgstr ""
+
 #: src/components/learning-center/all-tools-cta.tsx:18
-msgid "Search address"
-msgstr "Search address"
+#~ msgid "Search address"
+#~ msgstr "Search address"
 
 #: src/components/learning-center/learning-searchbar.tsx:16
-msgid "Search articles..."
-msgstr "Search articles..."
+#~ msgid "Search articles..."
+#~ msgstr "Search articles..."
 
 #: src/components/learning-center/article-template.tsx:70
-msgid "Sections"
-msgstr "Sections"
+#~ msgid "Sections"
+#~ msgstr "Sections"
 
-#: src/pages/index.en.tsx:154
+#: src/pages/index.en.tsx:156
 msgid "See all articles"
 msgstr ""
 
-#: src/components/header.tsx:86
+#: src/components/header.tsx:78
 msgid "See our tools"
+msgstr ""
+
+#: src/components/learning-center/article-template.tsx:141
+msgid "See tools"
 msgstr ""
 
 #: src/components/subscribe.tsx:75
 msgid "Sign up"
 msgstr "Sign up"
 
-#: src/components/header.tsx:25
+#: src/components/learning-center/article-template.tsx:104
+msgid "Summary"
+msgstr ""
+
+#: src/components/learning-center/article-template.tsx:25
+#: src/components/learning-center/article-template.tsx:132
+msgid "Take action"
+msgstr ""
+
+#: src/components/header.tsx:18
 msgid "Team"
 msgstr "Team"
 
-#: src/components/header.tsx:81
+#: src/components/header.tsx:73
 msgid "Technology for Housing Justice"
 msgstr ""
 
@@ -172,24 +204,32 @@ msgstr ""
 msgid "Terms of use"
 msgstr "Terms of use"
 
-#: src/components/header.tsx:28
+#: src/components/learning-center/article-template.tsx:95
+msgid "This article was written by the team of NYC-based housing experts at nonprofit JustFix"
+msgstr ""
+
+#: src/components/header.tsx:21
 msgid "Tools"
 msgstr ""
 
-#: src/components/learning-center/article-template.tsx:118
-#: src/pages/index.en.tsx:119
-#: src/pages/index.en.tsx:135
-#: src/pages/index.en.tsx:146
+#: src/pages/index.en.tsx:121
+#: src/pages/index.en.tsx:137
+#: src/pages/index.en.tsx:148
+#: src/pages/learn.en.tsx:66
 msgid "Updated"
 msgstr "Updated"
 
 #: src/components/learning-center/article-template.tsx:25
-msgid "Want to take action?"
-msgstr "Want to take action?"
+#~ msgid "Want to take action?"
+#~ msgstr "Want to take action?"
+
+#: src/components/learning-center/article-template.tsx:110
+msgid "What can I do?"
+msgstr ""
 
 #: src/components/learning-center/article-template.tsx:114
-msgid "Written by"
-msgstr "Written by"
+#~ msgid "Written by"
+#~ msgstr "Written by"
 
 #: src/pages/404.en.tsx:13
 msgid "You just found a page that doesn't exist... the sadness."
