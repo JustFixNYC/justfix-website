@@ -311,6 +311,15 @@ div.is-rounded img {
     filter: invert(1) contrast(0.7);
   }
 
+  .link {
+    display: inline;
+  }
+
+  .button {
+    width: 14px;
+    height: 14px;
+  }
+
   .modal {
     position: fixed;
     z-index: 30;
@@ -322,7 +331,9 @@ div.is-rounded img {
 
     .modal-content {
       z-index: 40;
-      border-radius: 4px;
+      .has-background-white {
+        border-radius: 4px;
+      }
     }
   }
 }
