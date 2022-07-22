@@ -25,37 +25,38 @@ msgstr "<0>JustFix.nyc</0> is a registered 501(c)(3) nonprofit organization."
 msgid "All set! Thanks for subscribing!"
 msgstr "All set! Thanks for subscribing!"
 
-#: src/components/learning-center/category-page-template.tsx:29
+#: src/components/learning-center/category-page-template.tsx:28
 msgid "Back to Overview"
 msgstr "Back to Overview"
 
-#: src/components/learning-center/article-template.tsx:61
+#: src/components/learning-center/article-template.tsx:59
 msgid "Back to top"
 msgstr "Back to top"
 
-#: src/components/header.tsx:31
+#: src/components/cookies-banner.tsx:23
+msgid "By using our website you consent to the use of cookies."
+msgstr ""
+
+#: src/components/header.tsx:24
 msgid "Careers"
 msgstr ""
 
 #: src/components/accordion.tsx:12
+#: src/components/header.tsx:90
 msgid "Close"
 msgstr ""
 
-#: src/components/header.tsx:32
+#: src/components/header.tsx:25
 msgid "Contact Us"
 msgstr "Contact Us"
 
-#: src/components/header.tsx:77
+#: src/components/header.tsx:73
 msgid "DEMO SITE"
 msgstr "DEMO SITE"
 
 #: src/components/subscribe.tsx:70
 msgid "Email Address"
 msgstr "Email Address"
-
-#: src/components/learning-center/all-tools-cta.tsx:18
-msgid "Enter your address to learn more."
-msgstr "Enter your address to learn more."
 
 #: src/components/accordion.tsx:9
 msgid "Expand"
@@ -69,19 +70,27 @@ msgstr ""
 msgid "Featured press"
 msgstr ""
 
+#: src/components/cookies-banner.tsx:62
+msgid "Got it"
+msgstr ""
+
 #: src/components/footer.tsx:51
 msgid "Join our mailing list!"
 msgstr "Join our mailing list!"
 
-#: src/components/header.tsx:30
+#: src/components/cookies-banner.tsx:25
+msgid "Learn more"
+msgstr ""
+
+#: src/components/header.tsx:23
 msgid "Learning Center"
 msgstr ""
 
-#: src/components/header.tsx:92
+#: src/components/header.tsx:90
 msgid "Menu"
 msgstr ""
 
-#: src/components/header.tsx:24
+#: src/components/header.tsx:17
 msgid "Mission"
 msgstr "Mission"
 
@@ -106,11 +115,11 @@ msgstr "Oops! A network error occurred. Try again later."
 msgid "Oops! That email is invalid."
 msgstr "Oops! That email is invalid."
 
-#: src/components/header.tsx:26
+#: src/components/header.tsx:19
 msgid "Partners & Funders"
 msgstr ""
 
-#: src/pages/partners.en.tsx:69
+#: src/pages/partners.en.tsx:91
 msgid "Partnership case study"
 msgstr ""
 
@@ -118,7 +127,7 @@ msgstr ""
 msgid "Please enter an email address!"
 msgstr "Please enter an email address!"
 
-#: src/components/header.tsx:27
+#: src/components/header.tsx:20
 msgid "Press"
 msgstr "Press"
 
@@ -128,23 +137,19 @@ msgstr "Privacy policy"
 
 #: src/components/read-more.tsx:14
 #: src/components/read-more.tsx:17
-#: src/pages/learn.en.tsx:56
+#: src/pages/learn.en.tsx:55
 msgid "Read More"
 msgstr "Read More"
 
-#: src/components/header.tsx:29
+#: src/components/header.tsx:22
 msgid "Research & Policy"
 msgstr ""
-
-#: src/components/learning-center/all-tools-cta.tsx:18
-msgid "Search address"
-msgstr "Search address"
 
 #: src/components/learning-center/learning-searchbar.tsx:16
 msgid "Search articles..."
 msgstr "Search articles..."
 
-#: src/components/learning-center/article-template.tsx:70
+#: src/components/learning-center/article-template.tsx:68
 msgid "Sections"
 msgstr "Sections"
 
@@ -152,7 +157,7 @@ msgstr "Sections"
 msgid "See all articles"
 msgstr ""
 
-#: src/components/header.tsx:86
+#: src/components/header.tsx:82
 msgid "See our tools"
 msgstr ""
 
@@ -160,11 +165,11 @@ msgstr ""
 msgid "Sign up"
 msgstr "Sign up"
 
-#: src/components/header.tsx:25
+#: src/components/header.tsx:18
 msgid "Team"
 msgstr "Team"
 
-#: src/components/header.tsx:81
+#: src/components/header.tsx:77
 msgid "Technology for Housing Justice"
 msgstr ""
 
@@ -172,22 +177,34 @@ msgstr ""
 msgid "Terms of use"
 msgstr "Terms of use"
 
-#: src/components/header.tsx:28
+#: src/components/cookies-banner.tsx:54
+msgid "These cookies track the performance of our tools and for marketing purposes. This data allows us to improve our tools to give you the best experience."
+msgstr ""
+
+#: src/components/cookies-banner.tsx:48
+msgid "This means that we’re able to see your approximate location, the type of device you’re using, and your operating system."
+msgstr ""
+
+#: src/components/header.tsx:21
 msgid "Tools"
 msgstr ""
 
-#: src/components/learning-center/article-template.tsx:118
+#: src/components/learning-center/article-template.tsx:116
 #: src/pages/index.en.tsx:119
 #: src/pages/index.en.tsx:135
 #: src/pages/index.en.tsx:146
 msgid "Updated"
 msgstr "Updated"
 
-#: src/components/learning-center/article-template.tsx:25
+#: src/components/learning-center/article-template.tsx:23
 msgid "Want to take action?"
 msgstr "Want to take action?"
 
-#: src/components/learning-center/article-template.tsx:114
+#: src/components/cookies-banner.tsx:44
+msgid "We use cookies on this website"
+msgstr ""
+
+#: src/components/learning-center/article-template.tsx:112
 msgid "Written by"
 msgstr "Written by"
 
