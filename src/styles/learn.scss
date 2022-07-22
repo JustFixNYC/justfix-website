@@ -50,25 +50,50 @@
       }
     }
   }
+}
+.jf-article-card {
+  border-radius: 0.25rem; // 4px
+  .jf-article-photo {
+    border-radius: 0.25rem 0.25rem 0 0; // 4px
+  }
+  .jf-category-labels {
+    a,
+    span {
+      color: $justfix-grey-dark;
+    }
+  }
+  .jf-article-link-container {
+    @include mobile {
+      justify-content: center;
+    }
+  }
+  .is-divider {
+    border-color: $justfix-grey-dark;
+  }
+}
+.jf-article-page {
+  .article-section ul {
+    list-style: square;
+  }
 
-  .jf-article-card {
-    border-radius: 0.25rem; // 4px
-    .jf-article-photo {
-      border-radius: 0.25rem 0.25rem 0 0; // 4px
+  .menu {
+    &.sticky {
+      position: sticky;
+      top: $spacing-08;
     }
-    .jf-category-labels {
-      a,
-      span {
-        color: $justfix-grey-dark;
-      }
+
+    li a:hover {
+      text-decoration: none;
+      background-color: $light;
     }
-    .jf-article-link-container {
-      @include mobile {
-        justify-content: center;
-      }
-    }
-    .is-divider {
-      border-color: $justfix-grey-dark;
-    }
+  }
+
+  .jf-take-action-card {
+    border-left: 12px solid $justfix-blue;
+    border-radius: 4px;
+  }
+
+  .jf-all-tools-card {
+    border-radius: 4px;
   }
 }
