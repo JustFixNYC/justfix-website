@@ -6,6 +6,7 @@ import {
   orderArticles,
 } from "../../pages/learn.en";
 import { Trans } from "@lingui/macro";
+import ResponsiveElement from "../responsive-element";
 
 type Props = {
   pageContext: {
@@ -31,7 +32,9 @@ const LearningCategoryPage = (props: Props) => {
             <span className="eyebrow is-large">
               <Trans>Learning Center</Trans>
             </span>
-            <h2 className="mb-6">{content.title}</h2>
+            <ResponsiveElement desktop="h1" touch="h2" className="mb-6">
+              {content.title}
+            </ResponsiveElement>
             <h3>{content.description}</h3>
           </div>
 
