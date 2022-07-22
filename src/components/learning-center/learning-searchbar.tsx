@@ -105,13 +105,13 @@ const DropdownPlaceholder: React.FC<DropdownPlaceholderInfo> = ({
     <span className="eyebrow is-bold mb-3">Key Topics</span>
     <div className="mt-3 mb-7">
       {categoryButtons.map((category: any, i: number) => (
-        <a
-          href={`/learn/category/${category.slug}`}
+        <LocaleLink
+          to={`/learn/category/${category.slug}`}
           className="jf-category-tag tag no-underline is-empty"
           key={i}
         >
           {category.title}
-        </a>
+        </LocaleLink>
       ))}
     </div>
     <span className="eyebrow is-bold">Popular Articles</span>
