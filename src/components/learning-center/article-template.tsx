@@ -11,6 +11,7 @@ import { BLOCKS } from "@contentful/rich-text-types";
 import { LocaleLink } from "../locale-link";
 import ResponsiveElement from "../responsive-element";
 import classnames from "classnames";
+import { OutboundLink } from "../../util/links";
 
 const widont = require("widont");
 
@@ -34,47 +35,22 @@ function renderSection(articleSection: any, i: number): JSX.Element {
   return (
     <div key={i} id={makeSectionID(i)} className="article-section">
       {articleSection.__typename === "ContentfulLearningArticleCtaBlock" ? (
-        <div className="content cta-wrapper">
-          <div className="cta is-horizontal-center has-text-centered has-background-white">
-            <div className="label is-block">
-              <small className="has-text-primary has-text-weight-bold has-background-white is-uppercase">
-                <Trans> Want to take action? </Trans>
-              </small>
-            </div>
-            <h1 className="title is-size-4 has-text-weight-bold has-text-primary is-spaced">
-              {widont(articleSection.title)}
-            </h1>
-            {articleSection.subtitle && (
-              <p className="is-hidden-mobile has-text-weight-medium has-text-primary is-spaced">
-                {articleSection.subtitle}
-              </p>
-            )}
-            <a
+        <div className="columns is-paddingless is-centered">
+          <div className="jf-take-action-card column is-9 has-background-light my-7 my-6-mobile py-6 py-4-mobile">
+            <h4 className="mb-4">
+              <Trans> Take action </Trans>
+            </h4>
+
+            <p className="mb-4">{widont(articleSection.title)}</p>
+            <OutboundLink
               href={articleSection.ctaLink}
-              className="button is-medium is-primary is-uppercase "
+              className="button is-primary"
               target="_blank"
               rel="noopener noreferrer"
             >
               {articleSection.ctaText}
-            </a>
+            </OutboundLink>
           </div>
-          {articleSection.secondaryCta && (
-            <div className="secondary-cta is-horizontal-center has-text-centered has-background-white">
-              {articleSection.secondaryCta.subtitle && (
-                <p className="is-size-7 is-marginless has-text-weight-medium has-text-primary is-spaced">
-                  {widont(articleSection.secondaryCta.subtitle)}
-                </p>
-              )}
-              <a
-                href={articleSection.secondaryCta.ctaLink}
-                className="is-size-7 is-uppercase"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <u>{articleSection.secondaryCta.ctaText}</u>
-              </a>
-            </div>
-          )}
         </div>
       ) : (
         <div>
