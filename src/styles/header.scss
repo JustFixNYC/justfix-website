@@ -52,6 +52,9 @@
       }
     }
     .navbar-menu {
+      z-index: 100;
+      position: absolute;
+      right: 0;
       @include desktop {
         width: 325px;
         box-sizing: border-box;
