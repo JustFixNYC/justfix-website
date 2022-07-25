@@ -52,6 +52,7 @@
       }
     }
     .navbar-menu {
+      // Make sure navbar menu appears above other page content:
       z-index: 100;
       position: absolute;
       right: 0;
