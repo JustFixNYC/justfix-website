@@ -52,6 +52,10 @@
       }
     }
     .navbar-menu {
+      // Make sure navbar menu appears above other page content:
+      z-index: 100;
+      position: absolute;
+      right: 0;
       @include desktop {
         width: 325px;
         box-sizing: border-box;
