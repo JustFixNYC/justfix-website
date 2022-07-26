@@ -46,26 +46,21 @@
       .navbar-item {
         padding: 2rem 1.75rem;
         transition: none;
-
         &.is-active {
           background-color: $black;
           color: $white;
         }
-
         &:first-child {
           @include desktop {
             border-right: 2px solid $black;
           }
         }
-
         img {
           max-height: unset;
         }
-
         .navbar-burger {
           align-self: center;
           font-size: 1.5rem;
-
           &:hover {
             background-color: inherit;
             text-decoration: underline;
@@ -78,13 +73,11 @@
         }
       }
     }
-
     .navbar-menu {
       // Make sure navbar menu appears above other page content:
       z-index: 100;
       position: absolute;
       right: 0;
-
       @include desktop {
         width: 325px;
         box-sizing: border-box;
@@ -101,21 +94,17 @@
 
       .navbar-end {
         height: 100%;
-
         .navbar-item {
           @include mobile-h3;
           font-variant: normal;
           background-color: inherit;
-
           &a:hover {
             text-decoration: underline;
           }
-
           &[aria-current="page"] {
             padding-left: 2.5rem;
             text-indent: calc(-1 * #{$spacing-05 + $spacing-04});
             text-decoration: none;
-
             &::before {
               content: "▪";
               margin-right: $spacing-05;
@@ -139,10 +128,8 @@
       }
     }
   }
-
   .navbar-dropdown {
     width: 100%;
-
     .navbar-item:hover {
       font-weight: 600;
       transition: 0.1s;
@@ -154,7 +141,6 @@
   .navbar-item.is-hoverable:hover .navbar-dropdown {
     display: block;
   }
-
   .button {
     min-width: 120px;
   }
