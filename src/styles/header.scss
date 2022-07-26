@@ -2,10 +2,32 @@
 @import "_design-system.scss";
 @import "~bulma/sass/utilities/initial-variables.sass";
 
+// This placeholder replaces the header when it detaches to
+// become fixed, preventing jump in page content
+.jf-sticky-phantom {
+  @include mobile {
+    display: none;
+    height: $navbar-height-mobile;
+    background-color: $white;
+
+    &.jf-sticky {
+      display: block;
+    }
+  }
+}
+
 .header {
   width: 100%;
   background-color: $white;
   font-size: 2.25rem;
+
+  @include mobile {
+    &.jf-sticky {
+      position: fixed;
+      top: 0;
+      z-index: 10;
+    }
+  }
 
   .navbar {
     height: $navbar-height;
@@ -15,6 +37,11 @@
     @include mobile {
       height: $navbar-height-mobile;
       min-height: unset;
+
+      // &.jf-sticky {
+      //   position: fixed;
+      //   top: 0;
+      // }
     }
 
     .navbar-brand {
@@ -24,21 +51,26 @@
       .navbar-item {
         padding: 2rem 1.75rem;
         transition: none;
+
         &.is-active {
           background-color: $black;
           color: $white;
         }
+
         &:first-child {
           @include desktop {
             border-right: 2px solid $black;
           }
         }
+
         img {
           max-height: unset;
         }
+
         .navbar-burger {
           align-self: center;
           font-size: 1.5rem;
+
           &:hover {
             background-color: inherit;
             text-decoration: underline;
@@ -51,11 +83,13 @@
         }
       }
     }
+
     .navbar-menu {
       // Make sure navbar menu appears above other page content:
       z-index: 100;
       position: absolute;
       right: 0;
+
       @include desktop {
         width: 325px;
         box-sizing: border-box;
@@ -72,17 +106,21 @@
 
       .navbar-end {
         height: 100%;
+
         .navbar-item {
           @include mobile-h3;
           font-variant: normal;
           background-color: inherit;
+
           &a:hover {
             text-decoration: underline;
           }
+
           &[aria-current="page"] {
             padding-left: 2.5rem;
             text-indent: calc(-1 * #{$spacing-05 + $spacing-04});
             text-decoration: none;
+
             &::before {
               content: "▪";
               margin-right: $spacing-05;
@@ -106,8 +144,10 @@
       }
     }
   }
+
   .navbar-dropdown {
     width: 100%;
+
     .navbar-item:hover {
       font-weight: 600;
       transition: 0.1s;
@@ -119,6 +159,7 @@
   .navbar-item.is-hoverable:hover .navbar-dropdown {
     display: block;
   }
+
   .button {
     min-width: 120px;
   }
