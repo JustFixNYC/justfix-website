@@ -39,8 +39,6 @@ const catalogs: LocaleCatalogs = {
 export const formatImageUrlForSEO = (url: string) =>
   url.startsWith("//") ? encodeURI(`https:${url}`) : encodeURI(url);
 
-// import './layout.css'
-
 type Props = {
   metadata?: {
     [key: string]: any;
