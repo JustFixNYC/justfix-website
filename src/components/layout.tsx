@@ -133,16 +133,16 @@ const LayoutScaffolding = ({
       >
         {children}
         <Footer />
-      </div>
-      <div className="jf-footer-menu">
-        <CookiesBanner />
-        {isHomepage && (
-          <div className="has-background-black py-5 is-flex is-justify-content-center is-hidden-desktop">
-            <LocaleLink to="/tools" className="button is-primary">
-              <Trans>See our tools</Trans>
-            </LocaleLink>
-          </div>
-        )}
+        <div className="jf-footer-menu">
+          <CookiesBanner />
+          {isHomepage && (
+            <div className="has-background-black py-5 is-flex is-justify-content-center is-hidden-desktop">
+              <LocaleLink to="/tools" className="button is-primary">
+                <Trans>See our tools</Trans>
+              </LocaleLink>
+            </div>
+          )}
+        </div>
       </div>
     </I18nProvider>
   );
