@@ -37,11 +37,6 @@
     @include mobile {
       height: $navbar-height-mobile;
       min-height: unset;
-
-      // &.jf-sticky {
-      //   position: fixed;
-      //   top: 0;
-      // }
     }
 
     .navbar-brand {
