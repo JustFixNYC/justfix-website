@@ -125,7 +125,12 @@ const LayoutScaffolding = ({
         <meta name="twitter:image:alt" content={title} />
       </Helmet>
       <Header isLandingPage={isLandingPage} />
-      <div className={classnames(isHomepage && "mb-12-mobile")}>
+      <div
+        className={
+          // Add extra space at bottom of page for fixed footer button:
+          classnames(isHomepage && "mb-12-mobile")
+        }
+      >
         {children}
         <Footer />
       </div>
