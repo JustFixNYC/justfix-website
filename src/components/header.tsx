@@ -229,7 +229,7 @@ const Header: React.FC<{
                 (burgerMenuIsOpen && "is-active")
               }
             >
-              <div className="navbar-end is-flex is-flex-direction-column is-justify-content-space-between py-3 px-5">
+              <div className="navbar-end is-flex is-flex-direction-column py-3 px-5">
                 <div>
                   {SITE_LINKS.map((link, i) => (
                     <HeaderLink link={link} key={i} />
