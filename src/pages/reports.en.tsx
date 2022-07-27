@@ -1,5 +1,4 @@
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import { Trans } from "@lingui/macro";
 import { graphql, StaticQuery } from "gatsby";
 import React from "react";
 import Layout from "../components/layout";
