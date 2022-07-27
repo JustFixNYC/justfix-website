@@ -30,24 +30,24 @@ msgid "Assert your tenant rights by using our digital tools"
 msgstr ""
 
 #: src/components/learning-center/category-page-template.tsx:28
-msgid "Back to Overview"
-msgstr "Back to Overview"
+#~ msgid "Back to Overview"
+#~ msgstr "Back to Overview"
 
 #: src/components/cookies-banner.tsx:24
 msgid "By using our website you consent to the use of cookies."
 msgstr ""
 
-#: src/components/header.tsx:24
+#: src/components/header.tsx:25
 msgid "Careers"
 msgstr ""
 
 #: src/components/accordion.tsx:12
 #: src/components/cookies-banner.tsx:32
-#: src/components/header.tsx:86
+#: src/components/header.tsx:119
 msgid "Close"
 msgstr ""
 
-#: src/components/header.tsx:25
+#: src/components/header.tsx:26
 msgid "Contact Us"
 msgstr "Contact Us"
 
@@ -55,7 +55,7 @@ msgstr "Contact Us"
 msgid "Contents"
 msgstr ""
 
-#: src/components/header.tsx:69
+#: src/components/header.tsx:102
 msgid "DEMO SITE"
 msgstr "DEMO SITE"
 
@@ -87,19 +87,20 @@ msgstr "Join our mailing list!"
 msgid "Learn more"
 msgstr ""
 
-#: src/components/header.tsx:23
+#: src/components/header.tsx:24
 #: src/components/learning-center/article-template.tsx:74
+#: src/components/learning-center/category-page-template.tsx:14
 #: src/pages/learn.en.tsx:90
 msgid "Learning Center"
 msgstr ""
 
-#: src/components/header.tsx:86
+#: src/components/header.tsx:119
 msgid "Menu"
 msgstr ""
 
 #: src/components/header.tsx:17
-msgid "Mission"
-msgstr "Mission"
+#~ msgid "Mission"
+#~ msgstr "Mission"
 
 #: src/components/learning-center/learning-searchbar.tsx:73
 msgid "No articles match your search."
@@ -122,7 +123,7 @@ msgstr "Oops! A network error occurred. Try again later."
 msgid "Oops! That email is invalid."
 msgstr "Oops! That email is invalid."
 
-#: src/components/header.tsx:19
+#: src/components/header.tsx:20
 msgid "Partners & Funders"
 msgstr ""
 
@@ -134,7 +135,7 @@ msgstr ""
 msgid "Please enter an email address!"
 msgstr "Please enter an email address!"
 
-#: src/components/header.tsx:20
+#: src/components/header.tsx:21
 msgid "Press"
 msgstr "Press"
 
@@ -152,7 +153,7 @@ msgstr ""
 msgid "Read More"
 msgstr "Read More"
 
-#: src/components/header.tsx:22
+#: src/components/header.tsx:23
 msgid "Research & Policy"
 msgstr ""
 
@@ -164,7 +165,8 @@ msgstr ""
 msgid "See all articles"
 msgstr ""
 
-#: src/components/header.tsx:78
+#: src/components/header.tsx:111
+#: src/components/layout.tsx:100
 msgid "See our tools"
 msgstr ""
 
@@ -185,11 +187,11 @@ msgstr ""
 msgid "Take action"
 msgstr ""
 
-#: src/components/header.tsx:18
+#: src/components/header.tsx:19
 msgid "Team"
 msgstr "Team"
 
-#: src/components/header.tsx:73
+#: src/components/header.tsx:106
 msgid "Technology for Housing Justice"
 msgstr ""
 
@@ -209,7 +211,7 @@ msgstr ""
 msgid "This means that we’re able to see your approximate location, the type of device you’re using, and your operating system."
 msgstr ""
 
-#: src/components/header.tsx:21
+#: src/components/header.tsx:22
 msgid "Tools"
 msgstr ""
 
@@ -222,6 +224,10 @@ msgstr "Updated"
 
 #: src/components/cookies-banner.tsx:47
 msgid "We use cookies on this website"
+msgstr ""
+
+#: src/components/header.tsx:18
+msgid "What We Do"
 msgstr ""
 
 #: src/components/learning-center/article-template.tsx:110

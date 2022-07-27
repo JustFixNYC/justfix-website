@@ -22,7 +22,7 @@ export const CAREERS_PAGE_URL = "https://justfix.breezy.hr/";
 export type LinkWithLabel = [string, JSX.Element];
 
 export const SITE_LINKS: LinkWithLabel[] = [
-  ["/our-mission", <Trans>Mission</Trans>],
+  ["/our-mission", <Trans>What We Do</Trans>],
   ["/team", <Trans>Team</Trans>],
   ["/partners", <Trans>Partners & Funders</Trans>],
   ["/press", <Trans>Press</Trans>],
@@ -111,6 +111,8 @@ const HeaderLink: React.FC<{ link: LinkWithLabel }> = ({ link }) =>
     <OutboundLink
       className="navbar-item no-underline p-0 has-text-white"
       href={link[0]}
+      target="_blank"
+      rel="noopener noreferrer"
     >
       {link[1]}
     </OutboundLink>
