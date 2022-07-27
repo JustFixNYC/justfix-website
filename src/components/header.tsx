@@ -235,7 +235,7 @@ const Header: React.FC<{
               <div className="navbar-end is-flex is-flex-direction-column py-3 px-5">
                 <div>
                   {SITE_LINKS.map((link, i) => (
-                    <HeaderLink link={link} key={i} className />
+                    <HeaderLink link={link} key={i} />
                   ))}
                 </div>
 
