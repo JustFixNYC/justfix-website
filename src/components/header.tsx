@@ -104,12 +104,15 @@ const MoratoriumBanner: React.FC<{}> = () => {
 
 const HeaderLink: React.FC<{ link: LinkWithLabel }> = ({ link }) =>
   link[0].charAt(0) === "/" ? (
-    <Link className="navbar-item no-underline p-0 has-text-white" to={link[0]}>
+    <Link
+      className="navbar-item no-underline px-0 py-3 has-text-white"
+      to={link[0]}
+    >
       {link[1]}
     </Link>
   ) : (
     <OutboundLink
-      className="navbar-item no-underline p-0 has-text-white"
+      className="navbar-item no-underline px-0 py-3 has-text-white"
       href={link[0]}
       target="_blank"
       rel="noopener noreferrer"
@@ -232,7 +235,7 @@ const Header: React.FC<{
               <div className="navbar-end is-flex is-flex-direction-column py-3 px-5">
                 <div>
                   {SITE_LINKS.map((link, i) => (
-                    <HeaderLink link={link} key={i} />
+                    <HeaderLink link={link} key={i} className />
                   ))}
                 </div>
 
