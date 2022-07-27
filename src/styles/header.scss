@@ -2,10 +2,32 @@
 @import "_design-system.scss";
 @import "~bulma/sass/utilities/initial-variables.sass";
 
+// This placeholder replaces the header when it detaches to
+// become fixed, preventing jump in page content
+.jf-sticky-phantom {
+  @include mobile {
+    display: none;
+    height: $navbar-height-mobile;
+    background-color: $white;
+
+    &.jf-sticky {
+      display: block;
+    }
+  }
+}
+
 .header {
   width: 100%;
   background-color: $white;
   font-size: 2.25rem;
+
+  @include mobile {
+    &.jf-sticky {
+      position: fixed;
+      top: 0;
+      z-index: 10;
+    }
+  }
 
   .navbar {
     height: $navbar-height;
