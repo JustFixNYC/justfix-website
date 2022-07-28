@@ -122,24 +122,26 @@ const LayoutScaffolding = ({
         <meta name="twitter:image" content={shareImageURL} />
         <meta name="twitter:image:alt" content={title} />
       </Helmet>
-      <Header isLandingPage={isLandingPage} />
-      <div
-        className={
-          // Add extra space at bottom of page for fixed footer button:
-          classnames(isHomepage && "mb-12-mobile")
-        }
-      >
-        {children}
-        <Footer />
-        <div className="jf-footer-menu">
-          <CookiesBanner />
-          {isHomepage && (
-            <div className="has-background-black py-5 is-flex is-justify-content-center is-hidden-desktop">
-              <LocaleLink to="/tools" className="button is-primary">
-                <Trans>See our tools</Trans>
-              </LocaleLink>
-            </div>
-          )}
+      <div className="jf-page-body">
+        <Header isLandingPage={isLandingPage} />
+        <div
+          className={
+            // Add extra space at bottom of page for fixed footer button:
+            classnames(isHomepage && "mb-12-mobile")
+          }
+        >
+          {children}
+          <Footer />
+          <div className="jf-footer-menu">
+            <CookiesBanner />
+            {isHomepage && (
+              <div className="has-background-black py-5 is-flex is-justify-content-center is-hidden-desktop">
+                <LocaleLink to="/tools" className="button is-primary">
+                  <Trans>See our tools</Trans>
+                </LocaleLink>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </I18nProvider>
