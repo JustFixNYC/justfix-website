@@ -174,9 +174,9 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
 
       <ProductList {...props.content} />
 
-      <div className="jf-learning-center-preview mb-12">
+      <div className="jf-learning-center-preview mb-12 mb-0-mobile">
         <div className="columns">
-          <div className="column is-12 pt-10 pt-7-mobile pb-9">
+          <div className="column is-12 pt-10 pt-7-mobile pb-9 pb-5-mobile">
             <h1 className="is-hidden-touch">
               {props.content.learningCenterPreviewTitle}
             </h1>
@@ -254,7 +254,7 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
         </div>
       </div>
 
-      <div className="mb-12">
+      <div className="mb-12 mb-9-mobile">
         <div className="columns">
           <div className="column is-6 is-12-mobile is-flex is-flex-direction-column">
             <h1 className="mb-6">{props.content.partnershipsSectionTitle}</h1>
