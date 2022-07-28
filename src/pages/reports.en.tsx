@@ -39,7 +39,9 @@ const ReportCard: React.FC<ReportCardInfo> = (props) => (
     <div className="jf-report-card columns is-paddingless is-multiline has-background-white">
       <div className="column is-6 is-paddingless">
         <Img
-          fluid={{ ...props.image.fluid, aspectRatio: 1 }}
+          fluid={props.image.fluid}
+          objectFit="cover"
+          objectPosition="100% 0%"
           alt=""
           className="jf-report-img"
         />
