@@ -22,7 +22,7 @@ export const CAREERS_PAGE_URL = "https://justfix.breezy.hr/";
 export type LinkWithLabel = [string, JSX.Element];
 
 export const SITE_LINKS: LinkWithLabel[] = [
-  ["/our-mission", <Trans>Mission</Trans>],
+  ["/our-mission", <Trans>What We Do</Trans>],
   ["/team", <Trans>Team</Trans>],
   ["/partners", <Trans>Partners & Funders</Trans>],
   ["/press", <Trans>Press</Trans>],
@@ -104,13 +104,18 @@ const MoratoriumBanner: React.FC<{}> = () => {
 
 const HeaderLink: React.FC<{ link: LinkWithLabel }> = ({ link }) =>
   link[0].charAt(0) === "/" ? (
-    <Link className="navbar-item no-underline p-0 has-text-white" to={link[0]}>
+    <Link
+      className="navbar-item no-underline px-0 py-3 has-text-white"
+      to={link[0]}
+    >
       {link[1]}
     </Link>
   ) : (
     <OutboundLink
-      className="navbar-item no-underline p-0 has-text-white"
+      className="navbar-item no-underline px-0 py-3 has-text-white"
       href={link[0]}
+      target="_blank"
+      rel="noopener noreferrer"
     >
       {link[1]}
     </OutboundLink>
@@ -227,7 +232,7 @@ const Header: React.FC<{
                 (burgerMenuIsOpen && "is-active")
               }
             >
-              <div className="navbar-end is-flex is-flex-direction-column is-justify-content-space-between py-3 px-5">
+              <div className="navbar-end is-flex is-flex-direction-column py-3 px-5">
                 <div>
                   {SITE_LINKS.map((link, i) => (
                     <HeaderLink link={link} key={i} />
