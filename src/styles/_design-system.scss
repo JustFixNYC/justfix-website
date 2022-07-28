@@ -184,6 +184,10 @@ $body-color: $justfix-black;
 }
 
 // TYPOGRAPHY-MOBILE:
+@mixin mobile-body-standard {
+  @include body-standard();
+  line-height: 120%;
+}
 
 @mixin mobile-h1 {
   @include body-standard();
@@ -235,7 +239,7 @@ $body-color: $justfix-black;
   p,
   a,
   span {
-    @include body-standard();
+    @include mobile-body-standard();
 
     &.is-small {
       @include mobile-text-small();
@@ -272,7 +276,7 @@ $body-color: $justfix-black;
 
   .title.is-4,
   h4 {
-    @include body-standard();
+    @include mobile-body-standard();
   }
 
   .eyebrow {
