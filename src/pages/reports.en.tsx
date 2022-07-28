@@ -1,5 +1,4 @@
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import { Trans } from "@lingui/macro";
 import { graphql, StaticQuery } from "gatsby";
 import React from "react";
 import Layout from "../components/layout";
@@ -23,38 +22,6 @@ function formatDate(dateString: string, locale?: string): string {
   });
 }
 
-type EndorsementInfo = {
-  userName: string;
-  userImage: {
-    fluid: FluidObject;
-  };
-  userLink: string;
-  message: {
-    json: any;
-  };
-  messageLink: string;
-};
-
-const Endorsement: React.FC<EndorsementInfo> = (props) => (
-  <div className="mt-8 mt-6-mobile pb-5 pb-0-mobile">
-    <div className="is-flex has-text-centered is-align-items-center">
-      <figure className="image is-48x48">
-        <Img
-          fluid={props.userImage.fluid}
-          alt=""
-          className="is-rounded img-centered"
-        />
-      </figure>
-      <span className="is-small is-bold pl-5">
-        {props.userName} <Trans>says:</Trans>
-      </span>
-    </div>
-    <div className="title is-4 pl-10 pl-0-mobile pt-5-mobile">
-      {documentToReactComponents(props.message.json)}
-    </div>
-  </div>
-);
-
 type ReportCardInfo = {
   reportTitle: string;
   publicationDate: string;
@@ -65,21 +32,18 @@ type ReportCardInfo = {
   image: {
     fluid: FluidObject;
   };
-  endorsements: EndorsementInfo[];
   locale: string;
-  hasDivider: boolean;
 };
 
 const ReportCard: React.FC<ReportCardInfo> = (props) => (
-  <div className={`${!props.hasDivider ? "mt-6" : ""} mt-0-mobile`}>
-    {props.hasDivider && <div className="is-divider" />}
+  <div className="mt-6 mb-9 mt-0-mobile">
     <div className="jf-report-card columns is-paddingless is-multiline has-background-white">
       <div className="column is-6 is-paddingless">
         <Img
           fluid={props.image.fluid}
-          alt=""
           objectFit="cover"
           objectPosition="100% 0%"
+          alt=""
           className="jf-report-img"
         />
       </div>
@@ -144,12 +108,7 @@ export const PolicyPageScaffolding = (props: ContentfulContent) => {
           </div>
           <div className="column is-9 pb-9 py-0-mobile">
             {props.content.reportBlocks.map((report: any, i: number) => (
-              <div key={i}>
-                <ReportCard {...report} locale={locale} hasDivider={i > 0} />
-                {report.endorsements.map((endorsement: any, i: number) => (
-                  <Endorsement {...endorsement} key={i} />
-                ))}
-              </div>
+              <ReportCard {...report} locale={locale} key={i} />
             ))}
           </div>
         </div>
@@ -194,19 +153,6 @@ export const PolicyPageFragment = graphql`
           fluid {
             ...GatsbyContentfulFluid
           }
-        }
-        endorsements {
-          userName
-          userImage {
-            fluid {
-              ...GatsbyContentfulFluid
-            }
-          }
-          userLink
-          message {
-            json
-          }
-          messageLink
         }
       }
     }

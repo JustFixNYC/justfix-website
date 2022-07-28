@@ -12,6 +12,7 @@
         height: 100%;
 
         @include mobile {
+          border-radius: 0.25rem 0.25rem 0 0; // 4px
           height: 15rem; // 240px
         }
       }
