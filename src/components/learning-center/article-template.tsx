@@ -69,6 +69,9 @@ function renderSection(articleSection: any, i: number): JSX.Element {
               [BLOCKS.UL_LIST]: (node, children) => (
                 <ul className="ml-8 mb-6">{children}</ul>
               ),
+              [BLOCKS.LIST_ITEM]: (node, children) => (
+                <li className="mb-4">{children}</li>
+              ),
               [BLOCKS.QUOTE]: (node, children) => (
                 <div className="columns is-paddingless">
                   <div className="column has-background-light my-6 p-5">
@@ -134,7 +137,7 @@ const LearningArticle = (props: Props) => {
                     <Trans>Learning Center</Trans>
                   </LocaleLink>
                 </li>
-                {/* Note: we need to add the eyebrow css class to the <li> 
+                {/* Note: we need to add the eyebrow css class to the <li>
                     component to style the "/" separator */}
                 <li className="eyebrow is-large">
                   <LocaleLink
