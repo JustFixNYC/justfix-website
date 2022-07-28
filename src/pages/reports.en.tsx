@@ -9,6 +9,7 @@ import { useCurrentLocale } from "../util/use-locale";
 import { ContentfulContent } from "./index.en";
 import Img from "gatsby-image/withIEPolyfill";
 import ResponsiveElement from "../components/responsive-element";
+import { FluidObject } from "gatsby-image";
 
 import "../styles/reports.scss";
 
@@ -29,7 +30,7 @@ type ReportCardInfo = {
   };
   reportUrl: string;
   image: {
-    fluid: any;
+    fluid: FluidObject;
   };
   locale: string;
 };

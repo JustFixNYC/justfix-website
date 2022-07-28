@@ -121,10 +121,11 @@ const PartnersSection: React.FC<PartnersSectionDetails> = ({
         {partners
           // Sort alphabetically:
           .sort((a, b) => a.name.localeCompare(b.name))
+          .filter((partner: PartnerDetails) => !!(partner.link && partner.logo))
           .map((partner: PartnerDetails, i: number) => (
             <>
               <PartnerCard {...partner} key={i} />
-              <PartnerCardMobile {...partner} key={i} />
+              <PartnerCardMobile {...partner} key={i + "-mobile"} />
             </>
           ))}
       </div>
@@ -263,10 +264,13 @@ export const PartnersPageScaffolding = (props: ContentfulContent) => (
             {props.content.funders
               // Sort alphabetically:
               .sort((a: any, b: any) => a.name.localeCompare(b.name))
+              .filter(
+                (funder: PartnerDetails) => !!(funder.link && funder.logo)
+              )
               .map((funder: PartnerDetails, i: number) => (
                 <>
                   <PartnerCard {...funder} key={i} />
-                  <PartnerCardMobile {...funder} key={i} />
+                  <PartnerCardMobile {...funder} key={i + "-mobile"} />
                 </>
               ))}
           </div>

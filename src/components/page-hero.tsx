@@ -2,13 +2,14 @@ import React from "react";
 import { Trans } from "@lingui/macro";
 import BackgroundImage from "gatsby-background-image";
 import ResponsiveElement from "./responsive-element";
+import { FluidObject } from "gatsby-image";
 
 type PageHeroInfo = {
   pageName: string;
   description: string;
   onThisPageList: string[];
   image?: {
-    fluid: any;
+    fluid: FluidObject;
   };
 };
 
@@ -44,13 +45,13 @@ const PageHero: React.FC<PageHeroInfo> = ({
     ) : (
       <div className="columns is-marginless is-paddingless">
         <div className="column is-9 px-9 py-10 p-6-mobile is-flex is-align-items-flex-end">
-          <div>
+          <div className="is-flex-mobile is-flex-direction-column is-flex-grow-1">
             <div className="eyebrow is-large pb-4">{pageName}</div>
             <h1 className="mt-4">{description}</h1>
           </div>
         </div>
         <div className="column is-3 px-9 py-10 p-6-mobile is-flex is-align-items-flex-end">
-          <div>
+          <div className="is-flex-mobile is-flex-direction-column is-flex-grow-1">
             <div className="eyebrow is-large pb-4">
               <Trans>On this page</Trans>
             </div>
