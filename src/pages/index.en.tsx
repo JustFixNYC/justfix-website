@@ -186,7 +186,7 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
                   </div>
                   <Link
                     to={`/learn/${props.content.learningCenterPreviewArticles[0].slug}`}
-                    className="no-underline"
+                    className="jf-link-article"
                   >
                     <h2 className="mb-6">
                       {props.content.learningCenterPreviewArticles[0].title}
@@ -211,7 +211,7 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
                     <div className="column is-marginless is-12 py-6 px-9">
                       <Link
                         to={`/learn/${props.content.learningCenterPreviewArticles[1].slug}`}
-                        className="no-underline"
+                        className="jf-link-article"
                       >
                         <h3 className="mb-4">
                           {props.content.learningCenterPreviewArticles[1].title}
@@ -231,7 +231,7 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
                     <div className="column is-marginless is-12 py-6 px-9">
                       <Link
                         to={`/learn/${props.content.learningCenterPreviewArticles[2].slug}`}
-                        className="no-underline"
+                        className="jf-link-article"
                       >
                         <h3 className="mb-4">
                           {props.content.learningCenterPreviewArticles[2].title}

@@ -121,7 +121,7 @@ export const ArticlePreviewCard = (props: ArticlePreviewInfo) => {
             )}
           </div>
           <div className="mb-6 mb-3-mobile">
-            <LocaleLink className={"no-underline"} to={articleUrl}>
+            <LocaleLink className={"jf-link-article"} to={articleUrl}>
               <h3 className="mb-6 mb-3-mobile">{props.title}</h3>
             </LocaleLink>
             <span className="is-hidden-mobile eyebrow is-small">

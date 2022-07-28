@@ -62,7 +62,10 @@ export const PressPageScaffolding = (props: ContentfulContent) => {
                   </figure>
                   <div className="jf-press-title title is-3">{press.title}</div>
                 </div>
-                <OutboundLink href={press.hyperlink} className="no-underline">
+                <OutboundLink
+                  href={press.hyperlink}
+                  className="jf-link-article"
+                >
                   <ResponsiveElement desktop="h2" touch="h3" className="mb-6">
                     {press.linkText}
                   </ResponsiveElement>
