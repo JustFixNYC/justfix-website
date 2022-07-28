@@ -184,9 +184,14 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
                   <div className="eyebrow is-large mb-6">
                     <Trans>Featured article</Trans>
                   </div>
-                  <h2 className="mb-6">
-                    {props.content.learningCenterPreviewArticles[0].title}
-                  </h2>
+                  <Link
+                    to={`/learn/${props.content.learningCenterPreviewArticles[0].slug}`}
+                    className="no-underline"
+                  >
+                    <h2 className="mb-6">
+                      {props.content.learningCenterPreviewArticles[0].title}
+                    </h2>
+                  </Link>
                   <div className="eyebrow is-large mb-5">
                     <Trans>Updated</Trans>{" "}
                     {props.content.learningCenterPreviewArticles[0].dateUpdated}
@@ -204,9 +209,14 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
                 <div className="column is-marginless is-paddingless is-7 is-12-touch">
                   <div className="columns is-marginless is-paddingless is-multiline">
                     <div className="column is-marginless is-12 py-6 px-9">
-                      <h3 className="mb-4">
-                        {props.content.learningCenterPreviewArticles[1].title}
-                      </h3>
+                      <Link
+                        to={`/learn/${props.content.learningCenterPreviewArticles[1].slug}`}
+                        className="no-underline"
+                      >
+                        <h3 className="mb-4">
+                          {props.content.learningCenterPreviewArticles[1].title}
+                        </h3>
+                      </Link>
                       <div className="eyebrow is-large mb-4">
                         <Trans>Updated</Trans>{" "}
                         {
@@ -219,9 +229,14 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
                       />
                     </div>
                     <div className="column is-marginless is-12 py-6 px-9">
-                      <h3 className="mb-4">
-                        {props.content.learningCenterPreviewArticles[2].title}
-                      </h3>
+                      <Link
+                        to={`/learn/${props.content.learningCenterPreviewArticles[2].slug}`}
+                        className="no-underline"
+                      >
+                        <h3 className="mb-4">
+                          {props.content.learningCenterPreviewArticles[2].title}
+                        </h3>
+                      </Link>
                       <div className="eyebrow is-large mb-4">
                         <Trans>Updated</Trans>{" "}
                         {
