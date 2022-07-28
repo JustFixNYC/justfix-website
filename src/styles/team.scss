@@ -11,4 +11,10 @@
     flex-wrap: wrap;
     justify-content: space-between;
   }
+
+  .jf-alumni-list {
+    @include desktop {
+      column-count: 2;
+    }
+  }
 }

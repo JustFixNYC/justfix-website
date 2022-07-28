@@ -66,62 +66,48 @@ const MemberCardsList: React.FC<MemberCardsListInfo> = (props) => (
   </div>
 );
 
-export const TeamPageScaffolding = (props: ContentfulContent) => {
-  const alumni = props.content.otherContributors;
-  const alumniNumHalf = Math.ceil(alumni.length / 2);
+export const TeamPageScaffolding = (props: ContentfulContent) => (
+  <Layout metadata={props.content.metadata}>
+    <div id="team" className="team-page">
+      <PageHero {...props.content.teamPageHero} />
 
-  return (
-    <Layout metadata={props.content.metadata}>
-      <div id="team" className="team-page">
-        <PageHero {...props.content.teamPageHero} />
+      <MemberCardsList
+        sectionTitle={props.content.title}
+        memberList={props.content.teamMembers}
+      />
 
-        <MemberCardsList
-          sectionTitle={props.content.title}
-          memberList={props.content.teamMembers}
-        />
+      <MemberCardsList
+        sectionTitle={props.content.directorsTitle}
+        memberList={props.content.directors}
+      />
 
-        <MemberCardsList
-          sectionTitle={props.content.directorsTitle}
-          memberList={props.content.directors}
-        />
-
-        <div className="py-9">
-          <div className="columns">
-            <div className="column">
-              <ResponsiveElement
-                desktop="h2"
-                touch="h1"
-                className="jf-team-title"
-              >
-                {props.content.otherContributorsTitle}
-              </ResponsiveElement>
-            </div>
+      <div className="py-9">
+        <div className="columns">
+          <div className="column">
+            <ResponsiveElement
+              desktop="h2"
+              touch="h1"
+              className="jf-team-title"
+            >
+              {props.content.otherContributorsTitle}
+            </ResponsiveElement>
           </div>
-          <div className="columns">
-            <div className="column is-4 is-12-mobile pb-0-mobile">
-              {alumni
-                .slice(0, alumniNumHalf)
-                .map((contributor: any, i: number) => (
-                  <p className="py-4" key={i}>
-                    {contributor.name}
-                  </p>
-                ))}
-            </div>
-            <div className="column is-4 is-12-mobile pt-0-mobile">
-              {alumni
-                .slice(alumniNumHalf)
-                .map((contributor: any, i: number) => (
-                  <p className="py-4" key={i}>
-                    {contributor.name}
-                  </p>
-                ))}
-            </div>
+        </div>
+        <div className="columns">
+          <div className="jf-alumni-list column is-8 is-12-mobile">
+            {props.content.otherContributors.map(
+              (contributor: any, i: number) => (
+                <p className="py-4" key={i}>
+                  {contributor.name}
+                </p>
+              )
+            )}
           </div>
         </div>
       </div>
-    </Layout>
-  );
-};
+    </div>
+  </Layout>
+);
 
 export const TeamPageFragment = graphql`
   fragment TeamPage on Query {
