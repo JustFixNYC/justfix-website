@@ -7,6 +7,7 @@ import { ContentfulContent } from "./index.en";
 import { FluidObject } from "gatsby-image";
 
 import "../styles/team.scss";
+import ResponsiveElement from "../components/responsive-element";
 
 type MemberCardInfo = {
   name: string;
@@ -83,13 +84,17 @@ export const TeamPageScaffolding = (props: ContentfulContent) => (
       <div className="py-9">
         <div className="columns">
           <div className="column">
-            <h1 className="jf-team-title">
+            <ResponsiveElement
+              desktop="h2"
+              touch="h1"
+              className="jf-team-title"
+            >
               {props.content.otherContributorsTitle}
-            </h1>
+            </ResponsiveElement>
           </div>
         </div>
         <div className="columns">
-          <div className="column">
+          <div className="jf-alumni-list column is-8 is-12-mobile">
             {props.content.otherContributors.map(
               (contributor: any, i: number) => (
                 <p className="py-4" key={i}>
