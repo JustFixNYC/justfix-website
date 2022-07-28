@@ -95,12 +95,12 @@ $spacing-values: (
 
 // OTHER BULMA OVERRIDES
 
-/* 
+/*
   Make sure descendants of the .title class inherit it's font size properties.
 
   This is especially helpful when using "Rich Text" type content from Contentful, which
   by default provides content in <p> tags. This rule makes sure we can override the size
-  of the text. 
+  of the text.
 */
 .title p {
   font-size: inherit;
@@ -180,11 +180,12 @@ $page-hero-offset: $spacing-06;
 
       @include mobile {
         border-right: none;
-        border-bottom: 2px solid $justfix-white;
       }
 
-      .eyebrow {
-        width: 50%;
+      @include desktop {
+        .eyebrow {
+          width: 50%;
+        }
       }
     }
 
