@@ -10,6 +10,7 @@ import { useCurrentLocale } from "../util/use-locale";
 import { ContentfulContent } from "./index.en";
 import Img from "gatsby-image/withIEPolyfill";
 import ResponsiveElement from "../components/responsive-element";
+import { FluidObject } from "gatsby-image";
 
 import "../styles/reports.scss";
 
@@ -25,7 +26,7 @@ function formatDate(dateString: string, locale?: string): string {
 type EndorsementInfo = {
   userName: string;
   userImage: {
-    fluid: any;
+    fluid: FluidObject;
   };
   userLink: string;
   message: {
@@ -62,7 +63,7 @@ type ReportCardInfo = {
   };
   reportUrl: string;
   image: {
-    fluid: any;
+    fluid: FluidObject;
   };
   endorsements: EndorsementInfo[];
   locale: string;
