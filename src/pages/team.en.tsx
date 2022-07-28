@@ -4,6 +4,7 @@ import Img from "gatsby-image/withIEPolyfill";
 import Layout from "../components/layout";
 import PageHero from "../components/page-hero";
 import { ContentfulContent } from "./index.en";
+import { FluidObject } from "gatsby-image";
 
 import "../styles/team.scss";
 
@@ -14,7 +15,7 @@ type MemberCardInfo = {
     description: string;
   };
   photo: {
-    fluid: any;
+    fluid: FluidObject;
   };
   className?: string;
 };

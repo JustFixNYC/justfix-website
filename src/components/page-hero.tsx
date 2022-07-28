@@ -2,13 +2,14 @@ import React from "react";
 import { Trans } from "@lingui/macro";
 import BackgroundImage from "gatsby-background-image";
 import ResponsiveElement from "./responsive-element";
+import { FluidObject } from "gatsby-image";
 
 type PageHeroInfo = {
   pageName: string;
   description: string;
   onThisPageList: string[];
   image?: {
-    fluid: any;
+    fluid: FluidObject;
   };
 };
 
