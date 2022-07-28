@@ -113,9 +113,7 @@ export const ProductList: React.FC<ProductListInfo> = (props) => (
   >
     <div className="columns is-multiline">
       <div className="column is-12 pt-10 pt-7-mobile pb-9">
-        <h1 className="is-hidden-touch">{props.productSectionTitle}</h1>
-        <h2 className="is-hidden-desktop">{props.productSectionTitle}</h2>
-        <h3 className="mt-2">{props.productSectionSubtitle}</h3>
+        <h1>{props.productSectionTitle}</h1>
       </div>
       {shuffleArray(props.homePageProductBlocks).map(
         (product: any, i: number) => (
@@ -176,12 +174,7 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
       <div className="jf-learning-center-preview mb-12 mb-0-mobile">
         <div className="columns">
           <div className="column is-12 pt-10 pt-7-mobile pb-9 pb-5-mobile">
-            <h1 className="is-hidden-touch">
-              {props.content.learningCenterPreviewTitle}
-            </h1>
-            <h2 className="is-hidden-desktop">
-              {props.content.learningCenterPreviewTitle}
-            </h2>
+            <h1>{props.content.learningCenterPreviewTitle}</h1>
             <h3 className="mt-2">
               {props.content.learningCenterPreviewSubtitle}
             </h3>
@@ -317,7 +310,6 @@ export const LandingPageFragment = graphql`
         link
       }
       productSectionTitle
-      productSectionSubtitle
       homePageProductBlocks {
         productName
         title
