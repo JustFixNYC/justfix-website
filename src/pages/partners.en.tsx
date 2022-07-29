@@ -323,7 +323,7 @@ export const PartnersPageFragment = graphql`
         }
       }
       collaborationBanner {
-        title
+        label
         content {
           json
         }
