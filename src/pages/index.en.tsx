@@ -196,15 +196,15 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
                     <Trans>Updated</Trans>{" "}
                     {props.content.learningCenterPreviewArticles[0].dateUpdated}
                   </div>
-                  <p>
+                  <p className="title is-4">
                     {
                       props.content.learningCenterPreviewArticles[0].metadata
                         .description
-                    }{" "}
-                    <ReadMoreLink
-                      url={`/learn/${props.content.learningCenterPreviewArticles[0].slug}`}
-                    />
+                    }
                   </p>
+                  <ReadMoreLink
+                    url={`/learn/${props.content.learningCenterPreviewArticles[0].slug}`}
+                  />
                 </div>
                 <div className="column is-marginless is-paddingless is-7 is-12-touch">
                   <div className="columns is-marginless is-paddingless is-multiline">
