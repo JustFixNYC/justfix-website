@@ -129,7 +129,7 @@ const Footer = () => (
       <div className="column is-9">
         <p>
           <Trans>
-            <b>Disclaimer:</b> The information in JustFix.nyc does not
+            <b>Disclaimer:</b> The information in JustFix does not
             constitute legal advice and must not be used as a substitute for the
             advice of a lawyer qualified to give advice on legal issues
             pertaining to housing. We can help direct you to free legal services
@@ -139,7 +139,7 @@ const Footer = () => (
         <br />
         <p>
           <Trans>
-            <b>JustFix.nyc</b> is a registered 501(c)(3) nonprofit organization.
+            <b>JustFix</b> is a registered 501(c)(3) nonprofit organization.
           </Trans>
         </p>
         <div className="mt-9">

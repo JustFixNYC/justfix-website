@@ -239,7 +239,7 @@ exports.createPages = async function ({ actions, graphql }) {
   });
   createRedirect({
     fromPath: "/ehp",
-    toPath: "https://app.justfix.nyc/ehp",
+    toPath: "https://app.justfix.org/ehp",
     isPermanent: true,
   });
   createRedirect({ fromPath: "/get-repairs", toPath: "/", isPermanent: true });

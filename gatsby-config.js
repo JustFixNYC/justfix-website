@@ -42,8 +42,8 @@ const plugins = [
   {
     resolve: `gatsby-plugin-manifest`,
     options: {
-      name: "JustFix.nyc",
-      short_name: "JustFix.nyc",
+      name: "JustFix",
+      short_name: "JustFix",
       start_url: "/",
       background_color: "#663399",
       theme_color: "#663399",
@@ -110,7 +110,7 @@ const plugins = [
 
 module.exports = {
   siteMetadata: {
-    title: "JustFix.nyc",
+    title: "JustFix",
   },
   plugins: conditionallyAddExtraPlugins(plugins),
 };

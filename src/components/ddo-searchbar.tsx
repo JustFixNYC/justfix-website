@@ -9,7 +9,7 @@ import classnames from "classnames";
 /** The URL for Data-Driven Onboarding (DDO) on the JustFix Tenant Platform. */
 const DDO_URL =
   (process.env.GATSBY_TENANT_PLATFORM_SITE_ORIGIN ||
-    "https://demo.justfix.nyc") + "/";
+    "https://demo.justfix.org") + "/";
 
 /** The querystring variable used to communicate the address for DDO. */
 const DDO_ADDRESS_VAR = "address";
@@ -154,19 +154,19 @@ export function DDOSearchBar(props: DDOSearchBarProps): JSX.Element {
           className={
             props.withinCTA
               ? classnames(
-                  "button",
-                  "is-primary",
-                  "is-medium",
-                  "is-uppercase",
-                  isNavigating ? "is-loading" : "is-dark"
-                )
+                "button",
+                "is-primary",
+                "is-medium",
+                "is-uppercase",
+                isNavigating ? "is-loading" : "is-dark"
+              )
               : classnames(
-                  "button",
-                  "is-inverted",
-                  "is-outlined",
-                  "is-uppercase",
-                  isNavigating ? "is-loading" : "is-dark"
-                )
+                "button",
+                "is-inverted",
+                "is-outlined",
+                "is-uppercase",
+                isNavigating ? "is-loading" : "is-dark"
+              )
           }
         >
           {props.submitLabel}

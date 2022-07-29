@@ -1,4 +1,4 @@
-This is the JustFix.nyc website at https://justfix.nyc.
+This is the JustFix website at https://justfix.org.
 
 Actual site content is stored in [Contentful](https://www.contentful.com/), and
 the site is built using [Gatsby](https://next.gatsbyjs.org/).
@@ -50,4 +50,4 @@ Then visit `http://localhost:8000`!
   
 ## Code of Conduct
 
-  Read about JustFix's code of conduct as an organization on our [Mission page](https://www.justfix.nyc/our-mission/).
+  Read about JustFix's code of conduct as an organization on our [Mission page](https://www.justfix.org/our-mission/).
