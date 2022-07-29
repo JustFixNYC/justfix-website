@@ -108,7 +108,9 @@ const DropdownPlaceholder: React.FC<DropdownPlaceholderInfo> = ({
   popularArticles,
 }: DropdownPlaceholderInfo) => (
   <>
-    <span className="eyebrow is-bold mb-3">Key Topics</span>
+    <span className="eyebrow is-bold mb-3">
+      <Trans>Key Topics</Trans>
+    </span>
     <div className="mt-3 mb-7">
       {categoryButtons.map((category: any, i: number) => (
         <LocaleLink
@@ -120,7 +122,9 @@ const DropdownPlaceholder: React.FC<DropdownPlaceholderInfo> = ({
         </LocaleLink>
       ))}
     </div>
-    <span className="eyebrow is-bold">Popular Articles</span>
+    <span className="eyebrow is-bold">
+      <Trans>Popular Articles</Trans>
+    </span>
     <div className="is-flex is-flex-direction-column mt-3">
       {popularArticles.map((article: any, i: number) => (
         <LocaleLink
