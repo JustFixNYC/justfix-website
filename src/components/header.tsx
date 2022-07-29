@@ -131,7 +131,7 @@ const Header: React.FC<{
     <>
       <div
         className={classnames(
-          "jf-sticky-phantom is-hidden-desktop",
+          "jf-sticky-phantom",
           isScrollingUp && "jf-sticky"
         )}
       />
