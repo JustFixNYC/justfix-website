@@ -115,7 +115,9 @@ export const ArticlePreviewCard = (props: ArticlePreviewInfo) => {
         >
           <div className="mt-2 mb-6 mb-3-mobile">
             {isFeatured ? (
-              <span className="eyebrow">Featured Article</span>
+              <span className="eyebrow">
+                <Trans>Featured Article</Trans>
+              </span>
             ) : (
               <div className="jf-category-labels">{categoryLabels}</div>
             )}
