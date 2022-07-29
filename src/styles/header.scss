@@ -94,13 +94,18 @@
 
       .navbar-end {
         height: 100%;
-        .navbar-item {
+        .jf-menu-page-link {
           @include mobile-h3;
           font-variant: normal;
           background-color: inherit;
-          &a:hover {
+          text-decoration: none;
+
+          &:hover,
+          &:focus,
+          &:active {
             text-decoration: underline;
           }
+
           &[aria-current="page"] {
             padding-left: 2.5rem;
             text-indent: calc(-1 * #{$spacing-05 + $spacing-04});
