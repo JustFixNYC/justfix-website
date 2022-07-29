@@ -58,6 +58,7 @@ const PartnerCard: React.FC<PartnerDetails> = ({ name, link, logo }) => (
           width: "150px",
           height: "150px",
         }}
+        objectFit="contain"
       />
       <OutboundLink className="mb-9 mx-2" href={link}>
         {formatLinkLabel(link)}
@@ -88,6 +89,7 @@ const PartnerCardMobile: React.FC<PartnerDetails> = ({ name, link, logo }) => (
             width: "150px",
             height: "150px",
           }}
+          objectFit="contain"
         />
         <OutboundLink className="mb-9 mx-2" href={link}>
           {formatLinkLabel(link)}
