@@ -105,12 +105,15 @@
       .navbar-end {
         height: 100%;
 
-        .navbar-item {
+        .jf-menu-page-link {
           @include mobile-h3;
           font-variant: normal;
           background-color: inherit;
+          text-decoration: none;
 
-          &a:hover {
+          &:hover,
+          &:focus,
+          &:active {
             text-decoration: underline;
           }
 

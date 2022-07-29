@@ -64,7 +64,7 @@ export const ProductCard: React.FC<ProductCardInfo> = (props) => (
         {props.productName}
       </div>
       <h3 className="mb-6 mb-5-mobile">{props.title}</h3>
-      <div className="mb-6 mb-5-mobile">
+      <div className="title is-4 mb-6 mb-5-mobile">
         {documentToReactComponents(props.descriptionText.json)}
       </div>
       <div className="mt-auto">
@@ -184,29 +184,39 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
                   <div className="eyebrow is-large mb-6">
                     <Trans>Featured article</Trans>
                   </div>
-                  <h2 className="mb-6">
-                    {props.content.learningCenterPreviewArticles[0].title}
-                  </h2>
+                  <Link
+                    to={`/learn/${props.content.learningCenterPreviewArticles[0].slug}`}
+                    className="jf-link-article"
+                  >
+                    <h2 className="mb-6">
+                      {props.content.learningCenterPreviewArticles[0].title}
+                    </h2>
+                  </Link>
                   <div className="eyebrow is-large mb-5">
                     <Trans>Updated</Trans>{" "}
                     {props.content.learningCenterPreviewArticles[0].dateUpdated}
                   </div>
-                  <p>
+                  <p className="title is-4">
                     {
                       props.content.learningCenterPreviewArticles[0].metadata
                         .description
-                    }{" "}
-                    <ReadMoreLink
-                      url={`/learn/${props.content.learningCenterPreviewArticles[0].slug}`}
-                    />
+                    }
                   </p>
+                  <ReadMoreLink
+                    url={`/learn/${props.content.learningCenterPreviewArticles[0].slug}`}
+                  />
                 </div>
                 <div className="column is-marginless is-paddingless is-7 is-12-touch">
                   <div className="columns is-marginless is-paddingless is-multiline">
                     <div className="column is-marginless is-12 py-6 px-9">
-                      <h3 className="mb-4">
-                        {props.content.learningCenterPreviewArticles[1].title}
-                      </h3>
+                      <Link
+                        to={`/learn/${props.content.learningCenterPreviewArticles[1].slug}`}
+                        className="jf-link-article"
+                      >
+                        <h3 className="mb-4">
+                          {props.content.learningCenterPreviewArticles[1].title}
+                        </h3>
+                      </Link>
                       <div className="eyebrow is-large mb-4">
                         <Trans>Updated</Trans>{" "}
                         {
@@ -219,9 +229,14 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
                       />
                     </div>
                     <div className="column is-marginless is-12 py-6 px-9">
-                      <h3 className="mb-4">
-                        {props.content.learningCenterPreviewArticles[2].title}
-                      </h3>
+                      <Link
+                        to={`/learn/${props.content.learningCenterPreviewArticles[2].slug}`}
+                        className="jf-link-article"
+                      >
+                        <h3 className="mb-4">
+                          {props.content.learningCenterPreviewArticles[2].title}
+                        </h3>
+                      </Link>
                       <div className="eyebrow is-large mb-4">
                         <Trans>Updated</Trans>{" "}
                         {
