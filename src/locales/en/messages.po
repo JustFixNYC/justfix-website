@@ -14,12 +14,12 @@ msgstr ""
 "Plural-Forms: \n"
 
 #: src/components/footer.tsx:75
-msgid "<0>Disclaimer:</0> The information in JustFix.nyc does not constitute legal advice and must not be used as a substitute for the advice of a lawyer qualified to give advice on legal issues pertaining to housing. We can help direct you to free legal services if necessary."
-msgstr "<0>Disclaimer:</0> The information in JustFix.nyc does not constitute legal advice and must not be used as a substitute for the advice of a lawyer qualified to give advice on legal issues pertaining to housing. We can help direct you to free legal services if necessary."
+msgid "<0>Disclaimer:</0> The information in JustFix does not constitute legal advice and must not be used as a substitute for the advice of a lawyer qualified to give advice on legal issues pertaining to housing. We can help direct you to free legal services if necessary."
+msgstr ""
 
 #: src/components/footer.tsx:85
-msgid "<0>JustFix.nyc</0> is a registered 501(c)(3) nonprofit organization."
-msgstr "<0>JustFix.nyc</0> is a registered 501(c)(3) nonprofit organization."
+msgid "<0>JustFix</0> is a registered 501(c)(3) nonprofit organization."
+msgstr ""
 
 #: src/components/subscribe.tsx:37
 msgid "All set! Thanks for subscribing!"
