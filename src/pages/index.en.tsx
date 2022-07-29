@@ -64,7 +64,7 @@ export const ProductCard: React.FC<ProductCardInfo> = (props) => (
         {props.productName}
       </div>
       <h3 className="mb-6 mb-5-mobile">{props.title}</h3>
-      <div className="mb-6 mb-5-mobile">
+      <div className="title is-4 mb-6 mb-5-mobile">
         {documentToReactComponents(props.descriptionText.json)}
       </div>
       <div className="mt-auto">
