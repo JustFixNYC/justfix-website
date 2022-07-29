@@ -215,6 +215,7 @@ const Header: React.FC<{
                     className="mr-3"
                     width="16"
                     height="12"
+                    alt=""
                   />
                   {burgerMenuIsOpen ? (
                     <Trans>Close</Trans>
