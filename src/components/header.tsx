@@ -22,14 +22,14 @@ export const CAREERS_PAGE_URL = "https://justfix.breezy.hr/";
 export type LinkWithLabel = [string, JSX.Element];
 
 export const SITE_LINKS: LinkWithLabel[] = [
-  ["/our-mission", <Trans>What We Do</Trans>],
-  ["/team", <Trans>Team</Trans>],
-  ["/partners", <Trans>Partners & Funders</Trans>],
-  ["/press", <Trans>Press</Trans>],
   ["/tools", <Trans>Tools</Trans>],
+  ["/our-mission", <Trans>What We Do</Trans>],
   ["/reports", <Trans>Research & Policy</Trans>],
+  ["/partners", <Trans>Partners & Funders</Trans>],
   ["/learn", <Trans>Learning Center</Trans>],
+  ["/team", <Trans>Team</Trans>],
   [CAREERS_PAGE_URL, <Trans>Careers</Trans>],
+  ["/press", <Trans>Press</Trans>],
   ["/contact-us", <Trans>Contact Us</Trans>],
 ];
 

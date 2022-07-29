@@ -249,6 +249,16 @@ a.has-text-black:hover {
   filter: invert(1) contrast(1.3);
 }
 
+.jf-link-article {
+  text-decoration: none;
+
+  &:hover,
+  &:focus,
+  &:active {
+    text-decoration: underline;
+  }
+}
+
 .jf-email-form {
   max-width: 400px;
   .button {
@@ -334,8 +344,9 @@ a.has-text-black:hover {
   }
 
   .button.is-text {
-    width: 14px;
-    height: 14px;
+    width: 44px;
+    height: 44px;
+    padding: 15px;
   }
 
   .modal {

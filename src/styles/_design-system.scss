@@ -15,6 +15,12 @@
   }
 }
 
+@mixin wide-desktop {
+  @media screen and (min-width: $wide-desktop) {
+    @content;
+  }
+}
+
 // FONTS:
 
 @font-face {
@@ -452,5 +458,19 @@ $column-gap: 18px;
   @include mobile {
     padding-left: calc(#{$spacing-06} - #{$column-gap});
     padding-right: calc(#{$spacing-06} - #{$column-gap});
+  }
+}
+
+// WIDE DESKTOP STYLES:
+
+@include wide-desktop {
+  body {
+    background-color: $justfix-white;
+  }
+
+  .jf-page-body {
+    max-width: $wide-desktop;
+    margin: auto;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
   }
 }
