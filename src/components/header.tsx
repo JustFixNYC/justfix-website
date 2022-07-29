@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Trans } from "@lingui/macro";
+import { t, Trans } from "@lingui/macro";
 
 import "../styles/header.scss";
 import { LocaleLink as Link } from "../components/locale-link";
@@ -12,6 +12,7 @@ import { OutboundLink } from "gatsby-plugin-google-analytics";
 import FocusTrap from "focus-trap-react";
 import { FooterLanguageToggle } from "./footer";
 import classnames from "classnames";
+import { I18n } from "@lingui/react";
 
 const commonStrings = new ContentfulCommonStrings(_commonStrings as any);
 
@@ -197,31 +198,38 @@ const Header: React.FC<{
               <div
                 className={"navbar-item " + (burgerMenuIsOpen && "is-active")}
               >
-                <button
-                  role="button"
-                  className={
-                    "navbar-burger burger " + (burgerMenuIsOpen && "is-active")
-                  }
-                  aria-expanded="false"
-                  onClick={() => setBurgerMenuStatus(!burgerMenuIsOpen)}
-                  data-target="navbar"
-                >
-                  <img
-                    src={
-                      burgerMenuIsOpen
-                        ? require("../img/close.svg")
-                        : require("../img/menu.svg")
-                    }
-                    className="mr-3"
-                    width="16"
-                    height="12"
-                  />
-                  {burgerMenuIsOpen ? (
-                    <Trans>Close</Trans>
-                  ) : (
-                    <Trans>Menu</Trans>
+                <I18n>
+                  {({ i18n }) => (
+                    <button
+                      role="button"
+                      className={
+                        "navbar-burger burger " +
+                        (burgerMenuIsOpen && "is-active")
+                      }
+                      aria-expanded="false"
+                      aria-label={i18n._(burgerMenuIsOpen ? t`Close` : t`Open`)}
+                      onClick={() => setBurgerMenuStatus(!burgerMenuIsOpen)}
+                      data-target="navbar"
+                    >
+                      <img
+                        src={
+                          burgerMenuIsOpen
+                            ? require("../img/close.svg")
+                            : require("../img/menu.svg")
+                        }
+                        className="mr-3"
+                        width="16"
+                        height="12"
+                        alt=""
+                      />
+                      {burgerMenuIsOpen ? (
+                        <Trans>Close</Trans>
+                      ) : (
+                        <Trans>Menu</Trans>
+                      )}
+                    </button>
                   )}
-                </button>
+                </I18n>
               </div>
             </div>
 
