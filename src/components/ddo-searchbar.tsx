@@ -154,19 +154,19 @@ export function DDOSearchBar(props: DDOSearchBarProps): JSX.Element {
           className={
             props.withinCTA
               ? classnames(
-                "button",
-                "is-primary",
-                "is-medium",
-                "is-uppercase",
-                isNavigating ? "is-loading" : "is-dark"
-              )
+                  "button",
+                  "is-primary",
+                  "is-medium",
+                  "is-uppercase",
+                  isNavigating ? "is-loading" : "is-dark"
+                )
               : classnames(
-                "button",
-                "is-inverted",
-                "is-outlined",
-                "is-uppercase",
-                isNavigating ? "is-loading" : "is-dark"
-              )
+                  "button",
+                  "is-inverted",
+                  "is-outlined",
+                  "is-uppercase",
+                  isNavigating ? "is-loading" : "is-dark"
+                )
           }
         >
           {props.submitLabel}

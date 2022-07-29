@@ -129,11 +129,10 @@ const Footer = () => (
       <div className="column is-9">
         <p>
           <Trans>
-            <b>Disclaimer:</b> The information in JustFix does not
-            constitute legal advice and must not be used as a substitute for the
-            advice of a lawyer qualified to give advice on legal issues
-            pertaining to housing. We can help direct you to free legal services
-            if necessary.
+            <b>Disclaimer:</b> The information in JustFix does not constitute
+            legal advice and must not be used as a substitute for the advice of
+            a lawyer qualified to give advice on legal issues pertaining to
+            housing. We can help direct you to free legal services if necessary.
           </Trans>
         </p>
         <br />
