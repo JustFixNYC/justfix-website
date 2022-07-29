@@ -8,7 +8,7 @@ msgstr ""
 "Language: es\n"
 "Project-Id-Version: justfix-website\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2022-07-29 16:22\n"
+"PO-Revision-Date: 2022-07-29 17:25\n"
 "Last-Translator: \n"
 "Language-Team: Spanish\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -70,7 +70,7 @@ msgstr "Ampliar"
 
 #: src/pages/learn.en.tsx:62
 msgid "Featured Article"
-msgstr ""
+msgstr "Artículo destacado"
 
 #: src/pages/index.en.tsx:101
 msgid "Featured article"
@@ -90,7 +90,7 @@ msgstr "¡Únete a nuestra lista de correo!"
 
 #: src/components/learning-center/learning-searchbar.tsx:45
 msgid "Key Topics"
-msgstr ""
+msgstr "Temas principales"
 
 #: src/components/cookies-banner.tsx:26
 msgid "Learn more"
@@ -142,7 +142,7 @@ msgstr "Por favor, ¡introduzca una dirección de correo electrónico!"
 
 #: src/components/learning-center/learning-searchbar.tsx:53
 msgid "Popular Articles"
-msgstr ""
+msgstr "Artículos populares"
 
 #: src/components/header.tsx:25
 msgid "Press"
@@ -172,7 +172,7 @@ msgstr "Buscar"
 
 #: src/components/learning-center/learning-searchbar.tsx:35
 msgid "Search by Algolia"
-msgstr ""
+msgstr "Búsqueda por Algolia"
 
 #: src/pages/index.en.tsx:148
 msgid "See all articles"
