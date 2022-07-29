@@ -68,6 +68,10 @@ msgstr "Correo electrónico"
 msgid "Expand"
 msgstr "Ampliar"
 
+#: src/pages/learn.en.tsx:62
+msgid "Featured Article"
+msgstr ""
+
 #: src/pages/index.en.tsx:101
 msgid "Featured article"
 msgstr "Artículo destacado"
@@ -84,6 +88,10 @@ msgstr "Entendido"
 msgid "Join our mailing list!"
 msgstr "¡Únete a nuestra lista de correo!"
 
+#: src/components/learning-center/learning-searchbar.tsx:45
+msgid "Key Topics"
+msgstr ""
+
 #: src/components/cookies-banner.tsx:26
 msgid "Learn more"
 msgstr "Aprender más"
@@ -91,7 +99,7 @@ msgstr "Aprender más"
 #: src/components/header.tsx:22
 #: src/components/learning-center/article-template.tsx:75
 #: src/components/learning-center/category-page-template.tsx:14
-#: src/pages/learn.en.tsx:92
+#: src/pages/learn.en.tsx:94
 msgid "Learning Center"
 msgstr "Centro de aprendizaje"
 
@@ -99,7 +107,7 @@ msgstr "Centro de aprendizaje"
 msgid "Menu"
 msgstr "Menú"
 
-#: src/components/learning-center/learning-searchbar.tsx:75
+#: src/components/learning-center/learning-searchbar.tsx:79
 msgid "No articles match your search."
 msgstr "No hay resultados coincidan con su búsqueda."
 
@@ -132,6 +140,10 @@ msgstr "Caso práctico de colaboración"
 msgid "Please enter an email address!"
 msgstr "Por favor, ¡introduzca una dirección de correo electrónico!"
 
+#: src/components/learning-center/learning-searchbar.tsx:53
+msgid "Popular Articles"
+msgstr ""
+
 #: src/components/header.tsx:25
 msgid "Press"
 msgstr "Prensa"
@@ -146,7 +158,7 @@ msgstr "Publicado"
 
 #: src/components/read-more.tsx:14
 #: src/components/read-more.tsx:17
-#: src/pages/learn.en.tsx:74
+#: src/pages/learn.en.tsx:76
 msgid "Read More"
 msgstr "Lee más"
 
@@ -160,7 +172,7 @@ msgstr "Buscar"
 
 #: src/components/learning-center/learning-searchbar.tsx:35
 msgid "Search by Algolia"
-msgstr "Búsqueda proporcionada por Algolia"
+msgstr ""
 
 #: src/pages/index.en.tsx:148
 msgid "See all articles"
@@ -219,7 +231,7 @@ msgstr "Herramientas"
 #: src/pages/index.en.tsx:109
 #: src/pages/index.en.tsx:127
 #: src/pages/index.en.tsx:140
-#: src/pages/learn.en.tsx:68
+#: src/pages/learn.en.tsx:70
 msgid "Updated"
 msgstr "Actualizado"
 

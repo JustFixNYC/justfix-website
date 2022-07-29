@@ -63,6 +63,10 @@ msgstr "Email Address"
 msgid "Expand"
 msgstr ""
 
+#: src/pages/learn.en.tsx:62
+msgid "Featured Article"
+msgstr ""
+
 #: src/pages/index.en.tsx:101
 msgid "Featured article"
 msgstr ""
@@ -79,6 +83,10 @@ msgstr ""
 msgid "Join our mailing list!"
 msgstr "Join our mailing list!"
 
+#: src/components/learning-center/learning-searchbar.tsx:45
+msgid "Key Topics"
+msgstr ""
+
 #: src/components/cookies-banner.tsx:26
 msgid "Learn more"
 msgstr ""
@@ -86,7 +94,7 @@ msgstr ""
 #: src/components/header.tsx:22
 #: src/components/learning-center/article-template.tsx:75
 #: src/components/learning-center/category-page-template.tsx:14
-#: src/pages/learn.en.tsx:92
+#: src/pages/learn.en.tsx:94
 msgid "Learning Center"
 msgstr ""
 
@@ -94,7 +102,7 @@ msgstr ""
 msgid "Menu"
 msgstr ""
 
-#: src/components/learning-center/learning-searchbar.tsx:75
+#: src/components/learning-center/learning-searchbar.tsx:79
 msgid "No articles match your search."
 msgstr "No articles match your search."
 
@@ -127,6 +135,10 @@ msgstr ""
 msgid "Please enter an email address!"
 msgstr "Please enter an email address!"
 
+#: src/components/learning-center/learning-searchbar.tsx:53
+msgid "Popular Articles"
+msgstr ""
+
 #: src/components/header.tsx:25
 msgid "Press"
 msgstr "Press"
@@ -141,7 +153,7 @@ msgstr ""
 
 #: src/components/read-more.tsx:14
 #: src/components/read-more.tsx:17
-#: src/pages/learn.en.tsx:74
+#: src/pages/learn.en.tsx:76
 msgid "Read More"
 msgstr "Read More"
 
@@ -214,7 +226,7 @@ msgstr ""
 #: src/pages/index.en.tsx:109
 #: src/pages/index.en.tsx:127
 #: src/pages/index.en.tsx:140
-#: src/pages/learn.en.tsx:68
+#: src/pages/learn.en.tsx:70
 msgid "Updated"
 msgstr "Updated"
 
