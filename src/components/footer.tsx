@@ -17,7 +17,7 @@ export const FooterLanguageToggle = () => {
       <LocaleToggle
         to="en"
         className={classnames(
-          "button eyebrow is-small",
+          "button eyebrow is-small is-justify-content-center",
           locale === "en" && "is-selected"
         )}
       >
@@ -26,7 +26,7 @@ export const FooterLanguageToggle = () => {
       <LocaleToggle
         to="es"
         className={classnames(
-          "button eyebrow is-small",
+          "button eyebrow is-small is-justify-content-center",
           locale === "es" && "is-selected"
         )}
       >
