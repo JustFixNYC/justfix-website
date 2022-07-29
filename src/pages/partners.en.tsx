@@ -299,11 +299,6 @@ export const PartnersPageFragment = graphql`
         pageName
         description
         onThisPageList
-        image {
-          fluid {
-            ...GatsbyContentfulFluid
-          }
-        }
       }
       title
       subtitle {
