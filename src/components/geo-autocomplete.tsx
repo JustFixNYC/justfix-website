@@ -13,8 +13,6 @@ import Downshift, {
 import classnames from "classnames";
 import { BoroughChoice, getBoroughChoiceLabels } from "../util/borough-choices";
 
-import "../styles/autocomplete.scss";
-
 const KEY_ENTER = 13;
 const KEY_TAB = 9;
 

@@ -41,27 +41,6 @@ const generateLearningPages = async function ({ actions, graphql }, locale) {
         description
         slug
       }
-      allToolsCta {
-        title
-        subtitle
-        ctaText
-        ctaLink
-      }
-      learningCenterCta {
-        title
-        subtitle
-        ctaText
-        ctaLink
-      }
-      justFixCta {
-        title
-        subtitle
-        ctaText
-        ctaLink
-      }
-      thankYouText {
-        json
-      }
       articles {
         metadata {
           title
@@ -86,6 +65,10 @@ const generateLearningPages = async function ({ actions, graphql }, locale) {
             srcSet
             sizes
           }
+        }
+        summary
+        whatCanIDo {
+          json
         }
         subtitle {
           json
@@ -116,6 +99,19 @@ const generateLearningPages = async function ({ actions, graphql }, locale) {
               json
             }
           }
+        }
+        productBlocks {
+          productName
+          title
+          descriptionText {
+            json
+          }
+          button {
+            title
+            link
+          }
+          location
+          language
         }
       }
     }
@@ -148,10 +144,6 @@ const generateLearningPages = async function ({ actions, graphql }, locale) {
   );
 
   /* Create each Learning Center category page with appropriate data */
-  const thankYouBanner = data.contentfulLearningCenterSearchPage.thankYouText;
-  const allCategoryButtons =
-    data.contentfulLearningCenterSearchPage.categoryButtons;
-
   data.contentfulLearningCenterSearchPage.categoryButtons.forEach(
     (category) => {
       actions.createPage({
@@ -161,8 +153,6 @@ const generateLearningPages = async function ({ actions, graphql }, locale) {
         ),
         context: {
           content: category,
-          categoryButtons: allCategoryButtons,
-          thankYouBanner: thankYouBanner,
           articlePreviews: articlePreviews.filter((article) =>
             article.categories.some(
               (articleCategory) => articleCategory.title === category.title
@@ -180,14 +170,6 @@ const generateLearningPages = async function ({ actions, graphql }, locale) {
   /* Create each Learning Center article page with appropriate data */
 
   const learningCenterTitle = data.contentfulLearningCenterSearchPage.title;
-  const allToolsCta = data.contentfulLearningCenterSearchPage.allToolsCta;
-  const articleFooter = {
-    categoryButtons: data.contentfulLearningCenterSearchPage.categoryButtons,
-    learningCenterCta:
-      data.contentfulLearningCenterSearchPage.learningCenterCta,
-    justFixCta: data.contentfulLearningCenterSearchPage.justFixCta,
-    articles: articlePreviews,
-  };
 
   data.contentfulLearningCenterSearchPage.articles.forEach((article) => {
     actions.createPage({
@@ -197,8 +179,6 @@ const generateLearningPages = async function ({ actions, graphql }, locale) {
       ),
       context: {
         learningCenterTitle: learningCenterTitle,
-        allToolsCta: allToolsCta,
-        articleFooter: articleFooter,
         content: article,
       },
     });

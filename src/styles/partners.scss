@@ -1,24 +1,39 @@
-.partners-page {
-  .hero {
-    .hero-body {
-      width: 100%;
-      max-width: 720px;
-    }
-  }
-  .logos {
-    padding-bottom: 3rem;
-    .logo {
-      padding: 2rem;
-      .image {
-        width: 150px;
-        height: 150px;
-        transition: transform 100ms ease-in-out;
-        transform-origin: center;
+@import "_vars.scss";
 
-        &:hover {
-          opacity: 0.6;
-          transform: scale(1.1);
-        }
+.partners-page {
+  .jf-partner-card {
+    height: 100%;
+    .has-background-white {
+      border: 1px solid $justfix-black;
+    }
+    .has-background-black {
+      width: 100%;
+      .eyebrow {
+        min-height: $spacing-11;
+      }
+    }
+    a {
+      overflow-wrap: anywhere;
+    }
+
+    &.jf-accordion-item {
+      &:not(:last-child) {
+        border-bottom: 1px solid $justfix-white;
+      }
+      .jf-link-arrow-icon {
+        width: 20px;
+        height: 20px;
+      }
+
+      // Override default accordion styling:
+
+      details[open] summary img {
+        transition: transform 0.2s linear;
+        transform: rotate(-90deg);
+      }
+      details:not([open]) summary img {
+        transition: transform 0.2s linear;
+        transform: rotate(90deg);
       }
     }
   }

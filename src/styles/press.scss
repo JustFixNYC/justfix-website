@@ -1,19 +1,15 @@
+@import "_vars.scss";
+
 .press-page {
-  .press-links {
-    margin-bottom: 3rem;
-    .media {
-      align-items: center;
-      .media-left {
-        width: 30%;
-      }
-      .image {
-        width: 200px;
-        min-height: 120px;
-        padding: 0.5rem 0;
-      }
-      .media-content {
-        padding: 0 2rem;
-      }
+  .jf-press-title {
+    font-variant: small-caps;
+  }
+  .image {
+    border: 1px solid $justfix-black;
+    border-radius: 9999px;
+    img {
+      width: 100%;
+      height: 100%;
     }
   }
 }

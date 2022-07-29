@@ -7,8 +7,13 @@ import { StaticQuery, graphql } from "gatsby";
 
 import Header from "./header";
 import Footer from "./footer";
-import { useCurrentLocale } from "../util/use-locale";
+import { removeLocaleFromPathname, useCurrentLocale } from "../util/use-locale";
 import localeConfig from "../util/locale-config.json";
+import { CookiesBanner } from "./cookies-banner";
+import { useLocation } from "@reach/router";
+import { LocaleLink } from "./locale-link";
+import { Trans } from "@lingui/macro";
+import classnames from "classnames";
 
 const favicon16 = require("../img/brand/favicon-16x16.png");
 const favicon32 = require("../img/brand/favicon-32x32.png");
@@ -33,8 +38,6 @@ const catalogs: LocaleCatalogs = {
 
 export const formatImageUrlForSEO = (url: string) =>
   url.startsWith("//") ? encodeURI(`https:${url}`) : encodeURI(url);
-
-// import './layout.css'
 
 type Props = {
   metadata?: {
@@ -74,6 +77,8 @@ const LayoutScaffolding = ({
   }
 
   const locale = useCurrentLocale() || localeConfig.DEFAULT_LOCALE;
+  const { pathname } = useLocation();
+  const isHomepage = removeLocaleFromPathname(pathname) === "";
 
   return (
     <I18nProvider language={locale} catalogs={catalogs}>
@@ -117,9 +122,28 @@ const LayoutScaffolding = ({
         <meta name="twitter:image" content={shareImageURL} />
         <meta name="twitter:image:alt" content={title} />
       </Helmet>
-      <Header isLandingPage={isLandingPage} />
-      <div>{children}</div>
-      <Footer />
+      <div className="jf-page-body">
+        <Header isLandingPage={isLandingPage} />
+        <div
+          className={
+            // Add extra space at bottom of page for fixed footer button:
+            classnames(isHomepage && "mb-12-mobile")
+          }
+        >
+          {children}
+          <Footer />
+          <div className="jf-footer-menu">
+            <CookiesBanner />
+            {isHomepage && (
+              <div className="has-background-black py-5 is-flex is-justify-content-center is-hidden-desktop">
+                <LocaleLink to="/tools" className="button is-primary">
+                  <Trans>See our tools</Trans>
+                </LocaleLink>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
     </I18nProvider>
   );
 };

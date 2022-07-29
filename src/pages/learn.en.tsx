@@ -5,15 +5,30 @@ import "../styles/learn.scss";
 
 import Layout from "../components/layout";
 import { ContentfulContent } from "./index.en";
-import { ThankYouBanner } from "../components/learning-center/thank-you-banner";
 import LearningSearchBar from "../components/learning-center/learning-searchbar";
-import CategoryMenu from "../components/learning-center/category-menu";
 import { Trans } from "@lingui/macro";
 import classnames from "classnames";
 import { LocaleLink } from "../components/locale-link";
 import { useCurrentLocale } from "../util/use-locale";
+import { FluidObject } from "gatsby-image";
+import localeConfig from "../util/locale-config.json";
+import { ReadMoreLink } from "../components/read-more";
+import Img from "gatsby-image/withIEPolyfill";
 
-const widont = require("widont");
+// TODO: I don't think we need this - remove when we do category pages
+export const isCovidRelated = (word: string) =>
+  /COVID/.test(word.toUpperCase());
+
+const Dot = () => <span className="mx-3">•</span>;
+
+function formatDate(dateString: string, locale?: string): string {
+  var date = new Date(dateString);
+  return date.toLocaleDateString(locale || localeConfig.DEFAULT_LOCALE, {
+    month: "numeric",
+    day: "numeric",
+    year: "numeric",
+  });
+}
 
 const sortArticlesByDate = (article1: any, article2: any) => {
   const date1 = new Date(article1.dateUpdated).getTime();
@@ -41,61 +56,99 @@ export const orderArticles = (articles: any[]) => {
     : articles.sort(sortArticlesByDate);
 };
 
-export const isCovidRelated = (word: string) =>
-  /COVID/.test(word.toUpperCase());
-
 export type Category = {
   title: string;
   description: string;
   slug: string;
 };
 
-export const ArticlePreviewCard = (props: any) => {
-  const url = "/learn/" + props.articleData.slug;
+export type ArticlePreviewInfo = {
+  slug: string;
+  title: string;
+  englishOnly: boolean;
+  metadata: {
+    description: string;
+  };
+  dateUpdated: string;
+  coverPhoto?: {
+    fluid: FluidObject;
+  };
+  categories?: Category[];
+  isLast?: boolean;
+};
+
+export const ArticlePreviewCard = (props: ArticlePreviewInfo) => {
   const locale = useCurrentLocale();
-  const categoryLabels = props.articleData.categories.map(
-    (category: Category, i: number) => (
-      <LocaleLink
-        key={i}
-        to={"/learn/category/" + category.slug}
+  const isFeatured = !props.categories;
+  const articleUrl = "/learn/" + props.slug;
+  const categoryLabels =
+    !isFeatured &&
+    props
+      .categories!.map<React.ReactNode>((category: Category, i: number) => (
+        <LocaleLink
+          key={i}
+          to={"/learn/category/" + category.slug}
+          className="eyebrow is-small no-underline"
+        >
+          {category.title}
+        </LocaleLink>
+      ))
+      .reduce((cat1, cat2, i) => [cat1, <Dot key={Math.random()} />, cat2]);
+
+  return (
+    <div className="column is-8 py-0">
+      <div
         className={classnames(
-          "tag",
-          "is-uppercase",
-          "is-light",
-          isCovidRelated(category.title) ? "is-warning" : "is-primary"
+          "jf-article-card ",
+          isFeatured ? "has-background-warning" : ""
         )}
       >
-        {category.title}
-      </LocaleLink>
-    )
-  );
-  return (
-    <div className="box article-preview">
-      {locale === "es" && props.articleData.englishOnly && (
-        <>
-          <p className="has-text-danger is-italic">Solo en inglés</p>
-          <br />
-        </>
-      )}
-      <h1 className="title is-size-3 has-text-primary is-spaced has-text-weight-semibold">
-        <LocaleLink to={url}>{widont(props.articleData.title)}</LocaleLink>
-      </h1>
-      <h6 className="has-text-grey-dark">
-        {widont(props.articleData.metadata.description)}
-      </h6>
-      <br />
-      <div>
-        <LocaleLink
-          to={url}
-          className="is-inline-block is-size-7 is-uppercase has-text-weight-semibold has-letters-spaced"
+        {!!props.coverPhoto && (
+          <Img fluid={props.coverPhoto.fluid} className="jf-article-photo" />
+        )}
+        <div
+          className={classnames(
+            "py-7 mb-2 px-0",
+            isFeatured ? "px-6" : "px-0",
+            !isFeatured && !props.isLast ? "pb-0-mobile" : ""
+          )}
         >
-          <Trans>Read More</Trans> →
-        </LocaleLink>
-        <div className="tags is-hidden-mobile is-inline-block is-uppercase is-pulled-right has-letters-spaced">
-          {categoryLabels}
-        </div>
-        <div className="tags is-hidden-tablet is-uppercase has-letters-spaced">
-          {categoryLabels}
+          <div className="mt-2 mb-6 mb-3-mobile">
+            {isFeatured ? (
+              <span className="eyebrow">Featured Article</span>
+            ) : (
+              <div className="jf-category-labels">{categoryLabels}</div>
+            )}
+          </div>
+          <div className="mb-6 mb-3-mobile">
+            <LocaleLink className={"jf-link-article"} to={articleUrl}>
+              <h3 className="mb-6 mb-3-mobile">{props.title}</h3>
+            </LocaleLink>
+            <span className="is-hidden-mobile eyebrow is-small">
+              <Trans>Updated</Trans> {formatDate(props.dateUpdated, locale)}
+            </span>
+            <h4 className="my-6 my-3-mobile">{props.metadata.description}</h4>
+          </div>
+          {isFeatured ? (
+            <div className="jf-article-link-container is-flex">
+              <LocaleLink
+                className={"button is-primary mt-0 mt-4-mobile"}
+                to={articleUrl}
+              >
+                <Trans>Read More</Trans>
+              </LocaleLink>
+            </div>
+          ) : (
+            <ReadMoreLink url={articleUrl} />
+          )}
+          {locale === "es" && props.englishOnly && (
+            <span className="has-text-danger is-italic px-3">
+              Solo en inglés
+            </span>
+          )}
+          {!isFeatured && !props.isLast && (
+            <div className="is-divider mt-24 mb-0"></div>
+          )}
         </div>
       </div>
     </div>
@@ -107,30 +160,23 @@ export const LearningPageScaffolding = (props: ContentfulContent) => {
   return (
     <Layout metadata={props.content.metadata}>
       <div id="learning-center" className="learning-center-page">
-        <section className="hero is-small">
-          <div className="hero-body has-text-centered is-horizontal-center">
-            <figure className="image landing-illustration is-3by1 is-horizontal-center">
-              <img src={props.content.headerImage.file.url} />
-            </figure>
-            <div className="container content-wrapper tight">
-              <h1 className="title is-size-2 has-text-grey-dark has-text-weight-normal is-spaced">
-                {props.content.title}
-              </h1>
-              <h6 className="subtitle has-text-grey-dark is-italic">
-                {widont(props.content.subtitle)}
-              </h6>
-              <LearningSearchBar />
-              <br />
-              <CategoryMenu content={props.content.categoryButtons} />
-            </div>
+        <div className="columns is-centered is-multiline pt-12 pt-7-mobile pb-10">
+          <div className="column is-8 pb-0 mb-12">
+            <span className="eyebrow is-large">
+              <Trans>Learning Center</Trans>
+            </span>
+            <h1 className="mb-6">{props.content.title}</h1>
+            <LearningSearchBar props={props.content} />
           </div>
-        </section>
-        <section className="content-wrapper tight">
-          {articles.map((article: any, i: number) => (
-            <ArticlePreviewCard articleData={article} key={i} />
+          <ArticlePreviewCard {...props.content.featuredArticle} />
+          {articles.map((article: ArticlePreviewInfo, i: number) => (
+            <ArticlePreviewCard
+              {...article}
+              isLast={i === articles.length - 1}
+              key={i}
+            />
           ))}
-        </section>
-        <ThankYouBanner content={props.content.thankYouText} />
+        </div>
       </div>
     </Layout>
   );
@@ -152,15 +198,27 @@ export const LearningPageFragment = graphql`
         }
       }
       title
-      headerImage {
-        file {
-          url
-        }
-      }
-      subtitle
       categoryButtons {
         title
         slug
+      }
+      popularArticles {
+        slug
+        title
+      }
+      featuredArticle {
+        slug
+        title
+        englishOnly
+        metadata {
+          description
+        }
+        dateUpdated
+        coverPhoto {
+          fluid {
+            ...GatsbyContentfulFluid
+          }
+        }
       }
       articles {
         slug
@@ -175,21 +233,6 @@ export const LearningPageFragment = graphql`
           description
           slug
         }
-      }
-      learningCenterCta {
-        title
-        subtitle
-        ctaText
-        ctaLink
-      }
-      justFixCta {
-        title
-        subtitle
-        ctaText
-        ctaLink
-      }
-      thankYouText {
-        json
       }
     }
   }

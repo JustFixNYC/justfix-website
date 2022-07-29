@@ -1,28 +1,109 @@
 @import "_vars.scss";
+@import "_design-system.scss";
 
-// BULMA OVERRIDES
+// SPACING HELPER CLASSES OVERRIDES:
+// These rules customize the spacing helpers defined in `spacing.sass` in the Bulma package
 
-.hero.is-small {
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
+.is-marginless {
+  margin: 0 !important;
 }
 
-.social-icon {
-  margin: 0 0.85rem;
-  &:hover {
-    opacity: 0.5;
+.is-paddingless {
+  padding: 0 !important;
+}
+
+$spacing-shortcuts: (
+  "margin": "m",
+  "padding": "p",
+);
+$spacing-directions: (
+  "top": "t",
+  "right": "r",
+  "bottom": "b",
+  "left": "l",
+);
+$spacing-horizontal: "x";
+$spacing-vertical: "y";
+$spacing-values: (
+  "0": 0,
+  "1": $spacing-01,
+  "2": $spacing-02,
+  "3": $spacing-03,
+  "4": $spacing-04,
+  "5": $spacing-05,
+  "6": $spacing-06,
+  "7": $spacing-07,
+  "8": $spacing-08,
+  "9": $spacing-09,
+  "10": $spacing-10,
+  "11": $spacing-11,
+  "12": $spacing-12,
+  "13": $spacing-13,
+  "auto": auto,
+);
+
+@each $property, $shortcut in $spacing-shortcuts {
+  @each $name, $value in $spacing-values {
+    // All directions
+    .#{$shortcut}-#{$name} {
+      #{$property}: $value;
+    }
+    .#{$shortcut}-#{$name}-mobile {
+      @include mobile {
+        #{$property}: $value !important;
+      }
+    }
+    // Cardinal directions
+    @each $direction, $suffix in $spacing-directions {
+      .#{$shortcut}#{$suffix}-#{$name} {
+        #{$property}-#{$direction}: $value;
+      }
+      .#{$shortcut}#{$suffix}-#{$name}-mobile {
+        @include mobile {
+          #{$property}-#{$direction}: $value !important;
+        }
+      }
+    }
+    // Horizontal axis
+    @if $spacing-horizontal != null {
+      .#{$shortcut}#{$spacing-horizontal}-#{$name} {
+        #{$property}-left: $value;
+        #{$property}-right: $value;
+      }
+      .#{$shortcut}#{$spacing-horizontal}-#{$name}-mobile {
+        @include mobile {
+          #{$property}-left: $value !important;
+          #{$property}-right: $value !important;
+        }
+      }
+    }
+    // Vertical axis
+    @if $spacing-vertical != null {
+      .#{$shortcut}#{$spacing-vertical}-#{$name} {
+        #{$property}-top: $value;
+        #{$property}-bottom: $value;
+      }
+      .#{$shortcut}#{$spacing-vertical}-#{$name}-mobile {
+        @include mobile {
+          #{$property}-top: $value !important;
+          #{$property}-bottom: $value !important;
+        }
+      }
+    }
   }
 }
 
-/* Override default styling for links inside white hero containers */
-.hero.is-white
-  p
-  a:not(.button):not(.dropdown-item):not(.tag):not(.pagination-link.is-current),
-.hero.is-white strong {
-  color: $primary;
-  &:hover {
-    color: inherit;
-  }
+// OTHER BULMA OVERRIDES
+
+/*
+  Make sure descendants of the .title class inherit it's font size properties.
+
+  This is especially helpful when using "Rich Text" type content from Contentful, which
+  by default provides content in <p> tags. This rule makes sure we can override the size
+  of the text.
+*/
+.title p {
+  font-size: inherit;
 }
 
 /* Make grouped buttons same size */
@@ -36,15 +117,6 @@
 .button.is-medium {
   white-space: normal;
   display: inline-table;
-}
-
-.button {
-  &.is-primary:not(.is-outlined):hover {
-    background-color: $justfix-blue-lightened;
-  }
-  &.is-warning:not(.is-outlined):hover {
-    background-color: $warning-lightened;
-  }
 }
 
 .button,
@@ -61,75 +133,79 @@
   letter-spacing: 0.1em;
 }
 
-a.button.is-large {
-  font-size: 1.25rem;
-  padding: 2rem 2.5rem;
-}
-
 .is-divider {
-  opacity: 0.7;
+  border-top: 1px solid $justfix-black;
 
   &.light {
-    opacity: 0.4;
-    margin: 1rem 0;
-    border-top-width: 1px;
+    border-top: 1px solid $justfix-white;
   }
 }
 
-.content {
-  overflow-wrap: break-word;
-}
-
-/* Navbar Hover Animations */
-.navbar-link.has-text-white,
-.navbar-item.has-text-white {
-  &:before {
-    content: "";
-    position: absolute;
-    width: 85%;
-    height: 2px;
-    bottom: 10px;
-    left: 7.5%;
-    background-color: #fff;
-    visibility: hidden;
-    -webkit-transform: scaleX(0);
-    transform: scaleX(0);
-    -webkit-transition: all 0.3s ease-in-out 0s;
-    transition: all 0.3s ease-in-out 0s;
-  }
-
-  &:hover:before {
-    visibility: visible;
-    -webkit-transform: scaleX(1);
-    transform: scaleX(1);
-  }
+.breadcrumb li + li::before {
+  color: inherit;
 }
 
 // CUSTOM CLASSES
 
-.is-absolute {
-  position: absolute;
-}
+// For our full-height page heros, this variable defines how much
+// the next section bleeds "above the fold"
+$page-hero-offset: $spacing-06;
 
-.content-wrapper {
-  width: 100%;
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
+.jf-page-hero {
+  min-height: calc(100vh - #{$navbar-height} - #{$page-hero-offset});
 
-  &.tight {
-    max-width: 700px;
+  @include mobile {
+    min-height: unset;
+  }
+
+  .columns {
+    width: 100%;
+
+    .gatsby-image-wrapper {
+      min-height: 375px;
+    }
+
+    .eyebrow {
+      border-bottom: 1px solid $justfix-white;
+    }
+
+    // Let's reverse the orientation of this eyeborow border on hero's with images:
+    .column.is-6 .eyebrow {
+      border-bottom: none;
+      border-top: 1px solid $justfix-white;
+    }
+
+    .column:first-child {
+      border-right: 1px solid $justfix-white;
+
+      @include mobile {
+        border-right: none;
+      }
+
+      @include desktop {
+        .eyebrow {
+          width: 50%;
+        }
+      }
+    }
+
+    li {
+      list-style: none;
+      // We need to indent the text to offset the margin between the bullet point and text
+      // plus the width of the bullet
+      text-indent: calc(-1 * #{$spacing-05 + $spacing-04});
+      &::before {
+        content: "▪";
+        margin-right: $spacing-05;
+        font-size: 1.5rem;
+        vertical-align: middle;
+      }
+    }
   }
 }
 
-.background-image {
-  width: 150px;
-  height: 150px;
-  display: inline-block;
-}
-
-.has-background-primary-white {
-  background-color: $justfix-blue-white;
+.is-absolute {
+  position: absolute;
 }
 
 .is-horizontal-center {
@@ -144,6 +220,149 @@ a.button.is-large {
   transform: translate(-50%, -50%);
 }
 
+// With Gatsby <Img> className goes on a div and the actual
+// <img> is nested within.
+div.is-rounded img {
+  border-radius: 50%;
+}
+
 .bold-shadow {
   text-shadow: 0.4px 0px 0.1px, -0.4px 0px 0.1px;
+}
+
+.jf-link-arrow-icon {
+  width: 16px;
+  height: 16px;
+  transform: translateY(3px);
+}
+
+// override bulma default of darkening links on hover
+a.has-text-white:hover {
+  color: $justfix-white !important;
+}
+a.has-text-black:hover {
+  color: $justfix-black !important;
+}
+
+// When our arrow icon's on a black background, let's invert the colors
+.has-background-black .jf-link-arrow-icon {
+  filter: invert(1) contrast(1.3);
+}
+
+.jf-link-article {
+  text-decoration: none;
+
+  &:hover,
+  &:focus,
+  &:active {
+    text-decoration: underline;
+  }
+}
+
+.jf-email-form {
+  max-width: 400px;
+  .button {
+    background-color: $justfix-black;
+    color: $justfix-white;
+    border: 1px solid $justfix-white;
+
+    &:focus,
+    &:hover {
+      background-color: $justfix-white;
+      color: $justfix-black;
+      transition: all 0.1s linear;
+    }
+  }
+}
+
+.jf-text-block-with-spacing {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-bottom: $spacing-06;
+  }
+}
+
+.jf-accordion-item {
+  details {
+    summary {
+      // Make question box feel clickable to user
+      cursor: pointer;
+      // Remove default marker
+      list-style-type: none;
+      &::-webkit-details-marker {
+        display: none;
+      }
+      .jf-accordion-close-text-label {
+        display: none;
+      }
+      .jf-accordion-open-text-label {
+        display: block;
+      }
+    }
+
+    &[open] summary {
+      .jf-accordion-close-text-label {
+        display: block;
+      }
+      .jf-accordion-open-text-label {
+        display: none;
+      }
+
+      img {
+        transition: transform 0.2s linear;
+        transform: rotateX(0deg) translateY(-3px);
+      }
+    }
+    &:not([open]) summary img {
+      transition: transform 0.2s linear;
+      transform: rotateX(180deg) translateY(0px);
+    }
+  }
+}
+
+// Content that stays fixed at the bottom of the viewport:
+.jf-footer-menu {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  z-index: 30;
+}
+
+.jf-cookies-banner {
+  border-top: 1px solid $justfix-black;
+
+  img {
+    filter: invert(1) contrast(0.7);
+  }
+
+  .link {
+    display: inline;
+  }
+
+  .button.is-text {
+    width: 44px;
+    height: 44px;
+    padding: 15px;
+  }
+
+  .modal {
+    position: fixed;
+    z-index: 30;
+
+    .modal-background {
+      background-color: $justfix-grey;
+      opacity: 0.6;
+    }
+
+    .modal-content {
+      z-index: 40;
+      .has-background-white {
+        border-radius: 4px;
+      }
+    }
+  }
 }

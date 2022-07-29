@@ -1,34 +1,33 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import Img from "gatsby-image/withIEPolyfill";
 
 import Layout from "../components/layout";
 import { ContentfulContent } from "./index.en";
 
 export const SubscribedPageScaffolding = (props: ContentfulContent) => (
   <Layout metadata={{ title: props.content.title }}>
-    <section className="hero is-small">
-      <div className="hero-body has-text-centered is-horizontal-center">
-        <div className="content content-wrapper tight">
-          <h1 className="title is-size-2 has-text-grey-dark has-text-weight-normal is-spaced">
-            {props.content.title}
-          </h1>
-          <span className="is-size-5">
+    <div className="columns is-multiline">
+      <div className="column is-12 pt-11">
+        <h1 className="mb-5">{props.content.title}</h1>
+        <div className="mb-5">
+          <span className="title is-3">
             {documentToReactComponents(props.content.description.json)}
           </span>
         </div>
-        <br />
-        <div className="container block content-wrapper tight">
-          <figure className="image">
-            <img src={props.content.teamPhoto.file.url} alt="" />
-          </figure>
-        </div>
-        <br />
-        <span className="is-size-5">
+      </div>
+      <div className="column is-8 is-12-mobile">
+        <figure className="image is-256x256 mb-5">
+          <Img fluid={props.content.teamPhoto.fluid} alt="" />
+        </figure>
+      </div>
+      <div className="column is-12 pb-11">
+        <span className="title is-3">
           {documentToReactComponents(props.content.descriptionBelowPhoto.json)}
         </span>
       </div>
-    </section>
+    </div>
   </Layout>
 );
 
@@ -40,8 +39,8 @@ export const SubscribedPageFragment = graphql`
         json
       }
       teamPhoto {
-        file {
-          url
+        fluid {
+          ...GatsbyContentfulFluid
         }
       }
       descriptionBelowPhoto {

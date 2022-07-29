@@ -1,28 +1,73 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Trans } from "@lingui/macro";
 
 import "../styles/header.scss";
-import { LocaleLink as Link, LocaleToggle } from "../components/locale-link";
+import { LocaleLink as Link } from "../components/locale-link";
 import { useCurrentLocale } from "../util/use-locale";
-import localeConfig from "../util/locale-config.json";
 import { ContentfulCommonStrings } from "@justfixnyc/contentful-common-strings";
 import _commonStrings from "../common-strings.json";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { INLINES } from "@contentful/rich-text-types";
 import { OutboundLink } from "gatsby-plugin-google-analytics";
+import FocusTrap from "focus-trap-react";
+import { FooterLanguageToggle } from "./footer";
+import classnames from "classnames";
 
 const commonStrings = new ContentfulCommonStrings(_commonStrings as any);
 
 const isDemoSite = process.env.GATSBY_DEMO_SITE === "1";
 
-type LocaleChoice = "en" | "es";
+export const CAREERS_PAGE_URL = "https://justfix.breezy.hr/";
 
-/**
- * Names of languages in the language itself.
- */
-const LANGUAGE_NAMES: { [k in LocaleChoice]: string } = {
-  en: "English",
-  es: "Español",
+export type LinkWithLabel = [string, JSX.Element];
+
+export const SITE_LINKS: LinkWithLabel[] = [
+  ["/tools", <Trans>Tools</Trans>],
+  ["/our-mission", <Trans>What We Do</Trans>],
+  ["/reports", <Trans>Research & Policy</Trans>],
+  ["/partners", <Trans>Partners & Funders</Trans>],
+  ["/learn", <Trans>Learning Center</Trans>],
+  ["/team", <Trans>Team</Trans>],
+  [CAREERS_PAGE_URL, <Trans>Careers</Trans>],
+  ["/press", <Trans>Press</Trans>],
+  ["/contact-us", <Trans>Contact Us</Trans>],
+];
+
+/** Hook to get scroll direction for sticky banner */
+// https://stackoverflow.com/a/62497293/7051239
+const useScrollDirection = (): "up" | "down" => {
+  const [scrollDir, setScrollDir] = useState<"up" | "down">("down");
+
+  useEffect(() => {
+    const threshold = 0;
+    let lastScrollY = window.pageYOffset;
+    let ticking = false;
+
+    const updateScrollDir = () => {
+      const scrollY = window.pageYOffset;
+
+      if (Math.abs(scrollY - lastScrollY) < threshold) {
+        ticking = false;
+        return;
+      }
+      setScrollDir(scrollY > lastScrollY ? "down" : "up");
+      lastScrollY = scrollY > 0 ? scrollY : 0;
+      ticking = false;
+    };
+
+    const onScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateScrollDir);
+        ticking = true;
+      }
+    };
+
+    window.addEventListener("scroll", onScroll);
+
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [scrollDir]);
+
+  return scrollDir;
 };
 
 const MoratoriumBanner: React.FC<{}> = () => {
@@ -57,145 +102,155 @@ const MoratoriumBanner: React.FC<{}> = () => {
   );
 };
 
+const HeaderLink: React.FC<{ link: LinkWithLabel }> = ({ link }) =>
+  link[0].charAt(0) === "/" ? (
+    <Link
+      className="navbar-item jf-menu-page-link px-0 py-3 has-text-white"
+      to={link[0]}
+    >
+      {link[1]}
+    </Link>
+  ) : (
+    <OutboundLink
+      className="navbar-item jf-menu-page-link px-0 py-3 has-text-white"
+      href={link[0]}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      {link[1]}
+    </OutboundLink>
+  );
+
 const Header: React.FC<{
   isLandingPage?: boolean;
 }> = ({ isLandingPage }) => {
   const [burgerMenuIsOpen, setBurgerMenuStatus] = useState(false);
-  const locale = useCurrentLocale();
+  const isScrollingUp = useScrollDirection() === "up";
 
   return (
-    <div className={"header " + (isLandingPage && "is-absolute")}>
-      {isLandingPage && <MoratoriumBanner />}
-      <nav
-        className={"navbar is-primary " + (isLandingPage && "is-transparent")}
-        role="navigation"
-        aria-label="main navigation"
-      >
-        <div className="navbar-brand">
-          <Link to="/" className="navbar-item">
-            <img
-              src={require("../img/brand/logo.png")}
-              width="112"
-              height="28"
-              alt="JustFix.nyc"
-            />
-          </Link>
-          {isDemoSite && (
-            <div className="navbar-item">
-              <span className="tag is-warning">
-                <Trans>DEMO SITE</Trans>
-              </span>
-            </div>
-          )}
-          <a
-            role="button"
-            className={
-              "navbar-burger burger " + (burgerMenuIsOpen && "is-active")
-            }
-            aria-label="menu"
-            aria-expanded="false"
-            onClick={() => setBurgerMenuStatus(!burgerMenuIsOpen)}
-            data-target="navbar"
-          >
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-          </a>
-        </div>
-
-        <div
-          id="main-navbar-menu"
-          className={"navbar-menu " + (burgerMenuIsOpen && "is-active")}
+    <>
+      <div
+        className={classnames(
+          "jf-sticky-phantom",
+          isScrollingUp && "jf-sticky"
+        )}
+      />
+      <div className={classnames("header", isScrollingUp && "jf-sticky")}>
+        {isLandingPage && <MoratoriumBanner />}
+        <FocusTrap
+          active={burgerMenuIsOpen}
+          focusTrapOptions={{
+            onDeactivate: () => setBurgerMenuStatus(false),
+            clickOutsideDeactivates: true,
+          }}
         >
-          <div className="navbar-end">
-            <div className="navbar-item has-dropdown is-hoverable">
-              <a
-                className={
-                  "navbar-link is-uppercase has-text-" +
-                  (burgerMenuIsOpen ? "black" : "white")
-                }
+          <nav
+            className="navbar"
+            role="navigation"
+            aria-label="main navigation"
+          >
+            <div className="navbar-brand">
+              <div
+                className="navbar-item is-flex-direction-column is-justify-content-center no-underline"
+                onClick={() => setBurgerMenuStatus(false)}
               >
-                <Trans>About us</Trans>
-              </a>
-
-              <div className="navbar-dropdown">
-                <Link to="/our-mission" className="navbar-item">
-                  <Trans>Mission</Trans>
+                <Link to="/">
+                  <img
+                    className="is-hidden-touch"
+                    src={require("../img/brand/logo.svg")}
+                    width="164"
+                    height="38"
+                    alt="JustFix"
+                  />
+                  <img
+                    className="is-hidden-desktop"
+                    src={require("../img/brand/logo.svg")}
+                    width="120"
+                    height="27"
+                    alt="JustFix"
+                  />
                 </Link>
-                <Link to="/team" className="navbar-item">
-                  <Trans>Team</Trans>
+                {isDemoSite && (
+                  <span className="tag is-yellow">
+                    <Trans>DEMO SITE</Trans>
+                  </span>
+                )}
+              </div>
+              <div
+                className="navbar-item is-size-3 has-text-black is-hidden-touch"
+                onClick={() => setBurgerMenuStatus(false)}
+              >
+                <Trans>Technology for Housing Justice</Trans>
+              </div>
+              <div
+                className="navbar-item is-paddingless is-flex-grow-1"
+                onClick={() => setBurgerMenuStatus(false)}
+              />
+              <div
+                className="navbar-item is-hidden-touch"
+                onClick={() => setBurgerMenuStatus(false)}
+              >
+                <Link to="/tools" className="button is-primary">
+                  <Trans>See our tools</Trans>
                 </Link>
-                <Link to="/partners" className="navbar-item">
-                  <Trans>Partners</Trans>
-                </Link>
-                <Link to="/press" className="navbar-item">
-                  <Trans>Press</Trans>
-                </Link>
-                <a
-                  href="https://justfix.breezy.hr/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="navbar-item"
+              </div>
+              <div
+                className={"navbar-item " + (burgerMenuIsOpen && "is-active")}
+              >
+                <button
+                  role="button"
+                  className={
+                    "navbar-burger burger " + (burgerMenuIsOpen && "is-active")
+                  }
+                  aria-expanded="false"
+                  onClick={() => setBurgerMenuStatus(!burgerMenuIsOpen)}
+                  data-target="navbar"
                 >
-                  <Trans>Jobs</Trans>
-                </a>
+                  <img
+                    src={
+                      burgerMenuIsOpen
+                        ? require("../img/close.svg")
+                        : require("../img/menu.svg")
+                    }
+                    className="mr-3"
+                    width="16"
+                    height="12"
+                    alt=""
+                  />
+                  {burgerMenuIsOpen ? (
+                    <Trans>Close</Trans>
+                  ) : (
+                    <Trans>Menu</Trans>
+                  )}
+                </button>
               </div>
             </div>
 
-            <Link
-              to="/#products"
+            <div
+              id="main-navbar-menu"
               className={
-                "navbar-item is-uppercase has-text-" +
-                (burgerMenuIsOpen ? "black" : "white")
+                "navbar-menu has-background-black px-1-mobile " +
+                (burgerMenuIsOpen && "is-active")
               }
             >
-              <Trans>Products</Trans>
-            </Link>
+              <div className="navbar-end is-flex is-flex-direction-column py-3 px-5">
+                <div>
+                  {SITE_LINKS.map((link, i) => (
+                    <HeaderLink link={link} key={i} />
+                  ))}
+                </div>
 
-            <Link
-              to="/learn"
-              className={
-                "navbar-item is-uppercase has-text-" +
-                (burgerMenuIsOpen ? "black" : "white")
-              }
-            >
-              <Trans>Learn</Trans>
-            </Link>
-
-            <Link
-              to="/contact-us"
-              className={
-                "navbar-item is-uppercase has-text-" +
-                (burgerMenuIsOpen ? "black" : "white")
-              }
-            >
-              <Trans>Contact Us</Trans>
-            </Link>
-
-            <div className="navbar-item has-dropdown is-hoverable">
-              <a
-                className={
-                  "navbar-link is-uppercase has-text-" +
-                  (burgerMenuIsOpen ? "black" : "white")
-                }
-              >
-                {LANGUAGE_NAMES[locale]}
-              </a>
-
-              <div className="navbar-dropdown is-right">
-                {localeConfig.ACCEPTED_LOCALES.filter(
-                  (otherLocale) => otherLocale !== locale
-                ).map((otherLocale) => (
-                  <LocaleToggle to={otherLocale} className="navbar-item">
-                    {LANGUAGE_NAMES[otherLocale]}
-                  </LocaleToggle>
-                ))}
+                <div className="navbar-item has-dropdown is-hoverable mt-7 mb-4 mb-7-mobile">
+                  <div className="navbar-dropdown is-right pt-1 pb-0">
+                    <FooterLanguageToggle />
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-      </nav>
-    </div>
+          </nav>
+        </FocusTrap>
+      </div>
+    </>
   );
 };
 

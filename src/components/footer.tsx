@@ -1,194 +1,173 @@
 import React from "react";
 import { SocialIcon } from "react-social-icons";
 import { Trans } from "@lingui/macro";
-import { withI18n, withI18nProps } from "@lingui/react";
 
 import "../styles/footer.scss";
 import Subscribe from "./subscribe";
-import { LocaleLink as Link } from "./locale-link";
+import { LocaleLink as Link, LocaleToggle } from "./locale-link";
+import { useCurrentLocale } from "../util/use-locale";
+import classnames from "classnames";
+import { LinkWithLabel, SITE_LINKS } from "./header";
+import { OutboundLink } from "../util/links";
 
-const Footer = withI18n()(({ i18n }: withI18nProps) => {
+export const FooterLanguageToggle = () => {
+  const locale = useCurrentLocale();
   return (
-    <div className="footer has-background-info">
-      <div className="columns has-text-centered-touch is-desktop">
-        <div className="column">
-          <Link to="/" className="button is-info">
-            <img src={require("../img/brand/logo.png")} alt="JustFix.nyc" />
-          </Link>
-        </div>
-        <div className="column">
-          <p className="link-header has-text-white has-text-weight-bold is-uppercase">
-            <Trans>What we do</Trans>
-          </p>
-          <Link
-            className="link has-text-weight-semibold is-uppercase"
-            to="/#products"
-          >
-            <p>
-              <Trans>Products</Trans>
-            </p>
-          </Link>
-          <Link
-            className="link has-text-weight-semibold is-uppercase"
-            to="/learn"
-          >
-            <p>
-              <Trans>Learn</Trans>
-            </p>
-          </Link>
-          <Link
-            className="link has-text-weight-semibold is-uppercase"
-            to="/our-mission"
-          >
-            <p>
-              <Trans>Mission</Trans>
-            </p>
-          </Link>
-          <Link
-            className="link has-text-weight-semibold is-uppercase"
-            to="/press"
-          >
-            <p>
-              <Trans>Press</Trans>
-            </p>
-          </Link>
-        </div>
+    <div className="buttons has-addons">
+      <LocaleToggle
+        to="en"
+        className={classnames(
+          "button eyebrow is-small is-justify-content-center",
+          locale === "en" && "is-selected"
+        )}
+      >
+        English
+      </LocaleToggle>
+      <LocaleToggle
+        to="es"
+        className={classnames(
+          "button eyebrow is-small is-justify-content-center",
+          locale === "es" && "is-selected"
+        )}
+      >
+        Español
+      </LocaleToggle>
+    </div>
+  );
+};
 
-        <div className="column">
-          <p className="link-header has-text-white has-text-weight-bold is-uppercase">
-            <Trans>About us</Trans>
-          </p>
-          <Link
-            className="link has-text-weight-semibold is-uppercase"
-            to="/team"
-          >
-            <p>
-              <Trans>Team</Trans>
-            </p>
-          </Link>
-          <Link
-            className="link has-text-weight-semibold is-uppercase"
-            to="/partners"
-          >
-            <p>
-              <Trans>Partners</Trans>
-            </p>
-          </Link>
-          <a
-            className="link has-text-weight-semibold is-uppercase"
-            href="https://justfix.breezy.hr/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <p>
-              <Trans>Jobs</Trans>
-            </p>
-          </a>
-          <Link
-            className="link has-text-weight-semibold is-uppercase"
-            to="/contact-us"
-          >
-            <p>
-              <Trans>Contact Us</Trans>
-            </p>
-          </Link>
-          <a
-            className="link has-text-weight-semibold is-uppercase"
-            href="https://donorbox.org/donate-to-justfix-nyc"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <p>
-              <Trans>Donate</Trans>
-            </p>
-          </a>
-        </div>
+const FooterLink: React.FC<{ link: LinkWithLabel }> = ({ link }) =>
+  link[0].charAt(0) === "/" ? (
+    <Link className="no-underline" to={link[0]}>
+      <p className="title is-4 has-text-white">{link[1]}</p>
+    </Link>
+  ) : (
+    <OutboundLink className="no-underline" href={link[0]}>
+      <p className="title is-4 has-text-white">{link[1]}</p>
+    </OutboundLink>
+  );
 
-        <div className="column">
-          <h4 className="title is-size-5 has-text-white">
-            <Trans>Join our mailing list!</Trans>
-          </h4>
-          <Subscribe />
-          <div className="field">
-            <SocialIcon
-              url="http://twitter.com/justfixnyc"
-              target="_blank"
-              rel="noopener noreferrer"
-              bgColor="#FFF"
-              style={{ height: 40, width: 40 }}
-            />
-            <SocialIcon
-              url="https://facebook.com/JustFixNYC"
-              target="_blank"
-              rel="noopener noreferrer"
-              bgColor="#FFF"
-              style={{ height: 40, width: 40 }}
-            />
-            <SocialIcon
-              url="https://www.linkedin.com/company/justfix-nyc"
-              target="_blank"
-              rel="noopener noreferrer"
-              bgColor="#FFF"
-              style={{ height: 40, width: 40 }}
-            />
-            <SocialIcon
-              url="https://github.com/JustFixNYC"
-              target="_blank"
-              rel="noopener noreferrer"
-              bgColor="#FFF"
-              style={{ height: 40, width: 40 }}
-            />
-          </div>
-        </div>
+const FooterLinksList: React.FC<{ links: LinkWithLabel[] }> = ({ links }) => {
+  return (
+    <div className="columns is-paddingless is-hidden-touch ml-0">
+      {links.map((link, i) => {
+        if (i % 3 === 0) {
+          return (
+            <div className="column is-4 is-paddingless mx-0" key={i}>
+              <FooterLink link={link} />
+              {!!links[i + 1] && <FooterLink link={links[i + 1]} />}
+              {!!links[i + 2] && <FooterLink link={links[i + 2]} />}
+            </div>
+          );
+        } else return;
+      })}
+    </div>
+  );
+};
+
+const Footer = () => (
+  <div className="jf-footer has-background-black has-text-white py-7">
+    <div className="columns is-multiline">
+      <div className="column is-9 is-12-touch pt-9">
+        <FooterLanguageToggle />
+        <FooterLinksList links={SITE_LINKS} />
       </div>
 
-      <div className="is-divider" />
+      <div className="column is-3 is-12-touch">
+        <h4 className="mb-2">
+          <Trans>Join our mailing list!</Trans>
+        </h4>
+        <Subscribe />
+        <div className="field mt-3">
+          <SocialIcon
+            className="mr-3"
+            url="http://twitter.com/justfixnyc"
+            target="_blank"
+            rel="noopener noreferrer"
+            bgColor="#FFF"
+            style={{ height: 40, width: 40 }}
+          />
+          <SocialIcon
+            className="mr-3"
+            url="https://facebook.com/JustFixNYC"
+            target="_blank"
+            rel="noopener noreferrer"
+            bgColor="#FFF"
+            style={{ height: 40, width: 40 }}
+          />
+          <SocialIcon
+            className="mr-3"
+            url="https://www.linkedin.com/company/justfix-nyc"
+            target="_blank"
+            rel="noopener noreferrer"
+            bgColor="#FFF"
+            style={{ height: 40, width: 40 }}
+          />
+          <SocialIcon
+            url="https://github.com/JustFixNYC"
+            target="_blank"
+            rel="noopener noreferrer"
+            bgColor="#FFF"
+            style={{ height: 40, width: 40 }}
+          />
+        </div>
+        <div className="mt-8 is-hidden-desktop">
+          {SITE_LINKS.map((link, i) => (
+            <FooterLink link={link} key={i} />
+          ))}
+        </div>
+      </div>
+    </div>
 
-      <div className="columns">
-        <div className="column is-three-quarters">
-          <p className="subtitle is-size-6 has-text-white">
-            <Trans>
-              <b>Disclaimer:</b> The information in JustFix.nyc does not
-              constitute legal advice and must not be used as a substitute for
-              the advice of a lawyer qualified to give advice on legal issues
-              pertaining to housing. We can help direct you to free legal
-              services if necessary.
-            </Trans>
-          </p>
-          <p className="subtitle is-size-6 has-text-white">
-            <Trans>
-              <b>JustFix.nyc</b> is a registered 501(c)(3) nonprofit
-              organization.
-            </Trans>
-          </p>
+    <div className="columns">
+      <div className="column is-12 pb-0">
+        <div className="is-divider is-light" />
+      </div>
+    </div>
+
+    <div className="columns">
+      <div className="column is-9">
+        <p>
+          <Trans>
+            <b>Disclaimer:</b> The information in JustFix.nyc does not
+            constitute legal advice and must not be used as a substitute for the
+            advice of a lawyer qualified to give advice on legal issues
+            pertaining to housing. We can help direct you to free legal services
+            if necessary.
+          </Trans>
+        </p>
+        <br />
+        <p>
+          <Trans>
+            <b>JustFix.nyc</b> is a registered 501(c)(3) nonprofit organization.
+          </Trans>
+        </p>
+        <div className="mt-9">
           <Link
-            className="link legal is-inline-block has-text-weight-semibold is-uppercase"
+            className="eyebrow is-small has-text-white mr-12 mr-6-mobile"
             to="/privacy-policy"
           >
             <Trans>Privacy policy</Trans>
           </Link>
-          <Link
-            className="link legal is-inline-block has-text-weight-semibold is-uppercase"
-            to="/terms-of-use"
-          >
+          <Link className="eyebrow is-small has-text-white" to="/terms-of-use">
             <Trans>Terms of use</Trans>
           </Link>
         </div>
-        <div className="column is-one-quarter">
-          <a
-            href="https://www.netlify.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              src="https://www.netlify.com/img/global/badges/netlify-light.svg"
-              alt="Netlify"
-            />
-          </a>
-        </div>
+      </div>
+      <div className="column is-one-quarter">
+        <a
+          href="https://www.netlify.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img
+            src="https://www.netlify.com/img/global/badges/netlify-light.svg"
+            alt="Netlify"
+          />
+        </a>
       </div>
     </div>
-  );
-});
+  </div>
+);
 
 export default Footer;

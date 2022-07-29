@@ -1,0 +1,476 @@
+@import "~bulma/sass/utilities/initial-variables.sass";
+@import "./vars";
+
+// MEDIA:
+
+@mixin mobile {
+  @media screen and (max-width: $desktop) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (min-width: $desktop) {
+    @content;
+  }
+}
+
+@mixin wide-desktop {
+  @media screen and (min-width: $wide-desktop) {
+    @content;
+  }
+}
+
+// FONTS:
+
+@font-face {
+  font-family: "Degular";
+  font-weight: normal;
+  font-style: normal;
+  src: url("../fonts/Degular-Medium.woff2") format("woff2"),
+    url("../fonts/Degular-Medium.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Degular Display";
+  font-weight: normal;
+  font-style: normal;
+  src: url("../fonts/Degular_Display-Medium.woff2") format("woff2"),
+    url("../fonts/Degular_Display-Medium.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Suisse Int'l Mono";
+  font-weight: normal;
+  font-style: normal;
+  src: url("../fonts/SuisseIntlMono-Regular-WebS.woff2") format("woff2"),
+    url("../fonts/SuisseIntlMono-Regular-WebS.woff") format("woff");
+}
+
+$body-font: "Degular", Arial, Helvetica, sans-serif;
+$title-font: "Degular Display", Arial, Helvetica, sans-serif;
+$eyebrow-font: "Suisse Int'l Mono", "Courier New", Courier, monospace;
+
+$family-primary: $body-font;
+
+// TYPOGRAPHY:
+
+// Default text color:
+$title-color: $justfix-black;
+$body-color: $justfix-black;
+
+@mixin body-standard {
+  font-family: $body-font;
+  font-size: 1.125rem;
+  line-height: 100%;
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: 0.01rem;
+}
+
+@mixin link {
+  color: inherit;
+  font-size: inherit;
+  text-decoration: underline;
+
+  &.no-underline {
+    text-decoration: none;
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    text-decoration: underline;
+    &.no-underline {
+      text-decoration: none;
+    }
+  }
+}
+
+// TYPOGRAPHY-DESKTOP:
+@mixin desktop-h1 {
+  @include body-standard();
+  font-family: $title-font;
+  font-size: 6rem;
+  letter-spacing: 0.03em;
+}
+
+@mixin desktop-h2 {
+  @include body-standard();
+  font-family: $title-font;
+  font-size: 4rem;
+  line-height: 90%;
+  letter-spacing: 0.03em;
+}
+
+@mixin desktop-h3 {
+  @include body-standard();
+  font-weight: 600;
+  font-size: 2.25rem;
+}
+
+@mixin desktop-h4 {
+  @include body-standard();
+  font-size: 1.5rem;
+  line-height: 120%;
+}
+
+@mixin desktop-text-small {
+  @include body-standard();
+  font-size: 0.875rem;
+}
+
+@mixin desktop-text-small-bold {
+  @include body-standard();
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+@mixin desktop-eyebrow {
+  @include body-standard();
+  font-family: $eyebrow-font;
+  line-height: 115%;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+@mixin desktop-eyebrow-small {
+  @include desktop-eyebrow();
+  font-size: 1rem;
+}
+
+@mixin desktop-typography {
+  body,
+  p,
+  a,
+  span {
+    @include body-standard();
+
+    &.is-small {
+      @include desktop-text-small();
+    }
+
+    &.is-bold {
+      @include desktop-text-small-bold();
+    }
+  }
+
+  a,
+  .link {
+    @include link();
+  }
+
+  .title.is-1,
+  h1 {
+    @include desktop-h1();
+  }
+
+  .title.is-2,
+  h2 {
+    @include desktop-h2();
+  }
+
+  .title.is-3,
+  h3 {
+    @include desktop-h3();
+  }
+
+  .title.is-4,
+  h4 {
+    @include desktop-h4();
+  }
+
+  .eyebrow {
+    @include desktop-eyebrow();
+
+    &.is-small {
+      @include desktop-eyebrow-small();
+    }
+  }
+}
+
+// TYPOGRAPHY-MOBILE:
+@mixin mobile-body-standard {
+  @include body-standard();
+  line-height: 120%;
+}
+
+@mixin mobile-h1 {
+  @include body-standard();
+  font-weight: 600;
+  font-size: 2.25rem;
+}
+
+@mixin mobile-h2 {
+  @include body-standard();
+  font-weight: 600;
+  font-size: 1.125rem;
+  letter-spacing: 0.02em;
+  font-variant: small-caps;
+}
+
+@mixin mobile-h3 {
+  @include body-standard();
+  font-size: 1.5rem;
+  line-height: 110%;
+}
+
+@mixin mobile-eyebrow {
+  @include body-standard();
+  font-family: $eyebrow-font;
+  font-size: 0.875rem;
+  line-height: 115%;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+@mixin mobile-text-small {
+  @include body-standard();
+  font-size: 0.875rem;
+}
+
+@mixin mobile-text-small-bold {
+  @include mobile-text-small();
+  font-weight: 600;
+}
+
+@mixin mobile-text-small-link {
+  @include mobile-text-small();
+  @include link();
+  line-height: 115%;
+}
+
+@mixin mobile-typography {
+  body,
+  p,
+  a,
+  span {
+    @include mobile-body-standard();
+
+    &.is-small {
+      @include mobile-text-small();
+
+      &.is-bold {
+        @include mobile-text-small-bold();
+      }
+    }
+
+    &.is-large {
+      @include mobile-h3();
+    }
+  }
+
+  a,
+  .link {
+    @include link();
+  }
+
+  .title.is-1,
+  h1 {
+    @include mobile-h1();
+  }
+
+  .title.is-2,
+  h2 {
+    @include mobile-h2();
+  }
+
+  .title.is-3,
+  h3 {
+    @include mobile-h3();
+  }
+
+  .title.is-4,
+  h4 {
+    @include mobile-body-standard();
+  }
+
+  .eyebrow {
+    @include mobile-eyebrow();
+  }
+}
+
+@include desktop() {
+  @include desktop-typography();
+}
+
+@include mobile() {
+  @include mobile-typography();
+}
+
+// BUTTONS:
+
+// Override of Standard Mixin:
+@mixin button-variant($color: $justfix-black) {
+  background-color: $color;
+  @include mobile-eyebrow();
+
+  @if $color ==$justfix-white {
+    color: $justfix-black;
+    border: 0.0625rem solid $justfix-black;
+  } @else {
+    color: $justfix-white;
+    border: 0.0625rem solid $justfix-white;
+  }
+
+  border-radius: 6.25rem;
+  padding: $spacing-06 $spacing-07;
+
+  height: fit-content;
+  // IE support:
+  display: table;
+  flex: none;
+  box-shadow: 0.25rem 0.25rem 0rem $justfix-grey-light;
+  max-width: 100%;
+  white-space: normal;
+  word-wrap: break-word;
+  text-decoration: none;
+
+  transition: all 0.1s linear;
+  transform: translateX(0rem);
+
+  &:focus,
+  &:hover {
+    border-color: initial;
+    background-color: $color;
+  }
+
+  &:hover {
+    transition: all 0.1s linear;
+    box-shadow: 0rem 0.4375rem 0rem 0rem $justfix-grey-light;
+    transform: translateX(0.4375rem);
+  }
+
+  &:active,
+  &.active {
+    @if $color == $justfix-white {
+      color: $justfix-black;
+    } @else {
+      color: $justfix-white;
+    }
+
+    border-style: solid;
+    background-color: $color;
+    box-shadow: inset 0rem 0.25rem 0rem $justfix-grey-light;
+  }
+}
+
+.button.is-primary,
+.button.is-primary:not(.is-outlined) {
+  @include button-variant($justfix-black);
+}
+
+.button.is-secondary,
+.button.is-secondary:not(.is-outlined) {
+  @include button-variant($justfix-white);
+}
+
+.button.is-text {
+  padding: 0;
+  color: $justfix-black;
+}
+
+.buttons.has-addons {
+  width: fit-content;
+  border-radius: 0.25rem;
+  border: 1px solid $justfix-white;
+
+  .button {
+    margin: 0;
+    text-decoration: none;
+    background-color: $justfix-black;
+    color: $justfix-white;
+
+    &:focus,
+    &:hover,
+    &.is-selected {
+      background-color: $justfix-white;
+      color: $justfix-black;
+      transition: all 0.1s linear;
+    }
+
+    &.is-selected {
+      pointer-events: none;
+    }
+  }
+}
+
+// PILLS:
+
+.tag,
+.tag:not(body) {
+  @include mobile-text-small-bold;
+  color: $justfix-black;
+  letter-spacing: 0.02rem;
+  text-transform: uppercase;
+  padding: 0.25rem 0.5rem;
+  margin: 0.25rem;
+  gap: 0.625rem;
+
+  // this is 12px/0.75rem in mocks, but it looks too sqaure - not sure how/why
+  border-radius: 1rem;
+
+  &.is-yellow {
+    background: $justfix-yellow;
+  }
+
+  &.is-blue {
+    background: $justfix-blue;
+  }
+
+  &.is-pink {
+    background: $justfix-pink;
+  }
+
+  &.is-empty {
+    background: none;
+    border: 0.0625rem solid $justfix-black;
+    box-sizing: border-box;
+  }
+}
+
+// CARDS:
+.jf-card {
+  border: 1px solid $justfix-black;
+  border-radius: 0.25rem;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  align-items: baseline;
+
+  span {
+    font-size: inherit;
+    font-weight: inherit;
+  }
+}
+
+// COLUMN STYLES:
+
+$column-gap: 18px;
+
+.columns,
+.columns:not(:last-child),
+.columns:last-child {
+  margin: 0;
+  padding-left: calc(#{$spacing-09} - #{$column-gap});
+  padding-right: calc(#{$spacing-09} - #{$column-gap});
+
+  @include mobile {
+    padding-left: calc(#{$spacing-06} - #{$column-gap});
+    padding-right: calc(#{$spacing-06} - #{$column-gap});
+  }
+}
+
+// WIDE DESKTOP STYLES:
+
+@include wide-desktop {
+  body {
+    background-color: $justfix-white;
+  }
+
+  .jf-page-body {
+    max-width: $wide-desktop;
+    margin: auto;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+  }
+}

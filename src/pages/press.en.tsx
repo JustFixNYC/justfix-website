@@ -1,71 +1,102 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
-// import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
-// import { Link } from 'gatsby'
+import Img from "gatsby-image/withIEPolyfill";
 
 import "../styles/press.scss";
 
 import Layout from "../components/layout";
-import ReadMore from "../components/read-more";
 import { ContentfulContent } from "./index.en";
+import PageHero from "../components/page-hero";
+import { ReadMoreLink } from "../components/read-more";
+import localeConfig from "../util/locale-config.json";
+import { useCurrentLocale } from "../util/use-locale";
+import classnames from "classnames";
+import { Trans } from "@lingui/macro";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import { OutboundLink } from "../util/links";
+import ResponsiveElement from "../components/responsive-element";
 
-export const PressPageScaffolding = (props: ContentfulContent) => (
-  <Layout metadata={props.content.metadata}>
-    <div id="press" className="press-page">
-      <section className="hero is-small">
-        <div className="hero-body has-text-centered is-horizontal-center">
-          <div className="container">
-            <h1 className="title is-size-2 has-text-grey-dark has-text-weight-normal is-spaced">
-              {props.content.title}
-            </h1>
+function formatDate(dateString: string, locale?: string): string {
+  var date = new Date(dateString);
+  return date.toLocaleDateString(locale || localeConfig.DEFAULT_LOCALE, {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+  });
+}
+
+export const PressPageScaffolding = (props: ContentfulContent) => {
+  const locale = useCurrentLocale();
+
+  return (
+    <Layout metadata={props.content.metadata}>
+      <div id="press" className="press-page">
+        <PageHero {...props.content.pageHero} />
+
+        <div className="columns is-centered is-multiline pt-7">
+          {props.content.pressItems.map((press: any, i: number) => (
+            <div className="column is-8 pt-0" key={i}>
+              {i > 0 &&
+                !press.isFeaturedArticle &&
+                !props.content.pressItems[i - 1].isFeaturedArticle && (
+                  <div className="is-divider mt-3 mb-10" />
+                )}
+              <div
+                className={classnames(
+                  press.isFeaturedArticle &&
+                    "has-background-warning mt-4 py-7 px-6"
+                )}
+              >
+                {press.isFeaturedArticle && (
+                  <div className="eyebrow is-large mb-6">
+                    <Trans>Featured press</Trans>
+                  </div>
+                )}
+                <div className="media is-align-items-center mt-7 mb-6">
+                  <figure className="media-left image is-48x48">
+                    <Img
+                      fluid={press.logo.fluid}
+                      className="is-rounded img-centered"
+                      alt={press.title}
+                    />
+                  </figure>
+                  <div className="jf-press-title title is-3">{press.title}</div>
+                </div>
+                <OutboundLink
+                  href={press.hyperlink}
+                  className="jf-link-article"
+                >
+                  <ResponsiveElement desktop="h2" touch="h3" className="mb-6">
+                    {press.linkText}
+                  </ResponsiveElement>
+                </OutboundLink>
+                {!press.isFeaturedArticle && (
+                  <div className="eyebrow is-large mb-6">
+                    {formatDate(press.publicationDate, locale)}
+                  </div>
+                )}
+                <ReadMoreLink url={press.hyperlink} />
+              </div>
+            </div>
+          ))}
+          <div className="column is-8 has-background-black has-text-white py-10 px-7 mt-6 mb-12 mx-5-mobile">
+            <ResponsiveElement desktop="h2" touch="h3" className="mb-6">
+              {documentToReactComponents(
+                props.content.pressInquiryBanner.content.json
+              )}
+            </ResponsiveElement>
+            <OutboundLink
+              href={props.content.pressInquiryBanner.button.link}
+              className="button is-primary mt-5"
+            >
+              {props.content.pressInquiryBanner.button.title}
+            </OutboundLink>
           </div>
         </div>
-      </section>
-
-      <section className="press-links content-wrapper">
-        {props.content.pressItems.map((pressItem: any, i: number) => (
-          <article className="media" key={i}>
-            <div className="media-left is-hidden-mobile">
-              <figure className="image is-horizontal-center">
-                <a
-                  href={pressItem.hyperlink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <img
-                    className="img-centered"
-                    src={pressItem.logo.file.url}
-                    alt=""
-                  />
-                </a>
-              </figure>
-            </div>
-
-            <div className="media-content">
-              <h4 className="is-size-5 has-text-weight-semibold is-uppercase">
-                {pressItem.title}
-              </h4>
-              <p className="is-size-5 has-text-primary">
-                <a
-                  href={pressItem.hyperlink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {pressItem.linkText}
-                </a>
-              </p>
-            </div>
-          </article>
-        ))}
-      </section>
-
-      <ReadMore
-        title={props.content.readMore.title}
-        link={props.content.readMore.link}
-      />
-    </div>
-  </Layout>
-);
+      </div>
+    </Layout>
+  );
+};
 
 export const PressPageFragment = graphql`
   fragment PressPage on Query {
@@ -82,20 +113,31 @@ export const PressPageFragment = graphql`
           }
         }
       }
-      title
+      pageHero {
+        pageName
+        description
+        onThisPageList
+      }
       pressItems {
         title
         hyperlink
-        linkText
+        publicationDate
+        isFeaturedArticle
         logo {
-          file {
-            url
+          fluid {
+            ...GatsbyContentfulFluid
           }
         }
+        linkText
       }
-      readMore {
-        title
-        link
+      pressInquiryBanner {
+        content {
+          json
+        }
+        button {
+          title
+          link
+        }
       }
     }
   }
