@@ -22,7 +22,9 @@ type MemberCardInfo = {
 };
 
 const MemberCard: React.FC<MemberCardInfo> = (props) => (
-  <div className={`column is-9 ${props.className}`}>
+  <div
+    className={`jf-member-card column is-9 px-6 py-9 py-6-mobile  ${props.className}`}
+  >
     <figure className="image">
       <Img fluid={props.photo.fluid} className="is-rounded" alt={props.name} />
     </figure>
@@ -42,13 +44,11 @@ type MemberCardsListInfo = {
 };
 
 const MemberCardsList: React.FC<MemberCardsListInfo> = (props) => (
-  <div className="py-9">
-    <div className="columns">
-      <div className="column is-12">
-        <h1 className="jf-team-title">{props.sectionTitle}</h1>
-      </div>
-    </div>
-    <div className="jf-members columns is-multiline is-centered py-9">
+  <>
+    <h1 className="jf-team-title pl-9 pt-6 pl-0-mobile pt-3-mobile ">
+      {props.sectionTitle}
+    </h1>
+    <div className="jf-members columns is-multiline is-centered">
       {props.memberList.map((member: any, i: number) => {
         const alignments = [
           "is-pulled-left",
@@ -63,7 +63,7 @@ const MemberCardsList: React.FC<MemberCardsListInfo> = (props) => (
       })}
       {props.memberList.length % 3 == 2 && <div className="column is-4" />}
     </div>
-  </div>
+  </>
 );
 
 export const TeamPageScaffolding = (props: ContentfulContent) => (
@@ -75,12 +75,10 @@ export const TeamPageScaffolding = (props: ContentfulContent) => (
         sectionTitle={props.content.title}
         memberList={props.content.teamMembers}
       />
-
       <MemberCardsList
         sectionTitle={props.content.directorsTitle}
         memberList={props.content.directors}
       />
-
       <div className="py-9">
         <div className="columns">
           <div className="column">
