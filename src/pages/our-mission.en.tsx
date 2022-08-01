@@ -19,12 +19,12 @@ export const MissionPageScaffolding = (props: ContentfulContent) => {
       <PageHero {...props.content.pageHero} />
 
       <div className="columns">
-        <div className="column is-4 pt-13 pb-12 p-6-mobile">
+        <div className="column is-4 pt-13 pb-12 pl-0 p-6-mobile">
           <ResponsiveElement desktop="h2" touch="h1">
             {props.content.missionTitle}
           </ResponsiveElement>
         </div>
-        <div className="column is-1 is-hidden-mobile" />
+        <div className="column is-1 is-hidden-mobile p-0" />
         <div className="column is-7 pt-13 pb-12 pt-0-mobile px-6-mobile pb-6-mobile">
           <span className="title is-3">
             {documentToReactComponents(props.content.missionContent.json)}
@@ -33,24 +33,24 @@ export const MissionPageScaffolding = (props: ContentfulContent) => {
       </div>
 
       <div className="columns has-background-warning">
-        <div className="column is-4 pt-13 pb-12 pt-6-mobile px-6-mobile pb-0-mobile">
+        <div className="column is-4 pt-13 pb-12 pl-0 pt-6-mobile px-6-mobile pb-0-mobile">
           <ResponsiveElement desktop="h2" touch="h1">
             {props.content.visionTitle}
           </ResponsiveElement>
         </div>
-        <div className="column is-1 is-hidden-mobile" />
+        <div className="column is-1 is-hidden-mobile p-0" />
         <div className="column is-7 pt-13 pb-12 p-6-mobile jf-text-block-with-spacing">
           {documentToReactComponents(props.content.visionContent.json)}
         </div>
       </div>
 
       <div className="columns">
-        <div className="column is-4 pt-13 pb-12 pt-6-mobile px-6-mobile pb-0-mobile">
+        <div className="column is-4 pt-13 pb-12 pl-0 pt-6-mobile px-6-mobile pb-0-mobile">
           <ResponsiveElement desktop="h2" touch="h1">
             {props.content.impactTitle}
           </ResponsiveElement>
         </div>
-        <div className="column is-1 is-hidden-mobile" />
+        <div className="column is-1 is-hidden-mobile p-0" />
         <div className="column is-7 pt-13 pb-12 p-6-mobile">
           <h3 className="mb-10 mb-6-mobile">{props.content.impactSubtitle}</h3>
           <div className="columns is-paddingless">
@@ -84,12 +84,12 @@ export const MissionPageScaffolding = (props: ContentfulContent) => {
       </div>
 
       <div className="columns has-background-info">
-        <div className="column is-4 pt-13 pb-12 p-6-mobile">
+        <div className="column is-4 pt-13 pb-12 pl-0 p-6-mobile">
           <ResponsiveElement desktop="h2" touch="h1">
             {props.content.valuesTitle}
           </ResponsiveElement>
         </div>
-        <div className="column is-1 is-hidden-mobile" />
+        <div className="column is-1 is-hidden-mobile p-0" />
         <div className="column is-7 pt-13 pb-12 p-6-mobile">
           {props.content.valuesList.map((value: any, i: number) => (
             <div key={i}>
