@@ -122,7 +122,7 @@ export const ProductList: React.FC<ProductListInfo> = (props) => (
       )}
       <div className="column is-4 is-12-mobile">
         <div className="jf-card has-background-black has-text-white p-8 p-6-mobile">
-          <div className="mb-6 mb-5-mobile">
+          <div className="mb-6 mb-9-mobile">
             {documentToReactComponents(props.productIdeaBanner.content.json)}
           </div>
 
