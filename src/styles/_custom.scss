@@ -335,6 +335,10 @@ a.has-text-black:hover {
 .jf-cookies-banner {
   border-top: 1px solid $justfix-black;
 
+  @include wide-desktop {
+    width: $wide-desktop;
+  }
+
   img {
     filter: invert(1) contrast(0.7);
   }

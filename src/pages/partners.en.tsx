@@ -235,7 +235,7 @@ export const PartnersPageScaffolding = (props: ContentfulContent) => (
         </div>
         <div className="column is-8 has-background-info is-hidden-tablet pt-0 pb-7">
           <div className="is-divider mt-0" />
-          <h2 className="mb-6">{props.content.collaborationBanner.title}</h2>
+          <h2 className="mb-6">{props.content.collaborationBanner.label}</h2>
           <span className="title is-4">
             {documentToReactComponents(
               props.content.collaborationBanner.content.json

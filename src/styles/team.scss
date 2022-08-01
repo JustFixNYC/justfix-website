@@ -12,6 +12,12 @@
     justify-content: space-between;
   }
 
+  .jf-member-card {
+    @include mobile {
+      float: left;
+    }
+  }
+
   .jf-alumni-list {
     @include desktop {
       column-count: 2;

@@ -131,23 +131,30 @@ export const ArticlePreviewCard = (props: ArticlePreviewInfo) => {
             </span>
             <h4 className="my-6 my-3-mobile">{props.metadata.description}</h4>
           </div>
-          {isFeatured ? (
-            <div className="jf-article-link-container is-flex">
-              <LocaleLink
-                className={"button is-primary mt-0 mt-4-mobile"}
-                to={articleUrl}
+          <div className="is-flex">
+            {isFeatured ? (
+              <div className="jf-article-link-container is-flex is-flex-direction-row">
+                <LocaleLink
+                  className={"button is-primary mt-0 mt-4-mobile"}
+                  to={articleUrl}
+                >
+                  <Trans>Read More</Trans>
+                </LocaleLink>
+              </div>
+            ) : (
+              <ReadMoreLink url={articleUrl} />
+            )}
+            {locale === "es" && props.englishOnly && (
+              <span
+                className={classnames(
+                  "has-text-danger is-italic px-3",
+                  isFeatured && "is-align-self-center pl-4"
+                )}
               >
-                <Trans>Read More</Trans>
-              </LocaleLink>
-            </div>
-          ) : (
-            <ReadMoreLink url={articleUrl} />
-          )}
-          {locale === "es" && props.englishOnly && (
-            <span className="has-text-danger is-italic px-3">
-              Solo en inglés
-            </span>
-          )}
+                Solo en inglés
+              </span>
+            )}
+          </div>
           {!isFeatured && !props.isLast && (
             <div className="is-divider mt-24 mb-0"></div>
           )}
