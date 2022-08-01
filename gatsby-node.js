@@ -84,14 +84,8 @@ const generateLearningPages = async function ({ actions, graphql }, locale) {
           __typename
           ... on ContentfulLearningArticleCtaBlock {
             title
-            subtitle
             ctaText
             ctaLink
-            secondaryCta {
-              subtitle
-              ctaText
-              ctaLink
-            }
           }
           ... on ContentfulLearningArticleSection {
             title
