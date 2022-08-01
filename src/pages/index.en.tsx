@@ -47,49 +47,51 @@ type ProductCardInfo = {
 
 const Dot = () => <span className="mx-3">·</span>;
 
-export const ProductCard: React.FC<ProductCardInfo> = (props) => (
-  <div
-    className={classNames(
-      "column is-4 is-12-mobile",
-      props.isCondensed && "pl-0 pr-6 px-0-mobile"
-    )}
-  >
+export const ProductCard: React.FC<ProductCardInfo> = (props) => {
+  const { link } = props.button;
+  const toolLink = link + (link.startsWith("sms") ? "" : PRODUCT_CTA_UTM_CODE);
+
+  return (
     <div
-      className={classnames(
-        "jf-card has-background-white",
-        props.isCondensed ? "p-6" : "p-8 p-6-mobile"
+      className={classNames(
+        "column is-4 is-12-mobile",
+        props.isCondensed && "pl-0 pr-6 px-0-mobile"
       )}
     >
-      <div className="eyebrow is-small mb-5 mb-4-mobile">
-        {props.productName}
-      </div>
-      <h3 className="mb-6 mb-5-mobile">{props.title}</h3>
-      <div className="title is-4 mb-6 mb-5-mobile">
-        {documentToReactComponents(props.descriptionText.json)}
-      </div>
-      <div className="mt-auto">
-        <div className="has-text-dark	is-uppercase has-text-weight-bold is-size-7 mb-6">
-          {props.location}
-          <Dot />
-          {props.language
-            .map<React.ReactNode>((lang, i) => <span key={i}>{lang}</span>)
-            .reduce((lang1, lang2, i) => [
-              lang1,
-              <Dot key={Math.random()} />,
-              lang2,
-            ])}
+      <div
+        className={classnames(
+          "jf-card has-background-white",
+          props.isCondensed ? "p-6" : "p-8 p-6-mobile"
+        )}
+      >
+        <div className="eyebrow is-small mb-5 mb-4-mobile">
+          {props.productName}
         </div>
+        <h3 className="mb-6 mb-5-mobile">{props.title}</h3>
+        <div className="title is-4 mb-6 mb-5-mobile">
+          {documentToReactComponents(props.descriptionText.json)}
+        </div>
+        <div className="mt-auto">
+          <div className="has-text-dark	is-uppercase has-text-weight-bold is-size-7 mb-6">
+            {props.location}
+            <Dot />
+            {props.language
+              .map<React.ReactNode>((lang, i) => <span key={i}>{lang}</span>)
+              .reduce((lang1, lang2, i) => [
+                lang1,
+                <Dot key={Math.random()} />,
+                lang2,
+              ])}
+          </div>
 
-        <OutboundLink
-          href={props.button.link + PRODUCT_CTA_UTM_CODE}
-          className="button is-primary"
-        >
-          {props.button.title}
-        </OutboundLink>
+          <OutboundLink href={toolLink} className="button is-primary">
+            {props.button.title}
+          </OutboundLink>
+        </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 type ProductListInfo = {
   productSectionTitle: string;
