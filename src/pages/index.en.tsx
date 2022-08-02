@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import { StaticQuery, graphql } from "gatsby";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import Img from "gatsby-image/withIEPolyfill";
@@ -123,37 +123,45 @@ type ProductListInfo = {
   };
 };
 
-export const ProductList: React.FC<ProductListInfo> = (props) => (
-  <div
-    id="products"
-    className="has-background-link has-text-black pb-12 pb-6-mobile"
-  >
-    <div className="columns is-multiline">
-      <div className="column is-12 pt-10 pt-7-mobile pb-9">
-        <h1>{props.productSectionTitle}</h1>
-      </div>
-      {shuffleArray(props.homePageProductBlocks).map(
-        (product: any, i: number) => (
-          <ProductCard {...product} key={slugify(product.productName)} />
-        )
-      )}
-      <div className="column is-4 is-12-mobile">
-        <div className="jf-card has-background-black has-text-white p-8 p-6-mobile">
-          <div className="mb-6 mb-9-mobile">
-            {documentToReactComponents(props.productIdeaBanner.content.json)}
-          </div>
+export const ProductList: React.FC<ProductListInfo> = (props) => {
+  const [shuffled, setShuffled] = useState<ProductCardInfo[]>(props.homePageProductBlocks);
+  useEffect(() => {
+    setShuffled(shuffleArray(props.homePageProductBlocks));
+  }, [])
+  console.log(shuffled)
 
-          <OutboundLink
-            href={props.productIdeaBanner.button.link}
-            className="button is-primary mt-auto"
-          >
-            {props.productIdeaBanner.button.title}
-          </OutboundLink>
+  return (
+    <div
+      id="products"
+      className="has-background-link has-text-black pb-12 pb-6-mobile"
+    >
+      <div className="columns is-multiline">
+        <div className="column is-12 pt-10 pt-7-mobile pb-9">
+          <h1>{props.productSectionTitle}</h1>
+        </div>
+        {shuffled.map(
+          (product: any, i: number) => (
+            <ProductCard {...product} key={slugify(product.productName)} />
+          )
+        )}
+        <div className="column is-4 is-12-mobile">
+          <div className="jf-card has-background-black has-text-white p-8 p-6-mobile">
+            <div className="mb-6 mb-9-mobile">
+              {documentToReactComponents(props.productIdeaBanner.content.json)}
+            </div>
+
+            <OutboundLink
+              href={props.productIdeaBanner.button.link}
+              className="button is-primary mt-auto"
+            >
+              {props.productIdeaBanner.button.title}
+            </OutboundLink>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 export const LandingPageScaffolding = (props: ContentfulContent) => (
   <Layout isLandingPage={true}>
