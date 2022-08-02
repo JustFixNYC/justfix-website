@@ -78,7 +78,11 @@ export const ProductCard: React.FC<ProductCardInfo> = (props) => {
               ])}
           </div>
 
-          <OutboundLink href={toolLink} className="button is-primary">
+          <OutboundLink
+            href={toolLink}
+            className="button is-primary"
+            key={slugify(props.productName)}
+          >
             {props.button.title}
           </OutboundLink>
         </div>
