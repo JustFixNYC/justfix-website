@@ -180,7 +180,7 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
             </h3>
             <div className="has-background-warning mt-9">
               <div className="columns is-desktop is-marginless is-paddingless">
-                <div className="column is-marginless is-5 is-12-touch p-9">
+                <div className="column jf-lc-featured is-marginless is-6 is-12-touch p-9">
                   <div className="eyebrow is-large mb-6">
                     <Trans>Featured article</Trans>
                   </div>
@@ -188,9 +188,9 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
                     to={`/learn/${props.content.learningCenterPreviewArticles[0].slug}`}
                     className="jf-link-article"
                   >
-                    <h2 className="mb-6">
+                    <ResponsiveElement className="mb-6" desktop="h2" touch="h3">
                       {props.content.learningCenterPreviewArticles[0].title}
-                    </h2>
+                    </ResponsiveElement>
                   </Link>
                   <div className="eyebrow is-large mb-5">
                     <Trans>Updated</Trans>{" "}
@@ -206,7 +206,7 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
                     url={`/learn/${props.content.learningCenterPreviewArticles[0].slug}`}
                   />
                 </div>
-                <div className="column is-marginless is-paddingless is-7 is-12-touch">
+                <div className="column is-marginless is-paddingless is-6 is-12-touch">
                   <div className="columns is-marginless is-paddingless is-multiline">
                     <div className="column is-marginless is-12 py-6 px-9">
                       <Link
@@ -248,7 +248,7 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
                         url={`/learn/${props.content.learningCenterPreviewArticles[2].slug}`}
                       />
                     </div>
-                    <div className="column is-marginless is-12 py-6 px-9">
+                    <div className="column is-marginless is-12 py-8 px-9">
                       <Link to="/learn" className="button is-primary">
                         <Trans>See all articles</Trans>
                       </Link>

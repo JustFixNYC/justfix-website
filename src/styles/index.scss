@@ -33,7 +33,7 @@
 
 .home-page {
   .jf-learning-center-preview {
-    .column.is-5 {
+    .jf-lc-featured {
       @include desktop {
         border-right: 1px solid $justfix-black;
       }
@@ -43,7 +43,7 @@
       }
     }
 
-    .column.is-7 .column:not(:last-child) {
+    .column.is-6 .column:not(:last-child) {
       border-bottom: 1px solid $justfix-black;
     }
   }
