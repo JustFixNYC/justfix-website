@@ -69,13 +69,19 @@ export const MissionPageScaffolding = (props: ContentfulContent) => {
               </div>
             </div>
           </div>
-          <h3 className="mt-10 mb-7 my-6-mobile">
+          <ResponsiveElement
+            className="mt-10 mb-7 my-6-mobile"
+            desktop="h3"
+            touch="h2"
+          >
             {props.content.pastReportsSubtitle}
-          </h3>
+          </ResponsiveElement>
           <div className="columns is-paddingless is-multiline">
             {pastReports.map((report: any, i: number) => (
               <div className="column is-paddingless is-4 mb-7" key={i}>
-                <h4 className="mb-3">{report.title}</h4>
+                <ResponsiveElement className="mb-3" desktop="h4" touch="h3">
+                  {report.title}
+                </ResponsiveElement>
                 <ReadMoreLink url={report.link} />
               </div>
             ))}
