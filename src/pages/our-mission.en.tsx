@@ -9,6 +9,8 @@ import { ReadMoreLink } from "../components/read-more";
 import { Accordion } from "../components/accordion";
 import ResponsiveElement from "../components/responsive-element";
 
+import "../styles/our-mission.scss";
+
 export const MissionPageScaffolding = (props: ContentfulContent) => {
   const { content } = props;
   const latestReport = content.impactReportButtons[0];
@@ -40,6 +42,9 @@ export const MissionPageScaffolding = (props: ContentfulContent) => {
         </div>
         <div className="column is-1 is-hidden-mobile" />
         <div className="column is-7 pt-13 pb-12 p-6-mobile jf-text-block-with-spacing">
+          <ResponsiveElement desktop="h3" touch="h2">
+            {props.content.visionSubtitle}
+          </ResponsiveElement>
           {documentToReactComponents(props.content.visionContent.json)}
         </div>
       </div>
@@ -142,6 +147,7 @@ export const MissionPageFragment = graphql`
         json
       }
       visionTitle
+      visionSubtitle
       visionContent {
         json
       }

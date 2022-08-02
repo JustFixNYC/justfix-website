@@ -1,0 +1,9 @@
+@import "_design-system.scss";
+
+.jf-text-block-with-spacing {
+  p {
+    @include desktop {
+      @include desktop-h4;
+    }
+  }
+}
