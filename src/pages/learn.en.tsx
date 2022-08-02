@@ -167,7 +167,7 @@ export const LearningPageScaffolding = (props: ContentfulContent) => {
       <div id="learning-center" className="learning-center-page">
         <div className="columns is-centered is-multiline pt-12 pt-7-mobile pb-10">
           <div className="column is-8 pb-0 mb-12">
-            <span className="eyebrow is-large">
+            <span className="eyebrow is-large is-uppercase pb-2 pb-4-mobile">
               <Trans>Learning Center</Trans>
             </span>
             <h1 className="mb-6">{props.content.title}</h1>
