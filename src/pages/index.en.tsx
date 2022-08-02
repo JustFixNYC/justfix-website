@@ -188,9 +188,9 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
                     to={`/learn/${props.content.learningCenterPreviewArticles[0].slug}`}
                     className="jf-link-article"
                   >
-                    <h2 className="mb-6">
+                    <ResponsiveElement className="mb-6" desktop="h2" touch="h3">
                       {props.content.learningCenterPreviewArticles[0].title}
-                    </h2>
+                    </ResponsiveElement>
                   </Link>
                   <div className="eyebrow is-large mb-5">
                     <Trans>Updated</Trans>{" "}
