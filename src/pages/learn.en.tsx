@@ -15,10 +15,6 @@ import localeConfig from "../util/locale-config.json";
 import { ReadMoreLink } from "../components/read-more";
 import Img from "gatsby-image/withIEPolyfill";
 
-// TODO: I don't think we need this - remove when we do category pages
-export const isCovidRelated = (word: string) =>
-  /COVID/.test(word.toUpperCase());
-
 const Dot = () => <span className="mx-3">•</span>;
 
 function formatDate(dateString: string, locale?: string): string {
