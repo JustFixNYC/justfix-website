@@ -21,6 +21,23 @@ export type ContentfulContent = {
   content: any;
 };
 
+// const shuffleArray = (array: any[]) =>
+//   array
+//     .map((value) => ({ value, sort: Math.random() }))
+//     .sort((a, b) => a.sort - b.sort)
+//     .map(({ value }) => value);
+
+// https://gist.github.com/codeguy/6684588?permalink_comment_id=3243980#gistcomment-3243980
+const slugify = (text: string): string => {
+  return text
+    .normalize("NFKD")
+    .toLowerCase()
+    .trim()
+    .replace(/\s+/g, "-")
+    .replace(/[^\w\-]+/g, "")
+    .replace(/\-\-+/g, "-");
+};
+
 type ProductCardInfo = {
   productName: string;
   title: string;
@@ -116,7 +133,7 @@ export const ProductList: React.FC<ProductListInfo> = (props) => (
         <h1>{props.productSectionTitle}</h1>
       </div>
       {props.homePageProductBlocks.map((product: any, i: number) => (
-        <ProductCard {...product} key={i} />
+        <ProductCard {...product} key={slugify(product.productName)} />
       ))}
       <div className="column is-4 is-12-mobile">
         <div className="jf-card has-background-black has-text-white p-8 p-6-mobile">
