@@ -108,8 +108,8 @@ export const ArticlePreviewCard = (props: ArticlePreviewInfo) => {
         )}
         <div
           className={classnames(
-            "py-7 mb-2 px-0",
-            isFeatured ? "px-6" : "px-0",
+            "pt-7 mb-2",
+            isFeatured ? "pb-7 px-6" : "px-0",
             !isFeatured && !props.isLast ? "pb-0-mobile" : ""
           )}
         >
@@ -156,7 +156,7 @@ export const ArticlePreviewCard = (props: ArticlePreviewInfo) => {
             )}
           </div>
           {!isFeatured && !props.isLast && (
-            <div className="is-divider mt-24 mb-0"></div>
+            <div className="is-divider mt-8 mb-0"></div>
           )}
         </div>
       </div>
