@@ -126,12 +126,13 @@ export const ProductList: React.FC<ProductListInfo> = (props) => (
             {documentToReactComponents(props.productIdeaBanner.content.json)}
           </div>
 
-          <OutboundLink
+          <a
             href={props.productIdeaBanner.button.link}
             className="button is-primary mt-auto"
+            target="_blank"
           >
             {props.productIdeaBanner.button.title}
-          </OutboundLink>
+          </a>
         </div>
       </div>
     </div>
