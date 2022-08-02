@@ -102,7 +102,7 @@ export const MissionPageScaffolding = (props: ContentfulContent) => {
               {i > 0 && <div className="is-divider" />}
               <div className="is-hidden-mobile">
                 <h3 className="mb-5">{value.title}</h3>
-                <p>{value.description.description}</p>
+                <p className="title is-4">{value.description.description}</p>
               </div>
               <div className="is-hidden-tablet">
                 <Accordion question={value.title}>
