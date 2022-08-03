@@ -172,11 +172,12 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
       <div className="has-background-black has-text-white">
         <div className="columns">
           <div className="column is-12 pt-9 py-8-mobile">
-            <h1>{props.content.whoWeAreSection}</h1>
-            <br />
+            <h1 className="is-inline-desktop">
+              {props.content.whoWeAreSection}
+            </h1>
             <Link
               to={props.content.whoWeAreButton.link}
-              className="button is-primary mt-5 mb-10 mb-7-mobile"
+              className="button is-primary is-inline-block-desktop mt-5 mb-10 mb-7-mobile ml-5 ml-0-mobile"
             >
               {props.content.whoWeAreButton.title}
             </Link>
@@ -311,11 +312,12 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
 
       <div className="columns has-background-info">
         <div className="column is-12 pt-9 pt-6-mobile pb-12 pb-9-mobile">
-          <h1>{props.content.outroSectionTitle}</h1>
-          <br />
+          <h1 className="is-inline-desktop">
+            {props.content.outroSectionTitle}
+          </h1>
           <Link
             to={props.content.outroSectionButton.link}
-            className="button is-primary mt-5"
+            className="button is-primary mt-5 ml-5 ml-0-mobile"
           >
             {props.content.outroSectionButton.title}
           </Link>
