@@ -21,11 +21,22 @@ export type ContentfulContent = {
   content: any;
 };
 
-const shuffleArray = (array: any[]) =>
-  array
-    .map((value) => ({ value, sort: Math.random() }))
-    .sort((a, b) => a.sort - b.sort)
-    .map(({ value }) => value);
+// const shuffleArray = (array: any[]) =>
+//   array
+//     .map((value) => ({ value, sort: Math.random() }))
+//     .sort((a, b) => a.sort - b.sort)
+//     .map(({ value }) => value);
+
+// https://gist.github.com/codeguy/6684588?permalink_comment_id=3243980#gistcomment-3243980
+const slugify = (text: string): string => {
+  return text
+    .normalize("NFKD")
+    .toLowerCase()
+    .trim()
+    .replace(/\s+/g, "-")
+    .replace(/[^\w\-]+/g, "")
+    .replace(/\-\-+/g, "-");
+};
 
 type ProductCardInfo = {
   productName: string;
@@ -84,7 +95,11 @@ export const ProductCard: React.FC<ProductCardInfo> = (props) => {
               ])}
           </div>
 
-          <OutboundLink href={toolLink} className="button is-primary">
+          <OutboundLink
+            href={toolLink}
+            className="button is-primary"
+            key={slugify(props.productName)}
+          >
             {props.button.title}
           </OutboundLink>
         </div>
@@ -117,11 +132,9 @@ export const ProductList: React.FC<ProductListInfo> = (props) => (
       <div className="column is-12 pt-10 pt-7-mobile pb-9">
         <h1>{props.productSectionTitle}</h1>
       </div>
-      {shuffleArray(props.homePageProductBlocks).map(
-        (product: any, i: number) => (
-          <ProductCard {...product} key={i} />
-        )
-      )}
+      {props.homePageProductBlocks.map((product: any, i: number) => (
+        <ProductCard {...product} key={slugify(product.productName)} />
+      ))}
       <div className="column is-4 is-12-mobile">
         <div className="jf-card has-background-black has-text-white p-8 p-6-mobile">
           <div className="mb-6 mb-9-mobile">
