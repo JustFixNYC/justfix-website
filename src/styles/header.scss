@@ -49,6 +49,7 @@
       .navbar-item {
         padding: 2rem 1.75rem;
         transition: none;
+        color: $black;
 
         &.is-active {
           background-color: $black;
@@ -68,11 +69,16 @@
         .navbar-burger {
           align-self: center;
           font-size: 1.5rem;
+          text-decoration: underline;
+          text-underline-offset: 0.25rem;
+          text-decoration-color: transparent;
+          transition: text-decoration-color 200ms ease-in-out;
 
           &:hover {
             background-color: inherit;
-            text-decoration: underline;
-            text-underline-offset: 0.25rem;
+            @include desktop {
+              text-decoration-color: $black;
+            }
           }
         }
 
