@@ -183,7 +183,7 @@ const Header: React.FC<{
                 <Trans>Technology for Housing Justice</Trans>
               </div>
               <div
-                className="navbar-item is-paddingless is-flex-grow-1"
+                className="navbar-item is-paddingless is-flex-grow-1 is-hidden-touch"
                 onClick={() => setBurgerMenuStatus(false)}
               />
               <div
@@ -195,7 +195,10 @@ const Header: React.FC<{
                 </Link>
               </div>
               <div
-                className={"navbar-item " + (burgerMenuIsOpen && "is-active")}
+                className={classnames(
+                  "navbar-item is-justify-content-center",
+                  burgerMenuIsOpen && "is-active"
+                )}
               >
                 <button
                   role="button"

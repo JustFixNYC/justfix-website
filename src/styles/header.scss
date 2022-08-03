@@ -50,6 +50,10 @@
         padding: 2rem 1.75rem;
         transition: none;
 
+        @include mobile {
+          width: 50%;
+        }
+
         &.is-active {
           background-color: $black;
           color: $white;
@@ -57,7 +61,7 @@
 
         &:first-child {
           @include desktop {
-            border-right: 2px solid $black;
+            border-right: 1px solid $black;
           }
         }
 
