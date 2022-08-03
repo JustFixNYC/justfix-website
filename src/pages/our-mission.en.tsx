@@ -65,9 +65,9 @@ export const MissionPageScaffolding = (props: ContentfulContent) => {
               <div className="column is-9 has-background-black has-text-white">
                 <div className="columns is-paddingless">
                   <div className="column is-7">
-                  <ResponsiveElement desktop="h2" touch="h1">
-                    {latestReport.title}
-                  </ResponsiveElement>
+                    <ResponsiveElement desktop="h2" touch="h1">
+                      {latestReport.title}
+                    </ResponsiveElement>
                   </div>
                   <div className="column is-5">
                     <h3 className="mb-3">{props.content.impactCallout}</h3>
