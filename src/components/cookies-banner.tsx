@@ -56,6 +56,7 @@ export const CookiesBanner = () => {
                 src={require("../img/close.svg")}
                 width="14px"
                 height="14px"
+                alt=""
               />
             </button>
           )}

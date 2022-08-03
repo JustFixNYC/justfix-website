@@ -131,7 +131,7 @@ const Header: React.FC<{
     <>
       <div
         className={classnames(
-          "jf-sticky-phantom is-hidden-desktop",
+          "jf-sticky-phantom",
           isScrollingUp && "jf-sticky"
         )}
       />
@@ -215,6 +215,7 @@ const Header: React.FC<{
                     className="mr-3"
                     width="16"
                     height="12"
+                    alt=""
                   />
                   {burgerMenuIsOpen ? (
                     <Trans>Close</Trans>

@@ -84,14 +84,8 @@ const generateLearningPages = async function ({ actions, graphql }, locale) {
           __typename
           ... on ContentfulLearningArticleCtaBlock {
             title
-            subtitle
             ctaText
             ctaLink
-            secondaryCta {
-              subtitle
-              ctaText
-              ctaLink
-            }
           }
           ... on ContentfulLearningArticleSection {
             title
@@ -239,7 +233,7 @@ exports.createPages = async function ({ actions, graphql }) {
   });
   createRedirect({
     fromPath: "/ehp",
-    toPath: "https://app.justfix.nyc/ehp",
+    toPath: "https://app.justfix.org/ehp",
     isPermanent: true,
   });
   createRedirect({ fromPath: "/get-repairs", toPath: "/", isPermanent: true });

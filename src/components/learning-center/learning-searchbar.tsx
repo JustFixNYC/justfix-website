@@ -59,28 +59,34 @@ const SearchBox = ({ currentRefinement, refine, props }: any) => {
                 height="25"
                 width="25"
                 className="m-4"
+                alt=""
               />
             </form>
           )}
         </I18n>
-        {searchFocused && (
-          <div className="jf-dropdown-content mt-3 py-5 px-4">
-            {!!currentRefinement ? (
-              <>
-                <CustomHits />
-                <div className="jf-search-by is-pulled-right">
-                  <img
-                    width="100"
-                    height="20"
-                    src={require("../../img/brand/algolia.svg")}
-                  />
-                </div>
-              </>
-            ) : (
-              <DropdownPlaceholder {...props} />
-            )}
-          </div>
-        )}
+        <I18n>
+          {({ i18n }) =>
+            searchFocused && (
+              <div className="jf-dropdown-content mt-3 py-5 px-4">
+                {!!currentRefinement ? (
+                  <>
+                    <CustomHits />
+                    <div className="jf-search-by is-pulled-right">
+                      <img
+                        width="100"
+                        height="20"
+                        src={require("../../img/brand/algolia.svg")}
+                        alt={i18n._(t`Search by Algolia`)}
+                      />
+                    </div>
+                  </>
+                ) : (
+                  <DropdownPlaceholder {...props} />
+                )}
+              </div>
+            )
+          }
+        </I18n>
       </div>
     </FocusTrap>
   );
@@ -102,7 +108,9 @@ const DropdownPlaceholder: React.FC<DropdownPlaceholderInfo> = ({
   popularArticles,
 }: DropdownPlaceholderInfo) => (
   <>
-    <span className="eyebrow is-bold mb-3">Key Topics</span>
+    <span className="eyebrow is-bold mb-3">
+      <Trans>Key Topics</Trans>
+    </span>
     <div className="mt-3 mb-7">
       {categoryButtons.map((category: any, i: number) => (
         <LocaleLink
@@ -114,7 +122,9 @@ const DropdownPlaceholder: React.FC<DropdownPlaceholderInfo> = ({
         </LocaleLink>
       ))}
     </div>
-    <span className="eyebrow is-bold">Popular Articles</span>
+    <span className="eyebrow is-bold">
+      <Trans>Popular Articles</Trans>
+    </span>
     <div className="is-flex is-flex-direction-column mt-3">
       {popularArticles.map((article: any, i: number) => (
         <LocaleLink
