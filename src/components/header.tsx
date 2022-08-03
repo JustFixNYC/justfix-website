@@ -177,7 +177,7 @@ const Header: React.FC<{
                 )}
               </div>
               <div
-                className="navbar-item is-size-3 has-text-black is-hidden-touch"
+                className="jf-tagline navbar-item is-size-3 has-text-black is-hidden-touch"
                 onClick={() => setBurgerMenuStatus(false)}
               >
                 <Trans>Technology for Housing Justice</Trans>

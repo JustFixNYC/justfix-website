@@ -50,6 +50,10 @@
         padding: 2rem 1.75rem;
         transition: none;
 
+        &.jf-tagline {
+          letter-spacing: 0.01rem;
+        }
+
         &.is-active {
           background-color: $black;
           color: $white;
