@@ -85,8 +85,8 @@ msgid "Got it"
 msgstr "Entendido"
 
 #: src/components/learning-center/article-template.tsx:108
-msgid "How can JustFix help?"
-msgstr ""
+#~ msgid "How can JustFix help?"
+#~ msgstr ""
 
 #: src/components/footer.tsx:51
 msgid "Join our mailing list!"
@@ -250,6 +250,10 @@ msgstr "Lo que hacemos"
 #: src/components/learning-center/article-template.tsx:110
 #~ msgid "What can I do?"
 #~ msgstr "¿Cómo puede ayudar JustFix?"
+
+#: src/components/learning-center/article-template.tsx:108
+msgid "What can JustFix do?"
+msgstr ""
 
 #: src/pages/404.en.tsx:13
 msgid "You just found a page that doesn't exist... the sadness."
