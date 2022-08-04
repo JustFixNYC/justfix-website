@@ -199,9 +199,11 @@ const Header: React.FC<{
               >
                 <button
                   role="button"
-                  className={
-                    "navbar-burger burger " + (burgerMenuIsOpen && "is-active")
-                  }
+                  className={classnames(
+                    "navbar-burger burger",
+                    "is-flex is-align-items-center is-justify-content-center",
+                    burgerMenuIsOpen && "is-active"
+                  )}
                   aria-expanded="false"
                   onClick={() => setBurgerMenuStatus(!burgerMenuIsOpen)}
                   data-target="navbar"
@@ -217,11 +219,13 @@ const Header: React.FC<{
                     height="12"
                     alt=""
                   />
-                  {burgerMenuIsOpen ? (
-                    <Trans>Close</Trans>
-                  ) : (
-                    <Trans>Menu</Trans>
-                  )}
+                  <div className="is-inline-block">
+                    {burgerMenuIsOpen ? (
+                      <Trans>Close</Trans>
+                    ) : (
+                      <Trans>Menu</Trans>
+                    )}
+                  </div>
                 </button>
               </div>
             </div>
