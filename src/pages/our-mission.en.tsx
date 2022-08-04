@@ -3,13 +3,12 @@ import { StaticQuery, graphql } from "gatsby";
 
 import Layout from "../components/layout";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import { BLOCKS } from "@contentful/rich-text-types";
 import { ContentfulContent } from "./index.en";
 import PageHero from "../components/page-hero";
 import { ReadMoreLink } from "../components/read-more";
 import { Accordion } from "../components/accordion";
 import ResponsiveElement from "../components/responsive-element";
-
-import "../styles/our-mission.scss";
 
 export const MissionPageScaffolding = (props: ContentfulContent) => {
   const { content } = props;
@@ -46,7 +45,13 @@ export const MissionPageScaffolding = (props: ContentfulContent) => {
             <ResponsiveElement desktop="h3" touch="h2">
               {props.content.visionSubtitle}
             </ResponsiveElement>
-            <p>{documentToReactComponents(props.content.visionContent.json)}</p>
+            {documentToReactComponents(props.content.visionContent.json, {
+              renderNode: {
+                [BLOCKS.PARAGRAPH]: (node, children) => (
+                  <p className="title is-4">{children}</p>
+                ),
+              },
+            })}
           </div>
         </div>
 
