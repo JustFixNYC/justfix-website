@@ -81,7 +81,7 @@ const Footer = () => (
         <div className="field mt-3">
           <SocialIcon
             className="mr-3"
-            url="http://twitter.com/justfixnyc"
+            url="http://twitter.com/justfixorg"
             target="_blank"
             rel="noopener noreferrer"
             bgColor="#FFF"
@@ -89,7 +89,7 @@ const Footer = () => (
           />
           <SocialIcon
             className="mr-3"
-            url="https://facebook.com/JustFixNYC"
+            url="https://facebook.com/justfixorg"
             target="_blank"
             rel="noopener noreferrer"
             bgColor="#FFF"
@@ -97,7 +97,7 @@ const Footer = () => (
           />
           <SocialIcon
             className="mr-3"
-            url="https://www.linkedin.com/company/justfix-nyc"
+            url="https://www.linkedin.com/company/justfixorg"
             target="_blank"
             rel="noopener noreferrer"
             bgColor="#FFF"
