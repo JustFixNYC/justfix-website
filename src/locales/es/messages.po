@@ -8,7 +8,7 @@ msgstr ""
 "Language: es\n"
 "Project-Id-Version: justfix-website\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2022-08-04 17:01\n"
+"PO-Revision-Date: 2022-08-04 18:06\n"
 "Last-Translator: \n"
 "Language-Team: Spanish\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -222,7 +222,11 @@ msgstr "Estas cookies rastrean el rendimiento de nuestras herramientas y con fin
 
 #: src/components/learning-center/article-template.tsx:96
 msgid "This article was written by the JustFix team"
-msgstr "Este artículo fue escrito por el equipo de JustFix"
+msgstr ""
+
+#: src/components/learning-center/article-template.tsx:96
+#~ msgid "This article was written by the team of NYC-based housing experts at nonprofit JustFix"
+#~ msgstr ""
 
 #: src/components/cookies-banner.tsx:51
 msgid "This means that we’re able to see your approximate location, the type of device you’re using, and your operating system."
@@ -249,8 +253,9 @@ msgstr "Lo que hacemos"
 
 #: src/components/learning-center/article-template.tsx:110
 #~ msgid "What can I do?"
-#~ msgstr "¿Cómo puede ayudar JustFix?"
+#~ msgstr ""
 
 #: src/pages/404.en.tsx:13
 msgid "You just found a page that doesn't exist... the sadness."
 msgstr "Acabas de llegar a una ruta que no existe... es muy triste."
+
