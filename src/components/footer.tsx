@@ -68,12 +68,12 @@ const FooterLinksList: React.FC<{ links: LinkWithLabel[] }> = ({ links }) => {
 const Footer = () => (
   <div className="jf-footer has-background-black has-text-white py-7">
     <div className="columns is-multiline">
-      <div className="column is-9 is-12-touch pt-9">
+      <div className="column is-8 is-12-touch pt-9">
         <FooterLanguageToggle />
         <FooterLinksList links={SITE_LINKS} />
       </div>
 
-      <div className="column is-3 is-12-touch">
+      <div className="column is-4 is-12-touch">
         <h4 className="mb-2">
           <Trans>Join our mailing list!</Trans>
         </h4>
@@ -81,7 +81,15 @@ const Footer = () => (
         <div className="field mt-3">
           <SocialIcon
             className="mr-3"
-            url="http://twitter.com/justfixorg"
+            url="https://instagram.com/justfixorg"
+            target="_blank"
+            rel="noopener noreferrer"
+            bgColor="#FFF"
+            style={{ height: 40, width: 40 }}
+          />
+          <SocialIcon
+            className="mr-3"
+            url="https://twitter.com/justfixorg"
             target="_blank"
             rel="noopener noreferrer"
             bgColor="#FFF"
@@ -104,7 +112,15 @@ const Footer = () => (
             style={{ height: 40, width: 40 }}
           />
           <SocialIcon
+            className="mr-3"
             url="https://github.com/JustFixNYC"
+            target="_blank"
+            rel="noopener noreferrer"
+            bgColor="#FFF"
+            style={{ height: 40, width: 40 }}
+          />
+          <SocialIcon
+            url="https://medium.com/justfixorg"
             target="_blank"
             rel="noopener noreferrer"
             bgColor="#FFF"

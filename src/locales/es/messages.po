@@ -18,11 +18,11 @@ msgstr ""
 "X-Crowdin-File: /master/src/locales/en/messages.po\n"
 "X-Crowdin-File-ID: 19\n"
 
-#: src/components/footer.tsx:75
+#: src/components/footer.tsx:77
 msgid "<0>Disclaimer:</0> The information in JustFix does not constitute legal advice and must not be used as a substitute for the advice of a lawyer qualified to give advice on legal issues pertaining to housing. We can help direct you to free legal services if necessary."
 msgstr "0>Aviso:</0> La información en JustFix no constituye asesoramiento jurídico y no debe ser utilizado como sustituto del asesoramiento de un abogado cualificado para asesorar sobre cuestiones jurídicas relativas a la vivienda. Nosotros podemos ayudarle a dirigirle a servicios legales gratuitos si es necesario."
 
-#: src/components/footer.tsx:85
+#: src/components/footer.tsx:86
 msgid "<0>JustFix</0> is a registered 501(c)(3) nonprofit organization."
 msgstr "<0>JustFix</0> es una organización sin fines de lucro registrada."
 
@@ -44,7 +44,7 @@ msgstr "Empleos"
 
 #: src/components/accordion.tsx:12
 #: src/components/cookies-banner.tsx:32
-#: src/components/header.tsx:119
+#: src/components/header.tsx:120
 msgid "Close"
 msgstr "Cerrar"
 
@@ -68,11 +68,11 @@ msgstr "Correo electrónico"
 msgid "Expand"
 msgstr "Ampliar"
 
-#: src/pages/learn.en.tsx:62
+#: src/pages/learn.en.tsx:60
 msgid "Featured Article"
 msgstr "Artículo destacado"
 
-#: src/pages/index.en.tsx:101
+#: src/pages/index.en.tsx:117
 msgid "Featured article"
 msgstr "Artículo destacado"
 
@@ -103,7 +103,7 @@ msgstr "Aprender más"
 msgid "Learning Center"
 msgstr "Centro de aprendizaje"
 
-#: src/components/header.tsx:119
+#: src/components/header.tsx:120
 msgid "Menu"
 msgstr "Menú"
 
@@ -148,7 +148,7 @@ msgstr "Artículos populares"
 msgid "Press"
 msgstr "Prensa"
 
-#: src/components/footer.tsx:91
+#: src/components/footer.tsx:92
 msgid "Privacy policy"
 msgstr "Política de privacidad"
 
@@ -158,7 +158,7 @@ msgstr "Publicado"
 
 #: src/components/read-more.tsx:14
 #: src/components/read-more.tsx:17
-#: src/pages/learn.en.tsx:76
+#: src/pages/learn.en.tsx:75
 msgid "Read More"
 msgstr "Lee más"
 
@@ -174,7 +174,7 @@ msgstr "Buscar"
 msgid "Search by Algolia"
 msgstr "Búsqueda por Algolia"
 
-#: src/pages/index.en.tsx:148
+#: src/pages/index.en.tsx:164
 msgid "See all articles"
 msgstr "Ver todos los artículos"
 
@@ -208,7 +208,7 @@ msgstr "Equipo"
 msgid "Technology for Housing Justice"
 msgstr "Tecnología para la justicia de vivienda"
 
-#: src/components/footer.tsx:94
+#: src/components/footer.tsx:95
 msgid "Terms of use"
 msgstr "Condiciones de uso"
 
@@ -228,10 +228,10 @@ msgstr "Esto significa que podemos ver su ubicación aproximada, el tipo de disp
 msgid "Tools"
 msgstr "Herramientas"
 
-#: src/pages/index.en.tsx:109
-#: src/pages/index.en.tsx:127
-#: src/pages/index.en.tsx:140
-#: src/pages/learn.en.tsx:70
+#: src/pages/index.en.tsx:125
+#: src/pages/index.en.tsx:143
+#: src/pages/index.en.tsx:156
+#: src/pages/learn.en.tsx:68
 msgid "Updated"
 msgstr "Actualizado"
 
