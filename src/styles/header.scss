@@ -69,6 +69,10 @@
         .navbar-burger {
           align-self: center;
 
+          &:hover {
+            background-color: inherit;
+          }
+
           // "Menu" slide in underline
           div {
             font-size: 1.5rem;
