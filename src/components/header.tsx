@@ -183,7 +183,7 @@ const Header: React.FC<{
                 <Trans>Technology for Housing Justice</Trans>
               </div>
               <div
-                className="navbar-item is-paddingless is-flex-grow-1"
+                className="navbar-item is-paddingless is-flex-grow-1 is-hidden-touch"
                 onClick={() => setBurgerMenuStatus(false)}
               />
               <div
@@ -195,13 +195,18 @@ const Header: React.FC<{
                 </Link>
               </div>
               <div
-                className={"navbar-item " + (burgerMenuIsOpen && "is-active")}
+                className={classnames(
+                  "navbar-item is-justify-content-center",
+                  burgerMenuIsOpen && "is-active"
+                )}
               >
                 <button
                   role="button"
-                  className={
-                    "navbar-burger burger " + (burgerMenuIsOpen && "is-active")
-                  }
+                  className={classnames(
+                    "navbar-burger burger",
+                    "is-flex is-align-items-center is-justify-content-center",
+                    burgerMenuIsOpen && "is-active"
+                  )}
                   aria-expanded="false"
                   onClick={() => setBurgerMenuStatus(!burgerMenuIsOpen)}
                   data-target="navbar"
@@ -217,11 +222,13 @@ const Header: React.FC<{
                     height="12"
                     alt=""
                   />
-                  {burgerMenuIsOpen ? (
-                    <Trans>Close</Trans>
-                  ) : (
-                    <Trans>Menu</Trans>
-                  )}
+                  <div className="is-inline-block">
+                    {burgerMenuIsOpen ? (
+                      <Trans>Close</Trans>
+                    ) : (
+                      <Trans>Menu</Trans>
+                    )}
+                  </div>
                 </button>
               </div>
             </div>

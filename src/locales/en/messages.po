@@ -17,7 +17,7 @@ msgstr ""
 msgid "<0>Disclaimer:</0> The information in JustFix does not constitute legal advice and must not be used as a substitute for the advice of a lawyer qualified to give advice on legal issues pertaining to housing. We can help direct you to free legal services if necessary."
 msgstr ""
 
-#: src/components/footer.tsx:85
+#: src/components/footer.tsx:84
 msgid "<0>JustFix</0> is a registered 501(c)(3) nonprofit organization."
 msgstr ""
 
@@ -25,7 +25,7 @@ msgstr ""
 msgid "All set! Thanks for subscribing!"
 msgstr "All set! Thanks for subscribing!"
 
-#: src/components/learning-center/article-template.tsx:137
+#: src/components/learning-center/article-template.tsx:136
 msgid "Assert your tenant rights by using our digital tools"
 msgstr ""
 
@@ -39,7 +39,7 @@ msgstr ""
 
 #: src/components/accordion.tsx:12
 #: src/components/cookies-banner.tsx:32
-#: src/components/header.tsx:119
+#: src/components/header.tsx:120
 msgid "Close"
 msgstr ""
 
@@ -63,11 +63,11 @@ msgstr "Email Address"
 msgid "Expand"
 msgstr ""
 
-#: src/pages/learn.en.tsx:62
+#: src/pages/learn.en.tsx:60
 msgid "Featured Article"
 msgstr ""
 
-#: src/pages/index.en.tsx:101
+#: src/pages/index.en.tsx:117
 msgid "Featured article"
 msgstr ""
 
@@ -98,7 +98,7 @@ msgstr ""
 msgid "Learning Center"
 msgstr ""
 
-#: src/components/header.tsx:119
+#: src/components/header.tsx:120
 msgid "Menu"
 msgstr ""
 
@@ -143,7 +143,7 @@ msgstr ""
 msgid "Press"
 msgstr "Press"
 
-#: src/components/footer.tsx:91
+#: src/components/footer.tsx:90
 msgid "Privacy policy"
 msgstr "Privacy policy"
 
@@ -153,7 +153,7 @@ msgstr ""
 
 #: src/components/read-more.tsx:14
 #: src/components/read-more.tsx:17
-#: src/pages/learn.en.tsx:76
+#: src/pages/learn.en.tsx:75
 msgid "Read More"
 msgstr "Read More"
 
@@ -169,7 +169,7 @@ msgstr ""
 msgid "Search by Algolia"
 msgstr ""
 
-#: src/pages/index.en.tsx:148
+#: src/pages/index.en.tsx:164
 msgid "See all articles"
 msgstr ""
 
@@ -178,7 +178,7 @@ msgstr ""
 msgid "See our tools"
 msgstr ""
 
-#: src/components/learning-center/article-template.tsx:142
+#: src/components/learning-center/article-template.tsx:141
 msgid "See tools"
 msgstr ""
 
@@ -186,12 +186,12 @@ msgstr ""
 msgid "Sign up"
 msgstr "Sign up"
 
-#: src/components/learning-center/article-template.tsx:105
+#: src/components/learning-center/article-template.tsx:104
 msgid "Summary"
 msgstr ""
 
 #: src/components/learning-center/article-template.tsx:25
-#: src/components/learning-center/article-template.tsx:133
+#: src/components/learning-center/article-template.tsx:132
 msgid "Take action"
 msgstr ""
 
@@ -203,7 +203,7 @@ msgstr "Team"
 msgid "Technology for Housing Justice"
 msgstr ""
 
-#: src/components/footer.tsx:94
+#: src/components/footer.tsx:93
 msgid "Terms of use"
 msgstr "Terms of use"
 
@@ -212,8 +212,12 @@ msgid "These cookies track the performance of our tools and for marketing purpos
 msgstr ""
 
 #: src/components/learning-center/article-template.tsx:96
-msgid "This article was written by the team of NYC-based housing experts at nonprofit JustFix"
+msgid "This article was written by the JustFix team"
 msgstr ""
+
+#: src/components/learning-center/article-template.tsx:96
+#~ msgid "This article was written by the team of NYC-based housing experts at nonprofit JustFix"
+#~ msgstr ""
 
 #: src/components/cookies-banner.tsx:51
 msgid "This means that we’re able to see your approximate location, the type of device you’re using, and your operating system."
@@ -223,10 +227,10 @@ msgstr ""
 msgid "Tools"
 msgstr ""
 
-#: src/pages/index.en.tsx:109
-#: src/pages/index.en.tsx:127
-#: src/pages/index.en.tsx:140
-#: src/pages/learn.en.tsx:70
+#: src/pages/index.en.tsx:125
+#: src/pages/index.en.tsx:143
+#: src/pages/index.en.tsx:156
+#: src/pages/learn.en.tsx:68
 msgid "Updated"
 msgstr "Updated"
 
@@ -238,7 +242,7 @@ msgstr ""
 msgid "What We Do"
 msgstr ""
 
-#: src/components/learning-center/article-template.tsx:111
+#: src/components/learning-center/article-template.tsx:110
 msgid "What can I do?"
 msgstr ""
 

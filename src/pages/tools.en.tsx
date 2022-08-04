@@ -63,11 +63,12 @@ export const ToolsPageScaffolding = (props: ContentfulContent) => {
 
       <div className="columns has-background-success">
         <div className="column is-12 pt-9 pt-6-mobile pb-12 pb-9-mobile">
-          <h1>{props.content.outroSectionTitle}</h1>
-          <br />
+          <h1 className="is-inline-desktop">
+            {props.content.outroSectionTitle}
+          </h1>
           <Link
             to={props.content.outroSectionButton.link}
-            className="button is-primary mt-5"
+            className="button is-primary mt-5 ml-5 ml-0-mobile"
           >
             {props.content.outroSectionButton.title}
           </Link>

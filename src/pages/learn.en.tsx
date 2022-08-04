@@ -15,10 +15,6 @@ import localeConfig from "../util/locale-config.json";
 import { ReadMoreLink } from "../components/read-more";
 import Img from "gatsby-image/withIEPolyfill";
 
-// TODO: I don't think we need this - remove when we do category pages
-export const isCovidRelated = (word: string) =>
-  /COVID/.test(word.toUpperCase());
-
 const Dot = () => <span className="mx-3">•</span>;
 
 function formatDate(dateString: string, locale?: string): string {
@@ -108,8 +104,8 @@ export const ArticlePreviewCard = (props: ArticlePreviewInfo) => {
         )}
         <div
           className={classnames(
-            "py-7 mb-2 px-0",
-            isFeatured ? "px-6" : "px-0",
+            "pt-7 mb-2",
+            isFeatured ? "pb-7 px-6" : "px-0",
             !isFeatured && !props.isLast ? "pb-0-mobile" : ""
           )}
         >
@@ -156,7 +152,7 @@ export const ArticlePreviewCard = (props: ArticlePreviewInfo) => {
             )}
           </div>
           {!isFeatured && !props.isLast && (
-            <div className="is-divider mt-24 mb-0"></div>
+            <div className="is-divider mt-8 mb-0"></div>
           )}
         </div>
       </div>
@@ -171,10 +167,10 @@ export const LearningPageScaffolding = (props: ContentfulContent) => {
       <div id="learning-center" className="learning-center-page">
         <div className="columns is-centered is-multiline pt-12 pt-7-mobile pb-10">
           <div className="column is-8 pb-0 mb-12">
-            <span className="eyebrow is-large">
+            <span className="eyebrow is-uppercase">
               <Trans>Learning Center</Trans>
             </span>
-            <h1 className="mb-6">{props.content.title}</h1>
+            <h1 className="mt-2 mt-4-mobile mb-6">{props.content.title}</h1>
             <LearningSearchBar props={props.content} />
           </div>
           <ArticlePreviewCard {...props.content.featuredArticle} />

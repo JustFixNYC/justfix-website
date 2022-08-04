@@ -49,6 +49,11 @@
       .navbar-item {
         padding: 2rem 1.75rem;
         transition: none;
+        color: $black;
+
+        @include mobile {
+          width: 50%;
+        }
 
         &.is-active {
           background-color: $black;
@@ -57,7 +62,7 @@
 
         &:first-child {
           @include desktop {
-            border-right: 2px solid $black;
+            border-right: 1px solid $black;
           }
         }
 
@@ -67,12 +72,34 @@
 
         .navbar-burger {
           align-self: center;
-          font-size: 1.5rem;
 
           &:hover {
             background-color: inherit;
-            text-decoration: underline;
-            text-underline-offset: 0.25rem;
+          }
+
+          // "Menu" slide in underline
+          div {
+            font-size: 1.5rem;
+            overflow: hidden;
+            position: relative;
+
+            &::after {
+              content: "";
+              position: absolute;
+              bottom: 0;
+              left: 0;
+              width: 100%;
+              height: 0.1em;
+              background-color: $black;
+              transition: opacity 300ms, transform 300ms;
+              opacity: 1;
+              transform: translate3d(-101%, 0, 0);
+            }
+
+            &:hover::after,
+            &:focus::after {
+              transform: translate3d(0, 0, 0);
+            }
           }
         }
 
