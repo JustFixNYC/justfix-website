@@ -282,7 +282,7 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
           <div className="column is-6 is-12-mobile is-flex is-flex-direction-column">
             <h1 className="mb-6">{props.content.partnershipsSectionTitle}</h1>
             <div className="has-background-success p-8 p-6-mobile is-flex-grow-1 is-flex is-flex-direction-column">
-              <ResponsiveElement desktop="h2" touch="h3" className="py-5 mb-8">
+              <ResponsiveElement desktop="h2" touch="h3" className="py-5 pt-0-mobile mb-8">
                 {props.content.partnershipsSectionSubtitle}
               </ResponsiveElement>
               <Link
@@ -296,7 +296,7 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
           <div className="column is-6 is-12-mobile is-flex is-flex-direction-column">
             <h1 className="mb-6">{props.content.policySectionTitle}</h1>
             <div className="has-background-link p-8 p-6-mobile is-flex-grow-1 is-flex is-flex-direction-column">
-              <ResponsiveElement desktop="h2" touch="h3" className="py-5 mb-8">
+              <ResponsiveElement desktop="h2" touch="h3" className="py-5 pt-0-mobile mb-8">
                 {props.content.policySectionSubtitle}
               </ResponsiveElement>
               <Link
