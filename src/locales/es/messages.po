@@ -8,7 +8,7 @@ msgstr ""
 "Language: es\n"
 "Project-Id-Version: justfix-website\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2022-07-29 17:25\n"
+"PO-Revision-Date: 2022-08-04 17:01\n"
 "Last-Translator: \n"
 "Language-Team: Spanish\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -20,7 +20,7 @@ msgstr ""
 
 #: src/components/footer.tsx:75
 msgid "<0>Disclaimer:</0> The information in JustFix does not constitute legal advice and must not be used as a substitute for the advice of a lawyer qualified to give advice on legal issues pertaining to housing. We can help direct you to free legal services if necessary."
-msgstr "0>Aviso:</0> La información en JustFix no constituye asesoramiento jurídico y no debe ser utilizado como sustituto del asesoramiento de un abogado cualificado para asesorar sobre cuestiones jurídicas relativas a la vivienda. Nosotros podemos ayudarle a dirigirle a servicios legales gratuitos si es necesario."
+msgstr "<0>Aviso:</0> La información en JustFix no constituye asesoramiento jurídico y no debe ser utilizado como sustituto del asesoramiento de un abogado cualificado para asesorar sobre cuestiones jurídicas relativas a la vivienda. Nosotros podemos ayudarle a dirigirle a servicios legales gratuitos si es necesario."
 
 #: src/components/footer.tsx:84
 msgid "<0>JustFix</0> is a registered 501(c)(3) nonprofit organization."
@@ -218,11 +218,7 @@ msgstr "Estas cookies rastrean el rendimiento de nuestras herramientas y con fin
 
 #: src/components/learning-center/article-template.tsx:96
 msgid "This article was written by the JustFix team"
-msgstr ""
-
-#: src/components/learning-center/article-template.tsx:96
-#~ msgid "This article was written by the team of NYC-based housing experts at nonprofit JustFix"
-#~ msgstr "Este artículo fue escrito por el equipo de expertos en vivienda de NYC en JustFix"
+msgstr "Este artículo fue escrito por el equipo de JustFix"
 
 #: src/components/cookies-banner.tsx:51
 msgid "This means that we’re able to see your approximate location, the type of device you’re using, and your operating system."
@@ -254,3 +250,4 @@ msgstr "¿Cómo puede ayudar JustFix?"
 #: src/pages/404.en.tsx:13
 msgid "You just found a page that doesn't exist... the sadness."
 msgstr "Acabas de llegar a una ruta que no existe... es muy triste."
+
