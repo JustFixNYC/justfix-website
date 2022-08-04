@@ -177,7 +177,7 @@ const LearningArticle = (props: Props) => {
               </div>
               <div className="column is-6 p-5">
                 <h4>
-                  <Trans>What can I do?</Trans>
+                  <Trans>How can JustFix help?</Trans>
                 </h4>
                 <p>{documentToReactComponents(content.whatCanIDo.json)}</p>
               </div>
