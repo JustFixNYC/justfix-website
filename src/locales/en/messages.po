@@ -25,7 +25,7 @@ msgstr ""
 msgid "All set! Thanks for subscribing!"
 msgstr "All set! Thanks for subscribing!"
 
-#: src/components/learning-center/article-template.tsx:136
+#: src/components/learning-center/article-template.tsx:134
 msgid "Assert your tenant rights by using our digital tools"
 msgstr ""
 
@@ -77,6 +77,10 @@ msgstr ""
 
 #: src/components/cookies-banner.tsx:68
 msgid "Got it"
+msgstr ""
+
+#: src/components/learning-center/article-template.tsx:108
+msgid "How can JustFix help?"
 msgstr ""
 
 #: src/components/footer.tsx:51
@@ -178,7 +182,7 @@ msgstr ""
 msgid "See our tools"
 msgstr ""
 
-#: src/components/learning-center/article-template.tsx:141
+#: src/components/learning-center/article-template.tsx:139
 msgid "See tools"
 msgstr ""
 
@@ -186,12 +190,12 @@ msgstr ""
 msgid "Sign up"
 msgstr "Sign up"
 
-#: src/components/learning-center/article-template.tsx:104
+#: src/components/learning-center/article-template.tsx:102
 msgid "Summary"
 msgstr ""
 
 #: src/components/learning-center/article-template.tsx:25
-#: src/components/learning-center/article-template.tsx:132
+#: src/components/learning-center/article-template.tsx:130
 msgid "Take action"
 msgstr ""
 
@@ -243,8 +247,8 @@ msgid "What We Do"
 msgstr ""
 
 #: src/components/learning-center/article-template.tsx:110
-msgid "What can I do?"
-msgstr ""
+#~ msgid "What can I do?"
+#~ msgstr ""
 
 #: src/pages/404.en.tsx:13
 msgid "You just found a page that doesn't exist... the sadness."
