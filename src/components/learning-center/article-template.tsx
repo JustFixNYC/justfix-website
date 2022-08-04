@@ -164,9 +164,7 @@ const LearningArticle = (props: Props) => {
 
             <p className="has-text-dark mb-6 mb-8-mobile">
               {content.author || (
-                <Trans>
-                  This article was written by the JustFix team
-                </Trans>
+                <Trans>This article was written by the JustFix team</Trans>
               )}
             </p>
 
