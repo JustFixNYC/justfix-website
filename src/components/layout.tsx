@@ -16,7 +16,7 @@ const favicon32 = require("../img/brand/favicon-32x32.png");
 const favicon96 = require("../img/brand/favicon-96x96.png");
 
 const SITE_TITLE_SUFFIX = " | JustFix";
-const TWITTER_HANDLE = "@JustFixNYC";
+const TWITTER_HANDLE = "@JustFixOrg";
 const SITE_MAIN_URL = "https://www.justfix.org";
 const FB_APP_ID = "247990609143668";
 

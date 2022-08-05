@@ -13,11 +13,11 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/footer.tsx:75
+#: src/components/footer.tsx:77
 msgid "<0>Disclaimer:</0> The information in JustFix does not constitute legal advice and must not be used as a substitute for the advice of a lawyer qualified to give advice on legal issues pertaining to housing. We can help direct you to free legal services if necessary."
 msgstr ""
 
-#: src/components/footer.tsx:84
+#: src/components/footer.tsx:86
 msgid "<0>JustFix</0> is a registered 501(c)(3) nonprofit organization."
 msgstr ""
 
@@ -147,7 +147,7 @@ msgstr ""
 msgid "Press"
 msgstr "Press"
 
-#: src/components/footer.tsx:90
+#: src/components/footer.tsx:92
 msgid "Privacy policy"
 msgstr "Privacy policy"
 
@@ -206,7 +206,7 @@ msgstr "Team"
 msgid "Technology for Housing Justice"
 msgstr ""
 
-#: src/components/footer.tsx:93
+#: src/components/footer.tsx:95
 msgid "Terms of use"
 msgstr "Terms of use"
 
