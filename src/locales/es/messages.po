@@ -8,7 +8,7 @@ msgstr ""
 "Language: es\n"
 "Project-Id-Version: justfix-website\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2022-07-29 17:25\n"
+"PO-Revision-Date: 2022-08-04 17:01\n"
 "Last-Translator: \n"
 "Language-Team: Spanish\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -20,7 +20,7 @@ msgstr ""
 
 #: src/components/footer.tsx:77
 msgid "<0>Disclaimer:</0> The information in JustFix does not constitute legal advice and must not be used as a substitute for the advice of a lawyer qualified to give advice on legal issues pertaining to housing. We can help direct you to free legal services if necessary."
-msgstr "0>Aviso:</0> La información en JustFix no constituye asesoramiento jurídico y no debe ser utilizado como sustituto del asesoramiento de un abogado cualificado para asesorar sobre cuestiones jurídicas relativas a la vivienda. Nosotros podemos ayudarle a dirigirle a servicios legales gratuitos si es necesario."
+msgstr "<0>Aviso:</0> La información en JustFix no constituye asesoramiento jurídico y no debe ser utilizado como sustituto del asesoramiento de un abogado cualificado para asesorar sobre cuestiones jurídicas relativas a la vivienda. Nosotros podemos ayudarle a dirigirle a servicios legales gratuitos si es necesario."
 
 #: src/components/footer.tsx:86
 msgid "<0>JustFix</0> is a registered 501(c)(3) nonprofit organization."
@@ -30,7 +30,7 @@ msgstr "<0>JustFix</0> es una organización sin fines de lucro registrada."
 msgid "All set! Thanks for subscribing!"
 msgstr "¡Todo listo! ¡Gracias por suscribirte!"
 
-#: src/components/learning-center/article-template.tsx:137
+#: src/components/learning-center/article-template.tsx:134
 msgid "Assert your tenant rights by using our digital tools"
 msgstr "Ejerce sus derechos de inquilino usando nuestras herramientas digitales"
 
@@ -83,6 +83,10 @@ msgstr "Prensa destacada"
 #: src/components/cookies-banner.tsx:68
 msgid "Got it"
 msgstr "Entendido"
+
+#: src/components/learning-center/article-template.tsx:108
+#~ msgid "How can JustFix help?"
+#~ msgstr ""
 
 #: src/components/footer.tsx:51
 msgid "Join our mailing list!"
@@ -183,7 +187,7 @@ msgstr "Ver todos los artículos"
 msgid "See our tools"
 msgstr "Ve nuestras herramientas"
 
-#: src/components/learning-center/article-template.tsx:142
+#: src/components/learning-center/article-template.tsx:139
 msgid "See tools"
 msgstr "Ver herramientas"
 
@@ -191,12 +195,12 @@ msgstr "Ver herramientas"
 msgid "Sign up"
 msgstr "Únete"
 
-#: src/components/learning-center/article-template.tsx:105
+#: src/components/learning-center/article-template.tsx:102
 msgid "Summary"
 msgstr "Resúmen"
 
 #: src/components/learning-center/article-template.tsx:25
-#: src/components/learning-center/article-template.tsx:133
+#: src/components/learning-center/article-template.tsx:130
 msgid "Take action"
 msgstr "Toma acción"
 
@@ -217,8 +221,8 @@ msgid "These cookies track the performance of our tools and for marketing purpos
 msgstr "Estas cookies rastrean el rendimiento de nuestras herramientas y con fines de marketing. Estos datos nos permiten mejorar nuestras herramientas para ofrecerle la mejor experiencia."
 
 #: src/components/learning-center/article-template.tsx:96
-msgid "This article was written by the team of NYC-based housing experts at nonprofit JustFix"
-msgstr "Este artículo fue escrito por el equipo de expertos en vivienda de NYC en JustFix"
+msgid "This article was written by the JustFix team"
+msgstr "Este artículo fue escrito por el equipo de JustFix"
 
 #: src/components/cookies-banner.tsx:51
 msgid "This means that we’re able to see your approximate location, the type of device you’re using, and your operating system."
@@ -243,9 +247,13 @@ msgstr "Utilizamos cookies en este sitio web"
 msgid "What We Do"
 msgstr "Lo que hacemos"
 
-#: src/components/learning-center/article-template.tsx:111
-msgid "What can I do?"
-msgstr "¿Cómo puede ayudar JustFix?"
+#: src/components/learning-center/article-template.tsx:110
+#~ msgid "What can I do?"
+#~ msgstr "¿Cómo puede ayudar JustFix?"
+
+#: src/components/learning-center/article-template.tsx:108
+msgid "What can JustFix do?"
+msgstr ""
 
 #: src/pages/404.en.tsx:13
 msgid "You just found a page that doesn't exist... the sadness."

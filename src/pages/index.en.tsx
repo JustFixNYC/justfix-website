@@ -281,13 +281,17 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
         <div className="columns">
           <div className="column is-6 is-12-mobile is-flex is-flex-direction-column">
             <h1 className="mb-6">{props.content.partnershipsSectionTitle}</h1>
-            <div className="has-background-success p-8 pt-11 is-flex-grow-1 is-flex is-flex-direction-column">
-              <ResponsiveElement desktop="h2" touch="h3" className="mb-11">
+            <div className="has-background-success p-8 p-6-mobile is-flex-grow-1 is-flex is-flex-direction-column">
+              <ResponsiveElement
+                desktop="h2"
+                touch="h3"
+                className="py-5 pt-0-mobile mb-8"
+              >
                 {props.content.partnershipsSectionSubtitle}
               </ResponsiveElement>
               <Link
                 to={props.content.partnershipsSectionButton.link}
-                className="button is-primary mt-auto is-align-self-flex-start"
+                className="button is-primary mb-5 mb-4-mobile is-align-self-flex-start"
               >
                 {props.content.partnershipsSectionButton.title}
               </Link>
@@ -295,13 +299,17 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
           </div>
           <div className="column is-6 is-12-mobile is-flex is-flex-direction-column">
             <h1 className="mb-6">{props.content.policySectionTitle}</h1>
-            <div className="has-background-link p-8 pt-11 is-flex-grow-1 is-flex is-flex-direction-column">
-              <ResponsiveElement desktop="h2" touch="h3" className="mb-11">
+            <div className="has-background-link p-8 p-6-mobile is-flex-grow-1 is-flex is-flex-direction-column">
+              <ResponsiveElement
+                desktop="h2"
+                touch="h3"
+                className="py-5 pt-0-mobile mb-8"
+              >
                 {props.content.policySectionSubtitle}
               </ResponsiveElement>
               <Link
                 to={props.content.policySectionButton.link}
-                className="button is-primary mt-auto is-align-self-flex-start"
+                className="button is-primary mb-5 mb-4-mobile is-align-self-flex-start"
               >
                 {props.content.policySectionButton.title}
               </Link>

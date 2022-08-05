@@ -164,10 +164,7 @@ const LearningArticle = (props: Props) => {
 
             <p className="has-text-dark mb-6 mb-8-mobile">
               {content.author || (
-                <Trans>
-                  This article was written by the team of NYC-based housing
-                  experts at nonprofit JustFix
-                </Trans>
+                <Trans>This article was written by the JustFix team</Trans>
               )}
             </p>
 
@@ -180,7 +177,7 @@ const LearningArticle = (props: Props) => {
               </div>
               <div className="column is-6 p-5">
                 <h4>
-                  <Trans>What can I do?</Trans>
+                  <Trans>What can JustFix do?</Trans>
                 </h4>
                 <p>{documentToReactComponents(content.whatCanIDo.json)}</p>
               </div>

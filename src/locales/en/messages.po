@@ -25,7 +25,7 @@ msgstr ""
 msgid "All set! Thanks for subscribing!"
 msgstr "All set! Thanks for subscribing!"
 
-#: src/components/learning-center/article-template.tsx:137
+#: src/components/learning-center/article-template.tsx:134
 msgid "Assert your tenant rights by using our digital tools"
 msgstr ""
 
@@ -78,6 +78,10 @@ msgstr ""
 #: src/components/cookies-banner.tsx:68
 msgid "Got it"
 msgstr ""
+
+#: src/components/learning-center/article-template.tsx:108
+#~ msgid "How can JustFix help?"
+#~ msgstr ""
 
 #: src/components/footer.tsx:51
 msgid "Join our mailing list!"
@@ -178,7 +182,7 @@ msgstr ""
 msgid "See our tools"
 msgstr ""
 
-#: src/components/learning-center/article-template.tsx:142
+#: src/components/learning-center/article-template.tsx:139
 msgid "See tools"
 msgstr ""
 
@@ -186,12 +190,12 @@ msgstr ""
 msgid "Sign up"
 msgstr "Sign up"
 
-#: src/components/learning-center/article-template.tsx:105
+#: src/components/learning-center/article-template.tsx:102
 msgid "Summary"
 msgstr ""
 
 #: src/components/learning-center/article-template.tsx:25
-#: src/components/learning-center/article-template.tsx:133
+#: src/components/learning-center/article-template.tsx:130
 msgid "Take action"
 msgstr ""
 
@@ -212,8 +216,12 @@ msgid "These cookies track the performance of our tools and for marketing purpos
 msgstr ""
 
 #: src/components/learning-center/article-template.tsx:96
-msgid "This article was written by the team of NYC-based housing experts at nonprofit JustFix"
+msgid "This article was written by the JustFix team"
 msgstr ""
+
+#: src/components/learning-center/article-template.tsx:96
+#~ msgid "This article was written by the team of NYC-based housing experts at nonprofit JustFix"
+#~ msgstr ""
 
 #: src/components/cookies-banner.tsx:51
 msgid "This means that we’re able to see your approximate location, the type of device you’re using, and your operating system."
@@ -238,8 +246,12 @@ msgstr ""
 msgid "What We Do"
 msgstr ""
 
-#: src/components/learning-center/article-template.tsx:111
-msgid "What can I do?"
+#: src/components/learning-center/article-template.tsx:110
+#~ msgid "What can I do?"
+#~ msgstr ""
+
+#: src/components/learning-center/article-template.tsx:108
+msgid "What can JustFix do?"
 msgstr ""
 
 #: src/pages/404.en.tsx:13
