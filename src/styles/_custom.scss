@@ -324,15 +324,11 @@ a.has-text-black:hover {
 }
 
 // Content that stays fixed at the bottom of the viewport:
-.jf-footer-menu {
-  width: 100%;
-  position: fixed;
-  bottom: 0;
-  z-index: 30;
-}
-
 .jf-cookies-banner {
   border-top: 1px solid $justfix-black;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 
   @include wide-desktop {
     width: $wide-desktop;
