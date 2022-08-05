@@ -183,7 +183,6 @@ msgid "See all articles"
 msgstr "Ver todos los artículos"
 
 #: src/components/header.tsx:111
-#: src/components/layout.tsx:101
 msgid "See our tools"
 msgstr "Ve nuestras herramientas"
 
