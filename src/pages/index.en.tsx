@@ -12,30 +12,12 @@ import { Trans } from "@lingui/macro";
 import { LocaleLink as Link } from "../components/locale-link";
 import { ReadMoreLink } from "../components/read-more";
 import classnames from "classnames";
-import classNames from "classnames";
 import ResponsiveElement from "../components/responsive-element";
 
 const PRODUCT_CTA_UTM_CODE = "?utm_source=orgsite&utm_medium=productcta";
 
 export type ContentfulContent = {
   content: any;
-};
-
-// const shuffleArray = (array: any[]) =>
-//   array
-//     .map((value) => ({ value, sort: Math.random() }))
-//     .sort((a, b) => a.sort - b.sort)
-//     .map(({ value }) => value);
-
-// https://gist.github.com/codeguy/6684588?permalink_comment_id=3243980#gistcomment-3243980
-const slugify = (text: string): string => {
-  return text
-    .normalize("NFKD")
-    .toLowerCase()
-    .trim()
-    .replace(/\s+/g, "-")
-    .replace(/[^\w\-]+/g, "")
-    .replace(/\-\-+/g, "-");
 };
 
 type ProductCardInfo = {
@@ -64,7 +46,7 @@ export const ProductCard: React.FC<ProductCardInfo> = (props) => {
 
   return (
     <div
-      className={classNames(
+      className={classnames(
         "column is-4 is-12-mobile",
         props.isCondensed && "pl-0 pr-6 px-0-mobile"
       )}
@@ -95,11 +77,7 @@ export const ProductCard: React.FC<ProductCardInfo> = (props) => {
               ])}
           </div>
 
-          <OutboundLink
-            href={toolLink}
-            className="button is-primary"
-            key={slugify(props.productName)}
-          >
+          <OutboundLink href={toolLink} className="button is-primary">
             {props.button.title}
           </OutboundLink>
         </div>
@@ -133,7 +111,7 @@ export const ProductList: React.FC<ProductListInfo> = (props) => (
         <h1>{props.productSectionTitle}</h1>
       </div>
       {props.homePageProductBlocks.map((product: any, i: number) => (
-        <ProductCard {...product} key={slugify(product.productName)} />
+        <ProductCard {...product} key={i} />
       ))}
       <div className="column is-4 is-12-mobile">
         <div className="jf-card has-background-black has-text-white p-8 p-6-mobile">
