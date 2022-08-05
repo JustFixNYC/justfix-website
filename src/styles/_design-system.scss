@@ -192,7 +192,7 @@ $body-color: $justfix-black;
 // TYPOGRAPHY-MOBILE:
 @mixin mobile-body-standard {
   @include body-standard();
-  line-height: 120%;
+  line-height: 125%;
   font-size: 1.25rem; // 20px
 }
 
