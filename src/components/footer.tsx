@@ -38,12 +38,12 @@ export const FooterLanguageToggle = () => {
 
 const FooterLink: React.FC<{ link: LinkWithLabel }> = ({ link }) =>
   link[0].charAt(0) === "/" ? (
-    <Link className="no-underline" to={link[0]}>
-      <p className="title is-4 has-text-white">{link[1]}</p>
+    <Link className="jf-footer-page-link no-underline" to={link[0]}>
+      <p className="title is-4 has-text-white py-3-mobile">{link[1]}</p>
     </Link>
   ) : (
     <OutboundLink className="no-underline" href={link[0]}>
-      <p className="title is-4 has-text-white">{link[1]}</p>
+      <p className="title is-4 has-text-white py-3-mobile">{link[1]}</p>
     </OutboundLink>
   );
 
