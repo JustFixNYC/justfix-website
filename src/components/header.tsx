@@ -105,14 +105,14 @@ const MoratoriumBanner: React.FC<{}> = () => {
 const HeaderLink: React.FC<{ link: LinkWithLabel }> = ({ link }) =>
   link[0].charAt(0) === "/" ? (
     <Link
-      className="navbar-item no-underline px-0 py-3 has-text-white"
+      className="navbar-item jf-menu-page-link px-0 py-3 has-text-white"
       to={link[0]}
     >
       {link[1]}
     </Link>
   ) : (
     <OutboundLink
-      className="navbar-item no-underline px-0 py-3 has-text-white"
+      className="navbar-item jf-menu-page-link px-0 py-3 has-text-white"
       href={link[0]}
       target="_blank"
       rel="noopener noreferrer"
@@ -131,7 +131,7 @@ const Header: React.FC<{
     <>
       <div
         className={classnames(
-          "jf-sticky-phantom is-hidden-desktop",
+          "jf-sticky-phantom",
           isScrollingUp && "jf-sticky"
         )}
       />
@@ -183,7 +183,7 @@ const Header: React.FC<{
                 <Trans>Technology for Housing Justice</Trans>
               </div>
               <div
-                className="navbar-item is-paddingless is-flex-grow-1"
+                className="navbar-item is-paddingless is-flex-grow-1 is-hidden-touch"
                 onClick={() => setBurgerMenuStatus(false)}
               />
               <div
@@ -195,13 +195,18 @@ const Header: React.FC<{
                 </Link>
               </div>
               <div
-                className={"navbar-item " + (burgerMenuIsOpen && "is-active")}
+                className={classnames(
+                  "navbar-item is-justify-content-center",
+                  burgerMenuIsOpen && "is-active"
+                )}
               >
                 <button
                   role="button"
-                  className={
-                    "navbar-burger burger " + (burgerMenuIsOpen && "is-active")
-                  }
+                  className={classnames(
+                    "navbar-burger burger",
+                    "is-flex is-align-items-center is-justify-content-center",
+                    burgerMenuIsOpen && "is-active"
+                  )}
                   aria-expanded="false"
                   onClick={() => setBurgerMenuStatus(!burgerMenuIsOpen)}
                   data-target="navbar"
@@ -215,12 +220,15 @@ const Header: React.FC<{
                     className="mr-3"
                     width="16"
                     height="12"
+                    alt=""
                   />
-                  {burgerMenuIsOpen ? (
-                    <Trans>Close</Trans>
-                  ) : (
-                    <Trans>Menu</Trans>
-                  )}
+                  <div className="is-inline-block">
+                    {burgerMenuIsOpen ? (
+                      <Trans>Close</Trans>
+                    ) : (
+                      <Trans>Menu</Trans>
+                    )}
+                  </div>
                 </button>
               </div>
             </div>

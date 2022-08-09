@@ -86,7 +86,7 @@ export const ChangelogPageScaffolding: React.FC<{
                 Changelog
               </h1>
               <div className="subtitle has-text-grey-dark is-italic">
-                Learn what's new in JustFix.nyc's products
+                Learn what's new in JustFix's products
               </div>
             </div>
           </div>

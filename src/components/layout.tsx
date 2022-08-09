@@ -7,21 +7,17 @@ import { StaticQuery, graphql } from "gatsby";
 
 import Header from "./header";
 import Footer from "./footer";
-import { removeLocaleFromPathname, useCurrentLocale } from "../util/use-locale";
+import { useCurrentLocale } from "../util/use-locale";
 import localeConfig from "../util/locale-config.json";
 import { CookiesBanner } from "./cookies-banner";
-import { useLocation } from "@reach/router";
-import { LocaleLink } from "./locale-link";
-import { Trans } from "@lingui/macro";
-import classnames from "classnames";
 
 const favicon16 = require("../img/brand/favicon-16x16.png");
 const favicon32 = require("../img/brand/favicon-32x32.png");
 const favicon96 = require("../img/brand/favicon-96x96.png");
 
-const SITE_TITLE_SUFFIX = " | JustFix.nyc";
-const TWITTER_HANDLE = "@JustFixNYC";
-const SITE_MAIN_URL = "https://www.justfix.nyc";
+const SITE_TITLE_SUFFIX = " | JustFix";
+const TWITTER_HANDLE = "@JustFixOrg";
+const SITE_MAIN_URL = "https://www.justfix.org";
 const FB_APP_ID = "247990609143668";
 
 // All our supported locales.
@@ -77,8 +73,6 @@ const LayoutScaffolding = ({
   }
 
   const locale = useCurrentLocale() || localeConfig.DEFAULT_LOCALE;
-  const { pathname } = useLocation();
-  const isHomepage = removeLocaleFromPathname(pathname) === "";
 
   return (
     <I18nProvider language={locale} catalogs={catalogs}>
@@ -103,7 +97,7 @@ const LayoutScaffolding = ({
         <title>{title}</title>
         <meta name="description" content={description} />
         <meta name="keywords" content={keywords} />
-        <meta name="author" content="JustFix.nyc" />
+        <meta name="author" content="JustFix" />
 
         <meta property="fb:app_id" content={FB_APP_ID} />
         <meta property="og:site_name" content={title} />
@@ -122,25 +116,11 @@ const LayoutScaffolding = ({
         <meta name="twitter:image" content={shareImageURL} />
         <meta name="twitter:image:alt" content={title} />
       </Helmet>
-      <Header isLandingPage={isLandingPage} />
-      <div
-        className={
-          // Add extra space at bottom of page for fixed footer button:
-          classnames(isHomepage && "mb-12-mobile")
-        }
-      >
-        {children}
+      <div className="jf-page-body">
+        <Header isLandingPage={isLandingPage} />
+        <div>{children}</div>
         <Footer />
-        <div className="jf-footer-menu">
-          <CookiesBanner />
-          {isHomepage && (
-            <div className="has-background-black py-5 is-flex is-justify-content-center is-hidden-desktop">
-              <LocaleLink to="/tools" className="button is-primary">
-                <Trans>See our tools</Trans>
-              </LocaleLink>
-            </div>
-          )}
-        </div>
+        <CookiesBanner />
       </div>
     </I18nProvider>
   );

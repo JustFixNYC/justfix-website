@@ -5,14 +5,16 @@
 // This placeholder replaces the header when it detaches to
 // become fixed, preventing jump in page content
 .jf-sticky-phantom {
-  @include mobile {
-    display: none;
-    height: $navbar-height-mobile;
-    background-color: $white;
+  display: none;
+  background-color: $white;
+  height: $navbar-height;
 
-    &.jf-sticky {
-      display: block;
-    }
+  @include mobile {
+    height: $navbar-height-mobile;
+  }
+
+  &.jf-sticky {
+    display: block;
   }
 }
 
@@ -22,10 +24,11 @@
   font-size: 2.25rem;
   z-index: 100;
 
-  @include mobile {
-    &.jf-sticky {
-      position: fixed;
-      top: 0;
+  &.jf-sticky {
+    position: fixed;
+    top: 0;
+    @include wide-desktop {
+      width: $wide-desktop;
     }
   }
 
@@ -46,25 +49,57 @@
       .navbar-item {
         padding: 2rem 1.75rem;
         transition: none;
+        color: $black;
+
+        @include mobile {
+          width: 50%;
+        }
+
         &.is-active {
           background-color: $black;
           color: $white;
         }
+
         &:first-child {
           @include desktop {
-            border-right: 2px solid $black;
+            border-right: 1px solid $black;
           }
         }
+
         img {
           max-height: unset;
         }
+
         .navbar-burger {
           align-self: center;
-          font-size: 1.5rem;
+
           &:hover {
             background-color: inherit;
-            text-decoration: underline;
-            text-underline-offset: 0.25rem;
+          }
+
+          // "Menu" slide in underline
+          div {
+            font-size: 1.5rem;
+            overflow: hidden;
+            position: relative;
+
+            &::after {
+              content: "";
+              position: absolute;
+              bottom: 0;
+              left: 0;
+              width: 100%;
+              height: 0.1em;
+              background-color: $black;
+              transition: opacity 300ms, transform 300ms;
+              opacity: 1;
+              transform: translate3d(-101%, 0, 0);
+            }
+
+            &:hover::after,
+            &:focus::after {
+              transform: translate3d(0, 0, 0);
+            }
           }
         }
 
@@ -73,11 +108,13 @@
         }
       }
     }
+
     .navbar-menu {
       // Make sure navbar menu appears above other page content:
       z-index: 100;
       position: absolute;
       right: 0;
+
       @include desktop {
         width: 325px;
         box-sizing: border-box;
@@ -94,17 +131,24 @@
 
       .navbar-end {
         height: 100%;
-        .navbar-item {
+
+        .jf-menu-page-link {
           @include mobile-h3;
           font-variant: normal;
           background-color: inherit;
-          &a:hover {
+          text-decoration: none;
+
+          &:hover,
+          &:focus,
+          &:active {
             text-decoration: underline;
           }
+
           &[aria-current="page"] {
             padding-left: 2.5rem;
             text-indent: calc(-1 * #{$spacing-05 + $spacing-04});
             text-decoration: none;
+
             &::before {
               content: "▪";
               margin-right: $spacing-05;
@@ -128,8 +172,10 @@
       }
     }
   }
+
   .navbar-dropdown {
     width: 100%;
+
     .navbar-item:hover {
       font-weight: 600;
       transition: 0.1s;
@@ -141,6 +187,7 @@
   .navbar-item.is-hoverable:hover .navbar-dropdown {
     display: block;
   }
+
   .button {
     min-width: 120px;
   }

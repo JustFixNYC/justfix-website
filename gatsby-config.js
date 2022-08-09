@@ -42,11 +42,11 @@ const plugins = [
   {
     resolve: `gatsby-plugin-manifest`,
     options: {
-      name: "JustFix.nyc",
-      short_name: "JustFix.nyc",
+      name: "JustFix",
+      short_name: "JustFix",
       start_url: "/",
-      background_color: "#663399",
-      theme_color: "#663399",
+      background_color: "#faf8f4",
+      theme_color: "#faf8f4",
       display: "minimal-ui",
       icon: "src/img/brand/favicon-96x96.png", // This path is relative to the root of the site.
     },
@@ -110,7 +110,7 @@ const plugins = [
 
 module.exports = {
   siteMetadata: {
-    title: "JustFix.nyc",
+    title: "JustFix",
   },
   plugins: conditionallyAddExtraPlugins(plugins),
 };

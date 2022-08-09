@@ -1,8 +1,24 @@
 @import "_vars.scss";
+@import "_design-system.scss";
 
 .jf-footer {
   input,
   .button {
     height: $spacing-09;
+
+    // en/es button
+    &.eyebrow.is-small {
+      @include mobile {
+        @include mobile-eyebrow;
+      }
+    }
+  }
+
+  .jf-footer-page-link {
+    p {
+      @include mobile {
+        @include mobile-h3;
+      }
+    }
   }
 }

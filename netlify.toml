@@ -1,35 +1,35 @@
 [[redirects]]
   from = "http://beta.justfix.nyc/*"
-  to = "https://www.justfix.nyc"
+  to = "https://www.justfix.org"
   status = 301
   force = true
 
 [[redirects]]
   from = "https://beta.justfix.nyc/*"
-  to = "https://www.justfix.nyc"
+  to = "https://www.justfix.org"
   status = 301
   force = true
 
 [[redirects]]
   from = "http://findhelp.justfix.nyc/*"
-  to = "https://www.justfix.nyc"
+  to = "https://www.justfix.org"
   status = 301
   force = true
 
 [[redirects]]
   from = "https://findhelp.justfix.nyc/*"
-  to = "https://www.justfix.nyc"
+  to = "https://www.justfix.org"
   status = 301
   force = true
 
 [[redirects]]
-  from = "https://justfix.org/*"
-  to = "https://www.justfix.nyc/:splat"
+  from = "https://justfix.nyc/*"
+  to = "https://www.justfix.org/:splat"
   status = 302
   force = true
 
 [[redirects]]
-  from = "https://www.justfix.org/*"
-  to = "https://www.justfix.nyc/:splat"
+  from = "https://www.justfix.nyc/*"
+  to = "https://www.justfix.org/:splat"
   status = 302
   force = true

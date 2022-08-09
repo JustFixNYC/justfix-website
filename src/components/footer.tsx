@@ -17,7 +17,7 @@ export const FooterLanguageToggle = () => {
       <LocaleToggle
         to="en"
         className={classnames(
-          "button eyebrow is-small",
+          "button eyebrow is-small is-justify-content-center",
           locale === "en" && "is-selected"
         )}
       >
@@ -26,7 +26,7 @@ export const FooterLanguageToggle = () => {
       <LocaleToggle
         to="es"
         className={classnames(
-          "button eyebrow is-small",
+          "button eyebrow is-small is-justify-content-center",
           locale === "es" && "is-selected"
         )}
       >
@@ -38,12 +38,12 @@ export const FooterLanguageToggle = () => {
 
 const FooterLink: React.FC<{ link: LinkWithLabel }> = ({ link }) =>
   link[0].charAt(0) === "/" ? (
-    <Link className="no-underline" to={link[0]}>
-      <p className="title is-4 has-text-white">{link[1]}</p>
+    <Link className="jf-footer-page-link no-underline" to={link[0]}>
+      <p className="title is-4 has-text-white py-3-mobile">{link[1]}</p>
     </Link>
   ) : (
     <OutboundLink className="no-underline" href={link[0]}>
-      <p className="title is-4 has-text-white">{link[1]}</p>
+      <p className="title is-4 has-text-white py-3-mobile">{link[1]}</p>
     </OutboundLink>
   );
 
@@ -68,12 +68,12 @@ const FooterLinksList: React.FC<{ links: LinkWithLabel[] }> = ({ links }) => {
 const Footer = () => (
   <div className="jf-footer has-background-black has-text-white py-7">
     <div className="columns is-multiline">
-      <div className="column is-9 is-12-touch pt-9">
+      <div className="column is-8 is-12-touch pt-9">
         <FooterLanguageToggle />
         <FooterLinksList links={SITE_LINKS} />
       </div>
 
-      <div className="column is-3 is-12-touch">
+      <div className="column is-4 is-12-touch">
         <h4 className="mb-2">
           <Trans>Join our mailing list!</Trans>
         </h4>
@@ -81,7 +81,7 @@ const Footer = () => (
         <div className="field mt-3">
           <SocialIcon
             className="mr-3"
-            url="http://twitter.com/justfixnyc"
+            url="https://instagram.com/justfixorg"
             target="_blank"
             rel="noopener noreferrer"
             bgColor="#FFF"
@@ -89,7 +89,7 @@ const Footer = () => (
           />
           <SocialIcon
             className="mr-3"
-            url="https://facebook.com/JustFixNYC"
+            url="https://twitter.com/justfixorg"
             target="_blank"
             rel="noopener noreferrer"
             bgColor="#FFF"
@@ -97,14 +97,30 @@ const Footer = () => (
           />
           <SocialIcon
             className="mr-3"
-            url="https://www.linkedin.com/company/justfix-nyc"
+            url="https://facebook.com/justfixorg"
             target="_blank"
             rel="noopener noreferrer"
             bgColor="#FFF"
             style={{ height: 40, width: 40 }}
           />
           <SocialIcon
+            className="mr-3"
+            url="https://www.linkedin.com/company/justfixorg"
+            target="_blank"
+            rel="noopener noreferrer"
+            bgColor="#FFF"
+            style={{ height: 40, width: 40 }}
+          />
+          <SocialIcon
+            className="mr-3"
             url="https://github.com/JustFixNYC"
+            target="_blank"
+            rel="noopener noreferrer"
+            bgColor="#FFF"
+            style={{ height: 40, width: 40 }}
+          />
+          <SocialIcon
+            url="https://medium.com/justfixorg"
             target="_blank"
             rel="noopener noreferrer"
             bgColor="#FFF"
@@ -129,17 +145,16 @@ const Footer = () => (
       <div className="column is-9">
         <p>
           <Trans>
-            <b>Disclaimer:</b> The information in JustFix.nyc does not
-            constitute legal advice and must not be used as a substitute for the
-            advice of a lawyer qualified to give advice on legal issues
-            pertaining to housing. We can help direct you to free legal services
-            if necessary.
+            <b>Disclaimer:</b> The information in JustFix does not constitute
+            legal advice and must not be used as a substitute for the advice of
+            a lawyer qualified to give advice on legal issues pertaining to
+            housing. We can help direct you to free legal services if necessary.
           </Trans>
         </p>
         <br />
         <p>
           <Trans>
-            <b>JustFix.nyc</b> is a registered 501(c)(3) nonprofit organization.
+            <b>JustFix</b> is a registered 501(c)(3) nonprofit organization.
           </Trans>
         </p>
         <div className="mt-9">

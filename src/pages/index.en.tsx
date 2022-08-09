@@ -12,7 +12,6 @@ import { Trans } from "@lingui/macro";
 import { LocaleLink as Link } from "../components/locale-link";
 import { ReadMoreLink } from "../components/read-more";
 import classnames from "classnames";
-import classNames from "classnames";
 import ResponsiveElement from "../components/responsive-element";
 
 const PRODUCT_CTA_UTM_CODE = "?utm_source=orgsite&utm_medium=productcta";
@@ -20,12 +19,6 @@ const PRODUCT_CTA_UTM_CODE = "?utm_source=orgsite&utm_medium=productcta";
 export type ContentfulContent = {
   content: any;
 };
-
-const shuffleArray = (array: any[]) =>
-  array
-    .map((value) => ({ value, sort: Math.random() }))
-    .sort((a, b) => a.sort - b.sort)
-    .map(({ value }) => value);
 
 type ProductCardInfo = {
   productName: string;
@@ -47,49 +40,51 @@ type ProductCardInfo = {
 
 const Dot = () => <span className="mx-3">·</span>;
 
-export const ProductCard: React.FC<ProductCardInfo> = (props) => (
-  <div
-    className={classNames(
-      "column is-4 is-12-mobile",
-      props.isCondensed && "pl-0 pr-6 px-0-mobile"
-    )}
-  >
+export const ProductCard: React.FC<ProductCardInfo> = (props) => {
+  const { link } = props.button;
+  const toolLink = link + (link.startsWith("sms") ? "" : PRODUCT_CTA_UTM_CODE);
+
+  return (
     <div
       className={classnames(
-        "jf-card has-background-white",
-        props.isCondensed ? "p-6" : "p-8 p-6-mobile"
+        "column is-4 is-12-mobile",
+        props.isCondensed && "pl-0 pr-6 px-0-mobile"
       )}
     >
-      <div className="eyebrow is-small mb-5 mb-4-mobile">
-        {props.productName}
-      </div>
-      <h3 className="mb-6 mb-5-mobile">{props.title}</h3>
-      <div className="title is-4 mb-6 mb-5-mobile">
-        {documentToReactComponents(props.descriptionText.json)}
-      </div>
-      <div className="mt-auto">
-        <div className="has-text-dark	is-uppercase has-text-weight-bold is-size-7 mb-6">
-          {props.location}
-          <Dot />
-          {props.language
-            .map<React.ReactNode>((lang, i) => <span key={i}>{lang}</span>)
-            .reduce((lang1, lang2, i) => [
-              lang1,
-              <Dot key={Math.random()} />,
-              lang2,
-            ])}
+      <div
+        className={classnames(
+          "jf-card has-background-white",
+          props.isCondensed ? "p-6" : "p-8 p-6-mobile"
+        )}
+      >
+        <div className="eyebrow is-small mb-5 mb-4-mobile">
+          {props.productName}
         </div>
+        <h3 className="mb-6 mb-5-mobile">{props.title}</h3>
+        <div className="title is-4 mb-6 mb-5-mobile">
+          {documentToReactComponents(props.descriptionText.json)}
+        </div>
+        <div className="mt-auto">
+          <div className="has-text-dark	is-uppercase has-text-weight-bold is-size-7 mb-6">
+            {props.location}
+            <Dot />
+            {props.language
+              .map<React.ReactNode>((lang, i) => <span key={i}>{lang}</span>)
+              .reduce((lang1, lang2, i) => [
+                lang1,
+                <Dot key={Math.random()} />,
+                lang2,
+              ])}
+          </div>
 
-        <OutboundLink
-          href={props.button.link + PRODUCT_CTA_UTM_CODE}
-          className="button is-primary"
-        >
-          {props.button.title}
-        </OutboundLink>
+          <OutboundLink href={toolLink} className="button is-primary">
+            {props.button.title}
+          </OutboundLink>
+        </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 type ProductListInfo = {
   productSectionTitle: string;
@@ -115,14 +110,12 @@ export const ProductList: React.FC<ProductListInfo> = (props) => (
       <div className="column is-12 pt-10 pt-7-mobile pb-9">
         <h1>{props.productSectionTitle}</h1>
       </div>
-      {shuffleArray(props.homePageProductBlocks).map(
-        (product: any, i: number) => (
-          <ProductCard {...product} key={i} />
-        )
-      )}
+      {props.homePageProductBlocks.map((product: any, i: number) => (
+        <ProductCard {...product} key={i} />
+      ))}
       <div className="column is-4 is-12-mobile">
         <div className="jf-card has-background-black has-text-white p-8 p-6-mobile">
-          <div className="mb-6 mb-5-mobile">
+          <div className="mb-6 mb-9-mobile">
             {documentToReactComponents(props.productIdeaBanner.content.json)}
           </div>
 
@@ -158,11 +151,12 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
       <div className="has-background-black has-text-white">
         <div className="columns">
           <div className="column is-12 pt-9 py-8-mobile">
-            <h1>{props.content.whoWeAreSection}</h1>
-            <br />
+            <h1 className="is-inline-desktop">
+              {props.content.whoWeAreSection}
+            </h1>
             <Link
               to={props.content.whoWeAreButton.link}
-              className="button is-primary mt-5 mb-10 mb-7-mobile"
+              className="button is-primary is-inline-block-desktop mt-5 mb-10 mb-7-mobile ml-5 ml-0-mobile"
             >
               {props.content.whoWeAreButton.title}
             </Link>
@@ -181,7 +175,7 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
             </h3>
             <div className="has-background-warning mt-9">
               <div className="columns is-desktop is-marginless is-paddingless">
-                <div className="column is-marginless is-5 is-12-touch p-9">
+                <div className="column jf-lc-featured is-marginless is-6 is-12-touch p-9">
                   <div className="eyebrow is-large mb-6">
                     <Trans>Featured article</Trans>
                   </div>
@@ -189,9 +183,9 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
                     to={`/learn/${props.content.learningCenterPreviewArticles[0].slug}`}
                     className="jf-link-article"
                   >
-                    <h2 className="mb-6">
+                    <ResponsiveElement className="mb-6" desktop="h2" touch="h3">
                       {props.content.learningCenterPreviewArticles[0].title}
-                    </h2>
+                    </ResponsiveElement>
                   </Link>
                   <div className="eyebrow is-large mb-5">
                     <Trans>Updated</Trans>{" "}
@@ -207,7 +201,7 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
                     url={`/learn/${props.content.learningCenterPreviewArticles[0].slug}`}
                   />
                 </div>
-                <div className="column is-marginless is-paddingless is-7 is-12-touch">
+                <div className="column is-marginless is-paddingless is-6 is-12-touch">
                   <div className="columns is-marginless is-paddingless is-multiline">
                     <div className="column is-marginless is-12 py-6 px-9">
                       <Link
@@ -249,7 +243,7 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
                         url={`/learn/${props.content.learningCenterPreviewArticles[2].slug}`}
                       />
                     </div>
-                    <div className="column is-marginless is-12 py-6 px-9">
+                    <div className="column is-marginless is-12 py-8 px-9">
                       <Link to="/learn" className="button is-primary">
                         <Trans>See all articles</Trans>
                       </Link>
@@ -266,13 +260,17 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
         <div className="columns">
           <div className="column is-6 is-12-mobile is-flex is-flex-direction-column">
             <h1 className="mb-6">{props.content.partnershipsSectionTitle}</h1>
-            <div className="has-background-success p-8 pt-11 is-flex-grow-1 is-flex is-flex-direction-column">
-              <ResponsiveElement desktop="h2" touch="h3" className="mb-11">
+            <div className="has-background-success p-8 p-6-mobile is-flex-grow-1 is-flex is-flex-direction-column">
+              <ResponsiveElement
+                desktop="h2"
+                touch="h3"
+                className="py-5 pt-0-mobile mb-8"
+              >
                 {props.content.partnershipsSectionSubtitle}
               </ResponsiveElement>
               <Link
                 to={props.content.partnershipsSectionButton.link}
-                className="button is-primary mt-auto is-align-self-flex-start"
+                className="button is-primary mb-5 mb-4-mobile is-align-self-flex-start"
               >
                 {props.content.partnershipsSectionButton.title}
               </Link>
@@ -280,13 +278,17 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
           </div>
           <div className="column is-6 is-12-mobile is-flex is-flex-direction-column">
             <h1 className="mb-6">{props.content.policySectionTitle}</h1>
-            <div className="has-background-link p-8 pt-11 is-flex-grow-1 is-flex is-flex-direction-column">
-              <ResponsiveElement desktop="h2" touch="h3" className="mb-11">
+            <div className="has-background-link p-8 p-6-mobile is-flex-grow-1 is-flex is-flex-direction-column">
+              <ResponsiveElement
+                desktop="h2"
+                touch="h3"
+                className="py-5 pt-0-mobile mb-8"
+              >
                 {props.content.policySectionSubtitle}
               </ResponsiveElement>
               <Link
                 to={props.content.policySectionButton.link}
-                className="button is-primary mt-auto is-align-self-flex-start"
+                className="button is-primary mb-5 mb-4-mobile is-align-self-flex-start"
               >
                 {props.content.policySectionButton.title}
               </Link>
@@ -297,11 +299,12 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
 
       <div className="columns has-background-info">
         <div className="column is-12 pt-9 pt-6-mobile pb-12 pb-9-mobile">
-          <h1>{props.content.outroSectionTitle}</h1>
-          <br />
+          <h1 className="is-inline-desktop">
+            {props.content.outroSectionTitle}
+          </h1>
           <Link
             to={props.content.outroSectionButton.link}
-            className="button is-primary mt-5"
+            className="button is-primary mt-5 ml-5 ml-0-mobile"
           >
             {props.content.outroSectionButton.title}
           </Link>

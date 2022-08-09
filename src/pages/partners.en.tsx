@@ -58,6 +58,7 @@ const PartnerCard: React.FC<PartnerDetails> = ({ name, link, logo }) => (
           width: "150px",
           height: "150px",
         }}
+        objectFit="contain"
       />
       <OutboundLink className="mb-9 mx-2" href={link}>
         {formatLinkLabel(link)}
@@ -88,6 +89,7 @@ const PartnerCardMobile: React.FC<PartnerDetails> = ({ name, link, logo }) => (
             width: "150px",
             height: "150px",
           }}
+          objectFit="contain"
         />
         <OutboundLink className="mb-9 mx-2" href={link}>
           {formatLinkLabel(link)}
@@ -109,7 +111,7 @@ const PartnersSection: React.FC<PartnersSectionDetails> = ({
   partners,
 }) => (
   <div className="columns has-background-info">
-    <div className="column pt-13 pb-12 p-6-mobile">
+    <div className="column pt-12 pb-10 p-6-mobile">
       <h2 className="pb-3 pb-6-mobile">
         {title}{" "}
         <span className="has-text-weight-bold is-hidden-tablet">
@@ -161,8 +163,8 @@ const PartnershipCaseStudy: React.FC<PartnershipCaseStudyDetails> = ({
         {documentToReactComponents(description.json)}
       </span>
     </div>
-    <div className="column is-12 pb-0-mobile">
-      <div className="is-divider my-10 my-0-mobile" />
+    <div className="column is-12 is-paddingless">
+      <div className="is-divider mt-9 mb-0 my-0-mobile" />
     </div>
   </div>
 );

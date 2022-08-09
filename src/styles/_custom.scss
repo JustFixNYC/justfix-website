@@ -125,7 +125,6 @@ $spacing-values: (
 .navbar-item,
 .link,
 .link-header {
-  letter-spacing: 2px;
   transition: 0.3s;
 }
 
@@ -236,6 +235,14 @@ div.is-rounded img {
   transform: translateY(3px);
 }
 
+// override bulma default of darkening links on hover
+a.has-text-white:hover {
+  color: $justfix-white !important;
+}
+a.has-text-black:hover {
+  color: $justfix-black !important;
+}
+
 // When our arrow icon's on a black background, let's invert the colors
 .has-background-black .jf-link-arrow-icon {
   filter: invert(1) contrast(1.3);
@@ -317,15 +324,16 @@ div.is-rounded img {
 }
 
 // Content that stays fixed at the bottom of the viewport:
-.jf-footer-menu {
-  width: 100%;
-  position: fixed;
-  bottom: 0;
-  z-index: 30;
-}
-
 .jf-cookies-banner {
   border-top: 1px solid $justfix-black;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 30;
+
+  @include wide-desktop {
+    width: $wide-desktop;
+  }
 
   img {
     filter: invert(1) contrast(0.7);
