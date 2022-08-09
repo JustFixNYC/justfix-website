@@ -41,7 +41,7 @@
       a,
       u,
       span {
-        @include desktop {
+        @include tablet {
           @include desktop-text-small;
         }
         @include mobile {
@@ -63,7 +63,7 @@
     }
   }
   .jf-article-link-container {
-    @include mobile {
+    @include touch {
       justify-content: center;
     }
   }

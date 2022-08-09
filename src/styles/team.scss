@@ -2,7 +2,7 @@
 
 #team {
   .jf-team-title {
-    @include mobile {
+    @include touch {
       text-align: center;
     }
   }
@@ -13,7 +13,7 @@
   }
 
   .jf-member-card {
-    @include mobile {
+    @include touch {
       float: left;
     }
   }

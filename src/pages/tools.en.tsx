@@ -44,7 +44,7 @@ export const ToolsPageScaffolding = (props: ContentfulContent) => {
         </div>
         {props.content.pastToolsBlocks.map((tool: any, i: number) => (
           <div
-            className="column is-3 is-12-mobile pt-0 pb-10 pb-7-mobile"
+            className="column is-3 is-12-touch pt-0 pb-10 pb-7-mobile"
             key={i}
           >
             <h3 className="mb-3">{tool.toolName}</h3>

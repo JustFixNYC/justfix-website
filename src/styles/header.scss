@@ -9,7 +9,7 @@
   background-color: $white;
   height: $navbar-height;
 
-  @include mobile {
+  @include touch {
     height: $navbar-height-mobile;
   }
 
@@ -37,7 +37,7 @@
     border-bottom: 1px solid $black;
     z-index: inherit;
 
-    @include mobile {
+    @include touch {
       height: $navbar-height-mobile;
       min-height: unset;
     }
@@ -51,7 +51,7 @@
         transition: none;
         color: $black;
 
-        @include mobile {
+        @include touch {
           width: 50%;
         }
 
@@ -124,7 +124,7 @@
         margin-left: auto;
       }
 
-      @include mobile {
+      @include touch {
         width: 100%;
         height: calc(100vh - #{$navbar-height-mobile});
       }
@@ -163,7 +163,7 @@
 
   // Make only the navbar have absolute position on mobile
   &.is-absolute {
-    @include mobile {
+    @include touch {
       position: unset;
 
       .navbar {

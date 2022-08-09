@@ -47,7 +47,7 @@ export const ProductCard: React.FC<ProductCardInfo> = (props) => {
   return (
     <div
       className={classnames(
-        "column is-4 is-12-mobile",
+        "column is-4 is-12-touch",
         props.isCondensed && "pl-0 pr-6 px-0-mobile"
       )}
     >
@@ -113,7 +113,7 @@ export const ProductList: React.FC<ProductListInfo> = (props) => (
       {props.homePageProductBlocks.map((product: any, i: number) => (
         <ProductCard {...product} key={i} />
       ))}
-      <div className="column is-4 is-12-mobile">
+      <div className="column is-4 is-12-touch">
         <div className="jf-card has-background-black has-text-white p-8 p-6-mobile">
           <div className="mb-6 mb-9-mobile">
             {documentToReactComponents(props.productIdeaBanner.content.json)}
@@ -250,8 +250,8 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
       </div>
 
       <div className="mb-12 mb-9-mobile">
-        <div className="columns">
-          <div className="column is-6 is-12-mobile is-flex is-flex-direction-column">
+        <div className="columns is-multiline">
+          <div className="column is-6 is-12-touch is-flex is-flex-direction-column">
             <h1 className="mb-6">{props.content.partnershipsSectionTitle}</h1>
             <div className="has-background-success p-8 p-6-mobile is-flex-grow-1 is-flex is-flex-direction-column">
               <ResponsiveElement
@@ -269,7 +269,7 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
               </Link>
             </div>
           </div>
-          <div className="column is-6 is-12-mobile is-flex is-flex-direction-column">
+          <div className="column is-6 is-12-touch is-flex is-flex-direction-column">
             <h1 className="mb-6">{props.content.policySectionTitle}</h1>
             <div className="has-background-link p-8 p-6-mobile is-flex-grow-1 is-flex is-flex-direction-column">
               <ResponsiveElement
