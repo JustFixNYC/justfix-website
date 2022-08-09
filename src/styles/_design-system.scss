@@ -1,25 +1,6 @@
 @import "~bulma/sass/utilities/initial-variables.sass";
 @import "./vars";
-
-// MEDIA:
-
-@mixin mobile {
-  @media screen and (max-width: $desktop) {
-    @content;
-  }
-}
-
-@mixin desktop {
-  @media screen and (min-width: $desktop) {
-    @content;
-  }
-}
-
-@mixin wide-desktop {
-  @media screen and (min-width: $wide-desktop) {
-    @content;
-  }
-}
+@import "~bulma/sass/utilities/mixins.sass";
 
 // FONTS:
 
@@ -291,11 +272,11 @@ $body-color: $justfix-black;
   }
 }
 
-@include desktop() {
+@include desktop {
   @include desktop-typography();
 }
 
-@include mobile() {
+@include mobile {
   @include mobile-typography();
 }
 
@@ -463,13 +444,13 @@ $column-gap: 18px;
 
 // WIDE DESKTOP STYLES:
 
-@include wide-desktop {
+@include widescreen {
   body {
     background-color: $justfix-white;
   }
 
   .jf-page-body {
-    max-width: $wide-desktop;
+    max-width: $widescreen;
     margin: auto;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
   }
