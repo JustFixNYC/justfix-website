@@ -331,8 +331,8 @@ a.has-text-black:hover {
   width: 100%;
   z-index: 30;
 
-  @include wide-desktop {
-    width: $wide-desktop;
+  @include widescreen {
+    width: $widescreen;
   }
 
   img {

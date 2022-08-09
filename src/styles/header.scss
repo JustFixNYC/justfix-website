@@ -27,8 +27,8 @@
   &.jf-sticky {
     position: fixed;
     top: 0;
-    @include wide-desktop {
-      width: $wide-desktop;
+    @include widescreen {
+      width: $widescreen;
     }
   }
 
@@ -163,7 +163,7 @@
 
   // Make only the navbar have absolute position on mobile
   &.is-absolute {
-    @media screen and (max-width: $tablet) {
+    @include mobile {
       position: unset;
 
       .navbar {
