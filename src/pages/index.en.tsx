@@ -138,13 +138,7 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
         <Img fluid={props.content.landingImage.fluid} alt="" />
       </div>
       <div className="is-hidden-tablet">
-        <Img
-          fluid={{
-            ...props.content.landingImage.fluid,
-            aspectRatio: 1,
-          }}
-          alt=""
-        />
+        <Img fluid={props.content.landingPageImageMobile.fluid} alt="" />
       </div>
 
       <div className="has-background-black has-text-white">
@@ -318,7 +312,12 @@ export const LandingPageFragment = graphql`
     contentfulHomePage(node_locale: { eq: $locale }) {
       landingLeadInText
       landingImage {
-        fluid {
+        fluid(quality: 100) {
+          ...GatsbyContentfulFluid
+        }
+      }
+      landingPageImageMobile {
+        fluid(quality: 100) {
           ...GatsbyContentfulFluid
         }
       }
