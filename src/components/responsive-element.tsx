@@ -17,7 +17,7 @@ type ResponsiveElementInfo = {
   className?: string;
 };
 
-function ResponsiveElement(props: ResponsiveElementInfo): JSX.Element {
+const ResponsiveElement = (props: ResponsiveElementInfo): JSX.Element => {
   const { children, className, ...sizeTags } = props;
 
   if (Object.keys(sizeTags).length < 2)
@@ -49,6 +49,6 @@ function ResponsiveElement(props: ResponsiveElementInfo): JSX.Element {
       })}
     </>
   );
-}
+};
 
 export default ResponsiveElement;
