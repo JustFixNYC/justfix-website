@@ -2,7 +2,7 @@
 
 #team {
   .jf-team-title {
-    @include touch {
+    @include mobile {
       text-align: center;
     }
   }
@@ -13,13 +13,17 @@
   }
 
   .jf-member-card {
-    @include touch {
+    @include mobile {
       float: left;
+    }
+    .image {
+      height: 75%;
+      width: 75%;
     }
   }
 
   .jf-alumni-list {
-    @include desktop {
+    @include tablet {
       column-count: 2;
     }
   }
