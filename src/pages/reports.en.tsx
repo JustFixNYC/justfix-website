@@ -12,6 +12,7 @@ import ResponsiveElement from "../components/responsive-element";
 import { FluidObject } from "gatsby-image";
 
 import "../styles/reports.scss";
+import { OutboundLink } from "../util/links";
 
 function formatDate(dateString: string, locale?: string): string {
   var date = new Date(dateString);
@@ -48,12 +49,14 @@ const ReportCard: React.FC<ReportCardInfo> = (props) => (
         />
       </div>
       <div className="column is-6 is-12-touch px-9 px-6-touch pt-8 pb-11 py-7-touch is-flex is-flex-direction-column">
-        <ResponsiveElement
-          desktop="h2"
-          touch="h3"
-          children={props.reportTitle}
-          className="pb-6"
-        />
+        <OutboundLink href={props.reportUrl} className="jf-link-article">
+          <ResponsiveElement
+            desktop="h2"
+            touch="h3"
+            children={props.reportTitle}
+            className="pb-6"
+          />
+        </OutboundLink>
         <span className="eyebrow pb-6">
           {formatDate(props.publicationDate, props.locale)}
         </span>
