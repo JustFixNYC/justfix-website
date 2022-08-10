@@ -35,7 +35,7 @@ export const PressPageScaffolding = (props: ContentfulContent) => {
 
         <div className="columns is-centered is-multiline pt-7">
           {props.content.pressItems.map((press: any, i: number) => (
-            <div className="column is-8 pt-0" key={i}>
+            <div className="column is-8 is-12-touch pt-0" key={i}>
               {i > 0 &&
                 !press.isFeaturedArticle &&
                 !props.content.pressItems[i - 1].isFeaturedArticle && (
@@ -79,7 +79,7 @@ export const PressPageScaffolding = (props: ContentfulContent) => {
               </div>
             </div>
           ))}
-          <div className="column is-8 has-background-black has-text-white py-10 px-7 mt-6 mb-12 mx-5-mobile">
+          <div className="column is-8 is-12-touch has-background-black has-text-white py-10 px-7 mt-6 mb-12 mx-5-touch">
             <ResponsiveElement desktop="h2" touch="h3" className="mb-6">
               {documentToReactComponents(
                 props.content.pressInquiryBanner.content.json

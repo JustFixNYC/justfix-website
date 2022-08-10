@@ -272,7 +272,7 @@ $body-color: $justfix-black;
   }
 }
 
-@include desktop {
+@include tablet {
   @include desktop-typography();
 }
 

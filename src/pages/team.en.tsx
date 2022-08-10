@@ -23,7 +23,7 @@ type MemberCardInfo = {
 
 const MemberCard: React.FC<MemberCardInfo> = (props) => (
   <div
-    className={`jf-member-card column is-9 px-6 py-9 py-6-mobile  ${props.className}`}
+    className={`jf-member-card column is-9 is-12-touch px-6 py-9 py-6-touch  ${props.className}`}
   >
     <figure className="image">
       <Img fluid={props.photo.fluid} className="is-rounded" alt={props.name} />
@@ -45,7 +45,7 @@ type MemberCardsListInfo = {
 
 const MemberCardsList: React.FC<MemberCardsListInfo> = (props) => (
   <>
-    <h1 className="jf-team-title pl-9 pt-6 pl-0-mobile pt-3-mobile">
+    <h1 className="jf-team-title pl-9 pt-6 pl-0-touch pt-3-touch">
       {props.sectionTitle}
     </h1>
     <div className="jf-members columns is-multiline is-centered">
@@ -56,7 +56,7 @@ const MemberCardsList: React.FC<MemberCardsListInfo> = (props) => (
           "is-pulled-right",
         ];
         return (
-          <div className="column is-4 is-paddingless" key={i}>
+          <div className="column is-4 is-12-touch is-paddingless" key={i}>
             <MemberCard {...member} className={alignments[i % 3]} />
           </div>
         );
@@ -92,7 +92,7 @@ export const TeamPageScaffolding = (props: ContentfulContent) => (
           </div>
         </div>
         <div className="columns">
-          <div className="jf-alumni-list column is-8 is-12-mobile">
+          <div className="jf-alumni-list column is-8 is-12-touch">
             {props.content.otherContributors.map(
               (contributor: any, i: number) => (
                 <p className="py-4" key={i}>
