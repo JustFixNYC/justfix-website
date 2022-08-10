@@ -51,7 +51,7 @@ type MemberCardsListInfo = {
 
 const MemberCardsList: React.FC<MemberCardsListInfo> = (props) => (
   <>
-    <h1 className="jf-team-title pl-9 pt-6 pl-0-mobile pt-3-mobile">
+    <h1 className="jf-team-title pl-9 pt-6 pl-0-mobile">
       {props.sectionTitle}
     </h1>
     <div className="jf-members columns is-multiline is-centered">
