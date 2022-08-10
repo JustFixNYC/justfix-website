@@ -10,6 +10,7 @@ import { ContentfulContent } from "./index.en";
 import Img from "gatsby-image/withIEPolyfill";
 import ResponsiveElement from "../components/responsive-element";
 import { FluidObject } from "gatsby-image";
+import { BLOCKS } from "@contentful/rich-text-types";
 
 import "../styles/reports.scss";
 import { OutboundLink } from "../util/links";
@@ -62,7 +63,13 @@ const ReportCard: React.FC<ReportCardInfo> = (props) => (
         </span>
         {props.blurb && (
           <div className="pb-6">
-            {documentToReactComponents(props.blurb.json)}
+            {documentToReactComponents(props.blurb.json, {
+              renderNode: {
+                [BLOCKS.PARAGRAPH]: (node, children) => (
+                  <p className="jf-report-blurb">{children}</p>
+                ),
+              },
+            })}
           </div>
         )}
         <ReadMoreLink
