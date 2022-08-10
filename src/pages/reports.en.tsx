@@ -89,7 +89,7 @@ export const PolicyPageScaffolding = (props: ContentfulContent) => {
       <div id="reports" className="reports-page">
         <PageHero {...props.content.pageHero} />
 
-        <div className="columns is-multiline pt-13 pb-11 p-6-touch">
+        <div className="columns is-multiline pt-13 pb-11 p-6-touch pb-9-touch">
           <div className="column is-4 is-12-touch py-0 p-0-touch">
             <ResponsiveElement
               desktop="h2"
