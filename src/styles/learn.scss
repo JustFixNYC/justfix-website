@@ -72,6 +72,11 @@
   }
 }
 .jf-article-page {
+  .jf-summary-box {
+    p {
+      line-height: 120%;
+    }
+  }
   .article-section ul {
     list-style: square;
   }

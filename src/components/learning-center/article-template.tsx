@@ -172,7 +172,7 @@ const LearningArticle = (props: Props) => {
               )}
             </p>
 
-            <div className="columns is-paddingless has-background-light">
+            <div className="jf-summary-box columns is-paddingless has-background-light">
               <div className="column is-6 p-5">
                 <h4>
                   <Trans>Summary</Trans>
