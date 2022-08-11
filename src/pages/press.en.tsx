@@ -39,12 +39,12 @@ export const PressPageScaffolding = (props: ContentfulContent) => {
               {i > 0 &&
                 !press.isFeaturedArticle &&
                 !props.content.pressItems[i - 1].isFeaturedArticle && (
-                  <div className="is-divider mt-3 mb-10" />
+                  <div className="is-divider mb-8" />
                 )}
               <div
                 className={classnames(
                   press.isFeaturedArticle &&
-                    "has-background-warning mt-4 py-7 px-6"
+                    "has-background-warning mt-6 py-7 px-6"
                 )}
               >
                 {press.isFeaturedArticle && (
