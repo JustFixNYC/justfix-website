@@ -73,6 +73,11 @@
 }
 .jf-article-page {
   .jf-summary-box {
+    h4 {
+      @include mobile {
+        font-weight: 600;
+      }
+    }
     p {
       line-height: 120%;
     }
