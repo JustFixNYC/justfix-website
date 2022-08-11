@@ -166,9 +166,12 @@ const LearningArticle = (props: Props) => {
               <Trans>Published</Trans> {content.dateUpdated}
             </div>
 
-            <p className="has-text-dark mb-6 mb-8-mobile">
+            <p className="title is-4 has-text-dark mb-6 mb-8-mobile">
               {content.author || (
-                <Trans>This article was written by the JustFix team</Trans>
+                <Trans>
+                  This article was written by the team of housing experts at
+                  JustFix
+                </Trans>
               )}
             </p>
 
