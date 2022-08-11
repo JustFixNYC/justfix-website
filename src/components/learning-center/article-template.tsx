@@ -55,7 +55,9 @@ function renderSection(articleSection: any, i: number): JSX.Element {
         </div>
       ) : (
         <div>
-          <h3 className="my-6 my-5-mobile">{widont(articleSection.title)}</h3>
+          <h3 className="has-text-weight-semibold my-6 mb-5-mobile mt-7-mobile">
+            {widont(articleSection.title)}
+          </h3>
           {documentToReactComponents(articleSection.content.json, {
             renderNode: {
               [BLOCKS.PARAGRAPH]: (node, children) => (
