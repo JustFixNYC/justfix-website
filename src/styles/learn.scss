@@ -82,9 +82,18 @@
       top: $spacing-08;
     }
 
-    li a:hover {
-      text-decoration: none;
-      background-color: $light;
+    li a {
+      @include desktop {
+        text-decoration: none;
+      }
+
+      &:hover {
+        @include desktop {
+          text-decoration: underline;
+        }
+
+        background-color: $light;
+      }
     }
   }
 

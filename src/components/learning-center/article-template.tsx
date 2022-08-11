@@ -97,8 +97,9 @@ const LearningArticle = (props: Props) => {
       id="navmenu"
       className={classnames("menu", props && props.styleClass)}
     >
-      <p className="p-4 is-uppercase has-text-weight-bold">
-        <Trans>Contents</Trans>
+      <div className="is-divider is-hidden-tablet mt-0" />
+      <p className="p-4 px-0-mobile is-uppercase has-text-weight-bold">
+        <Trans>Jump to</Trans>
       </p>
       <ul className="menu-list">
         {content.articleSections.map((articleSection: any, i: number) =>
@@ -111,7 +112,7 @@ const LearningArticle = (props: Props) => {
                 smooth={true}
                 offset={-100}
                 duration={500}
-                className="p-4 has-text-black no-underline"
+                className="p-4 px-0-mobile has-text-black"
               >
                 {articleSection.title}
               </ScrollLink>
@@ -121,6 +122,7 @@ const LearningArticle = (props: Props) => {
           )
         )}
       </ul>
+      <div className="is-divider is-hidden-tablet mb-0" />
     </aside>
   );
 
