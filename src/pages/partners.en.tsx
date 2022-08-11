@@ -50,16 +50,18 @@ const PartnerCard: React.FC<PartnerDetails> = ({ name, link, logo }) => (
           {name}
         </div>
       </div>
-      <Img
-        fluid={logo.fluid}
-        alt={name}
-        className="my-5"
-        style={{
-          width: "150px",
-          height: "150px",
-        }}
-        objectFit="contain"
-      />
+      <OutboundLink href={link}>
+        <Img
+          fluid={logo.fluid}
+          alt={name}
+          className="my-5"
+          style={{
+            width: "150px",
+            height: "150px",
+          }}
+          objectFit="contain"
+        />
+      </OutboundLink>
       <OutboundLink className="mb-9 mx-2" href={link}>
         {formatLinkLabel(link)}
       </OutboundLink>
