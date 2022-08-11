@@ -120,7 +120,9 @@ export const ArticlePreviewCard = (props: ArticlePreviewInfo) => {
           </div>
           <div className="mb-6 mb-3-touch">
             <LocaleLink className={"jf-link-article"} to={articleUrl}>
-              <h3 className="mb-6 mb-3-touch">{props.title}</h3>
+              <h3 className="has-text-weight-semibold mb-6 mb-3-touch">
+                {props.title}
+              </h3>
             </LocaleLink>
             <span className="is-hidden-touch eyebrow is-small">
               <Trans>Updated</Trans> {formatDate(props.dateUpdated, locale)}
