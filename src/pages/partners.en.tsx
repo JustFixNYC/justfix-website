@@ -176,7 +176,7 @@ export const PartnersPageScaffolding = (props: ContentfulContent) => (
 
       <div className="columns is-multiline">
         <div className="column is-4 is-12-touch pt-13 pb-12 p-6-touch">
-        <ResponsiveElement tagNames={{ desktop: "h2", touch: "h1" }}>
+          <ResponsiveElement tagNames={{ desktop: "h2", touch: "h1" }}>
             {props.content.title}
           </ResponsiveElement>
         </div>
@@ -251,10 +251,10 @@ export const PartnersPageScaffolding = (props: ContentfulContent) => (
       </div>
 
       <div className="columns">
-      <div className="column pt-13 pb-12 p-6-touch">
+        <div className="column pt-13 pb-12 p-6-touch">
           <div className="columns is-multiline is-paddingless">
             <div className="column is-5 is-12-touch mb-12 mb-0-touch px-0-touch pb-4-touch">
-            <ResponsiveElement tagNames={{ desktop: "h2", touch: "h1" }}>
+              <ResponsiveElement tagNames={{ desktop: "h2", touch: "h1" }}>
                 {props.content.fundersTitle}
               </ResponsiveElement>
             </div>

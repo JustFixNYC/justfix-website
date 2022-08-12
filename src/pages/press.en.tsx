@@ -83,11 +83,11 @@ export const PressPageScaffolding = (props: ContentfulContent) => {
             </div>
           ))}
           <div className="column is-8 is-12-touch has-background-black has-text-white py-10 px-7 mt-6 mb-12 mx-5-touch">
-          <ResponsiveElement
+            <ResponsiveElement
               tagNames={{ desktop: "h2", touch: "h3" }}
               className="mb-6"
             >
-                            {documentToReactComponents(
+              {documentToReactComponents(
                 props.content.pressInquiryBanner.content.json
               )}
             </ResponsiveElement>

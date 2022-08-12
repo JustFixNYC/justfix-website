@@ -36,7 +36,7 @@ export const MissionPageScaffolding = (props: ContentfulContent) => {
 
         <div className="columns has-background-warning is-multiline">
           <div className="column is-4 is-12-touch pt-13 pb-12 pt-6-touch px-6-touch pb-0-touch">
-          <ResponsiveElement tagNames={{ desktop: "h2", touch: "h1" }}>
+            <ResponsiveElement tagNames={{ desktop: "h2", touch: "h1" }}>
               {props.content.visionTitle}
             </ResponsiveElement>
           </div>
@@ -57,7 +57,7 @@ export const MissionPageScaffolding = (props: ContentfulContent) => {
 
         <div className="columns is-multiline">
           <div className="column is-4 is-12-touch pt-13 pb-12 pt-6-touch px-6-touch pb-0-touch">
-          <ResponsiveElement tagNames={{ desktop: "h2", touch: "h1" }}>
+            <ResponsiveElement tagNames={{ desktop: "h2", touch: "h1" }}>
               {props.content.impactTitle}
             </ResponsiveElement>
           </div>
@@ -72,13 +72,12 @@ export const MissionPageScaffolding = (props: ContentfulContent) => {
                       to={latestReport.link}
                       className="jf-link-article"
                     >
-                    <ResponsiveElement
-                      tagNames={{ desktop: "h2", touch: "h1" }}
-                    >
-                      {latestReport.title}
+                      <ResponsiveElement
+                        tagNames={{ desktop: "h2", touch: "h1" }}
+                      >
+                        {latestReport.title}
                       </ResponsiveElement>
                     </LocaleLink>
-
                   </div>
                   <div className="column is-5">
                     <h3 className="has-text-weight-normal mb-3">
@@ -102,9 +101,10 @@ export const MissionPageScaffolding = (props: ContentfulContent) => {
               {pastReports.map((report: any, i: number) => (
                 <div className="column is-paddingless is-4 mb-7" key={i}>
                   <LocaleLink to={report.link} className="jf-link-article">
-                    <ResponsiveElement 
-                                        tagNames={{ desktop: "h4", touch: "h3" }}
-                                        className="mb-3" >
+                    <ResponsiveElement
+                      tagNames={{ desktop: "h4", touch: "h3" }}
+                      className="mb-3"
+                    >
                       {report.title}
                     </ResponsiveElement>
                   </LocaleLink>
@@ -117,7 +117,7 @@ export const MissionPageScaffolding = (props: ContentfulContent) => {
 
         <div className="columns has-background-info is-multiline">
           <div className="column is-4 is-12-touch pt-13 pb-12 p-6-touch">
-          <ResponsiveElement tagNames={{ desktop: "h2", touch: "h1" }}>
+            <ResponsiveElement tagNames={{ desktop: "h2", touch: "h1" }}>
               {props.content.valuesTitle}
             </ResponsiveElement>
           </div>
