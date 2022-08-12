@@ -47,21 +47,21 @@ export const ProductCard: React.FC<ProductCardInfo> = (props) => {
   return (
     <div
       className={classnames(
-        "column is-4 is-12-mobile",
-        props.isCondensed && "pl-0 pr-6 px-0-mobile"
+        "column is-4 is-12-touch",
+        props.isCondensed && "pl-0 pr-6 px-0-touch"
       )}
     >
       <div
         className={classnames(
           "jf-card has-background-white",
-          props.isCondensed ? "p-6" : "p-8 p-6-mobile"
+          props.isCondensed ? "p-6" : "p-8 p-6-touch"
         )}
       >
-        <div className="eyebrow is-small mb-5 mb-4-mobile">
+        <div className="eyebrow is-small mb-5 mb-4-touch">
           {props.productName}
         </div>
-        <h3 className="mb-6 mb-5-mobile">{props.title}</h3>
-        <div className="title is-4 mb-6 mb-5-mobile">
+        <h3 className="mb-6 mb-5-touch">{props.title}</h3>
+        <div className="title is-4 mb-6 mb-5-touch">
           {documentToReactComponents(props.descriptionText.json)}
         </div>
         <div className="mt-auto">
@@ -104,18 +104,18 @@ type ProductListInfo = {
 export const ProductList: React.FC<ProductListInfo> = (props) => (
   <div
     id="products"
-    className="has-background-link has-text-black pb-12 pb-6-mobile"
+    className="has-background-link has-text-black pb-12 pb-6-touch"
   >
     <div className="columns is-multiline">
-      <div className="column is-12 pt-10 pt-7-mobile pb-9">
+      <div className="column is-12 pt-10 pt-7-touch pb-9">
         <h1>{props.productSectionTitle}</h1>
       </div>
       {props.homePageProductBlocks.map((product: any, i: number) => (
         <ProductCard {...product} key={i} />
       ))}
-      <div className="column is-4 is-12-mobile">
-        <div className="jf-card has-background-black has-text-white p-8 p-6-mobile">
-          <div className="mb-6 mb-9-mobile">
+      <div className="column is-4 is-12-touch">
+        <div className="jf-card has-background-black has-text-white p-8 p-6-touch">
+          <div className="mb-6 mb-9-touch">
             {documentToReactComponents(props.productIdeaBanner.content.json)}
           </div>
 
@@ -134,22 +134,22 @@ export const ProductList: React.FC<ProductListInfo> = (props) => (
 export const LandingPageScaffolding = (props: ContentfulContent) => (
   <Layout isLandingPage={true}>
     <div id="home" className="home-page">
-      <div className="is-hidden-mobile">
+      <div className="is-hidden-touch">
         <Img fluid={props.content.landingImage.fluid} alt="" />
       </div>
-      <div className="is-hidden-tablet">
+      <div className="is-hidden-desktop">
         <Img fluid={props.content.landingPageImageMobile.fluid} alt="" />
       </div>
 
       <div className="has-background-black has-text-white">
         <div className="columns">
-          <div className="column is-12 pt-9 py-8-mobile">
-            <h1 className="is-inline-desktop">
+          <div className="column is-12 pt-9 py-8-touch">
+            <h1 className="is-inline-tablet">
               {props.content.whoWeAreSection}
             </h1>
             <Link
               to={props.content.whoWeAreButton.link}
-              className="button is-primary is-inline-block-desktop mt-5 mb-10 mb-7-mobile ml-5 ml-0-mobile"
+              className="button is-primary is-inline-block-tablet mt-5 mb-10 mb-7-touch ml-5 ml-0-mobile"
             >
               {props.content.whoWeAreButton.title}
             </Link>
@@ -159,9 +159,9 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
 
       <ProductList {...props.content} />
 
-      <div className="jf-learning-center-preview mb-12 mb-0-mobile">
+      <div className="jf-learning-center-preview mb-12 mb-0-touch">
         <div className="columns">
-          <div className="column is-12 pt-10 pt-7-mobile pb-9 pb-5-mobile">
+          <div className="column is-12 pt-10 pt-7-touch pb-9 pb-5-touch">
             <h1>{props.content.learningCenterPreviewTitle}</h1>
             <h3 className="mt-2">
               {props.content.learningCenterPreviewSubtitle}
@@ -252,37 +252,37 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
         </div>
       </div>
 
-      <div className="mb-12 mb-9-mobile">
-        <div className="columns">
-          <div className="column is-6 is-12-mobile is-flex is-flex-direction-column">
+      <div className="mb-12 mb-9-touch">
+        <div className="columns is-multiline">
+          <div className="column is-6 is-12-touch is-flex is-flex-direction-column">
             <h1 className="mb-6">{props.content.partnershipsSectionTitle}</h1>
-            <div className="has-background-success p-8 p-6-mobile is-flex-grow-1 is-flex is-flex-direction-column">
+            <div className="has-background-success p-8 p-6-touch is-flex-grow-1 is-flex is-flex-direction-column">
               <ResponsiveElement
                 tagNames={{ desktop: "h2", touch: "h3" }}
-                className="py-5 pt-0-mobile mb-8"
+                className="py-5 pt-0-touch mb-8"
               >
                 {props.content.partnershipsSectionSubtitle}
               </ResponsiveElement>
               <Link
                 to={props.content.partnershipsSectionButton.link}
-                className="button is-primary mb-5 mb-4-mobile is-align-self-flex-start"
+                className="button is-primary mb-5 mb-4-touch is-align-self-flex-start"
               >
                 {props.content.partnershipsSectionButton.title}
               </Link>
             </div>
           </div>
-          <div className="column is-6 is-12-mobile is-flex is-flex-direction-column">
+          <div className="column is-6 is-12-touch is-flex is-flex-direction-column">
             <h1 className="mb-6">{props.content.policySectionTitle}</h1>
-            <div className="has-background-link p-8 p-6-mobile is-flex-grow-1 is-flex is-flex-direction-column">
+            <div className="has-background-link p-8 p-6-touch is-flex-grow-1 is-flex is-flex-direction-column">
               <ResponsiveElement
                 tagNames={{ desktop: "h2", touch: "h3" }}
-                className="py-5 pt-0-mobile mb-8"
+                className="py-5 pt-0-touch mb-8"
               >
                 {props.content.policySectionSubtitle}
               </ResponsiveElement>
               <Link
                 to={props.content.policySectionButton.link}
-                className="button is-primary mb-5 mb-4-mobile is-align-self-flex-start"
+                className="button is-primary mb-5 mb-4-touch is-align-self-flex-start"
               >
                 {props.content.policySectionButton.title}
               </Link>
@@ -292,8 +292,8 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
       </div>
 
       <div className="columns has-background-info">
-        <div className="column is-12 pt-9 pt-6-mobile pb-12 pb-9-mobile">
-          <h1 className="is-inline-desktop">
+        <div className="column is-12 pt-9 pt-6-touch pb-12 pb-9-touch">
+          <h1 className="is-inline-tablet">
             {props.content.outroSectionTitle}
           </h1>
           <Link

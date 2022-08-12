@@ -16,10 +16,14 @@
     @include mobile {
       float: left;
     }
+    .image {
+      height: 75%;
+      width: 75%;
+    }
   }
 
   .jf-alumni-list {
-    @include desktop {
+    @include tablet {
       column-count: 2;
     }
   }

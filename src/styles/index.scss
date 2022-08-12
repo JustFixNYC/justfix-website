@@ -38,7 +38,7 @@
         border-right: 1px solid $justfix-black;
       }
 
-      @include mobile {
+      @include touch {
         border-bottom: 1px solid $justfix-black;
       }
     }

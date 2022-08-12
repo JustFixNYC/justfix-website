@@ -10,8 +10,10 @@ import { ContentfulContent } from "./index.en";
 import Img from "gatsby-image/withIEPolyfill";
 import ResponsiveElement from "../components/responsive-element";
 import { FluidObject } from "gatsby-image";
+import { BLOCKS } from "@contentful/rich-text-types";
 
 import "../styles/reports.scss";
+import { OutboundLink } from "../util/links";
 
 function formatDate(dateString: string, locale?: string): string {
   var date = new Date(dateString);
@@ -36,9 +38,9 @@ type ReportCardInfo = {
 };
 
 const ReportCard: React.FC<ReportCardInfo> = (props) => (
-  <div className="mt-6 mb-9 mt-0-mobile">
+  <div className="mt-6 mb-9 mt-0-touch">
     <div className="jf-report-card columns is-paddingless is-multiline has-background-white">
-      <div className="column is-6 is-paddingless">
+      <div className="column is-6 is-12-touch is-paddingless">
         <Img
           fluid={props.image.fluid}
           objectFit="cover"
@@ -47,18 +49,26 @@ const ReportCard: React.FC<ReportCardInfo> = (props) => (
           className="jf-report-img"
         />
       </div>
-      <div className="column is-6 px-9 px-6-mobile pt-8 pb-11 py-7-mobile is-flex is-flex-direction-column">
-        <ResponsiveElement
-          tagNames={{ desktop: "h2", touch: "h3" }}
-          children={props.reportTitle}
-          className="pb-6"
-        />
+      <div className="column is-6 is-12-touch px-9 px-6-touch pt-8 pb-11 py-7-touch is-flex is-flex-direction-column">
+        <OutboundLink href={props.reportUrl} className="jf-link-article">
+          <ResponsiveElement
+            tagNames={{ desktop: "h2", touch: "h3" }}
+            children={props.reportTitle}
+            className="pb-6"
+          />
+        </OutboundLink>
         <span className="eyebrow pb-6">
           {formatDate(props.publicationDate, props.locale)}
         </span>
         {props.blurb && (
           <div className="pb-6">
-            {documentToReactComponents(props.blurb.json)}
+            {documentToReactComponents(props.blurb.json, {
+              renderNode: {
+                [BLOCKS.PARAGRAPH]: (node, children) => (
+                  <p className="jf-report-blurb">{children}</p>
+                ),
+              },
+            })}
           </div>
         )}
         <ReadMoreLink
@@ -78,15 +88,15 @@ export const PolicyPageScaffolding = (props: ContentfulContent) => {
       <div id="reports" className="reports-page">
         <PageHero {...props.content.pageHero} />
 
-        <div className="columns pt-13 pb-11 p-6-mobile">
-          <div className="column is-4 py-0 p-0-mobile">
+        <div className="columns is-multiline pt-13 pb-11 p-6-touch pb-9-touch">
+          <div className="column is-4 is-12-touch py-0 p-0-touch">
             <ResponsiveElement
               tagNames={{ desktop: "h2", touch: "h1" }}
               children={props.content.approachTitle}
             />
           </div>
-          <div className="column is-1 is-hidden-mobile" />
-          <div className="column is-7 py-0 pt-6-mobile px-0-mobile">
+          <div className="column is-1 is-hidden-touch" />
+          <div className="column is-7 is-12-touch py-0 pt-6-touch px-0-touch">
             <span className="title is-3">
               {documentToReactComponents(props.content.approachContent.json)}
             </span>
@@ -95,15 +105,15 @@ export const PolicyPageScaffolding = (props: ContentfulContent) => {
 
         <div
           id="report-section"
-          className="columns pt-10 pb-12 pt-0-mobile pb-8-mobile"
+          className="columns is-multiline pt-10 pb-12 pt-0-touch pb-8-touch"
         >
-          <div className="column is-3">
+          <div className="column is-3 is-12-touch">
             <ResponsiveElement
               tagNames={{ desktop: "h2", touch: "h1" }}
               children={props.content.reportsTitle}
             />
           </div>
-          <div className="column is-9 pb-9 py-0-mobile">
+          <div className="column is-9 is-12-touch pb-9 py-0-touch">
             {props.content.reportBlocks.map((report: any, i: number) => (
               <ReportCard {...report} locale={locale} key={i} />
             ))}

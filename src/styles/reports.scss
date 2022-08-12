@@ -11,10 +11,14 @@
         border-radius: 0.25rem 0 0 0.25rem; // 4px
         height: 100%;
 
-        @include mobile {
+        @include touch {
           border-radius: 0.25rem 0.25rem 0 0; // 4px
           height: 15rem; // 240px
         }
+      }
+
+      .jf-report-blurb {
+        line-height: 120%;
       }
     }
   }
