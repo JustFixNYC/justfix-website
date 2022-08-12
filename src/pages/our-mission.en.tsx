@@ -22,7 +22,7 @@ export const MissionPageScaffolding = (props: ContentfulContent) => {
 
         <div className="columns">
           <div className="column is-4 pt-13 pb-12 p-6-mobile">
-            <ResponsiveElement desktop="h2" touch="h1">
+            <ResponsiveElement tagNames={{ desktop: "h2", touch: "h1" }}>
               {props.content.missionTitle}
             </ResponsiveElement>
           </div>
@@ -36,13 +36,13 @@ export const MissionPageScaffolding = (props: ContentfulContent) => {
 
         <div className="columns has-background-warning">
           <div className="column is-4 pt-13 pb-12 pt-6-mobile px-6-mobile pb-0-mobile">
-            <ResponsiveElement desktop="h2" touch="h1">
+            <ResponsiveElement tagNames={{ desktop: "h2", touch: "h1" }}>
               {props.content.visionTitle}
             </ResponsiveElement>
           </div>
           <div className="column is-1 is-hidden-mobile" />
           <div className="column is-7 pt-13 pb-12 p-6-mobile jf-text-block-with-spacing">
-            <ResponsiveElement desktop="h3" touch="h2">
+            <ResponsiveElement tagNames={{ desktop: "h3", touch: "h2" }}>
               {props.content.visionSubtitle}
             </ResponsiveElement>
             {documentToReactComponents(props.content.visionContent.json, {
@@ -57,7 +57,7 @@ export const MissionPageScaffolding = (props: ContentfulContent) => {
 
         <div className="columns">
           <div className="column is-4 pt-13 pb-12 pt-6-mobile px-6-mobile pb-0-mobile">
-            <ResponsiveElement desktop="h2" touch="h1">
+            <ResponsiveElement tagNames={{ desktop: "h2", touch: "h1" }}>
               {props.content.impactTitle}
             </ResponsiveElement>
           </div>
@@ -70,7 +70,9 @@ export const MissionPageScaffolding = (props: ContentfulContent) => {
               <div className="column is-9 has-background-black has-text-white">
                 <div className="columns is-paddingless">
                   <div className="column is-7">
-                    <ResponsiveElement desktop="h2" touch="h1">
+                    <ResponsiveElement
+                      tagNames={{ desktop: "h2", touch: "h1" }}
+                    >
                       {latestReport.title}
                     </ResponsiveElement>
                   </div>
@@ -85,16 +87,18 @@ export const MissionPageScaffolding = (props: ContentfulContent) => {
               </div>
             </div>
             <ResponsiveElement
+              tagNames={{ desktop: "h3", touch: "h2" }}
               className="mt-10 mb-7 my-6-mobile"
-              desktop="h3"
-              touch="h2"
             >
               {props.content.pastReportsSubtitle}
             </ResponsiveElement>
             <div className="columns is-paddingless is-multiline">
               {pastReports.map((report: any, i: number) => (
                 <div className="column is-paddingless is-4 mb-7" key={i}>
-                  <ResponsiveElement className="mb-3" desktop="h4" touch="h3">
+                  <ResponsiveElement
+                    tagNames={{ desktop: "h4", touch: "h3" }}
+                    className="mb-3"
+                  >
                     {report.title}
                   </ResponsiveElement>
                   <ReadMoreLink url={report.link} />
@@ -106,7 +110,7 @@ export const MissionPageScaffolding = (props: ContentfulContent) => {
 
         <div className="columns has-background-info">
           <div className="column is-4 pt-13 pb-12 p-6-mobile">
-            <ResponsiveElement desktop="h2" touch="h1">
+            <ResponsiveElement tagNames={{ desktop: "h2", touch: "h1" }}>
               {props.content.valuesTitle}
             </ResponsiveElement>
           </div>

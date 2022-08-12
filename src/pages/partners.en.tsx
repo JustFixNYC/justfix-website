@@ -154,7 +154,7 @@ const PartnershipCaseStudy: React.FC<PartnershipCaseStudyDetails> = ({
       <div className="eyebrow is-large mb-3">
         <Trans>Partnership case study</Trans>
       </div>
-      <ResponsiveElement desktop="h2" touch="h1">
+      <ResponsiveElement tagNames={{ desktop: "h2", touch: "h1" }}>
         {title}
       </ResponsiveElement>
     </div>
@@ -176,7 +176,7 @@ export const PartnersPageScaffolding = (props: ContentfulContent) => (
 
       <div className="columns">
         <div className="column is-4 pt-13 pb-12 p-6-mobile">
-          <ResponsiveElement desktop="h2" touch="h1">
+          <ResponsiveElement tagNames={{ desktop: "h2", touch: "h1" }}>
             {props.content.title}
           </ResponsiveElement>
         </div>
@@ -254,7 +254,7 @@ export const PartnersPageScaffolding = (props: ContentfulContent) => (
         <div className="column pt-13 pb-12 p-6-mobile">
           <div className="columns is-paddingless">
             <div className="column is-5 mb-12 mb-0-mobile px-0-mobile pb-4-mobile">
-              <ResponsiveElement desktop="h2" touch="h1">
+              <ResponsiveElement tagNames={{ desktop: "h2", touch: "h1" }}>
                 {props.content.fundersTitle}
               </ResponsiveElement>
             </div>

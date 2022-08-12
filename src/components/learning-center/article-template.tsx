@@ -151,8 +151,7 @@ const LearningArticle = (props: Props) => {
             </nav>
 
             <ResponsiveElement
-              desktop="h2"
-              touch="h1"
+              tagNames={{ desktop: "h2", touch: "h1" }}
               className="mt-2 mb-6 my-5-mobile"
             >
               {content.title}
@@ -211,7 +210,10 @@ const LearningArticle = (props: Props) => {
                   ))
                 ) : (
                   <div className="jf-all-tools-card column is-6 has-background-link mt-6 py-8 px-6">
-                    <ResponsiveElement desktop="h4" touch="h2" className="mb-5">
+                    <ResponsiveElement
+                      tagNames={{ desktop: "h4", touch: "h2" }}
+                      className="mb-5"
+                    >
                       <Trans>
                         Assert your tenant rights by using our digital tools
                       </Trans>

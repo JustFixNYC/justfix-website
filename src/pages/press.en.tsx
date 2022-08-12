@@ -66,7 +66,10 @@ export const PressPageScaffolding = (props: ContentfulContent) => {
                   href={press.hyperlink}
                   className="jf-link-article"
                 >
-                  <ResponsiveElement desktop="h2" touch="h3" className="mb-6">
+                  <ResponsiveElement
+                    tagNames={{ desktop: "h2", touch: "h3" }}
+                    className="mb-6"
+                  >
                     {press.linkText}
                   </ResponsiveElement>
                 </OutboundLink>
@@ -80,7 +83,10 @@ export const PressPageScaffolding = (props: ContentfulContent) => {
             </div>
           ))}
           <div className="column is-8 has-background-black has-text-white py-10 px-7 mt-6 mb-12 mx-5-mobile">
-            <ResponsiveElement desktop="h2" touch="h3" className="mb-6">
+            <ResponsiveElement
+              tagNames={{ desktop: "h2", touch: "h3" }}
+              className="mb-6"
+            >
               {documentToReactComponents(
                 props.content.pressInquiryBanner.content.json
               )}

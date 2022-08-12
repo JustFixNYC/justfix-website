@@ -176,7 +176,10 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
                     to={`/learn/${props.content.learningCenterPreviewArticles[0].slug}`}
                     className="jf-link-article"
                   >
-                    <ResponsiveElement className="mb-6" desktop="h2" touch="h3">
+                    <ResponsiveElement
+                      tagNames={{ desktop: "h2", touch: "h3" }}
+                      className="mb-6"
+                    >
                       {props.content.learningCenterPreviewArticles[0].title}
                     </ResponsiveElement>
                   </Link>
@@ -255,8 +258,7 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
             <h1 className="mb-6">{props.content.partnershipsSectionTitle}</h1>
             <div className="has-background-success p-8 p-6-mobile is-flex-grow-1 is-flex is-flex-direction-column">
               <ResponsiveElement
-                desktop="h2"
-                touch="h3"
+                tagNames={{ desktop: "h2", touch: "h3" }}
                 className="py-5 pt-0-mobile mb-8"
               >
                 {props.content.partnershipsSectionSubtitle}
@@ -273,8 +275,7 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
             <h1 className="mb-6">{props.content.policySectionTitle}</h1>
             <div className="has-background-link p-8 p-6-mobile is-flex-grow-1 is-flex is-flex-direction-column">
               <ResponsiveElement
-                desktop="h2"
-                touch="h3"
+                tagNames={{ desktop: "h2", touch: "h3" }}
                 className="py-5 pt-0-mobile mb-8"
               >
                 {props.content.policySectionSubtitle}
