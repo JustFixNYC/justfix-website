@@ -26,15 +26,15 @@ const HIDDEN_CLASSES = {
 };
 
 const ResponsiveElement = (props: ResponsiveElementInfo): JSX.Element => {
-  const { children, className, ...sizeTags } = props;
+  const { children, className, tagNames } = props;
 
-  if (Object.keys(sizeTags).length < 2)
+  if (Object.keys(tagNames).length < 2)
     throw new Error("At least two sizes must be given.");
 
   return (
     <>
-      {Object.keys(sizeTags).map((size: string, i: number) => {
-        const Tag = sizeTags[size] as keyof JSX.IntrinsicElements;
+      {Object.keys(tagNames).map((size: string, i: number) => {
+        const Tag = tagNames[size] as keyof JSX.IntrinsicElements;
         const classes = classnames(HIDDEN_CLASSES[size], className);
         return (
           <Tag className={classes} key={i}>
