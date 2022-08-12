@@ -52,8 +52,7 @@ const ReportCard: React.FC<ReportCardInfo> = (props) => (
       <div className="column is-6 is-12-touch px-9 px-6-touch pt-8 pb-11 py-7-touch is-flex is-flex-direction-column">
         <OutboundLink href={props.reportUrl} className="jf-link-article">
           <ResponsiveElement
-            desktop="h2"
-            touch="h3"
+            tagNames={{ desktop: "h2", touch: "h3" }}
             children={props.reportTitle}
             className="pb-6"
           />
@@ -92,8 +91,7 @@ export const PolicyPageScaffolding = (props: ContentfulContent) => {
         <div className="columns is-multiline pt-13 pb-11 p-6-touch pb-9-touch">
           <div className="column is-4 is-12-touch py-0 p-0-touch">
             <ResponsiveElement
-              desktop="h2"
-              touch="h1"
+              tagNames={{ desktop: "h2", touch: "h1" }}
               children={props.content.approachTitle}
             />
           </div>
@@ -111,8 +109,7 @@ export const PolicyPageScaffolding = (props: ContentfulContent) => {
         >
           <div className="column is-3 is-12-touch">
             <ResponsiveElement
-              desktop="h2"
-              touch="h1"
+              tagNames={{ desktop: "h2", touch: "h1" }}
               children={props.content.reportsTitle}
             />
           </div>

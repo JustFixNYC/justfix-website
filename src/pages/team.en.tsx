@@ -89,8 +89,7 @@ export const TeamPageScaffolding = (props: ContentfulContent) => (
         <div className="columns">
           <div className="column">
             <ResponsiveElement
-              desktop="h2"
-              touch="h1"
+              tagNames={{ desktop: "h2", touch: "h1" }}
               className="jf-team-title"
             >
               {props.content.otherContributorsTitle}
