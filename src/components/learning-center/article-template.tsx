@@ -55,7 +55,9 @@ function renderSection(articleSection: any, i: number): JSX.Element {
         </div>
       ) : (
         <div>
-          <h3 className="my-6 my-5-mobile">{widont(articleSection.title)}</h3>
+          <h3 className="has-text-weight-semibold my-6 mb-5-mobile mt-7-mobile">
+            {widont(articleSection.title)}
+          </h3>
           {documentToReactComponents(articleSection.content.json, {
             renderNode: {
               [BLOCKS.PARAGRAPH]: (node, children) => (
@@ -95,8 +97,9 @@ const LearningArticle = (props: Props) => {
       id="navmenu"
       className={classnames("menu", props && props.styleClass)}
     >
-      <p className="p-4 is-uppercase has-text-weight-bold">
-        <Trans>Contents</Trans>
+      <div className="is-divider is-hidden-tablet mt-0" />
+      <p className="p-4 px-0-mobile is-uppercase has-text-weight-bold">
+        <Trans>Jump to</Trans>
       </p>
       <ul className="menu-list">
         {content.articleSections.map((articleSection: any, i: number) =>
@@ -109,7 +112,7 @@ const LearningArticle = (props: Props) => {
                 smooth={true}
                 offset={-100}
                 duration={500}
-                className="p-4 has-text-black no-underline"
+                className="p-4 px-0-mobile has-text-black"
               >
                 {articleSection.title}
               </ScrollLink>
@@ -119,6 +122,7 @@ const LearningArticle = (props: Props) => {
           )
         )}
       </ul>
+      <div className="is-divider is-hidden-tablet mb-0" />
     </aside>
   );
 
@@ -161,13 +165,16 @@ const LearningArticle = (props: Props) => {
               <Trans>Published</Trans> {content.dateUpdated}
             </div>
 
-            <p className="has-text-dark mb-6 mb-8-mobile">
+            <p className="title is-4 has-text-dark mb-6 mb-8-mobile">
               {content.author || (
-                <Trans>This article was written by the JustFix team</Trans>
+                <Trans>
+                  This article was written by the team of housing experts at
+                  JustFix
+                </Trans>
               )}
             </p>
 
-            <div className="columns is-paddingless has-background-light">
+            <div className="jf-summary-box columns is-paddingless has-background-light">
               <div className="column is-6 p-5">
                 <h4>
                   <Trans>Summary</Trans>
@@ -178,7 +185,7 @@ const LearningArticle = (props: Props) => {
                 <h4>
                   <Trans>What can JustFix do?</Trans>
                 </h4>
-                <p>{documentToReactComponents(content.whatCanIDo.json)}</p>
+                {documentToReactComponents(content.whatCanIDo.json)}
               </div>
             </div>
 
