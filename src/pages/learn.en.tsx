@@ -162,6 +162,7 @@ export const ArticlePreviewCard = (props: ArticlePreviewInfo) => {
 
 export const LearningPageScaffolding = (props: ContentfulContent) => {
   const articles = orderArticles(props.content.articles);
+  const { featuredArticle } = props.content;
   return (
     <Layout metadata={props.content.metadata}>
       <div id="learning-center" className="learning-center-page">
@@ -173,14 +174,16 @@ export const LearningPageScaffolding = (props: ContentfulContent) => {
             <h1 className="mt-2 mt-4-touch mb-6">{props.content.title}</h1>
             <LearningSearchBar props={props.content} />
           </div>
-          <ArticlePreviewCard {...props.content.featuredArticle} />
-          {articles.map((article: ArticlePreviewInfo, i: number) => (
-            <ArticlePreviewCard
-              {...article}
-              isLast={i === articles.length - 1}
-              key={i}
-            />
-          ))}
+          <ArticlePreviewCard {...featuredArticle} />
+          {articles
+            .filter((article) => article.slug !== featuredArticle.slug)
+            .map((article: ArticlePreviewInfo, i: number) => (
+              <ArticlePreviewCard
+                {...article}
+                isLast={i === articles.length - 1}
+                key={i}
+              />
+            ))}
         </div>
       </div>
     </Layout>
