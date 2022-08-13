@@ -38,7 +38,7 @@ type ReportCardInfo = {
 };
 
 const ReportCard: React.FC<ReportCardInfo> = (props) => (
-  <div className="mt-6 mb-9 mt-0-touch">
+  <div className="mb-10">
     <div className="jf-report-card columns is-paddingless is-multiline has-background-white">
       <div className="column is-6 is-12-touch is-paddingless">
         <Img

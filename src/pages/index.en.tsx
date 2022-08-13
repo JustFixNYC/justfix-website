@@ -107,7 +107,7 @@ export const ProductList: React.FC<ProductListInfo> = (props) => (
     className="has-background-link has-text-black pb-12 pb-6-touch"
   >
     <div className="columns is-multiline">
-      <div className="column is-12 pt-10 pt-7-touch pb-9">
+      <div className="column is-12 pt-10 pt-7-touch pb-9 pb-0-touch">
         <h1>{props.productSectionTitle}</h1>
       </div>
       {props.homePageProductBlocks.map((product: any, i: number) => (
