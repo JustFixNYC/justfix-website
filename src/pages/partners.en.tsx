@@ -12,6 +12,7 @@ import { FluidObject } from "gatsby-image";
 import { OutboundLink } from "../util/links";
 import { Trans } from "@lingui/macro";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import { BLOCKS } from "@contentful/rich-text-types";
 
 /**
  * This array of exactly 2 characters defines the points in the alphabet
@@ -154,16 +155,20 @@ const PartnershipCaseStudy: React.FC<PartnershipCaseStudyDetails> = ({
     </div>
     <div className="column is-4 is-12-touch my-6 my-0-touch">
       <div className="eyebrow is-large mb-3">
-        <Trans>Partnership case study</Trans>
+        <Trans>Partnership Snapshot</Trans>
       </div>
       <ResponsiveElement tagNames={{ desktop: "h2", touch: "h1" }}>
         {title}
       </ResponsiveElement>
     </div>
     <div className="column is-8 is-12-touch my-6 my-0-touch">
-      <span className="title is-4">
-        {documentToReactComponents(description.json)}
-      </span>
+      {documentToReactComponents(description.json, {
+        renderNode: {
+          [BLOCKS.PARAGRAPH]: (node, children) => (
+            <p className="title is-4">{children}</p>
+          ),
+        },
+      })}
     </div>
     <div className="column is-12 is-paddingless">
       <div className="is-divider mt-9 mb-0 my-0-touch" />
