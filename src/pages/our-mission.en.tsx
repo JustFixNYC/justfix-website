@@ -21,13 +21,13 @@ export const MissionPageScaffolding = (props: ContentfulContent) => {
         <PageHero {...props.content.pageHero} />
 
         <div className="columns is-multiline">
-          <div className="column is-4 is-12-touch pt-13 pb-12 p-6-touch">
+          <div className="column is-4 is-12-touch py-11 p-6-touch">
             <ResponsiveElement tagNames={{ desktop: "h2", touch: "h1" }}>
               {props.content.missionTitle}
             </ResponsiveElement>
           </div>
           <div className="column is-1 is-hidden-touch" />
-          <div className="column is-7 is-12-touch pt-13 pb-12 pt-0-touch px-6-touch pb-6-touch">
+          <div className="column is-7 is-12-touch py-11 pt-0-touch px-6-touch pb-6-touch">
             <span className="title is-3">
               {documentToReactComponents(props.content.missionContent.json)}
             </span>
@@ -35,13 +35,13 @@ export const MissionPageScaffolding = (props: ContentfulContent) => {
         </div>
 
         <div className="columns has-background-warning is-multiline">
-          <div className="column is-4 is-12-touch pt-13 pb-12 pt-6-touch px-6-touch pb-0-touch">
+          <div className="column is-4 is-12-touch py-11 p6-touch pb-0-touch">
             <ResponsiveElement tagNames={{ desktop: "h2", touch: "h1" }}>
               {props.content.visionTitle}
             </ResponsiveElement>
           </div>
           <div className="column is-1 is-hidden-touch" />
-          <div className="column is-7 is-12-touch pt-13 pb-12 p-6-touch jf-text-block-with-spacing">
+          <div className="column is-7 is-12-touch py-11 p-6-touch jf-text-block-with-spacing">
             <ResponsiveElement tagNames={{ desktop: "h3", touch: "h2" }}>
               {props.content.visionSubtitle}
             </ResponsiveElement>
@@ -56,13 +56,13 @@ export const MissionPageScaffolding = (props: ContentfulContent) => {
         </div>
 
         <div className="columns is-multiline">
-          <div className="column is-4 is-12-touch pt-13 pb-12 pt-6-touch px-6-touch pb-0-touch">
+          <div className="column is-4 is-12-touch py-11 pt-6-touch px-6-touch pb-0-touch">
             <ResponsiveElement tagNames={{ desktop: "h2", touch: "h1" }}>
               {props.content.impactTitle}
             </ResponsiveElement>
           </div>
           <div className="column is-1 is-hidden-touch" />
-          <div className="column is-7 is-12-touch pt-13 pb-12 p-6-touch">
+          <div className="column is-7 is-12-touch py-11 p-6-touch">
             <h3 className="mb-10 mb-6-touch">{props.content.impactSubtitle}</h3>
             <div className="columns is-paddingless is-multiline">
               <div className="column is-9 is-12-touch has-background-black has-text-white">
@@ -116,13 +116,13 @@ export const MissionPageScaffolding = (props: ContentfulContent) => {
         </div>
 
         <div className="columns has-background-info is-multiline">
-          <div className="column is-4 is-12-touch pt-13 pb-12 p-6-touch">
+          <div className="column is-4 is-12-touch py-11 p-6-touch">
             <ResponsiveElement tagNames={{ desktop: "h2", touch: "h1" }}>
               {props.content.valuesTitle}
             </ResponsiveElement>
           </div>
           <div className="column is-1 is-hidden-touch" />
-          <div className="column is-7 is-12-touch pt-13 pb-12 p-6-touch">
+          <div className="column is-7 is-12-touch py-11 p-6-touch">
             {props.content.valuesList.map((value: any, i: number) => (
               <div key={i}>
                 {i > 0 && <div className="is-divider" />}
