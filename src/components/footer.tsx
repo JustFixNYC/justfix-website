@@ -42,7 +42,7 @@ const FooterLink: React.FC<{ link: LinkWithLabel }> = ({ link }) =>
       <p className="title is-4 has-text-white py-3-mobile">{link[1]}</p>
     </Link>
   ) : (
-    <OutboundLink className="no-underline" href={link[0]}>
+    <OutboundLink className="jf-footer-page-link no-underline" href={link[0]}>
       <p className="title is-4 has-text-white py-3-mobile">{link[1]}</p>
     </OutboundLink>
   );
