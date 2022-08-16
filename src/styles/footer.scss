@@ -16,6 +16,11 @@
 
   .jf-footer-page-link {
     p {
+      &:hover,
+      &:focus,
+      &:active {
+        text-decoration: underline;
+      }
       @include mobile {
         @include mobile-h3;
       }
