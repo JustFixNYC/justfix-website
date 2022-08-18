@@ -32,6 +32,7 @@ type ProductCardInfo = {
     title: string;
     link: string;
   };
+  smsText?: string;
   /**
    * Whether or not the product card will use condensed spacing styling
    */
@@ -40,9 +41,19 @@ type ProductCardInfo = {
 
 const Dot = () => <span className="mx-3">·</span>;
 
+const formatPhoneNumber = (phone: string): string | null => {
+  const match = phone.match(/^(\d{3})(\d{3})(\d{4})$/);
+  if (!match) return null;
+  return `(${match[1]}) ${match[2]}-${match[3]}`;
+};
+
 export const ProductCard: React.FC<ProductCardInfo> = (props) => {
   const { link } = props.button;
-  const toolLink = link + (link.startsWith("sms") ? "" : PRODUCT_CTA_UTM_CODE);
+  const isSmsTool = link.startsWith("sms");
+  const toolLink = link + (isSmsTool ? "" : PRODUCT_CTA_UTM_CODE);
+  const phoneNumber = isSmsTool
+    ? formatPhoneNumber(link.substring(6, 16))
+    : null;
 
   return (
     <div
@@ -77,9 +88,21 @@ export const ProductCard: React.FC<ProductCardInfo> = (props) => {
               ])}
           </div>
 
-          <OutboundLink href={toolLink} className="button is-primary">
+          <OutboundLink
+            href={toolLink}
+            className={classnames(
+              "button is-primary",
+              isSmsTool && "is-hidden-tablet"
+            )}
+          >
             {props.button.title}
           </OutboundLink>
+          {isSmsTool && (
+            <p className="title is-4 has-text-weight-bold is-hidden-mobile">
+              Text <span className="is-uppercase">{props.smsText}</span> to{" "}
+              <span>{phoneNumber}</span>
+            </p>
+          )}
         </div>
       </div>
     </div>
@@ -338,6 +361,7 @@ export const LandingPageFragment = graphql`
           title
           link
         }
+        smsText
         location
         language
       }
