@@ -32,6 +32,11 @@
 @import "_design-system.scss";
 
 .home-page {
+  .jf-card {
+    p span {
+      white-space: nowrap;
+    }
+  }
   .jf-learning-center-preview {
     .jf-lc-featured {
       @include desktop {
