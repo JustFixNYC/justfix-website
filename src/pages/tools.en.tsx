@@ -55,7 +55,7 @@ export const ToolsPageScaffolding = (props: ContentfulContent) => {
             <div className="title is-4 mb-5">
               {documentToReactComponents(tool.toolDescription.json)}
             </div>
-            <ReadMoreLink url={tool.readMoreLink} />
+            {tool.readMoreLink && <ReadMoreLink url={tool.readMoreLink} />}
             <div className="is-divider is-hidden-tablet mt-10" />
           </div>
         ))}
