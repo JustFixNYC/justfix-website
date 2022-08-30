@@ -9,9 +9,11 @@ import { useCurrentLocale } from "../util/use-locale";
 import classnames from "classnames";
 import { LinkWithLabel, SITE_LINKS } from "./header";
 import { OutboundLink } from "../util/links";
+import { logAmplitudeEvent, getPageInfo } from "./amplitude";
 
 export const FooterLanguageToggle = () => {
   const locale = useCurrentLocale();
+  const pageInfo = getPageInfo();
   return (
     <div className="buttons has-addons">
       <LocaleToggle
@@ -20,6 +22,13 @@ export const FooterLanguageToggle = () => {
           "button eyebrow is-small is-justify-content-center",
           locale === "en" && "is-selected"
         )}
+        onClick={() =>
+          logAmplitudeEvent("languageToggle", {
+            ...pageInfo,
+            switchToLanguage: "en",
+            location: "footer",
+          })
+        }
       >
         English
       </LocaleToggle>
@@ -29,6 +38,13 @@ export const FooterLanguageToggle = () => {
           "button eyebrow is-small is-justify-content-center",
           locale === "es" && "is-selected"
         )}
+        onClick={() =>
+          logAmplitudeEvent("languageToggle", {
+            ...pageInfo,
+            switchToLanguage: "es",
+            location: "footer",
+          })
+        }
       >
         Español
       </LocaleToggle>
@@ -36,16 +52,32 @@ export const FooterLanguageToggle = () => {
   );
 };
 
-const FooterLink: React.FC<{ link: LinkWithLabel }> = ({ link }) =>
-  link[0].charAt(0) === "/" ? (
-    <Link className="jf-footer-page-link no-underline" to={link[0]}>
+const FooterLink: React.FC<{ link: LinkWithLabel }> = ({ link }) => {
+  const pageInfo = getPageInfo();
+  const logEvent = () =>
+    logAmplitudeEvent("pageLink", {
+      ...pageInfo,
+      page: link[1],
+      location: "footer",
+    });
+  return link[0].charAt(0) === "/" ? (
+    <Link
+      className="jf-footer-page-link no-underline"
+      to={link[0]}
+      onClick={logEvent}
+    >
       <p className="title is-4 has-text-white py-3-mobile">{link[1]}</p>
     </Link>
   ) : (
-    <OutboundLink className="jf-footer-page-link no-underline" href={link[0]}>
+    <OutboundLink
+      className="jf-footer-page-link no-underline"
+      href={link[0]}
+      onClick={logEvent}
+    >
       <p className="title is-4 has-text-white py-3-mobile">{link[1]}</p>
     </OutboundLink>
   );
+};
 
 const FooterLinksList: React.FC<{ links: LinkWithLabel[] }> = ({ links }) => {
   return (

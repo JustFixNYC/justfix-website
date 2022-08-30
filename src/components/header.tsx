@@ -12,6 +12,7 @@ import { OutboundLink } from "gatsby-plugin-google-analytics";
 import FocusTrap from "focus-trap-react";
 import { FooterLanguageToggle } from "./footer";
 import classnames from "classnames";
+import { logAmplitudeEvent, getPageInfo } from "./amplitude";
 
 const commonStrings = new ContentfulCommonStrings(_commonStrings as any);
 
@@ -102,11 +103,19 @@ const MoratoriumBanner: React.FC<{}> = () => {
   );
 };
 
-const HeaderLink: React.FC<{ link: LinkWithLabel }> = ({ link }) =>
-  link[0].charAt(0) === "/" ? (
+const HeaderLink: React.FC<{ link: LinkWithLabel }> = ({ link }) => {
+  const pageInfo = getPageInfo();
+  const logEvent = () =>
+    logAmplitudeEvent("pageLink", {
+      ...pageInfo,
+      page: link[1],
+      location: "header",
+    });
+  return link[0].charAt(0) === "/" ? (
     <Link
       className="navbar-item jf-menu-page-link px-0 py-3 has-text-white"
       to={link[0]}
+      onClick={logEvent}
     >
       {link[1]}
     </Link>
@@ -116,10 +125,12 @@ const HeaderLink: React.FC<{ link: LinkWithLabel }> = ({ link }) =>
       href={link[0]}
       target="_blank"
       rel="noopener noreferrer"
+      onClick={logEvent}
     >
       {link[1]}
     </OutboundLink>
   );
+};
 
 const Header: React.FC<{
   isLandingPage?: boolean;

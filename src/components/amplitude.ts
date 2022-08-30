@@ -35,10 +35,7 @@ type PageInfo = {
   locale: LocaleChoice;
 };
 
-export type AmplitudeEvent =
-  | "languageToggle"
-  | "pageLink"
-  | "productCardCTA";
+export type AmplitudeEvent = "languageToggle" | "pageLink" | "productCardCTA";
 
 /**
  * Returns page information about the current page, to
@@ -55,7 +52,7 @@ const getPageInfo = (): PageInfo => {
     pathname: pathname,
     locale: locale,
   };
-}
+};
 
 /**
  * Log a general event in Amplitude.
@@ -66,6 +63,6 @@ const logAmplitudeEvent = (name: AmplitudeEvent, data?: any) => {
   };
   console.log(amplitudeData);
   // amplitude.getInstance().logEvent(name, amplitudeData);
-}
+};
 
 export { logAmplitudeEvent, getPageInfo };
