@@ -13,6 +13,7 @@ import { LocaleLink as Link } from "../components/locale-link";
 import { ReadMoreLink } from "../components/read-more";
 import classnames from "classnames";
 import ResponsiveElement from "../components/responsive-element";
+import { getPageInfo, logAmplitudeEvent } from "../components/amplitude";
 
 const PRODUCT_CTA_UTM_CODE = "?utm_source=orgsite&utm_medium=productcta";
 
@@ -55,6 +56,13 @@ export const ProductCard: React.FC<ProductCardInfo> = (props) => {
     ? formatPhoneNumber(link.substring(6, 16))
     : null;
 
+  const pageInfo = getPageInfo();
+  const logEvent = () =>
+    logAmplitudeEvent("productCardCTA", {
+      ...pageInfo,
+      product: props.productName,
+    });
+
   return (
     <div
       className={classnames(
@@ -94,6 +102,7 @@ export const ProductCard: React.FC<ProductCardInfo> = (props) => {
               "button is-primary",
               isSmsTool && "is-hidden-tablet"
             )}
+            onClick={logEvent}
           >
             {props.button.title}
           </OutboundLink>

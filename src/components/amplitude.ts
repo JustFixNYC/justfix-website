@@ -2,15 +2,10 @@ import amplitude from "amplitude-js";
 import { removeLocaleFromPathname, useCurrentLocale } from "../util/use-locale";
 import { useLocation } from "@reach/router";
 
-// Initiating Amplitude inside this helper file seems to work better with the Create React App framework than
-// adding a script tag to our index.html file.
-//
-// See https://javascript.plainenglish.io/adding-analytics-to-your-react-application-b584265f9fae for more details
-
-// const API_KEY = process.env.AMPLITUDE_API_KEY;
-// if (!API_KEY) throw new Error("No Amplitude API key defined!");
-
-// amplitude.getInstance().init(API_KEY);
+const API_KEY = process.env.GATSBY_AMPLITUDE_API_KEY;
+if (API_KEY) {
+  amplitude.getInstance().init(API_KEY);
+}
 
 type LocaleChoice = "en" | "es";
 
@@ -58,11 +53,11 @@ const getPageInfo = (): PageInfo => {
  * Log a general event in Amplitude.
  */
 const logAmplitudeEvent = (name: AmplitudeEvent, data?: any) => {
+  if (!API_KEY) return;
   const amplitudeData = {
     ...data,
   };
-  console.log(amplitudeData);
-  // amplitude.getInstance().logEvent(name, amplitudeData);
+  amplitude.getInstance().logEvent(name, amplitudeData);
 };
 
 export { logAmplitudeEvent, getPageInfo };
