@@ -30,7 +30,7 @@ msgstr "<0>JustFix</0> es una organización sin fines de lucro registrada."
 msgid "All set! Thanks for subscribing!"
 msgstr "¡Todo listo! ¡Gracias por suscribirte!"
 
-#: src/components/learning-center/article-template.tsx:134
+#: src/components/learning-center/article-template.tsx:141
 msgid "Assert your tenant rights by using our digital tools"
 msgstr "Ejerce sus derechos de inquilino usando nuestras herramientas digitales"
 
@@ -53,8 +53,8 @@ msgid "Contact Us"
 msgstr "Contáctanos"
 
 #: src/components/learning-center/article-template.tsx:57
-msgid "Contents"
-msgstr "Contenido"
+#~ msgid "Contents"
+#~ msgstr "Contenido"
 
 #: src/components/header.tsx:102
 msgid "DEMO SITE"
@@ -72,7 +72,7 @@ msgstr "Ampliar"
 msgid "Featured Article"
 msgstr "Artículo destacado"
 
-#: src/pages/index.en.tsx:117
+#: src/pages/index.en.tsx:115
 msgid "Featured article"
 msgstr "Artículo destacado"
 
@@ -92,6 +92,10 @@ msgstr "Entendido"
 msgid "Join our mailing list!"
 msgstr "¡Únete a nuestra lista de correo!"
 
+#: src/components/learning-center/article-template.tsx:60
+msgid "Jump to"
+msgstr ""
+
 #: src/components/learning-center/learning-searchbar.tsx:45
 msgid "Key Topics"
 msgstr "Temas principales"
@@ -101,9 +105,9 @@ msgid "Learn more"
 msgstr "Aprender más"
 
 #: src/components/header.tsx:22
-#: src/components/learning-center/article-template.tsx:75
+#: src/components/learning-center/article-template.tsx:79
 #: src/components/learning-center/category-page-template.tsx:14
-#: src/pages/learn.en.tsx:94
+#: src/pages/learn.en.tsx:97
 msgid "Learning Center"
 msgstr "Centro de aprendizaje"
 
@@ -136,9 +140,13 @@ msgstr "¡Vaya! Ese correo electrónico no es válido."
 msgid "Partners & Funders"
 msgstr "Aliados & patrocinadores"
 
+#: src/pages/partners.en.tsx:95
+msgid "Partnership Snapshot"
+msgstr ""
+
 #: src/pages/partners.en.tsx:92
-msgid "Partnership case study"
-msgstr "Caso práctico de colaboración"
+#~ msgid "Partnership case study"
+#~ msgstr "Caso práctico de colaboración"
 
 #: src/components/subscribe.tsx:18
 msgid "Please enter an email address!"
@@ -156,13 +164,13 @@ msgstr "Prensa"
 msgid "Privacy policy"
 msgstr "Política de privacidad"
 
-#: src/components/learning-center/article-template.tsx:92
+#: src/components/learning-center/article-template.tsx:96
 msgid "Published"
 msgstr "Publicado"
 
 #: src/components/read-more.tsx:14
 #: src/components/read-more.tsx:17
-#: src/pages/learn.en.tsx:75
+#: src/pages/learn.en.tsx:77
 msgid "Read More"
 msgstr "Lee más"
 
@@ -178,7 +186,7 @@ msgstr "Buscar"
 msgid "Search by Algolia"
 msgstr "Búsqueda por Algolia"
 
-#: src/pages/index.en.tsx:164
+#: src/pages/index.en.tsx:162
 msgid "See all articles"
 msgstr "Ver todos los artículos"
 
@@ -186,7 +194,7 @@ msgstr "Ver todos los artículos"
 msgid "See our tools"
 msgstr "Ve nuestras herramientas"
 
-#: src/components/learning-center/article-template.tsx:139
+#: src/components/learning-center/article-template.tsx:146
 msgid "See tools"
 msgstr "Ver herramientas"
 
@@ -194,12 +202,12 @@ msgstr "Ver herramientas"
 msgid "Sign up"
 msgstr "Únete"
 
-#: src/components/learning-center/article-template.tsx:102
+#: src/components/learning-center/article-template.tsx:109
 msgid "Summary"
 msgstr "Resúmen"
 
 #: src/components/learning-center/article-template.tsx:25
-#: src/components/learning-center/article-template.tsx:130
+#: src/components/learning-center/article-template.tsx:137
 msgid "Take action"
 msgstr "Toma acción"
 
@@ -220,8 +228,12 @@ msgid "These cookies track the performance of our tools and for marketing purpos
 msgstr "Estas cookies rastrean el rendimiento de nuestras herramientas y con fines de marketing. Estos datos nos permiten mejorar nuestras herramientas para ofrecerle la mejor experiencia."
 
 #: src/components/learning-center/article-template.tsx:96
-msgid "This article was written by the JustFix team"
-msgstr "Este artículo fue escrito por el equipo de JustFix"
+#~ msgid "This article was written by the JustFix team"
+#~ msgstr "Este artículo fue escrito por el equipo de JustFix"
+
+#: src/components/learning-center/article-template.tsx:100
+msgid "This article was written by the team of housing experts at JustFix"
+msgstr ""
 
 #: src/components/cookies-banner.tsx:51
 msgid "This means that we’re able to see your approximate location, the type of device you’re using, and your operating system."
@@ -231,10 +243,10 @@ msgstr "Esto significa que podemos ver su ubicación aproximada, el tipo de disp
 msgid "Tools"
 msgstr "Herramientas"
 
-#: src/pages/index.en.tsx:125
-#: src/pages/index.en.tsx:143
-#: src/pages/index.en.tsx:156
-#: src/pages/learn.en.tsx:68
+#: src/pages/index.en.tsx:123
+#: src/pages/index.en.tsx:141
+#: src/pages/index.en.tsx:154
+#: src/pages/learn.en.tsx:70
 msgid "Updated"
 msgstr "Actualizado"
 
@@ -250,7 +262,7 @@ msgstr "Lo que hacemos"
 #~ msgid "What can I do?"
 #~ msgstr "¿Cómo puede ayudar JustFix?"
 
-#: src/components/learning-center/article-template.tsx:108
+#: src/components/learning-center/article-template.tsx:115
 msgid "What can JustFix do?"
 msgstr ""
 
