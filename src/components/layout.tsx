@@ -10,6 +10,7 @@ import Footer from "./footer";
 import { useCurrentLocale } from "../util/use-locale";
 import localeConfig from "../util/locale-config.json";
 import { CookiesBanner } from "./cookies-banner";
+import { logAmplitudePageView } from "./amplitude";
 
 const favicon16 = require("../img/brand/favicon-16x16.png");
 const favicon32 = require("../img/brand/favicon-32x32.png");
@@ -74,6 +75,8 @@ const LayoutScaffolding = ({
   }
 
   const locale = useCurrentLocale() || localeConfig.DEFAULT_LOCALE;
+
+  logAmplitudePageView();
 
   return (
     <I18nProvider language={locale} catalogs={catalogs}>

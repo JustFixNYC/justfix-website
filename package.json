@@ -4,6 +4,7 @@
   "version": "0.3.0",
   "author": "JustFix <dev@justfix.org>",
   "dependencies": {
+    "@amplitude/analytics-browser": "^1.2.3",
     "@babel/core": "^7.6.4",
     "@contentful/rich-text-plain-text-renderer": "^13.4.0",
     "@contentful/rich-text-react-renderer": "^15.0.0",
@@ -64,7 +65,7 @@
     "read-more-react": "^1.0.9",
     "serialize-javascript": "^3.1.0",
     "tslint": "^5.11.0",
-    "typescript": "^3.5.1",
+    "typescript": "^4.8.2",
     "webpack": "^4.0.0",
     "whatwg-fetch": "2.0.4",
     "widont": "^0.3.3"

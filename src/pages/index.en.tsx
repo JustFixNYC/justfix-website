@@ -7,7 +7,7 @@ import "../styles/index.scss";
 
 import Layout from "../components/layout";
 
-import { OutboundLink } from "../util/links";
+import { linkIsSms, OutboundLink } from "../util/links";
 import { Trans } from "@lingui/macro";
 import { LocaleLink as Link } from "../components/locale-link";
 import { ReadMoreLink } from "../components/read-more";
@@ -49,7 +49,7 @@ const formatPhoneNumber = (phone: string): string | null => {
 
 export const ProductCard: React.FC<ProductCardInfo> = (props) => {
   const { link } = props.button;
-  const isSmsTool = link.startsWith("sms");
+  const isSmsTool = linkIsSms(link);
   const toolLink = link + (isSmsTool ? "" : PRODUCT_CTA_UTM_CODE);
   const phoneNumber = isSmsTool
     ? formatPhoneNumber(link.substring(6, 16))
@@ -94,6 +94,7 @@ export const ProductCard: React.FC<ProductCardInfo> = (props) => {
               "button is-primary",
               isSmsTool && "is-hidden-tablet"
             )}
+            eventProperties={{ productName: props.productName }}
           >
             {props.button.title}
           </OutboundLink>
