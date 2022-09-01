@@ -8,7 +8,7 @@ msgstr ""
 "Language: es\n"
 "Project-Id-Version: justfix-website\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2022-08-31 20:29\n"
+"PO-Revision-Date: 2022-09-01 20:40\n"
 "Last-Translator: \n"
 "Language-Team: Spanish\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -237,7 +237,7 @@ msgstr "Estas cookies rastrean el rendimiento de nuestras herramientas y con fin
 
 #: src/components/learning-center/article-template.tsx:100
 msgid "This article was written by the team of housing experts at JustFix"
-msgstr ""
+msgstr "Este artículo fue escrito por un equipo de expertos en vivienda de JustFix"
 
 #: src/components/cookies-banner.tsx:51
 msgid "This means that we’re able to see your approximate location, the type of device you’re using, and your operating system."
