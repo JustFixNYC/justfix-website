@@ -1,10 +1,10 @@
-import amplitude from "amplitude-js";
+import { init, track } from "@amplitude/analytics-browser";
 import { removeLocaleFromPathname, useCurrentLocale } from "../util/use-locale";
 import { useLocation } from "@reach/router";
 
 const API_KEY = process.env.GATSBY_AMPLITUDE_API_KEY;
 if (API_KEY) {
-  amplitude.getInstance().init(API_KEY);
+  init(API_KEY);
 }
 
 type LocaleChoice = "en" | "es";
@@ -30,7 +30,11 @@ type PageInfo = {
   locale: LocaleChoice;
 };
 
-export type AmplitudeEvent = "languageToggle" | "pageLink" | "productCardCTA";
+export type EventProperties = {
+  [x: string]: unknown;
+};
+
+export type AmplitudeEvent = "Viewed page" | "Clicked link" | "Toggled locale";
 
 /**
  * Returns page information about the current page, to
@@ -49,15 +53,62 @@ const getPageInfo = (): PageInfo => {
   };
 };
 
+const getLinkType = (link: string) =>
+  link.charAt(0) === "/" ? "internal" : "outbound";
+
 /**
  * Log a general event in Amplitude.
  */
-const logAmplitudeEvent = (name: AmplitudeEvent, data?: any) => {
+export const logAmplitudeEvent = (
+  name: AmplitudeEvent,
+  eventProperties?: EventProperties
+) => {
   if (!API_KEY) return;
-  const amplitudeData = {
-    ...data,
-  };
-  amplitude.getInstance().logEvent(name, amplitudeData);
+  track(name, eventProperties);
 };
 
-export { logAmplitudeEvent, getPageInfo };
+/**
+ * Log a page view in Amplitude.
+ *
+ * @see PageInfo
+ */
+export const logAmplitudePageView = (eventProperties?: EventProperties) => {
+  logAmplitudeEvent("Viewed page", {
+    ...getPageInfo(),
+    ...eventProperties,
+  });
+};
+
+/**
+ * Return a logAmplitudeEvent function with pre-filled
+ * properties about the page where it was triggered.
+ *
+ * @see PageInfo
+ */
+export const useLogAmplitudeEvent = (
+  name: AmplitudeEvent,
+  eventProperties?: any
+) => {
+  return logAmplitudeEvent.bind(null, name, {
+    ...getPageInfo(),
+    ...eventProperties,
+  });
+};
+
+/**
+ * Return a logAmplitudeEvent function for tracking a link click
+ * with pre-filled properties about the page where it was triggered.
+ *
+ * @see PageInfo
+ */
+export const useLogAmplitudeLinkClick = (
+  href: string,
+  eventProperties?: EventProperties
+) => {
+  return logAmplitudeEvent.bind(null, `Clicked link`, {
+    ...getPageInfo(),
+    ...eventProperties,
+    href,
+    linkType: getLinkType(href),
+  });
+};

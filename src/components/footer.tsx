@@ -4,16 +4,14 @@ import { Trans } from "@lingui/macro";
 
 import "../styles/footer.scss";
 import Subscribe from "./subscribe";
-import { LocaleLink as Link, LocaleToggle } from "./locale-link";
+import { LocaleLink, LocaleToggle } from "./locale-link";
 import { useCurrentLocale } from "../util/use-locale";
 import classnames from "classnames";
 import { LinkWithLabel, SITE_LINKS } from "./header";
 import { OutboundLink } from "../util/links";
-import { logAmplitudeEvent, getPageInfo } from "./amplitude";
 
 export const FooterLanguageToggle = () => {
   const locale = useCurrentLocale();
-  const pageInfo = getPageInfo();
   return (
     <div className="buttons has-addons">
       <LocaleToggle
@@ -22,13 +20,7 @@ export const FooterLanguageToggle = () => {
           "button eyebrow is-small is-justify-content-center",
           locale === "en" && "is-selected"
         )}
-        onClick={() =>
-          logAmplitudeEvent("languageToggle", {
-            ...pageInfo,
-            switchToLanguage: "en",
-            location: "footer",
-          })
-        }
+        eventProperties={{ location: "footer" }}
       >
         English
       </LocaleToggle>
@@ -38,13 +30,7 @@ export const FooterLanguageToggle = () => {
           "button eyebrow is-small is-justify-content-center",
           locale === "es" && "is-selected"
         )}
-        onClick={() =>
-          logAmplitudeEvent("languageToggle", {
-            ...pageInfo,
-            switchToLanguage: "es",
-            location: "footer",
-          })
-        }
+        eventProperties={{ location: "footer" }}
       >
         Español
       </LocaleToggle>
@@ -52,32 +38,24 @@ export const FooterLanguageToggle = () => {
   );
 };
 
-const FooterLink: React.FC<{ link: LinkWithLabel }> = ({ link }) => {
-  const pageInfo = getPageInfo();
-  const logEvent = () =>
-    logAmplitudeEvent("pageLink", {
-      ...pageInfo,
-      page: link[1],
-      location: "footer",
-    });
-  return link[0].charAt(0) === "/" ? (
-    <Link
+const FooterLink: React.FC<{ link: LinkWithLabel }> = ({ link }) =>
+  link[0].charAt(0) === "/" ? (
+    <LocaleLink
       className="jf-footer-page-link no-underline"
       to={link[0]}
-      onClick={logEvent}
+      eventProperties={{ location: "footer" }}
     >
       <p className="title is-4 has-text-white py-3-mobile">{link[1]}</p>
-    </Link>
+    </LocaleLink>
   ) : (
     <OutboundLink
       className="jf-footer-page-link no-underline"
       href={link[0]}
-      onClick={logEvent}
+      eventProperties={{ location: "footer" }}
     >
       <p className="title is-4 has-text-white py-3-mobile">{link[1]}</p>
     </OutboundLink>
   );
-};
 
 const FooterLinksList: React.FC<{ links: LinkWithLabel[] }> = ({ links }) => {
   return (
@@ -190,15 +168,18 @@ const Footer = () => (
           </Trans>
         </p>
         <div className="mt-9">
-          <Link
+          <LocaleLink
             className="eyebrow is-small has-text-white mr-12 mr-6-mobile"
             to="/privacy-policy"
           >
             <Trans>Privacy policy</Trans>
-          </Link>
-          <Link className="eyebrow is-small has-text-white" to="/terms-of-use">
+          </LocaleLink>
+          <LocaleLink
+            className="eyebrow is-small has-text-white"
+            to="/terms-of-use"
+          >
             <Trans>Terms of use</Trans>
-          </Link>
+          </LocaleLink>
         </div>
       </div>
       <div className="column is-one-quarter">
