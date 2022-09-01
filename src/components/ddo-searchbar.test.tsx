@@ -54,7 +54,7 @@ describe("<DDOSearchBar>", () => {
 
     // https://remarkablemark.org/blog/2018/11/17/mock-window-location/
     locationAssign = jest.fn();
-    delete window.location;
+    delete (window as Partial<Window>).location;
     window.location = {
       assign: locationAssign,
     } as any;
