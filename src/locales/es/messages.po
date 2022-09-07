@@ -8,7 +8,7 @@ msgstr ""
 "Language: es\n"
 "Project-Id-Version: justfix-website\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2022-09-01 20:40\n"
+"PO-Revision-Date: 2022-09-07 21:08\n"
 "Last-Translator: \n"
 "Language-Team: Spanish\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -94,7 +94,7 @@ msgstr "¡Únete a nuestra lista de correo!"
 
 #: src/components/learning-center/article-template.tsx:60
 msgid "Jump to"
-msgstr ""
+msgstr "Salta a"
 
 #: src/components/learning-center/learning-searchbar.tsx:45
 msgid "Key Topics"
@@ -142,7 +142,7 @@ msgstr "Aliados & patrocinadores"
 
 #: src/pages/partners.en.tsx:95
 msgid "Partnership Snapshot"
-msgstr ""
+msgstr "Informe sobre la asociación"
 
 #: src/pages/partners.en.tsx:92
 #~ msgid "Partnership case study"
