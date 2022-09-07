@@ -32,8 +32,7 @@ const PageHero: React.FC<PageHeroInfo> = ({
         <div className="column is-6 px-10 py-9 p-6-mobile is-flex is-align-items-flex-end">
           <div>
             <ResponsiveElement
-              desktop="h2"
-              touch="h1"
+              tagNames={{ desktop: "h2", touch: "h1" }}
               className="mb-9 mb-5-mobile"
             >
               {description}

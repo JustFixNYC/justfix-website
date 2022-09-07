@@ -25,7 +25,7 @@ msgstr ""
 msgid "All set! Thanks for subscribing!"
 msgstr "All set! Thanks for subscribing!"
 
-#: src/components/learning-center/article-template.tsx:134
+#: src/components/learning-center/article-template.tsx:141
 msgid "Assert your tenant rights by using our digital tools"
 msgstr ""
 
@@ -48,8 +48,8 @@ msgid "Contact Us"
 msgstr "Contact Us"
 
 #: src/components/learning-center/article-template.tsx:57
-msgid "Contents"
-msgstr ""
+#~ msgid "Contents"
+#~ msgstr ""
 
 #: src/components/header.tsx:102
 msgid "DEMO SITE"
@@ -67,7 +67,7 @@ msgstr ""
 msgid "Featured Article"
 msgstr ""
 
-#: src/pages/index.en.tsx:117
+#: src/pages/index.en.tsx:115
 msgid "Featured article"
 msgstr ""
 
@@ -87,6 +87,10 @@ msgstr ""
 msgid "Join our mailing list!"
 msgstr "Join our mailing list!"
 
+#: src/components/learning-center/article-template.tsx:60
+msgid "Jump to"
+msgstr ""
+
 #: src/components/learning-center/learning-searchbar.tsx:45
 msgid "Key Topics"
 msgstr ""
@@ -96,9 +100,9 @@ msgid "Learn more"
 msgstr ""
 
 #: src/components/header.tsx:22
-#: src/components/learning-center/article-template.tsx:75
+#: src/components/learning-center/article-template.tsx:79
 #: src/components/learning-center/category-page-template.tsx:14
-#: src/pages/learn.en.tsx:94
+#: src/pages/learn.en.tsx:97
 msgid "Learning Center"
 msgstr ""
 
@@ -131,9 +135,13 @@ msgstr "Oops! That email is invalid."
 msgid "Partners & Funders"
 msgstr ""
 
-#: src/pages/partners.en.tsx:92
-msgid "Partnership case study"
+#: src/pages/partners.en.tsx:95
+msgid "Partnership Snapshot"
 msgstr ""
+
+#: src/pages/partners.en.tsx:92
+#~ msgid "Partnership case study"
+#~ msgstr ""
 
 #: src/components/subscribe.tsx:18
 msgid "Please enter an email address!"
@@ -151,13 +159,13 @@ msgstr "Press"
 msgid "Privacy policy"
 msgstr "Privacy policy"
 
-#: src/components/learning-center/article-template.tsx:92
+#: src/components/learning-center/article-template.tsx:96
 msgid "Published"
 msgstr ""
 
 #: src/components/read-more.tsx:14
 #: src/components/read-more.tsx:17
-#: src/pages/learn.en.tsx:75
+#: src/pages/learn.en.tsx:77
 msgid "Read More"
 msgstr "Read More"
 
@@ -173,7 +181,7 @@ msgstr ""
 msgid "Search by Algolia"
 msgstr ""
 
-#: src/pages/index.en.tsx:164
+#: src/pages/index.en.tsx:162
 msgid "See all articles"
 msgstr ""
 
@@ -181,7 +189,7 @@ msgstr ""
 msgid "See our tools"
 msgstr ""
 
-#: src/components/learning-center/article-template.tsx:139
+#: src/components/learning-center/article-template.tsx:146
 msgid "See tools"
 msgstr ""
 
@@ -189,12 +197,12 @@ msgstr ""
 msgid "Sign up"
 msgstr "Sign up"
 
-#: src/components/learning-center/article-template.tsx:102
+#: src/components/learning-center/article-template.tsx:109
 msgid "Summary"
 msgstr ""
 
 #: src/components/learning-center/article-template.tsx:25
-#: src/components/learning-center/article-template.tsx:130
+#: src/components/learning-center/article-template.tsx:137
 msgid "Take action"
 msgstr ""
 
@@ -215,12 +223,16 @@ msgid "These cookies track the performance of our tools and for marketing purpos
 msgstr ""
 
 #: src/components/learning-center/article-template.tsx:96
-msgid "This article was written by the JustFix team"
-msgstr ""
+#~ msgid "This article was written by the JustFix team"
+#~ msgstr ""
 
 #: src/components/learning-center/article-template.tsx:96
 #~ msgid "This article was written by the team of NYC-based housing experts at nonprofit JustFix"
 #~ msgstr ""
+
+#: src/components/learning-center/article-template.tsx:100
+msgid "This article was written by the team of housing experts at JustFix"
+msgstr ""
 
 #: src/components/cookies-banner.tsx:51
 msgid "This means that we’re able to see your approximate location, the type of device you’re using, and your operating system."
@@ -230,10 +242,10 @@ msgstr ""
 msgid "Tools"
 msgstr ""
 
-#: src/pages/index.en.tsx:125
-#: src/pages/index.en.tsx:143
-#: src/pages/index.en.tsx:156
-#: src/pages/learn.en.tsx:68
+#: src/pages/index.en.tsx:123
+#: src/pages/index.en.tsx:141
+#: src/pages/index.en.tsx:154
+#: src/pages/learn.en.tsx:70
 msgid "Updated"
 msgstr "Updated"
 
@@ -249,7 +261,7 @@ msgstr ""
 #~ msgid "What can I do?"
 #~ msgstr ""
 
-#: src/components/learning-center/article-template.tsx:108
+#: src/components/learning-center/article-template.tsx:115
 msgid "What can JustFix do?"
 msgstr ""
 

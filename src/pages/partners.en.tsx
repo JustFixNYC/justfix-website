@@ -12,6 +12,7 @@ import { FluidObject } from "gatsby-image";
 import { OutboundLink } from "../util/links";
 import { Trans } from "@lingui/macro";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import { BLOCKS } from "@contentful/rich-text-types";
 
 /**
  * This array of exactly 2 characters defines the points in the alphabet
@@ -43,23 +44,25 @@ const formatLinkLabel = (link: string) => {
 };
 
 const PartnerCard: React.FC<PartnerDetails> = ({ name, link, logo }) => (
-  <div className="column is-3 jf-partner-card pl-0 pr-7 is-hidden-mobile">
+  <div className="column is-3 jf-partner-card pl-0 pr-7 is-hidden-touch">
     <div className="has-background-white is-flex is-flex-direction-column is-align-items-center is-justify-content-space-between">
       <div className="has-background-black has-text-white">
         <div className="eyebrow is-large has-text-centered is-flex is-flex-direction-column is-justify-content-center">
           {name}
         </div>
       </div>
-      <Img
-        fluid={logo.fluid}
-        alt={name}
-        className="my-5"
-        style={{
-          width: "150px",
-          height: "150px",
-        }}
-        objectFit="contain"
-      />
+      <OutboundLink href={link}>
+        <Img
+          fluid={logo.fluid}
+          alt={name}
+          className="my-5"
+          style={{
+            width: "150px",
+            height: "150px",
+          }}
+          objectFit="contain"
+        />
+      </OutboundLink>
       <OutboundLink className="mb-9 mx-2" href={link}>
         {formatLinkLabel(link)}
       </OutboundLink>
@@ -68,7 +71,7 @@ const PartnerCard: React.FC<PartnerDetails> = ({ name, link, logo }) => (
 );
 
 const PartnerCardMobile: React.FC<PartnerDetails> = ({ name, link, logo }) => (
-  <div className="column is-3 jf-partner-card jf-accordion-item p-0 is-hidden-tablet">
+  <div className="column is-12 jf-partner-card jf-accordion-item p-0 is-hidden-desktop">
     <details className="has-background-white">
       <summary className="has-background-black has-text-white">
         <div className="eyebrow is-large is-flex is-flex-direction-row is-align-items-center is-justify-content-space-between px-5">
@@ -111,14 +114,14 @@ const PartnersSection: React.FC<PartnersSectionDetails> = ({
   partners,
 }) => (
   <div className="columns has-background-info">
-    <div className="column pt-12 pb-10 p-6-mobile">
-      <h2 className="pb-3 pb-6-mobile">
+    <div className="column pt-12 pb-10 p-6-touch">
+      <h2 className="pb-3 pb-6-touch">
         {title}{" "}
         <span className="has-text-weight-bold is-hidden-tablet">
           ({letterRange})
         </span>
       </h2>
-      <h3 className="is-hidden-mobile mb-11">{letterRange}</h3>
+      <h3 className="is-hidden-touch mb-11">{letterRange}</h3>
       <div className="columns is-paddingless is-multiline">
         {partners
           // Sort alphabetically:
@@ -147,24 +150,28 @@ const PartnershipCaseStudy: React.FC<PartnershipCaseStudyDetails> = ({
   description,
 }) => (
   <div className="columns has-background-info is-multiline">
-    <div className="column is-12 pt-0-mobile">
-      <div className="is-divider my-10 my-0-mobile" />
+    <div className="column is-12 pt-0-touch">
+      <div className="is-divider my-10 my-0-touch" />
     </div>
-    <div className="column is-4 my-6 my-0-mobile">
+    <div className="column is-4 is-12-touch my-6 my-0-touch">
       <div className="eyebrow is-large mb-3">
-        <Trans>Partnership case study</Trans>
+        <Trans>Partnership Snapshot</Trans>
       </div>
-      <ResponsiveElement desktop="h2" touch="h1">
+      <ResponsiveElement tagNames={{ desktop: "h2", touch: "h1" }}>
         {title}
       </ResponsiveElement>
     </div>
-    <div className="column is-8 my-6 my-0-mobile">
-      <span className="title is-4">
-        {documentToReactComponents(description.json)}
-      </span>
+    <div className="column is-8 is-12-touch my-6 my-0-touch">
+      {documentToReactComponents(description.json, {
+        renderNode: {
+          [BLOCKS.PARAGRAPH]: (node, children) => (
+            <p className="title is-4">{children}</p>
+          ),
+        },
+      })}
     </div>
     <div className="column is-12 is-paddingless">
-      <div className="is-divider mt-9 mb-0 my-0-mobile" />
+      <div className="is-divider mt-9 mb-0 my-0-touch" />
     </div>
   </div>
 );
@@ -174,14 +181,14 @@ export const PartnersPageScaffolding = (props: ContentfulContent) => (
     <div id="partners" className="partners-page">
       <PageHero {...props.content.pageHero} />
 
-      <div className="columns">
-        <div className="column is-4 pt-13 pb-12 p-6-mobile">
-          <ResponsiveElement desktop="h2" touch="h1">
+      <div className="columns is-multiline">
+        <div className="column is-4 is-12-touch pt-13 pb-12 p-6-touch">
+          <ResponsiveElement tagNames={{ desktop: "h2", touch: "h1" }}>
             {props.content.title}
           </ResponsiveElement>
         </div>
-        <div className="column is-1 is-hidden-mobile" />
-        <div className="column is-7 pt-13 pb-12 pt-0-mobile px-6-mobile pb-6-mobile">
+        <div className="column is-1 is-hidden-touch" />
+        <div className="column is-7 is-12-touch pt-13 pb-12 pt-0-touch px-6-touch pb-6-touch">
           <span className="title is-3">{props.content.subtitle.subtitle}</span>
         </div>
       </div>
@@ -251,14 +258,14 @@ export const PartnersPageScaffolding = (props: ContentfulContent) => (
       </div>
 
       <div className="columns">
-        <div className="column pt-13 pb-12 p-6-mobile">
-          <div className="columns is-paddingless">
-            <div className="column is-5 mb-12 mb-0-mobile px-0-mobile pb-4-mobile">
-              <ResponsiveElement desktop="h2" touch="h1">
+        <div className="column pt-13 pb-12 p-6-touch">
+          <div className="columns is-multiline is-paddingless">
+            <div className="column is-5 is-12-touch mb-12 mb-0-touch px-0-touch pb-4-touch">
+              <ResponsiveElement tagNames={{ desktop: "h2", touch: "h1" }}>
                 {props.content.fundersTitle}
               </ResponsiveElement>
             </div>
-            <div className="column mb-12 mb-6-mobile px-0-mobile">
+            <div className="column mb-12 mb-6-touch px-0-touch">
               <h3>{props.content.fundersSubtitle}</h3>
             </div>
           </div>

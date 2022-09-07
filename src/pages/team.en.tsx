@@ -5,9 +5,10 @@ import Layout from "../components/layout";
 import PageHero from "../components/page-hero";
 import { ContentfulContent } from "./index.en";
 import { FluidObject } from "gatsby-image";
+import classnames from "classnames";
+import ResponsiveElement from "../components/responsive-element";
 
 import "../styles/team.scss";
-import ResponsiveElement from "../components/responsive-element";
 
 type MemberCardInfo = {
   name: string;
@@ -23,9 +24,14 @@ type MemberCardInfo = {
 
 const MemberCard: React.FC<MemberCardInfo> = (props) => (
   <div
-    className={`jf-member-card column is-9 px-6 py-9 py-6-mobile  ${props.className}`}
+    className={classnames(
+      "jf-member-card column",
+      "is-flex is-flex-direction-column",
+      "is-9 px-6 py-9 py-6-mobile",
+      props.className
+    )}
   >
-    <figure className="image">
+    <figure className="image is-align-self-center">
       <Img fluid={props.photo.fluid} className="is-rounded" alt={props.name} />
     </figure>
     <div className="has-text-centered my-7">
@@ -45,7 +51,7 @@ type MemberCardsListInfo = {
 
 const MemberCardsList: React.FC<MemberCardsListInfo> = (props) => (
   <>
-    <h1 className="jf-team-title pl-9 pt-6 pl-0-mobile pt-3-mobile">
+    <h1 className="jf-team-title pl-9 pt-6 pl-0-mobile">
       {props.sectionTitle}
     </h1>
     <div className="jf-members columns is-multiline is-centered">
@@ -56,7 +62,7 @@ const MemberCardsList: React.FC<MemberCardsListInfo> = (props) => (
           "is-pulled-right",
         ];
         return (
-          <div className="column is-4 is-paddingless" key={i}>
+          <div className="column is-4 is-12-mobile is-paddingless" key={i}>
             <MemberCard {...member} className={alignments[i % 3]} />
           </div>
         );
@@ -83,8 +89,7 @@ export const TeamPageScaffolding = (props: ContentfulContent) => (
         <div className="columns">
           <div className="column">
             <ResponsiveElement
-              desktop="h2"
-              touch="h1"
+              tagNames={{ desktop: "h2", touch: "h1" }}
               className="jf-team-title"
             >
               {props.content.otherContributorsTitle}
@@ -92,7 +97,7 @@ export const TeamPageScaffolding = (props: ContentfulContent) => (
           </div>
         </div>
         <div className="columns">
-          <div className="jf-alumni-list column is-8 is-12-mobile">
+          <div className="jf-alumni-list column is-8 is-12-touch">
             {props.content.otherContributors.map(
               (contributor: any, i: number) => (
                 <p className="py-4" key={i}>

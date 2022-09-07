@@ -92,7 +92,7 @@ export const ArticlePreviewCard = (props: ArticlePreviewInfo) => {
       .reduce((cat1, cat2, i) => [cat1, <Dot key={Math.random()} />, cat2]);
 
   return (
-    <div className="column is-8 py-0">
+    <div className="column is-8 is-12-touch py-0">
       <div
         className={classnames(
           "jf-article-card ",
@@ -106,10 +106,10 @@ export const ArticlePreviewCard = (props: ArticlePreviewInfo) => {
           className={classnames(
             "pt-7 mb-2",
             isFeatured ? "pb-7 px-6" : "px-0",
-            !isFeatured && !props.isLast ? "pb-0-mobile" : ""
+            !isFeatured && !props.isLast ? "pb-0-touch" : ""
           )}
         >
-          <div className="mt-2 mb-6 mb-3-mobile">
+          <div className="mt-2 mb-6 mb-3-touch">
             {isFeatured ? (
               <span className="eyebrow">
                 <Trans>Featured Article</Trans>
@@ -118,20 +118,22 @@ export const ArticlePreviewCard = (props: ArticlePreviewInfo) => {
               <div className="jf-category-labels">{categoryLabels}</div>
             )}
           </div>
-          <div className="mb-6 mb-3-mobile">
+          <div className="mb-6 mb-3-touch">
             <LocaleLink className={"jf-link-article"} to={articleUrl}>
-              <h3 className="mb-6 mb-3-mobile">{props.title}</h3>
+              <h3 className="has-text-weight-semibold mb-6 mb-3-touch">
+                {props.title}
+              </h3>
             </LocaleLink>
-            <span className="is-hidden-mobile eyebrow is-small">
+            <span className="is-hidden-touch eyebrow is-small">
               <Trans>Updated</Trans> {formatDate(props.dateUpdated, locale)}
             </span>
-            <h4 className="my-6 my-3-mobile">{props.metadata.description}</h4>
+            <h4 className="my-6 my-3-touch">{props.metadata.description}</h4>
           </div>
           <div className="is-flex">
             {isFeatured ? (
               <div className="jf-article-link-container is-flex is-flex-direction-row">
                 <LocaleLink
-                  className={"button is-primary mt-0 mt-4-mobile"}
+                  className={"button is-primary mt-0 mt-4-touch"}
                   to={articleUrl}
                 >
                   <Trans>Read More</Trans>
@@ -162,25 +164,28 @@ export const ArticlePreviewCard = (props: ArticlePreviewInfo) => {
 
 export const LearningPageScaffolding = (props: ContentfulContent) => {
   const articles = orderArticles(props.content.articles);
+  const { featuredArticle } = props.content;
   return (
     <Layout metadata={props.content.metadata}>
       <div id="learning-center" className="learning-center-page">
-        <div className="columns is-centered is-multiline pt-12 pt-7-mobile pb-10">
-          <div className="column is-8 pb-0 mb-12">
+        <div className="columns is-centered is-multiline pt-12 pt-7-touch pb-10">
+          <div className="column is-8 is-12-touch pb-0 mb-12 mb-9-mobile">
             <span className="eyebrow is-uppercase">
               <Trans>Learning Center</Trans>
             </span>
-            <h1 className="mt-2 mt-4-mobile mb-6">{props.content.title}</h1>
+            <h1 className="mt-2 mt-4-touch mb-6">{props.content.title}</h1>
             <LearningSearchBar props={props.content} />
           </div>
-          <ArticlePreviewCard {...props.content.featuredArticle} />
-          {articles.map((article: ArticlePreviewInfo, i: number) => (
-            <ArticlePreviewCard
-              {...article}
-              isLast={i === articles.length - 1}
-              key={i}
-            />
-          ))}
+          <ArticlePreviewCard {...featuredArticle} />
+          {articles
+            .filter((article) => article.slug !== featuredArticle.slug)
+            .map((article: ArticlePreviewInfo, i: number) => (
+              <ArticlePreviewCard
+                {...article}
+                isLast={i === articles.length - 1}
+                key={i}
+              />
+            ))}
         </div>
       </div>
     </Layout>

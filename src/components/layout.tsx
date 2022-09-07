@@ -10,6 +10,7 @@ import Footer from "./footer";
 import { useCurrentLocale } from "../util/use-locale";
 import localeConfig from "../util/locale-config.json";
 import { CookiesBanner } from "./cookies-banner";
+import { logAmplitudePageView } from "./amplitude";
 
 const favicon16 = require("../img/brand/favicon-16x16.png");
 const favicon32 = require("../img/brand/favicon-32x32.png");
@@ -19,6 +20,7 @@ const SITE_TITLE_SUFFIX = " | JustFix";
 const TWITTER_HANDLE = "@JustFixOrg";
 const SITE_MAIN_URL = "https://www.justfix.org";
 const FB_APP_ID = "247990609143668";
+const FB_PIXEL_CODE = "o8wthqxkcblw3olfnavr7bi1x0bv5l";
 
 // All our supported locales.
 type StringLocales = "es" | "en";
@@ -74,6 +76,8 @@ const LayoutScaffolding = ({
 
   const locale = useCurrentLocale() || localeConfig.DEFAULT_LOCALE;
 
+  logAmplitudePageView();
+
   return (
     <I18nProvider language={locale} catalogs={catalogs}>
       <Helmet
@@ -106,6 +110,7 @@ const LayoutScaffolding = ({
         <meta property="og:url" content={SITE_MAIN_URL} />
         <meta property="og:image" content={shareImageURL} />
         <meta property="og:type" content="website" />
+        <meta name="facebook-domain-verification" content={FB_PIXEL_CODE} />
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content={TWITTER_HANDLE} />

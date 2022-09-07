@@ -32,13 +32,18 @@
 @import "_design-system.scss";
 
 .home-page {
+  .jf-card {
+    p span {
+      white-space: nowrap;
+    }
+  }
   .jf-learning-center-preview {
     .jf-lc-featured {
       @include desktop {
         border-right: 1px solid $justfix-black;
       }
 
-      @include mobile {
+      @include touch {
         border-bottom: 1px solid $justfix-black;
       }
     }

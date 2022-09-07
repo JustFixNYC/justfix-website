@@ -41,7 +41,7 @@
       a,
       u,
       span {
-        @include desktop {
+        @include tablet {
           @include desktop-text-small;
         }
         @include mobile {
@@ -63,7 +63,7 @@
     }
   }
   .jf-article-link-container {
-    @include mobile {
+    @include touch {
       justify-content: center;
     }
   }
@@ -72,6 +72,16 @@
   }
 }
 .jf-article-page {
+  .jf-summary-box {
+    h4 {
+      @include mobile {
+        font-weight: 600;
+      }
+    }
+    p {
+      line-height: 120%;
+    }
+  }
   .article-section ul {
     list-style: square;
   }
@@ -82,9 +92,18 @@
       top: $spacing-08;
     }
 
-    li a:hover {
-      text-decoration: none;
-      background-color: $light;
+    li a {
+      @include desktop {
+        text-decoration: none;
+      }
+
+      &:hover {
+        @include desktop {
+          text-decoration: underline;
+        }
+
+        background-color: $light;
+      }
     }
   }
 

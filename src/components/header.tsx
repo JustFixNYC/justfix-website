@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react";
 import { Trans } from "@lingui/macro";
 
 import "../styles/header.scss";
-import { LocaleLink as Link } from "../components/locale-link";
+import { LocaleLink } from "../components/locale-link";
 import { useCurrentLocale } from "../util/use-locale";
 import { ContentfulCommonStrings } from "@justfixnyc/contentful-common-strings";
 import _commonStrings from "../common-strings.json";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { INLINES } from "@contentful/rich-text-types";
-import { OutboundLink } from "gatsby-plugin-google-analytics";
+import { OutboundLink } from "../util/links";
 import FocusTrap from "focus-trap-react";
 import { FooterLanguageToggle } from "./footer";
 import classnames from "classnames";
@@ -104,18 +104,20 @@ const MoratoriumBanner: React.FC<{}> = () => {
 
 const HeaderLink: React.FC<{ link: LinkWithLabel }> = ({ link }) =>
   link[0].charAt(0) === "/" ? (
-    <Link
+    <LocaleLink
       className="navbar-item jf-menu-page-link px-0 py-3 has-text-white"
       to={link[0]}
+      eventProperties={{ location: "header" }}
     >
       {link[1]}
-    </Link>
+    </LocaleLink>
   ) : (
     <OutboundLink
       className="navbar-item jf-menu-page-link px-0 py-3 has-text-white"
       href={link[0]}
       target="_blank"
       rel="noopener noreferrer"
+      eventProperties={{ location: "header" }}
     >
       {link[1]}
     </OutboundLink>
@@ -154,7 +156,7 @@ const Header: React.FC<{
                 className="navbar-item is-flex-direction-column is-justify-content-center no-underline"
                 onClick={() => setBurgerMenuStatus(false)}
               >
-                <Link to="/">
+                <LocaleLink to="/">
                   <img
                     className="is-hidden-touch"
                     src={require("../img/brand/logo.svg")}
@@ -169,7 +171,7 @@ const Header: React.FC<{
                     height="27"
                     alt="JustFix"
                   />
-                </Link>
+                </LocaleLink>
                 {isDemoSite && (
                   <span className="tag is-yellow">
                     <Trans>DEMO SITE</Trans>
@@ -190,9 +192,9 @@ const Header: React.FC<{
                 className="navbar-item is-hidden-touch"
                 onClick={() => setBurgerMenuStatus(false)}
               >
-                <Link to="/tools" className="button is-primary">
+                <LocaleLink to="/tools" className="button is-primary">
                   <Trans>See our tools</Trans>
-                </Link>
+                </LocaleLink>
               </div>
               <div
                 className={classnames(

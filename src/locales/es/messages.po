@@ -54,7 +54,7 @@ msgstr "Contáctanos"
 
 #: src/components/learning-center/article-template.tsx:57
 #~ msgid "Contents"
-#~ msgstr ""
+#~ msgstr "Contenido"
 
 #: src/components/header.tsx:102
 msgid "DEMO SITE"
@@ -144,10 +144,6 @@ msgstr "Aliados & patrocinadores"
 msgid "Partnership Snapshot"
 msgstr "Informe sobre la asociación"
 
-#: src/pages/partners.en.tsx:92
-#~ msgid "Partnership case study"
-#~ msgstr ""
-
 #: src/components/subscribe.tsx:18
 msgid "Please enter an email address!"
 msgstr "Por favor, ¡introduzca una dirección de correo electrónico!"
@@ -226,14 +222,6 @@ msgstr "Condiciones de uso"
 #: src/components/cookies-banner.tsx:57
 msgid "These cookies track the performance of our tools and for marketing purposes. This data allows us to improve our tools to give you the best experience."
 msgstr "Estas cookies rastrean el rendimiento de nuestras herramientas y con fines de marketing. Estos datos nos permiten mejorar nuestras herramientas para ofrecerle la mejor experiencia."
-
-#: src/components/learning-center/article-template.tsx:96
-#~ msgid "This article was written by the JustFix team"
-#~ msgstr ""
-
-#: src/components/learning-center/article-template.tsx:96
-#~ msgid "This article was written by the team of NYC-based housing experts at nonprofit JustFix"
-#~ msgstr ""
 
 #: src/components/learning-center/article-template.tsx:100
 msgid "This article was written by the team of housing experts at JustFix"

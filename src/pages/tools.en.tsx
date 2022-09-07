@@ -39,12 +39,12 @@ export const ToolsPageScaffolding = (props: ContentfulContent) => {
       />
 
       <div className="columns is-multiline">
-        <div className="column is-12 my-9 mb-6-mobile">
+        <div className="column is-12 my-9 mb-6-touch">
           <h2>{props.content.pastToolsTitle}</h2>
         </div>
         {props.content.pastToolsBlocks.map((tool: any, i: number) => (
           <div
-            className="column is-3 is-12-mobile pt-0 pb-10 pb-7-mobile"
+            className="column is-3 is-12-touch pt-0 pb-10 pb-7-touch"
             key={i}
           >
             <h3 className="mb-3">{tool.toolName}</h3>
@@ -55,20 +55,20 @@ export const ToolsPageScaffolding = (props: ContentfulContent) => {
             <div className="title is-4 mb-5">
               {documentToReactComponents(tool.toolDescription.json)}
             </div>
-            <ReadMoreLink url={tool.readMoreLink} />
+            {tool.readMoreLink && <ReadMoreLink url={tool.readMoreLink} />}
             <div className="is-divider is-hidden-tablet mt-10" />
           </div>
         ))}
       </div>
 
       <div className="columns has-background-success">
-        <div className="column is-12 pt-9 pt-6-mobile pb-12 pb-9-mobile">
+        <div className="column is-12 pt-9 pt-6-touch pb-12 pb-9-touch">
           <h1 className="is-inline-desktop">
             {props.content.outroSectionTitle}
           </h1>
           <Link
             to={props.content.outroSectionButton.link}
-            className="button is-primary mt-5 ml-5 ml-0-mobile"
+            className="button is-primary mt-5 ml-5 ml-0-touch"
           >
             {props.content.outroSectionButton.title}
           </Link>

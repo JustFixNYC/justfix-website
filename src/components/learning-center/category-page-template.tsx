@@ -32,7 +32,10 @@ const LearningCategoryPage = (props: Props) => {
             <span className="eyebrow is-large">
               <Trans>Learning Center</Trans>
             </span>
-            <ResponsiveElement desktop="h1" touch="h2" className="mb-6">
+            <ResponsiveElement
+              tagNames={{ desktop: "h1", touch: "h2" }}
+              className="mb-6"
+            >
               {content.title}
             </ResponsiveElement>
             <h3>{content.description}</h3>

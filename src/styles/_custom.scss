@@ -53,6 +53,11 @@ $spacing-values: (
         #{$property}: $value !important;
       }
     }
+    .#{$shortcut}-#{$name}-touch {
+      @include touch {
+        #{$property}: $value !important;
+      }
+    }
     // Cardinal directions
     @each $direction, $suffix in $spacing-directions {
       .#{$shortcut}#{$suffix}-#{$name} {
@@ -60,6 +65,11 @@ $spacing-values: (
       }
       .#{$shortcut}#{$suffix}-#{$name}-mobile {
         @include mobile {
+          #{$property}-#{$direction}: $value !important;
+        }
+      }
+      .#{$shortcut}#{$suffix}-#{$name}-touch {
+        @include touch {
           #{$property}-#{$direction}: $value !important;
         }
       }
@@ -76,6 +86,12 @@ $spacing-values: (
           #{$property}-right: $value !important;
         }
       }
+      .#{$shortcut}#{$spacing-horizontal}-#{$name}-touch {
+        @include touch {
+          #{$property}-left: $value !important;
+          #{$property}-right: $value !important;
+        }
+      }
     }
     // Vertical axis
     @if $spacing-vertical != null {
@@ -85,6 +101,12 @@ $spacing-values: (
       }
       .#{$shortcut}#{$spacing-vertical}-#{$name}-mobile {
         @include mobile {
+          #{$property}-top: $value !important;
+          #{$property}-bottom: $value !important;
+        }
+      }
+      .#{$shortcut}#{$spacing-vertical}-#{$name}-touch {
+        @include touch {
           #{$property}-top: $value !important;
           #{$property}-bottom: $value !important;
         }
@@ -331,8 +353,8 @@ a.has-text-black:hover {
   width: 100%;
   z-index: 30;
 
-  @include wide-desktop {
-    width: $wide-desktop;
+  @include widescreen {
+    width: $widescreen;
   }
 
   img {
