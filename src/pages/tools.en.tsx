@@ -110,6 +110,7 @@ export const ToolsPageFragment = graphql`
           title
           link
         }
+        smsText
         location
         language
       }
