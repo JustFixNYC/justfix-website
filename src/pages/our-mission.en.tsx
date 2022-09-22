@@ -1,6 +1,5 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
-import { LocaleLink } from "../components/locale-link";
 import Layout from "../components/layout";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { BLOCKS } from "@contentful/rich-text-types";
@@ -9,6 +8,7 @@ import PageHero from "../components/page-hero";
 import { ReadMoreLink } from "../components/read-more";
 import { Accordion } from "../components/accordion";
 import ResponsiveElement from "../components/responsive-element";
+import { OutboundLink } from "../util/links";
 
 export const MissionPageScaffolding = (props: ContentfulContent) => {
   const { content } = props;
@@ -68,8 +68,8 @@ export const MissionPageScaffolding = (props: ContentfulContent) => {
               <div className="column is-9 is-12-touch has-background-black has-text-white">
                 <div className="columns is-paddingless is-multiline">
                   <div className="column is-7 ">
-                    <LocaleLink
-                      to={latestReport.link}
+                    <OutboundLink
+                      href={latestReport.link}
                       className="jf-link-article"
                     >
                       <ResponsiveElement
@@ -77,7 +77,7 @@ export const MissionPageScaffolding = (props: ContentfulContent) => {
                       >
                         {latestReport.title}
                       </ResponsiveElement>
-                    </LocaleLink>
+                    </OutboundLink>
                   </div>
                   <div className="column is-5">
                     <h3 className="has-text-weight-normal mb-3">
@@ -100,14 +100,14 @@ export const MissionPageScaffolding = (props: ContentfulContent) => {
             <div className="columns is-paddingless is-multiline">
               {pastReports.map((report: any, i: number) => (
                 <div className="column is-paddingless is-4 mb-7" key={i}>
-                  <LocaleLink to={report.link} className="jf-link-article">
+                  <OutboundLink href={report.link} className="jf-link-article">
                     <ResponsiveElement
                       tagNames={{ desktop: "h4", touch: "h3" }}
                       className="mb-3"
                     >
                       {report.title}
                     </ResponsiveElement>
-                  </LocaleLink>
+                  </OutboundLink>
                   <ReadMoreLink url={report.link} />
                 </div>
               ))}
