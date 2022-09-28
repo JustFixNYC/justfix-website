@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect } from "react";
 import { navigate } from "gatsby";
 import localeConfig from "../util/locale-config.json";
-
+import { FB_PIXEL_CODE } from "../components/layout";
 import "../styles/locale-redirect.scss";
 
 // This component redirects users to a localized version of the given route
@@ -50,6 +50,10 @@ const LocaleRedirectPage = (props: Props) => {
 
   return (
     <html lang="en">
+      <head>
+        {/* FB process is not completing the locale redirect so the code needs to be here */}
+        <meta name="facebook-domain-verification" content={FB_PIXEL_CODE} />
+      </head>
       <noscript>
         <meta
           httpEquiv="refresh"
