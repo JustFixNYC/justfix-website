@@ -20,7 +20,7 @@ const SITE_TITLE_SUFFIX = " | JustFix";
 const TWITTER_HANDLE = "@JustFixOrg";
 const SITE_MAIN_URL = "https://www.justfix.org";
 const FB_APP_ID = "247990609143668";
-const FB_PIXEL_CODE = "o8wthqxkcblw3olfnavr7bi1x0bv5l";
+export const FB_PIXEL_CODE = "o8wthqxkcblw3olfnavr7bi1x0bv5l";
 
 // All our supported locales.
 type StringLocales = "es" | "en";
