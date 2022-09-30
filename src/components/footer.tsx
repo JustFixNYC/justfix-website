@@ -78,7 +78,7 @@ const FooterLinksList: React.FC<{ links: LinkWithLabel[] }> = ({ links }) => {
 const Footer = () => (
   <div className="jf-footer has-background-black has-text-white py-7">
     <div className="columns is-multiline">
-      <div className="column is-4 is-12-touch pt-9 pb-7-touch">
+      <div className="column is-4 is-12-touch pt-9 mt-2 pb-7-touch">
         <FooterLanguageToggle />
       </div>
 
