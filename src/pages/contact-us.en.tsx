@@ -2,10 +2,10 @@ import React from "react";
 import { StaticQuery, graphql } from "gatsby";
 import { SocialIcon } from "react-social-icons";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-
 import Layout from "../components/layout";
 import { ContentfulContent } from "./index.en";
 import Subscribe from "../components/subscribe";
+import { OutboundLink } from "../util/links";
 
 export const ContactPageScaffolding = (props: ContentfulContent) => (
   <Layout metadata={props.content.metadata}>
@@ -31,6 +31,22 @@ export const ContactPageScaffolding = (props: ContentfulContent) => (
               />
             ))}
           </div>
+        </div>
+      </div>
+      <div className="columns is-centered has-background-black has-text-white">
+        <div className="column is-12 py-11">
+          <h1>{props.content.donateTitle}</h1>
+          <div className="mt-5 mb-8">
+            <span className="title is-3 has-text-white">
+              {documentToReactComponents(props.content.donateCta.json)}
+            </span>
+          </div>
+          <OutboundLink
+            href={props.content.donateButton.link}
+            className="button is-primary"
+          >
+            {props.content.donateButton.title}
+          </OutboundLink>
         </div>
       </div>
       <div className="columns is-centered has-background-info">
@@ -70,6 +86,14 @@ export const ContactPageFragment = graphql`
       socialButtons {
         title
         url
+      }
+      donateTitle
+      donateCta {
+        json
+      }
+      donateButton {
+        title
+        link
       }
       mailingListTitle
       mailingListSubtitle

@@ -59,11 +59,11 @@ const FooterLink: React.FC<{ link: LinkWithLabel }> = ({ link }) =>
 
 const FooterLinksList: React.FC<{ links: LinkWithLabel[] }> = ({ links }) => {
   return (
-    <div className="columns is-paddingless is-hidden-touch ml-0">
+    <div className="columns is-paddingless ml-0">
       {links.map((link, i) => {
         if (i % 3 === 0) {
           return (
-            <div className="column is-4 is-paddingless mx-0" key={i}>
+            <div className="column is-4 py-0 mx-0" key={i}>
               <FooterLink link={link} />
               {!!links[i + 1] && <FooterLink link={links[i + 1]} />}
               {!!links[i + 2] && <FooterLink link={links[i + 2]} />}
@@ -78,12 +78,23 @@ const FooterLinksList: React.FC<{ links: LinkWithLabel[] }> = ({ links }) => {
 const Footer = () => (
   <div className="jf-footer has-background-black has-text-white py-7">
     <div className="columns is-multiline">
-      <div className="column is-8 is-12-touch pt-9">
+      <div className="column is-4 is-12-touch pt-9 mt-2 pb-7-touch">
         <FooterLanguageToggle />
-        <FooterLinksList links={SITE_LINKS} />
       </div>
 
-      <div className="column is-4 is-12-touch">
+      <div className="column is-4 is-12-touch py-7-touch">
+        <h4 className="mb-2">
+          <Trans>Support JustFix</Trans>
+        </h4>
+        <OutboundLink
+          href="https://donorbox.org/donate-to-justfix-nyc"
+          className="button is-primary"
+        >
+          <Trans>Donate today</Trans>
+        </OutboundLink>
+      </div>
+
+      <div className="column is-4 is-12-touch py-7-touch">
         <h4 className="mb-2">
           <Trans>Join our mailing list!</Trans>
         </h4>
@@ -137,11 +148,18 @@ const Footer = () => (
             style={{ height: 40, width: 40 }}
           />
         </div>
-        <div className="mt-8 is-hidden-desktop">
-          {SITE_LINKS.map((link, i) => (
-            <FooterLink link={link} key={i} />
-          ))}
-        </div>
+      </div>
+    </div>
+
+    <div className="columns">
+      <div className="column is-12 pb-0">
+        <div className="is-divider is-light" />
+      </div>
+    </div>
+
+    <div className="columns">
+      <div className="column is-12 pb-0">
+        <FooterLinksList links={SITE_LINKS} />
       </div>
     </div>
 
