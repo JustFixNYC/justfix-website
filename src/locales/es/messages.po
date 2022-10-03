@@ -18,11 +18,11 @@ msgstr ""
 "X-Crowdin-File: /master/src/locales/en/messages.po\n"
 "X-Crowdin-File-ID: 19\n"
 
-#: src/components/footer.tsx:77
+#: src/components/footer.tsx:94
 msgid "<0>Disclaimer:</0> The information in JustFix does not constitute legal advice and must not be used as a substitute for the advice of a lawyer qualified to give advice on legal issues pertaining to housing. We can help direct you to free legal services if necessary."
 msgstr "<0>Aviso:</0> La información en JustFix no constituye asesoramiento jurídico y no debe ser utilizado como sustituto del asesoramiento de un abogado cualificado para asesorar sobre cuestiones jurídicas relativas a la vivienda. Nosotros podemos ayudarle a dirigirle a servicios legales gratuitos si es necesario."
 
-#: src/components/footer.tsx:86
+#: src/components/footer.tsx:103
 msgid "<0>JustFix</0> is a registered 501(c)(3) nonprofit organization."
 msgstr "<0>JustFix</0> es una organización sin fines de lucro registrada."
 
@@ -60,6 +60,10 @@ msgstr "Contáctanos"
 msgid "DEMO SITE"
 msgstr "SITIO DEMO"
 
+#: src/components/footer.tsx:53
+msgid "Donate today"
+msgstr ""
+
 #: src/components/subscribe.tsx:70
 msgid "Email Address"
 msgstr "Correo electrónico"
@@ -88,7 +92,7 @@ msgstr "Entendido"
 #~ msgid "How can JustFix help?"
 #~ msgstr ""
 
-#: src/components/footer.tsx:51
+#: src/components/footer.tsx:59
 msgid "Join our mailing list!"
 msgstr "¡Únete a nuestra lista de correo!"
 
@@ -156,7 +160,7 @@ msgstr "Artículos populares"
 msgid "Press"
 msgstr "Prensa"
 
-#: src/components/footer.tsx:92
+#: src/components/footer.tsx:109
 msgid "Privacy policy"
 msgstr "Política de privacidad"
 
@@ -202,6 +206,10 @@ msgstr "Únete"
 msgid "Summary"
 msgstr "Resúmen"
 
+#: src/components/footer.tsx:50
+msgid "Support JustFix"
+msgstr ""
+
 #: src/components/learning-center/article-template.tsx:25
 #: src/components/learning-center/article-template.tsx:137
 msgid "Take action"
@@ -215,7 +223,7 @@ msgstr "Equipo"
 msgid "Technology for Housing Justice"
 msgstr "Tecnología para la justicia de vivienda"
 
-#: src/components/footer.tsx:95
+#: src/components/footer.tsx:112
 msgid "Terms of use"
 msgstr "Condiciones de uso"
 
@@ -261,4 +269,3 @@ msgstr "¿Cómo puede ayudar JustFix?"
 #: src/pages/404.en.tsx:13
 msgid "You just found a page that doesn't exist... the sadness."
 msgstr "Acabas de llegar a una ruta que no existe... es muy triste."
-
