@@ -8,7 +8,7 @@ msgstr ""
 "Language: es\n"
 "Project-Id-Version: justfix-website\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2022-10-04 13:51\n"
+"PO-Revision-Date: 2022-10-07 18:07\n"
 "Last-Translator: \n"
 "Language-Team: Spanish\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -62,7 +62,7 @@ msgstr "SITIO DEMO"
 
 #: src/components/footer.tsx:53
 msgid "Donate today"
-msgstr ""
+msgstr "Done hoy mismo"
 
 #: src/components/subscribe.tsx:70
 msgid "Email Address"
@@ -212,7 +212,7 @@ msgstr "Resúmen"
 
 #: src/components/footer.tsx:50
 msgid "Support JustFix"
-msgstr ""
+msgstr "Apoya a JustFix"
 
 #: src/components/learning-center/article-template.tsx:25
 #: src/components/learning-center/article-template.tsx:137
