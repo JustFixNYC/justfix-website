@@ -8,7 +8,7 @@ msgstr ""
 "Language: es\n"
 "Project-Id-Version: justfix-website\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2022-09-07 21:08\n"
+"PO-Revision-Date: 2022-10-07 18:07\n"
 "Last-Translator: \n"
 "Language-Team: Spanish\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -54,7 +54,7 @@ msgstr "Contáctanos"
 
 #: src/components/learning-center/article-template.tsx:57
 #~ msgid "Contents"
-#~ msgstr "Contenido"
+#~ msgstr ""
 
 #: src/components/header.tsx:102
 msgid "DEMO SITE"
@@ -62,7 +62,7 @@ msgstr "SITIO DEMO"
 
 #: src/components/footer.tsx:53
 msgid "Donate today"
-msgstr ""
+msgstr "Done hoy mismo"
 
 #: src/components/subscribe.tsx:70
 msgid "Email Address"
@@ -148,6 +148,10 @@ msgstr "Aliados & patrocinadores"
 msgid "Partnership Snapshot"
 msgstr "Informe sobre la asociación"
 
+#: src/pages/partners.en.tsx:92
+#~ msgid "Partnership case study"
+#~ msgstr ""
+
 #: src/components/subscribe.tsx:18
 msgid "Please enter an email address!"
 msgstr "Por favor, ¡introduzca una dirección de correo electrónico!"
@@ -208,7 +212,7 @@ msgstr "Resúmen"
 
 #: src/components/footer.tsx:50
 msgid "Support JustFix"
-msgstr ""
+msgstr "Apoya a JustFix"
 
 #: src/components/learning-center/article-template.tsx:25
 #: src/components/learning-center/article-template.tsx:137
@@ -230,6 +234,14 @@ msgstr "Condiciones de uso"
 #: src/components/cookies-banner.tsx:57
 msgid "These cookies track the performance of our tools and for marketing purposes. This data allows us to improve our tools to give you the best experience."
 msgstr "Estas cookies rastrean el rendimiento de nuestras herramientas y con fines de marketing. Estos datos nos permiten mejorar nuestras herramientas para ofrecerle la mejor experiencia."
+
+#: src/components/learning-center/article-template.tsx:96
+#~ msgid "This article was written by the JustFix team"
+#~ msgstr ""
+
+#: src/components/learning-center/article-template.tsx:96
+#~ msgid "This article was written by the team of NYC-based housing experts at nonprofit JustFix"
+#~ msgstr ""
 
 #: src/components/learning-center/article-template.tsx:100
 msgid "This article was written by the team of housing experts at JustFix"
@@ -269,3 +281,4 @@ msgstr "¿Cómo puede ayudar JustFix?"
 #: src/pages/404.en.tsx:13
 msgid "You just found a page that doesn't exist... the sadness."
 msgstr "Acabas de llegar a una ruta que no existe... es muy triste."
+
