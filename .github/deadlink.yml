@@ -1,0 +1,14 @@
+on:
+  schedule:
+  - cron: "0 5 * * 1"
+
+jobs:
+  find_dead_links:
+    runs-on: ubuntu-latest
+    name: Deadlink crawler
+    steps:
+      - name: Scan learning center
+        uses: JustFixNYC/deadlink-crawler@v1.0
+        with:
+          site-url: "https://www.justfix.org/en/learn"
+          token: ${{ secrets.GITHUB_TOKEN }}
