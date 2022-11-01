@@ -37,24 +37,26 @@ const catalogs: LocaleCatalogs = {
 export const formatImageUrlForSEO = (url: string) =>
   url.startsWith("//") ? encodeURI(`https:${url}`) : encodeURI(url);
 
-type Props = {
+type HelmetProps = {
   metadata?: {
     [key: string]: any;
   };
   defaultContent?: {
-    metadata: Props["metadata"];
+    metadata: HelmetProps["metadata"];
   };
-  children: React.ReactNode;
   isLandingPage?: boolean;
+  locale?: string;
 };
 
-/** Component checks for custom metadata attributes, and then uses the default homepage values as a fallback */
-const LayoutScaffolding = ({
+type LayoutProps = HelmetProps & {
+  children: React.ReactNode;
+};
+
+export const HelmetWithDefault = ({
   metadata,
-  children,
-  isLandingPage,
   defaultContent,
-}: Props) => {
+  locale,
+}: HelmetProps) => {
   var title, description, keywords, imageUrl, shareImageURL;
   if (defaultContent && defaultContent.metadata) {
     title =
@@ -74,53 +76,70 @@ const LayoutScaffolding = ({
     shareImageURL = formatImageUrlForSEO(imageUrl);
   }
 
-  const locale = useCurrentLocale() || localeConfig.DEFAULT_LOCALE;
+  return (
+    <Helmet
+      link={[
+        {
+          rel: "icon",
+          type: "image/png",
+          sizes: "16x16",
+          href: `${favicon16}`,
+        },
+        {
+          rel: "icon",
+          type: "image/png",
+          sizes: "32x32",
+          href: `${favicon32}`,
+        },
+        { rel: "shortcut icon", type: "image/png", href: `${favicon96}` },
+      ]}
+    >
+      <html lang={locale || localeConfig.DEFAULT_LOCALE} />
+      <title>{title}</title>
+      <meta name="description" content={description} />
+      <meta name="keywords" content={keywords} />
+      <meta name="author" content="JustFix" />
+
+      <meta property="fb:app_id" content={FB_APP_ID} />
+      <meta property="og:site_name" content={title} />
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={description} />
+      <meta property="og:url" content={SITE_MAIN_URL} />
+      <meta property="og:image" content={shareImageURL} />
+      <meta property="og:type" content="website" />
+      <meta name="facebook-domain-verification" content={FB_PIXEL_CODE} />
+
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:site" content={TWITTER_HANDLE} />
+      <meta name="twitter:creator" content={TWITTER_HANDLE} />
+      <meta name="twitter:title" content={title} />
+      <meta name="twitter:description" content={description} />
+      <meta name="twitter:url" content={SITE_MAIN_URL} />
+      <meta name="twitter:image" content={shareImageURL} />
+      <meta name="twitter:image:alt" content={title} />
+    </Helmet>
+  );
+};
+
+/** Component checks for custom metadata attributes, and then uses the default homepage values as a fallback */
+const LayoutScaffolding = ({
+  metadata,
+  children,
+  defaultContent,
+  isLandingPage,
+}: LayoutProps) => {
+  const locale = useCurrentLocale();
 
   logAmplitudePageView();
 
   return (
     <I18nProvider language={locale} catalogs={catalogs}>
-      <Helmet
-        link={[
-          {
-            rel: "icon",
-            type: "image/png",
-            sizes: "16x16",
-            href: `${favicon16}`,
-          },
-          {
-            rel: "icon",
-            type: "image/png",
-            sizes: "32x32",
-            href: `${favicon32}`,
-          },
-          { rel: "shortcut icon", type: "image/png", href: `${favicon96}` },
-        ]}
-      >
-        <html lang={locale} />
-        <title>{title}</title>
-        <meta name="description" content={description} />
-        <meta name="keywords" content={keywords} />
-        <meta name="author" content="JustFix" />
-
-        <meta property="fb:app_id" content={FB_APP_ID} />
-        <meta property="og:site_name" content={title} />
-        <meta property="og:title" content={title} />
-        <meta property="og:description" content={description} />
-        <meta property="og:url" content={SITE_MAIN_URL} />
-        <meta property="og:image" content={shareImageURL} />
-        <meta property="og:type" content="website" />
-        <meta name="facebook-domain-verification" content={FB_PIXEL_CODE} />
-
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content={TWITTER_HANDLE} />
-        <meta name="twitter:creator" content={TWITTER_HANDLE} />
-        <meta name="twitter:title" content={title} />
-        <meta name="twitter:description" content={description} />
-        <meta name="twitter:url" content={SITE_MAIN_URL} />
-        <meta name="twitter:image" content={shareImageURL} />
-        <meta name="twitter:image:alt" content={title} />
-      </Helmet>
+      <HelmetWithDefault
+        metadata={metadata}
+        isLandingPage={isLandingPage}
+        defaultContent={defaultContent}
+        locale={locale}
+      />
       <div className="jf-page-body">
         <Header isLandingPage={isLandingPage} />
         <div>{children}</div>
@@ -133,13 +152,13 @@ const LayoutScaffolding = ({
 
 type MetadataNodes = {
   node_locale: string;
-  metadata: Props["metadata"];
+  metadata: LayoutProps["metadata"];
 };
 
-function getDefaultContentForLocale(
+export function getDefaultContentForLocale(
   locale: string,
   nodes: MetadataNodes[]
-): Props["defaultContent"] {
+): LayoutProps["defaultContent"] {
   for (let node of nodes) {
     if (node.node_locale.startsWith(locale)) {
       return { metadata: node.metadata };
@@ -150,7 +169,7 @@ function getDefaultContentForLocale(
   );
 }
 
-const Layout = ({ metadata, children, isLandingPage }: Props) => {
+const Layout = ({ metadata, children, isLandingPage }: LayoutProps) => {
   const locale = useCurrentLocale();
 
   return (
