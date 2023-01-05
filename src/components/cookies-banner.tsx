@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import classnames from "classnames";
 import FocusTrap from "focus-trap-react";
 import { I18n } from "@lingui/react";
+import { storageFactory } from "@justfixnyc/util";
 
 export const CookiesBanner = () => {
   const [modalIsActive, setModalActive] = useState(false);
@@ -11,14 +12,19 @@ export const CookiesBanner = () => {
   // Some notes on "localStorage"
   // https://blog.logrocket.com/using-localstorage-react-hooks/
   // https://stackoverflow.com/questions/65496028/gatsby-using-localstorage-to-store-data
+
+  // To avoid errors when localStorage is not available we use this factory
+  // https://github.com/JustFixNYC/justfix-ts/pull/41
+  const localStore = storageFactory(() => localStorage);
+
   useEffect(() => {
-    if (localStorage.getItem("closed") === "true") {
+    if (localStore.getItem("closed") === "true") {
       setBannerClosed(true);
     }
   }, []);
 
   const handleClick = () => {
-    localStorage.setItem("closed", "true");
+    localStore.setItem("closed", "true");
     setBannerClosed(true);
   };
 
