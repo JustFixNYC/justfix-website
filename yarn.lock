@@ -2373,6 +2373,11 @@
   resolved "https://registry.yarnpkg.com/@justfixnyc/geosearch-requester/-/geosearch-requester-0.0.6.tgz#af3144a8b599e45ad3ce5c2190fc60da81106475"
   integrity sha512-wHsY9DbiQUp7H/KiQ4+ejTShR6lY3iagiFhw4VoP1kljyem+WIwEkiZNnvUHkOAQIkTtPulLaiKHEMpzaw9xZQ==
 
+"@justfixnyc/util@^0.4.1":
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/@justfixnyc/util/-/util-0.4.1.tgz#98e9036f9c751520c79f7d59eaaa95d7c0619d8f"
+  integrity sha512-97eqofWvJ6jopBFhCPOKRHHChjE2XB38qCxA4SPkv8GWSc2CvUAghcQJGtPmHfKAwnhPdiv5Hlv+jZBe73ob0Q==
+
 "@lingui/babel-plugin-extract-messages@2.8.3":
   version "2.8.3"
   resolved "https://registry.yarnpkg.com/@lingui/babel-plugin-extract-messages/-/babel-plugin-extract-messages-2.8.3.tgz#3fd6bcc97f7fec35b8b39731cd1d99596636a166"
