@@ -3,7 +3,29 @@ This is the JustFix website at https://justfix.org.
 Actual site content is stored in [Contentful](https://www.contentful.com/), and
 the site is built using [Gatsby](https://next.gatsbyjs.org/).
 
-## Quick start
+## Docker setup (preferred)
+
+Docker is the preferred way to set up a local build of the site.
+
+1.  Create an `.env` file by copying `.env.sample`:
+
+    ```
+    cp .env.sample .env
+    ```
+
+2.  Edit the `.env` file as needed.
+
+3. Run the following commands:
+
+    ```
+    docker-compose run app yarn --frozen-lockfile
+    docker-compose up
+    ```
+
+Then visit `http://localhost:8000`!
+
+
+## Local development (legacy)
 
 1.  Create an `.env` file by copying `.env.sample`:
 
@@ -33,16 +55,6 @@ the site is built using [Gatsby](https://next.gatsbyjs.org/).
     
     Open the the `justfix-website` directory in your code editor of choice and edit `src/pages/index.tsx`. Save your changes and the browser will update in real time!
 
-## Docker setup
-
-You can also run the site using Docker. Create an `.env` file as per the quick start instructions, but then run:
-
-```
-docker-compose run app yarn --frozen-lockfile
-docker-compose up
-```
-
-Then visit `http://localhost:8000`!
 
 ## Deployment 
 
