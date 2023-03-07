@@ -357,6 +357,11 @@ a.has-text-black:hover {
     width: $widescreen;
   }
 
+  .banner-text {
+    letter-spacing: 0;
+    font-size: 18px;
+  }
+
   img {
     filter: invert(1) contrast(0.7);
   }
