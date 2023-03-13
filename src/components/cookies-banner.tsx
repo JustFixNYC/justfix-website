@@ -17,11 +17,11 @@ export const CookiesBanner = () => {
   // https://github.com/JustFixNYC/justfix-ts/pull/41
   const localStore = storageFactory(() => localStorage);
 
-  useEffect(() => {
-    if (localStore.getItem("closed") === "true") {
-      setBannerClosed(true);
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (localStore.getItem("closed") === "true") {
+  //     setBannerClosed(true);
+  //   }
+  // }, []);
 
   const handleClick = () => {
     localStore.setItem("closed", "true");
@@ -36,8 +36,10 @@ export const CookiesBanner = () => {
       )}
     >
       <div className="is-flex is-align-items-center">
-        <div className="p-4 banner-text">
-          <Trans>By using this website you consent to the use of cookies.</Trans>{" "}
+        <div className="p-6 p-4-mobile banner-text">
+          <Trans>
+            By using this website you consent to the use of cookies.
+          </Trans>{" "}
           <div
             role="button"
             className="link is-clickable ml-2"
