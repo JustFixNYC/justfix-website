@@ -17,11 +17,11 @@ export const CookiesBanner = () => {
   // https://github.com/JustFixNYC/justfix-ts/pull/41
   const localStore = storageFactory(() => localStorage);
 
-  // useEffect(() => {
-  //   if (localStore.getItem("closed") === "true") {
-  //     setBannerClosed(true);
-  //   }
-  // }, []);
+  useEffect(() => {
+    if (localStore.getItem("closed") === "true") {
+      setBannerClosed(true);
+    }
+  }, []);
 
   const handleClick = () => {
     localStore.setItem("closed", "true");
