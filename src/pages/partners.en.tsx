@@ -114,14 +114,14 @@ const PartnersSection: React.FC<PartnersSectionDetails> = ({
   partners,
 }) => (
   <div className="columns has-background-info">
-    <div className="column pt-12 pb-10 p-6-touch">
+    <div className="column pt-11 pb-11 p-6-touch">
       <h2 className="pb-3 pb-6-touch">
         {title}{" "}
         <span className="has-text-weight-bold is-hidden-tablet">
           ({letterRange})
         </span>
       </h2>
-      <h3 className="is-hidden-touch mb-11">{letterRange}</h3>
+      <h3 className="is-hidden-touch pb-8">{letterRange}</h3>
       <div className="columns is-paddingless is-multiline">
         {partners
           // Sort alphabetically:
@@ -150,10 +150,10 @@ const PartnershipCaseStudy: React.FC<PartnershipCaseStudyDetails> = ({
   description,
 }) => (
   <div className="columns has-background-info is-multiline">
-    <div className="column is-12 pt-0-touch">
-      <div className="is-divider my-10 my-0-touch" />
+    <div className="column is-12 is-paddingless pt-0-touch">
+      <div className="is-divider my-0-touch" />
     </div>
-    <div className="column is-4 is-12-touch my-6 my-0-touch">
+    <div className="column is-4 is-12-touch my-10 my-0-touch">
       <div className="eyebrow is-large mb-3">
         <Trans>Partnership Snapshot</Trans>
       </div>
@@ -161,7 +161,7 @@ const PartnershipCaseStudy: React.FC<PartnershipCaseStudyDetails> = ({
         {title}
       </ResponsiveElement>
     </div>
-    <div className="column is-8 is-12-touch my-6 my-0-touch">
+    <div className="column is-8 is-12-touch my-10 my-0-touch">
       {documentToReactComponents(description.json, {
         renderNode: {
           [BLOCKS.PARAGRAPH]: (node, children) => (
@@ -170,8 +170,8 @@ const PartnershipCaseStudy: React.FC<PartnershipCaseStudyDetails> = ({
         },
       })}
     </div>
-    <div className="column is-12 is-paddingless">
-      <div className="is-divider mt-9 mb-0 my-0-touch" />
+    <div className="column is-12 is-paddingless pt-0-touch">
+      <div className="is-divider my-0-touch" />
     </div>
   </div>
 );
@@ -182,14 +182,16 @@ export const PartnersPageScaffolding = (props: ContentfulContent) => (
       <PageHero {...props.content.pageHero} />
 
       <div className="columns is-multiline">
-        <div className="column is-4 is-12-touch pt-13 pb-12 p-6-touch">
+        <div className="column is-4 is-12-touch pt-11 pb-11 p-6-touch">
           <ResponsiveElement tagNames={{ desktop: "h2", touch: "h1" }}>
             {props.content.title}
           </ResponsiveElement>
         </div>
         <div className="column is-1 is-hidden-touch" />
-        <div className="column is-7 is-12-touch pt-13 pb-12 pt-0-touch px-6-touch pb-6-touch">
-          <span className="title is-3">{props.content.subtitle.subtitle}</span>
+        <div className="column is-7 is-12-touch pt-11 pb-11 pt-0-touch px-6-touch pb-6-touch">
+          <span className="title is-3">
+            <p>{props.content.subtitle.subtitle}</p>
+          </span>
         </div>
       </div>
 
@@ -226,7 +228,7 @@ export const PartnersPageScaffolding = (props: ContentfulContent) => (
       />
 
       <div className="columns has-background-info">
-        <div className="column is-8 has-background-black has-text-white py-10 px-7 mt-6 mb-12 is-hidden-mobile">
+        <div className="column is-8 has-background-black has-text-white py-10 px-7 mb-12 ml-6 is-hidden-mobile">
           <h2 className="mb-6">{props.content.collaborationBanner.label}</h2>
           <span className="title is-4 has-text-white">
             {documentToReactComponents(
@@ -241,8 +243,10 @@ export const PartnersPageScaffolding = (props: ContentfulContent) => (
           </OutboundLink>
         </div>
         <div className="column is-8 has-background-info is-hidden-tablet pt-0 pb-7">
-          <div className="is-divider mt-0" />
-          <h2 className="mb-6">{props.content.collaborationBanner.label}</h2>
+          <div className="is-divider" />
+          <h2 className="mt-6 mb-6">
+            {props.content.collaborationBanner.label}
+          </h2>
           <span className="title is-4">
             {documentToReactComponents(
               props.content.collaborationBanner.content.json
@@ -258,14 +262,14 @@ export const PartnersPageScaffolding = (props: ContentfulContent) => (
       </div>
 
       <div className="columns">
-        <div className="column pt-13 pb-12 p-6-touch">
+        <div className="column pt-11 pb-11 p-6-touch">
           <div className="columns is-multiline is-paddingless">
-            <div className="column is-5 is-12-touch mb-12 mb-0-touch px-0-touch pb-4-touch">
+            <div className="column is-5 is-12-touch mb-8 mb-0-touch is-paddingless px-0-touch pb-4-touch">
               <ResponsiveElement tagNames={{ desktop: "h2", touch: "h1" }}>
                 {props.content.fundersTitle}
               </ResponsiveElement>
             </div>
-            <div className="column mb-12 mb-6-touch px-0-touch">
+            <div className="column mb-8 mb-6-touch is-paddingless px-0-touch">
               <h3>{props.content.fundersSubtitle}</h3>
             </div>
           </div>
