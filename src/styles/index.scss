@@ -32,11 +32,28 @@
 @import "_design-system.scss";
 
 .home-page {
+  .jf-landing-img-small {
+    display: block;
+
+    @include from($largescreen) {
+      display: none;
+    }
+  }
+
+  .jf-landing-img-large {
+    display: block;
+
+    @include until($largescreen) {
+      display: none;
+    }
+  }
+
   .jf-card {
     p span {
       white-space: nowrap;
     }
   }
+
   .jf-learning-center-preview {
     .jf-lc-featured {
       @include desktop {

@@ -9,7 +9,7 @@
   background-color: $white;
   height: $navbar-height;
 
-  @include touch {
+  @include until($largescreen) {
     height: $navbar-height-mobile;
   }
 
@@ -37,7 +37,13 @@
     border-bottom: 1px solid $black;
     z-index: inherit;
 
-    @include touch {
+    .is-hidden-below-largescreen {
+      @include until($largescreen) {
+        display: none;
+      }
+    }
+
+    @include until($largescreen) {
       height: $navbar-height-mobile;
       min-height: unset;
     }
@@ -51,7 +57,7 @@
         transition: none;
         color: $black;
 
-        @include touch {
+        @include until($largescreen) {
           width: 50%;
         }
 
@@ -61,13 +67,29 @@
         }
 
         &:first-child {
-          @include desktop {
+          @include from($largescreen) {
             border-right: 1px solid $black;
           }
         }
 
         img {
           max-height: unset;
+        }
+
+        .jf-logo-small {
+          display: block;
+
+          @include from($largescreen) {
+            display: none;
+          }
+        }
+
+        .jf-logo-large {
+          display: block;
+
+          @include until($largescreen) {
+            display: none;
+          }
         }
 
         .navbar-burger {
@@ -107,6 +129,23 @@
           border-left: 1px solid $black;
         }
       }
+
+      .wrap-subheader {
+        display: none;
+
+        @include from($largescreen) {
+          @include until(1146px) {
+            display: flex;
+            max-width: 300px;
+            text-align: center;
+            line-height: 32px;
+          }
+        }
+
+        @include from(1146px) {
+          display: flex;
+        }
+      }
     }
 
     .navbar-menu {
@@ -124,7 +163,7 @@
         margin-left: auto;
       }
 
-      @include touch {
+      @include until($largescreen) {
         width: 100%;
         height: calc(100vh - #{$navbar-height-mobile});
       }
@@ -163,7 +202,7 @@
 
   // Make only the navbar have absolute position on mobile
   &.is-absolute {
-    @include touch {
+    @include until($largescreen) {
       position: unset;
 
       .navbar {
