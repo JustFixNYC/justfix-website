@@ -71,9 +71,7 @@ export const ProductCard: React.FC<ProductCardInfo> = (props) => {
         <div className="eyebrow is-small mb-5 mb-4-touch">
           {props.productName}
         </div>
-        <h3 className="has-text-weight-semibold mb-6 mb-3-touch">
-          {props.title}
-        </h3>
+        <h3 className="mb-6 mb-5-touch">{props.title}</h3>
         <div className="title is-4 mb-6 mb-5-touch">
           {documentToReactComponents(props.descriptionText.json)}
         </div>
@@ -195,7 +193,7 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
             <div className="has-background-warning mt-9">
               <div className="columns is-desktop is-marginless is-paddingless">
                 <div className="column jf-lc-featured is-marginless is-6 is-12-touch p-9">
-                  <div className="eyebrow is-large mb-5 mb-4-touch">
+                  <div className="eyebrow is-large mb-6">
                     <Trans>Featured article</Trans>
                   </div>
                   <Link
@@ -204,12 +202,12 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
                   >
                     <ResponsiveElement
                       tagNames={{ desktop: "h2", touch: "h3" }}
-                      className="has-text-weight-semibold mb-6"
+                      className="mb-6"
                     >
                       {props.content.learningCenterPreviewArticles[0].title}
                     </ResponsiveElement>
                   </Link>
-                  <div className="eyebrow is-large mb-4">
+                  <div className="eyebrow is-large mb-5">
                     <Trans>Updated</Trans>{" "}
                     {props.content.learningCenterPreviewArticles[0].dateUpdated}
                   </div>
@@ -230,7 +228,7 @@ export const LandingPageScaffolding = (props: ContentfulContent) => (
                         to={`/learn/${props.content.learningCenterPreviewArticles[1].slug}`}
                         className="jf-link-article"
                       >
-                        <h3 className="has-text-weight-semibold mb-4">
+                        <h3 className="mb-4">
                           {props.content.learningCenterPreviewArticles[1].title}
                         </h3>
                       </Link>
