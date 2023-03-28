@@ -160,13 +160,12 @@ export const ProductList: React.FC<ProductListInfo> = (props) => (
 export const LandingPageScaffolding = (props: ContentfulContent) => (
   <Layout isLandingPage={true}>
     <div id="home" className="home-page">
-      <div className="is-hidden-touch">
-        <Img fluid={props.content.landingImage.fluid} alt="" />
-      </div>
-      <div className="is-hidden-desktop">
+      <div className="jf-landing-img-small">
         <Img fluid={props.content.landingPageImageMobile.fluid} alt="" />
       </div>
-
+      <div className="jf-landing-img-large">
+        <Img fluid={props.content.landingImage.fluid} alt="" />
+      </div>
       <div className="has-background-black has-text-white">
         <div className="columns">
           <div className="column is-12 pt-9 py-8-touch">

@@ -158,17 +158,17 @@ const Header: React.FC<{
               >
                 <LocaleLink to="/">
                   <img
-                    className="is-hidden-touch"
-                    src={require("../img/brand/logo.svg")}
-                    width="164"
-                    height="38"
-                    alt="JustFix"
-                  />
-                  <img
-                    className="is-hidden-desktop"
+                    className="jf-logo-small"
                     src={require("../img/brand/logo.svg")}
                     width="120"
                     height="27"
+                    alt="JustFix"
+                  />
+                  <img
+                    className="jf-logo-large"
+                    src={require("../img/brand/logo.svg")}
+                    width="164"
+                    height="38"
                     alt="JustFix"
                   />
                 </LocaleLink>
@@ -179,17 +179,17 @@ const Header: React.FC<{
                 )}
               </div>
               <div
-                className="navbar-item is-size-3 has-text-black is-hidden-touch"
+                className="navbar-item is-size-3 has-text-black wrap-subheader"
                 onClick={() => setBurgerMenuStatus(false)}
               >
                 <Trans>Technology for Housing Justice</Trans>
               </div>
               <div
-                className="navbar-item is-paddingless is-flex-grow-1 is-hidden-touch"
+                className="navbar-item is-paddingless is-flex-grow-1 is-hidden-below-largescreen"
                 onClick={() => setBurgerMenuStatus(false)}
               />
               <div
-                className="navbar-item is-hidden-touch"
+                className="navbar-item is-hidden-below-largescreen"
                 onClick={() => setBurgerMenuStatus(false)}
               >
                 <LocaleLink to="/tools" className="button is-primary">
