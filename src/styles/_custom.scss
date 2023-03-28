@@ -156,6 +156,7 @@ $spacing-values: (
 
 .is-divider {
   border-top: 1px solid $justfix-black;
+  margin: 0;
 
   &.light {
     border-top: 1px solid $justfix-white;
