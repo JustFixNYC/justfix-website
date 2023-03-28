@@ -359,8 +359,7 @@ a.has-text-black:hover {
 
   @include mobile {
     .banner-text {
-      letter-spacing: 0;
-      font-size: 18px;
+      @include body-standard;
     }
   }
 
