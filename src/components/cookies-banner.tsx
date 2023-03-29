@@ -36,8 +36,10 @@ export const CookiesBanner = () => {
       )}
     >
       <div className="is-flex is-align-items-center">
-        <div className="p-6">
-          <Trans>By using our website you consent to the use of cookies.</Trans>{" "}
+        <div className="p-6 p-4-mobile banner-text">
+          <Trans>
+            By using this website you consent to the use of cookies.
+          </Trans>{" "}
           <div
             role="button"
             className="link is-clickable ml-2"

@@ -35,15 +35,19 @@ msgid "Assert your tenant rights by using our digital tools"
 msgstr "Ejerce sus derechos de inquilino usando nuestras herramientas digitales"
 
 #: src/components/cookies-banner.tsx:24
-msgid "By using our website you consent to the use of cookies."
-msgstr "Al utilizar nuestro sitio web, acepta el uso de cookies."
+#~ msgid "By using our website you consent to the use of cookies."
+#~ msgstr "Al utilizar nuestro sitio web, acepta el uso de cookies."
+
+#: src/components/cookies-banner.tsx:28
+msgid "By using this website you consent to the use of cookies."
+msgstr ""
 
 #: src/components/header.tsx:24
 msgid "Careers"
 msgstr "Empleos"
 
 #: src/components/accordion.tsx:12
-#: src/components/cookies-banner.tsx:32
+#: src/components/cookies-banner.tsx:38
 #: src/components/header.tsx:120
 msgid "Close"
 msgstr "Cerrar"
@@ -84,7 +88,7 @@ msgstr "Artículo destacado"
 msgid "Featured press"
 msgstr "Prensa destacada"
 
-#: src/components/cookies-banner.tsx:68
+#: src/components/cookies-banner.tsx:74
 msgid "Got it"
 msgstr "Entendido"
 
@@ -104,7 +108,7 @@ msgstr "Salta a"
 msgid "Key Topics"
 msgstr "Temas principales"
 
-#: src/components/cookies-banner.tsx:26
+#: src/components/cookies-banner.tsx:32
 msgid "Learn more"
 msgstr "Aprender más"
 
@@ -231,7 +235,7 @@ msgstr "Tecnología para la justicia de vivienda"
 msgid "Terms of use"
 msgstr "Condiciones de uso"
 
-#: src/components/cookies-banner.tsx:57
+#: src/components/cookies-banner.tsx:63
 msgid "These cookies track the performance of our tools and for marketing purposes. This data allows us to improve our tools to give you the best experience."
 msgstr "Estas cookies rastrean el rendimiento de nuestras herramientas y con fines de marketing. Estos datos nos permiten mejorar nuestras herramientas para ofrecerle la mejor experiencia."
 
@@ -247,7 +251,7 @@ msgstr "Estas cookies rastrean el rendimiento de nuestras herramientas y con fin
 msgid "This article was written by the team of housing experts at JustFix"
 msgstr "Este artículo fue escrito por un equipo de expertos en vivienda de JustFix"
 
-#: src/components/cookies-banner.tsx:51
+#: src/components/cookies-banner.tsx:57
 msgid "This means that we’re able to see your approximate location, the type of device you’re using, and your operating system."
 msgstr "Esto significa que podemos ver su ubicación aproximada, el tipo de dispositivo que está utilizando y su sistema operativo."
 
@@ -262,7 +266,7 @@ msgstr "Herramientas"
 msgid "Updated"
 msgstr "Actualizado"
 
-#: src/components/cookies-banner.tsx:47
+#: src/components/cookies-banner.tsx:53
 msgid "We use cookies on this website"
 msgstr "Utilizamos cookies en este sitio web"
 
@@ -281,4 +285,3 @@ msgstr "¿Cómo puede ayudar JustFix?"
 #: src/pages/404.en.tsx:13
 msgid "You just found a page that doesn't exist... the sadness."
 msgstr "Acabas de llegar a una ruta que no existe... es muy triste."
-

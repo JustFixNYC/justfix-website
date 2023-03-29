@@ -30,7 +30,11 @@ msgid "Assert your tenant rights by using our digital tools"
 msgstr ""
 
 #: src/components/cookies-banner.tsx:24
-msgid "By using our website you consent to the use of cookies."
+#~ msgid "By using our website you consent to the use of cookies."
+#~ msgstr ""
+
+#: src/components/cookies-banner.tsx:28
+msgid "By using this website you consent to the use of cookies."
 msgstr ""
 
 #: src/components/header.tsx:24
@@ -38,7 +42,7 @@ msgid "Careers"
 msgstr ""
 
 #: src/components/accordion.tsx:12
-#: src/components/cookies-banner.tsx:32
+#: src/components/cookies-banner.tsx:38
 #: src/components/header.tsx:120
 msgid "Close"
 msgstr ""
@@ -79,7 +83,7 @@ msgstr ""
 msgid "Featured press"
 msgstr ""
 
-#: src/components/cookies-banner.tsx:68
+#: src/components/cookies-banner.tsx:74
 msgid "Got it"
 msgstr ""
 
@@ -99,7 +103,7 @@ msgstr ""
 msgid "Key Topics"
 msgstr ""
 
-#: src/components/cookies-banner.tsx:26
+#: src/components/cookies-banner.tsx:32
 msgid "Learn more"
 msgstr ""
 
@@ -226,7 +230,7 @@ msgstr ""
 msgid "Terms of use"
 msgstr "Terms of use"
 
-#: src/components/cookies-banner.tsx:57
+#: src/components/cookies-banner.tsx:63
 msgid "These cookies track the performance of our tools and for marketing purposes. This data allows us to improve our tools to give you the best experience."
 msgstr ""
 
@@ -242,7 +246,7 @@ msgstr ""
 msgid "This article was written by the team of housing experts at JustFix"
 msgstr ""
 
-#: src/components/cookies-banner.tsx:51
+#: src/components/cookies-banner.tsx:57
 msgid "This means that we’re able to see your approximate location, the type of device you’re using, and your operating system."
 msgstr ""
 
@@ -257,7 +261,7 @@ msgstr ""
 msgid "Updated"
 msgstr "Updated"
 
-#: src/components/cookies-banner.tsx:47
+#: src/components/cookies-banner.tsx:53
 msgid "We use cookies on this website"
 msgstr ""
 

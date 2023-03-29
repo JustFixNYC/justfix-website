@@ -358,6 +358,12 @@ a.has-text-black:hover {
     width: $widescreen;
   }
 
+  @include mobile {
+    .banner-text {
+      @include body-standard;
+    }
+  }
+
   img {
     filter: invert(1) contrast(0.7);
   }
