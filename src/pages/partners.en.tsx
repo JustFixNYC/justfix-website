@@ -151,7 +151,7 @@ const PartnershipCaseStudy: React.FC<PartnershipCaseStudyDetails> = ({
 }) => (
   <div className="columns has-background-info is-multiline">
     <div className="column is-12 is-paddingless pt-0-touch">
-      <div className="is-divider my-0-touch" />
+      <div className="is-divider m-0" />
     </div>
     <div className="column is-4 is-12-touch my-10 my-0-touch">
       <div className="eyebrow is-large mb-3">
@@ -171,7 +171,7 @@ const PartnershipCaseStudy: React.FC<PartnershipCaseStudyDetails> = ({
       })}
     </div>
     <div className="column is-12 is-paddingless pt-0-touch">
-      <div className="is-divider my-0-touch" />
+      <div className="is-divider m-0" />
     </div>
   </div>
 );
@@ -243,7 +243,7 @@ export const PartnersPageScaffolding = (props: ContentfulContent) => (
           </OutboundLink>
         </div>
         <div className="column is-8 has-background-info is-hidden-tablet pt-0 pb-7">
-          <div className="is-divider" />
+          <div className="is-divider m-0" />
           <h2 className="mt-6 mb-6">
             {props.content.collaborationBanner.label}
           </h2>
