@@ -51,7 +51,7 @@ export const ContactPageScaffolding = (props: ContentfulContent) => (
       </div>
       <div className="columns is-centered has-background-info">
         <div className="column is-12 py-11">
-          <h1>{props.content.mailingListTitle}</h1>
+          <h1 id="mailing-list">{props.content.mailingListTitle}</h1>
           <div className="mt-5 mb-9">
             <span className="title is-3">
               <p>{props.content.mailingListSubtitle}</p>
