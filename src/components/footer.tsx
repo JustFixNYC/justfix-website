@@ -111,6 +111,7 @@ const Footer = () => (
           <SocialIcon
             className="mr-3"
             url="https://x.com/justfixorg"
+            network="twitter"
             target="_blank"
             rel="noopener noreferrer"
             bgColor="#FFF"
