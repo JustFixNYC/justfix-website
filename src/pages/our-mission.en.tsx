@@ -5,15 +5,15 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { BLOCKS } from "@contentful/rich-text-types";
 import { ContentfulContent } from "./index.en";
 import PageHero from "../components/page-hero";
-import { ReadMoreLink } from "../components/read-more";
 import { Accordion } from "../components/accordion";
 import ResponsiveElement from "../components/responsive-element";
-import { OutboundLink } from "../util/links";
+// import { ReadMoreLink } from "../components/read-more";
+// import { OutboundLink } from "../util/links";
 
 export const MissionPageScaffolding = (props: ContentfulContent) => {
-  const { content } = props;
-  const latestReport = content.impactReportButtons[0];
-  const pastReports = content.impactReportButtons.slice(1);
+  // const { content } = props;
+  // const latestReport = content.impactReportButtons[0];
+  // const pastReports = content.impactReportButtons.slice(1);
 
   return (
     <Layout metadata={props.content.metadata}>
@@ -55,7 +55,9 @@ export const MissionPageScaffolding = (props: ContentfulContent) => {
           </div>
         </div>
 
-        <div className="columns is-multiline">
+        {/* Temporarily hidden until we have more up-to-date impact reports */}
+        {/* --------------------------------------------------------------- */}
+        {/* <div className="columns is-multiline">
           <div className="column is-4 is-12-touch py-11 pt-6-touch px-6-touch pb-0-touch">
             <ResponsiveElement tagNames={{ desktop: "h2", touch: "h1" }}>
               {props.content.impactTitle}
@@ -113,7 +115,7 @@ export const MissionPageScaffolding = (props: ContentfulContent) => {
               ))}
             </div>
           </div>
-        </div>
+        </div> */}
 
         <div className="columns has-background-info is-multiline">
           <div className="column is-4 is-12-touch py-11 p-6-touch">
