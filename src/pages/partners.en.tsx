@@ -275,8 +275,6 @@ export const PartnersPageScaffolding = (props: ContentfulContent) => (
           </div>
           <div className="columns is-paddingless is-multiline">
             {props.content.funders
-              // Sort alphabetically:
-              .sort((a: any, b: any) => a.name.localeCompare(b.name))
               .filter(
                 (funder: PartnerDetails) => !!(funder.link && funder.logo)
               )
