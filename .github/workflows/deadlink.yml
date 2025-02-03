@@ -9,7 +9,7 @@ jobs:
     name: Deadlink crawler
     steps:
       - name: Scan learning center
-        uses: JustFixNYC/deadlink-crawler@v1.1
+        uses: JustFixNYC/deadlink-crawler@v1.2
         with:
           site-url: "https://www.justfix.org/en/learn"
           token: ${{ secrets.GITHUB_TOKEN }}
