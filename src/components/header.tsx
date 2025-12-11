@@ -3,17 +3,11 @@ import { Trans } from "@lingui/macro";
 
 import "../styles/header.scss";
 import { LocaleLink } from "../components/locale-link";
-import { useCurrentLocale } from "../util/use-locale";
-import { ContentfulCommonStrings } from "@justfixnyc/contentful-common-strings";
 import _commonStrings from "../common-strings.json";
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import { INLINES } from "@contentful/rich-text-types";
 import { OutboundLink } from "../util/links";
 import FocusTrap from "focus-trap-react";
 import { FooterLanguageToggle } from "./footer";
 import classnames from "classnames";
-
-const commonStrings = new ContentfulCommonStrings(_commonStrings as any);
 
 const isDemoSite = process.env.GATSBY_DEMO_SITE === "1";
 
@@ -70,38 +64,6 @@ const useScrollDirection = (): "up" | "down" => {
   return scrollDir;
 };
 
-const MoratoriumBanner: React.FC<{}> = () => {
-  const [isVisible, setVisibility] = useState(true);
-  const locale = useCurrentLocale();
-
-  const content = commonStrings.get("covidMoratoriumBanner", locale);
-  if (!content) return null;
-
-  return (
-    <section
-      className={"hero is-warning is-small " + (!isVisible ? "is-hidden" : "")}
-    >
-      <div className="hero-body">
-        <div className="container">
-          <button
-            className="delete is-medium is-pulled-right"
-            onClick={() => setVisibility(false)}
-          />
-          <p>
-            {documentToReactComponents(content, {
-              renderNode: {
-                [INLINES.HYPERLINK]: (node, children) => (
-                  <OutboundLink href={node.data.uri}>{children}</OutboundLink>
-                ),
-              },
-            })}
-          </p>
-        </div>
-      </div>
-    </section>
-  );
-};
-
 const HeaderLink: React.FC<{ link: LinkWithLabel }> = ({ link }) =>
   link[0].charAt(0) === "/" ? (
     <LocaleLink
@@ -138,7 +100,6 @@ const Header: React.FC<{
         )}
       />
       <div className={classnames("header", isScrollingUp && "jf-sticky")}>
-        {isLandingPage && <MoratoriumBanner />}
         <FocusTrap
           active={burgerMenuIsOpen}
           focusTrapOptions={{
