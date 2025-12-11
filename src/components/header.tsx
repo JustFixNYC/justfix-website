@@ -9,7 +9,6 @@ import FocusTrap from "focus-trap-react";
 import { FooterLanguageToggle } from "./footer";
 import classnames from "classnames";
 
-
 const isDemoSite = process.env.GATSBY_DEMO_SITE === "1";
 
 export const CAREERS_PAGE_URL = "https://justfix.breezy.hr/";
