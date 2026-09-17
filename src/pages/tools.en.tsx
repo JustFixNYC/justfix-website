@@ -111,8 +111,6 @@ export const ToolsPageFragment = graphql`
           link
         }
         smsText
-        location
-        language
       }
       productIdeaBanner {
         content {
