@@ -104,8 +104,6 @@ const generateLearningPages = async function ({ actions, graphql }, locale) {
             title
             link
           }
-          location
-          language
         }
       }
     }

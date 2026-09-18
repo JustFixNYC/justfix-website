@@ -26,8 +26,6 @@ type ProductCardInfo = {
   descriptionText: {
     json: any;
   };
-  location: string;
-  language: string[];
   button: {
     title: string;
     link: string;
@@ -38,8 +36,6 @@ type ProductCardInfo = {
    */
   isCondensed?: boolean;
 };
-
-const Dot = () => <span className="mx-3">·</span>;
 
 const formatPhoneNumber = (phone: string): string | null => {
   const match = phone.match(/^(\d{3})(\d{3})(\d{4})$/);
@@ -78,18 +74,6 @@ export const ProductCard: React.FC<ProductCardInfo> = (props) => {
           {documentToReactComponents(props.descriptionText.json)}
         </div>
         <div className="mt-auto">
-          <div className="has-text-dark	is-uppercase has-text-weight-bold is-size-7 mb-6">
-            {props.location}
-            <Dot />
-            {props.language
-              .map<React.ReactNode>((lang, i) => <span key={i}>{lang}</span>)
-              .reduce((lang1, lang2, i) => [
-                lang1,
-                <Dot key={Math.random()} />,
-                lang2,
-              ])}
-          </div>
-
           <OutboundLink
             href={toolLink}
             className={classnames(
@@ -364,8 +348,6 @@ export const LandingPageFragment = graphql`
           link
         }
         smsText
-        location
-        language
       }
       productIdeaBanner {
         content {
